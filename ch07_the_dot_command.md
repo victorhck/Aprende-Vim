@@ -55,9 +55,9 @@ Vamos a añadir una coma al final de cada línea. Empezando por la primera líne
 Cada acción desde el momento que presionas el operador del comando de insertar (`A`) hasta que lo abandonas con el comando (`<esc>`) es considerado un cambio. Vim te permite controlar no solo que texto añadir, también *donde* añadirlo. También puedes añadirlo antes del cursor (`i`), después del cursor (`a`), en una nueva línea debajo del cursor (`o`), en una línea sobre el cursor (`O`), al final de la línea actual (`A`) o al comienzo de la línea actual (`I`). Para refrescar estos conceptos, echa un vistazo al capítulo [Insert Mode](./ch6_insert_mode.md) chapter.
 
 
-# Repeat on Multiple Lines
+# Repetir en múltiples líneas
 
-Suppose you have this text:
+Supongamos que tenemos el siguiente texto:
 ```
 let one = "1";
 let two = "2";
@@ -70,11 +70,11 @@ let seven = "7";
 let eight = "8";
 let nine = "9";
 ```
-Your goal is to delete all lines except the "foo" line. First, delete the first three lines with `d2j`. Then go over past the "foo" line. On the next line, use the dot command twice. The full command is `d2jj..`.
+Tu objetivo es eliminar todas las líneas excepto la línea que contiene la cadenad "foo". Primero, borraremos las tres primeras líneas con `d2j`. Después iremos a la línea siguiente a la que contiene foo. En la línea siguiente, utiliza el comando del punto un par de veces. El comando completo es `d2jj..`.
 
-Here the change was `d2j`. `2j` was not a motion, but a part of the delete operator.
+Aquí el cambio fue `d2j`. `2j` no fue un movimiento, si no parte del operador de borrado.
 
-Let's look at another example:
+Echemos un vistazo a otro ejemplo:
 ```
 zlet zzone = "1";
 zlet zztwo = "2";
@@ -82,9 +82,9 @@ zlet zzthree = "3";
 let four = "4";
 ```
 
-Let's remove all the z's. First, visually select the only the first z from the first three lines with blockwise-visual mode (`Ctrl-vjj`). If you're not familiar with blockwise visual mode, I will cover them in a later chapter. Once you have the three z's visually selected, delete them with the delete operator (`d`). Then move to the next word (`w`) to the next z. Repeat the change two more times (`..`). The full command is `Ctrl-vjjdw..`.
+Vamos a eliminar todas las letras "z". Primero, seleccionaremos visualmente solamente las letras "z" del comienzo de las tres primeras líneas con el modo de selección visual en bloque (`Ctrl-vjj`). Si no estás familiarizado con el modo de selección en bloque, lo trataremos en un próximo capítulo. Una vez que hayas seleccionado las tres letras "z" en modo selección de bloque visual, las borraremos con el operador de borrado (`d`). Después nos moveremos hasta la siguiente palabra (`w`) hasta la siguiente "z". Repetiremos el cambio dos veces más (`..`). El comando completo es `Ctrl-vjjdw..`.
 
-When you deleted a column of three z's (`Ctrl-vjjd`), it was counted as a change. Visual mode selection can be used to target multiple lines as part of a change.
+Cuando has borrado la columna de las tres letras "z" (`Ctrl-vjjd`), esto fue tomado en cuenta como un cambio. La selección del modo visual puede ser utilizada para seleccionar múltiples líneas como parte de un cambio.
 
 # Including a Motion in a Change
 
