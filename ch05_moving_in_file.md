@@ -1,24 +1,24 @@
-# Moving in a File
+# Moviéndote por un archivo
 
-In the beginning, moving with a keyboard will feel awkward and incredibly slow, but don't give up! Once you get used to it, you can go anywhere in a file faster than a mouse.
+Al principio, moverte utilizando el teclado te puede hacer sentir incómodo e increíblemente lento, ¡pero no desistas! Una vez que te acostumbres, podrás moverte a cualquier parte de un archivo de manera más rápida que utilizando el ratón.
 
-In this chapter, you will learn essential motions and how to use them efficiently. Keep in mind that this is **not** the entire motion that Vim has. The goal here is to introduce useful motions to become productive quickly. If you need to learn more, check out `:h motion.txt`.
+En este capítulo, aprenderás los movimientos esenciales y cómo utilizarlos de manera eficiente. Ten en mente que este capítulo **no** es todo lo que Vim puede ofrecer en cuanto a la hora de moverse por un archivo. La meta aquí es presentar los movimientos más útiles para volverte productivo rápidamente. Si necesitas aprender más, echa un vistazo a la ayuda de Vim `:h motion.txt`.
 
-# Character Navigation
+# Navegando por caracteres
 
-The most basic motion unit is moving one character left, down, up, and right.
+La unidad más básica de movimiento es moverse un caracter a la izquierda, abajo, arriba y a la derecha.
 
 ```
-h   Left
-j   Down
-k   Up
-l   Right
+h   Izquierda
+j   Abajo
+k   Arriba
+l   Derecha
 ```
 
-You can also move with directional arrows. If you are just starting, feel free to use any method you're most comfortable with.
+También puedes moverte con las flechas de dirección de tu teclado. Si estás empezando, sientete libre de utilizar cualquier método con el que te sientas más cómodo.
 
-I prefer `hjkl` because my right hand can stay in home row. Doing this gives me shorter reach to surrounding keys. 
-To get used to it, I actually disabled the arrow buttons when starting out by adding these in `~/.vimrc`:
+Personalmente prefiero la clásica combinación `hjkl` porque mi mano derecha permanece encima del teclado. Al hacer esto, hace que este más cerca de las teclas circundantes del teclado.
+Para *obligarme* a utilizar esta combinación de teclas, he inhabilitado las flechas de dirección del teclado al usar Vim añadiendo estas líneas en el archivo `~/.vimrc`:
 
 ```
 noremap <Up> <NOP>
@@ -27,38 +27,38 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 ```
 
-There are also plugins to help break this bad habit. One of them is [vim-hardtime](https://github.com/takac/vim-hardtime).
-To my surprise, it only took a few days to get used to using  `hjkl`.
+También hay complementos para tratar de romper ese mal hábito. Uno de ellos es [vim-hardtime](https://github.com/takac/vim-hardtime).
+Para mi sorpresa, solo lleva unos pocos días el habituarse al uso de `hjkl`.
 
-*By the way, if you wonder why Vim uses `hjkl` to move, this is because Lear-Siegler ADM-3A terminal where Bill Joy wrote Vi, didn't have arrow keys and used `hjkl` as left/down/up/right.*
+*Por cierto, si te preguntas porque Vim utiliza la combinación de teclas `hjkl` para moverse por el texto, es debido que el terminal Lear-Siegler ADM-3A donde terminal Bill Joy empezó a desarrollar Vi, no tenía teclas con flechas en el teclado y utilizó `hjkl` como izquierda/abajo/arriba/derecha.*
 
-If I want to go somewhere close by, like moving from one part of a word to another part of the same word, I would use `h` or `l`. If I want to go up or down a few lines within displayed window, I would use `j` or `k`. If I want to go somewhere farther, I would use a different motion.
+si quieres moverte a un sitio cercano donde está actualmente el cursor, como moverse de una parte de la palabra a otra parte de la misma palabra, usaría las teclas `h` o `l`. Si quiero moverme arriba o abajo unas pocas líneas dentro de la ventana mostrada, usaría las teclas `j` o `k`. Si quisiera desplazarme a un lugar más lejano de la posición del cursor, utilizaría un tipo de movimiento diferente.
 
-# Relative Numbering
+# Numeración relativa
 
-I think it is helpful to have `number` and `relativenumber` set. You can do it by having this on `.vimrc`:
+Creo que es útil el tener establecido las opciones de `number` y `relativenumber`. Puedes hacerlo escribiendo lo siguiente en el archivo `.vimrc`:
 
 ```
 set relativenumber number
 ```
 
-This displays my current line number and relative line numbers.
+Esto muestra la línea actual en la que se encuentra el cursor y los números de línea relativos desde la posición de este.
 
-Why is this useful? This allows me to quickly see how many lines I am away from my target. With this, I can easily see that my target is 12 lines below me so I can do `12j`. Otherwise, if I'm on line 69 and my target is on line 81, I have to do mental calculation (81 - 69 = 12). That takes too much mental resources. The less I have to think about where I need to go, the better.
+¿Por qué esto puede ser útil? Esto me permite rápidamente ver cuantas a líneas de diferencia estoy desde la posición a la que quiero ir. Con esto, puedo ver fácilmente que mi objetivo está 12 líneas por debajo de mi posición actual, así que puedo ejecutar `12j`. Además, si estoy en la línea 69 y mi objetivo es desplazar el cursor a la línea 81, esto me lleva a tener que hacer un cálculo mental (81 - 69 = 12). Esto consume muchos recursos mentales. Cuanto menos tenga que pensar sobre donde quiero ir, mejor.
 
-This is 100% personal preference. Experiment with `relativenumber` / `norelativenumber`, `number` / `nonumber` and use whatever you find most useful!
+Esto es 100% una preferencia personal. Experimenta con las opciones `relativenumber` / `norelativenumber`, `number` / `nonumber` ¡y utiliza cualquier método que encuentre más útil!
 
-# Count Your Move
+# Cuenta tu movimiento
 
-One more thing, let's talk about "count" argument. Motions accept a preceding numerical argument. I mentioned above that you can go down 12 lines with `12j`. The 12 in `12j` is the count number. 
+Una cosa más, hablemos sobre el argumento "contar". Los movimientos aceptan un argumento precedente numérico. He mencionado anteriormente que puedes desplazarte 12 líneas hacia abajo en el texto mediante `12j`. El 12 en `12j` es el número que lleva la cuenta.
 
-The syntax to use count with your motion is:
+La sintáxis para utilizar el número de conteo en tu movimiento es:
 
 ```
-[count] + motion
+[número] + movimiento
 ```
 
-You can apply this to all motions. If you want to move 9 characters to the right, instead of pressing `l` 9 times, you can do `9l`. As you learn more motions, try to give them count argument.
+Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` puedes ejecutar simplemente `9l`. Cuantos más movimientos aprendas, trata de darles un argumento de conteo.
 
 # Word Navigation
 
