@@ -86,24 +86,24 @@ Vamos a eliminar todas las letras "z". Primero, seleccionaremos visualmente sola
 
 Cuando has borrado la columna de las tres letras "z" (`Ctrl-vjjd`), esto fue tomado en cuenta como un cambio. La selección del modo visual puede ser utilizada para seleccionar múltiples líneas como parte de un cambio.
 
-# Including a Motion in a Change
+# Incluyedo un movimiento en u cambio
 
-Let's revisit the first example in this chapter. Recall that the command `/letcwconst<esc>` followed by `n . n .`  replaced all "let" with "const" in the following expressions:
+Vamos a volver a echar un vistazo al primer ejemplo de este capítulo. Volviendo a ejecutar el comando `/letcwconst<esc>` seguido por `n . n .`  reemplazando todas las cadenas de "let" por "const" en la siguiente ejemplo:
 ```
 let one = "1";
 let two = "2";
 let three = "3";
 ```
-There is a faster way to accomplish this. When deleting, instead of using the `w` as a noun, use `gn`.
+Hay una manera más rápida de realizar esta tarea. Cuando borres el texto, en vez de utilizar `w` como sustantivo, utiliza: `gn`.
 
-`gn` is a motion that searches forward for the last search pattern (in this case, `/let`) and automatically does a visual mode selection on the match. To replace the next occurrence, you no longer have to move and repeat the change ( `n . n .`), but only repeat (`. .`). You do not have to move anymore because searching the next match is now part of the change!
+`gn` es un comando de movimiento que busca hacia adelante el último patrón de búsqueda (en este caso la cadena de texto `/let`) y automáticamente hace una selección en modo visual en la coincidencia encontrada. Para reemplazar la siguiente ocurrencia, ya no es necesario que te muevas y repetir el cambio ( `n . n .`), but only repeat (`. .`). Ya no necesitarás moverte más, ya que la búsqueda de la siguiente coincidencia ¡ahora forma parte del cambio a realizar!
 
-When you are editing, always be on the lookout for a motion that can do several things at once like `gn` whenever possible.
+Cuando estes editando, siempre debes estar pendiente de buscar un comando de movimiento que pueda realizar diversas cosas en una sola vez como `gn` siempre que sea posible.
 
-# Learn the Dot Command the Smart Way
+# Aprender el comando del punto de la manera más inteligente
 
-The dot command's power comes from exchanging several keystrokes for one. It is probably not a profitable exchange to use the dot command for one-keyed-operations like `x`. If your last change requires a complex operation like `cgnconst<esc>`, the dot command reduces nine keypresses into one, a very good trade-off.
+El poder del comando del punto viene dado por poder ahorrarte muchas pulsaciones de teclado simplemente en una, pulsando la tecla del punto. Quizás no es un cambio muy rentable el utilizar comando del punto como reemplazo para operaciones que solo requieren una pulsación de tecla como `x`. Si tu último cambio requiere una operación más compleja, como por ejemplo `cgnconst<esc>`, el comando del punto reduce 9 pulsaciones de teclas en una sola, lo que es un buen cambio.
 
-When editing, ask if the action you are about to do is repeatable. For example, if I need to remove the next three words, is it more economical to use `d3w` or to do `dw` then `.` two times? Will you be deleting a word again? If so, then it makes sense to use `dw` and repeat it several times instead of `d3w` because `dw` is more reusable than `d3w`. Keep a "change-driven" mindset while editing.
+Cuando estes editando, pregúntate si la acción que estás a punto de realizar es propensa de volver a repetirla. Por ejemplo, si necesito eliminar las próximas tres palabras, ¿es más económico utilizar `d3w` o hacer `dw` y después repetir esa acción con `.` dos veces más? ¿Borrarás una palabra de nuevo? Si es así, entonces tiene sentido el utilizar `dw` y repetir la acción varias veces en vez de `d3w` porque `dw` se puede volver a utilizar más veces que `d3w`. Manten una mentalidad "orientada al cambio" mientras estés editando.
 
-The dot command is an easy and versatile command to start automating simple tasks. In the later chapter, you will learn how to automate more complex actions with Vim macros. But first, let's learn about registers to store and retrieve texts.
+El comando del punto es muy sencillo y versátil para empezar a automatizar tareas simples. En el próximo capítulo aprenderás cómo automatizar acciones complejas con las macros de Vim. Pero primero, aprendamos sobre los registros para almacenar y recuperar textos.
