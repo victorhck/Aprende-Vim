@@ -69,7 +69,7 @@ Además de esto, también está la *PALABRA*, distinta de palabra. Puedes mover 
 ```
 w     Mueve el cursor hacia adelante al comienzo de la siguiente palabra
 W     Mueve el cursor hacia adelante al comienzo de la siguiente PALABRA
-e     Move forward one word to the end of the next word
+e     Mueve el cursor hci delnte un pañbra hasta el final de la siguiente palabra
 E     Move forward one word to the end of the next WORD
 b     Move backward to beginning of the previous word
 B     Move backward to beginning of the previous WORD
