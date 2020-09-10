@@ -60,15 +60,15 @@ La sintáxis para utilizar el número de conteo en tu movimiento es:
 
 Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` puedes ejecutar simplemente `9l`. Cuantos más movimientos aprendas, trata de darles un argumento de conteo.
 
-# Word Navigation
+# Navegación por palabras
 
-Let's move to a larger motion unit: *word*. You can move to the beginning of the next word (`w`), to the end of the next word (`e`), to the beginning of the previous word (`b`), and to the end of the previous word (`ge`).
+Vamos a movernos por una unidad de movimiento mayor: *palabra*. Puedes moverte al comienzo de la siguiente palabra (`w`), al final de la siguiente palabra (`e`), al comienzo de la palabra anterior (`b`)y al final de la palabra anterior (`ge`).
 
-In addition, there is *WORD*, distinct from word. You can move to the beginning of the next WORD (`W`), to the end of the next WORD (`E`), to the beginning of the previous WORD (`B`), and to the end of the previous WORD (`gE`). To make it easy to remember, WORD uses the same letters as word, except they are uppercased.
+Además de esto, también está la *PALABRA*, distinta de palabra. Puedes mover el cursor al principio de la siguiente PALABRA (`W`), al final de la siguiente PALABRA (`E`), al comienzo de la PALABRA previa (`B`) y al final de la PALABRA previa (`gE`). Para hacerlo sencillo de recordar, PALABRA utiliza las mismas letras de movimiento que palabra excepto que son en mayúsculas.
 
 ```
-w     Move forward to the beginning of the next word
-W     Move forward to the beginning of the next WORD
+w     Mueve el cursor hacia adelante al comienzo de la siguiente palabra
+W     Mueve el cursor hacia adelante al comienzo de la siguiente PALABRA
 e     Move forward one word to the end of the next word
 E     Move forward one word to the end of the next WORD
 b     Move backward to beginning of the previous word
