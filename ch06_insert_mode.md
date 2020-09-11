@@ -1,64 +1,62 @@
-# Insert Mode
+# Formas de entrar al modo insertar
 
-Insert mode is the default mode of many text editors. In this mode, what you type is what you get.
-
-In this chapter, you will learn how to use features in Vim insert mode to improve your typing efficiency. 
-
-# Ways to go to Insert Mode
-
-There are many ways to get into insert mode from the normal mode. Here are some of them:
-```
-i    Insert text before the cursor
-I    Insert text before the first non-blank character of the line.
-a    Append text after the cursor
-A    Append text at the end of line
-o    Starts a new line below the cursor and insert text
-O    Starts a new line above the cursor and insert text
-s    Delete the character under the cursor and insert text
-S    Delete the current line and insert text
-gi   Insert text in same position where the last insert mode was stopped in current buffer
-gI   Insert text at the start of line (column 1)
+Hay varias formas de entrar en el modo insertar desde el modo normal. Aquí algunas de ellas:
 ```
 
-Notice the lowercase / uppercase pattern. For every lowercase command, there is an uppercase counterpart. If you are new, don't worry if you don't remember the whole list above. Start with `i` and `a`. They should be enough to get you started. Slowly add more command into your memory.
-
-# Different Ways to Exit Insert Mode
-
-There is a few different ways to return to the normal mode while in the insert mode:
+i    Insertar texto antes del cursor.
+I    Insertar texto antes del primer carácter imprimible de la linea.
+a    Agregar texto después del cursor.
+A    Agregar texto al final de la linea.
+o    Crea una nueva línea debajo del cursor y cambia al modo insertar.
+O    Crea una nueva línea encima del cursor y cambia al modo insertar.
+s    Borra el carácter debajo del cursor y cambia al modo insertar.
+S    Borra la actual línea  y cambia al modo insertar.
+gi   Insertar texto en la misma posición donde el modo insertar fue detenido por última vez en al actual búfer.
+gI   Insertar texto al principio de una línea (columna 1)
 ```
-<esc>     Exits insert mode and go to normal mode
-Ctrl-[    Exits insert mode and go to normal mode
-Ctrl-c    Like Ctrl-[ and <esc>, but does not check for abbreviation
+
+Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `a`, estos comandos son suficientes para empezar, y lentamente agrega más comandos a tu memoria.
+
+# Formas diferentes de salir del modo insertar
+
+Hay unas cuantas maneras de regresar al modo normal mientras estás en el modo insertar:
+```
+<esc>    Salir del modo insertar y volver al modo normal
+Ctrl-[   Salir del modo insertar y volver al modo normal
+Ctrl-c   Similar a Ctrl-[ y <esc>, pero no controla las abreviaciones
+
 ```
 
-I find `esc` key too far to reach, so I map my computer `caps lock` to behave like `esc`. If you search for Bill Joy's ADM-3A keyboard (Vi creator), you will see that `esc` key is not located on far top left like modern keyboards, but to the left of `q` key. This is why I think it makes sense to map  `caps lock` to `esc`. 
+Encuentro la tecla `esc` algo apartada, por lo que mapeo mi computadora para que `bloq mayús` se comporte como `esc`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `esc` no estaba en la esquina izquierda como en los teclados modernos, sino al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar `bloq mayús` por `esc`.
 
-Another common convention I have seen Vim users do is to map `esc` to `jj` or `jk` in insert mode.
+Otra convención común que he visto en usuarios de Vim es que mapean `esc` a `jj` o `jk` en el modo insertar.
 
 ```
 inoremap jj <esc>
 inoremap jk <esc>
 ```
-# Repeating Insert Mode
 
-You can pass a count parameter before entering insert mode. For example:
+# Repetir el modo insertar
+
+Tú puedes pasar un parámetro de cuenta antes de entrar al modo insertar. Por ejemplo:
 ```
 10i
 ```
 
-If you type "hello world!" and exit insert mode, Vim will repeat the text 10 times. This will work with any insert mode method (ex: `10I`, `11a`, `12o`).
+Si tu escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el texto 10 veces. Esto funcionará con cualquier otro método del modo insertar (`10I`, `11a`, `12o`).
 
-# Deleting Chunks in Insert Mode
+# Borrar segmentos en el modo insertar
 
-When you make a typing mistake, it can be cumbersome to type `backspace` repeatedly. It may make more sense to go to normal mode and delete (`d`) your mistake. Alternatively, you can delete one or more characters at a time while in insert mode:
+Cuando comentes un error de escritura, puede ser molesto teclear `Retroceso` repetidamente. Esto puede tener más sentido si vas al modo normal y borras (`d`) tus errores. Alternativamente, tú puedes borrar uno o más caracteres al mismo tiempo que estás en el modo insertar:
 
 ```
-Ctrl-h    Delete one character
-Ctrl-w    Delete one word
-Ctrl-u    Delete the entire line
+Ctrl-h    Borrar un carácter
+Ctrl-w    Borrar una palabra
+Ctrl-u    Borrar una línea entera
+
 ```
 
-By the way, these shortcuts also work in command-line mode and Ex mode (I will cover command-line and Ex mode in later chapters).
+A propósito, estos atajos también funcionan en la línea de comándos y en el modo Ex (Veré la línea de comando y el modo Ex en los siguientes capítulos).
 
 # Insert From Register
 
