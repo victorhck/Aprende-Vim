@@ -105,65 +105,66 @@ También puede realizar una búsqueda en la línea actual con `f` y `t`. La dife
 Para realizar una búsqueda hacia atrás en el texto para esa letra "h" del ejemplo, utiliza `Fh`. Para seguir buscando más letras "h" en la misma dirección, utiliza `;`. Ten en cuenta que `;` no siempre dirige la búsqueda hacia adelante en el texto. `;`  repite la última dirección de búsqueda en la línea actual. Si utilizas `F`, `;` realizará la búsqueda hacia atrás, mientras que `,` busca hacia adelante en la línea actual. Si utilizas `f`, `;`buscará hacia adelante y `,` lo hará hacia atrás en la línea actual.
 
 ```
-f    Search forward for a match in the same line
-F    Search backward for a match in the same line
-t    Search forward for a match in the same line, stopping before match
-T    Search backward for a match in the same line, stopping before match
-;    Repeat the last search in the same line
-,    Repeat the last search in the same line backwards
+f    Busca hacia adelante una coincidencia en la línea actual
+F    Busca hacia atrás una coincidencia en la línea acual
+t    Busca hacia adelante una coincidencia en la línea actual, posicionando el cursor antes de la coincidencia
+T    Busca hacia atrás una coincidencia en la línea actual, posicionando el cursor antes de la coincidencia
+;    Repite la última búsqueda en la línea actual
+,    Repite la última búsqueda en la línea actual en dirección contraria
 ```
 
-Back at the previous example: 
+Volviendo al ejemplo previo
 
 ```
 const hello = "world";
 ```
 
-With your cursor at the start of the line, you can go to the last character in current line (";") with one key press: `$`. If you want to go to "w" in "world", you can use `fw`. A good tip to go anywhere in a line is to look for least-common-letters like "j", "x", "z" near your target.
+Con el curso al comienzo de la línea, puedes ir al último caracter de la línea actual (";) pulsando una única tecla: `$`. Si quieres ir a la letra "w" en la palabra "world", puedes utilizar `fw`. Un buen truco para ir a cualquier punto de la línea actual es echar un vistazo a ver si existe alguna letra poco común como "w", "x" o "z" cerca de tu objetivo.
 
-# Sentence and Paragraph Navigation
+# Navegación por frase y párrafo
 
-Next two navigation units are sentence and paragraph.
+Las siguientes dos unidades por las que podemos navegar por un texto son la frase y el párrafo.
 
-Let's talk about what a sentence is first.  A sentence ends with either `. ! ?` followed by an end-of-line, a space, or a tab.  You can jump to the next sentence with `)` and the previous sentence with `(`. 
+Primero vamos a hablar sobre lo que es una frase. Una frase termina con alguno de estos signos de puntuación `. ! ?` seguido por un final de línea, un espacio en blanco o una tabulación. Puedes saltar a la siguiente frase mediante `)` y a la frase previa con `(`. 
 ```
-(    Jump to the previous sentence
-)    Jump to the next sentence
-```
-
-Let's look at some examples. Which phrases do you think are sentences and which aren't? Try navigating with `(` and `)` in Vim!
-
-```
-I am a sentence. I am another sentence because I end with a period. I am still a sentence when ending with an exclamation point! What about question mark? I am not quite a sentence because of the hyphen - and neither semicolon ; nor colon :
-
-There is an empty line above me.
-```
-By the way, if you're having a problem with Vim not counting a sentence for phrases separated by `.` followed by a single line, you might be in `'compatible'` mode. Running `:set nocompatible` will fix it. In Vi, a sentence is a `.` followed by **two** spaces. You should have `nocompatible` set at all times.
-
-Next, let's talk about what a paragraph is. A paragraph begins after each empty line and also at each set of a paragraph macro specified by the pairs of characters in paragraphs option.
-
-```
-{    Jump to the previous paragraph
-}    Jump to the next paragraph
-
+(    Salta a la frase previa
+)    Salta a la siguiente frase
 ```
 
-If you're not sure what a paragraph macro is, do not worry. The important thing is that a paragraph begins and ends after an empty line. This should be true most of the time.
-
-Let's look at this example. Try navigating around with `}` and `{` (also, play around with sentence navigations `( )` to move around too!)
+Echemos un vistazo a algunos ejemplos. ¿Qué frases crees que lo son y cuales no? Trata de navegar con `(` y `)` en Vim!
 
 ```
-Hello. How are you? I am great, thanks!
-Vim is awesome.
-It may not easy to learn it at first...- but we are in this together. Good luck!
+Yo soy una frase. Yo soy otra frase porque termino con un punto. ¡Yo también soy una frase porque acabo con un signo de exclamación! ¿Qué pasa con el signo de interrogación? Yo no soy una frase, debido al guión - punto y coma ; o los dos puntos :
 
-Hello again.
-
-Try to move around with ), (, }, and {. Feel how they work.
-You got this.
+Hay una línea vacía encima de mí.
 ```
 
-Check out `:h sentence` and `:h paragraph` to learn more.
+Por cierto, si tienes problemas con Vim porque no considera uan frase frases separadas por `.` seguido de una linea simple, quizás estás en el modo `'compatible'`. Ejecutando `:set nocompatible` los solucionará. En Vi, una frase termina en `.` seguido de **dos** espacios en blanco. Debería tener al ajuste `nocompatible` en todo momento.
+
+Ahora, vamos a hablar sobre lo que es un párrafo. Un párrafo comienza después de cada línea vacía y también en cada conjunto de una macro de párrafo especificada por los pares de caracteres en la opción de párrafos.
+
+```
+{    Salta al párrafo previo
+}    Salta al párrafo siguiente
+
+```
+
+Si no estás seguro de qué es un macro de párrafo, no te preocupes. Lo importante es que un párrafo comienza y termina después de una línea vacía. Esto debería ser cierto en la mayoría de las veces.
+
+Echemos un vistazo a este ejemplo. Trata de navegar por el texto mediante `}` y `{` (¡también puedes practicar con la navegación por frases `( )`)
+
+```
+Hola. ¿Cómo estás? ¡Estoy genial, gracias!
+Vim es genial.
+Puede no ser sencillo de aprender al principio...- pero estamos en esto juntos. ¡Buena suerte!
+
+Hola de nuevo.
+
+Trata de moverte por el texto con ), (, }, y {. Siente cómo funcionan.
+Lo tienes.
+```
+
+Echa un vistazo a la ayuda de Vim con `:h sentence` y `:h paragraph` para aprender más. 
 
 # Match Navigation
 
