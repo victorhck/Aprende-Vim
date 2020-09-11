@@ -15,7 +15,7 @@ gi   Insertar texto en la misma posición donde el modo insertar fue detenido po
 gI   Insertar texto al principio de una línea (columna 1)
 ```
 
-Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `a`, estos comandos son suficientes para empezar, y lentamente agrega más comandos a tu memoria.
+Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres un usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `a`, estos comandos son suficientes para empezar, y poco a poce ve añadiendo más comandos a tu memoria.
 
 # Formas diferentes de salir del modo insertar
 
@@ -27,7 +27,7 @@ Ctrl-c   Similar a Ctrl-[ y <esc>, pero no controla las abreviaciones
 
 ```
 
-Encuentro la tecla `esc` algo apartada, por lo que mapeo mi computadora para que `bloq mayús` se comporte como `esc`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `esc` no estaba en la esquina izquierda como en los teclados modernos, sino al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar `bloq mayús` por `esc`.
+Encuentro la tecla `esc` algo apartada, por lo que mapeo el teclado de mi equipo para que `bloq mayús` se comporte como `esc`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `esc` no estaba en la esquina izquierda como en los teclados modernos, sino al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar `bloq mayús` por `esc`.
 
 Otra convención común que he visto en usuarios de Vim es que mapean `esc` a `jj` o `jk` en el modo insertar.
 
@@ -38,16 +38,16 @@ inoremap jk <esc>
 
 # Repetir el modo insertar
 
-Tú puedes pasar un parámetro de cuenta antes de entrar al modo insertar. Por ejemplo:
+Puedes pasar un parámetro de conteo antes de entrar al modo insertar. Por ejemplo:
 ```
 10i
 ```
 
-Si tu escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el texto 10 veces. Esto funcionará con cualquier otro método del modo insertar (`10I`, `11a`, `12o`).
+Si escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el texto 10 veces. Esto funcionará con cualquier otro método del modo insertar (`10I`, `11a`, `12o`).
 
 # Borrar segmentos en el modo insertar
 
-Cuando comentes un error de escritura, puede ser molesto teclear `Retroceso` repetidamente. Esto puede tener más sentido si vas al modo normal y borras (`d`) tus errores. Alternativamente, tú puedes borrar uno o más caracteres al mismo tiempo que estás en el modo insertar:
+Cuando comentes un error de escritura, puede ser molesto teclear `Retroceso` repetidamente. Esto puede tener más sentido si vas al modo normal y borras (`d`) tus errores. De manera alternativa, puedes borrar uno o más caracteres al mismo tiempo que estás en el modo insertar:
 
 ```
 Ctrl-h    Borrar un carácter
@@ -56,7 +56,7 @@ Ctrl-u    Borrar una línea entera
 
 ```
 
-A propósito, estos atajos también funcionan en la línea de comándos y en el modo Ex (Veré la línea de comando y el modo Ex en los siguientes capítulos).
+A propósito, estos atajos también funcionan en la línea de comándos y en el modo Ex (Trataremos la línea de comandos y el modo Ex en los siguientes capítulos).
 
 # Insert From Register
 
