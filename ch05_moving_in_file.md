@@ -69,40 +69,40 @@ Además de esto, también está la *PALABRA*, distinta de palabra. Puedes mover 
 ```
 w     Mueve el cursor hacia adelante al comienzo de la siguiente palabra
 W     Mueve el cursor hacia adelante al comienzo de la siguiente PALABRA
-e     Mueve el cursor hci delnte un pañbra hasta el final de la siguiente palabra
-E     Move forward one word to the end of the next WORD
-b     Move backward to beginning of the previous word
-B     Move backward to beginning of the previous WORD
-ge    Move backward to end of the previous word
-gE    Move backward to end of the previous WORD
+e     Mueve el cursor hacia adelante una palabra hasta el final de la siguiente palabra
+E     Mueve el cursor hacia adelante una palabra hasta el final de la siguiente PALABRA
+b     Mueve el cursor hacia atrás al principio de la palabra previa
+B     Mueve el cursor hacia atrás al principio de la PALABRA previa
+ge    Mueve el cursor hacia atrás al final de la palabra previa
+gE    Mueve el cursor hacia atrás al final de la PALABRA previa
 ```
 
-So what are the similarities and differences between a word and a WORD? Both word and WORD are separated by non-blank characters. A word is a sequence of characters containing only `a-zA-Z0-9_`. A WORD is a sequence of all characters except white space (a white space means either space, tab, and EOL). To learn more, check out `:h word` and `:h WORD`.
+Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están formadas por caracteres que no son espacios en blanco. Una palabra es una secuencia de caracteres que continen únicamente este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco (cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
 
-For example, suppose you have:
+Por ejemplo, supongamos que tenemos la siguiente frase:
 ```
 const hello = "world";
 ```
 
-With your cursor at the start of the line, to go to the end of the line with `l`, it will take you 21 key presses. Using `w`, it will take 6. Using `W`, it will only take 4. Both word and WORD are good options to travel short distance.
+Con el cursor al comienzo de la línea, ve al final de la línea con `l`, te llevará pulsar 21 teclas. Utilizando `w`, solo te llevará pulsar 6 veces. Utilizando `W`, solo te llevará 4 pulsacione. Tanto palabra como PALABRA sn buenas opciones para mover el cursor en pequeñas distancias.
 
-However, you can get from "c" to ";" in one keystroke with current line navigation.
+Sin embargo, puedes pasar de "c" a ";" con una pulsación de tecla con la navegación de línea actual.
 
-# Current Line Navigation
+# Navegación de línea actual
 
-When editing, you often need to navigate horizontally in a line. To jump to the first character in current line, use `0`. To go to the last character in the current line, use `$`. Additionally, you can use `^` to go to the first non-blank character in the current line and `g_` to go to the last non-blank character in the current line. If you want to go to the column `n` in the current line, you can use `n|`.
+Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco den la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`.
 
 ```
-0     Go to the first character in the current line
-^     Go to the first nonblank char in the current line
-g_    Go to the last non-blank char in the current line
-$     Go to the last char in the current line
-n|    Go the column n in the current line
+0     Ir al primer caracter de la línea actual
+^     Ir al primer caracter que no es un espacio en blanco en la línea actual
+g_    Ir al último caracter que no es un espacio en blanco en la línea actual
+$     Ir al último caracter de la línea actual
+n|    Ir a la columna n en la línea actual
 ```
 
-You can also perform a current line search with `f` and `t`. The difference between `f` and `t` is that `f` takes you to the first letter of the match and `t` takes you till (right before) the first letter of the match. So if you want to search for and land on "h", use `fh`. If you want to search for first "h" and land right before the match, use `th`. If you want to go to the *next* occurrence of the last current line search, use `;`. To go to the previous occurrence of the last current line match, use `,`.
+También puede realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera conincidencia encontrada y `t` te lleva hasta (justo antes) de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se situe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se situe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la *próxima* coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
 
-To search backwards for "h", use `Fh`. To keep searching for "h" in the same direction, use `;`. Notice that `;` does not always search forward. `;`  repeats the last search direction. If you used `F`, `;` will search backward while `,` searches forward. If you used `f`, `;` will search forward and `,` backward.
+Para realizar una búsqueda hacia atrás en el texto para esa letra "h" del ejemplo, utiliza `Fh`. Para seguir buscando más letras "h" en la misma dirección, utiliza `;`. Ten en cuenta que `;` no siempre dirige la búsqueda hacia adelante en el texto. `;`  repite la última dirección de búsqueda en la línea actual. Si utilizas `F`, `;` realizará la búsqueda hacia atrás, mientras que `,` busca hacia adelante en la línea actual. Si utilizas `f`, `;`buscará hacia adelante y `,` lo hará hacia atrás en la línea actual.
 
 ```
 f    Search forward for a match in the same line
