@@ -166,16 +166,15 @@ Lo tienes.
 
 Echa un vistazo a la ayuda de Vim con `:h sentence` y `:h paragraph` para aprender más. 
 
-# Match Navigation
+# Navegación entre parejas
 
-Programmers often edit files containing codes. It may contain many parentheses, braces, and brackets and it can get confusing to know which parentheses you're inside of. 
-Many programming languages use parentheses, braces, and brackets and you can get lost in them. If you're inside one of them, you can jump to the other pair (if it exists) with `%`. You can also use this to find out whether you have matching parentheses, braces, and brackets.
+Los programadores a menudo editan archivos que continen código. Puede contener muchos paréntesis, llaves y corchetes y puede ser confuso saber dentro de qué pareja de paréntesis se encuentra el cursor. Muchos lenguajes de programación utilizan paréntesis, llaves y corchetes y te puedes perder entre ellos. Si estás dentro de una pareja de estos signos, puedes saltar a la otra pareja del mismo (si existe) mediante `%`. También puedes usar esto para averiguar si tienes paréntesis, llaves y corchetes que hagan pareja o falta alguna.
 
 ```
-%    Navigate to another match, usually works for (), [], {}
+%    Navega de una a otra pareja, normalmente funciona con (), [], {}
 ```
 
-Let's look at a Scheme code example because it uses parentheses extensively. Move around with `%` inside different parentheses.
+Echemos un vistazo a este código de ejemplo en Scheme, porque hace bastante uso de los paréntesis. Vamos a movernos con `%` dentro de los diferente paréntesis.
 ```
 (define (fib n)
   (cond ((= n 0) 0)
@@ -184,22 +183,22 @@ Let's look at a Scheme code example because it uses parentheses extensively. Mov
           (+ (fib (- n 1)) (fib (- n 2)))
         )))
 ```
-I personally like to complement `%` using visual indicators plugins like [vim-rainbow](https://github.com/frazrepo/vim-rainbow).  For more, check out `:h %`.
+Personalmente, me gusta complementar `%` utilizando complementos que añadan un indicador visual como [vim-rainbow](https://github.com/frazrepo/vim-rainbow).  Para más información, echa un vistazo a la ayuda en Vim con `:h %`.
 
-# Line Number Navigation
+# Navegación por número de línea
 
-You can jump to line number `n` with `nG`. For example, if you want to jump to line 7, use `7G`. To jump to the first line, use either `1G` or `gg`. To jump to the last line, use  `G`.
+Puedes saltar a un número de línea `n` con `nG`. Por ejemplo, si quieres saltar a la línea 7, utilza `7G`. Para saltar a la primera línea del texto, puedes utilizar tanto `1G` o `gg`. Para saltar a la última línea del texto, utiliza `G`.
 
-Often you don't know exactly which line you are targeting, but you know it's approximately at 70% of the whole file. In this case, you can do `70%`. To jump halfway through the file, you can do `50%`.
+A menudo no sabes exactamente en qué línea está el sitio al que te quieres dirigir, pero sabes que aproximadamente se encuentra al 70% del archivo completo. En ese caso, puedes ejecutar `70%`. Para saltar a la mitad del archivo, puedes ejecutar `50%`.
 
 ```
-gg    Go to the first line
-G     Go to the last line
-nG    Go to line n
-n%    Go to n% in file
+gg    Va a la primera línea
+G     Va a la última línea
+nG    Va a la línea n
+n%    Va al n% del archivo
 ```
 
-By the way, if you want to see total lines in a file, you can use `CTRL-G`.
+Por cierto, si quieres ver el total de líneas de un archivo puedes utilizar `CTRL-G`.
 
 # Window Navigation
 
