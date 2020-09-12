@@ -200,17 +200,17 @@ n%    Va al n% del archivo
 
 Por cierto, si quieres ver el total de líneas de un archivo puedes utilizar `CTRL-G`.
 
-# Window Navigation
+# Navegación por la ventana
 
-To quickly go to the top, middle, or bottom of your *window*, you can use `H`, `M`, and `L`. 
+Para ir rápidamente a la parte superior, central o inferior de tu *ventana*, puedes utilizar las teclas `H`, `M`, o `L`. 
 
-You can also pass a count to `H` and `L`. If you use `10H`, you will go to 10 lines below the top of window. If you use `3L`, you will go to 3 lines above the last line of window.
+También se puede pasar un número de conteo a `H` y `L`. Si utilizas `10H`, irás 10 líneas por debajo de la parte superior de la ventana. Si utilizas `3L`, se colocará el cursor 3 líneas por encima de la última línea de la ventana.
 ```
-H     Go to top of screen
-M     Go to medium screen
-L     Go to bottom of screen
-nH    Go n line from top
-nL    Go n line from bottom
+H     Ir a la parte superior de la ventana
+M     Ir a la parte media de la ventana
+L     Ir a la parte inferior de la ventana
+nH    Va a la línea n desde la parte superior de la ventana
+nL    Va a la línea n desde la parte inferior de la ventana
 ```
 
 # Scrolling
