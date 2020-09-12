@@ -213,37 +213,37 @@ nH    Va a la línea n desde la parte superior de la ventana
 nL    Va a la línea n desde la parte inferior de la ventana
 ```
 
-# Scrolling
+# Desplazándose
 
-To scroll, you have 3 speed increments: full-screen (`CTRL-F/CTRL-B`), half-screen (`CTRL-D/CTRL-U`), and line (`CTRL-E/CTRL-Y`).
-
-```
-Ctrl-e    Scroll down a line
-Ctrl-d    Scroll down half screen
-Ctrl-f    Scroll down whole screen
-Ctrl-y    Scroll up a line
-Ctrl-u    Scroll up half screen
-Ctrl-b    Scroll up whole screen
-```
-You can also scroll relatively to the current line:
-```
-zt    Bring the current line near the top of your screen
-zh    Bring the current line to the middle (half) of your screen
-zb    Bring the current line near the bottom of your screen
-```
-
-# Search Navigation
-
-Very often you know that a phrase exists inside a file. You can use search navigation to very quickly reach your target. To search for a phrase, you can use `/` to search forward and `?` to search backward. To repeat the last search you can use `n`. To repeat the last search going opposite direction, you can use `N`.
+Para desplazarse por el texto (o hacer *scroll*), tienes 3 velocidades incrementales: Pantalla completa (`CTRL-F/CTRL-B`), media pantalla (`CTRL-D/CTRL-U`), y línea a línea (`CTRL-E/CTRL-Y`).
 
 ```
-/    Search forward for a match
-?    Search backward for a match
-n    Repeat last search (same direction of previous search) 
-N    Repeat last search (opposite direction of previous search)
+Ctrl-e    Desplaza el texto hacia arriba una línea
+Ctrl-d    Desplaza media pantalla hacia arriba
+Ctrl-f    Desplaza una pantalla completa hacia arriba el texto
+Ctrl-y    Desplaza el texto hacia abajo una línea
+Ctrl-u    Desplaza media pantalla hacia abajo
+Ctrl-b    Desplaza una pantalla completa hacia abajo el texto
+```
+También puedes desplazrte de manera relativa en función de la línea actual donde se encuentre el cursor:
+```
+zt    LLeva la línea actual donde está el cursor cerca de la parte superior de la pantalla
+zh    LLeva la línea actual donde está el cursor a la parte media de la pantalla
+zb    LLeva la línea actual donde está el cursor cerca de la parte inferior de la pantalla
 ```
 
-Suppose you have this text:
+# Navegación por búsqueda
+
+Muy a menudo, sabes que existe una frase concreta dentro del archivo. Puede utilizar la navegación por búsqueda para llegar hasta tu objetivo rápidamente. PAra buscar una frase, puedes utilizar `/` para hacer una búsqueda hacia adelante en el texto o `?` para buscar hacia atrás. Para repetir la última búsqueda, puedes utilizar `n`. Para repetir la última búsqueda pero en dirección opuesta, puedes utilizar `N`.
+
+```
+/    Busca hacia adelante una coincidencia
+?    Busca hacia atrás una coincidencia
+n    Repite la última búsqueda en la misma dirección que la búsqueda previa 
+N    Repite la última búsqueda en la dirección opuesta que la búsqueda previa
+```
+
+Supongamos que tenemos el siguiente texto:
 
 ```
 let one = 1;
@@ -253,54 +253,54 @@ one = "one";
 let onetwo = 12;
 ```
 
-If you are searching for "let", you can do `/let`. To quickly search for "let" again, you can just do `n`. To search for "let" again in opposite direction, you can do `N`. If you used `?let` to search, it will search for it backwards. If you use `n`, it will also search backwards, the same direction as `?let` (`N` will search for "let" forwards now).
+Si estás buscando la cadena "let", puedes hacerlo mediante `/let`. Para buscar de nuevo "let" rápidamente, simplemente presiona `n`. Para buscar "let" de nuevo, pero esta vez en dirección contraria, hazlo mediante la tecla `N`. Si utilizas `?let` para realizar la búsqueda, buscará hacia atrás en el texto. Si usas `n`, seguirá realizando la búsqueda en esa dirección en el texto, `N` realizará ahora la búsqueda hacia adelante.
 
-You can enable search highlight with `:set hlsearch`. Now when you search for `/let`, it will highlight *all* matching phrases in the file. In addition, you can set incremental search with `:set incsearch`. This will highlight the pattern as you're still typing it. By default, your matching phrases will remain highlighted until you search for another phrase. This can quickly turn into an annoyance. To disable highlight, you can run `:nohlsearch`. Because I use this no-highlight feature frequently, I created a mapping: 
+Puedes habilitar el resaltado del texto buscado mediante el ajuste `:set hlsearch`. Ahora cuando busques `/let`, resaltará *todas* las coincidencias que haya en todo el texto. Además, puedes configurar una búsqueda incremental con `:set incsearch`. Esto resaltara el patrón de búsqueda mientras estás escribiéndolo. De manera predeterminada, la cadena buscada permanecerá resaltada, hasta que hagas otra búsqueda. Esto puede convertirse rápidamente en un inconveniente. Para inhabilitar ese reslatado, puedes ejecutar `:nohlsearch`. Como utilizo esa funcionalidad de quitar el reslatado de manera frecuente, he creado un mapedado de esa funcionalidad. Para ello he añadido la siguiente línea en el archivo .vimrc: 
 
 ```
 nnoremap <esc><esc> :noh<return><esc>
 ```
 
-You can quickly search for the text under the cursor with `*` to search forward and `#` to search backward. If your cursor is on the string "one", pressing `*` will be the same as if you had done `/\<one\>`.
+También puedes buscar rápidamente el texto que se encuentra bajo el cursor con `*` para buscar esa coincidencia hacia adelante en el texto, y con `#` realizará la búsqueda hacia atrás. Si tu cursor, está sobre el texto "one", pulsando `*` hará lo mismo que si hubieras escrito `/\<one\>`.
 
-Both `\<` and `\>` in `/\<one\>` mean whole word search. It does not match "one" if it is a part of a bigger word. It will match for the word "one" but not "onetwo".  If your cursor is over "one" and you want to search forward to match whole or partial words like "one" and "onetwo", you need to use `g*` instead of `*`.
-
-```
-*     Search for whole word under cursor forward
-#     Search for whole word under cursor backward
-g*    Search for word under cursor forward
-g#    Search for word under cursor backward
+Tanto `\<` como `\>` en `/\<one\>` significa que haga una búsqueda de la palabra completa. Y que no encuentre "one" dentro de una palabra mayor. Es decir, encontrará "one" pero no "onetwo". Si tu cursor está sobre "one" y quieres buscar las coincidencias de la palabra completa o que forme parte de otras palabras más grandes, necesitas utilizar `g*` en vez de `*`.
 
 ```
-# Marking Position
-
-You can use marks to save your current position and return to this position later. It's like a bookmark for text editing. You can set a mark with `mx`, where `x` can be any alphabetical letter `a-zA-Z`. There are two ways to return to mark: exact (line and column) with ```x`` and linewise (`'x`).
-
-```
-ma    Mark position with mark "a"
-`a    Jump to line and column "a"
-'a    Jump to line "a"
-```
-
-There is a difference between marking with lowercase letters (a-z) and uppercase letters (A-Z). Lowercase alphabets are local marks and uppercase alphabets are global marks (sometimes known as file marks).
-
-Let's talk about local marks. Each buffer can have its own set of local marks. If I have two files opened, I can set a mark "a" (`ma`)  in the first file and another mark "a" (`ma)` in the second file. 
-
-Unlike local marks where you can have a set of marks in each buffer, you only get one set of global marks. If you set `mA` inside `myFile.txt`, the next time you set `mA` in a different file, it will overwrite the "A" mark. One advantage of global marks is you can jump to any global mark even if you are inside a completely different project. Global marks can travel across files.
-
-To view all marks, use `:marks`. You may notice from the marks list there are more marks other than `a-zA-Z`. Some of them are:
+*     Busca la palabra completa bajo el cursor hacia adelante
+#     Busca la palabra completa bajo el cursor hacia atrás
+g*    Busca la palabra bajo el cursor hacia adelante
+g#    Busca la palabra bajo el cursor hacia atrás
 
 ```
-''    Jump back to the last line in current buffer before jump
-``    Jump back to the last position in current buffer before jump
-`[    Jump to beginning of previously changed / yanked text
-`]    Jump to the ending of previously changed / yanked text
-`<    Jump to the beginning of last visual selection
-`>    Jump to the ending of last visual selection
-`0    Jump back to the last edited file when exiting vim
+# Marcando la posición
+
+Puedes utilizar marcas para guardar la posición actual del cursor y poder volver a esa posición más tarde. Es como un marcador para la edición de texto. Puedes establecer un marcador con `mx`, donde `x` puede ser cualquier letra del alfabeto `a-zA-Z`. Existen dos maneras de volver a la marca establecida: de manera exacta (línea y columna) mediante ```x`` y a la línea con `'x`.
+
+```
+ma    Marca una posición, estableciendo la marca "a" en la posición actual del cursor
+`a    Salta a la línea y columna donde se encuentra "a"
+'a    Salta a la línea donde se encuentra "a"
 ```
 
-There are more marks than the ones listed above. I won't cover them here because I think they are rarely used, but if you're curious, check out `:h marks`. 
+Existe una diferencia entre establecer marcas con letras minúsculas (a-z) y mayúsculas (A-Z). Las marcas con letras minúsculas, son marcas locales y las marcas con letras mayúsculas son marcas globales (a veces conocidas como marcas de archivo).
+
+Vamos a hablar sobre las marcas locales. Cada *buffer* puede tener su propio juego de marcas locales. Si tengo dos ficheros abiertos, puedo establecer una marca "a" (`ma`) en el primer archivo y otra marca "a" (`ma)` en el segundo archivo.
+
+A diferencia de las marcas locales con las que puedes tener un juego de marcas en cada *buffer*, solo puedes tener un juego de marcas globales. Si estableces una marca global "A" (`mA`) dentro de `miArchivo.txt`, la próxima vez que ejecutes `mA` en un archivo diferente, sobreescribirá la marca "A". Una ventaja de las marcas globales es que puedes saltar a cualquier marca global incluso si está dentro de un proyecto completamente diferente. Las marcas globales pueden viajar a través de los archivos.
+
+Para ver todas las marcas establecidas puedes hacerlo mediante `:marks`. Puedes comprobar que en la lista de marcas hay más marcas que las de `a-zA-Z`. Algunas de ellas son:
+
+```
+''    Salta hacia atrás a la última línea donde se encontraba el cursor en el *buffer* actual antes de saltar
+``    Salta hacia atrás a la última posición en el *buffer* actual a la última posición en el *buffer* actual antes de saltar
+`[    Salta al comienzo del texto previamente cambiado / pegado
+`]    Salta al final del texto previamente cambiado / pegado
+`<    Salta al comienzo de la última selección visual
+`>    Salta al final de la última selección visual
+`0    Salta hacia atrás al último archivo editado cuando salió de Vim
+```
+
+Hay más marcas que las listadas aquí. No se tratarán todas aquí, porque creo que muchas no son muy comunes y se utilizan muy poco, pero si tienes curiosidad al respecto, echa un vistazo a la ayuda de Vim con: `:h marks`. 
 
 # Jump
 
