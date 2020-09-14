@@ -302,50 +302,50 @@ Para ver todas las marcas establecidas puedes hacerlo mediante `:marks`. Puedes 
 
 Hay más marcas que las listadas aquí. No se tratarán todas aquí, porque creo que muchas no son muy comunes y se utilizan muy poco, pero si tienes curiosidad al respecto, echa un vistazo a la ayuda de Vim con: `:h marks`. 
 
-# Jump
+# Saltar
 
-Lastly, let's talk about jumps in Vim. In Vim, you can "jump" to a different file or different part of a file with certain motions. Not all motions count as a jump, though. Going down with `j` does not count as a jump, even if you go 10 steps down with `10j`. Going to line 10 with `10G` counts as a jump. 
+Por último, hablemos de los saltos en Vim. En Vim, puede "saltar" a un archivo diferente o a una parte diferente de un archivo con ciertos movimientos. Sin embargo, no todos los movimientos cuentan como un salto. Bajar con `j` no cuenta como un salto, incluso si bajas 10 pasos con `10j`. Ir a la línea 10 con `10G` si cuenta como un salto.
 
-Here are the commands Vim consider as "jump" commands: 
+Aquí tienes los comandos que Vim considera como comandos de "salto": 
 
 ```
-'       Go to the marked line
-`       Go to the marked position
-G       Go to the line
-/       Search forward
-?       Search backward
-n       Repeat the last search, same direction
-N       Repeat the last search, opposite direction
-%       Find match
-(       Go to the last sentence
-)       Go to the next sentence
-{       Go to the last paragraph
-}       Go to the next paragraph
-L       Go to the the last line of displayed window
-M       Go to the middle line of displayed window
-H       Go to the top line of displayed window
-[[      Go to the previous section
-]]      Go to the next section
-:s      Substitute
-:tag    Jump to tag definition
+'       Ir a la línea marcada
+`       Ir a la posición marcada
+G       Ir a la línea
+/       Buscar hacia adelante
+?       Buscar hacia atrás
+n       Repetir la úlrima búsqueda, en la misma dirección
+N       Repetir la última búsqueda, en la dirección opuesta
+%       Encontrar la pareja
+(       Ir a la frase anterior
+)       Ir a la frase siguiente
+{       Ir al párrafo anterior
+}       Ir al párrafo siguiente
+L       Ir a la última línea mostrada en la ventana
+M       Ir a la línea media mostrada en la ventana
+H       Ir a la línea superior mostrada en la ventana
+[[      Ir a la sección previa
+]]      Ir a la sección siguiente
+:s      Substituir
+:tag    Saltar a la etiqueta de definición
 ``` 
 
-I don't recommend memorizing this list. A good rule of thumb is, any motion that moves farther than a word and current line navigation is probably a jump. Vim keeps track of where you've been when you move around and you can see this list inside `:jumps`. For more, check out `:h jump-motions`.
+No recomiendo memorizar esta lista. Una buena regla para recordarla es, que cualquier movimiento que mueve el cursor más de una palabra o más de la línea actual, probablemente sea un salto. Vim memoriza los lugares por los que te has movid y puedes ver esto dentro de `:jumps`. Para más información echa un vistazo a la ayuda de Vim con `:h jump-motions`.
 
-Why are jumps useful? Because you can navigate the jump list with `Ctrl-o` to move up the jump list and `Ctrl-i` to move down the jump list. You can jump across different files, which I will discuss more in the next part.
+¿Por qué los saltos son útiles? Porque puedes navegar por la lista de saltos realizados mediante `Ctrl-o` para moverte hacia arriba por la lista de saltos y con `Ctrl-i` para moverte hacia abajo en la lista. También puedes saltar por diferentes archivos, lo que veremos en la siguiente parte.
 
-# Learn Navigation the Smart Way
+# Aprender a navegar de la manera más inteligente
 
-If you are new to Vim, this is a lot to learn. I do not expect anyone to remember everything immediately. It takes time before you can execute them without thinking.
+Si eres nuevo en Vim, aquí tienes mucho para aprender. No espero que nadie recuerde todo de manera inmediata. Lleva su tiempo el ejecutar estos comandos sin que tengas que parar a pensarlos.
 
-I think the best way to get started is to memorize a few essential motions. I recommend starting out with `h, j, k, l, w, b, G, /, ?, n`. It should not take long to learn 10 motions and be comfortable with them.
+Creo que la mejor manera de empezar es memorizar algunos comandos de movimiento esenciales. Recomiendo empezar con`h, j, k, l, w, b, G, /, ?, n`. No debería llevar mucho tiempo el aprender 10 movimientos y empezar a usarlos y estar cómodo con ellos.
 
 
-To get better at navigation, I can offer two suggestions:
+Para ir mejorando en la navegación, te ofrezco dos sugerencias:
 
-1. Watch for repeated actions. If you find yourself doing `l` repeatedly, look for a motion that will take you forward faster. You will find that you can use `w` to move between words. If you catch yourself repeatedly doing `w`, look if there is a motion that will take you to the end of the line immediately. You will find that you can use `$`. If you can describe your need verbally, there is a good chance Vim has a way to do it. 
-2. Whenever you learn a new move, spend a considerable amount of time until you can do it without thinking.
+1. Estate alerta de acciones repetidas que realices. Si encuentras que ejecutas `l` de manera repetida, busca un movimiento que te lleve de una manera más rápida a tu destino. Encontrarás que puedes utilizar `w` para moverte entre palabras. Si descubres que ejecutas `w` de manera repetitiva, busca si hay un comando de movimiento que te lleve al final de la línea de manera inmediata. Encontrarás que puedes utilizar `$`. Si puedes describir de manera verbal lo que necesitas, hay muchas posibilidades de que Vim tenga una manera de hacer lo que necesitas. 
+2. Cada vez que aprendas un movimiento, pasa un tiempo considerable hasta que lo puedas realizar de manera automática sin necesidad de pensarlo..
 
-Finally, you do not need to know every single Vim command to be productive. Most Vim users don't. I don't. Learn the commands that will help you accomplish your task at that moment.
+Finalmente, no necesitas conocer cada uno de los comandos de movimeinto de Vim para ser productivo. La mayoría de los usuarios de Vim no los conocen. Yo tampoco. Aprende los comandos que te ayudarán a realizar tu tarea en cada momento.
 
-Take your time. Navigation skill is a very important skill in Vim. Learn one small thing every day and learn it well. 
+Toma tu tiempo. La habilidad para navegar en Vim es muy importante. Aprende una pequeña cosa cada día y apréndela bien.
