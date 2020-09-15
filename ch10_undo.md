@@ -58,13 +58,13 @@ one
 
 `U` pasa por alto todos los cambios intermedios y va directamete al estado original cuando comenzaste (la línea vacía debajo del texto "one"). Además, como DESHACER crea un nuevo cambio en Vim, puedes DESHACER tu acción de DESHACER. `U` seguido por `U` se deshará a sí mismo. Puede presionar `U`, después `U`, después `U`, para siempre, y verás los mismos dos textos alternar hacia adelante y hacia atrás.
 
-I personally do not use `U` because it is hard to remember the original state (I seldom ever need it). The most I have ever used `U` is when I accidentally pressed `Shift-u`.
+Personalmente no utilizo `U` porque es difícil recordar el estado original (rara vez lo he necesitado). Lo más que he utilizado `U` es cuando accidentalmente he pulsado `Shift-u`.
 
-Vim sets a maximum number of how many times you can undo in `undolevels` option variable. You can check it with `:echo &undolevels`. I have mine set to be 1000. To change yours to 1000, run `:set undolevels=1000`. Feel free to set it to any number you like.
+Vim establece un máximo de cuantas veces puedes deshacer en la variable `undolevels`. Puedes comprobarla con `:echo &undolevels`. Tengo establecida la mía para que sea 1000. Para cambiar la tuya a 1000 ejecuta `:set undolevels=1000`. Pero puedes establecerla al número que prefieras.
 
-# Breaking the Blocks
+# Rompiendo los bloques
 
-I mentioned earlier that `u` undoes a single "change" similar to the dot command's change. Any text entered between entering the insert mode and exiting is counted as a change.
+He mencionado anteriormente que `u` deshace un único "cambio", de manera similar al cambio del comando del punto. Cualquier texto introducido entre entrar en el modo insertar y salir del modo es tomado en cuenta como cambio.
 
 If you do `ione two three<esc>` then press `u`, Vim removes the entire "one two three" text because it is considered a change. This would have been acceptable if you have a short text, but what if you have written several paragraphs under one insert mode session without exiting and later you realized you made a mistake? If you press `u`, everything you had written would be removed. Wouldn't it be useful if you can press `u` to remove only a section of your text?
 
