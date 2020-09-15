@@ -1,8 +1,8 @@
 # Registros
 
-Aprender los registros de Vim es como aprender álgebra por primera vez. No pienzas que los necesitas hasta que lo aprendes.
+Aprender los registros de Vim es como aprender álgebra por primera vez. No piensas que los necesitas hasta que lo aprendes.
 
-Tú probablemente haz usado los registros de Vim cuando copiaste o borraste un texto y luego lo pegaras con `p` o `P`. No obstante, ¿sabes que Vim tiene 10 tipos diferentes de registros?
+Probablemente has usado los registros de Vim cuando al copiar o borrar un texto y luego lo pegaste con `p` o `P`. No obstante, ¿sabes que Vim tiene 10 tipos diferentes de registros?
 
 En este capítulo repasaré todos los tipos de registros de Vim y como usarlos eficientemente.
 
