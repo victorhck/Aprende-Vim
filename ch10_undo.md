@@ -1,62 +1,62 @@
-# Undo
+# Deshacer
 
-Undo is an essential feature in any modern software. Vim's undo system is not only capable of undoing and redoing mistakes, but allows you to manipulate and retrieve text across time. In this chapter, you will learn how to undo and redo your text, navigate an undo branch, persist undo, and travel through time.
+Deshacer es una funcionalidad esencial en cualquier software moderno. El sistema de deshacer de Vim no solo es capaz de deshacer y rehacer errores, también te permite manipular y recuperar texto a través del tiempo. En este capítulo, aprenderás como deshacer y volver a hacer los cambios en tu texto, navegar por una rama de deshacer, deshacer de forma persistente y viajar a través del tiempo.
 
-# Undo, Redo, and UNDO
+# Deshacer, rehacer y DESHACER
 
-To perform a basic undo, you can use `u` or run `:undo`.
+Para realizar una tarea básica de deshacer, puedes utilizar `u` o ejecutar `:undo`.
 
-If you have this text:
+Si tienes este texto:
 ```
 one
 
 ```
 
-Add another text:
-```
-one
-two
-```
-
-If you do `u`, Vim undoes the text "two". 
-
-How does Vim know how much to undo? Vim undoes a single "change" at a time, similar to a dot command's change (unlike the dot command, command-line commands also count as change). 
-
-To redo the last change, run `Ctrl-R` or `:redo`. After you undo the text above to remove "two", you can run `Ctrl-R` to get the removed text back.
-
-Vim also has UNDO that you can run with `U`. It undoes all latest changes. 
-
-How is `U` different from `u`? First, `U` removes *all* the changes on the latest changed line, while `u` only removes one change at a time. Second, while doing `u` does not count as a change, doing `U` counts as a change.
-
-Back to this example:
+Añade otro texto:
 ```
 one
 two
 ```
 
-Change the second line with "three" (`ciwthree<esc>`):
+Si ejecutas `u`, Vin deshacer la escritura del texto "two". 
+
+¿Cómo sabe Vim cuanto tiene que deshacer? Vim deshace un solo "cambio" cada vez, similar al cambio del comando del punto (a diferencia del comando del punto, los comandos ejecutados en la línea de comandos también cuentan como cambios).
+
+Para volver s rehacer el último cambi, ejecuta `Ctrl-R` o `:redo`. Después de haber deshecho  en el texto anterior la eliminación de "two", puedes ejecutar `Ctrl-R` para volver a traer de vuelta el texto eliminado.
+
+Vim también tiene DESHACER que puedes ejecutar con `U`. Este comando deshace todos los últimos cambios. 
+
+¿En qué `U` es diferente de `u`? Primero, `U` elimina *todos* los cambios de la última línea cambiada, mientras que `u` solo elimina un cambio cada vez. Segundo, mientras que ejecutar `u` no cuenta como cambio, ejecutar `U` cuenta como cambio.
+
+Volvamos a este ejemplo:
+```
+one
+two
+```
+
+Cambia la segunda línea con "three" (`ciwthree<esc>`):
 
 ```
 one
 three
 ```
 
-Change the second line again and replace it with "four" (`ciwfour<esc>`):
+Cambia la segunda línea de nuevo y reemplaza ahora el texto con "four" (`ciwfour<esc>`):
 
 ```
 one
 four
 ```
 
-If you press `u`, you will see "three". If you press  `u` again, you'll see "two".
-However, if instead of pressing `u` when you still had the text "four", you had pressed `U`, you will see:
+Si ahora en modo normal presionas `u`, verás "three". Si presionas `u` de nuevo, verás "two".
+Sin embargo, si en vez de presionar `u` cuando todavía tienes el texto "four", hubieras presionado `U`, verías:
 
 ```
 one
 
 ```
 
-`U` bypasses all the intermediary changes and goes to the original state when you started (the empty line below the text "one"). In addition, since UNDO actually creates a new change in Vim, you can UNDO your UNDO. `U` followed by `U` will undo itself. You can press `U`, then `U`, then `U`, forever, and you will see the same two texts toggled back and forth.
+`U` pasa por alto todos los cambios intermedios y va directamete al estado original cuando comenzaste (la línea vacía debajo del texto "one"). Además, como DESHACER crea un nuevo cambio en Vim, puedes DESHACER tu acción de DESHACER. `U` seguido por `U` se deshará a sí mismo. Puede presionar `U`, después `U`, después `U`, para siempre, y verá los mismos dos textos alternados.
 
 I personally do not use `U` because it is hard to remember the original state (I seldom ever need it). The most I have ever used `U` is when I accidentally pressed `Shift-u`.
 
