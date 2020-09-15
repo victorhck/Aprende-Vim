@@ -169,53 +169,53 @@ Para recorrer cada nodo del árbol de deshacer, puedes utilizar `g+` para ir a u
 
 El árbol de cambios de deshacer nos es sencillo de visualizar. He encontrado el complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) muy útil a la hora de ayudar a visualizar el árbol de cambios de deshacer. Dedícale algún tiempo para jugar con él.
 
-# Persistent Undo
+# Modo persistente en deshacer
 
-If you start Vim, open a new file, and immediately press `u`, Vim will probably display "*Already at oldest change*" warning. Vim can preserve your undo history with an undo file with `:wundo`.
+Si inicias Vim y abres un archivo nuevo e inmediatamente presionas `u`, Vim probablemente mostrará un mensaje de advertencia como este "*Ya en el cambio más antiguo*" (o en inglés: "*Already at oldest change*"). Vim puede preservar un historial de acciones de deshacer en un archivo mediante el comando `:wundo`.
 
-Create a file `mynumbers.txt`. Type:
+Crea un archivo llamado `mynumbers.txt`. Y escribe en el:
 
 ```
 one
 ```
 
-Then type another line (make sure you either exit insert mode first or create an undo block):
+Después escribe otra línea con el texto "two" (asegúrate antes de que has salido del modo insertar o has creado un bloque de deshacer):
 
 ```
 one
 two
 ```
 
-Type another line:
+Escribe otra línea con el texto "three":
 ```
 one
 two
 three
 ```
 
-Now create your undo file. The syntax is `:wundo myundofile`. If you need to overwrite an existing undo file, you can add `!` after `wundo`.
+Ahora crea el archivo de deshacer. La sintaxis para ello es `:wundo myundofile`. Si necesitas sobreescribir un archivo de deshacer ya existente, puedes añadir `!` después de `wundo`.
 ```
 :wundo! mynumbers.undo
 ```
 
-Then exit Vim. 
+Después sal de Vim.
 
-By now you should have `mynumbers.txt` and `mynumbers.undo` files in your directory. Open up `mynumbers.txt` again and try pressing `u`. You can't. You haven't made any changes since you opened the file. Now load your undo history by reading the undo file with `:rundo`:
+Por ahora deberías tener los archivos `mynumbers.txt` y `mynumbers.undo` en tu directorio. Ahora abre de nuevo el archivo `mynumbers.txt` y trata de presionar `u`. No ocurre nada. No has realizado ningún cambio desde que has abierto el archivo. Ahora carga el historial de deshacer leyendo el archivo en el que se guarda el historial y que hemos creado antes, con el comando `:rundo`:
 
 ```
 :rundo mynumbers.undo
 ```
 
-Now if you press `u`, Vim removes "three". Press `u` again to remove "two". It is like you never even closed Vim!
+Ahora, si presionas `u`, Vim elimina "three". Presiona `u` de nuevo para eliminar "two". ¡Es como si nunca hubieras cerrado Vim!
 
-If you want to have an automatic undo persistence, one way to do it is by adding these lines in your vimrc:
+Si quieres tener la funcionalidad del comando deshacer de forma persistente de forma automática, una forma de hacerlo es añadiendo estas líneas en tu archivo vimrc:
 
 ```
 set undodir=~/.vim/undo_dir
 set undofile
 ```
 
-I think it's better to put all the undofiles in one centralized directory, in this case, inside the `~/.vim` directory. The name `undo_dir` is arbitrary. `set undofile` tells Vim to turn on `undofile` feature because it is off by default. Now whenever you save, Vim automatically creates and updates the relevant file inside the `undo_dir` directory (make sure that you create the actual `undo_dir` directory inside `~/.vim` directory before running this).
+Creo que es mejor, poner todos los archivos de historial de deshacer en una carpeta centralizada en tu equipo, en este caso dentro del directorio `~/.vim`. El nombre `undo_dir` es aleatorio, y puedes poner el quieras. El ajuste `set undofile` le dice a Vim que debe activar la funcionalidad `undofile` porque está desactivada de manera predeterminada. Ahora todo lo que guardes, Vim automáticamente creará y actualizará el archivo relevante dentro del directorio `undo_dir` (asegúrate de que has creado la carpeta `undo_dir` dentro de la carpeta `~/.vim` antes de ejecutar esto).
 
 # Time Travel
 
