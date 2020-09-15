@@ -217,50 +217,52 @@ set undofile
 
 Creo que es mejor, poner todos los archivos de historial de deshacer en una carpeta centralizada en tu equipo, en este caso dentro del directorio `~/.vim`. El nombre `undo_dir` es aleatorio, y puedes poner el quieras. El ajuste `set undofile` le dice a Vim que debe activar la funcionalidad `undofile` porque está desactivada de manera predeterminada. Ahora todo lo que guardes, Vim automáticamente creará y actualizará el archivo relevante dentro del directorio `undo_dir` (asegúrate de que has creado la carpeta `undo_dir` dentro de la carpeta `~/.vim` antes de ejecutar esto).
 
-# Time Travel
+# Viajar en el tiempo
 
-Who says that time travel doesn't exist? Vim can travel to a text state in the past with `:earlier` command-line command.
+¿Quién dice que los viajes en el tiempo no existen? Vim puede viajar al estado de un texto en el pasado mediante el comando `:earlier`.
 
-If you have this text:
+Si tienes este texto:
 ```
 one
 
 ```
-Then later you write another line:
+Y después escribe otra línea:
 ```
 one
 two
 ```
 
-If you had typed "two" less than ten seconds ago, you can go back to the state where "two" didn't exist ten seconds ago with:
+Si has escrito "two" hace menos de 10 segundos, puedes regresar a un estado del archivo en el que la palabra "two" no existía hace 10 segundos mediante:
 ```
 :earlier 10s
 ```
 
-You can use `:undolist` to see when the last change was made. `:earlier` also accepts minutes (`m`), hours (`h`), and days (`d`) as arguments. 
+Puedes utilizar `:undolist` para ver el último cambio que se ha realizado. `:earlier` también acepta minutos (`m`), horas (`h`) y días (`d`) como argumentos. 
 
 ```
-:earlier 10s    go to the state 10 seconds before
-:earlier 10m    go to the state 10 minutes before
-:earlier 10h    go to the state 10 hours before
-:earlier 10d    go to the state 10 days before
+:earlier 10s    Ir al estado en que se encontraba el archivo hace 10 segundos
+:earlier 10m    Ir al estado en que se encontraba el archivo hace 10 minutos
+:earlier 10h    Ir al estado en que se encontraba el archivo hace 10 horas
+:earlier 10d    Ir al estado en que se encontraba el archivo hace 10 días
 ```
 
-In addition, it also accepts a regular `count` as argument to tell Vim to go to the older state `count` times. For example, if you do `:earlier 2`, Vim will go back to an older text state two changes ago. It is the same as doing `g-` twice. Lastly, you can also tell `:earlier` to go to the older text state 10 saves ago with `:earlier 10f`.
+Además, también acepta un argumento de conteo para decirle a Vim que vaya a un estado anterior que está un número de posiciones establecido por ese argumento de conteo. Por ejemplo, si escribes `:earlier 2`, Vim regresará a un estado anterior que estaba dos cambios atrás. Sería similar a escribir `g-` dos veces. Por último, también puedes decirle a Vim `:earlier` para ir a un estado anterior del texto en que estaba hace 10 veces que se guardó con `:earlier 10f`.
 
-The same set of arguments work with `:earlier` counterpart: `:later`.
+Los mismo tipos de argumentos que funcionan con `:earlier` también se aplican a: `:later`.
 ```
-:later 10s    go to the state 10 seconds later
-:later 10m    go to the state 10 minutes later
-:later 10h    go to the state 10 hours later
-:later 10d    go to the state 10 days later
-:later 10     go to the newer state 10 times
-:later 10f    go to the state 10 saves later
+:later 10s     Ir al estado en que se encontraba el archivo 10 segundos después
+:later 10m     Ir al estado en que se encontraba el archivo 10 minutos después
+:later 10h     Ir al estado en que se encontraba el archivo 10 horas después
+:later 10d     Ir al estado en que se encontraba el archivo 10 días después
+:later 10      Ir a un nuevo estado 10 veces posterior 
+:later 10f     Ir a un estado grabado 10 veces más tarde
 ```
 
-# Learn Undo the Smart Way
+# Aprendiendo a deshacer de la manera más inteligente
 
-`u` and `Ctrl-R` are two indispensable Vim commands. Learn them first. I do not use UNDO in my workflow, however I think it's good to be aware that it exists. Next, learn how to use `:earlier` and `:later` using the time argumentsfirst. After that, take your time to understand the undo tree. The [vim-mundo](https://github.com/simnalamburt/vim-mundo) plugin helped me a lot. Type along the texts in this chapter and check the undo tree as you make each change. Once you grasp it, you will never see undo system the same way again.
+`u` y `Ctrl-R` son dos comandos indispensables de Vim. Apréndelos en primer lugar. Personalmente no utilizo DESHACER en mi manera de trabajo con Vim, sin embargo creo que está bien saber que existe esa posibilidad. Después, aprende a utilizar `:earlier` y `:later` utilizando primero los argumentos de tiempo. Después de eso, tómate tu tiempo para entender el concepto de árbol de cambios de deshacer. El complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) me ha ayudado mucho. Escribe en este capítulo y comprueba cómo cómo funciona ese árbol de deshacer cuando haces cada cambio. Una vez que lo entiendas, nunca volverás a ver el sistema de deshacer de la misma manera.
 
-Prior to this chapter, you learned how to find any text in a project space, with undo, you can now find any text in a time dimension. You are now able to search for any text by its location and time written. You have achieved Vim-omnipresence.
+
+Antes de este capítulo, has aprendido a encontrar cualquier texto en un proyecto, con *undo* o deshacer, puedes encontrar cualquier texto en el tiempo. Ahora eres capaz de buscar cualquier texto por su localización o en el tiempo en el que fue escrito. Has conseguido la Vim-omnipresencia.
+
 
