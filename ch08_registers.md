@@ -1,10 +1,10 @@
-# Registers
+# Registros
 
-Learning Vim registers is like learning algebra for the first time. You don't think you need them until you learn them.
+Aprender los registros de Vim es como aprender álgebra por primera vez. No pienzas que los necesitas hasta que lo aprendes.
 
-You've probably used Vim registers when you yanked or deleted a text then pasted it with `p` or `P`. However, did you know that Vim has 10 different types of registers? 
+Tú probablemente haz usado los registros de Vim cuando copiaste o borraste un texto y luego lo pegaras con `p` o `P`. No obstante, ¿sabes que Vim tiene 10 tipos diferentes de registros?
 
-In this chapter, I will go over all Vim register types and how to use them efficiently.
+En este capítulo repasaré todos los tipos de registros de Vim y como usarlos eficientemente.
 
 # The Ten Register Types
 
