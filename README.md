@@ -14,7 +14,7 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 - [Ch 5     - Moving in a File](./ch05_moving_in_file.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
 - [Ch 6     - Insert Mode](./ch06_insert_mode.md) ......... En progreso [X] / Traducido [ ] / Revisado [ ]
 - [Ch 7     - The Dot command](./ch07_the_dot_command.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 8     - Registers](./ch08_registers.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 8     - Registers](./ch08_registers.md) ......... En progreso [X] / Traducido [ ] / Revisado [ ]
 - [Ch 9     - Macros](./ch09_macros.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 10    - Undo](./ch10_undo.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
 - [Ch 11    - Visual Mode](./ch11_visual_mode.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
