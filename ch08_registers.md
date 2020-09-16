@@ -14,10 +14,10 @@ Aquí están los 10 tipos de registros que tiene Vim:
 2. Los registros numerados (`"0-9`).
 3. El registro de pequeñas eliminaciones (`"-`).
 4. Los registros nominales (`"a-z`).
-5. El registro de solo lectura (`":`, `".`,and `"%`).
+5. El registro de solo lectura (`":`, `".`,y `"%`).
 6. El registro de búfer alterno (`"#`).
 7. El registro de expresiones (`"=`).
-8. El registro de selecciones (`"*` and `"+`).
+8. Los registros de selección (`"*` y `"+`).
 9. El registro de agujero negro (`"_`).
 10. El registro del último patrón de búsqueda (`"/`).
 
@@ -46,49 +46,48 @@ Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. P
 En general la sintaxis para obtener el contenido desde un registro en específico es `"x`, donde `x` es el símbolo del registro.
 
 
-# Calling Registers from Insert Mode
+# Llamar a los registros desde el modo insertar
 
-Everything you learn in this chapter can also be executed in insert mode. To get the text from register "a", normally you do `"ap`. But if you are in insert mode, run `Ctrl-r a`. The syntax to call registers from insert mode is:
+Todo lo que aprendas en este capítulo puede también ser ejecutado en el modo insertar. Para obtener el texto del registro "a", normalmente debes escribir `"ap`; pero si estás en el modo insertar, ejecuta `Ctrl-r a`. La sintaxis para llamar a los registros desde el modo insertar es el siguiente:
 ```
 Ctrl-r x
 ```
-Where `x` is the register symbol. Now that you know how to store and retrieve registers, let's dive in!
+Donde `x` es el símbolo del registro. Ahora que sabes como almacenar y recuperar registros, vamos a ello.
 
+# El registro predeterminado (`""`)
 
-#  The Unnamed Register (`""`)
+Para obtener texto desde el registro predeterminado, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si tú haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro predeterminado es como la operación  copiar / pegar estándar de una computadora.
 
-To get the text from the unnamed register, do `""p`. It stores the last text you yanked, changed, or deleted. If you do another yank, change, or deletion, Vim will automatically replace the text. The unnamed register is like a computer's standard copy / paste operation.
+Por defecto, `p` (or `P`) está conectado al registro predeterminado (desde ahora me referiré al registro predeterminado con `p` en lugar de `""p`).
 
-By default, `p` (or `P`) is connected to the unnamed register (from now on I will refer to the unnamed register with `p` instead of `""p`).
+# Los registros numerados (`"0-9`)
 
-# The Numbered Registers (`"0-9`)
+Los registros numerados automáticamente se llenan así mismos en orden ascendente. Hay 2 registros numerados diferentes: el registro de copia (`0`) y los registros numerados (`1-9`). Vamos a ver primero el registro de copia.
 
-Numbered registers automatically fill themselves up in ascending order. There are 2 different numbered registers: the yanked register (`0`) and the numbered registers (`1-9`). Let's discuss the yanked register first.
+## El registro de copia (`"0`)
 
-## The Yanked Register (`"0`)
+Si copias una línea entera de texto (`yy`), Vim actualmente guarda ese texto en dos registros:
 
-If you yank an entire line of text (`yy`), Vim actually saves that text in two registers:
+1. El registro predeterminado (`p`).
+2. El registro de copia (`"0p`).
 
-1. The unnamed register (`p`).
-2. The yanked register (`"0p`).
+Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el predeterminado. Cualquier otra operación no será almacenada en el registro 0. Esto puede ser usado en provecho tuyo, porque al menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuanto cambios y borrados hagas.
 
-When you yank a different text, Vim will replace both the yanked register and the unnamed register. Any other operations will not be stored in register 0. This can be used to your advantage, because unless you do another yank, the yanked text will always be there, no matter how many changes and deletions you do.
+Por ejemplo, si haces lo siguiente:
+1. Copiar una línea (`yy`)
+2. Borrar una línea (`dd`)
+3. Borrar otra lína (`dd`)
 
-For example, if you:
-1. Yank a line (`yy`)
-2. Delete a line (`dd`)
-3. Delete another line (`dd`)
+El registro de copia tendrá el texto del primer paso.
 
-The yanked register will have the text from step one.
+Pero si en cambio haces esto otro:
+1. Copias una línea (`yy`)
+2. Borras una línea (`dd`)
+3. Copias otra línea (`yy`)
 
-If you:
-1. Yank a line (`yy`)
-2. Delete a line (`dd`)
-3. Yank another line (`yy`)
+El registro de copia tendrá el texto del paso tres.
 
-The yanked register will have the text from step three.
-
-One last tip, while in insert mode, you can quickly paste the text you just yanked using `Ctrl-r 0`. 
+Un último consejo, mientras estás en el modo insertar, puedes rápidamente pegar el texto que solo copiaste usando `Ctrl-r 0`.
 
 ## The Numbered Registers (`"1-9`)
 
