@@ -6,43 +6,44 @@ Probablemente has usado los registros de Vim cuando al copiar o borrar un texto 
 
 En este capítulo repasaré todos los tipos de registros de Vim y como usarlos eficientemente.
 
-# The Ten Register Types
+# Los diez tipos de registros
 
-Here are the 10 register types Vim has:
+Aquí están los 10 tipos de registros que tiene Vim:
 
-1. The unnamed register (`""`).
-2. The numbered registers (`"0-9`).
-3. The small delete register (`"-`).
-4. The named registers (`"a-z`).
-5. The read-only registers (`":`, `".`,and `"%`).
-6. The alternate buffer register (`"#`).
-7. The expression register (`"=`).
-8. The selection registers (`"*` and `"+`).
-9. The black hole register (`"_`).
-10. The last search pattern register (`"/`).
+1. El registro predeterminado (`""`).
+2. Los registros numerados (`"0-9`).
+3. El registro de pequeñas eliminaciones (`"-`).
+4. Los registros nominales (`"a-z`).
+5. El registro de solo lectura (`":`, `".`,and `"%`).
+6. El registro de búfer alterno (`"#`).
+7. El registro de expresiones (`"=`).
+8. El registro de selecciones (`"*` and `"+`).
+9. El registro de agujero negro (`"_`).
+10. El registro del último patrón de búsqueda (`"/`).
 
 
-# Register Operators
+# Operadores del Registro
 
-Here are some operators that store values to registers:
-```
-y    Yank (copy)
-c    Delete text and start insert mode
-d    Delete text
-```
-
-There are more operators (like `s` or `x`), but these are the common ones. The rule of thumb is, if an operator removes texts, it probably saves the texts to registers.
-
-To put (paste) texts from registers, you can use:
+Aquí algunos operadores que almacenan valores en los registros:
 
 ```
-p    Put the text after the cursor
-P    Put the text before the cursor
+y    Yank (copiar)
+c    Borrar texto e iniciar el modo insertar
+d    Borrar texto
 ```
 
-Both `p` and `P` accept a count and a register symbol as arguments. For example, to put the recently yanked text ten times, do `10p`. To put the text from register "a", do `"ap`. To put the text from register "a" ten times, do `10"ap`.
+Existen algunos operadores más (como `s` o `x`), pero estos son los más comunes. El criterio general es, si un operador elimina texto, probablemente lo guarde en un registro.
 
-The general syntax to get the content from a specific register is `"x`, where `x` is the register symbol.
+Para poner (pegar) texto desde los registros, puedes usar:
+
+```
+p    Ubicar el texto después del cursor
+P    Ubicar el texto antes del cursor
+```
+
+Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para poner diez veces el texto recientemente copiado, debes escribir `10p`. Para poner el texto del registro "a", corresponde `"ap`. Y para poner 10 veces el texto del registro "a", es `10"ap`.
+
+En general la sintaxis para obtener el contenido desde un registro en específico es `"x`, donde `x` es el símbolo del registro.
 
 
 # Calling Registers from Insert Mode
