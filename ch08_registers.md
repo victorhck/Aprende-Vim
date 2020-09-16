@@ -22,7 +22,7 @@ Aquí están los 10 tipos de registros que tiene Vim:
 10. El registro del último patrón de búsqueda (`"/`).
 
 
-# Operadores del Registro
+# Operadores del registro
 
 Aquí algunos operadores que almacenan valores en los registros:
 
@@ -37,11 +37,11 @@ Existen algunos operadores más (como `s` o `x`), pero estos son los más comune
 Para poner (pegar) texto desde los registros, puedes usar:
 
 ```
-p    Ubicar el texto después del cursor
-P    Ubicar el texto antes del cursor
+p    Ubica el texto después del cursor
+P    Ubica el texto antes del cursor
 ```
 
-Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para poner diez veces el texto recientemente copiado, debes escribir `10p`. Para poner el texto del registro "a", corresponde `"ap`. Y para poner 10 veces el texto del registro "a", es `10"ap`.
+Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para poner diez veces el texto recientemente copiado, debes escribir `10p`. Para poner el texto del registro "a", utiliza `"ap`. Y para poner 10 veces el texto del registro "a", es `10"ap`.
 
 En general la sintaxis para obtener el contenido desde un registro en específico es `"x`, donde `x` es el símbolo del registro.
 
