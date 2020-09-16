@@ -1,35 +1,35 @@
-# Buffers, Windows, and Tabs
+# *Buffers*, ventanas y pestañas
 
-If you have used a modern text editor, you are probably familiar with windows and tabs. Vim has three abstractions instead of two: buffers, windows, and tabs.
+Si has utilizado un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: *buffers*, ventanas y pestañas.
 
-In this chapter, I will explain how buffers, windows, and tabs work in Vim.
+En este capítulo veremos cómo funcionan en Vim los *buffers*, ventanas y pestañas.
 
-Before you start, make sure you have `set hidden` option in your `vimrc`. Without this, whenever you switch buffers, Vim will prompt you to save the file (you don't want that if you want to move quickly between buffers). For more information, check out `:h hidden`.
+Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un *buffer*, Vim te pedirá que guardes el archivo (no quieres eso si quieres moverte rápidamente entre distintos *buffers*. Para más información, echa un vistazo a la ayuda de Vim `:h hidden`.
 
-# Buffers
+# *Buffers*
 
-A buffer is an in-memory space where you can write and edit some text. When you are opening a new file in vim its content will be bound to a new buffer:
-  1. From within vim, open a new buffer `:new` (create a new empty buffer)
-  2. From your terminal, open a new file `file1.js` (create a new buffer with `file1.js` bound to it)
+Un *buffer* es un espacio en la memoria en el que puedes escribir y editar algún texto. Cuando abres un nuevo archivo en Vim, su contenido estará ligado a un nuevo *buffer*:
+  1. Dentro de Vim, abra un nuevo *buffer* con el comando `:new` (crea un nuevo *buffer vacío)
+  2. Desde tu terminal, abre un nuevo archivo llamado `archivo1.js` (crea un nuevo *buffer* con `archivo1.js` ligado a el)
 
-If your buffer isn't bound to a file yet but you want to save its content, you can save it with `:w </path/to/file>`.
+Si tu *buffer* no está ligado todavía a un archivo pero quieres guardar su contenido, puedes guardarlo mediante `:w </ruta/al/archivo>`.
 
 ```
 vim file1.js
 ```
 
-![one buffer displayed with highlight](./img/screen-one-buffer-file1-highlighted.png)
+![un *buffer* mostrando resaltado de texto](./img/screen-one-buffer-file1-highlighted.png)
 
-What you are seeing is `file1.js` *buffer*. Whenever we open a new file, Vim creates a new buffer.
+Lo que se muestra en la imagen anterior es el *buffer* del archivo `file1.js` *buffer*. Cada vez que abrimos un nuevo archivo, Vim crea un nuevo *buffer*.
 
-Exit Vim. This time, open two new files:
+Sal de Vim. Esta vez, abre dos nuevos archivos:
 
 ```
 vim file1.js file2.js
 ```
 ![one buffer displayed.png](./img/screen-one-buffer.png)
 
-Vim displays `file1.js` buffer, but it actually creates two buffers: `file1.js` buffer and `file2.js` buffer. You can see all buffers with `:buffers` (alternatively, you can use `:ls` or `:files` too).
+Vim muestra el *buffer* de `file1.js`, pero ha creadi dos *buffers*: el buffer de `file1.js` y el *buffer* de `file2.js`. Puedes mostrar todos los *buffers* mediante el comando `:buffers` (otras formas alternativas también puedes usar `:ls` o `:files`).
 
 ![buffers command showing 2 buffers](./img/screen-one-buffer-buffers-command.png)
 
