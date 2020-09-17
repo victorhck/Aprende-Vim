@@ -71,7 +71,7 @@ Si copias una línea entera de texto (`yy`), Vim realmente guarda ese texto en d
 1. El registro predeterminado (`p`).
 2. El registro de copia (`"0p`).
 
-Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el predeterminado. Cualquier otra operación no será almacenada en el registro 0. Esto puede ser usado en para tu provecho, porque a menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuantos cambios y borrados hagas.
+Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el predeterminado. Cualquier otra operación no será almacenada en el registro 0. Esto puede ser usado para tu provecho, porque a menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuantos cambios y borrados hagas.
 
 Por ejemplo, si haces lo siguiente:
 1. Copiar una línea (`yy`)
