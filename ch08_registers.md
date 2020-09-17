@@ -48,15 +48,15 @@ En general la sintaxis para obtener el contenido desde un registro en específic
 
 # Llamar a los registros desde el modo insertar
 
-Todo lo que aprendas en este capítulo puede también ser ejecutado en el modo insertar. Para obtener el texto del registro "a", normalmente debes escribir `"ap`; pero si estás en el modo insertar, ejecuta `Ctrl-r a`. La sintaxis para llamar a los registros desde el modo insertar es el siguiente:
+Todo lo que aprendas en este capítulo puede también ser ejecutado en el modo insertar. Para obtener el texto del registro "a", normalmente debes escribir `"ap`; pero si estás en el modo insertar, ejecuta `Ctrl-r a`. La sintaxis para llamar a los registros desde el modo insertar es la siguiente:
 ```
 Ctrl-r x
 ```
-Donde `x` es el símbolo del registro. Ahora que sabes como almacenar y recuperar registros, vamos a ello.
+Donde `x` es el símbolo del registro. Ahora que sabes cómo almacenar y recuperar registros, vamos a ello.
 
 # El registro predeterminado (`""`)
 
-Para obtener texto desde el registro predeterminado, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si tú haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro predeterminado es como la operación  copiar / pegar estándar de una computadora.
+Para obtener texto desde el registro predeterminado, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro predeterminado es como la operación  copiar / pegar estándar de una computadora.
 
 Por defecto, `p` (or `P`) está conectado al registro predeterminado (desde ahora me referiré al registro predeterminado con `p` en lugar de `""p`).
 
@@ -66,17 +66,17 @@ Los registros numerados automáticamente se llenan así mismos en orden ascenden
 
 ## El registro de copia (`"0`)
 
-Si copias una línea entera de texto (`yy`), Vim actualmente guarda ese texto en dos registros:
+Si copias una línea entera de texto (`yy`), Vim realmente guarda ese texto en dos registros:
 
 1. El registro predeterminado (`p`).
 2. El registro de copia (`"0p`).
 
-Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el predeterminado. Cualquier otra operación no será almacenada en el registro 0. Esto puede ser usado en provecho tuyo, porque al menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuanto cambios y borrados hagas.
+Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el predeterminado. Cualquier otra operación no será almacenada en el registro 0. Esto puede ser usado en para tu provecho, porque a menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuantos cambios y borrados hagas.
 
 Por ejemplo, si haces lo siguiente:
 1. Copiar una línea (`yy`)
 2. Borrar una línea (`dd`)
-3. Borrar otra lína (`dd`)
+3. Borrar otra línea (`dd`)
 
 El registro de copia tendrá el texto del primer paso.
 
