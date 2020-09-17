@@ -31,21 +31,21 @@ vim file1.js file2.js
 
 Vim muestra el *buffer* de `file1.js`, pero ha creadi dos *buffers*: el buffer de `file1.js` y el *buffer* de `file2.js`. Puedes mostrar todos los *buffers* mediante el comando `:buffers` (otras formas alternativas también puedes usar `:ls` o `:files`).
 
-![buffers command showing 2 buffers](./img/screen-one-buffer-buffers-command.png)
+![comando de buffers mostrando 2 buffers](./img/screen-one-buffer-buffers-command.png)
 
-There are several ways you can traverse buffers:
-1. `:bnext` to go to the next buffer (`:bprevious` to go to the previous buffer).
-2. `:buffer` + filename. Vim can autocomplete filename with `tab`.
-3. `:buffer` + `n`, where `n` is the buffer number. For example, typing `:buffer 2` will take you to buffer #2.
-4. Jump to the older position in jump list with `Ctrl-o` and to the newer position with `Ctrl-i`. These are not buffer specific methods, but they can be used to jump between different buffers. I will talk more about jumps in Chapter 5.
-5. Go to the previously edited buffer with `Ctrl-^`.
+Hay varias formas de poder desplazarse por los *buffers*:
+1. `:bnext` para ir al *buffer* siguiente (`:bprevious` para ir al *buffer* previo).
+2. `:buffer` + nombre_de_archivo. Vim puede autocompletar el nombre de archivo con `tab`.
+3. `:buffer` + `n`, donde `n` es el número del *buffer*. Por ejemplo, escribiendo: `:buffer 2` te llevará al *buffer* número 2.
+4. Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para *buffers*, pero pueden ser utilizados para saltar entre diferentes *buffers*. Hablaremos más sobre los saltos en el capítulo 5.
+5. Ir al *buffer* previamente editado con `Ctrl-^`.
 
 
-Once Vim creates a a buffer, it will remain in your buffers list. To remove it, you can type `:bdelete`. It accepts either a buffer number (`:bdelete 3` to delete buffer #3) or a filename (`:bdelete` then use `tab` to autocomplete).
+Una vez que Vim crea un buffer, este permanecerá en tu lista de *buffers*. Para eliminarlo, puedes escribir `:bdelete`. También acepta un número de *buffer* (`:bdelete 3` para eliminar el *buffer* #3) o un nimbre de archivo (`:bdelete` después utiliza `tab` para autocompletar el nombre).
 
-The hardest thing for me when learning about buffer was visualizing how it worked. One way to think of it is by imagining my buffers as a deck of cards. If I have 3 buffers, I  have a stack of 3 cards. If I see `file1.js` buffer displayed, then the `file1.js` card is at the top of the deck. I can't see `file2.js` and `file3.js` cards, but I know they are in the deck. If I switch to `file3.js` buffer, I am putting `file1.js` card in the deck and putting `file3.js` card to the top of the deck.
+La parte más difícil de aprender para mí sobre los *buffer* fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis *buffers* como un mazo de cartas. Si tengo 3 *buffers*, tengo una pila de 3 cartas. Si veo `file1.js` que se muestra en el *buffer*, entonces la carta de `file1.js` es la que está en la parte superior del mazo. No puedo ver las cartas `file2.js` ni `file3.js`, pero se que están en el mazo de cartas. Si cambio el buffer a `file3.js`, estoy poniendo la carta de `file1.js` en el mazo y poniendo la carta de `file3.js` en la parte superior del mazo.
 
-If you haven't used Vim before, this is a new concept. Take your time to understand it. When you're ready, let's move on to windows.
+Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo. Cuando estés preparado, movámonos a las ventanas.
 
 # Windows
 
