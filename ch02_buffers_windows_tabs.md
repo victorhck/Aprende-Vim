@@ -9,8 +9,8 @@ Antes de comenzar, debes asegurarte que la opción `set hidden` está presente e
 # *Buffers*
 
 Un *buffer* es un espacio en la memoria en el que puedes escribir y editar algún texto. Cuando abres un nuevo archivo en Vim, su contenido estará ligado a un nuevo *buffer*:
-  1. Dentro de Vim, abra un nuevo *buffer* con el comando `:new` (crea un nuevo *buffer vacío)
-  2. Desde tu terminal, abre un nuevo archivo llamado `archivo1.js` (crea un nuevo *buffer* con `archivo1.js` ligado a el)
+  1. Dentro de Vim, abre un nuevo *buffer* con el comando `:new` (crea un nuevo *buffer vacío)
+  2. Desde tu terminal, abre un nuevo archivo llamado `file1.js` (crea un nuevo *buffer* con `file1.js` ligado a el)
 
 Si tu *buffer* no está ligado todavía a un archivo pero quieres guardar su contenido, puedes guardarlo mediante `:w </ruta/al/archivo>`.
 
@@ -20,7 +20,7 @@ vim file1.js
 
 ![un *buffer* mostrando resaltado de texto](./img/screen-one-buffer-file1-highlighted.png)
 
-Lo que se muestra en la imagen anterior es el *buffer* del archivo `file1.js` *buffer*. Cada vez que abrimos un nuevo archivo, Vim crea un nuevo *buffer*.
+Lo que se muestra en la imagen anterior es el *buffer* del archivo `file1.js`. Cada vez que abrimos un nuevo archivo, Vim crea un nuevo *buffer*.
 
 Sal de Vim. Esta vez, abre dos nuevos archivos:
 
@@ -29,7 +29,7 @@ vim file1.js file2.js
 ```
 ![one buffer displayed.png](./img/screen-one-buffer.png)
 
-Vim muestra el *buffer* de `file1.js`, pero ha creadi dos *buffers*: el buffer de `file1.js` y el *buffer* de `file2.js`. Puedes mostrar todos los *buffers* mediante el comando `:buffers` (otras formas alternativas también puedes usar `:ls` o `:files`).
+Vim muestra el *buffer* de `file1.js`, pero ha creado dos *buffers*: el buffer de `file1.js` y el *buffer* de `file2.js`. Puedes mostrar todos los *buffers* mediante el comando `:buffers` (como alternativa también puedes usar `:ls` o `:files`).
 
 ![comando de buffers mostrando 2 buffers](./img/screen-one-buffer-buffers-command.png)
 
@@ -40,10 +40,9 @@ Hay varias formas de poder desplazarse por los *buffers*:
 4. Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para *buffers*, pero pueden ser utilizados para saltar entre diferentes *buffers*. Hablaremos más sobre los saltos en el capítulo 5.
 5. Ir al *buffer* previamente editado con `Ctrl-^`.
 
+Una vez que Vim crea un *buffer*, este permanecerá en tu lista de *buffers*. Para eliminarlo, puedes escribir `:bdelete`. También acepta un número de *buffer* (`:bdelete 3` para eliminar el *buffer* #3) o un nombre de archivo (`:bdelete` después utiliza `tab` para autocompletar el nombre).
 
-Una vez que Vim crea un buffer, este permanecerá en tu lista de *buffers*. Para eliminarlo, puedes escribir `:bdelete`. También acepta un número de *buffer* (`:bdelete 3` para eliminar el *buffer* #3) o un nimbre de archivo (`:bdelete` después utiliza `tab` para autocompletar el nombre).
-
-La parte más difícil de aprender para mí sobre los *buffer* fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis *buffers* como un mazo de cartas. Si tengo 3 *buffers*, tengo una pila de 3 cartas. Si veo `file1.js` que se muestra en el *buffer*, entonces la carta de `file1.js` es la que está en la parte superior del mazo. No puedo ver las cartas `file2.js` ni `file3.js`, pero se que están en el mazo de cartas. Si cambio el buffer a `file3.js`, estoy poniendo la carta de `file1.js` en el mazo y poniendo la carta de `file3.js` en la parte superior del mazo.
+La parte más difícil de aprender para mí sobre los *buffer* fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis *buffers* como un mazo de cartas. Si tengo 3 *buffers*, tengo una pila de 3 cartas. Si veo `file1.js` que se muestra en el *buffer*, entonces la carta de `file1.js` es la que está en la parte superior del mazo. No puedo ver las cartas `file2.js` ni `file3.js`, pero sé que están en el mazo de cartas. Si cambio el buffer a `file3.js`, estoy poniendo la carta de `file1.js` en el mazo y poniendo la carta de `file3.js` en la parte superior del mazo.
 
 Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo. Cuando estés preparado, movámonos a las ventanas.
 
