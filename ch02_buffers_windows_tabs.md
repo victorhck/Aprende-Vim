@@ -46,75 +46,75 @@ La parte más difícil de aprender para mí sobre los *buffer* fue visualizar c�
 
 Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo. Cuando estés preparado, movámonos a las ventanas.
 
-# Windows
+# Ventanas
 
-A window is a viewport on a buffer. You can have multiple windows. Most text editors have the ability to display multiple windows. Below you see a VSCode with 3 windows.
+Una ventana es una división gráfica en un *buffer*. Puedes tener múltiples ventanas. La mayoría de los editores de texto tienen la posibilidad de mostrar múltiples ventanas. A continuación puedes ver una captura del editor VSCode mostrando 3 ventanas.
 
 ![buffers command showing 2 buffers](./img/screen-vscode-3-windows.png)
 
-Let's open `file1.js` from the terminal again:
+Abramos el archivo `file1.js` de nuevo desde la terminal:
 ```
 vim file1.js
 ```
 ![one buffer displayed.png](./img/screen-one-buffer.png)
 
-Earlier I said that you're looking at `file1.js` buffer. While that was correct, it was incomplete. You are looking at `file1.js` buffer displayed through **a window**. A window is what you are seeing a buffer through.
+Anteriormente he dicho que estás viendo el *buffer* de `file1.js`. Aunque esto es correcto, es incompleto. Estás viendo el *buffer* de `file1.js` mostrado a través de **una ventana**. La ventana es el medio por el que estás viendo el *buffer*.
 
-Don't quit vim yet. Run:
+No abandones Vim todavía. Ejecuta:
 ```
 :split file2.js
 ```
 
-![split window horizontally](./img/screen-split-window.png)
+![división horizontal de la ventana](./img/screen-split-window.png)
 
-Now you are looking at two buffers through **two windows**. The top window displays `file2.js` buffer. The bottom window displays `file1.js` buffer.
+Ahora estás viendo dos *buffers* mediante **dos ventanas**. La ventana superior muestra el *buffer* `file2.js`. La ventana inferior muestra el *buffer* `file1.js`.
 
-By the way, if you want to navigate between windows, you can use these commands:
+Por cierto, si quieres navegar entre ventanas, puedes utilizar estos comandos:
 
 ```
-Ctrl-W h    Moves the cursor to the left window
-Ctrl-W j    Moves the cursor to the window below
-Ctrl-W k    Moves the cursor to the window upper
-Ctrl-W l    Moves the cursor to the right window
+Ctrl-W h    Mueve el cursor a la ventana de la izquierda
+Ctrl-W j    Mueve el cursor a la ventana inferior
+Ctrl-W k    Mueve el cursor a la ventana superior
+Ctrl-W l    Mueve el cursor a la ventana de la derecha
 ```
 
-
-Now run:
+Ahora ejecuta:
 ```
 :vsplit file3.js
 ```
 
-![split window vertically and horizontally](./img/screen-split-window-vertically-and-horizontally.png)
+![ventana dividida verticalmente y horizontalmente](./img/screen-split-window-vertically-and-horizontally.png)
 
 
-You are now seeing three windows displaying three buffers. The top left window displays `file3.js` buffer, the top right window displays `file2.js` buffer, and the bottom window displays `file1.js` buffer.
+Estás viendo tres ventanas mostrando tres *buffers*. La ventana superior izquierda muestra el buffer `file3.js`, la ventana superior derecha muestra el *buffer* `file2.js`, y la ventana inferior muestra el *buffer* `file1.js`.
 
-You can have multiple windows displaying the same buffer. While you're on the top left window, type:
+Puedes tener múltiples ventana mostranto el mismo *buffer*. Mientras estás en la ventana superior izquierda, escribe:
+
 ```
 :buffer file2.js
 ```
-![split window vertically and horizontally with two file2.js](./img/screen-split-window-vertically-and-horizontally-two-file2.png)
+![división vertical y horizontal con dos archivos file2.js](./img/screen-split-window-vertically-and-horizontally-two-file2.png)
 
 
-Now both top left and top right windows are displaying `file2.js` buffer. If you start typing on the top left, you'll see that the content on both top left and top right window are changing in real time.
+Ahora las dos ventanas superiores, tanto la izquierda como la derecha, están mostrando el *buffer* `file2.js`. Si comienzas a escribir en la superior izquierda, verás que el contenido de la superior izquierda y superior derecha está cambiando en tiempo real.
 
-To close the current window, you can run `Ctrl-W c` or type `:quit`. When you close a window, the buffer will still be there (again, to view your buffers, you can use `:buffers, :ls, :files`).
+Para cerrar la ventana actual, puedes ejecutar `Ctrl-W c` o escribir el comando `:quit`. Cuando cierras una ventana, el *buffer* todavía permanece ahí (de nuevo, para ver los *buffers*, puedes utilizar `:buffers, :ls, :files`).
 
-Here are some useful normal mode window commands:
+Aquí hay algunos de los comandos para las ventanas en el modo normal:
 ```
-Ctrl-W v    Opens a new vertical split
-Ctrl-W s    Opens a new horizontal split
-Ctrl-W c    Closes a window
-Ctrl-W o    Makes the current window the only one on screen and closes other windows
+Ctrl-W v    Abre una nueva división vertical
+Ctrl-W s    Abre una nueva división horizontal
+Ctrl-W c    Cierra una ventana
+Ctrl-W o    Hace que la ventana actual sea la única en la pantalla y cierra las demás ventanas
 ```
-And here is a list of useful window Ex commands:
+Y aquí hay una lista de los comandos para las ventanas:
 ```
-:vsplit filename    Split window vertically
-:split filename     Split window horizontally
-:new filename       Create new window
+:vsplit nombre_de_archivo    Divide la ventana verticalmente
+:split nombre_de_archivo     Divide la ventana horizontalmente
+:new nombre_de_archivo       Crea una nueva ventana
 ```
 
-For more, check out `:h window`. Take your time to understand them.
+Para más información, echa un vistazo a la ayuda de Vim `:h window`. Dedícale un tiempo para entenderlos.
 
 # Tabs
 
