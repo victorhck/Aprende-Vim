@@ -116,43 +116,43 @@ Y aquí hay una lista de los comandos para las ventanas:
 
 Para más información, echa un vistazo a la ayuda de Vim `:h window`. Dedícale un tiempo para entenderlos.
 
-# Tabs
+# Pestañas
 
-A tab is a collection of windows. Think of it like a layout for windows. In most modern text editors (and modern internet browsers), a tab means an open file/ page and when you close it, that file/page goes away. In Vim, a tab does not represent an open file. When you close a tab in Vim, you are not closing a file. Remember, Vim stores files in-memory via buffers. Closing a tab (or a window) does not make that file disappear from the buffers.
+Una pestaña en una colección de ventanas. Piensa en ello como en un diseño para ventanas. En la mayoría de los editores modernos (y en los modernos navegadores de internet), una pestaña significa un archivo/página abierta y cuando la cierras, el archivo/página desaparece. En Vim, una pestaña no representa un archivo abierto. Cuando cierras una pestaña en Vim, no estás cerrando un archivo. Recuerda, Vim almacena los archivos en la memoria mediante los *buffers*. Cerrar una pestaña (o una ventana) no hace que ese archivo desaparezca de los *buffers*.
 
-Let's see Vim tabs in action. Open `file1.js`:
+Veamos las pestañas de Vim en acción. Abre `file1.js`:
 ```
 vim file1.js
 ```
 
-To open `file2.js` in a new tab:
+Para abrir `file2.js` en una nueva pestaña:
 
 ```
 :tabnew file2.js
 ```
-![screen displays tab 2](./img/screen-tab2.png)
+![captura que muestra 2 pestañas](./img/screen-tab2.png)
 
-You can also let Vim autocomplete the file you want to open in a *new tab* by pressing `tab` (no pun intended).
+También puedes permitir que Vim autocomplete el archivo a abrir en una *nueva pestaña* presionando `tab`.
 
 
-Below is a list of useful tab navigations:
+A continuación puedes encontrar una lista de navegaciones útiles por las pestañas:
 ```
-:tabnew file.txt    open file.txt in a new tab
-:tabclose           Close the current tab
-:tabnext            Go to next tab
-:tabprevious        Go to previous tab
-:tablast            Go to last tab
-:tabfirst           Go to first tab
+:tabnew archivo.txt    Abre archivo.txt en una nueva pestaña
+:tabclose              Cierra la pestaña actual
+:tabnext            Ir a la próxima pestaña
+:tabprevious        Ir a la pestaña previa
+:tablast            Ir a la última pestaña
+:tabfirst           Ir a la primera pestaña
 ```
-You can also run `gt` to go to next tab page. You can pass count as argument to `gt`, where count is tab number. To go to the third tab, do `3gt`.
+También puedes ejecutar `gt` para ir a la siguiente pestaña (con Gt vas a la pestaña previa). También puedes pasar un número como argumento a `gt`, donde el número corresponde al número de la pestaña. Para ir a la tercera pestaña, ejecuta `3gt`.
 
-One advantage of having multiple tabs is you can have different window arrangements in different tabs. Maybe you want your first tab to have 3 vertical windows and second tab to have a mixed horizontal and horizontal windows layout. Tab is the perfect tool for the job!
+Una ventaja de tener varias pestañas es que puedes tener diferentes disposiciones de ventanas en diferentes pestañas. Tal vez deseas que tu primera pestaña tenga 3 ventanas verticales y la segunda pestaña tenga un diseño de ventanas horizontal y horizontal mixto. ¡Las pestañas son la herramienta perfecta para el trabajo!
 
-![first tab with multiple windows](./img/tabs-file1js.png)
+![primera pestaña con múltiples ventanas](./img/tabs-file1js.png)
 
-![second tab with multiple windows](./img/tabs-file2js.png)
+![segunda pestaña con múltiples ventanas](./img/tabs-file2js.png)
 
-To start Vim with multiple tabs, you can do this from the terminal:
+Para arrancar Vim con múltiples pestañas, puedes ejecutar esto desde la terminal:
 ```
 vim -p file1.js file2.js file3.js
 ```
