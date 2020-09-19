@@ -154,32 +154,32 @@ Una ventaja de tener varias pestañas es que puedes tener diferentes disposicion
 
 Para arrancar Vim con múltiples pestañas, puedes ejecutar esto desde la terminal:
 ```
-vim -p file1.js file2.js file3.js
+vim -p archivo1.js archivo2.js archivo3.js
 ```
-# Moving in 3D
+# Moviéndote en 3D
 
-Moving between windows is like traveling two-dimensionally along X-Y axis in a Cartesian coordinate. You can move to the top, right, bottom, and left window with `Ctrl-W h/j/k/l`.
+Moverse entre ventanas es como viajar en dos dimensiones a través de los ejes X-Y en coordenadas cartesianas. Te puedes mover a la parte superior, derecha, inferior e izquierda con `Ctrl-W h/j/k/l`.
 
-![cartesian movement in x and y axis](./img/cartesian-xy.png)
+![movimiento cartesiano en ejes x e y](./img/cartesian-xy.png)
 
-Moving between buffers is like traveling across the Z axis in a Cartesian coordinate. Imagine your buffer files are lined up across the Z axis. You can traverse the Z axis one buffer at a time with `:bnext` and `:bprevious`. You can jump to any coordinate in Z axis with `:buffer filename/buffernumber`.
+Moverse entre *buffers* es cini viajar a través del eje Z en coordenadas Cartesianas. Imagina que los *buufers* de tus archivos están alineados a través del eje Z. Puedes desplazarte por el eje Z un *buffer* cada vez con `:bnext` y `:bprevious`. También puedes saltar a cualquier coordenada en el eje Z con `:buffer nombre_de_archivo/número de buffer`.
 
-![cartesian movement in z axis](./img/cartesian-z.png)
+![movimiento cartesiano en el eje z](./img/cartesian-z.png)
 
-You can move in *three-dimensional space* by combining window and buffer movements. You can move to the top, right, bottom, or left window (X-Y navigations) with window navigations. Since each window contains buffers, you can move forward and backward (Z navigations) with buffer movements.
+Te puedes mover en un *espacio tridimensional* combinando los movimientos de ventanas y *buffer*. Te puedes mover a la parte superior, derecha, inferior o la ventana izquierda (navegación en ejes X-Y) con las teclas de navegación por ventanas. Como cada ventana contiene *buffers*, te puedes mover hacia adelante o hacia atrás (navigación en Z) con los movimientos de *buffer*.
 
-![cartesian movement in x, y, and z axis](./img/cartesian-xyz.png)
+![movimiento cartesiano en ejes x, y y z](./img/cartesian-xyz.png)
 
 
-# Using Buffers, Windows, and Tabs the Smart Way
+# Utilizando los *buffers*, ventanas y pestañas de la manera más inteligente
 
-You have learned how buffers, windows, and tabs work in Vim. To use them efficiently, you need to understand what they are designed for and apply them in your own workflow. Everyone has a different workflow, here is one example.
+Has aprendido cómo funcionan los *buffers*, las ventanas y las pestañas en Vim. Para utilizarlas de manera eficiente, necesitas entender para qué están diseñadas y utilizarlas en tu propia forma de trabajar. Cada persona tiene una manera diferente de trabajar, aquí tienes un ejemplo.
 
-I would use buffers to open up all required files to get the current task done. This task may require opening seven or seven times seven buffer files, but it doesn't matter because Vim can handle many buffers before it starts slowing down. Plus having many buffers opened won't crowd my screen. I am only seeing one buffer (assuming I have only one window) at any time and I can quickly fly to any buffer I wish.
+Yo utilizaría los *buffers* para abrir todos los archivos necesarios para realizar la tarea que queremos hacer. Esta tarea puede necesitar que abras siete o siete veces siete archivos en *buffers*, pero no importa porque Vim puede manejar muchos *buffers* antes de que empiece a ir lento. Además abrir muchos *buffers* no llena mi pantalla. Solo verá un *buffer* (asumiendo que solo tengo una ventana) cada vez y que puedo volar rápidamente a cualquier *buffer* que desee.
 
-I would use multiple windows to view multiple buffers at once, usually when diffing files, comparing codes, or following a code flow. I usually don't keep more than three windows opened at the same time because my screen will get crowded. When I am done, I would close any extra windows. I prefer having as few opened windows as possible.
+Yo utilizaría múltiples ventanas para ver múltiples *buffers* a la vez, normalment cuando tengo archivos que muestran las diferencias entre archivos, comparando código o siguiendo el flujo de un código. Normalmente no tengo más de tres ventanas abiertas a la vez porque mo pantalla estaría llena. Cuando termino, cierro cualquier ventana extra. Prefiero tener las mínimas venttanas posibles.
 
-I would use a tab to handle client-side codes and a separate tab for back-end codes. Personally, I do not use tabs in my workflow. I use [tmux](https://github.com/tmux/tmux/wiki) windows as substitute for Vim tabs. My tmux workflow is similar to Vim tabs workflow. Instead of having multiple **Vim tabs** opened for each context, I would have multiple **tmux windows** (one tmux window for client-side codes and another window for back-end codes).
+Utilizaría una pestaña para gestionar los código del lado cliente y una pestaña diferente para los códigos de *back-end*. Personalmente, no utilizo pestañas en mi forma de trabajo. Utilizo ventanas de [tmux](https://github.com/tmux/tmux/wiki) como sustituto de las pestañas de Vim. Mi flujo de trabajo con tmux es similar a la forma de trabajar de las pestañas en Vim. En vez de tener abiertas múltiples **pestañas de Vim** para cada contexto, yo abro **ventanas de tmux** (una ventana de tmux para código del lado cliente y otra ventana para código de *back-end*).
 
-My workflow may look different than yours based on your editing style and that's fine. Experiment around to discover your own flow and find what works for you best.
+Mi forma de trabajar puede ser diferente de la tuya debido a tu forma de editar y eso está bien. Experimenta hasta descubrir tu forma de trabajar y encontrar qué es lo que mejor se adapta a ti.
 
