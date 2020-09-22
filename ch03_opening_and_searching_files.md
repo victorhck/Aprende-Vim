@@ -1,11 +1,11 @@
-# Opening and Searching Files
+# Abrir y buscar archivos
 
-The goal of this chapter is to introduce you to opening and searching files in Vim. Being able to search quickly is a great way to jump-start your Vim productivity. One reason it took me a long time to get onboard with Vim is because I didn't know how to find things quickly like many popular text editors. 
+El objetivo de este capítulo es adentrarte en el modo de abrir y buscar archivos en Vim. Ser capaz de buscar rápidamente es una gran manera de aumentar tu productividad en Vim. Una de las razones que me llevó mucho tiempo a empezar a usar Vim era que no sabía cómo encontrar cosas rápidamente como en los editores de texto más populares.
 
-This chapter is divided into two parts. In the first part, I will show you how to open and search files without plugins. In the second part, I will show you how to open and search files with [FZF.vim](https://github.com/junegunn/fzf.vim) plugin. Feel free to jump to whichever section you need to learn.  However, I highly recommend you to go through everything. With that said, let's get started!
+Este capítulo está dividido en dos partes. En la primera parte, te enseñaré cómo abrir y buscar archivos sin necesidad de complementos extras. En la segunda parte, te enseñaré cómo abrir y buscar archivos con el complemento [FZF.vim](https://github.com/junegunn/fzf.vim). Sientete libre para saltar a la sección que necesites aprender. Sin embargo, te recomiendo encarecidamente que des un repaso a todo el capítulo ya que siempre se aprende algo (o se recuerda algo olvidado). Dicho esto, ¡empezemos!
 
-# Opening and Editing Files with `:edit`
-`:edit` is the simplest way to open a file in Vim. 
+# Abrir y editar archivos con `:edit`
+`:edit` es la manera más simple de abrir un archivo en Vim.
 
 ```
 :edit file.txt
