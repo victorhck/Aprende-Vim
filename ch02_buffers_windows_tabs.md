@@ -146,7 +146,7 @@ A continuación puedes encontrar una lista de navegaciones útiles por las pesta
 ```
 También puedes ejecutar `gt` para ir a la siguiente pestaña (con Gt vas a la pestaña previa). También puedes pasar un número como argumento a `gt`, donde el número corresponde al número de la pestaña. Para ir a la tercera pestaña, ejecuta `3gt`.
 
-Una ventaja de tener varias pestañas es que puedes tener diferentes disposiciones de ventanas en diferentes pestañas. Tal vez deseas que tu primera pestaña tenga 3 ventanas verticales y la segunda pestaña tenga un diseño de ventanas horizontal y horizontal mixto. ¡Las pestañas son la herramienta perfecta para el trabajo!
+Una ventaja de tener varias pestañas es que puedes tener diferentes disposiciones de ventanas en diferentes pestañas. Tal vez deseas que tu primera pestaña tenga 3 ventanas verticales y la segunda pestaña tenga un diseño de ventanas horizontal y vertical mixto. ¡Las pestañas son la herramienta perfecta para el trabajo!
 
 ![primera pestaña con múltiples ventanas](./img/tabs-file1js.png)
 
