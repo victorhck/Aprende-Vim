@@ -8,38 +8,38 @@ Este capítulo está dividido en dos partes. En la primera parte, te enseñaré 
 `:edit` es la manera más simple de abrir un archivo en Vim.
 
 ```
-:edit file.txt
+:edit archivo.txt
 ```
-- If `file.txt` exists, it opens `file.txt` buffer.
-- If `file.txt` doesn't exist, it creates a new buffer for `file.txt`.
+- Si `archivo.txt` existe, abre `archivo.txt` en un *buffer*.
+- Si `archivo.txt` no existe, crea un nuevo *buffer* para `archive.txt`.
 
 
-Autocomplete (`tab`) works with `:edit`. For example, if your file is inside a [Rails](https://rubyonrails.org/) controller directory `./app/controllers/users_controllers.rb`, you can use `tab` to expand the terms quickly:
+El autocompletado del nombre (`tab`) funciona con `:edit`. Por ejemplo, si tu archivo está dentro de una carpeta *controller* de un proyecto en [Rails](https://rubyonrails.org/) como por ejemplo `./app/controllers/users_controllers.rb`, puedes utilizar la tecla `tab` para ir expandiendo los términos rápidamente:
 ```
 :edit a<tab>c<tab>u<tab>
 ```
 
-`:edit` accepts wildcards arguments. `*` matches any file in the current directory. If you are only looking for files with `.yml` extension in the current directory, you can run:
+`:edit` acepta comodines como argumentos. `*` reemplaza a cualuier archivo en la carpeta actual. Si solo estás buscando archivo con la extensión `.yml` en la carpeta actual, puedes ejecutar:
 
 ```
 :edit *.yml<tab>
 ```
-After pressing tab, Vim will give you a list of all `.yml` files in the current directory to choose from.
+Después de presionar la tecla tabulador, Vim te mostrará una lista de todos los archivos `.yml` que existen en la carpeta actual para poder escoger el que queramos.
 
-You can use `**` to search recursively. If you want to look for all `*.md` files in your project, but you are not sure in which directories, you can do this:
+Puedes utilizar `**` para buscar de manera recursiva. Si quieres buscar todos los archivos `*.md` en tu proyecto, pero no estás seguro de en qué carpeta está, puedes ejecutar lo siguiente:
 ```
 :edit **/*.md<tab>
 ```
-`:edit` can be used to run `netrw`, Vim's built-in file explorer (I will cover this later in this chapter). To do that, give  `:edit` a directory argument instead of file. For example:
+`:edit` puede ser utilizado para ejecutar `netrw`, el explorador nativo de Vim (del que trataremos más adelante en este capítulo). Para hacer eso, se debe dar al comando `:edit` un argumento como directorio en vez de un archivo. Por ejemplo:
 ```
 :edit .
 :edit test/unit/
 ```
-`:edit` also accepts an Ex command as an argument (I will cover more on Ex commands in later chapter) when followed by `+`. Here are some examples:
+`:edit` también acepta un comando externo (Ex) como argumento (trataré más adelante los comandos externos en capítulos posteriores) cuando va seguido por un signo `+`. Aquí hay algunos ejemplos:
 
-- To go to line number 5 (`:5`): `:edit +5 /test/unit/helper.spec.js`
-- To go to the first line containing `"const"` (`/const`): `:edit +/const /test/unit/helper.spec.js`
-- To delete all empty lines (`:g/^$/d`): `:edit +g/^$/d test/unit/helper.spec.js`
+- Para ir a la línea 5 del archivo (`:5`): `:edit +5 /test/unit/helper.spec.js`
+- Para ir a la primera línea que contenga la cadena de texto `"const"` (`/const`): `:edit +/const /test/unit/helper.spec.js`
+- Para eliminar todas las líneas vacías (`:g/^$/d`): `:edit +g/^$/d test/unit/helper.spec.js`
 
 # Searching Files with `:find`
 You can find files with `:find`. For example:
