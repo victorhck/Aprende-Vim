@@ -1,6 +1,6 @@
 # Abrir y buscar archivos
 
-El objetivo de este capítulo es adentrarte en el modo de abrir y buscar archivos en Vim. Ser capaz de buscar rápidamente es una gran manera de aumentar tu productividad en Vim. Una de las razones que me llevó mucho tiempo a empezar a usar Vim era que no sabía cómo encontrar cosas rápidamente como en los editores de texto más populares.
+El objetivo de este capítulo es adentrarte en el modo de abrir y buscar archivos en Vim. Ser capaz de buscar rápidamente es una gran manera de aumentar tu productividad en Vim. Una de las razones por las que tardé en empezar a usar Vim era que no sabía cómo encontrar cosas rápidamente, como se hace en los editores de texto más populares.
 
 Este capítulo está dividido en dos partes. En la primera parte, te enseñaré cómo abrir y buscar archivos sin necesidad de complementos extras. En la segunda parte, te enseñaré cómo abrir y buscar archivos con el complemento [FZF.vim](https://github.com/junegunn/fzf.vim). Sientete libre para saltar a la sección que necesites aprender. Sin embargo, te recomiendo encarecidamente que des un repaso a todo el capítulo ya que siempre se aprende algo (o se recuerda algo olvidado). Dicho esto, ¡empezemos!
 
@@ -19,7 +19,7 @@ El autocompletado del nombre (`tab`) funciona con `:edit`. Por ejemplo, si tu ar
 :edit a<tab>c<tab>u<tab>
 ```
 
-`:edit` acepta comodines como argumentos. `*` reemplaza a cualuier archivo en la carpeta actual. Si solo estás buscando archivo con la extensión `.yml` en la carpeta actual, puedes ejecutar:
+`:edit` acepta comodines como argumentos. `*` reemplaza a cualquier archivo en la carpeta actual. Si solo estás buscando archivo con la extensión `.yml` en la carpeta actual, puedes ejecutar:
 
 ```
 :edit *.yml<tab>
@@ -41,40 +41,40 @@ Puedes utilizar `**` para buscar de manera recursiva. Si quieres buscar todos lo
 - Para ir a la primera línea que contenga la cadena de texto `"const"` (`/const`): `:edit +/const /test/unit/helper.spec.js`
 - Para eliminar todas las líneas vacías (`:g/^$/d`): `:edit +g/^$/d test/unit/helper.spec.js`
 
-# Searching Files with `:find`
-You can find files with `:find`. For example:
+# Buscando archivos con `:find`
+Puedes buscar archivos con el comandos `:find`. Por ejemplo:
 
 ```
 :find package.json
 :find app/controllers/users_controller.rb
 ```
 
-Autocomplete also works with `:find`:
+El autocompletado del nombre también funciona con el comando `:find`:
 
 ```
-:find p<tab>                to find package.json
-:find a<tab>c<tab>u<tab>    to find app/controllers/users_controller.rb
+:find p<tab>                Para encontrar el archivo package.json
+:find a<tab>c<tab>u<tab>    Para encontrar la ruta del archivo app/controllers/users_controller.rb
 ```
 
-You may notice that `:find` syntax and behavior look like `:edit`'s. The difference is that `:find` finds file in `path`, `:edit` doesn't.
+Quizás has notado que la sintáxis y el comportamiento del comando `:find` es similar al comando `:edit`. La diferencia es que `:find` encuentra un archivo en la ruta o `path`, mientras que `:edit` no lo hace.
 
-Let's learn a little bit about this `path`. Once you learn how to modify your paths, `:find` can become a powerful searching tool. To check what your paths are, do:
+Aprendamos un poco más sobre esta ruta o `path`. Una vez que aprendas cómo modificar tus rutas, `:find` puede convertirse en una herramienta de búsqueda muy potente. Para comprobar cuales son tus rutas, ejecuta:
 ```
 :set path?
 ```
 
-By default, yours probably look like this:
+De manera predeterminada, quizás el resultado de ese comando sea algo parecido a esto:
 
 ```
 path=.,/usr/include,,
 ```
 
-Here are what they mean:
-- `.` means to search relative to the directory of the current file
-- `,` means to search in the current directory
-- `/usr/include` is a [directory](https://askubuntu.com/questions/191611/what-is-the-use-of-usr-include-directory).
+Esto es lo que significa:
+- `.` significa buscar en relación al directorio del archivo actual
+- `,` significa buscar en el directorio actual
+- `/usr/include` es un [directorio](https://askubuntu.com/questions/191611/what-is-the-use-of-usr-include-directory).
 
-The take-home here is that you can modify your own paths. Let's assume this is your project structure:
+La conclusión aquí es que puedes modificar tus propios caminos. Supongamos que esta es la estructura de tu proyecto:
 ```
 ▾ app/
   ▸ assets/
@@ -85,26 +85,26 @@ The take-home here is that you can modify your own paths. Let's assume this is y
   ...
 ```
 
-If you want to go to `users_controller.rb` from root directory, you have to go through several directories (and pressing a considerable amount of tabs). Sometimes you only care about `controllers/` directory, so you want to search immediately inside that directory without going through `app/` and `controllers/` each time you find a file. `path` can shorten that journey.
+Si quieres ir al archivo `users_controller.rb` desde el directorio raíz, debes pasar por varios directorios (y pulsar un considerable número de veces la tecla tabulador). A veces solo te interesa el directorio `controllers/`, por lo que quieres buscar inmediatamente dentro de ese directorio sin necesidad de pasar antes por `app/` y `controllers/` cada vez que busque un archivo. `path` puede acortar ese viaje entre directorios.
 
-You can add the `controllers/` directory to `path` with:
+Puedes añadir el directorio `controllers/` a `path` mediante:
 
 ```
 :set path+=app/controllers/
 ```
 
-Now that your path is updated, when you type `:find u<tab>`, Vim will also search for `app/controllers/` directory for files starting with "u".
+Ahora que tu ruta ha sido actualizada, cuando escribas `:find u<tab>`, Vim también buscará coincidencias dentro del directorio `app/controllers/` de archivos que empiezen con "u".
 
-If you have a nested `controllers/` directory, like `app/controllers/account/users_controller.rb`, Vim won't find `users_controllers`. You need to instead add  `:set path+=app/controllers/**`  so autocomplete will find `users_controller.rb`.
+Si tienes un directorio `controllers/` anidado, como `app/controllers/account/users_controller.rb`, Vim no encontrará `users_controllers`. En su lugar es necesario añadir `:set path+=app/controllers/**`  así el autocompletado podrá buscar `users_controller.rb`.
 
-You might be thinking to add the entire project directories so when you press `tab`, Vim will search everywhere for that file, like this:
+Podrás estar pensando en añadir los directorios del proyecto entero así cuando pulses `tab`, Vim buscará en cualquier lugar el archivo deseado, de esta manera:
 ```
 :set path+=$PWD/**
 ```
 
-`$PWD` is the current working directory. If you try to add your entire project to `path` so all files are reachable upon a `tab` press, although this may work for a small project, doing this may slow down your search significantly if you have many files in your project. I recommend adding only the `path` of your most visited files / directories.
+`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscado al presionar el tabulador `tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios de los archivos más visitados.
 
-Updating `path` takes only a few seconds and doing this will save you a lot of time. 
+Actualizar `path` solo te llevará unos segundos y haciendo esto te ahorrarás un montón de tiempo.
 
 # Searching in Files with `:grep`
 
