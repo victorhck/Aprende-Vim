@@ -106,11 +106,11 @@ Podrás estar pensando en añadir los directorios del proyecto entero así cuand
 
 Actualizar `path` solo te llevará unos segundos y haciendo esto te ahorrarás un montón de tiempo.
 
-# Searching in Files with `:grep`
+# Buscando en archivos con `:grep`
 
-If you need to find in files, you can use grep. Vim has two ways of doing that:
-- Internal grep (`:vim`. Yes, it is spelled `:vim`. It is short for `:vimgrep`).
-- External grep (`:grep`).
+Si necesitas encontrar un archivo, puedes usar grep. Vim tiene dos maneras de hacer esto:
+- grep interno  (`:vim`. Sí, se deletrea `:vim`. Es el diminutivo para `:vimgrep`).
+- grep externo (`:grep`).
 
 Let's go through internal grep first. `:vim` has the following syntax:
 
