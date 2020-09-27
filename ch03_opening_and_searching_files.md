@@ -109,38 +109,38 @@ Actualizar `path` solo te llevará unos segundos y haciendo esto te ahorrarás u
 # Buscando en archivos con `:grep`
 
 Si necesitas encontrar un archivo, puedes usar grep. Vim tiene dos maneras de hacer esto:
-- grep interno  (`:vim`. Sí, se deletrea `:vim`. Es el diminutivo para `:vimgrep`).
+- grep interno  (`:vim`. Sí, se escribe `:vim`. Es el diminutivo para `:vimgrep`).
 - grep externo (`:grep`).
 
 Revisemos el grep interno primero. `:vim` tiene la siguiente sintaxis:
 
 ```
-:vim /pattern/ file
+:vim /patrón/ archivo
 ```
 
-- `/pattern/` es el patrón de la expresión regular (regex) del termino buscado.
-- `file` es el argumento que requiere el nombre archivo. De la misma forma que `:find`, puedes darle los caracteres `*` y `**`.
+- `/patrón/` es el patrón de la expresión regular (regex) del termino buscado.
+- `file` es el argumento del nombre(s) de el(los) archivo(s). De la misma forma que `:find`, también puedes pasarle los comodines `*` y `**`.
 
-Por ejemplo, para encontrar todas las apariciones de  la cadena "foo" dentro de cualquier archivo ruby (`.rb`) dentro del folder `app/controllers/`:
+Por ejemplo, para encontrar todas las coincidencia de la cadena "foo" dentro de cualquier archivo ruby (`.rb`) dentro de la carpeta `app/controllers/`:
 
 ```
 :vim /foo/ app/controllers/**/*.rb
 ```
 
-Después de correr este comando, serás redirigido al primer resultado. El comando de búsqueda de Vim `vim` usa la operación `quickfix`. Para ver todos los resultados de la búsqueda, corremos `:copen`. Esto abre una ventana `quickfix`. Aquí dejamos algunos comandos de quickfix útiles para empezar a trabajar:
+Después de ejecutar este comando, serás redirigido al primer resultado. El comando de búsqueda de Vim `vim` usa la operación `quickfix`. Para ver todos los resultados de la búsqueda, ejecutamos `:copen`. Esto abre una ventana `quickfix`. Aquí dejamos algunos comandos de *quickfix* útiles para empezar a trabajar:
 
 ```
-:copen        Abrir la ventana quickfix.
-:cclose       Cerrar la ventana quickfix.
-:cnext        Ir al siguiente error.
-:cprevious    Ir al error anterior.
-:colder       Ir a la lista de errores mas antigua.
-:cnewer       Ir a la lista de errores mas nueva.
+:copen        Abrir la ventana quickfix
+:cclose       Cerrar la ventana quickfix
+:cnext        Ir al siguiente error
+:cprevious    Ir al error anterior
+:colder       Ir a la lista de errores mas antigua
+:cnewer       Ir a la lista de errores mas nueva
 ```
 
-No voy a profundizar mas en quickfix aquí. Para aprender mas sobre quickfix, revisa `:h quickfix`.
+No voy a profundizar mas en *quickfix* aquí. Para aprender mas sobre *quickfix*, revisa `:h quickfix`.
 
-Podrás notar que el correr el grep interno (`:vim`) podría ralentizarse si tienes una gran cantidad de coincidencias. Esto es provocado porque las lee desde la memoria. Vim carga cada archivo con coincidencias como si estuvieran siendo editados.
+Es posible que observes que ejecutar el grep interno (`:vim`) podría ralentizarse si tienes una gran cantidad de coincidencias. Esto es provocado porque las lee desde la memoria. Vim carga cada archivo con coincidencias como si estuvieran siendo editados.
 
 Ahora hablemos del grep externo. Por defecto, usa el comando `grep` de la terminal de comandos. Para buscar el termino "foo" dentro de un archivo de archivo ruby dentro del directorio `app/controllers/`, podemos hacer lo siguiente:
 
@@ -150,18 +150,18 @@ Ahora hablemos del grep externo. Por defecto, usa el comando `grep` de la termin
 
 De la misma forma que `:vim`, `:grep` acepta `*` y `**`. También muestra todos las coincidencias usando `quickfix`.
 
-Vim usa la variable `grepprg` para determinar cual programa externo ejecutar cuando usamos `:grep` así no tienes que usar el comando `grep` de la terminal. Posteriormente en este articulo, les mostraremos como cambiar el comando externo default.
+Vim usa la variable `grepprg` para determinar qué programa externo ejecutar cuando usamos `:grep` así no tienes que usar el comando `grep` de la terminal. Posteriormente en este articulo, vermos como cambiar el comando externo predeterminado.
 
 # Navegando los archivos con `netrw`
 
-`netrw` el explorador de archivos default de Vim. Es útil para ver la jerarquía estructural de un proyecto. Para poder usar `netrw`,necesitas estas 2 configuraciones en tu `.vimrc`:
+`netrw` el explorador de archivos predeterminado de Vim. Es útil para ver la estructura jerárquica de un proyecto. Para poder usar `netrw`, necesitas estas 2 configuraciones en tu `.vimrc`:
 
 ```
 set nocp
 filetype plugin on
 ```
 
-Voy a abarcar el uso básico de `netrw`, debería ser suficiente para introducirte. Puedes iniciar `netrw` cuando inicias Vim y darle un directorio como argumento en lugar de un archivo. Por ejemplo:
+Solo veremos el uso básico de `netrw`, debería ser suficiente para empezar. Puedes iniciar `netrw` cuando inicias Vim y darle un directorio como argumento en lugar de un archivo. Por ejemplo:
 
 ```
 vim .
@@ -180,12 +180,12 @@ Para iniciar `netrw` dentro de Vim, podemos usar `:edit` y darle un directorio c
 Existen otras formas de abrir una ventana de `netrw` sin darle de argumento un directorio:
 
 ```
-:Explore     Inicia netrw en el archivo actual.
-:Sexplore    No es broma. Inicia netrw en una pantalla dividida en la mitad superior.
-:Vexplore    Inicia netrw en una pantalla dividida en la mitad izquierda.
+:Explore     Inicia netrw en el archivo actual
+:Sexplore    No es broma. Inicia netrw en una pantalla dividida en la mitad superior
+:Vexplore    Inicia netrw en una pantalla dividida en la mitad izquierda
 ```
 
-Podemos navegar `netrw` con los movimientos de Vim (motions)(Abarcaremos este tema en el capitulo 5). Si necesitas crear, eliminar, y renombrar un archivo/directorio, aquí esta una lista de comandos `netrw` muy útiles.:
+Podemos navegar `netrw` con los movimientos de Vim (veremos más sobre este tema en el capítulo 5). Si necesitas crear, eliminar, y renombrar un archivo/directorio, aquí tienes una lista de comandos `netrw` muy útiles:
 
 ```
 %    Crear un nuevo archivo
@@ -196,17 +196,17 @@ D    Eliminar un archivo o directorio
 
 `:h netrw` es muy completo. Pruébalo si tienes tiempo.
 
-Si piensas que `netrw` es muy simple y necesitas más, [vim-vinegar](https://github.com/tpope/vim-vinegar) es un buen plugin para mejorar `netrw`. Si lo que buscas es un buscador de archivos diferente, [NERDTree](https://github.com/preservim/nerdtree) es una buena alternativa. Pruébalo!
+Si piensas que `netrw` es muy simple y necesitas más, [vim-vinegar](https://github.com/tpope/vim-vinegar) es un buen complemento para mejorar `netrw`. Si lo que buscas es un buscador de archivos diferente, [NERDTree](https://github.com/preservim/nerdtree) es una buena alternativa. ¡Pruébalos!
 
 # FZF
 
-Ahora que aprendimos a abrir y a buscar archivos en Vim con las herramientas incluidas, es hora de usar plugins para mejorar nuestra búsqueda.
+Ahora que aprendimos a abrir y a buscar archivos en Vim con las herramientas incluidas, es hora de usar complementos para mejorar nuestra búsqueda.
 
-Un acierto de los editores de texto modernos que Vim no posee es la facilidad de encontrar archivos y encontrar en los archivos. En esta segunda mitad del capitulo, te mostrare como usar [FZF.vim](https://github.com/junegunn/fzf.vim) para volver tus búsquedas en Vim mas fáciles y poderosas.
+Un acierto de los editores de texto modernos que Vim no posee es la facilidad de encontrar archivos y encontrar en los archivos. En esta segunda mitad del capítulo, te mostraré como usar [FZF.vim](https://github.com/junegunn/fzf.vim) para volver tus búsquedas en Vim mas fáciles y poderosas.
 
 # Configuración
 
-Pero primero, verifiquemos que tenemos [FZF](https://github.com/junegunn/fzf) y [ripgrep](https://github.com/BurntSushi/ripgrep) descargados. Para esto seguiremos las instrucciones incluidas en los respectivos repositorios de github. Los comandos `fzf` y `rg` deberían empezar a estar disponibles luego de que las instalaciones fueran exitosas.
+Pero primero, verifiquemos que tenemos [FZF](https://github.com/junegunn/fzf) y [ripgrep](https://github.com/BurntSushi/ripgrep) descargados. Para esto seguiremos las instrucciones incluidas en los respectivos repositorios de github. Los comandos `fzf` y `rg` deberían empezar a estar disponibles después de que las instalaciones de ambas herramientas fueran exitosas.
 
 Ripgrep es una herramienta de búsqueda muy parecida a grep (de ahí el nombre). Generalmente es más rápida que grep y posee muchas características interesantes. FZF es un buscador disperso (fuzzy finder) de propósito general para la  línea de comandos. Puedes usarlo con cualquier comando incluyendo ripgrep. Juntos, hacen una poderosa herramienta de búsqueda.
 
@@ -219,17 +219,17 @@ fi
 ```
 
 
-Debemos poner especial atención a `-m` en `FZF_DEFAULT_OPTS`. Esta opción nos permite hacer selecciones múltiples con `tab` o `shift-tab`. No es necesario tener esta línea para que FZF funcione con Vim, pero creo que es una opción muy útil que considerar. Puede volverse muy util cuando quieres realizar búsquedas y reemplazar en múltiples archivos, abarcaremos ese tema en un momento. `FZF` acepta más opciones, para aprender más, revisa [fzf's repo](https://github.com/junegunn/fzf#usage) o `man fzf`. Bastara con que tengas `export FZF_DEFAULT_COMMAND='rg'`.
+Debemos poner especial atención a `-m` en `FZF_DEFAULT_OPTS`. Esta opción nos permite hacer selecciones múltiples con `tab` o `shift-tab`. No es necesario tener esta línea para que FZF funcione con Vim, pero creo que es una opción muy útil que considerar. Puede volverse muy util cuando quieres realizar búsquedas y reemplazar en múltiples archivos, abarcaremos ese tema en un momento. `FZF` acepta más opciones, para aprender más, revisa [el repositorio de fzf](https://github.com/junegunn/fzf#usage) o `man fzf`. Bastará con que tengas `export FZF_DEFAULT_COMMAND='rg'`.
 
-Despues de instalar FZF y ripgrep, vamos a configurar el plugin FZF. Estoy usando [vim-plug](https://github.com/junegunn/vim-plug) como manejador de plugins en este ejemplo, pero puedes usar el de tu preferencia.
+Después de instalar FZF y ripgrep, vamos a configurar el complemento FZF. Estoy usando [vim-plug](https://github.com/junegunn/vim-plug) como manejador de complementos en este ejemplo, pero puedes usar el que prefieras.
 
-Tenemos que agregar lo siguiente en `.vimrc` en la sección de plugins. Necesitas usar el  plugin [FZF.vim](https://github.com/junegunn/fzf.vim) (creado por el mismo autor de FZF).
+Tenemos que agregar lo siguiente en `.vimrc` en la sección de complementos. Necesitas usar el complemento [FZF.vim](https://github.com/junegunn/fzf.vim) (creado por el mismo autor de FZF).
 ```
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 ```
 
-Para más informacion sobre este plugin, puedes revisar [FZF.vim repo](https://github.com/junegunn/fzf/blob/master/README-VIM.md).
+Para más información sobre este complemento, puedes revisar [FZF.vim repo](https://github.com/junegunn/fzf/blob/master/README-VIM.md).
 
 # FZF Syntax
 
