@@ -2,7 +2,7 @@
 
 El objetivo de este capítulo es adentrarte en el modo de abrir y buscar archivos en Vim. Ser capaz de buscar rápidamente es una gran manera de aumentar tu productividad en Vim. Una de las razones por las que tardé en empezar a usar Vim era que no sabía cómo encontrar cosas rápidamente, como se hace en los editores de texto más populares.
 
-Este capítulo está dividido en dos partes. En la primera parte, te enseñaré cómo abrir y buscar archivos sin necesidad de complementos extras. En la segunda parte, te enseñaré cómo abrir y buscar archivos con el complemento [FZF.vim](https://github.com/junegunn/fzf.vim). Sientete libre para saltar a la sección que necesites aprender. Sin embargo, te recomiendo encarecidamente que des un repaso a todo el capítulo ya que siempre se aprende algo (o se recuerda algo olvidado). Dicho esto, ¡empezemos!
+Este capítulo está dividido en dos partes. En la primera parte, te enseñaré cómo abrir y buscar archivos sin necesidad de complementos extras. En la segunda parte, te enseñaré cómo abrir y buscar archivos con el complemento [FZF.vim](https://github.com/junegunn/fzf.vim). Siéntete libre para saltar a la sección que necesites aprender. Sin embargo, te recomiendo encarecidamente que des un repaso a todo el capítulo ya que siempre se aprende algo (o se recuerda algo olvidado). Dicho esto, ¡empecemos!
 
 # Abrir y editar archivos con `:edit`
 `:edit` es la manera más simple de abrir un archivo en Vim.
@@ -56,7 +56,7 @@ El autocompletado del nombre también funciona con el comando `:find`:
 :find a<tab>c<tab>u<tab>    Para encontrar la ruta del archivo app/controllers/users_controller.rb
 ```
 
-Quizás has notado que la sintáxis y el comportamiento del comando `:find` es similar al comando `:edit`. La diferencia es que `:find` encuentra un archivo en la ruta o `path`, mientras que `:edit` no lo hace.
+Quizás has notado que la sintaxis y el comportamiento del comando `:find` es similar al comando `:edit`. La diferencia es que `:find` encuentra un archivo en la ruta o `path`, mientras que `:edit` no lo hace.
 
 Aprendamos un poco más sobre esta ruta o `path`. Una vez que aprendas cómo modificar tus rutas, `:find` puede convertirse en una herramienta de búsqueda muy potente. Para comprobar cuales son tus rutas, ejecuta:
 ```
@@ -210,7 +210,7 @@ Pero primero, verifiquemos que tenemos [FZF](https://github.com/junegunn/fzf) y 
 
 Ripgrep es una herramienta de búsqueda muy parecida a grep (de ahí el nombre). Generalmente es más rápida que grep y posee muchas características interesantes. FZF es un buscador disperso (fuzzy finder) de propósito general para la  línea de comandos. Puedes usarlo con cualquier comando incluyendo ripgrep. Juntos, hacen una poderosa herramienta de búsqueda.
 
-FZF no usa ripgrep por defecto, asi que necesitamos decirle a FZF que use ripgrep con la variable `FZF_DEFAULT_COMMAND`. En mi `.zshrc` (`.bashrc` si usas bash), deberiamos tener esto:
+FZF no usa ripgrep por defecto, así que necesitamos decirle a FZF que use ripgrep con la variable `FZF_DEFAULT_COMMAND`. En mi `.zshrc` (`.bashrc` si usas bash), deberíamos tener esto:
 ```
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
