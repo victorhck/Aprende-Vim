@@ -231,52 +231,52 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 Para más información sobre este complemento, puedes revisar [FZF.vim repo](https://github.com/junegunn/fzf/blob/master/README-VIM.md).
 
-# FZF Syntax
+# La isntanxis de FZF 
 
-To be able to use FZF efficiently, you should learn some basic FZF syntax. Fortunately, the list is short:
+Para ser capaz de utilizar FZF de manera eficiente, deberías aprender la sintaxis básica de FZF. Afortunadamente, la lista es corta:
 
-- `^` is a prefix exact match. To search for a phrase starting with "welcome": `^welcome`.
-- `$` is a suffix exact match. To search for a phrase ending with "my friends": `friends$`.
-- `'` is an exact match. To search for the phrase "welcome my friends": `'welcome my friends`.
-- `|` is an "or" match. To search for either "friends" or "foes": `friends | foes`.
-- `!` is an inverse match. To search for phrase containing "welcome" and not "friends": `welcome !friends`
+- `^` es una coincidencia exacta de prefijo. Para buscar una frase que comience con "bienvenidos": `^bienvenidos`.
+- `$` es una coincidencia exacta de sufijo. Para buscar una frase que finalice con "amigos": `amigos$`.
+- `'` es una coincidencia exacta. Para buscar la frase "bienvenidos mis amigos": `'bienvenidos mis amigos`.
+- `|` es una coincidencia "o". Para buscar tanto "amigos" como "enemigos": `amigos | enemigos`.
+- `!` es una coincidencia inversa. Para buscar una frase que contenga "bienvenidos" y no "amigos": `bienvenidos !amigos`.
 
-You can mix and match these options. For example, `^hello | ^welcome friends$` will search for the phrase starting with either "welcome" or "hello" and ending with "friends".
+Puedes mezclar y combinar estas opciones. Por ejemplo, `^hola | ^bienvenidos amigos$` buscará la frase que comience tanto con "hola" como "bienvenidos" y que acabe con "amigos".
 
-# Finding Files
+# Encontrar archivos
 
-To search for files inside Vim using FZF.vim plugin, you can use the `:Files` method. Run `:Files` from Vim and you will be prompted with FZF search prompt.
+Para encontrar archivos dentro de Vim utilizando el complemento FZF.vim, puedes utilizar el método `:Files`. Ejecuta `:Files` desde Vim y se le mostrará el símbolo del sistema de la búsqueda con FZF.
 
 <p align="center">
-  <img alt="Finding files in FZF" width="900" height="auto" src="./img/fzf-files.gif">
+  <img alt="Encontrando archivos en FZF" width="900" height="auto" src="./img/fzf-files.gif">
 </p>
 
 
-Since you will be using this command frequently, it is good to have this mapped. I map mine with `Ctrl-f`. In my `.vimrc`, I have this:
+Ya que utilizarás frecuentemente este comando, es una buena idea asignarle un mapeado del teclado. He mapeado el mío con `Ctrl-f`. En mi archivo `.vimrc`, he añadido lo siguiente:
 
 ```
 nnoremap <silent> <C-f> :Files<CR>
 ```
 
-# Finding in Files
-To search inside files, you can use the `:Rg` command.
+# Encontrar en archivos
+Para buscar dentro de archivos, puedes utilizar el comando `:Rg`.
 
 <p align="center">
-  <img alt="FInding in Files in FZF" width="900" height="auto" src="./img/fzf-in-files.gif">
+  <img alt="Encontrar en archivos con FZF" width="900" height="auto" src="./img/fzf-in-files.gif">
 </p>
 
 
-Again, since you will probably use this frequently, let's map it. I map mine with `<Leader>f`.
+De nuevo, como es probable que utilices esto de manera frecuente, vamos a incluirlo en el mapeado. He creado un atajo de teclado con `<Leader>f`.
 
 ```
 nnoremap <silent> <Leader>f :Rg<CR>
 ```
 
-# Other Searches
+# Otras búsquedas
 
-FZF.vim provides many other search commands. I won't go through each one of them here, but you can check them out [here](https://github.com/junegunn/fzf.vim#commands).
+FZF.vim ofrece muchos otros comandos de búsquedas. No repasaré todos de manera exahustiva, pero puedes revisarlos [aquí](https://github.com/junegunn/fzf.vim#commands).
 
-Here's what my FZF mappings look like. Feel free to borrow from mine to create your own powerful set of mappings!
+Este es el aspecto del mapeado de mis comandos FZF. ¡Sientete libre de tomarlos prestados para crear tus propios mapeados!
 ```
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <C-f> :Files<CR>
@@ -290,11 +290,11 @@ nnoremap <silent> <Leader>h: :History:<CR>
 nnoremap <silent> <Leader>h/ :History/<CR>
 ```
 
-# Replacing `grep` with `rg`
+# Reemplazar `grep` con `rg`
 
-As I mentioned earlier, Vim has two ways to search in files: `:vim` and `:grep`. `:grep` uses external search tool that you can reassign using `grepprg` keyword. I will show you how to configure Vim to use ripgrep instead of terminal grep when running the `:grep` command.
+Como he mencionado previamente, Vim tiene dos maneras de buscar en archivos: `:vim` y `:grep`. `:grep` utiliza la herramienta externa de búsqueda que puedes reasignar utilizando la palabra clave `grepprg`. Te mostraré cómo configurar Vim para utilizar ripgrep en vez del grep de la terminal al ejecutar el comando `:grep`.
 
-Now let's setup `grepprg` so `:grep` uses ripgrep. Add this in your `vimrc`.
+Ahora configuraremos `grepprg` así `:grep` utilizará. Añade esto en tu archivo de configuración `vimrc`.
 ```
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 ```
