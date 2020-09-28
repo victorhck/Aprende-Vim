@@ -298,45 +298,45 @@ Ahora configuraremos `grepprg` así `:grep` utilizará. Añade esto en tu archiv
 ```
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 ```
-Feel free to modify some of the options above! For more information what the options above mean, check out `man rg`.
+¡No dudes en modificar cualquiera de las opciones anteriores! Para más información de lo que significan las opciones anteriores, echa un vistazo a `man rg`.
 
-After you update `grepprg`, now when you run `:grep`, it will actually run `rg --vimgrep --smart-case --follow` instead of running `grep`.  If you want to search for "foo" using ripgrep, you can now run a more succinct command `:grep "foo"` instead of `:grep "foo" . -R` (in addition,  ripgrep searches faster than grep).
+Después de Actualizar `grepprg`, ahora cuando ejecutes `:grep`, esto ahora ejecutará `rg --vimgrep --smart-case --follow` en vez de ejecutar `grep`.  Si quieres realizar una búsqueda de "foo" utilizando ripgrep, ahora puedes ejecutar el comando mencionado `:grep "foo"` en vez de `:grep "foo" . -R` (además, ripgrep hace búsquedas más rápidas que grep).
 
-Just like the old `:grep`, this new `:grep` still uses quickfix to display results.
+Como ocurre con el antiguo `:grep`, este nuevo `:grep` también utiliza *quickfix* para mostrar los resultados.
 
-You might wonder, "Well, this is nice but I never used `:grep` in Vim, plus can't I just use `:Rg` to find phrases in files? When will I ever need to use `:grep`?
+Podrías preguntarte, "Bien, esto está bien, pero nunca he utilizado `:grep` en Vim, además ¿no puedo simplemente utilizar `:Rg` para encontrar frases en archivos? ¿Cuanto tendré que necesitar utilizar`:grep`?
 
-That is a very good question. You may need to use `:grep` in Vim to do search and replace in multiple files, which I will cover next.
+Esta es una buena pregunta. Quizás necesites utilizar `:grep` en Vim para buscar y reemplazar en múltiples archivos, que será lo que veremos a continuación.
 
-# Search and Replace in Multiple Files
+# Buscar y reemplazar en múltiples archivos
 
-Modern text editors like VSCode make it very easy to search and replace a string across multiple files. In my early Vim days, when I had to search and replace a string in multiple files, I would use [Atom](https://atom.io/) because I couldn't do it easily in Vim. In this section, I will show you two different methods to easily do that in Vim.
+Los editores de texto modernos como VSCode hacen muy sencillo el buscar y reemplazar una cadena de texto en múltiples archivos a la vez. En mis primeros días utilizando Vim, cuando tenía que buscr y reemplazar una cadena en múltiples archivos, utilizaba [Atom](https://atom.io/) porque no podía hacerlo fácilmente en Vim. En esta sección, te mostraré dos métodos diferentes para hacer eso en Vim.
 
-The first method is to replace *all* matching phrases in your project. You will need to use `:grep`. If you want to replace all instances of "pizza" with "donut", here's what you do:
+El primer método es reemplazar *todas* las frases coincidentes en tu proyecto. Necesitarás utilizar `:grep`. Si necesitas reemplazar todos las coincidencias de la palabra "pizza" y sustituirla por "donut", esto es lo que tienes que hacer:
 
 ```
 :grep "pizza"
 :cfdo %s/pizza/donut/g | update
 ```
 
-That's it? Yup! Let me break down the steps:
+¿Eso es todo? ¡Sep! Vamos a diseccionar los pasos que hacen estos comandos:
 
-1. `:grep pizza` uses ripgrep to succinctly search for all instances of "pizza" (by the way, this would still work even if you didn't reassign `grepprg` to use ripgrep. You would have to do `:grep "pizza" . -R` instead of `:grep "pizza"`). I prefer ripgrep for this task because of its concise syntax.
-2. `:cfdo` executes any command you pass to all files in your quickfix list. In this case, your command is the substitution command `%s/pizza/donut/g`. The pipe (`|`) is a chain operator. You need to run `update` to save each file after you substitute it. I will cover substitute command in depth in later chapter.
+1. `:grep pizza` utiliza ripgrep para realizar una búsqueda de todas las instancias donde aparezca la palabra "pizza" (por cierto, esto también funcionaría incluso si no has reasignado `grepprg` para utilizar ripgrep. Deberías ejecutar `:grep "pizza" . -R` en vez de `:grep "pizza"`). Prefiero utilizar ripgrep para esta tarea debido a su sintaxis más concisa.
+2. `:cfdo` ejecuta cualquier comando que le asignes a continuación en la lista de *quickfix*. En este caso, tu comando es un comando de sustitución `%s/pizza/donut/g`. La tubería (`|`) es un operador de cadena. Necesitarás ejecutar `update` para guardar cada archivo después de ser sustituido. Veremos el comando de sustitución en profundidad en un capítulo posterior.
 
-The second method is to search and replace in select files. With this method, you can manually choose which files you want to perform select and replace on. Here is what you do:
+El segundo método es buscar y reemplazar en el archivo seleccionado. Con este método, puedes escoger de manera manual qué archivos seleccionar y realizar la sustitución. Esto es lo que tienes que hacer:
 
-1. Clear your buffers first. It is imperative that your buffer list contains only the files you need. You can clear it with `%bd | e# | bd#` (or restart Vim).
-2. Run `:Files`.
-3. Select all files you want to perform search and replace on. To select multiple files, use `tab` / `shift+tab`. This is only possible if you have `-m` option in `FZF_DEFAULT_OPTS` (refer to earlier FZF setup section for the `-m` option).
-4. Run `:bufdo %s/pizza/donut/g | update`. The command `:bufdo %s/pizza/donut/g | update` looks similar to the earlier `:cfdo %s/pizza/donut/g | update` command. That's because they are. The difference is instead of substituting all quickfix entries (`:cfdo`), you are substituting all buffer entries (`:bufdo`).
+1. Limpiar tus *buffers*. Es imprescindible que tu lista de *buffers* contenga solo los archivos que necesitas. Puedes realizar esa limpieza mediante `%bd | e# | bd#` (o reiniciar Vim).
+2. Ejecuta `:Files`.
+3. Selecciona todos los archivos que deseas que se busque y se reemplace la cadena de texto. Para seleccionar múltiples archivos, utiliza `tab` / `shift+tab`. Esto solo es posible si tienes la opción `-m` en `FZF_DEFAULT_OPTS` (consulta la sección anterior de ajustes de FZF para saber qué hace la opción `-m`).
+4. Ejecuta `:bufdo %s/pizza/donut/g | update`. El comando `:bufdo %s/pizza/donut/g | update` tiene un aspecto similar al anterior comando `:cfdo %s/pizza/donut/g | update`. Esto es debido a que son similares. La diferencia es que en vez de realizar la sustitución en toda la lista de archivos de *quickfix* (`:cfdo`), estás realizando la sustitución en todos los *buffers* abiertos en Vim (`:bufdo`).
 
-# Learn Search the Smart Way
+# Aprende a buscar de la manera más inteligente
 
-Searching is the bread-and-butter of text editing. Learning how to search well in Vim will help your text editing workflow.
+La acción de buscar dentro de la edición de texto es una tarea imprescindible. Aprender cómo buscar de manera correcta en Vim te ayudará a mejorar tu manera de editar texto.
 
-FZF.vim is a game-changer. I can't imagine using Vim without it.  I think it is very important to have a good search tool when starting Vim. I've seen people struggling to transition to Vim because it is missing critical features modern text editors have, like a powerful and easy search. I was one. I hope this chapter addresses one of the issues and help to make the transition to Vim easier. To improve your searching prowess even more, I suggest to check out [fzf repo](https://github.com/junegunn/fzf).
+FZF.vim es un elemento diferenciador. No puedo imaginar utilizar Vim sin él. Creo que es muy importante tener una buena herramienta de búsqueda al empezar con Vim. He visto a personas abandonar la transición a Vim debido a que es una de las funcionalidades modernas que tienen los editores de texto modernos y de la que Vim carece. Yo fui una de esas personas. Espero que este capítulo resuelva uno de los problemas y ayude a hacer la transición a Vim más sencilla. Para mejorar tu destreza con las búsquedas aún más, te sugiero echas un vistazo al [repositorio de fzf](https://github.com/junegunn/fzf).
 
-You also just saw Vim's extensibility in action - the ability to extend search functionality with a plugin and / or an external program. In the future, keep in mind of what other features you wish to extend in Vim. Chances are, someone has created a plugin or there is a program for it already.
+También has visto en acción las posibilidades expansión de Vim, la posibilidad de poder extender las funcionalidades de búsqueda con un complemento y/o con programas externos. En el futuro, ten en cuenta qué otras funcionalidades desearías extender en Vim. Las opciones son, alguien ha creado un complemento o ya existe un programa para ello.
 
-Next, let's talk about a very important topic in Vim: grammar.
+Lo próximo, hablemos sobre un tema muy importante en Vim: la gramática.
