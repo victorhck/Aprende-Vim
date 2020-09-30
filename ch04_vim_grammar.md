@@ -1,84 +1,86 @@
-# Vim Grammar
+# La gramática de Vim
 
-It is easy to get intimidated by the complexity of many Vim commands. If you see a Vim user doing `gUfV` or `1GdG`, you may not immediately know what these commands do. In this chapter, I will break down the general structure of Vim commands into a simple grammar rule.
+Es sencillo sentirse intimidado por la complejidad de muchos de los comandos de Vim. Si ves a una persona que usa Vim habitualmente ejecutando `gUfV` o `1GdG`, puede que no sepas inmediatamente qué es lo que realizan esos comandos. En este capítulo, voy a romper la estructura general de los comandos de Vim en reglas simples de gramática.
 
-This is the most important chapter in the entire book. Once you understand Vim commands' grammar-like structure, you will be able to "speak" to Vim. By the way, when I say *Vim language* in this chapter, I am not talking about Vimscript (the built-in programming language to customize and to create Vim plugins). Here it means the general pattern of normal mode commands.
+Este es el capítulo más importante de todo el libre. Una vez que entiendas la estructura similar a la gramática de los comandos de Vim, serás capaz de "hablarle" a Vim. Por cierto, cuando me refiero a *lenguaje de Vim* en este capítulo, no estoy refiriéndome a Vimscript (el lenguaje de programación propio para adaptar y crear complementos de Vim). Aquí se refiere al patrón general de los comandos del modo normal de Vim.
 
-# How to learn a language
+# Cómo aprender un lenguaje
 
-I am not a native English speaker. I learned English when I was 13 when I moved to the US. I had to do three things to build up linguistic proficiency:
+El inglés no es mi lengua nativa. Aprendí inglés cuando tenía 13 años. Tuve que hacer tres cosas para aumentar mis habilidades linguísticas:
 
-1. Learn grammar rules
-2. Increase my vocabulary
-3. Practice, practice, practice.
+1. Aprender las reglas gramáticas
+2. Incrementar mi vocabulario
+3. Practicar, practicar y practicar
 
-Likewise, to speak Vim language, you need to learn the grammar rules, increase your vocabulary, and practice until you can run the commands without thinking.
+De igual manera, para hablar el lenguaje de Vim, necesitas aprender las reglas gramáticas, incrementar tu vocabulario y practicar hasta que puedas ejecutar los comandos sin necesidad de pensarlos.
 
-# Grammar Rule
+# Reglas gramáticas
 
-You only need to know one grammar rule to speak Vim language:
-
-```
-verb + noun
-```
-
-That's it! 
-
-This is equivalent to saying these English phrases:
-
-- *"Eat (verb) a donut (noun)"*
-- *"Kick (verb) a ball (noun)"*
-- *"Learn (verb) the Vim editor (noun)"*
-
-Now you need to build up your vocabulary with basic Vim verbs and nouns.
-
-# Vocabulary
-## Nouns (Motions)
-
-Let's talk about motions as nouns. Motions are used to move around in Vim. They are also Vim nouns. Below you'll see some motion examples :
+Solo necesitas saber una regla gramática para hablar el lenguaje de Vim:
 
 ```
-h    Left
-j    Down
-k    Up
-l    Right
-w    Move forward to the beginning of the next word
-}    Jump to the next paragraph
-$    Go to the end of the line
+verbo + sustantivo
 ```
 
-You will learn more about motions in the next chapter, so don't worry too much if you don't understand some of them.
+¡Eso es todo! 
 
-## Verbs (Operators)
+Esto es equivalente a decir en inglés estas frases: (en español aunque se entienden y se construyan de manera similar, quedan un poco forzadas y poco coloquiales, pero son aplicables las mismas reglas):
 
-According to `:h operator`, Vim has 16 operators. However, in my experience, learning these 3 operators is enough for 80% of my editing needs:
+- *"Comer (verbo) un donut (sustantivo)"*
+- *"Patear (verbo) un balón (sustantivo)"*
+- *"Aprender (verbo) el editor Vim (sustantivo)"*
+
+Ahora necesitas construir tu vocabulario con verbos de Vim básicos y sustantivos.
+
+# Vocabulario
+## Sustantivos (Movimientos)
+
+Hablemos de los movimientos como sustantivos. Los movimientos son utilizados para movernos por el texto en Vim. También hay sustantivos de Vim. En la lista a continuación veremos algunos ejemplos de movimientos:
 
 ```
-y    Yank text (copy)
-d    Delete text and save to register
-c    Delete text, save to register, and start insert mode
+h    Izquierda
+j    Abajo
+k    Arriba
+l    Derecha
+w    Mover el cursor hacia adelante al principio de la palabra siguiente
+}    Saltar al siguiente párrafo
+$    Ir al final de la línea
 ```
 
-Now that you know basic nouns and verbs, let's apply our grammar rule! Suppose you have this expression:
+Aprenderás más sobre los movimientos en el capítulo siguiente, así que no te preocupes demasiado si todavía no entiendes algunos de los mencionados.
+
+## Verbos (Operadores)
+
+De acuerdo a lo que podemos leer en la ayuda de Vim mediante el comando `:h operator`, Vim tiene 16 operadores. Sin embargo, en mi experiencia, con aprender estos 3 es suficiente para el 80% de las necesidades a la hora de editar mis textos:
+
+```
+y    Copiar un texto (*yank* en Vim sería la acción de copiar, de ahí la letra `y`)
+d    Eliminar un texto y guardarlo en el registro (*delete* en Vim sería la acción de eliminar, de ahí la letra `d`)
+c    Eliminar un texto, guardarlo en el registro y comenzar en el modo de insertar
+```
+
+Ahora que ya conocer los sustantivos y verbos básicos, ¡Vamos a aplicar nuestras reglas gramáticas! Supongamos que tenemos la siguiente expresión en un texto:
 
 ```
 const learn = "vim"; 
 ```
-- To yank everything from your current location to the end of the line: `y$`.
-- To delete from your current location to the beginning of the next word: `dw`.
-- To change from your current location to the end of the current paragraph, say `c}`.
+Estas serían las acciones que queremos realizar construidas a partir de la gramática de Vim y sus correspondientes comandos:
 
-Motions also accept count number as arguments *(I will discuss this further in the next chapter)*. If you need to go up 3 lines, instead of pressing `k` 3 times, you can do `3k`. Count works with Vim grammar.
+- Para copiar (*yank*) todo desde la ubicación actual del cursor hasta el final de la línea: `y$`.
+- Para eliminar desde la ubicación actual del cursor hasta el principio de la siguiente palabra: `dw`.
+- Para cambiar el texto desde la posición actual del cursor hasta el final de párrfo actual, di: `c}`.
 
-- To yank two characters to the left: `y2h`.
-- To delete the next two words: `d2w`.
+Los movimientos también aceptan números de conteo como argumentos *(Veremos esto más en profundidad en el siguiente capítulo)*. Si necesitas subir tres líneas, en vez de presionar la letra If you need `k` 3 veces, simplemente puedes ejecutar `3k`. Contar funciona a la hora de conjugar la gramática de Vim.
+
+- Para copiar dos caracteres a la izquierda: `y2h`.
+- Para eliminar las siguientes dos palabras: `d2w`.
 - To change the next two lines: `c2j`.
 
-Right now, you may  have to think long and hard to do even a simple command. You're not alone. When I first started, I had similar struggles but I got faster in time. So will you.
+Ahora mismo, quizás tengas que pensar bastante para construir comandos simples. Pero no creas que solo te pasa a ti. No estás solo. Cuando al principio comencé, tuve dificultades similares pero progresé rápidamente en el tiempo. Y también te pasará a ti.
 
-As a side note, linewise operations are common operations in text editing, so Vim allows you to perform linewise operation by typing the operator command twice. For example, `dd`, `yy`, and `cc` perform **deletion**, **yank**, and **change** on the entire line. Try this with other operators!
+Como nota complementaria, las operaciones que afectan a una línea completa son las tareas más comunes a la hora de editar texto, y por eso Vim te permite realizar operaciones que implican a la línea completa tecleando los operadores que ya conocemos dos veces seguidas. Por ejemplo, `dd`, `yy`, y `cc` lo que hace es **eliminar**, **copiar** y **cambiar** el contenido de la línea completa. ¡Intenta esto con otros operadores!
 
-I hope everything starts to make sense. But I am not quite done yet. Vim has one more type of noun: text objects.
+Espero que todo comience a tener sentido poco a poco. Pero todavía no he terminado. Vim tiene otro tipo más de sustantivos: objetos de texto.
 
 ## More Nouns (Text Objects)
 
