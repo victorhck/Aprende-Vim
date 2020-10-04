@@ -89,46 +89,44 @@ El registro de copia tendrá el texto del paso tres.
 
 Un último consejo, mientras estás en el modo insertar, puedes rápidamente pegar el texto que solo copiaste usando `Ctrl-r 0`.
 
-## The Numbered Registers (`"1-9`)
+## Los registros numerados (`"1-9`)
 
-When you change or delete a text that is at least one line long, that text will be stored in the numbered registers 1-9 sorted by the most recent.
+Cuando cambias o borras un texto de al menos una línea de largo, este texto se almacenará en un registro numerado del 1 al 9, ordenados por el más reciente.
 
-For example, if you have these lines:
+Por ejemplo, si tienes estas líneas:
 ```
-line three
-line two
-line one
+linea tres
+linea dos
+linea uno
 ```
+Con tu cursor en la "linea tres" borra una a una las lineas con `dd`. Una vez que las líneas están borradas, el registro 1 debe contener "linea uno" (el texto más reciente), registro 2 la "linea dos" (el segundo texto más reciente) y el registro 3 "linea tres" (el último texto borrado). Para obtener el contenido del registro uno, "linea uno", escribe `"1p`.
 
-With your cursor on "line three", delete them one by one with `dd`. Once all lines are deleted, register 1 should contain "line one" (the most recent text), register two "line two" (the second most recent text), and register three "line three" (the latest deleted text). To get the content from register one, "line one", do `"1p`.
+Los registros numerados son automáticamente incrementados cuando usas el comando punto. Si tu registro numerado uno (`"1`) contiene "linea uno", registro dos (`"2`) "linea dos" y el registro tres (`"3`) "linea tres", puedes pegarlos secuencialmente con este truco:
+- Escribe `"1P` para pegar el contenido del registro del número uno.
+- Escribe `.` para pegar el contenido del registro numerado dos (`"2`).
+- Escribe `.` para pegar el contenido del registro numerado tres (`"3`).
 
+Durante cada comando punto secuencial, Vim automáticamente incrementa el registro numerado. Este truco funciona con cualquier registro numerado. Si empiezas con `"5P`, `.` hará `"6P`, otra vez `.` hará `"7P` y así sucesivamente.
 
-The numbered registers are automatically incremented when using the dot command. If your numbered register one (`"1`) contains "line one", register two (`"2`) "line two", and register three (`"3`) "line three", you can paste them sequentially with this trick:
-- Do `"1P` to paste the content from the numbered register one.
-- Do `.` to paste the content from the numbered register two (`"2`).
-- Do `.` to paste the content from the numbered register three (`"3`).
+Pequeños borrados como un borrado de palabras (`dw`) o un cambio de palabras (`cw`) no se almacenan en registros numerados. Estos se almacenan en un pequeño registro de borrado (`"-`), el cual es el siguiente a tratar.
 
-During each sequential dot command call, Vim automatically increments the numbered registers. This trick works with any numbered register. If you started with `"5P`,  `.`  would do `"6P`, `.` again would do `"7P`, and so on. 
+# El pequeño registro de borrado (`"-`)
 
-Small deletions like a word deletion (`dw`) or word change (`cw`) do not get stored in the numbered registers. They are stored in the small delete register (`"-`), which I will discuss next.
+Cambios o borrados menores a una linea no se almacenan en los registros numerados del 0-9, pero si en el pequeño registro de borrado (`"-`).
 
-# The Small Delete Register (`"-`)
+Por ejemplo:
+1. Borrar una palabra (`diw`)
+2. Borrar una linea (`dd`)
+3. Borrar una linea (`dd`)
 
-Changes or deletions less than one line are not stored in the numbered registers 0-9, but in the small delete register (`"-`).
+`"-p` te da la palabra borrada en el último paso.
 
-For example:
-1. Delete a word (`diw`)
-2. Delete a line (`dd`)
-3. Delete a line (`dd`)
+Otro ejemplo:
+1. Yo borro una palabra (`diw`)
+2. Yo borro una linea (`dd`)
+3. Yo borro una linea (`diw`)
 
-`"-p` gives you the deleted word from step one.
-
-Another example:
-1. I delete a word (`diw`)
-2. I delete a line (`dd`)
-3. I delete a word (`diw`)
-
-`"-p` gives you the deleted word from step three. Likewise, `"1p` gives you the deleted line from step two. Unfortunately, there is no way to retrieve the deleted word from step one because the small delete register only stores one item. However, if you want to preserve the text from step one, you can do it with the named registers.
+`"-p` te da la palabra borrada en el paso tres. Igualmente, `"1p` te da la linea borrada del paso dos. Desafortunadamente, no hay manera de recuperar la palabra borrada del paso uno porque el registro de borrado pequeño solo guarda un ítem. Sin embargo, si deseas preservar el texto del paso uno, puedes hacerlo con los registros nominales.
 
 # The Named Register (`"a-z`)
 
