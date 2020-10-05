@@ -56,9 +56,9 @@ Donde `x` es el símbolo del registro. Ahora que sabes cómo almacenar y recuper
 
 # El registro predeterminado (`""`)
 
-Para obtener texto desde el registro predeterminado, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro predeterminado es como la operación  copiar / pegar estándar de una computadora.
+Para obtener texto desde el registro predeterminado, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro predeterminado es como la operación  copiar/pegar estándar de una computadora.
 
-Por defecto, `p` (or `P`) está conectado al registro predeterminado (desde ahora me referiré al registro predeterminado con `p` en lugar de `""p`).
+De manera predeterminada, `p` (o `P`) está conectado al registro predeterminado (desde ahora me referiré al registro predeterminado con `p` en lugar de `""p`).
 
 # Los registros numerados (`"0-9`)
 
@@ -126,7 +126,7 @@ Otro ejemplo:
 2. Yo borro una linea (`dd`)
 3. Yo borro una linea (`diw`)
 
-`"-p` te da la palabra borrada en el paso tres. Igualmente, `"1p` te da la linea borrada del paso dos. Desafortunadamente, no hay manera de recuperar la palabra borrada del paso uno porque el registro de borrado pequeño solo guarda un ítem. Sin embargo, si deseas preservar el texto del paso uno, puedes hacerlo con los registros nominales.
+`"-p` te da la palabra borrada en el paso tres. Igualmente, `"1p` te da la linea borrada del paso dos. Desafortunadamente, no hay manera de recuperar la palabra borrada del paso uno porque el registro de borrado pequeño solo guarda un elemento. Sin embargo, si deseas preservar el texto del paso uno, puedes hacerlo con los registros nominales.
 
 # The Named Register (`"a-z`)
 
