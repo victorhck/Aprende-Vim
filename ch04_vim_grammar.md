@@ -82,24 +82,24 @@ Como nota complementaria, las operaciones que afectan a una línea completa son 
 
 Espero que todo comience a tener sentido poco a poco. Pero todavía no he terminado. Vim tiene otro tipo más de sustantivos: objetos de texto.
 
-## More Nouns (Text Objects)
+## Más sustantivos (Objetos de texto)
 
-Imagine you are somewhere inside a pair of parentheses like `(hello vim)` and you need to delete the entire phrase inside the parentheses. How can you quickly do it? Is there a way to delete the "group" you are inside of?
+Imagina que estás en algún lugar dentro de un paréntesis, como por ejemplo `(hello vim)` y necesitas eliminar la frase entera dentro del paréntesis. ¿Cómo puedes hacer esto rápidamente? ¿Hay una manera de borrar el "grupo" dentro del que estás?
 
-The answer is yes. Texts often come structured. They are often put inside parentheses, quotes, brackets, braces, and so on. Vim has a way to capture this structure with text objects. 
+La respuesta es sí. Los textos a menudo vienen estructurados. A menudo están puestos dentro de paréntesis, comillas, corchetes, llaves y cosas similares. Vim tiene una manera de capturar esta estructura con los objetos de texto.
 
-Text objects are used with operators. There are two types of text objects:
+Los objetos de texto son usados con operadores. Hay dos tipos de objetos de texto:
 
 ```
-i + object    Inner text object
-a + object    Outer text object
+i + objeto    Dentro del objeto de texto
+a + objeto    Fuera del objeto de texto
 ```
-Inner text object selects the object inside *without* the white space or the surrounding objects. Outer text object selects the object inside *including* the white space or the surrounding objects. Outer text object always selects more text than inner text object. So if your cursor is somewhere inside the parentheses in the expression `(hello vim)`:
+Dentro del objeto del texto selecciona el objeto del interior *sin* los espacios en blanco o los objetos que lo rodean. Fuera del objeto de texto selecciona el onjeto interior *incluyendo* los espacios en blanco y los objetos que lo rodean. La selección de fuera del objeto de texto siempre selecciona más texto que la selección de dentro del objeto de texto. Así que si tu cursor está en algún lugar dentro del paréntesis dentro de la expresión `(hello vim)`:
 
-- To delete the text inside the parentheses without deleting the parentheses: `di(`.
-- To delete the parentheses and the text inside: `da(`.
+- Para eliminar el texto dentro del paréntesis sin borrar el propio paréntesis, ejecuta: `di(`.
+- Para eliminar el paréntesis y el texto interior, ejecuta: `da(`.
 
-Let's look at a different example. Suppose you have this Javascript function and your cursor is on "Hello":
+Echemos un vistazo a un ejemplo diferente. Supongamos que tenemos esta función de Javascript y tu cursor está en la palabra "Hello":
 
 ```
 const hello = function() {
@@ -108,13 +108,13 @@ const hello = function() {
 }
 ```
 
-- To delete the entire "Hello Vim": `di(`.
-- To delete the content of function (surrounded by `{}`): `di{`.
-- To delete the "Hello" string: `diw`. 
+- Para eliminar por completo el texto "Hello Vim": `di(`.
+- Para eliminar el contenido de la función (rodeado por `{}`): `di{`.
+- Para eliminar la palabra "Hello": `diw`. 
 
-Text objects are powerful because you can target different objects from one location. You can delete the objects inside the pair of parentheses, the function block, or the whole word. Moreover, when you see `di(`, `di{`, and `diw`, you get a pretty good idea what text objects they represent (a pair of parentheses, a pair of braces, and a word). 
+Los objetos de texto son muy potentes porque puedes seleccionar diferentes objetos desde una misma ubicación, como hemos visto en el ejemplo anterior. Puedes borrar objetos dentro de un par de paréntesis, el bloque de la función entera o una palabra. Además, cuando ves `di(`, `di{`, o `diw`, te haces una buena idea de qué objetos están representando (un par de paréntesis, un par de llaves y una palabra). 
 
-Let's look at one last example. Suppose you have these HTML tags:
+Echemos un vistazo a un último ejemplo. Supongamos que tenemos estas etiquetas (*tags* en inglés) de código HTML:
 ```
 <div>
   <h1>Header1</h1>
@@ -122,31 +122,31 @@ Let's look at one last example. Suppose you have these HTML tags:
   <p>Paragraph2</p>
 </div>
 ```
-If your cursor is on "Header1" text:
-- To delete "Header1": `dit`.
-- To delete `<h1>Header1</h1>`: `dat`.
+Si tu cursor está sobre el texto "Header1":
+- Para eliminar "Header1": `dit`.
+- Para eliminar `<h1>Header1</h1>`: `dat`.
 
-If your cursor is on "div":
-- To delete `h1` and both `p` lines: `dit`.
-- To delete everything: `dat`.
-- To delete "div": `di<`.
+Si tu cursor está sobre la palabra "div":
+- Para eliminar `h1` y ambas líneas con la etiqueta `p`: `dit`.
+- Para eliminar todo: `dat`.
+- Para eliminar "div": `di<`.
 
-Below is a list of common text objects:
+A continuación tienes una lista de los objetos de texto más comunes:
 
 ```
-w         A word
-p         A paragraph
-s         A sentence
-( or )    A pair of ( )
-{ or }    A pair of { }
-[ or ]    A pair of [ ]
-< or >    A pair of < >
-t         XML tags
-"         A pair of " "
-'         A Pair of ' '
-`         A pair of ` `
+w         Una palabra
+p         Un párrafo
+s         Una frase (*sentence* en inglés)
+( o )     Un par de ( )
+{ o }     Un par de { }
+[ o ]     Un par de [ ]
+< o >     Un par de < >
+t         Etiquetas XML (*tags* en inglés)
+"         Un par de " "
+'         Un par de ' '
+`         Un par de ` `
 ```
-To learn more, check out `:h text-objects`.
+Para aprender más, echa un vistazo a la ayuda de Vim con este comando `:h text-objects`.
 
 # Composability and Grammar
 
