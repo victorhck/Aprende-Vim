@@ -21,11 +21,12 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 - [Ch 12    - Search and Substitute](./ch12_search_and_substitute.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 13    - The Global Command](./ch13_the_global_command.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 14    - External Commands](./ch14_external_commands.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- Ch 15    - Command Line Mode ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- Ch 16    - Tags ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- Ch 17    - Git ......... En progreso [ ]  / Traducido [ ] / Revisado [ ]
-- Ch 18    - Fold ......... En progreso [ ]  / Traducido [ ] / Revisado [ ]
-- Ch 19    - Compile ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 15    - Command-line Mode](./ch15_command-line_mode.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 16    - Tags](./ch16_tags.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 17    - Fold](./ch17_fold.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 18    - Git](./ch18_git.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 19    - Compile](./ch19_compile.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- Ch 20    - Sessions
 
 # Licencia y derechos de autor
 El materia original en iglés es autoría de ©2020 Igor Irianto. La traducción en español, será autoría de los diferentes colaboradores (si los hubiera). Al colaborar en este repositorio estás de acuerdo en compartir tu trabajo con la licencia utilizada para el repositorio completo.
