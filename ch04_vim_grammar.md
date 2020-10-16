@@ -148,20 +148,20 @@ t         Etiquetas XML (*tags* en inglés)
 ```
 Para aprender más, echa un vistazo a la ayuda de Vim con este comando `:h text-objects`.
 
-# Composability and Grammar
+# Cómo componer frases y gramática
 
-After learning Vim grammar, let's discuss composability in Vim and why this is a great feature to have in a text editor.
+Después de aprender la gramática de Vim, vamos a hablar sobre la capacidad de componer frases (N.d.T: En el texto original utiliza una palabra que se podría traducir como "componibilidad" que traduciré como la capacidad o habilidad de componer frases) en Vim y de porqué esta es una gran funcionalidad para tener en un editor de texto.
 
-Composability means having a set of general commands that can be combined (composed) to perform more complex commands. Just like in programming where you can create more complex abstractions from simpler abstractions, in Vim you can execute complex commands from simpler commands. Vim grammar is the manifestation of Vim's composable nature.
+La capacidad o habilidad de contruir frases significa disponer de un conjunto de comandos generales que pueden ser combinados para desarrollar comandos más complicados. De manera similar a como se hace en programación, donde puedes crear abstracciones más complejas de abstracciones simples, en Vim puedes ejecutar comandos complejos utilizando comandos más simples. La gramática de Vim es la manifestación de la naturaleza componible de Vim.
 
-The true power of Vim's composability shines when it integrates with external programs. Vim has a filter operator (`!`) to use external programs as filters for our texts. Suppose you have this messy text below and you want to tabularize it:
+El verdadero poder de la capacidad de componer frases en Vim se manifiesta cuando se integra con programas externos. Vim tiene un operador de filtro (`!`) para utilizar programas externos como filtros para nuestros textos. Supongamos que tenemos este texto un poco desordenado que aparece a continuación y quieres ordenarlo con tabuladores.
 ```
 Id|Name|Cuteness
 01|Puppy|Very
 02|Kitten|Ok
 03|Bunny|Ok
 ```
-This cannot be easily done with Vim commands, but you can get it done quickly with `column` terminal command. With your cursor on "Id", run `!}column -t -s "|"`. Voila! Now you have this pretty tabular data:
+Esto no puede realizarse de manera sencilla utilizando simplemente comandos de Vim, pero puedes realizarlo rápidamente utilizando un comando de terminal como `column`. Con el cursor situado en "Id", ejecuta `!}column -t -s "|"`. ¡Voila! Con esto obtendrás el texto tabulado de la siguiente manera:
 ```
 Id  Name    Cuteness
 01  Puppy   Very
@@ -169,38 +169,38 @@ Id  Name    Cuteness
 03  Bunny   Ok
 ```
 
-Let's break down the command. The verb was `!` (filter operator) and the noun was `}` (go to next paragraph). The filter operator `!` accepted another argument, a terminal command, so I gave it `column -t -s "|"`. I won't go through how `column` worked, but in short, it tabularized the text.
+Diseccionemos el comando que hemos ejecutado. El verbo era `!` (operador de filtro) y el sustantivo era `}` (para ir al siguiente párrafo). El operador de filtro `!` aceptó otro argumento, un comando de terminal, así que le añadí `column -t -s "|"`. No detallaré cómo funciona `column`, pero resumiendo mucho se puede decir que ordena el texto mediante tabulaciones.
 
-Suppose you want to not only tabularize your text, but to display only the rows with "Ok". You know that `awk` can do the job easily. You can do this instead:
+Supongamos que quieres no solo ordenar mediante tabuladores el texto, también mostrar solo las filas que tienen el texto "Ok". Quizás ya sabes que `awk` puede hacer ese trabajo fácilmente. En ese caso ejecutarías:
 ```
 !}column -t -s "|" | awk 'NR > 1 && /Ok/ {print $0}'
 ```
-Result:
+Este sería el resultado:
 ```
 02  Kitten  Ok
 03  Bunny   Ok
 ```
 
-Great! Even piping works from inside Vim. 
+¡Genial! Incluso en Vim funciona el ancadenar comandos mediante "tuberías" con `|`. 
 
-This is the power of Vim's composability. The more you know your operators, motions, and terminal commands, your ability to compose complex actions is *multiplied*.
+Este es el poder de la "componibilidad" de Vim. Cuantos más operadores, movimientos y comandos de terminales conoces tu habilidad para componer acciones más complejas se ve *multiplicada*.
 
-Let me elaborate. Suppose you only know four motions: `w, $, }, G` and the delete (`d`) operator. You can do 8 things: move 4 different ways (`w, $, }, G`) and delete 4 different targets (`dw, d$, d}, dG`). Then one day you learn about the uppercase (`gU`) operator. You have added not just one new ability to your Vim tool belt, but *four*: `gUw, gU$, gU}, gUG`. Now you have 12 tools in your Vim tool belt. Each new knowledge is a multiplier to your current abilities. If you know 10 motions and 5 operators, now you have 60 moves (50 operations + 10 motions) in your arsenal. Moreover, the  line number motion (`nG`) gives you `n` motions, where `n` is how many lines you have in your file (example: to go to line 5, `5G`). The search motion (`/`) practically gives you near unlimited number motion because you can search for anything. External command operator (`!`) gives you as many filtering tools as the number of terminal commands you know. Using a composable tool like Vim, everything you know can be connected together to do more complex operations. The more you know, the more powerful you become.
+Permíteme desarrollar esa idea. Supongamos que solo conocemos cuatro movimientos: `w, $, }, G` y el operador de eliminar (`d`). Puedes realizar 8 cosas: moverte de 4 maneras diferentes (`w, $, }, G`) y eliminar contenido de 4 objetivos diferentes (`dw, d$, d}, dG`). Entonces un día aprendes el operador para convertir en mayúsculas un texto (`gU`). Con esto no solo has añadido una nueva habilidad al citurón de herramientas que utilizas en Vim, si no *cuatro*: `gUw, gU$, gU}, gUG`. Ahora tienes 12 herramientas nuevas en tu cinto de herramientas de Vim. Cada nuevo aprendizaje es un multiplicador de tus habilidades actuales con Vim. Si conoces 10 movimientos y 5 operadores, ahora tienes 60 herramientas en tu arsenal (50 operaciones + 10 movimientos). Además el movimiento a un número de línea (`nG`) te da `n` movimientos, donde `n` indica cuantas líneas tienes en tu archivo (ejemplo: para ir a la línea 5, `5G`). El movimiento de búsqueda (`/`) prácticamente te da un número ilimitado de movimientos debido a que puedes buscar cualquier cosa. El operador de comandos externos (`!`) te ofrece un número de herramientas de filtrado igual al número de comandos de terminal que conozcas. Utilizando la capacidad para componer de Vim, todo lo que conoces puede estar conectado para realizar operaciones más complejas. Cuanto más conoces, más poderoso puedes llegar a ser.
 
-This composable behavior echoes Unix philosophy: *do one thing well*. A motion has one job: go to X. An operator has one job: do Y. By combining an operator with a motion, you get YX: do Y on X.
+Este comportamiento componible proviene de la filosofía Unix: *hacer una cosa, y hacerlo bien*. Un movimiento tiene una tarea: Ir al lugar *X*. Un operador tiene una tarea: hacer *Y*. Combinando un operador con un movimiento, obtienes *XY*: Ve a *X* y haz *Y*.
 
-Even better,  motions and operators are extendable. You can create custom motions and operators to add to your Vim toolbelt. [`vim-textobj-user`](https://github.com/kana/vim-textobj-user) has a [list](https://github.com/kana/vim-textobj-user/wiki) of custom text objects.
+Esto es incluso mejor, los movimientos y operadores son extensibles. Puedes crear tus propios movimiento y operadores personalizados para añadirlos a tu conjunto de herramientas de Vim. [`vim-textobj-user`](https://github.com/kana/vim-textobj-user) tiene una [lista](https://github.com/kana/vim-textobj-user/wiki) de objetos de texto personalizados.
 
-By the way, it's okay if you don't know `column` or `awk` commands I just did. The point is that Vim integrates very well with terminal commands.
+Por cierto, no pasa nada si no conoces los comandos `column` o `awk`. El punto fundamental que debe quedar de esto es que Vim se integra perfectamente con los comandos de terminal que conozcas.
 
-# Learn Grammar the Smart Way
+# Aprendiendo la gramática de la manera más inteligente
 
-You just learned about Vim grammar's only rule:
+Simplemente has aprendido la única regla en la gramática de Vim:
 ```
-verb + noun
+verbo + sustantivo
 ```
-One of my biggest Vim "AHA!" moments was when I had just learned about the uppercase (`gU`) operator and wanted to uppercase a word, I instinctively ran `gUiw` and it worked! The word I was on was uppercased. I finally began to understand Vim. My hope is that you will have your own "AHA!" moment soon, if not already.
+Uno de mis grandes momentos de Vim donde dije *eureka* fue cuando aprendí el operador para convertir en mayúsculas y quise convertir a mayúsculas una palabra, de manera instintiva simplemente ejecuté `gUiw` ¡y funcionó! La palabra en la que estaba situado mi cursor se convirtió a mayúsculas. En ese momento empecé a comprender Vim. Espero que si aún no lo has tenido, tengas pronto tu momento *eureka*.
 
-The goal is this chapter is to show you the `verb + noun` pattern in Vim so you will approach learning Vim like learning a new language instead of memorizing every command combinations. 
+El objetivo en este capítulo es mostrarte el patrón de `verbo + sustantivo` en Vim, así irás aprendiendo Vim de la misma manera que se aprende un nuevo idioma en vez de memorizar cada combinación de comandos.
 
-Learn the pattern and understand the implications. That's the smart way to learn.
+Aprende el patrón y comprende las implicaciones de este. Esa es la manera más inteligente de aprender.
