@@ -46,6 +46,20 @@ La parte más difícil de aprender para mí sobre los *buffer* fue visualizar c�
 
 Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo. Cuando estés preparado, movámonos a las ventanas.
 
+# Saliendo de Vim
+
+Si tienes varios *buffers* abiertos y has realizado algunos cambios, puedes cerrarlos todos y salir de Vim mediante el comando:
+
+```
+:qall
+```
+
+Si quieres salir de Vim sin guardar los cambios realizados, simplemente añade `!` al final del comando anterior:
+
+```
+:qall
+```
+
 # Ventanas
 
 Una ventana es una división gráfica en un *buffer*. Puedes tener múltiples ventanas. La mayoría de los editores de texto tienen la posibilidad de mostrar múltiples ventanas. A continuación puedes ver una captura del editor VSCode mostrando 3 ventanas.
