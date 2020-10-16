@@ -193,7 +193,7 @@ Esto es incluso mejor, los movimientos y operadores son extensibles. Puedes crea
 
 Por cierto, no pasa nada si no conoces los comandos `column` o `awk`. El punto fundamental que debe quedar de esto es que Vim se integra perfectamente con los comandos de terminal que conozcas.
 
-# Aprendiendo la gramática de la manera más inteligente
+# Aprendiendo la gramática de Vim de la manera más inteligente
 
 Simplemente has aprendido la única regla en la gramática de Vim:
 ```
