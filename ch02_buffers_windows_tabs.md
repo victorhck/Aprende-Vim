@@ -34,9 +34,9 @@ Vim muestra el *buffer* de `file1.js`, pero ha creado dos *buffers*: el buffer d
 ![comando de buffers mostrando 2 buffers](./img/screen-one-buffer-buffers-command.png)
 
 Hay varias formas de poder desplazarse por los *buffers*:
-1. `:bnext` para ir al *buffer* siguiente (`:bprevious` para ir al *buffer* previo).
-2. `:buffer` + nombre_de_archivo. Vim puede autocompletar el nombre de archivo con `tab`.
-3. `:buffer` + `n`, donde `n` es el número del *buffer*. Por ejemplo, escribiendo: `:buffer 2` te llevará al *buffer* número 2.
+1. `:bnext` o de manera abreviada puedes utilizar `:bn` para ir al *buffer* siguiente (`:bprevious` o `:bp` para ir al *buffer* previo).
+2. `:buffer` + nombre_de_archivo. De manera abreviada puedes utilizar `:b`.Vim puede autocompletar el nombre de archivo con `tab`.
+3. `:buffer` + `n`, donde `n` es el número del *buffer*. También puedes reemplazar `:buffer` por `:b`. Por ejemplo, escribiendo: `:buffer 2` o `:b 2` te llevará al *buffer* número 2.
 4. Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para *buffers*, pero pueden ser utilizados para saltar entre diferentes *buffers*. Hablaremos más sobre los saltos en el capítulo 5.
 5. Ir al *buffer* previamente editado con `Ctrl-^`.
 
@@ -158,7 +158,7 @@ A continuación puedes encontrar una lista de navegaciones útiles por las pesta
 :tablast            Ir a la última pestaña
 :tabfirst           Ir a la primera pestaña
 ```
-También puedes ejecutar `gt` para ir a la siguiente pestaña (con Gt vas a la pestaña previa). También puedes pasar un número como argumento a `gt`, donde el número corresponde al número de la pestaña. Para ir a la tercera pestaña, ejecuta `3gt`.
+También puedes ejecutar `gt` para ir a la siguiente pestaña (con `Gt` vas a la pestaña previa). También puedes pasar un número como argumento a `gt`, donde el número corresponde al número de la pestaña. Para ir a la tercera pestaña, ejecuta `3gt`.
 
 Una ventaja de tener varias pestañas es que puedes tener diferentes disposiciones de ventanas en diferentes pestañas. Tal vez deseas que tu primera pestaña tenga 3 ventanas verticales y la segunda pestaña tenga un diseño de ventanas horizontal y vertical mixto. ¡Las pestañas son la herramienta perfecta para el trabajo!
 
