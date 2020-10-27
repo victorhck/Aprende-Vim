@@ -128,17 +128,17 @@ Otro ejemplo:
 
 `"-p` te da la palabra borrada en el paso tres. Igualmente, `"1p` te da la linea borrada del paso dos. Desafortunadamente, no hay manera de recuperar la palabra borrada del paso uno porque el registro de borrado pequeño solo guarda un elemento. Sin embargo, si deseas preservar el texto del paso uno, puedes hacerlo con los registros nominales.
 
-# The Named Register (`"a-z`)
+# Los registros nominales (`"a-z`)
 
-The named registers are Vim's most versatile register. It can store yanked, changed, and deleted texts into registers a-z. Unlike the previous 3 register types you've seen which automatically stores texts into registers, you have to explicitly tell Vim to use the named register, giving you full control.
+Los registros nominales son los registros más versátiles de Vim. Estos pueden almacenar textos copiados, modificados y borrados dentro de los registros a-z. A diferencia de los 3 tipos de registros anteriores que haz visto, los cuales pueden automáticamente almacenar texto dentro de los registros, aquí tienes que explícitamente decirle a Vim el nombre del registro a usar, brindándote control total.
 
-To yank a word into register "a", you can do it with `"ayiw`.
-- `"a` tells vim that the next action (delete / change / yank) will be stored in register "a".
-- `yiw` yanks the word.
+Al copiar una palabra dentro del registro "a", puedes hacerlo con `"ayiw`.
+- `"a` le dice a vim que la siguiente acción (borrar / modificar / copiar) será almacenada en el registro "a".
+- `yiw` copia la palabra.
 
-To get the text from register "a", run `"ap`. You can use all twenty-six alphabetical characters to store twenty-six different texts with named registers.
+Para obtener el texto del registro "a", ejecuta `"ap`. Puedes usar todos los veintiséis caracteres del alfabeto para almacenar veintiséis textos diferentes dentro de los registros nominales.
 
-Sometimes you may want to add to your existing named register. In this case, you can append your text instead of starting all over. To do that, you can use the uppercase version of that register. For example, suppose you have the word "Hello " already stored in register "a". If you want to add "world" into register "a", you can find the text "world" and yank it using "A" register (`"Aiw`).
+A veces, puedes querer aumentar un registro nominal existente. En este caso, puedes agregar tu texto al final en lugar de empezar de nuevo. Al hacer eso, puedes usar la versión mayúscula del registro. Por ejemplo, supón que tienes almacenada la palabra "Hola " en el registro "a". Si deseas agregar "mundo" en el registro "a", puedes buscar el texto "mundo" y copiarlo usando el registro "A" (`"Aiw`).
 
 # The Read-Only Registers (`":`, `".`, `"%`)
 
