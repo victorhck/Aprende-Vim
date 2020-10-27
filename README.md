@@ -7,7 +7,7 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 
 ## Índice de contenidos (En progreso. Se irán traduciendo los diferentes capítulos)
 - Ch 0     - Learn Vim the Smart Way ......... En progreso [ ]  / Traducido [ ] / Revisado [ ]
-- Ch 1     - Starting Out ......... En progreso [ ]  / Traducido [ ] / Revisado [ ]
+- [Ch 1     - Starting Vim](./01_starting_vim.md) ......... En progreso [ ]  / Traducido [ ] / Revisado [ ]
 - [Ch 2     - Buffers, Windows, and Tabs](./ch02_buffers_windows_tabs.md) ......... En progreso [ ]  / Traducido [X] / Revisado [ ]
 - [Ch 3     - Opening and Searching Files](./ch03_opening_and_searching_files.md) ......... En progreso [ ]  / Traducido [X] / Revisado [ ]
 - [Ch 4     - Vim Grammar](./ch04_vim_grammar.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
