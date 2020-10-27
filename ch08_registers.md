@@ -130,10 +130,10 @@ Otro ejemplo:
 
 # Los registros nominales (`"a-z`)
 
-Los registros nominales son los registros más versátiles de Vim. Estos pueden almacenar textos copiados, modificados y borrados dentro de los registros a-z. A diferencia de los 3 tipos de registros anteriores que haz visto, los cuales pueden automáticamente almacenar texto dentro de los registros, aquí tienes que explícitamente decirle a Vim el nombre del registro a usar, brindándote control total.
+Los registros nominales son los registros más versátiles de Vim. Estos pueden almacenar textos copiados, modificados y borrados dentro de los registros a-z. A diferencia de los 3 tipos de registros anteriores que has visto, que pueden almcenar automáticamente texto dentro de los registros, aquí tienes que decirle explícitamente a Vim el nombre del registro a usar, brindándote así control total.
 
 Al copiar una palabra dentro del registro "a", puedes hacerlo con `"ayiw`.
-- `"a` le dice a vim que la siguiente acción (borrar / modificar / copiar) será almacenada en el registro "a".
+- `"a` le dice a Vim que la siguiente acción (borrar / modificar / copiar) será almacenada en el registro "a".
 - `yiw` copia la palabra.
 
 Para obtener el texto del registro "a", ejecuta `"ap`. Puedes usar todos los veintiséis caracteres del alfabeto para almacenar veintiséis textos diferentes dentro de los registros nominales.
