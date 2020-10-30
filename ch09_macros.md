@@ -164,13 +164,13 @@ El desglose:
 
 Ahora cuando ejecutemos `@a`, irá al primer caracter de la línea (`0`), se dirige a la siguiente PALABRA (`W`), cambia el caracter de la palabra bajo el cursor (`~`), activa el modo insertar al final de la línea (`A`), escribirá un punto (".") y saldrá del modo insertar (`<esc>`).
 
-# Amending a Macro
+# Modificar una macro
 
-Appending is great technique to add new actions at the end of your existing macros, but what if you need to add new actions in the middle of it? In this section, I will show you how to amend a macro.
+Añadir acciones a una macro, es una gran técnica para añadir nuevas acciones al final de tus macros ya existentes, pero ¿qué pasa si quieres añadir nuevas acciones en la parte media de una macro? En esta sección, te enseñaré cómo modificar una macro.
 
-Suppose between uppercasing the first word and adding a period at the end of the line, you need to add the word "deep fried" right before the word "donut" *(because the only thing better than regular donuts are deep fried donuts)*.
+Supongamos que entre la acción de convertir en mayúscula la primera letra de la primera palabra y añadir un punto al final de la línea, necesitas añadir las palabras "deep fried" justo antes de la palabra "donut" *(porque la única cosa mejor que un donut normal es un donut frito)*.
 
-I will reuse the text from earlier section:
+Reutilizaremos el texto de la sección anterior:
 ```
 a. chocolate donut
 b. mochi donut
@@ -178,33 +178,33 @@ c. powdered sugar donut
 d. plain donut
 ```
 
-First, let's call the existing macro (assume you have kept the macro from the previous section in register "a") with `:put a`:
+Primero, llamemos a la macro ya existente (asumamos que has guardado la macro de la sección anterior en el registro "a") con `:put a`:
 
 ```
 0W~A.^[
 ```
 
-What is this `^[`? Didn't you do `0W~A.<esc>`? `^[` is Vim's *internal code* representation of `<esc>`. With certain special keys, Vim prints the representation of those keys in the form of internal codes. Some common keys that have internal code representations are `<esc>`, `<backspace>`, and `<enter>`. There are more special keys, but they are not within the scope of this chapter.
+¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<esc>`? `^[` es la representación con el *código interno* de Vim para representar `<esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<esc>`, `<backspace>`, y `<enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
 
-Back to the macro, right after the toggle case operator (`~`), let's add the instructions to go to the end of the line (`$`), go back one word (`b`), go to the insert mode (`i`), type "deep fried " (don't forget the space after "fried "), and exit insert mode (`<esc>`).
+Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un caracter de minúscula a mayúscula (`~`), vamoa a añadir las instrucciones para ir al final de la línea (`$`), regresar una palabra (`b`), entrar en el modo de insertar (`i`), escribir "deep fried " (no olvides el espacio en blanco después de la palabra "fried "), y salir del modo insertar (`<esc>`).
 
-Here is what you will end up with:
+Esto es el aspecto que tendrá la macro finalizada:
 
 ```
 0W~$bideep fried <esc>A.^[
 ```
 
-There is a small problem. Vim does not understand `<esc>`. You will have to write the internal code representation for the `<esc>` you just added. While in insert mode, you press `Ctrl-v` followed by `<esc>`. Vim will print `^[`.` Ctrl-v` is an insert mode operator to insert the next non-digit character *literally*. Your macro code should look like this now:
+Pero hay un pequeño problema. Vim no entiende `<esc>`. Deberás escribir la representación del comando en su código interno, tal como lo usa Vim, para el `<esc>` que acabas de añadir. Mientras estás en el modo insetar, presiona `Ctrl-v` seguido de `<esc>`. Vim mostrará `^[`.` Ctrl-v` es un operador del modo insertar para insertar literalmente el siguiente carácter que no sea un dígito. El código de la macro debería ser así:
 
 ```
 0W~$bideep fried ^[A.^[
 ```
 
-To add the amended instruction into register "a", you can do it the same way as adding a new entry into a named register. At the start of the line, run `"ay$`. This tells Vim that you're using the named register "a" (`"a`) to store the yanked text from the current position to the end of the line (`y$`).
+Para añadir la instrucción modificada al registro "a", puedes hacerlo de la misma manera que al añadir una nueva entrada a un registro nominal. Al comienzo de la línea ejecuta `"ay$`. Esto le dice a Vim que estás utilizando el registro nominal "a" (`"a`) para almacenar el texto copiado desde la posición actual hasta el final del la línea (`y$`).
 
-Now when you execute `@a`, your macro will toggle the case of the first word, add "deep fried " before "donut", and add a "." at the end of the line.
+Ahora cuando ejecutes `@a`, tu macro cambiará a mayúsculas la primera letra de la primera palabra, añadirá "deep fried " antes de "donut" y añadirá  "." al final de la línea.
 
-An alternative way to amend a macro is to use a command line expression. Do `:let @a="`, then do `Ctrl-r Ctrl-r a`, this will literally paste the content of register "a". Finally, don't forget to close the double quotes (`"`). If you need to insert special characters using internal codes while editing a command line expression, you can use `Ctrl-v`.
+Una manera alternativa de modificar una macro es utilizando una expresión para la línea de comandos. Ejecuta `:let @a="`, y después `Ctrl-r Ctrl-r a`, esto literalmente pegará el contenido del registro "a". Finalmente, no olvides encerrarlo todo entre comillas dobles (`"`). Si necesitas insertar caracteres especiales utilizando los códigos internos mientras editas una expresión para la línea de comandos, puedes utilizar `Ctrl-v`.
 
 # Macro Redundancy
 
