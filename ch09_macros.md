@@ -206,15 +206,15 @@ Ahora cuando ejecutes `@a`, tu macro cambiará a mayúsculas la primera letra de
 
 Una manera alternativa de modificar una macro es utilizando una expresión para la línea de comandos. Ejecuta `:let @a="`, y después `Ctrl-r Ctrl-r a`, esto literalmente pegará el contenido del registro "a". Finalmente, no olvides encerrarlo todo entre comillas dobles (`"`). Si necesitas insertar caracteres especiales utilizando los códigos internos mientras editas una expresión para la línea de comandos, puedes utilizar `Ctrl-v`.
 
-# Macro Redundancy
+# Redundancia de macros
 
-You can easily duplicate macros from one register to another. For example, to duplicate a macro in register "a" to register "z", you can do `:let @z = @a`. `@a` represents the content of register "a". Now if you run `@z`, it does the exact same actions as `@a`.
+Puedes duplicar fácilmente macros de un registro a otro. Por ejemplo, para duplicar una macro ya existente en el registro "a" al registro "z", simplemente ejecuta lo siguiente `:let @z = @a`. `@a` representa el contenido del registro "a". Ahora si ejecutas `@z`, realizará las mismas acciones que `@a`.
 
-I find creating a redundancy useful on my most frequently used macros. In my workflow, I usually record macros in the first seven alphabetical letters (a-g) and I often replace them without much thought. If I move the useful macros towards the end of the alphabets, I can preserve them without worrying that I might accidentally replace them.
+Creo que crear macros redundantes es útil en mis macros más utilizadas frecuentemente. En mi forma de trabajar, normalmente guardo las macros en las primeras siete letras del alfabeto (a-g) y la reemplazo a menudo. Si muevo las macros más útiles a las letras finales del alfabeto, puedo preservarlas sin tener que preocuparme de reemplazarlas de manera accidental.
 
-# Series vs Parallel Macro
+# Macros en serie vs. en paralelo
 
-Vim can execute macros in series and parallel. Suppose you have this text:
+Vim puede ejecutar macros en serie o en paralelo. Supongamos que tenemos el siguiente texto:
 
 ```
 import { FUNC1 } from "library1";
@@ -224,21 +224,21 @@ import { FUNC4 } from "library4";
 import { FUNC5 } from "library5";
 ```
 
-If you want to record a macro to lowercase all the uppercased "FUNC", this macro should work:
+Si quieres grabar una macro para poner en minúsculas todas las mayúsculas de "FUNC", esta macro debería funcionar:
 
 ```
 qa0f{gui{jq
 ```
 
-Here is the breakdown:
-- `qa` starts recording in register "a".
-- `0` goes to first line.
-- `f{` finds the first instance of "{".
-- `gui{` lowercases (`gu`) the text inside the bracket text-object (`i{`).
-- `j` goes down one line.
-- `q` stops macro recording.
+Deglosemos el funcionamiento de la macro:
+- `qa` comienza la grabación en el registro "a".
+- `0` posiciona el cursor en la primera línea.
+- `f{` encuentra la primera ocurrencia del símbolo "{".
+- `gui{` pone en minúsculas (`gu`) el texto dentro de los corchetes (`i{`).
+- `j` baja una línea.
+- `q` detiene la grabación de la macro.
 
-Now you can run `99@a` to execute it on the remaining lines. However, what if you have this import expression inside your file?
+Ahora puedes ejecutar `99@a` para ejecutarla en las líneas faltantes. Sin embargo, ¿qué pasa si tienes que esta expresión de importación dentro de tu archivo?
 
 ```
 import { FUNC1 } from "library1";
@@ -249,16 +249,16 @@ import { FUNC4 } from "library4";
 import { FUNC5 } from "library5";
 ```
 
-Running `99@a`, only executes the macro three times. It does not execute the macro on last two lines because the execution fails to run `f{` on the "foo" line. This is expected when running the macro in series. You can always go to the next line where "FUNC4" is and replay that macro again. But what if you want to get everything done in one go? You can run the macro in parallel.
+Al ejecutar `99@a`, solo se ejecutará la macro tres veces. No ejecutará la macro en las dos últimas líneas porque la ejecución falla al ejecutar `f{` en la línea que contiene "foo". Esto es lo que se espera que pase al ejecutar las macros en serie. Siempre puedes ir a la siguiente línea donde está el texto "FUNC4" y volver a ejecutar la macro. Pero ¿qué pasa si quieres que todo se ejecute de una vez? Puedes ejecutar la macro en paralelo.
 
-Recall from earlier section that macros can be executed using the  command line command `:normal` (ex: `:3,5 normal @a` to execute macro "a" on lines 3-5). If you run `:1,$ normal @a`, you will see that the macro is being executed on all lines except the "foo" line. It works!
+Volviendo a la sección anterior en la que vimos que las macros pueden ser ejecutadas utilizando el comando para la línea de comandos `:normal` (ejemplo: `:3,5 normal @a` para ejecutar la macro "a" en las líneas 3-5). Si quieres ejecutar `:1,$ normal @a`, verás que la macro está siendo ejecutada en todas las líneas excepto en la línea que contiene el texto "foo". ¡Funciona!
 
-Although internally Vim does not actually run the macros in parallel, outwardly, it behaves like such. Vim executes `@a` *independently* on each line from the first line to the last line (`1,$`). Since Vim executes these macros independently, each line does not know that one of the macro executions had failed on the "foo" line.
+Aunque internamente Vim no ejecuta las macros en paralelo, externamente, parece que sí lo hace así. Vim ejecuta `@a` *independientemente* en cada línea desde la primera a la última (`1,$`). Ya que Vim ejecuta estas macros de manera independiente, cada línea no sabe que una de las macros en ejecución ha fallado en la línea que contiene el texto "foo".
 
-# Learn Macros the Smart Way
+# Aprendiendo las macros de la manera más inteligente
 
-Many things you do in editing are repetitive. To get better at editing, get into the habit of detecting repetitive actions. Use macros (or dot command) so you don't have to perform the same action twice. Almost everything that you can do in Vim can be done with macros.
+Muchas cosas que haces mientras estás editando son repetitivas. Para mejorar en la edición de texto, debes habituarte a detectar las acciones repetitivas. Utiliza macros (o el comando del punto) así no tendrás que realizar la misma acción dos veces. Casi todo lo que haces en Vim puede ser realizado con macros.
 
-In the beginning, I find it very awkward to write macros, but don't give up. With enough practice, you will get into the habit of automating everything.
+Al comienzo, encontraba muy raro escribir macro, pero no desistí. Con la práctica suficiente, tendrás el hábito de automatizar todo.
 
-You might find it helpful to use mnemonics to help remember your macros. If you have a macro that creates a function, use the "f" register (`qf`). If you have a macro for numerical operations, the "n" register may be a good fit (`qn`). Name it with the *first named register* that comes to your mind when you think of that operation. I also find that "q" register makes a good default macro register because `qq` does not require much brain power to use. Lastly, I like to increment my macros in alphabetical orders, like `qa`, then `qb`, then `qc`, and so on. Find a method that works best for you.
+Puede que encuentre útil utilizar mnemónicos para ayudarte a recordar tus macros. Si tienes una macro que crea una función, utiliza el registro "f" (`qf`). Si tienes una macro para operacione numéricas, entonces el registro "n" puede ser una buena elección (`qn`). Nómbrala con *el primer registro nominal* que te venga a la cabeza cuando pienses en esa operación. También es útil utilizar el registro "q" como macro predeterminada ya que `qq` no requiere pensar mucho a la hora de ponerle nombre. Por último, me gusta incrementar mis macros en orden alfabético, como `qa`, después `qb`, después `qc`, y así sucesivamente. Encuentra el método que mejor se adapte a ti.
