@@ -1,143 +1,143 @@
-# Starting Vim
+# Ejecutando Vim
 
-In this chapter, you will learn different ways to start Vim from the terminal. I highly recommend you use Vim from the terminal as you are typing along. I am currently using Vim 8.2. You should be fine if you use a lower version, but some commands might not be available.
+En este capítulo, aprenderás diferentes maneras de ejecutar Vim desde la terminal. Te recomiendo encarecidamente que utilices Vim desde la terminal mientras estás escribiendo. Actualmente estoy usando Vim 8.2. Los comandos escritos deberían funcionar bien si utilizas una versión menor, pero quizás algunos comandos podrían no estar disponibles.
 
-# Installing
+# Instalar Vim
 
-I will not go through the detailed instruction how to install Vim (because there are many different distros out there). The good news is, most Unix computers should come with Vim installed. If not, most distros should have a way to install Vim.
+No voy a entrar en detalles de cómo instalar Vim (porque hay demasiadas distribuciones diferentes ahí fuera). La buena noticia es, la mayoría de los equipos con Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
 
-For more download information, check out Vim's official download website:
+Para más información de cómo descargar, echa un vistazo a la web oficial de descargas de Vim:
 
 [https://www.vim.org/download.php](https://www.vim.org/download.php)
 
-Alternatively, you can also check out Vim's [official github repository](https://github.com/vim/vim).
+De manera alternativa, también puedes echar un vistazo al [repositorio oficial de Vim en GitHub](https://github.com/vim/vim).
 
 # `vim`
 
-Now that you have Vim installed, run this from the terminal:
+Ahora que ya tienes Vim instalado, ejecuta esto desde la terminal:
 
 ```
 vim
 ```
 
-You should see an intro screen. This is the where you will be working on your file. Unlike most text editors and IDEs, Vim is a modal editor. If you want to type "Hello", you need to switch to Insert mode with `i`. Type: `ihello<Esc>`.
+Deberías ver una pantalla de bienvenida. Ahí será donde trabajarás con tus archivos. A diferencia de la mayoría de editores de texto e IDE's, Vim es un editor modal. Si quieres escribir "Hola", necesitas cambiar al modo Insertar con `i`. Escribe: `ihello<Esc>`.
 
-# Exiting Vim
+# Saliendo de Vim
 
-There are several ways to exit Vim. The most common one is to type:
+Hay muchas maneras de salir del editor Vim. La más común es escribir:
 
 ```
 :quit
 ```
 
-You can type `:q` for short. That command is a Command-line mode command (another one of Vim modes). If you type `:` in Normal mode, the cursor will move to the bottom of the screen where you can type some commands. You will learn about the Command-line mode later in chapter 15. If you are in Insert mode, typing `:` will literally produce the character ":" on the screen. In this case, you need to switch back to Normal mode. Type `<Esc>` to switch to Normal mode. By the way, you can also return to Normal mode from Command-line mode by pressing `<Esc>`. You will notice that you can "escape" out of several Vim modes back to Normal mode by pressing `<Esc>`.
+También puedes escribir `:q` de forma abreviada. El comando es un comando del modo de comandos (otro de los modos de Vim). Si escribes `:` en el modo Normal, el cursor se moverá a la parte inferior de la pantalla donde podrás escribir algunos comandos. Aprenderás más del modo de línea de comandos más tarde en el capítulo 15. Si estás en el modo Insertar, al escribir `:` esto literalmente escribirá el caracter ":" en la pantalla. En este caso, necesitas regresar al modo Normal. Pulsa sobre la tecla `<Esc>` para cambiar a ese modo Normal. Por cierto, puedes regresar al modo Normal desde el modo Línea de comandos pulsando `<Esc>`. Notarás que puedes "escapar" de diversos modos de Vim de vuelta al modo Normal pulsando la tecla `<Esc>`.
 
-To save your changes, type:
+Para guardar tus cambios, escribe:
 
 ```
 :write
 ```
 
-You can also type `:w` for short. If this is a new file, you need to give it a name before you can save it. Let's name it `file.txt`. Run:
+También puedes escribir `:w` de forma abreviada. Si este es un archivo nuevo, necesitarás darle un nombre antes de guardarlo. Vamos a llamrlo `archivo.txt`. Ejecuta:
 
 ```
-:w file.txt
+:w archivo.txt
 ```
 
-To save and quit, you can combine the `:w` and `:q` commands:
+Para guardarlo y salir de Vim, puedes combinar los comandos `:w` y `:q`:
 
 ```
 :wq
 ```
 
-To quit without saving any changes, add `!` after `:q` to force quit:
+Para salir sin guardar los cambios, añade `!` después de  `:q` para forzar el cierre de Vim:
 
 ```
 :q!
 ```
 
-There are other ways to exit Vim, but these are the ones you will use daily. 
+Hay otras maneras de salir de Vim, pero estas que hemos visto las utilizarás diariamente.
 
-# Help
+# Ayuda
 
-Throughout the book, I will refer you to various Vim help pages. You can access the help page by typing the following Command-line command:
+A lo largo del libro, te referiré a varias páginas de ayuda de Vim. Puedes acceder a la página de ayuda escribiendo el siguiente comando en la línea de comandos:
 
 ```
 :help
 ```
 
-Or `:h` for short. You can also pass the `:h` command the subject you want to learn as an argument. For example, to learn more about different ways to quit Vim, you can type:
+O `:h` de forma abreviada. También puedes indicarle al comando `:h` el tema sobre el que quiere aprender pasándoselo como un argumento. Por ejemplo, para aprender más sobre diferentes maneras de salir de Vim, puedes escribir:
 
 ```
 :h write-quit
 ```
 
-# Opening a File
+# Abriendo un archivo
 
-From the terminal, to open `hello1.txt` file, run:
-
-```
-vim hello1.txt
-```
-
-You can also open multiple files at once:
+Desde la terminal, para abrir el archivo `hola1.txt`, ejecuta:
 
 ```
-vim hello1.txt hello2.txt hello3.txt
+vim hola1.txt
 ```
 
-Vim opens `hello1.txt`, `hello2.txt`, and `hello3.txt` in separate buffers. You will learn more about buffers in the next chapter.
+También puedes abrir varios archivos a la vez:
 
-# Arguments
+```
+vim hola1.txt hola2.txt hola3.txt
+```
 
-You can pass the `vim` terminal command with different flags and options.
+Vim abre `hola1.txt`, `hola2.txt` y `hola3.txt` en *buffers* separados. Aprenderás más sobre los *buffers* en el próximo capítulo.
 
-To check the current Vim version, run:
+# Argumentos
+
+Puedes pasarle al comando de la terminal `vim` diferentes banderas y opciones.
+
+Para comprobar la versión actual de Vim, ejecuta:
 
 ```
 vim --version
 ```
 
-This flag tells you the Vim version and all available features marked with either `+` or `.` Some of these features in this guide require certain features to be available. For example, you will explore Vim's command-line history in chapter 15 with the `:history` command. Your Vim needs to have `+cmdline_history` feature for the command to work.
+Esta bandera te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `.` Algunas de estas características en esta guía requieren que están disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en el capítulo 15 con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione.
 
-This may sound like a lot of work, but the popular Vim downloads should have all the necessary features. In my Mac, the Vim version that I installed from `brew install vim` has all the features I need.
+Esto podría sonar a tener que hacer un montón de trabajo, pero las descargas de Vim más populares deberían tener todas las funcionalidades necesarias. En mi equipo Mac (N.d.T: El equipo Mac del escritor del libro en Inglés) la versión de Vim que tengo instalada desde `brew install vim` tiene todas las funcionalidades que necesito. (N.d.T: En el Vim instalado desde los repositorios de la distribución de GNU/Linux openSUSE que utilizo, también tiene todo lo necesario).
 
-Alternatively, to see the version information from *inside* Vim, you can also run this command:
+De manera alternativa, para ver la versión estando *dentro* de Vim, también puedes ejecutar este comando:
 
 ```
 :version
 ```
 
-Later on, you will probably start adding plugins to Vim. If you ever need to run Vim without any plugins, you can pass the `noplugin` flag:
+Más adelante, probablemente comenzarás a añadir complementos a Vim. Si alguna vez necesitas ejecutar Vim sin ningún complemento, podrás hacerlo pasándole la bandera `noplugin`:
 
 ```
 vim --noplugin
 ```
 
-If you want to open the file `hello.txt` and immediately execute a command, you can pass the `vim` command the `+{cmd}` option.
+Si quieres abrir el archivo `hola.txt` e inmediatamente ejecutar un comando, podrás hacerlo añadiendo al comando `vim` la opción `+{cmd}`.
 
-In Vim, you can substitute text with the `:s` command (short for `:substitute`). If you want to open `hello.txt` and substitute all "foo" with "bar", run:
-
-```
-vim +%s/foo/bar/g hello.txt
-```
-
-These commands can also be stacked:
+En Vim, puedes sustituir texto con el comando `:s` (abreviatura de `:substitute`). Si quieres abrir `hola.txt` y sustituir todo el texto "foo" con "bar", ejecuta:
 
 ```
-vim +%s/foo/bar/g +%s/bar/baz/g +%s/baz/donut/g hello.txt
+vim +%s/foo/bar/g hola.txt
 ```
 
-Vim will first replace all instances of "foo" with "bar", then replace "bar" with "baz", then replace "baz" with "donut" (you willl learn about substitution in chapter 12).
-
-You can also pass the `c` flag followed by the command instead of the `+` syntax:
+Estos comandos también pueden ser apilados:
 
 ```
-vim -c %s/foo/bar/g hello.txt
-vim -c %s/foo/bar/g -c %s/bar/baz/g -c %s/baz/donut/g hello.txt
+vim +%s/foo/bar/g +%s/bar/baz/g +%s/baz/donut/g hola.txt
 ```
 
-Throughout this book you will learn various Command-line commands. These commands can all be executed on start.
+Vim primero reemplazará todas las instancias que encuentre de "foo" con "bar", después reemplazará "bar" con "baz", después reemplazará "baz" con "donut" (aprenderás sobre cómo sustituir texto en el capítulo 12).
+
+También puedes añadir la bandera `c` seguida con el comando en vez de la sintáxis `+`:
+
+```
+vim -c %s/foo/bar/g hola.txt
+vim -c %s/foo/bar/g -c %s/bar/baz/g -c %s/baz/donut/g hola.txt
+```
+
+Durante todo este libro aprenderás varios comandos para la Línea de comandos de Vim. Todos estos comandos pueden ser ejecutados al inicio.
 
 # Opening multiple windows
 
