@@ -139,45 +139,45 @@ vim -c %s/foo/bar/g -c %s/bar/baz/g -c %s/baz/donut/g hola.txt
 
 Durante todo este libro aprenderás varios comandos para la Línea de comandos de Vim. Todos estos comandos pueden ser ejecutados al inicio.
 
-# Opening multiple windows
+# Abriendo múltiples ventanas
 
-You can launch Vim on split windows (horizontal and vertical) with `o` and `O`, respectively.
+Puedes ejecutar Vim en ventanas divididas de manera horizontal y vertical con `o` y `O`, respectivamente.
 
-To open Vim with two horizontal windows, run:
+Para abrir Vim con dos ventanas horizontales, ejecuta:
 
 ```
 vim -o
 ```
 
-To open Vim with 5 horizontal windows, run:
+Para abrir Vim con 5 ventanas horizontales, ejecuta:
 
 ```
 vim -o5
 ```
 
-To open Vim with 5 horizontal windows and fill up the first two with `hello1.txt` and `hello2.txt`, run:
+Para abrir Vim con 5 ventanas horizontales y ocupar las dos primeras con los archivos `hola1.txt` and `hola2.txt`, ejecuta:
 
 ```
-vim -o5 hello1.txt hello2.txt
+vim -o5 hola1.txt hola2.txt
 ```
 
-Retrospectively, to open Vim with two vertical windows, 5 vertical windows, and 5 vertical windows with 2 files:
+Para abrir Vim con dos ventanas verticales, 5 ventanas verticales y 5 ventanas verticales con 2 archivos:
 
 ```
 vim -O
 vim -O5
-vim -O5 hello1.txt hello2.txt
+vim -O5 hola1.txt hola2.txt
 ```
 
-# Suspending
+# Suspender
 
-If you need to suspend Vim while in the middle of editing, you can press `Ctrl-Z`. Alternatively, you can also run either the `:stop` or `:suspend` command.
+Si necesitar suspender la ejecución de Vim mientras estás a la mitad de una edición de texto, puedes presionar la combinación de teclas `Ctrl-Z`. De manera alternativa, también puedes ejecutar los comandos `:stop` o `:suspend`.
 
-To return to the suspended Vim, run `fg` from the terminal.
+Para volver a retomar la sesión suspendida de Vim, ejecuta `fg` desde la terminal.
 
-# Starting Vim the Smart Way
+# Arrancando Vim de la manera más inteligente
 
-You can pass the `vim` command with different options and flags, just like any terminal commands. One of the options is the command-line command (`+{cmd}` or `c cmd`). As you learn more command-line commands throughout this book, see if you can apply it on start.
+Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos (`+{cmd}` o `c cmd`). Cuantos más comandos para la propia línea de comandos de Vim aprendas en este libro, verás que puedes utilizarlos al arrancar Vim.
 
-To learn more about the different options you can pass from the terminal, check out `man vim`. To learn more about Vim modes and commands, check out `:help`.
+Para aprender más sobre las diferentes opciones que puedes utilizar desde la terminal, echa un vistazo mediante el comando `man vim`. Para aprender más sobre los modos de Vim y los comandos, echa un vistazo con `:help`.
 
