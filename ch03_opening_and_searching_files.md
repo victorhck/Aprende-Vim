@@ -76,12 +76,12 @@ Esto es lo que significa:
 
 La conclusión aquí es que puedes modificar tus propios caminos. Supongamos que esta es la estructura de tu proyecto:
 ```
-▾ app/
-  ▸ assets/
-  ▾ controllers/
-      application_controller.rb
-      comments_controller.rb
-      users_controller.rb
+app/
+  - assets/
+  - controllers/
+     - application_controller.rb
+     - comments_controller.rb
+     - users_controller.rb
   ...
 ```
 
