@@ -1,4 +1,4 @@
-# Formas de entrar al modo insertar
+# Capítulo 6: Formas de entrar al modo insertar
 
 Hay varias formas de entrar en el modo insertar desde el modo normal. Aquí algunas de ellas:
 ```
@@ -17,7 +17,7 @@ gI   Insertar texto al principio de una línea (columna 1)
 
 Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres un usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `a`, estos comandos son suficientes para empezar, y poco a poce ve añadiendo más comandos a tu memoria.
 
-# Formas diferentes de salir del modo insertar
+## Formas diferentes de salir del modo insertar
 
 Hay unas cuantas maneras de regresar al modo normal mientras estás en el modo insertar:
 ```
@@ -36,7 +36,7 @@ inoremap jj <esc>
 inoremap jk <esc>
 ```
 
-# Repetir el modo insertar
+## Repetir el modo insertar
 
 Puedes pasar un parámetro de conteo antes de entrar al modo insertar. Por ejemplo:
 ```
@@ -45,7 +45,7 @@ Puedes pasar un parámetro de conteo antes de entrar al modo insertar. Por ejemp
 
 Si escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el texto 10 veces. Esto funcionará con cualquier otro método del modo insertar (`10I`, `11a`, `12o`).
 
-# Borrar segmentos en el modo insertar
+## Borrar segmentos en el modo insertar
 
 Cuando comentes un error de escritura, puede ser molesto teclear `Retroceso` repetidamente. Esto puede tener más sentido si vas al modo normal y borras (`d`) tus errores. De manera alternativa, puedes borrar uno o más caracteres al mismo tiempo que estás en el modo insertar:
 
@@ -58,7 +58,7 @@ Ctrl-u    Borrar una línea entera
 
 A propósito, estos atajos también funcionan en la línea de comándos y en el modo Ex (Trataremos la línea de comandos y el modo Ex en los siguientes capítulos).
 
-# Insert From Register
+## Insert From Register
 
 Registers are like in-memory scratchpads that store and retrieve texts. To insert a text from any named register while in insert mode, type `Ctrl-r` plus the register symbol. There are many symbols you can use, but for this section, just know that you can use named registers (a-z).
 
@@ -77,7 +77,7 @@ Ctrl-r a
 
 There are multiple types of registers in Vim. I will cover them in greater detail in the next chapter.
 
-# Scrolling
+## Scrolling
 
 Did you know that you can scroll while inside insert mode? While in insert mode, if you go to `Ctrl-x` sub-mode, you can do additional operations. Scrolling is one of them.
 
@@ -86,7 +86,7 @@ Ctrl-x Ctrl-y    Scroll up
 Ctrl-x Ctrl-e    Scroll down
 ```
 
-# Autocompletion
+## Autocompletion
 
 Vim has a built-in autocompletion mechanism using `Ctrl-x` sub-mode (like scrolling). Although it is not as good as [intellisense](https://code.visualstudio.com/docs/editor/intellisense) or any other Language Server Protocol (LSP), but for something that is available right out-of-the-box, it is a very capable feature.
 
@@ -113,7 +113,7 @@ In general, Vim looks at the text in all available buffers for autocompletion so
 
 Autocomplete is a vast topic in Vim. This is just the tip of the iceberg. To learn more, check out `:h ins-completion`.
 
-# Executing a Normal Mode Command
+## Executing a Normal Mode Command
 
 Did you know Vim can execute a normal mode command while inside insert mode?
 
@@ -143,7 +143,7 @@ Ctrl-o dtz    Delete from current location till the letter "z"
 Ctrl-o D      Delete from current location to the end of the line
 ```
 
-# Learn Insert Mode the Smart Way
+## Learn Insert Mode the Smart Way
 
 If you are like me and you come from another text editor, it can be tempting to stay in insert mode. However, staying in insert mode when you're not entering a text is an anti-pattern. Develop a habit to go to normal mode when your fingers aren't typing new texts.
 

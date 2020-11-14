@@ -1,10 +1,10 @@
-# Moviéndote por un archivo
+# Capítulo 5: Moviéndote por un archivo
 
 Al principio, moverte utilizando el teclado te puede hacer sentir incómodo e increíblemente lento, ¡pero no desistas! Una vez que te acostumbres, podrás moverte a cualquier parte de un archivo de manera más rápida que utilizando el ratón.
 
 En este capítulo, aprenderás los movimientos esenciales y cómo utilizarlos de manera eficiente. Ten en mente que este capítulo **no** es todo lo que Vim puede ofrecer en cuanto a la hora de moverse por un archivo. La meta aquí es presentar los movimientos más útiles para volverte productivo rápidamente. Si necesitas aprender más, echa un vistazo a la ayuda de Vim `:h motion.txt`.
 
-# Navegando por caracteres
+## Navegando por caracteres
 
 La unidad más básica de movimiento es moverse un caracter a la izquierda, abajo, arriba y a la derecha.
 
@@ -34,7 +34,7 @@ Para mi sorpresa, solo lleva unos pocos días el habituarse al uso de `hjkl`.
 
 si quieres moverte a un sitio cercano donde está actualmente el cursor, como moverse de una parte de la palabra a otra parte de la misma palabra, usaría las teclas `h` o `l`. Si quiero moverme arriba o abajo unas pocas líneas dentro de la ventana mostrada, usaría las teclas `j` o `k`. Si quisiera desplazarme a un lugar más lejano de la posición del cursor, utilizaría un tipo de movimiento diferente.
 
-# Numeración relativa
+## Numeración relativa
 
 Creo que es útil el tener establecido las opciones de `number` y `relativenumber`. Puedes hacerlo escribiendo lo siguiente en el archivo `.vimrc`:
 
@@ -48,7 +48,7 @@ Esto muestra la línea actual en la que se encuentra el cursor y los números de
 
 Esto es 100% una preferencia personal. Experimenta con las opciones `relativenumber` / `norelativenumber`, `number` / `nonumber` ¡y utiliza cualquier método que encuentre más útil!
 
-# Cuenta tu movimiento
+## Cuenta tu movimiento
 
 Una cosa más, hablemos sobre el argumento "contar". Los movimientos aceptan un argumento precedente numérico. He mencionado anteriormente que puedes desplazarte 12 líneas hacia abajo en el texto mediante `12j`. El 12 en `12j` es el número que lleva la cuenta.
 
@@ -60,7 +60,7 @@ La sintáxis para utilizar el número de conteo en tu movimiento es:
 
 Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` puedes ejecutar simplemente `9l`. Cuantos más movimientos aprendas, trata de darles un argumento de conteo.
 
-# Navegación por palabras
+## Navegación por palabras
 
 Vamos a movernos por una unidad de movimiento mayor: *palabra*. Puedes moverte al comienzo de la siguiente palabra (`w`), al final de la siguiente palabra (`e`), al comienzo de la palabra anterior (`b`)y al final de la palabra anterior (`ge`).
 
@@ -88,7 +88,7 @@ Con el cursor al comienzo de la línea, ve al final de la línea con `l`, te lle
 
 Sin embargo, puedes pasar de "c" a ";" con una pulsación de tecla con la navegación de línea actual.
 
-# Navegación de línea actual
+## Navegación de línea actual
 
 Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco den la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`.
 
@@ -121,7 +121,7 @@ const hello = "world";
 
 Con el curso al comienzo de la línea, puedes ir al último caracter de la línea actual (";) pulsando una única tecla: `$`. Si quieres ir a la letra "w" en la palabra "world", puedes utilizar `fw`. Un buen truco para ir a cualquier punto de la línea actual es echar un vistazo a ver si existe alguna letra poco común como "w", "x" o "z" cerca de tu objetivo.
 
-# Navegación por frase y párrafo
+## Navegación por frase y párrafo
 
 Las siguientes dos unidades por las que podemos navegar por un texto son la frase y el párrafo.
 
@@ -166,7 +166,7 @@ Lo tienes.
 
 Echa un vistazo a la ayuda de Vim con `:h sentence` y `:h paragraph` para aprender más. 
 
-# Navegación entre parejas
+## Navegación entre parejas
 
 Los programadores a menudo editan archivos que continen código. Puede contener muchos paréntesis, llaves y corchetes y puede ser confuso saber dentro de qué pareja de paréntesis se encuentra el cursor. Muchos lenguajes de programación utilizan paréntesis, llaves y corchetes y te puedes perder entre ellos. Si estás dentro de una pareja de estos signos, puedes saltar a la otra pareja del mismo (si existe) mediante `%`. También puedes usar esto para averiguar si tienes paréntesis, llaves y corchetes que hagan pareja o falta alguna.
 
@@ -185,7 +185,7 @@ Echemos un vistazo a este código de ejemplo en Scheme, porque hace bastante uso
 ```
 Personalmente, me gusta complementar `%` utilizando complementos que añadan un indicador visual como [vim-rainbow](https://github.com/frazrepo/vim-rainbow).  Para más información, echa un vistazo a la ayuda en Vim con `:h %`.
 
-# Navegación por número de línea
+## Navegación por número de línea
 
 Puedes saltar a un número de línea `n` con `nG`. Por ejemplo, si quieres saltar a la línea 7, utilza `7G`. Para saltar a la primera línea del texto, puedes utilizar tanto `1G` o `gg`. Para saltar a la última línea del texto, utiliza `G`.
 
@@ -200,7 +200,7 @@ n%    Va al n% del archivo
 
 Por cierto, si quieres ver el total de líneas de un archivo puedes utilizar `CTRL-G`.
 
-# Navegación por la ventana
+## Navegación por la ventana
 
 Para ir rápidamente a la parte superior, central o inferior de tu *ventana*, puedes utilizar las teclas `H`, `M`, o `L`. 
 
@@ -213,7 +213,7 @@ nH    Va a la línea n desde la parte superior de la ventana
 nL    Va a la línea n desde la parte inferior de la ventana
 ```
 
-# Desplazándose
+## Desplazándose
 
 Para desplazarse por el texto (o hacer *scroll*), tienes 3 velocidades incrementales: Pantalla completa (`CTRL-F/CTRL-B`), media pantalla (`CTRL-D/CTRL-U`), y línea a línea (`CTRL-E/CTRL-Y`).
 
@@ -232,7 +232,7 @@ zh    LLeva la línea actual donde está el cursor a la parte media de la pantal
 zb    LLeva la línea actual donde está el cursor cerca de la parte inferior de la pantalla
 ```
 
-# Navegación por búsqueda
+## Navegación por búsqueda
 
 Muy a menudo, sabes que existe una frase concreta dentro del archivo. Puede utilizar la navegación por búsqueda para llegar hasta tu objetivo rápidamente. PAra buscar una frase, puedes utilizar `/` para hacer una búsqueda hacia adelante en el texto o `?` para buscar hacia atrás. Para repetir la última búsqueda, puedes utilizar `n`. Para repetir la última búsqueda pero en dirección opuesta, puedes utilizar `N`.
 
@@ -272,7 +272,7 @@ g*    Busca la palabra bajo el cursor hacia adelante
 g#    Busca la palabra bajo el cursor hacia atrás
 
 ```
-# Marcando la posición
+## Marcando la posición
 
 Puedes utilizar marcas para guardar la posición actual del cursor y poder volver a esa posición más tarde. Es como un marcador para la edición de texto. Puedes establecer un marcador con `mx`, donde `x` puede ser cualquier letra del alfabeto `a-zA-Z`. Existen dos maneras de volver a la marca establecida: de manera exacta (línea y columna) mediante ```x`` y a la línea con `'x`.
 
@@ -302,7 +302,7 @@ Para ver todas las marcas establecidas puedes hacerlo mediante `:marks`. Puedes 
 
 Hay más marcas que las listadas aquí. No se tratarán todas aquí, porque creo que muchas no son muy comunes y se utilizan muy poco, pero si tienes curiosidad al respecto, echa un vistazo a la ayuda de Vim con: `:h marks`. 
 
-# Saltar
+## Saltar
 
 Por último, hablemos de los saltos en Vim. En Vim, puede "saltar" a un archivo diferente o a una parte diferente de un archivo con ciertos movimientos. Sin embargo, no todos los movimientos cuentan como un salto. Bajar con `j` no cuenta como un salto, incluso si bajas 10 pasos con `10j`. Ir a la línea 10 con `10G` si cuenta como un salto.
 
@@ -334,7 +334,7 @@ No recomiendo memorizar esta lista. Una buena regla para recordarla es, que cual
 
 ¿Por qué los saltos son útiles? Porque puedes navegar por la lista de saltos realizados mediante `Ctrl-o` para moverte hacia arriba por la lista de saltos y con `Ctrl-i` para moverte hacia abajo en la lista. También puedes saltar por diferentes archivos, lo que veremos en la siguiente parte.
 
-# Aprender a navegar de la manera más inteligente
+## Aprender a navegar de la manera más inteligente
 
 Si eres nuevo en Vim, aquí tienes mucho para aprender. No espero que nadie recuerde todo de manera inmediata. Lleva su tiempo el ejecutar estos comandos sin que tengas que parar a pensarlos.
 

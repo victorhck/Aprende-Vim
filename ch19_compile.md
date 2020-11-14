@@ -1,8 +1,8 @@
-# Compile
+# Capítulo 19: Compile
 
 Compiling is an important subject for many languages. In this chapter, you will learn how to compile from Vim. In addition, you will look at ways to take advantage of Vim's `:make` command.
 
-# Compile From the Command Line
+## Compile From the Command Line
 
 You can use the bang operator (`!`) to compile. If you need to compile your `.cpp` file with `g++`, run:
 
@@ -12,7 +12,7 @@ You can use the bang operator (`!`) to compile. If you need to compile your `.cp
 
 However, having to manually type the filename and the output filename each time is error-prone and tedious. A makefile is the way to go.
 
-# Makefile
+## Makefile
 
 In this section, I will briefly go over makefile basics. If you already know how to use a makefile, feel free to jump to the next section. In the current directory, create a file named `makefile`. Put this inside:
 
@@ -105,7 +105,7 @@ You should see an error running that command. To view that error, run the `quick
 || make: *** No rule to make target `dontexist'.  Stop.
 ```
 
-# Compile with `make`
+## Compile with `make`
 
 Let's use the makefile to compile a basic `.cpp` program. First, let's create a `hello.cpp` file:
 
@@ -175,7 +175,7 @@ When you run `:make` from inside `./hello.cpp`, it is compiled into `./hello`. T
 
 For more, check out `:h :compiler` and `:h write-compiler-plugin`.
 
-# Auto-compile on Save
+## Auto-compile on Save
 
 You can further make life easier by automating compilation. Recall that you can use Vim's `autocommand` to automate actions based on certain events. To automatically compile `.cpp` files on each save:
 
@@ -185,7 +185,7 @@ You can further make life easier by automating compilation. Recall that you can 
 
 Each time you save inside a `.cpp` file, Vim executes the `make` command.
 
-# Switching Compiler
+## Switching Compiler
 
 Vim has a `:compiler` command to quickly switch compilers. Your Vim build probably comes with several pre-built compiler configurations. To check what compilers you have, run:
 
@@ -299,7 +299,7 @@ Then run:
 
 You should see the copy of the current file you're in *without* the extension. If you need to define your own compilers (or set of commands), you can use the `:compiler` method to quickly switch compilers.
 
-# Async Compiler
+## Async Compiler
 
 Sometimes compiling can take a long time. You don't want to be staring at a frozen Vim while waiting for your compilation process to finish. Wouldn't it be nice if you can compile asynchronously so you can still use Vim during compilation?
 
@@ -312,7 +312,7 @@ In this chapter, I will go over vim-dispatch, but I would strongly encourage you
 
 *Vim and NeoVim actually supports async jobs, but they are beyond the scope of this chapter. If you're curious, check out `:h job-channel-overview.txt`.*
 
-# Plugin: vim dispatch
+## Plugin: vim dispatch
 
 Vim-dispatch has several commands, but the two main ones are `:Make` and `:Dispatch` commands.
 
@@ -350,7 +350,7 @@ Assume that you are inside a ruby spec file and you need to run a test. Run:
 
 Vim will asynchronously run the `rspec` command against the current file (`%`).
 
-## Automating Dispatch
+### Automating Dispatch
 
 Vim-dispatch has `b:dispatch` buffer variable that you can configure to evaluate specific command. You can leverage it with `autocmd`. If you add this in your vimrc:
 
@@ -360,6 +360,6 @@ autocmd BufEnter *_spec.rb let b:dispatch = 'bundle exec rspec %'
 
 Now each time you enter a file (`BufEnter`) that ends with `_spec.rb`, running `:Dispatch` automatically executes `bundle exec rspec <your-current-ruby-spec-file>`. 
 
-# Learn Compile the Smart Way
+## Learn Compile the Smart Way
 
 In this chapter, you learned that you can use the `make` and `compiler` commands to run *any* process from inside Vim asynchronously to complement your programming workflow. Vim's ability to extend itself with other programs makes it powerful.

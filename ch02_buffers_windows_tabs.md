@@ -1,4 +1,4 @@
-# *Buffers*, ventanas y pestañas
+# Capítulo 2: *Buffers*, ventanas y pestañas
 
 Si has utilizado un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: *buffers*, ventanas y pestañas.
 
@@ -6,7 +6,7 @@ En este capítulo veremos cómo funcionan en Vim los *buffers*, ventanas y pesta
 
 Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un *buffer*, Vim te pedirá que guardes el archivo (no quieres eso si quieres moverte rápidamente entre distintos *buffers*. Para más información, echa un vistazo a la ayuda de Vim `:h hidden`.
 
-# *Buffers*
+## *Buffers*
 
 Un *buffer* es un espacio en la memoria en el que puedes escribir y editar algún texto. Cuando abres un nuevo archivo en Vim, su contenido estará ligado a un nuevo *buffer*:
   1. Dentro de Vim, abre un nuevo *buffer* con el comando `:new` (crea un nuevo *buffer vacío)
@@ -46,7 +46,7 @@ La parte más difícil de aprender para mí sobre los *buffer* fue visualizar c�
 
 Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo. Cuando estés preparado, movámonos a las ventanas.
 
-# Saliendo de Vim
+## Saliendo de Vim
 
 Si tienes varios *buffers* abiertos y has realizado algunos cambios, puedes cerrarlos todos y salir de Vim mediante el comando:
 
@@ -60,7 +60,7 @@ Si quieres salir de Vim sin guardar los cambios realizados, simplemente añade `
 :qall
 ```
 
-# Ventanas
+## Ventanas
 
 Una ventana es una división gráfica en un *buffer*. Puedes tener múltiples ventanas. La mayoría de los editores de texto tienen la posibilidad de mostrar múltiples ventanas. A continuación puedes ver una captura del editor VSCode mostrando 3 ventanas.
 
@@ -130,7 +130,7 @@ Y aquí hay una lista de los comandos para las ventanas:
 
 Para más información, echa un vistazo a la ayuda de Vim `:h window`. Dedícale un tiempo para entenderlos.
 
-# Pestañas
+## Pestañas
 
 Una pestaña en una colección de ventanas. Piensa en ello como en un diseño para ventanas. En la mayoría de los editores modernos (y en los modernos navegadores de internet), una pestaña significa un archivo/página abierta y cuando la cierras, el archivo/página desaparece. En Vim, una pestaña no representa un archivo abierto. Cuando cierras una pestaña en Vim, no estás cerrando un archivo. Recuerda, Vim almacena los archivos en la memoria mediante los *buffers*. Cerrar una pestaña (o una ventana) no hace que ese archivo desaparezca de los *buffers*.
 
@@ -170,7 +170,7 @@ Para arrancar Vim con múltiples pestañas, puedes ejecutar esto desde la termin
 ```
 vim -p archivo1.js archivo2.js archivo3.js
 ```
-# Moviéndote en 3D
+## Moviéndote en 3D
 
 Moverse entre ventanas es como viajar en dos dimensiones a través de los ejes X-Y en coordenadas cartesianas. Te puedes mover a la parte superior, derecha, inferior e izquierda con `Ctrl-W h/j/k/l`.
 
@@ -185,7 +185,7 @@ Te puedes mover en un *espacio tridimensional* combinando los movimientos de ven
 ![movimiento cartesiano en ejes x, y y z](./img/cartesian-xyz.png)
 
 
-# Utilizando los *buffers*, ventanas y pestañas de la manera más inteligente
+## Utilizando los *buffers*, ventanas y pestañas de la manera más inteligente
 
 Has aprendido cómo funcionan los *buffers*, las ventanas y las pestañas en Vim. Para utilizarlas de manera eficiente, necesitas entender para qué están diseñadas y utilizarlas en tu propia forma de trabajar. Cada persona tiene una manera diferente de trabajar, aquí tienes un ejemplo.
 

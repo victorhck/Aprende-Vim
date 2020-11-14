@@ -1,8 +1,8 @@
-# Git
+# Capítulo 18: Git
 
 Vim and git are two great tools for two different things. Git is a version control tool. Vim is a text editor. In this chapter, you will learn different ways to integrate Vim and git together.
 
-# Diffing
+## Diffing
 
 In the last chapter, you saw how you can run a `vimdiff` command to show differences between multiple files.
 
@@ -60,7 +60,7 @@ If you need to transfer the text from the other buffer (orange juice) to replace
 
 `:diffput` *puts out* the text from the current buffer to another buffer. `:diffget` *gets* the text from another buffer to the current buffer. If you have multiple buffers, you can run `:diffput fileN.txt` and `:diffget fileN.txt` to target the fileN buffer.
 
-# Vim as a Merge Tool
+## Vim as a Merge Tool
 
 > "I love resolving merge conflicts!" - Nobody
 
@@ -203,7 +203,7 @@ If you notice, you also have a file `breakfast.txt.orig` now. Git creates a back
 git config --global mergetool.keepBackup false
 ```
 
-# Git Inside Vim
+## Git Inside Vim
 
 Vim does not have a native git integration. However, one way to run git commands from Vim is to use the bang operator, `!`, in the command-line mode.
 
@@ -223,7 +223,7 @@ You can also use Vim's `%` (current buffer) or `#` (other buffer) conventions:
 :!git checkout #    " git checkout the other file
 ```
 
-# Plugins
+## Plugins
 
 To integrate git inside Vim, you have to use plugins. Below is a list of popular git-related plugins for Vim:
 
@@ -237,13 +237,13 @@ To integrate git inside Vim, you have to use plugins. Below is a list of popular
 
 One of the most popular ones is vim-fugitive. For the remaining of the chapter, I will go over a several git workflow using this plugin.
 
-# Vim-fugitive
+## Vim-fugitive
 
 The vim-fugitive plugin allows you to run the git CLI without leaving the Vim editor. You will find that some commands are better when executed from inside Vim.
 
 To get started, install the vim-fugitive with a vim plugin manager ( [vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc).
 
-## Git status
+### Git status
 
 When you run the `:Git` command without any parameters, vim-fugitive displays a git summary window. It shows the untracked, unstaged, and staged file(s). While in this "`git status`" mode, you can do several things:
 
@@ -259,7 +259,7 @@ When you run the `:Git` command without any parameters, vim-fugitive displays a 
 
 For more, check out `:h fugitive-staging-maps`.
 
-## Git blame
+### Git blame
 
 When you run the `:Git blame` command from the current file, vim-fugitive displays a split blame window. This can be useful to see the person responsible for writing that buggy line of code so you can yell at him / her (that person is probably me).
 
@@ -276,7 +276,7 @@ For more, check out `:h :Git_blame`.
   <img alt="Finding files in FZF" width="900" height="auto" src="./img/fugitive-git-blame.png">
 </p>
 
-## Gdiffsplit
+### Gdiffsplit
 
 When you run the `:Gdiffsplit` command, vim-fugitive runs a `vimdiff` of the current file's latest changes against the index or work tree. If you run `:Gdiffsplit <commit>`, vim-fugitive runs a `vimdiff` against that file inside `<commit>`.
 
@@ -286,13 +286,13 @@ When you run the `:Gdiffsplit` command, vim-fugitive runs a `vimdiff` of the cur
 
 Because you are in a `vimdiff` mode, you can *get* or *put* the diff with `:diffput` and `:diffget`.
 
-## Gwrite / Gread
+### Gwrite / Gread
 
 When you run the `:Gwrite` command in a file after you make changes, vim-fugitive stages the changes. It is like running `git add <current-file>`.
 
 When you run the `:Gread` command in a file after you make changes, vim-fugitive restores the file to the state prior to the changes. It is like running `git checkout <current-file>`. One advantage of running `:Gread` is the action is undo-able. If, after you run `:Gread`, you change your mind and want to keep the old change, you can just run undo (`u`) and Vim will undo the `:Gread` action. This would not have been possible if you had run `git checkout <current-file>` from the CLI.
 
-## Gclog
+### Gclog
 
 When you run the `:Gclog` command, vim-fugitive displays the commit history. It is like running the `git log` command. Vim-fugitive uses Vim's quickfix to accomplish this, so you can use `:cnext` and `:cprevious` to traverse to the next or previous log information. You can open and close the log list with `:copen` and `:cclose`.
 
@@ -306,13 +306,13 @@ While in this `"git log"` mode, you can do two things:
 
 You can pass to `:Gclog` arguments just like the `git log` command. If your project has a long commit history and you only need to view the last three commits, you can run `:Gclog -3`. If you need to filter it based on the committer's date, you can run something like `:Gclog --after="January 1" --before="March 14"`.
 
-## More vim-fugitive
+### More vim-fugitive
 
 These are only a few examples of what vim-fugitive can do. To learn more about vim-fugitive, check out `:h fugitive.txt`. The point is, most / all popular git commands probably have their vim-fugitive version. You just have to look for them in the documentation.
 
 If you are inside one of vim-fugitive's "special mode" (for example, inside `:Git` or `:Git blame` mode) and you want to learn what shortcuts are available, press `g?`. Vim-fugitive will display the appropriate `:help` window for the mode you are in. Neat!
 
-# Learn Vim and Git the smart way
+## Learn Vim and Git the smart way
 
 Everybody has a different git workflow. You may find vim-fugitive to be a good compliment to your workflow (or not). Regardless, I would strongly encourage you to check out all the plugins listed above. There are probably others I didn't list. Use the best tool for the job.
 

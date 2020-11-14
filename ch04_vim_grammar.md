@@ -1,10 +1,10 @@
-# La gramática de Vim
+# Capítulo 4: La gramática de Vim
 
 Es sencillo sentirse intimidado por la complejidad de muchos de los comandos de Vim. Si ves a una persona que usa Vim habitualmente ejecutando `gUfV` o `1GdG`, puede que no sepas inmediatamente qué es lo que realizan esos comandos. En este capítulo, voy a romper la estructura general de los comandos de Vim en reglas simples de gramática.
 
 Este es el capítulo más importante de todo el libre. Una vez que entiendas la estructura similar a la gramática de los comandos de Vim, serás capaz de "hablarle" a Vim. Por cierto, cuando me refiero a *lenguaje de Vim* en este capítulo, no estoy refiriéndome a Vimscript (el lenguaje de programación propio para adaptar y crear complementos de Vim). Aquí se refiere al patrón general de los comandos del modo normal de Vim.
 
-# Cómo aprender un lenguaje
+## Cómo aprender un lenguaje
 
 El inglés no es mi lengua nativa. Aprendí inglés cuando tenía 13 años. Tuve que hacer tres cosas para aumentar mis habilidades linguísticas:
 
@@ -14,7 +14,7 @@ El inglés no es mi lengua nativa. Aprendí inglés cuando tenía 13 años. Tuve
 
 De igual manera, para hablar el lenguaje de Vim, necesitas aprender las reglas gramáticas, incrementar tu vocabulario y practicar hasta que puedas ejecutar los comandos sin necesidad de pensarlos.
 
-# Reglas gramáticas
+## Reglas gramáticas
 
 Solo necesitas saber una regla gramática para hablar el lenguaje de Vim:
 
@@ -32,8 +32,8 @@ Esto es equivalente a decir en inglés estas frases: (en español aunque se enti
 
 Ahora necesitas construir tu vocabulario con verbos de Vim básicos y sustantivos.
 
-# Vocabulario
-## Sustantivos (Movimientos)
+## Vocabulario
+### Sustantivos (Movimientos)
 
 Hablemos de los movimientos como sustantivos. Los movimientos son utilizados para movernos por el texto en Vim. También hay sustantivos de Vim. En la lista a continuación veremos algunos ejemplos de movimientos:
 
@@ -49,7 +49,7 @@ $    Ir al final de la línea
 
 Aprenderás más sobre los movimientos en el capítulo siguiente, así que no te preocupes demasiado si todavía no entiendes algunos de los mencionados.
 
-## Verbos (Operadores)
+### Verbos (Operadores)
 
 De acuerdo a lo que podemos leer en la ayuda de Vim mediante el comando `:h operator`, Vim tiene 16 operadores. Sin embargo, en mi experiencia, con aprender estos 3 es suficiente para el 80% de las necesidades a la hora de editar mis textos:
 
@@ -82,7 +82,7 @@ Como nota complementaria, las operaciones que afectan a una línea completa son 
 
 Espero que todo comience a tener sentido poco a poco. Pero todavía no he terminado. Vim tiene otro tipo más de sustantivos: objetos de texto.
 
-## Más sustantivos (Objetos de texto)
+### Más sustantivos (Objetos de texto)
 
 Imagina que estás en algún lugar dentro de un paréntesis, como por ejemplo `(hello vim)` y necesitas eliminar la frase entera dentro del paréntesis. ¿Cómo puedes hacer esto rápidamente? ¿Hay una manera de borrar el "grupo" dentro del que estás?
 
@@ -148,7 +148,7 @@ t         Etiquetas XML (*tags* en inglés)
 ```
 Para aprender más, echa un vistazo a la ayuda de Vim con este comando `:h text-objects`.
 
-# Cómo componer frases y gramática
+## Cómo componer frases y gramática
 
 Después de aprender la gramática de Vim, vamos a hablar sobre la capacidad de componer frases (N.d.T: En el texto original utiliza una palabra que se podría traducir como "componibilidad" que traduciré como la capacidad o habilidad de componer frases) en Vim y de porqué esta es una gran funcionalidad para tener en un editor de texto.
 
@@ -193,7 +193,7 @@ Esto es incluso mejor, los movimientos y operadores son extensibles. Puedes crea
 
 Por cierto, no pasa nada si no conoces los comandos `column` o `awk`. El punto fundamental que debe quedar de esto es que Vim se integra perfectamente con los comandos de terminal que conozcas.
 
-# Aprendiendo la gramática de Vim de la manera más inteligente
+## Aprendiendo la gramática de Vim de la manera más inteligente
 
 Simplemente has aprendido la única regla en la gramática de Vim:
 ```

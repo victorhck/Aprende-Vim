@@ -1,10 +1,10 @@
-# Macros
+# Capítulo 9: Macros
 
 Cuando estás editando archivos, puede que te encuentres repitinedo las mismas acciones. ¿No sería genial si pudieras realizar esas acciones solo una vez y después poder reproducirlas cada vez que lo necesitaras? Gracias a las macros de Vim, puedes grabar tus acciones y almacenarlas dentro de los registros de Vim.
 
 En este capítulo, aprenderás a utilizar macros para automatizar las tareas mundanas (además es genial ver como editar el propio archivo).
 
-# Macros básicas
+## Macros básicas
 
 Aquí puedes ver la sintaxis básica de una macro de Vim:
 
@@ -45,7 +45,7 @@ Vamos a diseccionar el comando anterior para ver qué realiza:
 
 Para volver a ejecutar la macro cada vez que lo necesites, ejecuta `@a`. Como en la mayoría de comandos de Vim, puedes pasarle un número como argumento a las macros. Por ejemplo, puedes ejecutar `3@a` para ejecutar la macro "a" tres veces. Puedes ejecutar `3@@` para ejecutar la última macro ejecutada tres veces.
 
-# Guarda de seguridad
+## Guarda de seguridad
 
 La ejecución de la macro termina automáticamente cuando encuentra un error. Supongamos que tienes el siguiente texto:
 
@@ -75,19 +75,19 @@ Me gusta sobre dimensionar las veces que ejecuto la llamada a una macro, así qu
 
 El hecho que la ejecución de una macro se detenga cuando encuentra el primer error es una buena funcionalidad, de otra forma Vim continuaría ejecutando este macro 99 veces incluso aunque haya llegado al final del archivo.
 
-# Macros en la línea de comandos de Vim
+## Macros en la línea de comandos de Vim
 
 Ejecuta `@a` en el modo normal no es la única forma de ejecutar macros en Vim. También puedes ejecutar `:normal @a` en la línea de comandos. `:normal` permite al usuario ejecutar cualquier comando del modo normal dado como argumento. Pasándole el argumento `@a`, sería lo mismo que ejecutar `@a` en el modo normal.
 
 El comando `:normal` acepta un rango como argumentos. Puedes ejecutar una macro en los rangos seleccionados. Si quieres ejecutar la macro "a" entre la lína 2 y 3, puedes ejecutar `:2,3 normal @a`. Vermos más en detalle los comandos de la línea de comandos en un capítulo posterior.
 
-# Ejecutando una macro a través de múltiples archivos
+## Ejecutando una macro a través de múltiples archivos
 
 Supongamos que tenemos múltiples archivos de extensión `.txt`, cada uno de los cuales contiene diferentes listas. Además, necesitas poner en mayúsculas la primera letra de la primera palabra solo de las líneas que contienen al palabra "donut". ¿Cómo podemos ejecutar macros a través de múltiple archivos en las líneas seleccionadas? 
 
 Primer archivo:
 ```
-# savory.txt
+## savory.txt
 a. cheddar jalapeno donut
 b. mac n cheese donut
 c. fried dumpling
@@ -144,7 +144,7 @@ Ahora simplemente ejecuta `@a` y mira cómo Vim ejecuta la macro de manera recur
 
 ¿Cómo sabe la macro cuando debe parar? Cuando la macro está en la última línea, tartará de ejecutar `j`, encontrará que no hay una línea extra a la que ir y parará la ejecución de la macro.
 
-# Añadiendo acciones a una macro
+## Añadiendo acciones a una macro
 
 Si necesitas añadir más acciones a una macro existente, en vez de rehacerla, puedes añadir acciones a la macro ya existente. En el capítulo de los registros, aprendiste que puedes añadir un registro nominal utilizando su símbolo en mayúsculas. Para añadir acciones a una macro en el registro "a", utiliza el registro "A". Supongamos que además de cambiar a mayúsculas la primera palabra, también quieres añadir un punto al final de la línea.
 
@@ -164,7 +164,7 @@ El desglose:
 
 Ahora cuando ejecutemos `@a`, irá al primer caracter de la línea (`0`), se dirige a la siguiente PALABRA (`W`), cambia el caracter de la palabra bajo el cursor (`~`), activa el modo insertar al final de la línea (`A`), escribirá un punto (".") y saldrá del modo insertar (`<esc>`).
 
-# Modificar una macro
+## Modificar una macro
 
 Añadir acciones a una macro, es una gran técnica para añadir nuevas acciones al final de tus macros ya existentes, pero ¿qué pasa si quieres añadir nuevas acciones en la parte media de una macro? En esta sección, te enseñaré cómo modificar una macro.
 
@@ -206,13 +206,13 @@ Ahora cuando ejecutes `@a`, tu macro cambiará a mayúsculas la primera letra de
 
 Una manera alternativa de modificar una macro es utilizando una expresión para la línea de comandos. Ejecuta `:let @a="`, y después `Ctrl-r Ctrl-r a`, esto literalmente pegará el contenido del registro "a". Finalmente, no olvides encerrarlo todo entre comillas dobles (`"`). Si necesitas insertar caracteres especiales utilizando los códigos internos mientras editas una expresión para la línea de comandos, puedes utilizar `Ctrl-v`.
 
-# Redundancia de macros
+## Redundancia de macros
 
 Puedes duplicar fácilmente macros de un registro a otro. Por ejemplo, para duplicar una macro ya existente en el registro "a" al registro "z", simplemente ejecuta lo siguiente `:let @z = @a`. `@a` representa el contenido del registro "a". Ahora si ejecutas `@z`, realizará las mismas acciones que `@a`.
 
 Creo que crear macros redundantes es útil en mis macros más utilizadas frecuentemente. En mi forma de trabajar, normalmente guardo las macros en las primeras siete letras del alfabeto (a-g) y la reemplazo a menudo. Si muevo las macros más útiles a las letras finales del alfabeto, puedo preservarlas sin tener que preocuparme de reemplazarlas de manera accidental.
 
-# Macros en serie vs. en paralelo
+## Macros en serie vs. en paralelo
 
 Vim puede ejecutar macros en serie o en paralelo. Supongamos que tenemos el siguiente texto:
 
@@ -255,7 +255,7 @@ Volviendo a la sección anterior en la que vimos que las macros pueden ser ejecu
 
 Aunque internamente Vim no ejecuta las macros en paralelo, externamente, parece que sí lo hace así. Vim ejecuta `@a` *independientemente* en cada línea desde la primera a la última (`1,$`). Ya que Vim ejecuta estas macros de manera independiente, cada línea no sabe que una de las macros en ejecución ha fallado en la línea que contiene el texto "foo".
 
-# Aprendiendo las macros de la manera más inteligente
+## Aprendiendo las macros de la manera más inteligente
 
 Muchas cosas que haces mientras estás editando son repetitivas. Para mejorar en la edición de texto, debes habituarte a detectar las acciones repetitivas. Utiliza macros (o el comando del punto) así no tendrás que realizar la misma acción dos veces. Casi todo lo que haces en Vim puede ser realizado con macros.
 

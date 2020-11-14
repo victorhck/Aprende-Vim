@@ -1,8 +1,8 @@
-# Ejecutando Vim
+# Capítulo 1: Ejecutando Vim
 
 En este capítulo, aprenderás diferentes maneras de ejecutar Vim desde la terminal. Te recomiendo encarecidamente que utilices Vim desde la terminal mientras estás escribiendo. Actualmente estoy usando Vim 8.2. Los comandos escritos deberían funcionar bien si utilizas una versión menor, pero quizás algunos comandos podrían no estar disponibles.
 
-# Instalar Vim
+## Instalar Vim
 
 No voy a entrar en detalles de cómo instalar Vim (porque hay demasiadas distribuciones diferentes ahí fuera). La buena noticia es, la mayoría de los equipos con Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
 
@@ -12,7 +12,7 @@ Para más información de cómo descargar, echa un vistazo a la web oficial de d
 
 De manera alternativa, también puedes echar un vistazo al [repositorio oficial de Vim en GitHub](https://github.com/vim/vim).
 
-# `vim`
+## `vim`
 
 Ahora que ya tienes Vim instalado, ejecuta esto desde la terminal:
 
@@ -22,7 +22,7 @@ vim
 
 Deberías ver una pantalla de bienvenida. Ahí será donde trabajarás con tus archivos. A diferencia de la mayoría de editores de texto e IDE's, Vim es un editor modal. Si quieres escribir "Hola", necesitas cambiar al modo Insertar con `i`. Escribe: `ihello<Esc>`.
 
-# Saliendo de Vim
+## Saliendo de Vim
 
 Hay muchas maneras de salir del editor Vim. La más común es escribir:
 
@@ -58,7 +58,7 @@ Para salir sin guardar los cambios, añade `!` después de  `:q` para forzar el 
 
 Hay otras maneras de salir de Vim, pero estas que hemos visto las utilizarás diariamente.
 
-# Ayuda
+## Ayuda
 
 A lo largo del libro, te referiré a varias páginas de ayuda de Vim. Puedes acceder a la página de ayuda escribiendo el siguiente comando en la línea de comandos:
 
@@ -72,7 +72,7 @@ O `:h` de forma abreviada. También puedes indicarle al comando `:h` el tema sob
 :h write-quit
 ```
 
-# Abriendo un archivo
+## Abriendo un archivo
 
 Desde la terminal, para abrir el archivo `hola1.txt`, ejecuta:
 
@@ -88,7 +88,7 @@ vim hola1.txt hola2.txt hola3.txt
 
 Vim abre `hola1.txt`, `hola2.txt` y `hola3.txt` en *buffers* separados. Aprenderás más sobre los *buffers* en el próximo capítulo.
 
-# Argumentos
+## Argumentos
 
 Puedes pasarle al comando de la terminal `vim` diferentes banderas y opciones.
 
@@ -139,7 +139,7 @@ vim -c %s/foo/bar/g -c %s/bar/baz/g -c %s/baz/donut/g hola.txt
 
 Durante todo este libro aprenderás varios comandos para la Línea de comandos de Vim. Todos estos comandos pueden ser ejecutados al inicio.
 
-# Abriendo múltiples ventanas
+## Abriendo múltiples ventanas
 
 Puedes ejecutar Vim en ventanas divididas de manera horizontal y vertical con `o` y `O`, respectivamente.
 
@@ -169,13 +169,13 @@ vim -O5
 vim -O5 hola1.txt hola2.txt
 ```
 
-# Suspender
+## Suspender
 
 Si necesitar suspender la ejecución de Vim mientras estás a la mitad de una edición de texto, puedes presionar la combinación de teclas `Ctrl-Z`. De manera alternativa, también puedes ejecutar los comandos `:stop` o `:suspend`.
 
 Para volver a retomar la sesión suspendida de Vim, ejecuta `fg` desde la terminal.
 
-# Arrancando Vim de la manera más inteligente
+## Arrancando Vim de la manera más inteligente
 
 Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos (`+{cmd}` o `c cmd`). Cuantos más comandos para la propia línea de comandos de Vim aprendas en este libro, verás que puedes utilizarlos al arrancar Vim.
 

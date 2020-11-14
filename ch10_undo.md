@@ -1,8 +1,8 @@
-# Deshacer
+# Capítulo 10: Deshacer
 
 Deshacer es una funcionalidad esencial en cualquier software moderno. El sistema de deshacer de Vim no solo es capaz de deshacer y rehacer errores, también te permite manipular y recuperar texto a través del tiempo. En este capítulo, aprenderás como deshacer y volver a hacer los cambios en tu texto, navegar por una rama de deshacer, deshacer de forma persistente y viajar a través del tiempo.
 
-# Deshacer, rehacer y DESHACER
+## Deshacer, rehacer y DESHACER
 
 Para realizar una tarea básica de deshacer, puedes utilizar `u` o ejecutar `:undo`.
 
@@ -62,7 +62,7 @@ Personalmente no utilizo `U` porque es difícil recordar el estado original (rar
 
 Vim establece un máximo de cuantas veces puedes deshacer en la variable `undolevels`. Puedes comprobarla con `:echo &undolevels`. Tengo establecida la mía para que sea 1000. Para cambiar la tuya a 1000 ejecuta `:set undolevels=1000`. Pero puedes establecerla al número que prefieras.
 
-# Dividiendo los bloques
+## Dividiendo los bloques
 
 He mencionado anteriormente que `u` deshace un único "cambio", de manera similar al cambio del comando del punto. Cualquier texto introducido entre entrar en el modo insertar y salir del modo es tomado en cuenta como cambio.
 
@@ -77,7 +77,7 @@ inoremap <c-w> <c-g>u<c-w>
 ```
 Con esto, puedes recuperar fácilmente los textos eliminados de esta manera.
 
-# El árbol de cambios del comando deshacer
+## El árbol de cambios del comando deshacer
 
 Vim almacena cada cambio que se ha escrito en un árbol del comando deshacer. Si comienzas editando un archivo vacío:
 
@@ -169,7 +169,7 @@ Para recorrer cada nodo del árbol de deshacer, puedes utilizar `g+` para ir a u
 
 El árbol de cambios de deshacer nos es sencillo de visualizar. He encontrado el complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) muy útil a la hora de ayudar a visualizar el árbol de cambios de deshacer. Dedícale algún tiempo para jugar con él.
 
-# Modo persistente en deshacer
+## Modo persistente en deshacer
 
 Si inicias Vim y abres un archivo nuevo e inmediatamente presionas `u`, Vim probablemente mostrará un mensaje de advertencia como este "*Ya en el cambio más antiguo*" (o en inglés: "*Already at oldest change*"). Vim puede preservar un historial de acciones de deshacer en un archivo mediante el comando `:wundo`.
 
@@ -217,7 +217,7 @@ set undofile
 
 Creo que es mejor, poner todos los archivos de historial de deshacer en una carpeta centralizada en tu equipo, en este caso dentro del directorio `~/.vim`. El nombre `undo_dir` es aleatorio, y puedes poner el quieras. El ajuste `set undofile` le dice a Vim que debe activar la funcionalidad `undofile` porque está desactivada de manera predeterminada. Ahora todo lo que guardes, Vim automáticamente creará y actualizará el archivo relevante dentro del directorio `undo_dir` (asegúrate de que has creado la carpeta `undo_dir` dentro de la carpeta `~/.vim` antes de ejecutar esto).
 
-# Viajar en el tiempo
+## Viajar en el tiempo
 
 ¿Quién dice que los viajes en el tiempo no existen? Vim puede viajar al estado de un texto en el pasado mediante el comando `:earlier`.
 
@@ -258,7 +258,7 @@ Los mismo tipos de argumentos que funcionan con `:earlier` también se aplican a
 :later 10f     Ir a un estado grabado 10 veces más tarde
 ```
 
-# Aprendiendo a deshacer de la manera más inteligente
+## Aprendiendo a deshacer de la manera más inteligente
 
 `u` y `Ctrl-R` son dos comandos indispensables de Vim. Apréndelos en primer lugar. Personalmente no utilizo DESHACER en mi manera de trabajo con Vim, sin embargo creo que está bien saber que existe esa posibilidad. Después, aprende a utilizar `:earlier` y `:later` utilizando primero los argumentos de tiempo. Después de eso, tómate tu tiempo para entender el concepto de árbol de cambios de deshacer. El complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) me ha ayudado mucho. Escribe en este capítulo y comprueba cómo cómo funciona ese árbol de deshacer cuando haces cada cambio. Una vez que lo entiendas, nunca volverás a ver el sistema de deshacer de la misma manera.
 
