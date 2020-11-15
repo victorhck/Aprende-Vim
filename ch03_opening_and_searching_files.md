@@ -231,7 +231,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 Para más información sobre este complemento, puedes revisar [FZF.vim repo](https://github.com/junegunn/fzf/blob/master/README-VIM.md).
 
-## La isntanxis de FZF 
+## La sintaxis de FZF 
 
 Para ser capaz de utilizar FZF de manera eficiente, deberías aprender la sintaxis básica de FZF. Afortunadamente, la lista es corta:
 
