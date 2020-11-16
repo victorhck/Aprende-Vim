@@ -248,7 +248,7 @@ Puedes mezclar y combinar estas opciones. Por ejemplo, `^hola | ^bienvenidos ami
 Para encontrar archivos dentro de Vim utilizando el complemento FZF.vim, puedes utilizar el método `:Files`. Ejecuta `:Files` desde Vim y se le mostrará el símbolo del sistema de la búsqueda con FZF.
 
 <p align="center">
-  <img alt="Encontrando archivos en FZF" width="900" height="auto" src="./img/fzf-files.gif">
+  <img alt="Encontrando archivos en FZF" width="900" height="auto" src="./img/fzf-files.gif"/>
 </p>
 
 
@@ -262,7 +262,7 @@ nnoremap <silent> <C-f> :Files<CR>
 Para buscar dentro de archivos, puedes utilizar el comando `:Rg`.
 
 <p align="center">
-  <img alt="Encontrar en archivos con FZF" width="900" height="auto" src="./img/fzf-in-files.gif">
+  <img alt="Encontrar en archivos con FZF" width="900" height="auto" src="./img/fzf-in-files.gif"/>
 </p>
 
 
