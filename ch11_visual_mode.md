@@ -1,24 +1,24 @@
-# Capítulo 11: Visual Mode
+# Capítulo 11: Modo visual
 
-You probably know that you can highlight a block of text and apply changes to it. Vim can too, with visual mode. Vim has three different visual modes to use. In this chapter, you will learn how to use each visual mode to manipulate blocks of texts efficiently.
+Probablemente sabes que puedes resaltar un bloque de texto y aplicarle cambios. Vim también puede hacerlo, con el modo visual. Vim tiene tres modos visuales diferentes para usar. En este capítulo, aprenderás cómo utilizar cada uno de los diferestes modos visuales para manipular bloques de texto de manera eficiente.
 
-## The Three Types of Visual Modes
-The three modes are:
+## Los tres tipos de modos visuales
+Los tres modos son:
 
 ```
-v         Character-wise visual mode
-V         Line-wise visual mode
-Ctrl-v    Block-wise visual mode
+v         Modo visual de selección de caracter
+V         Modo visual de selección de líneas
+Ctrl-v    Modo visual de selección de bloque
 ```
 
-If you have the text:
+Si tienes el siguiente texto:
 ```
-one
-two
-three
+uno
+dos
+tres
 ```
 
-Character-wise visual mode is used to select individual characters. Press `v` on the first character on the first line. Then go down to the next line with `j`. It highlights all texts from "one" up to your cursor location. Now if you press `gU`, Vim uppercases the highlighted characters.
+El modo visual de selección de caracter es utilizado para seleccionar caracteres de forma individual. Pulsa `v` en el primer caracter de la primera línea. Después baja hasta la línea siguiente con `j`. Esto resaltará todo el texto desde "uno" hasta donde este ubicado el cursor. Ahora pulsa `gU`, Vim convertirá a mayúsculas todos los caracteres resaltados.
 
 Line-wise visual mode works with line units. Press `V` and watch Vim selects the entire line your cursor is on. Just like character-wise visual mode, if you run `gU`, Vim uppercases the highlighted characters.
 
