@@ -39,61 +39,61 @@ gv    Go to the previous visual mode
 
 Este comando seleccionará el mismo modo visual y el mismo resaltado de texto de la última vez.
 
-## Visual mode navigation
+## Navegación en el modo visual
 
-While in a visual mode, you can expand the highlighted text block with Vim motions.
+Mientras estás en el modo visual, puedes expandir el bloque de texto resaltado con los movimientos de Vim.
 
-Let's use the same text you used earlier:
-
-```
-one
-two
-three
-```
-
-This time let's start from the line "two". Press `v` to go to the character-wise visual mode:
+Vamos a utilizar el mismo texto que hemos utilizado anteirormente:
 
 ```
-one
-[t]wo
-three
+uno
+dos
+tres
 ```
 
-Press `j` and Vim will highlight all the text from the line "two" down to the first character of the line "three".
+Esta vez vamos a empezar desde la línea "dos". Pulsa `v` para comenzar el modo visual de selección de caracter:
 
 ```
-one
-[two
-t]hree
+uno
+[d]os
+tres
 ```
 
-Suppose you just realized that you also need to highlight the line "one" too, so you press `k`. To your dismay, it now excludes "three". Pressing `k` actually reduces the highlight, not expands it.
+Pulsa `j` y Vim altará todo el texto desde la línea "dos" hasta el primer caracter de la línea "tres".
 
 ```
-one
-[t]wo
-three
+uno
+[dos
+t]res
 ```
 
-Is there a way to freely expand visual selection to go to any direction you want? 
-
-The answer is yes.  Let's back up a little bit to where you have the line "two" and "three" highlighted.
+Supongamos que nos hemos dado cuenta que también necesitamos resaltar la línea "uno", así que pulsas la tecla `k`. Para tu asombro, esto ahora excluye "tres". Al pulsar `k` esto reduce la zona resaltada, no la expande.
 
 ```
-one
-[two
-t]hree    <-- cursor
+uno
+[d]os
+tres
 ```
 
-Visual highlight follows the cursor movement. If you want to expand it upward to line "one", you need to move the cursor up when the cursor is on the letter "two", not "three". Right now your cursor is on the line "three". To move it, toggle the cursor location with either `o` or `O`.
+¿Hay alguna manera de expandir libremente la selección visual para ir a cualquier dirección que quieras? 
+
+La respuesta es sí. Regresemos a la situación anterior donde teníamos las líneas "dos" y "tres" resaltadas.
 
 ```
-one
-[two     <-- cursor
-t]hree
+uno
+[dos
+t]res    <-- cursor
 ```
 
-Now when you press `k`, it no longer reduces the selection, but expands it upward.
+El resaltado visual sigue el movimiento del cursor. Si quiere expandirlo hacia arriba a la línea "uno", necesitas mover el cursor cuando el cursor está en la palabra "dos", no "tres". Ahora tu cursor está en la línea "tres". Para movelo, cambia la loclización del cursor tanto con `o` o `O`.
+
+```
+uno
+[dos     <-- cursor
+t]res
+```
+
+Ahora pulsa `k`, esto ya no reducirá la selección si no que la expandirá hacia arriba.
 
 ```
 [one
