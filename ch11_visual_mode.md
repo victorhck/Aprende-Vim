@@ -20,24 +20,24 @@ tres
 
 El modo visual de selección de caracter es utilizado para seleccionar caracteres de forma individual. Pulsa `v` en el primer caracter de la primera línea. Después baja hasta la línea siguiente con `j`. Esto resaltará todo el texto desde "uno" hasta donde este ubicado el cursor. Ahora pulsa `gU`, Vim convertirá a mayúsculas todos los caracteres resaltados.
 
-Line-wise visual mode works with line units. Press `V` and watch Vim selects the entire line your cursor is on. Just like character-wise visual mode, if you run `gU`, Vim uppercases the highlighted characters.
+El modo visual de selección de línea funciona con líneas como unidades de selección. Pulsa `V` y observa como Vim selecciona la línea completa en la que esté ubicado el cursor. Igual que en el modo visual de selección de caracter, si ejecutas `gU`, Vim cambiará a mayúsculas las líneas resaltadas.
 
-Block-wise visual mode works with rows and columns. It gives you more freedom to move around than the other two modes. Press `Ctrl-V`. Vim highlights the character under the cursor just like character-wise visual mode, except instead of highlighting each character until the end of the line before going to the next line, it can go to the next line without highlighting the entire character on the current line. Try moving around with `h/j/k/l` and watch the cursor movements. 
+El modo visual de slección de bloque funciona con filas y columnas. Te da más libertad de movimientos que los dos modos anteriores. Pulsando `Ctrl-V` verás qie Vim resalta el caracter bajo el cursor de igual manera que el modo visual de selección de caracter, excepto que ahora en vez de resaltar cada caracter hasta el final de la línea antes de seguir en la línea siguiente, puedes dirigir el cursor hasta la línea siguiente sin que se marquen todos los caracteres de la línea actual. Intenta moverte mediante las teclas `h/j/k/l` y observa los movimientos del cursor y las zonas que se marcan.
 
-On the bottom left of your Vim window, you will see either `-- VISUAL --`, `-- VISUAL LINE --`, or `-- VISUAL BLOCK --` displayed to indicate which visual mode you are in.
+En la esquina inferior izquierda de la ventana de Vim, verás que se muestra `-- VISUAL --`, `-- VISUAL LINE --` o `-- VISUAL BLOCK --` para indicar el modo visual en que te encuentras.
 
-While you are inside a visual mode, you can switch to another visual mode by pressing either `v`, `V`, or `Ctrl-V`. For example, if you are in line-wise visual mode and you want to switch to block-wise visual mode, run `Ctrl-V`. Try it!
+Mientras estás dentro de un modo visual, puedes cambiar a otro de los modos pulsando `v`, `V` o `Ctrl-V`. Por ejemplo, si estás en el modo visual de selección de línea y quieres cambiar al modo visual de selección de bloque, ejecuta `Ctrl-V`. ¡Inténtalo!
 
-There are three ways to exit the visual mode: `esc`, `Ctrl-C`, and the same key as your current visual mode.
+Hay tres maneras de salir del modo visual: `esc`, `Ctrl-C` y con la misma tecla con la que accediste al modo visual actual.
 
-What the latter one means is if you are currently in the line-wise visual mode (`V`), you can exit it by pressing `V` again. If you are in the character-wise visual mode, you can exit it by pressing `v`. If you are in the block-wise visual mode, press `Ctrl-V`.
+Esto último significa, que si estás en el modo visual de selección de línea (`V`), podrás salir de ese modo pulsando `V` de nuevo. Si estás en el modo visual de selección de caracter, podrás salir pulsando `v`. Si estás en el modo visual de selección de bloque, pulsa `Ctrl-V` para salir de ese modo.
 
-There is actually one more way to enter the visual mode:
+Hay una forma más de entrar en el modo visual:
 ```
 gv    Go to the previous visual mode
 ```
 
-It will start the same visual mode on the same highlighted text block as you did last time.
+Este comando seleccionará el mismo modo visual y el mismo resaltado de texto de la última vez.
 
 ## Visual mode navigation
 
