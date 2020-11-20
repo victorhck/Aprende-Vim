@@ -1,6 +1,6 @@
 # Capítulo 11: Modo visual
 
-Probablemente sabes que puedes resaltar un bloque de texto y aplicarle cambios. Vim también puede hacerlo, con el modo visual. Vim tiene tres modos visuales diferentes para usar. En este capítulo, aprenderás cómo utilizar cada uno de los diferestes modos visuales para manipular bloques de texto de manera eficiente.
+Con los editores de texto con interfaz gráfica (como LibreOffice Writer o Microsoft Word) probablemente sabes que puedes resaltar un bloque de texto y aplicarle cambios. Vim también puede hacerlo, con el modo visual. Vim tiene tres modos visuales diferentes para usar. En este capítulo, aprenderás cómo utilizar cada uno de los diferestes modos visuales para manipular bloques de texto de manera eficiente.
 
 ## Los tres tipos de modos visuales
 Los tres modos son:
@@ -85,7 +85,7 @@ uno
 t]res    <-- cursor
 ```
 
-El resaltado visual sigue el movimiento del cursor. Si quiere expandirlo hacia arriba a la línea "uno", necesitas mover el cursor cuando el cursor está en la palabra "dos", no "tres". Ahora tu cursor está en la línea "tres". Para movelo, cambia la loclización del cursor tanto con `o` o `O`.
+El resaltado visual sigue el movimiento del cursor. Si quiere expandirlo hacia arriba a la línea "uno", necesitas mover el cursor cuando el cursor está en la palabra "dos", no "tres". Ahora tu cursor está en la línea "tres". Para movelo, cambia la loclización del cursor tanto con `o` u `O`.
 
 ```
 uno
@@ -100,6 +100,8 @@ Ahora pulsa `k`, esto ya no reducirá la selección si no que la expandirá haci
 two
 t]hree
 ```
+
+Al pulsar `o` u `O` en el modo visual, esto hará que nuestro cursor salte del inicio que bloque resaltado, sin eliminar las partes resaltadas y podremos añadir más texto a esa selección. 
 
 ## Visual Mode Grammar
 
