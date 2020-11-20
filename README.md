@@ -6,7 +6,9 @@
 La idea es trauducir el libro del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR.
 
 ## Índice de contenidos (En progreso. Se irán traduciendo los diferentes capítulos)
-- Ch 0     - Learn Vim the Smart Way ......... En progreso [ ]  / Traducido [ ] / Revisado [ ]
+
+### Parte 1: Aprendiendo Vim de la manera más inteligente
+
 - [Ch 1     - Starting Vim](./01_starting_vim.md) ......... En progreso [ ]  / Traducido [X] / Revisado [ ]
 - [Ch 2     - Buffers, Windows, and Tabs](./ch02_buffers_windows_tabs.md) ......... En progreso [ ]  / Traducido [X] / Revisado [ ]
 - [Ch 3     - Opening and Searching Files](./ch03_opening_and_searching_files.md) ......... En progreso [ ]  / Traducido [X] / Revisado [ ]
@@ -26,7 +28,18 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 - [Ch 17    - Fold](./ch17_fold.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 18    - Git](./ch18_git.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 19    - Compile](./ch19_compile.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- Ch 20    - Sessions
+- [Ch 20    - Views, Sessions, and Viminfo](./ch20_views_sessions_viminfo.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+
+### Parte 2: Personaliza Vim de la manera más inteligente
+
+- [Ch 21 - Vimrc](./ch21_vimrc.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+- [Ch 22 - Vim Packages](./ch22_vim_packages.md)  ......... En progreso [ ] / Traducido [ ] / Revisado [ ]                           
+- Ch 23 - Vim runtime  ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+
+### Parte 3: Aprende Vimscript de la manera más inteligente
+
+- Ch 24 - Vimscript
+
 
 # Licencia y derechos de autor
 El materia original en iglés es autoría de ©2020 Igor Irianto. La traducción en español, será autoría de los diferentes colaboradores (si los hubiera). Al colaborar en este repositorio estás de acuerdo en compartir tu trabajo con la licencia utilizada para el repositorio completo.
