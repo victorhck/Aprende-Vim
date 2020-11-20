@@ -103,61 +103,61 @@ t]hree
 
 Al pulsar `o` u `O` en el modo visual, esto hará que nuestro cursor salte del inicio que bloque resaltado, sin eliminar las partes resaltadas y podremos añadir más texto a esa selección. 
 
-## Visual Mode Grammar
+## Gramática en el modo visual
 
-Visual mode is one of Vim's modes. Being a mode means that the same key may work differently than in another mode. Luckily, visual mode shares many common keys with normal mode.
+El modo visual es uno de los modos de Vim. El que sea un modo significa que la misma tecla puede funcionar de manera diferente en un modo o en otro. Afortunadamente, el modo visual comparte muchas teclas en común con el modo normal.
 
-For example, if you have the text:
-
-```
-one
-two
-three
-```
-
-Highlight the lines "one" and "two" with the line-wise visual mode (`V`):
-```
-[one
-two]
-three
-```
-
-Pressing `d` will delete the selection, similar to normal mode. Notice the grammar rule from normal mode, verb + noun, does not apply. The same verb is still there (`d`), but there is no noun in visual mode. The grammar rule in visual mode is noun + verb, where noun is the highlighted text. Select the text block first, then operate.
-
-In normal mode, there are some commands that do not require a motion, like `x` to delete a single character under the cursor and `rx` to replace the character under the cursor with "x". In visual mode, these commands are now being applied to the entire highlighted text instead of a single character. Back at the highlighted text:
-```
-[one
-two]
-three
-```
-
-Running `x` deletes all highlighted texts.
-
-You can use this behavior to quickly create a header in markdown text. Suppose you have a text in a markdown file:
-```
-Chapter One
-```
-
-You need to quickly turn this header into a header. First you copy the text with `yy`, then paste it with `p`:
-```
-Chapter One
-Chapter One
-```
-
-Now go to the second line, select it with line-wise visual mode:
-```
-Chapter One
-[Chapter One]
-```
-
-In markdown you can create a header by adding  a series of `=` below a text, so you will replace the entire highlighted text by running `r=`:
+Por ejemplo, si tenemos el siguiente texto:
 
 ```
-Chapter One
-===========
+uno
+dos
+tres
 ```
 
-To learn more about operators in visual mode, check out `:h visual-operators`.
+Resalta las líneas "uno" y "dos" con el modo visual de selección de línea (`V`):
+```
+[uno
+dos]
+tres
+```
+
+Al pulsar `d` esto eliminará la selección, de manera similar al modo normal. Cabe destacar que la regla gramatical del modo normal de verbo + sustantivo, aquí no se aplica. El mismo verbo sigue estando ahí (`d`), pero no existe un sustantivo en el modo visual. La regla gramática en el modo visual es sustantivo + verbo, donde el sustantivo en este caso es reemplazado por el texto resaltado. Primero selecciona el texto, después opera sobre el.
+
+En el modo normal, hay algunos comandos que no requieren de una tecla de movimeinto, como por ejemplo `x`  para eliminar un único caracter bajo el cursor o `rx` para reemplzar el texto bajo el cursor con la letra "x". En el modo visual, estos comandos son ahora aplicados  al texto resaltado por completo en vez de a un único caracter. Regresemos al texto que hemos resaltado anteriormente:
+```
+[uno
+dos]
+tres
+```
+
+Al ejecutar el comando `x` esto eliminará todo el texto resaltado.
+
+Puedes utilizar esta funcionalidad para crear rápidamente un encabezado en un texto en formato Markdown. Supongamos que tenemos este texto en un archivo en Markdown:
+```
+Capítulo uno
+```
+
+Y queremos convertir este texto rápidamente en un encabezado. Primero copiamos la línea con `yy`, después lo pegamos con `p`:
+```
+Capítulo uno
+Capítulo uno
+```
+
+Ahora coloquemos el cursor en la segunda línea y la seleccionamos con el modo visual de selección de línea:
+```
+Capítulo uno
+[Capítulo uno]
+```
+
+En Markdown puedes crear un encabezado añadiendo una serie de `=` debajo del texto, así que reemplacemos el texto completo resaltado mediante `r=`:
+
+```
+Capítulo uno
+============
+```
+
+Para aprender más sobre los operadores en el modo visual, echa un vistazo a la ayuda de Vim mediante: `:h visual-operators`.
 
 
 ## Visual Mode and Ex Commands
