@@ -160,9 +160,9 @@ Capítulo uno
 Para aprender más sobre los operadores en el modo visual, echa un vistazo a la ayuda de Vim mediante: `:h visual-operators`.
 
 
-## Visual Mode and Ex Commands
+## El modo visual y comandos Ex
 
-You can selectively apply Ex commands on a highlighted text block. If you have these expressions:
+Puedes aplicar de manera selectiva comandos Ex a un bloque de texto resaltado. Si tienes estas expresiones:
 
 ```
 const one = "one";
@@ -170,17 +170,17 @@ const two = "two";
 const three = "three";
 ```
 
-You need to substitute only the first two lines of "const" with "let". Highlight the first two lines with *any* visual mode and run the substitute command `:s/const/let/g`:
+Y necesitas sustituir solo las primeras dos líneas de "const" con "let". Resalta las primeras dos línea con *cualquier* modo visual y ejecuta el comando de sustituir `:s/const/let/g`:
 ```
 let one = "one";
 let two = "two";
 const three = "three";
 ```
-Notice I said you can do this with *any* visual mode. You do not have to highlight the entire line to run Ex command on that line. As long as you select at least a character on each line, the Ex command will be applied.
+Ten en cuenta que he dicho que puedes hacer esto con *cualquier* modo visual. No es necesario resaltar las líneas completas para ejecutar el comando Ex en esas líneas. Con tan solo seleccionar al menos un caracter de cada línea, el comando Ex será aplicado.
 
-## Editing Across Multiple Lines 
+## Editar en múltiples líneas
 
-You can edit text across multiple lines in Vim using the block-wise visual mode. If you need to add a semicolon at the end of each line:
+Puedes editar texto en múltiples líneas en vim utilizando el modo visual de selección de bloque. Si necesitas añadir un punto y comaal final de cada línea:
  
 ```
 const one = "one"
@@ -188,20 +188,20 @@ const two = "two"
 const three = "three"
 ```
 
-With your cursor on the first line:
-- Run block-wise visual mode and go down two lines (`Ctrl-V jj`).
-- Highlight to the end of the line (`$`).
-- Append (`A`) then type ";".
-- Exit visual mode (`esc`).
+Con tu cursor en la primera línea:
+- Ejecuta el modo visual de selección de bloque y baja dos líneas (`Ctrl-V jj`).
+- Resalta hasta el final de la línea (`$`).
+- Añade (`A`) y después escribe ";".
+- Sal del modo visual (`esc`).
 
-You should see the appended ";" on each line. By the way, while in block-wise visual mode, to enter the insert mode, you can use either `A` to enter the text after the cursor or `I` to enter the text before the cursor. Do not confuse them with `A` and `I` from normal mode.
+Deberías ver que se ha añadido ";" en cada línea. Por cierto, mientras estás en el modo visual de selección de bloque, para entrar en el modo insertar, también puedes utilizar `A` para introducir el texto después del cursor o `I` para introducir el texto antes del cursor. No los confundas con `A` o `I` del modo normal.
 
-Alternatively, you can also use the `:normal` command:
+De manera alternativa, también puedes utilizar el comando `:normal`:
 
-- Highlight all 3 lines (`vjj`).
-- Type `:normal! A;`.
+- Resalta las tras líneas (`vjj`).
+- Escribe `:normal! A;`.
 
-Remember, `:normal` command executes normal mode commands. You can instruct it to run `A;` to append text ";" at the end of the line. 
+Recuerda, el comando `:normal` ejecuta comandos del modo normal. Le puedes pedir que ejecute `A;` para añadir el texto ";" al final de la línea.
 
 ## Incrementing numbers
 
