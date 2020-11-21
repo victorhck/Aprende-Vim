@@ -203,11 +203,11 @@ De manera alternativa, también puedes utilizar el comando `:normal`:
 
 Recuerda, el comando `:normal` ejecuta comandos del modo normal. Le puedes pedir que ejecute `A;` para añadir el texto ";" al final de la línea.
 
-## Incrementing numbers
+## Incrementar números
 
-Vim has `Ctrl-X` and `Ctrl-A` commands to decrement and increment numbers. When used with visual mode, you can increment numbers across multiple lines.
+Vim tiene los comandos `Ctrl-X` y `Ctrl-A` para decrementar e incrementar números. Cuando son usados en el modo visual, puedes incrementar o decrementar números en múltiples líneas.
 
-If you have these HTML elements:
+Si tienes estos elementos HTML:
 ```
 <div id="app-1"></div>
 <div id="app-1"></div>
@@ -216,12 +216,12 @@ If you have these HTML elements:
 <div id="app-1"></div>
 ```
 
-It is a bad practice to have several ids having the same name, so let's increment them to make them unique:
-- Move your cursor to the *second* "1".
-- Start block-wise visual mode and go down 3 lines (`Ctrl-V 3j`). This highlights the remaining  "1"s.
-- Run `g Ctrl-A`.
+Es una mala práctica el tener muchas *ids* con el mismo número, así que vamos a incrementarlos para hacerlos únicos:
+- Mueve tu cursor al número "1" de la segunda línea de las mostradas.
+- Comienza el modo visual de selección de bloques y baja 3 líneas (`Ctrl-V 3j`). Esto resalta los números "1" siguientes.
+- Ejecuta `g Ctrl-A`.
 
-You should see this result:
+Deberías ver este resultado:
 ```
 <div id="app-1"></div>
 <div id="app-2"></div>
@@ -230,13 +230,13 @@ You should see this result:
 <div id="app-5"></div>
 ```
 
-`g Ctrl-A` increments numbers on multiple lines. `Ctrl-X/Ctrl-A` can increment letters too. If you run:
+`g Ctrl-A` incrementa los números en múltiples líneas. `Ctrl-X/Ctrl-A` también pueden incrementar letras. Si ejecutas:
 
 ```
 :set nrformats+=alpha
 ```
 
-The `nrformats` option instructs Vim which bases are considered as "numbers" for `Ctrl-A` and `Ctrl-X` to increment and decrement. By adding `alpha`, an alphabetical character is now considered as a number. If you have the following HTML elements:
+La opción `nrformats` le indica a Vim que bases son consideradas como "números" para `Ctrl-A` y `Ctrl-X` para incrementar y decrementar. Añadiendo `alpha`, un caracter alfanumérico es considerado ahora como un número. Si tienes los siguientes elementos HTML:
 ```
 <div id="app-a"></div>
 <div id="app-a"></div>
@@ -245,7 +245,7 @@ The `nrformats` option instructs Vim which bases are considered as "numbers" for
 <div id="app-a"></div>
 ```
 
-Put your cursor on the second "app-a". Use the same technique as above (`Ctrl-V 3j` then `g Ctrl-A`) to increment the ids.
+Coloca tu cursor en la sugunda "app-a". Utiliza la misma técnica que en el ejemplo anterior (`Ctrl-V 3j` después `g Ctrl-A`) para incrementar los "ids".
 ```
 <div id="app-a"></div>
 <div id="app-b"></div>
