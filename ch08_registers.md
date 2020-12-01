@@ -140,7 +140,7 @@ Para obtener el texto del registro "a", ejecuta `"ap`. Puedes usar todos los vei
 
 A veces, puedes querer aumentar un registro nominal existente. En este caso, puedes agregar tu texto al final en lugar de empezar de nuevo. Al hacer eso, puedes usar la versión mayúscula del registro. Por ejemplo, supón que tienes almacenada la palabra "Hola " en el registro "a". Si deseas agregar "mundo" en el registro "a", puedes buscar el texto "mundo" y copiarlo usando el registro "A" (`"Aiw`).
 
-# Los registros de solo lectura (`":`, `".`, `"%`)
+## Los registros de solo lectura (`":`, `".`, `"%`)
 Vim tiene tres registros de solo lectura: `.`, `:`, y `%`. Estos son muy fáciles de usar:
 ```
 .    Almacena el último texto insertado
@@ -149,12 +149,12 @@ Vim tiene tres registros de solo lectura: `.`, `:`, y `%`. Estos son muy fácile
 ```
 Si escribes "Hola Vim", al ejecutar`".p` se imprimirá el texto "Hola Vim". Si deseas obtener el nombre del archivo actual, escribe `"%p`. Si ejecutas el comando `:s/foo/bar/g`, `":p` imprimirá el texto literal "s/foo/bar/g".
 
-# El registro de búfer alterno (`"#`)
+## El registro de búfer alterno (`"#`)
 
 En Vim, `#` usualmente representa el búfer alterno. Un búfer alterno es el último archivo que abriste. Para insertar el nombre del búfer alterno, puedes usar `"#p`.
 
 
-# El registro de expresiones (`"=`)
+## El registro de expresiones (`"=`)
 
 Vim tiene un registro de expresiones, `"=`, para evaluar expresiones. Las expresiones son un tópico vasto en Vim, así que cubriré solo lo básico aquí. Voy a tratar las expresiones con más detalle en los capítulos siguientes.
 
