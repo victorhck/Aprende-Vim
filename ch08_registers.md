@@ -140,58 +140,57 @@ Para obtener el texto del registro "a", ejecuta `"ap`. Puedes usar todos los vei
 
 A veces, puedes querer aumentar un registro nominal existente. En este caso, puedes agregar tu texto al final en lugar de empezar de nuevo. Al hacer eso, puedes usar la versión mayúscula del registro. Por ejemplo, supón que tienes almacenada la palabra "Hola " en el registro "a". Si deseas agregar "mundo" en el registro "a", puedes buscar el texto "mundo" y copiarlo usando el registro "A" (`"Aiw`).
 
-# The Read-Only Registers (`":`, `".`, `"%`)
+# Los registros de solo lectura (`":`, `".`, `"%`)
 
-Vim has three read-only registers: `.`, `:`, and `%`. They are pretty simple to use:
+Vim tiene tres registros de solo lectura: `.`, `:`, y `%`. Estos son muy fáciles de usar:
 ```
-.    Stores the last inserted text
-:    Stores the last executed command-line
-%    Stores the name of current file
+.    Almacena el último texto insertado
+:    Almacena lo último que fue ejecutado en la línea de comandos
+%    Almacena el nombre del archivo actual
 ```
+Si escribes "Hola Vim", al ejecutar`".p` se imprimirá el texto "Hola Vim". Si deseas obtener el nombre del archivo actual, escribe `"%p`. Si ejecutas el comando `:s/foo/bar/g`, `":p` imprimirá el texto literal "s/foo/bar/g".
 
-If you write "Hello Vim", running `".p` will print out the text "Hello Vim". If you want to get the name of current file, run `"%p`. If you run `:s/foo/bar/g` command, running `":p` will print out the literal text "s/foo/bar/g".
+# El registro de búfer alterno (`"#`)
 
-# The Alternate File Register (`"#`)
+En Vim, `#` usualmente representa el búfer alterno. Un búfer alterno es el último archivo que abriste. Para insertar el nombre del búfer alterno, puedes usar `"#p`.
 
-In Vim, `#` usually represents the alternate file. An alternative file is the last file you opened. To insert the name of the alternate file, you can use `"#p`.
+# El registro de expresiones (`"=`)
 
-# The Expression Register (`"=`)
+Vim tiene un registro de expresiones, `"=`, para evaluar expresiones. Las expresiones son un tópico vasto en Vim, así que cubriré solo lo básico aquí. Voy a tratar las expresiones con más detalle en los capítulos siguientes.
 
-Vim has an expression register, `"=`, to evaluate expressions. Expression is a vast topic in Vim, so I will only cover the basics here. I will address expressions in greater details in the later chapters.
-
-You can evaluate mathematical expressions `1 + 1` with:
+Puedes calcular la expresión matemática `1 + 1` con:
 
 ```
 "=1+1<Enter>p
 ```
 
-Here, you are telling Vim that you are using the expression register with `"=`. Your expression is (`1 + 1`). Then you need to type `p` to get the result. As mentioned earlier, you can also access the register from insert mode. To evaluate mathematical expression from insert mode, you can do:
+Aqui, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es (`1 + 1`). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, tú puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
 
 ```
 Ctrl-r =1+1
 ```
 
-You can get the values from any register using the expression register with `@`. If you wish to get the text from register "a":
+Puedes obtener los valores de cualquier registro usando el registro de expresiones con `@`. Si deseas obtener el texto desde el registro "a":
 
 ```
 "=@a
 ```
-Then press `<enter>`, then `p`. Similarly, to get values from register "a" while in insert mode:
+Luego pulsa `<enter>`, después `p`. Igualmente, para obtener valores desde el registro "a" mientras estas en el modo insertar:
 
 ```
 Ctrl-r =@a
 ```
 
-You can also evaluate Vim scripts with the expression register. If you define a variable `i` by running `:let i = 1`, you can get it with `"=i`, press return, then `p`. To get it while in insert mode, run `Ctrl-r=i`.
+Puedes también calcular scripts de Vim con el registro de expresiones. Si defines una variable `i` para ejecutar `:let i = 1`, puedes tener el valor con `"=i`, presionar enter y luego `p`. Para obtener la variable desde el modo insertar, escribe `Ctrl-r=i`.
 
-Suppose you have a function: 
+Supón que tienes una función: 
 ```
-function! HelloFunc()
-	return "Hello Vim Script!"
+function! HolaFunc()
+	return "Hola Vim Script!"
 endfunction
 ```
 
-You can retrieve its value by calling it. To call it from normal mode, you can do: `"=HelloFunc()`, press return, then `p`. From insert mode `Ctrl-r =HelloFunc()`.
+Puedes recuperar su valor llamándola. Para llamarla desde el modo normal, puedes hacer lo siguiente: `"=HolaFunc()`, presionar enter y luego `p`. Desde el modo insertar `Ctrl-r =HolaFunc()`.
 
 # The Selection registers (`"*`, `"+`)
 
