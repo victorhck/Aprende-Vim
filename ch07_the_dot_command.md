@@ -1,8 +1,8 @@
-# El comando del punto
+# Capítulo 7: El comando del punto
 
 Cuando estás editando un texto, evita todo lo que puedas, volver a hacer lo que ya hiciste. En este capítulo, aprenderás a utilizar el comando del punto para volver a realizar los cambios previos de una manera sencilla. Es el comando más simple y más versátil para reducir las repeticiones.
 
-# Uso
+## Uso
 
 Tal como sugiere su nombre, puedes utilizar el comando del punto, simplemente presionando la tecla del signo del punto (`.`). 
 
@@ -17,7 +17,7 @@ Primero, utiliza `/let` para colocarte encima de la primera coincidencia que enc
 
 En este caso el comando del punto, repite la secuencia `cwconst<esc>`. Esto te ahorra el tener que realizar ocho pulsaciones de teclas en cada cambio teniendo que pulsar solo una tecla, el punto.
 
-# ¿Qué es un cambio?
+## ¿Qué es un cambio?
 
 Si buscas en Vim la definición del comando del punto (`:h .`), verás que menciona que el comando repite el último cambio. ¿Qué es un cambio?
 
@@ -55,7 +55,7 @@ Vamos a añadir una coma al final de cada línea. Empezando por la primera líne
 Cada acción desde el momento que presionas el operador del comando de insertar (`A`) hasta que lo abandonas con el comando (`<esc>`) es considerado un cambio. Vim te permite controlar no solo que texto añadir, también *donde* añadirlo. También puedes añadirlo antes del cursor (`i`), después del cursor (`a`), en una nueva línea debajo del cursor (`o`), en una línea sobre el cursor (`O`), al final de la línea actual (`A`) o al comienzo de la línea actual (`I`). Para refrescar estos conceptos, echa un vistazo al capítulo [Insert Mode](./ch6_insert_mode.md) chapter.
 
 
-# Repetir en múltiples líneas
+## Repetir en múltiples líneas
 
 Supongamos que tenemos el siguiente texto:
 ```
@@ -86,7 +86,7 @@ Vamos a eliminar todas las letras "z". Primero, seleccionaremos visualmente sola
 
 Cuando has borrado la columna de las tres letras "z" (`Ctrl-vjjd`), esto fue tomado en cuenta como un cambio. La selección del modo visual puede ser utilizada para seleccionar múltiples líneas como parte de un cambio.
 
-# Incluyedo un movimiento en u cambio
+## Incluyedo un movimiento en u cambio
 
 Vamos a volver a echar un vistazo al primer ejemplo de este capítulo. Volviendo a ejecutar el comando `/letcwconst<esc>` seguido por `n . n .`  reemplazando todas las cadenas de "let" por "const" en la siguiente ejemplo:
 ```
@@ -100,7 +100,7 @@ Hay una manera más rápida de realizar esta tarea. Cuando borres el texto, en v
 
 Cuando estes editando, siempre debes estar pendiente de buscar un comando de movimiento que pueda realizar diversas cosas en una sola vez como `gn` siempre que sea posible.
 
-# Aprender el comando del punto de la manera más inteligente
+## Aprender el comando del punto de la manera más inteligente
 
 El poder del comando del punto viene dado por poder ahorrarte muchas pulsaciones de teclado simplemente en una, pulsando la tecla del punto. Quizás no es un cambio muy rentable el utilizar comando del punto como reemplazo para operaciones que solo requieren una pulsación de tecla como `x`. Si tu último cambio requiere una operación más compleja, como por ejemplo `cgnconst<esc>`, el comando del punto reduce 9 pulsaciones de teclas en una sola, lo que es un buen cambio.
 

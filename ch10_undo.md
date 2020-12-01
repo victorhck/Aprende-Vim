@@ -1,8 +1,8 @@
-# Deshacer
+# Capítulo 10: Deshacer
 
 Deshacer es una funcionalidad esencial en cualquier software moderno. El sistema de deshacer de Vim no solo es capaz de deshacer y rehacer errores, también te permite manipular y recuperar texto a través del tiempo. En este capítulo, aprenderás como deshacer y volver a hacer los cambios en tu texto, navegar por una rama de deshacer, deshacer de forma persistente y viajar a través del tiempo.
 
-# Deshacer, rehacer y DESHACER
+## Deshacer, rehacer y DESHACER
 
 Para realizar una tarea básica de deshacer, puedes utilizar `u` o ejecutar `:undo`.
 
@@ -62,205 +62,207 @@ Personalmente no utilizo `U` porque es difícil recordar el estado original (rar
 
 Vim establece un máximo de cuantas veces puedes deshacer en la variable `undolevels`. Puedes comprobarla con `:echo &undolevels`. Tengo establecida la mía para que sea 1000. Para cambiar la tuya a 1000 ejecuta `:set undolevels=1000`. Pero puedes establecerla al número que prefieras.
 
-# Rompiendo los bloques
+## Dividiendo los bloques
 
 He mencionado anteriormente que `u` deshace un único "cambio", de manera similar al cambio del comando del punto. Cualquier texto introducido entre entrar en el modo insertar y salir del modo es tomado en cuenta como cambio.
 
-If you do `ione two three<esc>` then press `u`, Vim removes the entire "one two three" text because it is considered a change. This would have been acceptable if you have a short text, but what if you have written several paragraphs under one insert mode session without exiting and later you realized you made a mistake? If you press `u`, everything you had written would be removed. Wouldn't it be useful if you can press `u` to remove only a section of your text?
+Si ejecutas `ione two three<esc>` y después presionas `u`, Vim elimina el texto entero "one two three" porque es considerado un cambio al completo. Esto sería aceptable cuando se trata de un texto corto, pero ¿qué pasa si has escrito varios párrafos bajo una única sesión del modo insertar sin salir de ella y después te das cuenta que has cometido un error? Si presionas `u`, todo lo que habías escrito sería eliminado. ¿No sería más útil si pudieras presionar `u` para eliminar solo una sección de tu texto?
 
-Luckily, you can break the undo blocks. When you are typing in insert mode, pressing `Ctrl-G u`  creates an undo breakpoint. For example, if you do `ione <Ctrl-G u>two <Ctrl-G u>three<esc>`, then press `u`, you will only lose the text "three". Press `u` one more time to remove "two". When you write a long text, use `Ctrl-G u` strategically. The end of each sentence, between two paragraphs, or after each line of code are good locations to add undo breakpoints to make it easier to undo your mistakes if you ever make one.
+Afortunadamente, puedes dividir los bloques de deshacer. Cuando estás escribiendo en el modo insertar, presiona `Ctrl-G u` para crear un punto de ruptura del comando deshacer. Por ejemplo, si escribes lo siguiente en el ejemplo anterior `ione <Ctrl-G u>two <Ctrl-G u>three<esc>`, después presiona `u`, así solo perderás es texto "three". Presiona `u` una vez más para eliminar "two". Cuando escribes un texto largo, utiliza `Ctrl-G u` de manera estratégica. Al final de cada frase, entre dos párrafos, o después de cada línea de código son buenas ubicaciones para añadir puntos de ruptua para hacer más sencillo el poder deshacer los errores si los comentes.
 
-It is also useful to create an undo breakpoint when deleting chunks in insert mode with `Ctrl-W` (delete the word before the cursor) and `Ctrl-U` (delete all text before the cursor). A friend suggested to use the following mappings:
+También es útil el crear puntos de interrupción de deshacer cuando se borran fragmentos en el modo insertar con las combinaciones de teclas `Ctrl-W` (elimina la palabra anterior al cursor) o `Ctrl-U` (elimina todo el texto anterior al cursor). Un amigo sigirió el utilizar el siguiente mapeado de teclas para que haga la acción automáticamente al pulsar dichas combinaciones de teclas:
 ```
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 ```
-With these, you can easily recover the deleted texts.
+Con esto, puedes recuperar fácilmente los textos eliminados de esta manera.
 
-# Undo Tree
+## El árbol de cambios del comando deshacer
 
-Vim stores every change ever written in an undo tree. If you start a new empty file:
-
-```
+Vim almacena cada cambio que se ha escrito en un árbol del comando deshacer. Si comienzas editando un archivo vacío:
 
 ```
 
-Add a new text:
+```
+
+Y añades un texto nuevo:
 
 ```
 one
 
 ```
 
-Add a new text:
+Después añades otro texto:
 
 ```
 one
 two
 ```
 
-Undo once:
+Deshaces los cambios una vez:
 
 ```
 one
 
 ```
 
-Add a different text:
+Añades un texto diferente:
 
 ```
 one
 three
 ```
 
-Undo again:
+Vuelves a deshacer los cambios:
 ```
 one
 
 ```
 
-And add another different text:
+Y añades otro texto diferente:
 ```
 one
 four
 ```
 
 
-Now if you undo, you will lose the text "four" you just added:
+Ahora, si realizas una acción de deshacer, se eliminará el texto "four" que acabas de añadir:
 ```
 one
 
 ```
 
-If you undo one more time:
+Si deshaces los cambios una vez más:
 
 ```
 
 ```
 
-You will lose the text "one". In most text editor, getting the texts "two" and "three" back would have been impossible, but not with Vim. Run `g+`, you'll get your text "one" back:
+Entonces perderás el texto "one". En la mayoría de los editores de texto, volver a recuperar los textos "two" y "three" sería imposible, pero no con Vim. Ejecuta `g+`, verás que vuelve a aparecer el texto "one":
 
 ```
 one
 
 ```
 
-Type `g+` again and you will see an old friend:
+Escribe `g+` de nuevo y verás a un atniguo amigo, el texto "two":
 ```
 one
 two
 ```
 
-Let's keep going. Press `g+` again:
+Continuemos. Volvamos a presionar `g+`:
 ```
 one
 three
 ```
 
-Press `g+` one more time:
+Presiona `g+` una vez más:
 ```
 one
 four
 ```
 
-In Vim, every time you press `u` and then make a different change, Vim stores the previous state's text by creating an "undo branch". In this example, after you typed "two", then pressed `u`, then typed "three", you created an undo leaf branch that stores the state containing the text "two". At that moment, the undo tree contained at least two leaf nodes: the main node containing the text "three" (most recent) and the undo branch node containing the text "two". If you had done another undo and typed the text "four", you now have at least three nodes: a main node containing the text "four" and two nodes containing the texts "three" and "two".
+En Vim, cada vez que presionas `u` y después haces un cambio diferente, Vim almacena el estado previo del cambio creando una "rama de deshacer". En este ejemplo, después de haber escrito "two" y después presionado `u` y después haber escrito "three", creaste una rama que almacena el estado que contenía el texto "two". En ese momento, el árbol de deshacer contenía al menos dos nodos: el nodo principal que contenía el texto "three" (el cambio más reciente) y el nodo de la rama de deshacer que contenía el texto "two". Si hubieras realizado otra acción de deshacer y escrito la palabra "four", ahora tendrías al menos tres nodos: un nodo principal que contiene el texto "four" y dos nodos conteniendo los textos "three" y "two".
 
-To traverse each node in the undo tree, you can use `g+`  to go to a newer state and `g-` to go to an older state. The difference between `u`, `Ctrl-R`, `g+`, and `g-` is that both `u` and `Ctrl-R` traverse only the *main* nodes in undo tree while `g+` and `g-` traverse *all* nodes in the undo tree.
+Para recorrer cada nodo del árbol de deshacer, puedes utilizar `g+` para ir a un nuevo estado y `g-` para ir a un estado anterior. La diferencia entre `u`, `Ctrl-R`, `g+`, y `g-` es que tanto `u` como `Ctrl-R` recorren solo los nodos *principales* en el árbol de deshacer, mientras que `g+` y `g-` recorren *todos* los nodos en árbol de cambios del comando deshacer.
 
-Undo tree is not easy to visualize. I find [vim-mundo](https://github.com/simnalamburt/vim-mundo) plugin to be very useful to help visualize Vim's undo tree. Give it some time to play around with it.
+El árbol de cambios de deshacer nos es sencillo de visualizar. He encontrado el complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) muy útil a la hora de ayudar a visualizar el árbol de cambios de deshacer. Dedícale algún tiempo para jugar con él.
 
-# Persistent Undo
+## Modo persistente en deshacer
 
-If you start Vim, open a new file, and immediately press `u`, Vim will probably display "*Already at oldest change*" warning. Vim can preserve your undo history with an undo file with `:wundo`.
+Si inicias Vim y abres un archivo nuevo e inmediatamente presionas `u`, Vim probablemente mostrará un mensaje de advertencia como este "*Ya en el cambio más antiguo*" (o en inglés: "*Already at oldest change*"). Vim puede preservar un historial de acciones de deshacer en un archivo mediante el comando `:wundo`.
 
-Create a file `mynumbers.txt`. Type:
+Crea un archivo llamado `mynumbers.txt`. Y escribe en el:
 
 ```
 one
 ```
 
-Then type another line (make sure you either exit insert mode first or create an undo block):
+Después escribe otra línea con el texto "two" (asegúrate antes de que has salido del modo insertar o has creado un bloque de deshacer):
 
 ```
 one
 two
 ```
 
-Type another line:
+Escribe otra línea con el texto "three":
 ```
 one
 two
 three
 ```
 
-Now create your undo file. The syntax is `:wundo myundofile`. If you need to overwrite an existing undo file, you can add `!` after `wundo`.
+Ahora crea el archivo de deshacer. La sintaxis para ello es `:wundo myundofile`. Si necesitas sobreescribir un archivo de deshacer ya existente, puedes añadir `!` después de `wundo`.
 ```
 :wundo! mynumbers.undo
 ```
 
-Then exit Vim. 
+Después sal de Vim.
 
-By now you should have `mynumbers.txt` and `mynumbers.undo` files in your directory. Open up `mynumbers.txt` again and try pressing `u`. You can't. You haven't made any changes since you opened the file. Now load your undo history by reading the undo file with `:rundo`:
+Por ahora deberías tener los archivos `mynumbers.txt` y `mynumbers.undo` en tu directorio. Ahora abre de nuevo el archivo `mynumbers.txt` y trata de presionar `u`. No ocurre nada. No has realizado ningún cambio desde que has abierto el archivo. Ahora carga el historial de deshacer leyendo el archivo en el que se guarda el historial y que hemos creado antes, con el comando `:rundo`:
 
 ```
 :rundo mynumbers.undo
 ```
 
-Now if you press `u`, Vim removes "three". Press `u` again to remove "two". It is like you never even closed Vim!
+Ahora, si presionas `u`, Vim elimina "three". Presiona `u` de nuevo para eliminar "two". ¡Es como si nunca hubieras cerrado Vim!
 
-If you want to have an automatic undo persistence, one way to do it is by adding these lines in your vimrc:
+Si quieres tener la funcionalidad del comando deshacer de forma persistente de forma automática, una forma de hacerlo es añadiendo estas líneas en tu archivo vimrc:
 
 ```
 set undodir=~/.vim/undo_dir
 set undofile
 ```
 
-I think it's better to put all the undofiles in one centralized directory, in this case, inside the `~/.vim` directory. The name `undo_dir` is arbitrary. `set undofile` tells Vim to turn on `undofile` feature because it is off by default. Now whenever you save, Vim automatically creates and updates the relevant file inside the `undo_dir` directory (make sure that you create the actual `undo_dir` directory inside `~/.vim` directory before running this).
+Creo que es mejor, poner todos los archivos de historial de deshacer en una carpeta centralizada en tu equipo, en este caso dentro del directorio `~/.vim`. El nombre `undo_dir` es aleatorio, y puedes poner el quieras. El ajuste `set undofile` le dice a Vim que debe activar la funcionalidad `undofile` porque está desactivada de manera predeterminada. Ahora todo lo que guardes, Vim automáticamente creará y actualizará el archivo relevante dentro del directorio `undo_dir` (asegúrate de que has creado la carpeta `undo_dir` dentro de la carpeta `~/.vim` antes de ejecutar esto).
 
-# Time Travel
+## Viajar en el tiempo
 
-Who says that time travel doesn't exist? Vim can travel to a text state in the past with `:earlier` command-line command.
+¿Quién dice que los viajes en el tiempo no existen? Vim puede viajar al estado de un texto en el pasado mediante el comando `:earlier`.
 
-If you have this text:
+Si tienes este texto:
 ```
 one
 
 ```
-Then later you write another line:
+Y después escribe otra línea:
 ```
 one
 two
 ```
 
-If you had typed "two" less than ten seconds ago, you can go back to the state where "two" didn't exist ten seconds ago with:
+Si has escrito "two" hace menos de 10 segundos, puedes regresar a un estado del archivo en el que la palabra "two" no existía hace 10 segundos mediante:
 ```
 :earlier 10s
 ```
 
-You can use `:undolist` to see when the last change was made. `:earlier` also accepts minutes (`m`), hours (`h`), and days (`d`) as arguments. 
+Puedes utilizar `:undolist` para ver el último cambio que se ha realizado. `:earlier` también acepta minutos (`m`), horas (`h`) y días (`d`) como argumentos. 
 
 ```
-:earlier 10s    go to the state 10 seconds before
-:earlier 10m    go to the state 10 minutes before
-:earlier 10h    go to the state 10 hours before
-:earlier 10d    go to the state 10 days before
+:earlier 10s    Ir al estado en que se encontraba el archivo hace 10 segundos
+:earlier 10m    Ir al estado en que se encontraba el archivo hace 10 minutos
+:earlier 10h    Ir al estado en que se encontraba el archivo hace 10 horas
+:earlier 10d    Ir al estado en que se encontraba el archivo hace 10 días
 ```
 
-In addition, it also accepts a regular `count` as argument to tell Vim to go to the older state `count` times. For example, if you do `:earlier 2`, Vim will go back to an older text state two changes ago. It is the same as doing `g-` twice. Lastly, you can also tell `:earlier` to go to the older text state 10 saves ago with `:earlier 10f`.
+Además, también acepta un argumento de conteo para decirle a Vim que vaya a un estado anterior que está un número de posiciones establecido por ese argumento de conteo. Por ejemplo, si escribes `:earlier 2`, Vim regresará a un estado anterior que estaba dos cambios atrás. Sería similar a escribir `g-` dos veces. Por último, también puedes decirle a Vim `:earlier` para ir a un estado anterior del texto en que estaba hace 10 veces que se guardó con `:earlier 10f`.
 
-The same set of arguments work with `:earlier` counterpart: `:later`.
+Los mismo tipos de argumentos que funcionan con `:earlier` también se aplican a: `:later`.
 ```
-:later 10s    go to the state 10 seconds later
-:later 10m    go to the state 10 minutes later
-:later 10h    go to the state 10 hours later
-:later 10d    go to the state 10 days later
-:later 10     go to the newer state 10 times
-:later 10f    go to the state 10 saves later
+:later 10s     Ir al estado en que se encontraba el archivo 10 segundos después
+:later 10m     Ir al estado en que se encontraba el archivo 10 minutos después
+:later 10h     Ir al estado en que se encontraba el archivo 10 horas después
+:later 10d     Ir al estado en que se encontraba el archivo 10 días después
+:later 10      Ir a un nuevo estado 10 veces posterior 
+:later 10f     Ir a un estado grabado 10 veces más tarde
 ```
 
-# Learn Undo the Smart Way
+## Aprendiendo a deshacer de la manera más inteligente
 
-`u` and `Ctrl-R` are two indispensable Vim commands. Learn them first. I do not use UNDO in my workflow, however I think it's good to be aware that it exists. Next, learn how to use `:earlier` and `:later` using the time argumentsfirst. After that, take your time to understand the undo tree. The [vim-mundo](https://github.com/simnalamburt/vim-mundo) plugin helped me a lot. Type along the texts in this chapter and check the undo tree as you make each change. Once you grasp it, you will never see undo system the same way again.
+`u` y `Ctrl-R` son dos comandos indispensables de Vim. Apréndelos en primer lugar. Personalmente no utilizo DESHACER en mi manera de trabajo con Vim, sin embargo creo que está bien saber que existe esa posibilidad. Después, aprende a utilizar `:earlier` y `:later` utilizando primero los argumentos de tiempo. Después de eso, tómate tu tiempo para entender el concepto de árbol de cambios de deshacer. El complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) me ha ayudado mucho. Escribe en este capítulo y comprueba cómo cómo funciona ese árbol de deshacer cuando haces cada cambio. Una vez que lo entiendas, nunca volverás a ver el sistema de deshacer de la misma manera.
 
-Prior to this chapter, you learned how to find any text in a project space, with undo, you can now find any text in a time dimension. You are now able to search for any text by its location and time written. You have achieved Vim-omnipresence.
+
+Antes de este capítulo, has aprendido a encontrar cualquier texto en un proyecto, con *undo* o deshacer, puedes encontrar cualquier texto en el tiempo. Ahora eres capaz de buscar cualquier texto por su localización o en el tiempo en el que fue escrito. Has conseguido la Vim-omnipresencia.
+
 

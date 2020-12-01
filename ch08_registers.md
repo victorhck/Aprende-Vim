@@ -1,4 +1,4 @@
-# Registros
+# Capítulo 8: Registros
 
 Aprender los registros de Vim es como aprender álgebra por primera vez. No piensas que los necesitas hasta que lo aprendes.
 
@@ -6,7 +6,7 @@ Probablemente has usado los registros de Vim cuando al copiar o borrar un texto 
 
 En este capítulo repasaré todos los tipos de registros de Vim y como usarlos eficientemente.
 
-# Los diez tipos de registros
+## Los diez tipos de registros
 
 Aquí están los 10 tipos de registros que tiene Vim:
 
@@ -22,7 +22,7 @@ Aquí están los 10 tipos de registros que tiene Vim:
 10. El registro del último patrón de búsqueda (`"/`).
 
 
-# Operadores del registro
+## Operadores del registro
 
 Aquí algunos operadores que almacenan valores en los registros:
 
@@ -46,7 +46,7 @@ Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. P
 En general la sintaxis para obtener el contenido desde un registro en específico es `"x`, donde `x` es el símbolo del registro.
 
 
-# Llamar a los registros desde el modo insertar
+## Llamar a los registros desde el modo insertar
 
 Todo lo que aprendas en este capítulo puede también ser ejecutado en el modo insertar. Para obtener el texto del registro "a", normalmente debes escribir `"ap`; pero si estás en el modo insertar, ejecuta `Ctrl-r a`. La sintaxis para llamar a los registros desde el modo insertar es la siguiente:
 ```
@@ -54,17 +54,17 @@ Ctrl-r x
 ```
 Donde `x` es el símbolo del registro. Ahora que sabes cómo almacenar y recuperar registros, vamos a ello.
 
-# El registro predeterminado (`""`)
+## El registro predeterminado (`""`)
 
 Para obtener texto desde el registro predeterminado, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro predeterminado es como la operación  copiar/pegar estándar de una computadora.
 
 De manera predeterminada, `p` (o `P`) está conectado al registro predeterminado (desde ahora me referiré al registro predeterminado con `p` en lugar de `""p`).
 
-# Los registros numerados (`"0-9`)
+## Los registros numerados (`"0-9`)
 
 Los registros numerados automáticamente se llenan así mismos en orden ascendente. Hay 2 registros numerados diferentes: el registro de copia (`0`) y los registros numerados (`1-9`). Vamos a ver primero el registro de copia.
 
-## El registro de copia (`"0`)
+### El registro de copia (`"0`)
 
 Si copias una línea entera de texto (`yy`), Vim realmente guarda ese texto en dos registros:
 
@@ -89,7 +89,7 @@ El registro de copia tendrá el texto del paso tres.
 
 Un último consejo, mientras estás en el modo insertar, puedes rápidamente pegar el texto que solo copiaste usando `Ctrl-r 0`.
 
-## Los registros numerados (`"1-9`)
+### Los registros numerados (`"1-9`)
 
 Cuando cambias o borras un texto de al menos una línea de largo, este texto se almacenará en un registro numerado del 1 al 9, ordenados por el más reciente.
 
@@ -110,7 +110,7 @@ Durante cada comando punto secuencial, Vim automáticamente incrementa el regist
 
 Pequeños borrados como un borrado de palabras (`dw`) o un cambio de palabras (`cw`) no se almacenan en registros numerados. Estos se almacenan en un pequeño registro de borrado (`"-`), el cual es el siguiente a tratar.
 
-# El pequeño registro de borrado (`"-`)
+## El pequeño registro de borrado (`"-`)
 
 Cambios o borrados menores a una linea no se almacenan en los registros numerados del 0-9, pero si en el pequeño registro de borrado (`"-`).
 
@@ -128,7 +128,7 @@ Otro ejemplo:
 
 `"-p` te da la palabra borrada en el paso tres. Igualmente, `"1p` te da la linea borrada del paso dos. Desafortunadamente, no hay manera de recuperar la palabra borrada del paso uno porque el registro de borrado pequeño solo guarda un elemento. Sin embargo, si deseas preservar el texto del paso uno, puedes hacerlo con los registros nominales.
 
-# Los registros nominales (`"a-z`)
+## Los registros nominales (`"a-z`)
 
 Los registros nominales son los registros más versátiles de Vim. Estos pueden almacenar textos copiados, modificados y borrados dentro de los registros a-z. A diferencia de los 3 tipos de registros anteriores que has visto, que pueden almcenar automáticamente texto dentro de los registros, aquí tienes que decirle explícitamente a Vim el nombre del registro a usar, brindándote así control total.
 
@@ -141,7 +141,6 @@ Para obtener el texto del registro "a", ejecuta `"ap`. Puedes usar todos los vei
 A veces, puedes querer aumentar un registro nominal existente. En este caso, puedes agregar tu texto al final en lugar de empezar de nuevo. Al hacer eso, puedes usar la versión mayúscula del registro. Por ejemplo, supón que tienes almacenada la palabra "Hola " en el registro "a". Si deseas agregar "mundo" en el registro "a", puedes buscar el texto "mundo" y copiarlo usando el registro "A" (`"Aiw`).
 
 # Los registros de solo lectura (`":`, `".`, `"%`)
-
 Vim tiene tres registros de solo lectura: `.`, `:`, y `%`. Estos son muy fáciles de usar:
 ```
 .    Almacena el último texto insertado
@@ -154,9 +153,11 @@ Si escribes "Hola Vim", al ejecutar`".p` se imprimirá el texto "Hola Vim". Si d
 
 En Vim, `#` usualmente representa el búfer alterno. Un búfer alterno es el último archivo que abriste. Para insertar el nombre del búfer alterno, puedes usar `"#p`.
 
+
 # El registro de expresiones (`"=`)
 
 Vim tiene un registro de expresiones, `"=`, para evaluar expresiones. Las expresiones son un tópico vasto en Vim, así que cubriré solo lo básico aquí. Voy a tratar las expresiones con más detalle en los capítulos siguientes.
+
 
 Puedes calcular la expresión matemática `1 + 1` con:
 
@@ -192,7 +193,7 @@ endfunction
 
 Puedes recuperar su valor llamándola. Para llamarla desde el modo normal, puedes hacer lo siguiente: `"=HolaFunc()`, presionar enter y luego `p`. Desde el modo insertar `Ctrl-r =HolaFunc()`.
 
-# The Selection registers (`"*`, `"+`)
+## The Selection registers (`"*`, `"+`)
 
 Don't you sometimes wish that you can copy a text from external programs and paste it locally in Vim, and vice versa? With Vim's selection registers, you can. Vim has two selection registers: `quotestar` (`"*`) and `quoteplus` (`"+`). You can use them to access copied text from external programs.
 
@@ -208,36 +209,36 @@ set clipboard=unnamed
 
 Now when I copy a text from an external program, I can paste it with the unnamed register, `p`. I can also copy a text from Vim and paste it to an external program with `Ctrl-v`. If you have `+xterm_clipboard` on, you may want to use both `unnamed` and `unnamedplus` clipboard options.
 
-# The Black Hole Register (`"_`)
+## The Black Hole Register (`"_`)
 
 Everytime you delete or change a text, that text is stored in Vim register automatically. Sometimes you just don't want to save anything into the register. How can you do that?
 
 You can use the black hole register (`"_`). To delete a line and not have Vim store the deleted line into any register, use `"_dd`. It’s the `/dev/null` of registers. 
 
-# The Last Search Pattern Register (`"/`)
+## The Last Search Pattern Register (`"/`)
 
 To paste your last search (`/` or `?`) query, you can use the last search pattern register (`"/`). To paste the last search term, use `"/p`.
 
 
-# Viewing the Registers
+## Viewing the Registers
 
 To view all your registers, use the `:register` command. To view only registers "a", "1", and "-", use `:register a 1 -`.
 
 There is a plugin called [vim-peekaboo](https://github.com/junegunn/vim-peekaboo) that lets you to peek into the contents of the registers when you hit `"` or `@` in normal mode and `Ctrl-r` in insert mode. I find this plugin very useful because most times, I can't remember the content in my registers. Give it a try!
 
-# Executing a Register
+## Executing a Register
 
 The named registers are not just for storing texts. They can also be used to execute macros with `@`. I will go over macros in the next chapter. If you store the text "Hello Vim" in register "a", and you later record a macro in the same register (`qa{macro-commands}q`), that macro will overwrite your "Hello Vim" text stored earlier (you can execute the macro stored in register "a" with `@a`).
 
-# Clearing a Register
+## Clearing a Register
 
 Technically, there is no need to clear any register because the next register you store under the same name will overwrite it. However, you can quickly clear any named register by recording an empty macro. For example, if you run `qaq`, Vim will record an empty macro in the register "a". Another alternative is to run the command `:call setreg('a', '')` where "a" is the register "a". One more way to clear register is to set the content of "a" register to an empty string with the expression `:let @a = ''`.
 
-# Putting the Content of a Register
+## Putting the Content of a Register
 
 You can use the `:put` command to paste the content of any one register. For example, if you run `:put a`, Vim will print the content of register "a". This behaves much like `"ap`, with the difference that the normal mode command `p` prints the register content after the cursor and the command `:put` prints the register content at newline.
 
-# Learning Registers the Smart Way
+## Learning Registers the Smart Way
 
 You made it to the end. Congratulations! That was a lot to take. If you are feeling overwhelmed by the sheer information, you are not alone. I was too, when I first started learning about Vim registers.
 

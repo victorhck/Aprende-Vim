@@ -1,26 +1,26 @@
-# Macros
+# Capítulo 9: Macros
 
-When editing files, you may find yourself repeating the same actions. Wouldn't it be nice if you can do those actions once and replay them whenever you need it?  With Vim macros, you can record actions and store them inside Vim registers.
+Cuando estás editando archivos, puede que te encuentres repitinedo las mismas acciones. ¿No sería genial si pudieras realizar esas acciones solo una vez y después poder reproducirlas cada vez que lo necesitaras? Gracias a las macros de Vim, puedes grabar tus acciones y almacenarlas dentro de los registros de Vim.
 
-In this chapter, you will learn how to use macros to automate mundane tasks (plus it looks cool to watch your file edit itself).
+En este capítulo, aprenderás a utilizar macros para automatizar las tareas mundanas (además es genial ver como editar el propio archivo).
 
-# Basic Macros
+## Macros básicas
 
-Here is the basic syntax of a Vim macro:
-
-```
-qa                     Start recording a macro in register a
-q (while recording)    Stop recording macro
-```
-
-You can use any lowercase letters (a-z) to store macros. Here is how you can execute a macro:
+Aquí puedes ver la sintaxis básica de una macro de Vim:
 
 ```
-@a    Execute macro from register a
-@@    Execute the last executed macros
+qa                     Comienza a grabar una macro en el registro a
+q (mientras está grabando)    Detiene la grabación de la macro
 ```
 
-Suppose you have this text and you want to uppercase everything in each line:
+Puedes utilizar cualquier letra minúscula (a-z) para almacenar las macros. Una vez guardada una macro en uno de los registros disponibles, puedes ejecutarla cada vez que quieras mediante:
+
+```
+@a    ejecuta una macro almacenada en el registro a
+@@    Ejecuta las últimas macros ejecutadas
+```
+
+Supongamos que tienes el siguiente texto y quieres poner en mayúsculas todo el texto de todas las líneas:
 
 ```
 hello
@@ -30,24 +30,24 @@ are
 awesome
 ```
 
-With your cursor at the start of the line "hello", run:
+Con el cursor sutuado al inicio de a línea con el texto "hello", ejecuta:
 ```
 qa0gU$jq
 ```
 
-Here is the breakdown of the command above:
+Vamos a diseccionar el comando anterior para ver qué realiza:
 
-- `qa` starts recording a macro in the "a" register.
-- `0` goes to beginning of the line.
-- `gU$` uppercases the text from your current location to the end of the line.
-- `j` goes down one line.
-- `q` stops recording.
+- `qa` comienza la grabación de la macro en el registro "a".
+- `0` situal el cursor al inicio de la línea.
+- `gU$` convierte en mayúsculas el texto desde la posición actual hasta el final de la línea.
+- `j` baja el cursor una línea.
+- `q` detiene la grabación de la macro.
 
-To replay that macro, run `@a`. Just like many other Vim commands, you can pass a count argument to macros. For example, you can run `3@a` to execute "a" macro three times. You can run `3@@` to execute the last executed macro three times.
+Para volver a ejecutar la macro cada vez que lo necesites, ejecuta `@a`. Como en la mayoría de comandos de Vim, puedes pasarle un número como argumento a las macros. Por ejemplo, puedes ejecutar `3@a` para ejecutar la macro "a" tres veces. Puedes ejecutar `3@@` para ejecutar la última macro ejecutada tres veces.
 
-# Safety Guard
+## Guarda de seguridad
 
-Macro execution automatically ends when it encounters an error. Suppose you have this text:
+La ejecución de la macro termina automáticamente cuando encuentra un error. Supongamos que tienes el siguiente texto:
 
 ```
 a. chocolate donut
@@ -56,44 +56,44 @@ c. powdered sugar donut
 d. plain donut
 ```
 
-If you want to uppercase the first word on each line, this macro should work:
+Si quieres convertir en mayúsculas la primera letra de la primera palabra de cada línea, esta macro debería funcionar:
 
 ```
 qa0W~jq
 ```
 
-Here's the breakdown of the command above:
-- `qa` starts recording a macro in the "a" register.
-- `0` goes to the beginning of the line.
-- `W` goes to the next WORD.
-- `~` toggles the case of the character under the cursor.
-- `j` goes down one line.
-- `q` stops recording.
+Veamos paso por paso lo que realiza el comando anterior:
+- `qa` comienza la grabación de la macro en el registro "a".
+- `0` posiciona el cursor al inicio de la línea.
+- `W` se posiciona en la siguiente PALABRA.
+- `~` cambia a mayúsculas la primera letra bajo el cursor.
+- `j` baja una línea.
+- `q` detiene la grabación de la macro.
 
 
-I like to overcount my macro calls, so I usually would call it ninety-nine times (`99@a`). With this command, Vim does not actually run this macro ninety-nine times. When Vim reaches the last line and runs `j` action, it finds no more lines to go down to, sees an error, and stops the macro execution. 
+Me gusta sobre dimensionar las veces que ejecuto la llamada a una macro, así que normalmente suelo llamar noventa y nueve veces a la macro (`99@a`). Con este comando, no implica que de manera obligatoria Vim ejecute el comando 99 veces. Cuando Vim llega a la última línea y ejecuta la acción `j`, encuentra que ya no hay más líneas que bajar, se encuentra con un error, y detiene la ejecución de la macro.
 
-The fact that macro execution stops upon the first error encounter is a good feature, otherwise Vim will continue to execute this macro ninety-nine times even though it already reaches the end of the line.
+El hecho que la ejecución de una macro se detenga cuando encuentra el primer error es una buena funcionalidad, de otra forma Vim continuaría ejecutando este macro 99 veces incluso aunque haya llegado al final del archivo.
 
-# Command Line Macro
+## Macros en la línea de comandos de Vim
 
-Running `@a` in normal mode is not the only way you can execute macros in Vim. You can also run `:normal @a` command line. `:normal` allows the user to execute any normal mode command given as argument. By passing it `@a`, it is the same as running `@a` from normal mode.
+Ejecuta `@a` en el modo normal no es la única forma de ejecutar macros en Vim. También puedes ejecutar `:normal @a` en la línea de comandos. `:normal` permite al usuario ejecutar cualquier comando del modo normal dado como argumento. Pasándole el argumento `@a`, sería lo mismo que ejecutar `@a` en el modo normal.
 
-The `:normal` command accepts range as arguments. You can use this to run macro in select ranges. If you want to execute your "a" macro between lines 2 and 3, you can run `:2,3 normal @a`. I will go over command line commands in a later chapter.
+El comando `:normal` acepta un rango como argumentos. Puedes ejecutar una macro en los rangos seleccionados. Si quieres ejecutar la macro "a" entre la lína 2 y 3, puedes ejecutar `:2,3 normal @a`. Vermos más en detalle los comandos de la línea de comandos en un capítulo posterior.
 
-# Executing a Macro Across Multiple Files
+## Ejecutando una macro a través de múltiples archivos
 
-Suppose you have multiple `.txt` files, each containing different lists. Moreover, you need to uppercase the first word only on lines containing the word "donut". How can we execute macros across multiple files on select lines? 
+Supongamos que tenemos múltiples archivos de extensión `.txt`, cada uno de los cuales contiene diferentes listas. Además, necesitas poner en mayúsculas la primera letra de la primera palabra solo de las líneas que contienen al palabra "donut". ¿Cómo podemos ejecutar macros a través de múltiple archivos en las líneas seleccionadas? 
 
-First file:
+Primer archivo:
 ```
-# savory.txt
+## savory.txt
 a. cheddar jalapeno donut
 b. mac n cheese donut
 c. fried dumpling
 ```
 
-Second file:
+Segundo archivo:
 ```
 # sweet.txt
 a. chocolate donut
@@ -101,22 +101,22 @@ b. chocolate pancake
 c. powdered sugar donut
 ```
 
-Third file:
+Tercer archivo:
 ```
 # plain.txt
 a. wheat bread
 b. plain donut
 ```
-Here is how you can do it:
-- `:args *.txt` to find all `.txt` files in your current directory.
-- `:argdo g/donut/normal @a` executes the global command `g/donut/normal @a` on each file inside `:args`.
-- `:argdo update` executes `update` command to save each file inside `:args` when the buffer has been modified.
+Aquí everemos cómo lo podemos hacer:
+- `:args *.txt` para encontrar todos los archivos `.txt` en tu directorio actual.
+- `:argdo g/donut/normal @a` ejecuta el comando global `g/donut/normal @a` en cada archivo dentro de `:args`.
+- `:argdo update` ejecuta el comando `update` para guardar cada archivo dentro de `:args` cuando el *buffer* ha sido modificado.
 
-If you are not familiar with the global command `:g/donut/normal @a`, it executes the command you give (`normal @a`) on lines that match the pattern (`/donut/`). I will go over the global command in a later chapter.
+Si no estás familiarizado con el comando global `:g/donut/normal @a`, este ejecuta el comando dado (`normal @a`) en las líneas que coinciden con el patrón (`/donut/`). Veremos más en detalle los comandos globales en un capítulo posterior.
 
-# Recursive Macro
+# Macro recursiva
 
-You can recursively execute a macro by calling the same macro register while recording that macro. Suppose you have this list again and you need to toggle the case of the first word:
+Puedes ejecutar de manera recursiva una macro llamándo al mismo registro de la macro mientras estás grabando la macro. Supongamos que tienes esta lista de nuevo y necesitas cambiar a mayúsculas la primera letra de la primera palabra:
 
 ```
 a. chocolate donut
@@ -125,52 +125,52 @@ c. powdered sugar donut
 d. plain donut
 
 ```
-To do it recursively, run:
+Para hacerlo de manera recursiva, ejecuta:
 ```
 qaqqa0W~j@aq
 ```
 
-Here is the breakdown of the steps:
-- `qaq` records an empty macro "a". It is necessary to record an empty macro in the same register name because when you execute the "a" macro later, you don't want that register to contain anything.
-- `qa` starts recording on register "a".
-- `0` goes to the first character in the current line.
-- `W` goes to the next WORD.
-- `~` toggles the case of the character under the cursor.
-- `j` goes down one line.
-- `@a` executes macro "a". When recording this, `@a` should be empty because you had just called `qaq`.
-- `q` stops recording.
+Este es el desglose del comando en los diferentes pasos:
+- `qaq` graba una macro vacía dentro de "a". Es necesario grabar una macro vacía en el mismo nombre de registro porque cuando ejecutes más tarde la macro "a", no quieres que ese registro contenga nada más.
+- `qa` comienza la grabación en el registro "a".
+- `0` situa el cursor en el primer caracter en la línea actual.
+- `W` va a la siguiente PALABRA.
+- `~` cambia la letra del caracter bajo el cursor.
+- `j` baja una línea.
+- `@a` ejecuta la macro "a". Cuando grabas esto, `@a` debería estar vacía porque la has llamado con `qaq`.
+- `q` detiene la grabación.
 
-Now you can just run `@a` and watch Vim execute the macro recursively. 
+Ahora simplemente ejecuta `@a` y mira cómo Vim ejecuta la macro de manera recursiva.
 
-How does the macro know when to stop? When the macro is on the last line, it tries to run `j`, finds no extra line to go to, and stops the macro execution.
+¿Cómo sabe la macro cuando debe parar? Cuando la macro está en la última línea, tartará de ejecutar `j`, encontrará que no hay una línea extra a la que ir y parará la ejecución de la macro.
 
-# Appending a Macro
+## Añadiendo acciones a una macro
 
-If you need to add more actions to an existing macro, instead of redoing it, you can append actions to it. In the register chapter, you learned that you can append a named register by using its uppercased symbol. To append actions to a macro in register "a", use register "A". Suppose in addition to toggling the case of the first word, you also want to add a dot at the end of the line. 
+Si necesitas añadir más acciones a una macro existente, en vez de rehacerla, puedes añadir acciones a la macro ya existente. En el capítulo de los registros, aprendiste que puedes añadir un registro nominal utilizando su símbolo en mayúsculas. Para añadir acciones a una macro en el registro "a", utiliza el registro "A". Supongamos que además de cambiar a mayúsculas la primera palabra, también quieres añadir un punto al final de la línea.
 
-Assume you have the following actions stored as a macro in register "a":
+Asumamos que tienes las siguiente acciones almacenadas en una macro en el registro "a":
 
 ```
 0W~
 ```
-This is how you can do it:
+Así es como podrías añadir la nueva acción:
 ```
 qAA.<esc>q
 ```
-The breakdown:
-- `qA` starts recording the macro in register "A".
-- `A.<esc>` inserts a dot (".") at the end of the line (`A`), then exits insert mode (`<esc>`).
-- `q` stops recording macro.
+El desglose:
+- `qA` comienza la grabación de la macro en el registro "A".
+- `A.<esc>` inserta un punto (".") al final de la línea (`A`), después sale del modo insertar (`<esc>`).
+- `q` detiene la grabación de la macro.
 
-Now when you execute `@a`, it goes to the first character in the line (`0`), goes to the next WORD (`W`), toggles the case of the character under the cursor (`~`), goes to insert mode at the end of the line (`A`), writes a dot ("."), and exits insert mode (`<esc>`).
+Ahora cuando ejecutemos `@a`, irá al primer caracter de la línea (`0`), se dirige a la siguiente PALABRA (`W`), cambia el caracter de la palabra bajo el cursor (`~`), activa el modo insertar al final de la línea (`A`), escribirá un punto (".") y saldrá del modo insertar (`<esc>`).
 
-# Amending a Macro
+## Modificar una macro
 
-Appending is great technique to add new actions at the end of your existing macros, but what if you need to add new actions in the middle of it? In this section, I will show you how to amend a macro.
+Añadir acciones a una macro, es una gran técnica para añadir nuevas acciones al final de tus macros ya existentes, pero ¿qué pasa si quieres añadir nuevas acciones en la parte media de una macro? En esta sección, te enseñaré cómo modificar una macro.
 
-Suppose between uppercasing the first word and adding a period at the end of the line, you need to add the word "deep fried" right before the word "donut" *(because the only thing better than regular donuts are deep fried donuts)*.
+Supongamos que entre la acción de convertir en mayúscula la primera letra de la primera palabra y añadir un punto al final de la línea, necesitas añadir las palabras "deep fried" justo antes de la palabra "donut" *(porque la única cosa mejor que un donut normal es un donut frito)*.
 
-I will reuse the text from earlier section:
+Reutilizaremos el texto de la sección anterior:
 ```
 a. chocolate donut
 b. mochi donut
@@ -178,43 +178,43 @@ c. powdered sugar donut
 d. plain donut
 ```
 
-First, let's call the existing macro (assume you have kept the macro from the previous section in register "a") with `:put a`:
+Primero, llamemos a la macro ya existente (asumamos que has guardado la macro de la sección anterior en el registro "a") con `:put a`:
 
 ```
 0W~A.^[
 ```
 
-What is this `^[`? Didn't you do `0W~A.<esc>`? `^[` is Vim's *internal code* representation of `<esc>`. With certain special keys, Vim prints the representation of those keys in the form of internal codes. Some common keys that have internal code representations are `<esc>`, `<backspace>`, and `<enter>`. There are more special keys, but they are not within the scope of this chapter.
+¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<esc>`? `^[` es la representación con el *código interno* de Vim para representar `<esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<esc>`, `<backspace>`, y `<enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
 
-Back to the macro, right after the toggle case operator (`~`), let's add the instructions to go to the end of the line (`$`), go back one word (`b`), go to the insert mode (`i`), type "deep fried " (don't forget the space after "fried "), and exit insert mode (`<esc>`).
+Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un caracter de minúscula a mayúscula (`~`), vamoa a añadir las instrucciones para ir al final de la línea (`$`), regresar una palabra (`b`), entrar en el modo de insertar (`i`), escribir "deep fried " (no olvides el espacio en blanco después de la palabra "fried "), y salir del modo insertar (`<esc>`).
 
-Here is what you will end up with:
+Esto es el aspecto que tendrá la macro finalizada:
 
 ```
 0W~$bideep fried <esc>A.^[
 ```
 
-There is a small problem. Vim does not understand `<esc>`. You will have to write the internal code representation for the `<esc>` you just added. While in insert mode, you press `Ctrl-v` followed by `<esc>`. Vim will print `^[`.` Ctrl-v` is an insert mode operator to insert the next non-digit character *literally*. Your macro code should look like this now:
+Pero hay un pequeño problema. Vim no entiende `<esc>`. Deberás escribir la representación del comando en su código interno, tal como lo usa Vim, para el `<esc>` que acabas de añadir. Mientras estás en el modo insetar, presiona `Ctrl-v` seguido de `<esc>`. Vim mostrará `^[`.` Ctrl-v` es un operador del modo insertar para insertar literalmente el siguiente carácter que no sea un dígito. El código de la macro debería ser así:
 
 ```
 0W~$bideep fried ^[A.^[
 ```
 
-To add the amended instruction into register "a", you can do it the same way as adding a new entry into a named register. At the start of the line, run `"ay$`. This tells Vim that you're using the named register "a" (`"a`) to store the yanked text from the current position to the end of the line (`y$`).
+Para añadir la instrucción modificada al registro "a", puedes hacerlo de la misma manera que al añadir una nueva entrada a un registro nominal. Al comienzo de la línea ejecuta `"ay$`. Esto le dice a Vim que estás utilizando el registro nominal "a" (`"a`) para almacenar el texto copiado desde la posición actual hasta el final del la línea (`y$`).
 
-Now when you execute `@a`, your macro will toggle the case of the first word, add "deep fried " before "donut", and add a "." at the end of the line.
+Ahora cuando ejecutes `@a`, tu macro cambiará a mayúsculas la primera letra de la primera palabra, añadirá "deep fried " antes de "donut" y añadirá  "." al final de la línea.
 
-An alternative way to amend a macro is to use a command line expression. Do `:let @a="`, then do `Ctrl-r Ctrl-r a`, this will literally paste the content of register "a". Finally, don't forget to close the double quotes (`"`). If you need to insert special characters using internal codes while editing a command line expression, you can use `Ctrl-v`.
+Una manera alternativa de modificar una macro es utilizando una expresión para la línea de comandos. Ejecuta `:let @a="`, y después `Ctrl-r Ctrl-r a`, esto literalmente pegará el contenido del registro "a". Finalmente, no olvides encerrarlo todo entre comillas dobles (`"`). Si necesitas insertar caracteres especiales utilizando los códigos internos mientras editas una expresión para la línea de comandos, puedes utilizar `Ctrl-v`.
 
-# Macro Redundancy
+## Redundancia de macros
 
-You can easily duplicate macros from one register to another. For example, to duplicate a macro in register "a" to register "z", you can do `:let @z = @a`. `@a` represents the content of register "a". Now if you run `@z`, it does the exact same actions as `@a`.
+Puedes duplicar fácilmente macros de un registro a otro. Por ejemplo, para duplicar una macro ya existente en el registro "a" al registro "z", simplemente ejecuta lo siguiente `:let @z = @a`. `@a` representa el contenido del registro "a". Ahora si ejecutas `@z`, realizará las mismas acciones que `@a`.
 
-I find creating a redundancy useful on my most frequently used macros. In my workflow, I usually record macros in the first seven alphabetical letters (a-g) and I often replace them without much thought. If I move the useful macros towards the end of the alphabets, I can preserve them without worrying that I might accidentally replace them.
+Creo que crear macros redundantes es útil en mis macros más utilizadas frecuentemente. En mi forma de trabajar, normalmente guardo las macros en las primeras siete letras del alfabeto (a-g) y la reemplazo a menudo. Si muevo las macros más útiles a las letras finales del alfabeto, puedo preservarlas sin tener que preocuparme de reemplazarlas de manera accidental.
 
-# Series vs Parallel Macro
+## Macros en serie vs. en paralelo
 
-Vim can execute macros in series and parallel. Suppose you have this text:
+Vim puede ejecutar macros en serie o en paralelo. Supongamos que tenemos el siguiente texto:
 
 ```
 import { FUNC1 } from "library1";
@@ -224,21 +224,21 @@ import { FUNC4 } from "library4";
 import { FUNC5 } from "library5";
 ```
 
-If you want to record a macro to lowercase all the uppercased "FUNC", this macro should work:
+Si quieres grabar una macro para poner en minúsculas todas las mayúsculas de "FUNC", esta macro debería funcionar:
 
 ```
 qa0f{gui{jq
 ```
 
-Here is the breakdown:
-- `qa` starts recording in register "a".
-- `0` goes to first line.
-- `f{` finds the first instance of "{".
-- `gui{` lowercases (`gu`) the text inside the bracket text-object (`i{`).
-- `j` goes down one line.
-- `q` stops macro recording.
+Deglosemos el funcionamiento de la macro:
+- `qa` comienza la grabación en el registro "a".
+- `0` posiciona el cursor en la primera línea.
+- `f{` encuentra la primera ocurrencia del símbolo "{".
+- `gui{` pone en minúsculas (`gu`) el texto dentro de los corchetes (`i{`).
+- `j` baja una línea.
+- `q` detiene la grabación de la macro.
 
-Now you can run `99@a` to execute it on the remaining lines. However, what if you have this import expression inside your file?
+Ahora puedes ejecutar `99@a` para ejecutarla en las líneas faltantes. Sin embargo, ¿qué pasa si tienes que esta expresión de importación dentro de tu archivo?
 
 ```
 import { FUNC1 } from "library1";
@@ -249,16 +249,16 @@ import { FUNC4 } from "library4";
 import { FUNC5 } from "library5";
 ```
 
-Running `99@a`, only executes the macro three times. It does not execute the macro on last two lines because the execution fails to run `f{` on the "foo" line. This is expected when running the macro in series. You can always go to the next line where "FUNC4" is and replay that macro again. But what if you want to get everything done in one go? You can run the macro in parallel.
+Al ejecutar `99@a`, solo se ejecutará la macro tres veces. No ejecutará la macro en las dos últimas líneas porque la ejecución falla al ejecutar `f{` en la línea que contiene "foo". Esto es lo que se espera que pase al ejecutar las macros en serie. Siempre puedes ir a la siguiente línea donde está el texto "FUNC4" y volver a ejecutar la macro. Pero ¿qué pasa si quieres que todo se ejecute de una vez? Puedes ejecutar la macro en paralelo.
 
-Recall from earlier section that macros can be executed using the  command line command `:normal` (ex: `:3,5 normal @a` to execute macro "a" on lines 3-5). If you run `:1,$ normal @a`, you will see that the macro is being executed on all lines except the "foo" line. It works!
+Volviendo a la sección anterior en la que vimos que las macros pueden ser ejecutadas utilizando el comando para la línea de comandos `:normal` (ejemplo: `:3,5 normal @a` para ejecutar la macro "a" en las líneas 3-5). Si quieres ejecutar `:1,$ normal @a`, verás que la macro está siendo ejecutada en todas las líneas excepto en la línea que contiene el texto "foo". ¡Funciona!
 
-Although internally Vim does not actually run the macros in parallel, outwardly, it behaves like such. Vim executes `@a` *independently* on each line from the first line to the last line (`1,$`). Since Vim executes these macros independently, each line does not know that one of the macro executions had failed on the "foo" line.
+Aunque internamente Vim no ejecuta las macros en paralelo, externamente, parece que sí lo hace así. Vim ejecuta `@a` *independientemente* en cada línea desde la primera a la última (`1,$`). Ya que Vim ejecuta estas macros de manera independiente, cada línea no sabe que una de las macros en ejecución ha fallado en la línea que contiene el texto "foo".
 
-# Learn Macros the Smart Way
+## Aprendiendo las macros de la manera más inteligente
 
-Many things you do in editing are repetitive. To get better at editing, get into the habit of detecting repetitive actions. Use macros (or dot command) so you don't have to perform the same action twice. Almost everything that you can do in Vim can be done with macros.
+Muchas cosas que haces mientras estás editando son repetitivas. Para mejorar en la edición de texto, debes habituarte a detectar las acciones repetitivas. Utiliza macros (o el comando del punto) así no tendrás que realizar la misma acción dos veces. Casi todo lo que haces en Vim puede ser realizado con macros.
 
-In the beginning, I find it very awkward to write macros, but don't give up. With enough practice, you will get into the habit of automating everything.
+Al comienzo, encontraba muy raro escribir macro, pero no desistí. Con la práctica suficiente, tendrás el hábito de automatizar todo.
 
-You might find it helpful to use mnemonics to help remember your macros. If you have a macro that creates a function, use the "f" register (`qf`). If you have a macro for numerical operations, the "n" register may be a good fit (`qn`). Name it with the *first named register* that comes to your mind when you think of that operation. I also find that "q" register makes a good default macro register because `qq` does not require much brain power to use. Lastly, I like to increment my macros in alphabetical orders, like `qa`, then `qb`, then `qc`, and so on. Find a method that works best for you.
+Puede que encuentre útil utilizar mnemónicos para ayudarte a recordar tus macros. Si tienes una macro que crea una función, utiliza el registro "f" (`qf`). Si tienes una macro para operacione numéricas, entonces el registro "n" puede ser una buena elección (`qn`). Nómbrala con *el primer registro nominal* que te venga a la cabeza cuando pienses en esa operación. También es útil utilizar el registro "q" como macro predeterminada ya que `qq` no requiere pensar mucho a la hora de ponerle nombre. Por último, me gusta incrementar mis macros en orden alfabético, como `qa`, después `qb`, después `qc`, y así sucesivamente. Encuentra el método que mejor se adapte a ti.

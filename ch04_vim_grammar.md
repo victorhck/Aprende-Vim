@@ -1,103 +1,105 @@
-# Vim Grammar
+# Capítulo 4: La gramática de Vim
 
-It is easy to get intimidated by the complexity of many Vim commands. If you see a Vim user doing `gUfV` or `1GdG`, you may not immediately know what these commands do. In this chapter, I will break down the general structure of Vim commands into a simple grammar rule.
+Es sencillo sentirse intimidado por la complejidad de muchos de los comandos de Vim. Si ves a una persona que usa Vim habitualmente ejecutando `gUfV` o `1GdG`, puede que no sepas inmediatamente qué es lo que realizan esos comandos. En este capítulo, voy a romper la estructura general de los comandos de Vim en reglas simples de gramática.
 
-This is the most important chapter in the entire book. Once you understand Vim commands' grammar-like structure, you will be able to "speak" to Vim. By the way, when I say *Vim language* in this chapter, I am not talking about Vimscript (the built-in programming language to customize and to create Vim plugins). Here it means the general pattern of normal mode commands.
+Este es el capítulo más importante de todo el libre. Una vez que entiendas la estructura similar a la gramática de los comandos de Vim, serás capaz de "hablarle" a Vim. Por cierto, cuando me refiero a *lenguaje de Vim* en este capítulo, no estoy refiriéndome a Vimscript (el lenguaje de programación propio para adaptar y crear complementos de Vim). Aquí se refiere al patrón general de los comandos del modo normal de Vim.
 
-# How to learn a language
+## Cómo aprender un lenguaje
 
-I am not a native English speaker. I learned English when I was 13 when I moved to the US. I had to do three things to build up linguistic proficiency:
+El inglés no es mi lengua nativa. Aprendí inglés cuando tenía 13 años. Tuve que hacer tres cosas para aumentar mis habilidades linguísticas:
 
-1. Learn grammar rules
-2. Increase my vocabulary
-3. Practice, practice, practice.
+1. Aprender las reglas gramáticas
+2. Incrementar mi vocabulario
+3. Practicar, practicar y practicar
 
-Likewise, to speak Vim language, you need to learn the grammar rules, increase your vocabulary, and practice until you can run the commands without thinking.
+De igual manera, para hablar el lenguaje de Vim, necesitas aprender las reglas gramáticas, incrementar tu vocabulario y practicar hasta que puedas ejecutar los comandos sin necesidad de pensarlos.
 
-# Grammar Rule
+## Reglas gramáticas
 
-You only need to know one grammar rule to speak Vim language:
-
-```
-verb + noun
-```
-
-That's it! 
-
-This is equivalent to saying these English phrases:
-
-- *"Eat (verb) a donut (noun)"*
-- *"Kick (verb) a ball (noun)"*
-- *"Learn (verb) the Vim editor (noun)"*
-
-Now you need to build up your vocabulary with basic Vim verbs and nouns.
-
-# Vocabulary
-## Nouns (Motions)
-
-Let's talk about motions as nouns. Motions are used to move around in Vim. They are also Vim nouns. Below you'll see some motion examples :
+Solo necesitas saber una regla gramática para hablar el lenguaje de Vim:
 
 ```
-h    Left
-j    Down
-k    Up
-l    Right
-w    Move forward to the beginning of the next word
-}    Jump to the next paragraph
-$    Go to the end of the line
+verbo + sustantivo
 ```
 
-You will learn more about motions in the next chapter, so don't worry too much if you don't understand some of them.
+¡Eso es todo! 
 
-## Verbs (Operators)
+Esto es equivalente a decir en inglés estas frases: (en español aunque se entienden y se construyan de manera similar, quedan un poco forzadas y poco coloquiales, pero son aplicables las mismas reglas):
 
-According to `:h operator`, Vim has 16 operators. However, in my experience, learning these 3 operators is enough for 80% of my editing needs:
+- *"Comer (verbo) un donut (sustantivo)"*
+- *"Patear (verbo) un balón (sustantivo)"*
+- *"Aprender (verbo) el editor Vim (sustantivo)"*
+
+Ahora necesitas construir tu vocabulario con verbos de Vim básicos y sustantivos.
+
+## Vocabulario
+### Sustantivos (Movimientos)
+
+Hablemos de los movimientos como sustantivos. Los movimientos son utilizados para movernos por el texto en Vim. También hay sustantivos de Vim. En la lista a continuación veremos algunos ejemplos de movimientos:
 
 ```
-y    Yank text (copy)
-d    Delete text and save to register
-c    Delete text, save to register, and start insert mode
+h    Izquierda
+j    Abajo
+k    Arriba
+l    Derecha
+w    Mover el cursor hacia adelante al principio de la palabra siguiente
+}    Saltar al siguiente párrafo
+$    Ir al final de la línea
 ```
 
-Now that you know basic nouns and verbs, let's apply our grammar rule! Suppose you have this expression:
+Aprenderás más sobre los movimientos en el capítulo siguiente, así que no te preocupes demasiado si todavía no entiendes algunos de los mencionados.
+
+### Verbos (Operadores)
+
+De acuerdo a lo que podemos leer en la ayuda de Vim mediante el comando `:h operator`, Vim tiene 16 operadores. Sin embargo, en mi experiencia, con aprender estos 3 es suficiente para el 80% de las necesidades a la hora de editar mis textos:
+
+```
+y    Copiar un texto (*yank* en Vim sería la acción de copiar, de ahí la letra `y`)
+d    Eliminar un texto y guardarlo en el registro (*delete* en Vim sería la acción de eliminar, de ahí la letra `d`)
+c    Eliminar un texto, guardarlo en el registro y comenzar en el modo de insertar
+```
+
+Ahora que ya conocer los sustantivos y verbos básicos, ¡Vamos a aplicar nuestras reglas gramáticas! Supongamos que tenemos la siguiente expresión en un texto:
 
 ```
 const learn = "vim"; 
 ```
-- To yank everything from your current location to the end of the line: `y$`.
-- To delete from your current location to the beginning of the next word: `dw`.
-- To change from your current location to the end of the current paragraph, say `c}`.
+Estas serían las acciones que queremos realizar construidas a partir de la gramática de Vim y sus correspondientes comandos:
 
-Motions also accept count number as arguments *(I will discuss this further in the next chapter)*. If you need to go up 3 lines, instead of pressing `k` 3 times, you can do `3k`. Count works with Vim grammar.
+- Para copiar (*yank*) todo desde la ubicación actual del cursor hasta el final de la línea: `y$`.
+- Para eliminar desde la ubicación actual del cursor hasta el principio de la siguiente palabra: `dw`.
+- Para cambiar el texto desde la posición actual del cursor hasta el final de párrfo actual, di: `c}`.
 
-- To yank two characters to the left: `y2h`.
-- To delete the next two words: `d2w`.
+Los movimientos también aceptan números de conteo como argumentos *(Veremos esto más en profundidad en el siguiente capítulo)*. Si necesitas subir tres líneas, en vez de presionar la letra If you need `k` 3 veces, simplemente puedes ejecutar `3k`. Contar funciona a la hora de conjugar la gramática de Vim.
+
+- Para copiar dos caracteres a la izquierda: `y2h`.
+- Para eliminar las siguientes dos palabras: `d2w`.
 - To change the next two lines: `c2j`.
 
-Right now, you may  have to think long and hard to do even a simple command. You're not alone. When I first started, I had similar struggles but I got faster in time. So will you.
+Ahora mismo, quizás tengas que pensar bastante para construir comandos simples. Pero no creas que solo te pasa a ti. No estás solo. Cuando al principio comencé, tuve dificultades similares pero progresé rápidamente en el tiempo. Y también te pasará a ti.
 
-As a side note, linewise operations are common operations in text editing, so Vim allows you to perform linewise operation by typing the operator command twice. For example, `dd`, `yy`, and `cc` perform **deletion**, **yank**, and **change** on the entire line. Try this with other operators!
+Como nota complementaria, las operaciones que afectan a una línea completa son las tareas más comunes a la hora de editar texto, y por eso Vim te permite realizar operaciones que implican a la línea completa tecleando los operadores que ya conocemos dos veces seguidas. Por ejemplo, `dd`, `yy`, y `cc` lo que hace es **eliminar**, **copiar** y **cambiar** el contenido de la línea completa. ¡Intenta esto con otros operadores!
 
-I hope everything starts to make sense. But I am not quite done yet. Vim has one more type of noun: text objects.
+Espero que todo comience a tener sentido poco a poco. Pero todavía no he terminado. Vim tiene otro tipo más de sustantivos: objetos de texto.
 
-## More Nouns (Text Objects)
+### Más sustantivos (Objetos de texto)
 
-Imagine you are somewhere inside a pair of parentheses like `(hello vim)` and you need to delete the entire phrase inside the parentheses. How can you quickly do it? Is there a way to delete the "group" you are inside of?
+Imagina que estás en algún lugar dentro de un paréntesis, como por ejemplo `(hello vim)` y necesitas eliminar la frase entera dentro del paréntesis. ¿Cómo puedes hacer esto rápidamente? ¿Hay una manera de borrar el "grupo" dentro del que estás?
 
-The answer is yes. Texts often come structured. They are often put inside parentheses, quotes, brackets, braces, and so on. Vim has a way to capture this structure with text objects. 
+La respuesta es sí. Los textos a menudo vienen estructurados. A menudo están puestos dentro de paréntesis, comillas, corchetes, llaves y cosas similares. Vim tiene una manera de capturar esta estructura con los objetos de texto.
 
-Text objects are used with operators. There are two types of text objects:
+Los objetos de texto son usados con operadores. Hay dos tipos de objetos de texto:
 
 ```
-i + object    Inner text object
-a + object    Outer text object
+i + objeto    Dentro del objeto de texto
+a + objeto    Fuera del objeto de texto
 ```
-Inner text object selects the object inside *without* the white space or the surrounding objects. Outer text object selects the object inside *including* the white space or the surrounding objects. Outer text object always selects more text than inner text object. So if your cursor is somewhere inside the parentheses in the expression `(hello vim)`:
+Dentro del objeto del texto selecciona el objeto del interior *sin* los espacios en blanco o los objetos que lo rodean. Fuera del objeto de texto selecciona el onjeto interior *incluyendo* los espacios en blanco y los objetos que lo rodean. La selección de fuera del objeto de texto siempre selecciona más texto que la selección de dentro del objeto de texto. Así que si tu cursor está en algún lugar dentro del paréntesis dentro de la expresión `(hello vim)`:
 
-- To delete the text inside the parentheses without deleting the parentheses: `di(`.
-- To delete the parentheses and the text inside: `da(`.
+- Para eliminar el texto dentro del paréntesis sin borrar el propio paréntesis, ejecuta: `di(`.
+- Para eliminar el paréntesis y el texto interior, ejecuta: `da(`.
 
-Let's look at a different example. Suppose you have this Javascript function and your cursor is on "Hello":
+Echemos un vistazo a un ejemplo diferente. Supongamos que tenemos esta función de Javascript y tu cursor está en la palabra "Hello":
 
 ```
 const hello = function() {
@@ -106,13 +108,13 @@ const hello = function() {
 }
 ```
 
-- To delete the entire "Hello Vim": `di(`.
-- To delete the content of function (surrounded by `{}`): `di{`.
-- To delete the "Hello" string: `diw`. 
+- Para eliminar por completo el texto "Hello Vim": `di(`.
+- Para eliminar el contenido de la función (rodeado por `{}`): `di{`.
+- Para eliminar la palabra "Hello": `diw`. 
 
-Text objects are powerful because you can target different objects from one location. You can delete the objects inside the pair of parentheses, the function block, or the whole word. Moreover, when you see `di(`, `di{`, and `diw`, you get a pretty good idea what text objects they represent (a pair of parentheses, a pair of braces, and a word). 
+Los objetos de texto son muy potentes porque puedes seleccionar diferentes objetos desde una misma ubicación, como hemos visto en el ejemplo anterior. Puedes borrar objetos dentro de un par de paréntesis, el bloque de la función entera o una palabra. Además, cuando ves `di(`, `di{`, o `diw`, te haces una buena idea de qué objetos están representando (un par de paréntesis, un par de llaves y una palabra). 
 
-Let's look at one last example. Suppose you have these HTML tags:
+Echemos un vistazo a un último ejemplo. Supongamos que tenemos estas etiquetas (*tags* en inglés) de código HTML:
 ```
 <div>
   <h1>Header1</h1>
@@ -120,46 +122,46 @@ Let's look at one last example. Suppose you have these HTML tags:
   <p>Paragraph2</p>
 </div>
 ```
-If your cursor is on "Header1" text:
-- To delete "Header1": `dit`.
-- To delete `<h1>Header1</h1>`: `dat`.
+Si tu cursor está sobre el texto "Header1":
+- Para eliminar "Header1": `dit`.
+- Para eliminar `<h1>Header1</h1>`: `dat`.
 
-If your cursor is on "div":
-- To delete `h1` and both `p` lines: `dit`.
-- To delete everything: `dat`.
-- To delete "div": `di<`.
+Si tu cursor está sobre la palabra "div":
+- Para eliminar `h1` y ambas líneas con la etiqueta `p`: `dit`.
+- Para eliminar todo: `dat`.
+- Para eliminar "div": `di<`.
 
-Below is a list of common text objects:
+A continuación tienes una lista de los objetos de texto más comunes:
 
 ```
-w         A word
-p         A paragraph
-s         A sentence
-( or )    A pair of ( )
-{ or }    A pair of { }
-[ or ]    A pair of [ ]
-< or >    A pair of < >
-t         XML tags
-"         A pair of " "
-'         A Pair of ' '
-`         A pair of ` `
+w         Una palabra
+p         Un párrafo
+s         Una frase (*sentence* en inglés)
+( o )     Un par de ( )
+{ o }     Un par de { }
+[ o ]     Un par de [ ]
+< o >     Un par de < >
+t         Etiquetas XML (*tags* en inglés)
+"         Un par de " "
+'         Un par de ' '
+`         Un par de ` `
 ```
-To learn more, check out `:h text-objects`.
+Para aprender más, echa un vistazo a la ayuda de Vim con este comando `:h text-objects`.
 
-# Composability and Grammar
+## Cómo componer frases y gramática
 
-After learning Vim grammar, let's discuss composability in Vim and why this is a great feature to have in a text editor.
+Después de aprender la gramática de Vim, vamos a hablar sobre la capacidad de componer frases (N.d.T: En el texto original utiliza una palabra que se podría traducir como "componibilidad" que traduciré como la capacidad o habilidad de componer frases) en Vim y de porqué esta es una gran funcionalidad para tener en un editor de texto.
 
-Composability means having a set of general commands that can be combined (composed) to perform more complex commands. Just like in programming where you can create more complex abstractions from simpler abstractions, in Vim you can execute complex commands from simpler commands. Vim grammar is the manifestation of Vim's composable nature.
+La capacidad o habilidad de contruir frases significa disponer de un conjunto de comandos generales que pueden ser combinados para desarrollar comandos más complicados. De manera similar a como se hace en programación, donde puedes crear abstracciones más complejas de abstracciones simples, en Vim puedes ejecutar comandos complejos utilizando comandos más simples. La gramática de Vim es la manifestación de la naturaleza componible de Vim.
 
-The true power of Vim's composability shines when it integrates with external programs. Vim has a filter operator (`!`) to use external programs as filters for our texts. Suppose you have this messy text below and you want to tabularize it:
+El verdadero poder de la capacidad de componer frases en Vim se manifiesta cuando se integra con programas externos. Vim tiene un operador de filtro (`!`) para utilizar programas externos como filtros para nuestros textos. Supongamos que tenemos este texto un poco desordenado que aparece a continuación y quieres ordenarlo con tabuladores.
 ```
 Id|Name|Cuteness
 01|Puppy|Very
 02|Kitten|Ok
 03|Bunny|Ok
 ```
-This cannot be easily done with Vim commands, but you can get it done quickly with `column` terminal command. With your cursor on "Id", run `!}column -t -s "|"`. Voila! Now you have this pretty tabular data:
+Esto no puede realizarse de manera sencilla utilizando simplemente comandos de Vim, pero puedes realizarlo rápidamente utilizando un comando de terminal como `column`. Con el cursor situado en "Id", ejecuta `!}column -t -s "|"`. ¡Voila! Con esto obtendrás el texto tabulado de la siguiente manera:
 ```
 Id  Name    Cuteness
 01  Puppy   Very
@@ -167,38 +169,38 @@ Id  Name    Cuteness
 03  Bunny   Ok
 ```
 
-Let's break down the command. The verb was `!` (filter operator) and the noun was `}` (go to next paragraph). The filter operator `!` accepted another argument, a terminal command, so I gave it `column -t -s "|"`. I won't go through how `column` worked, but in short, it tabularized the text.
+Diseccionemos el comando que hemos ejecutado. El verbo era `!` (operador de filtro) y el sustantivo era `}` (para ir al siguiente párrafo). El operador de filtro `!` aceptó otro argumento, un comando de terminal, así que le añadí `column -t -s "|"`. No detallaré cómo funciona `column`, pero resumiendo mucho se puede decir que ordena el texto mediante tabulaciones.
 
-Suppose you want to not only tabularize your text, but to display only the rows with "Ok". You know that `awk` can do the job easily. You can do this instead:
+Supongamos que quieres no solo ordenar mediante tabuladores el texto, también mostrar solo las filas que tienen el texto "Ok". Quizás ya sabes que `awk` puede hacer ese trabajo fácilmente. En ese caso ejecutarías:
 ```
 !}column -t -s "|" | awk 'NR > 1 && /Ok/ {print $0}'
 ```
-Result:
+Este sería el resultado:
 ```
 02  Kitten  Ok
 03  Bunny   Ok
 ```
 
-Great! Even piping works from inside Vim. 
+¡Genial! Incluso en Vim funciona el ancadenar comandos mediante "tuberías" con `|`. 
 
-This is the power of Vim's composability. The more you know your operators, motions, and terminal commands, your ability to compose complex actions is *multiplied*.
+Este es el poder de la "componibilidad" de Vim. Cuantos más operadores, movimientos y comandos de terminales conoces tu habilidad para componer acciones más complejas se ve *multiplicada*.
 
-Let me elaborate. Suppose you only know four motions: `w, $, }, G` and the delete (`d`) operator. You can do 8 things: move 4 different ways (`w, $, }, G`) and delete 4 different targets (`dw, d$, d}, dG`). Then one day you learn about the uppercase (`gU`) operator. You have added not just one new ability to your Vim tool belt, but *four*: `gUw, gU$, gU}, gUG`. Now you have 12 tools in your Vim tool belt. Each new knowledge is a multiplier to your current abilities. If you know 10 motions and 5 operators, now you have 60 moves (50 operations + 10 motions) in your arsenal. Moreover, the  line number motion (`nG`) gives you `n` motions, where `n` is how many lines you have in your file (example: to go to line 5, `5G`). The search motion (`/`) practically gives you near unlimited number motion because you can search for anything. External command operator (`!`) gives you as many filtering tools as the number of terminal commands you know. Using a composable tool like Vim, everything you know can be connected together to do more complex operations. The more you know, the more powerful you become.
+Permíteme desarrollar esa idea. Supongamos que solo conocemos cuatro movimientos: `w, $, }, G` y el operador de eliminar (`d`). Puedes realizar 8 cosas: moverte de 4 maneras diferentes (`w, $, }, G`) y eliminar contenido de 4 objetivos diferentes (`dw, d$, d}, dG`). Entonces un día aprendes el operador para convertir en mayúsculas un texto (`gU`). Con esto no solo has añadido una nueva habilidad al citurón de herramientas que utilizas en Vim, si no *cuatro*: `gUw, gU$, gU}, gUG`. Ahora tienes 12 herramientas nuevas en tu cinto de herramientas de Vim. Cada nuevo aprendizaje es un multiplicador de tus habilidades actuales con Vim. Si conoces 10 movimientos y 5 operadores, ahora tienes 60 herramientas en tu arsenal (50 operaciones + 10 movimientos). Además el movimiento a un número de línea (`nG`) te da `n` movimientos, donde `n` indica cuantas líneas tienes en tu archivo (ejemplo: para ir a la línea 5, `5G`). El movimiento de búsqueda (`/`) prácticamente te da un número ilimitado de movimientos debido a que puedes buscar cualquier cosa. El operador de comandos externos (`!`) te ofrece un número de herramientas de filtrado igual al número de comandos de terminal que conozcas. Utilizando la capacidad para componer de Vim, todo lo que conoces puede estar conectado para realizar operaciones más complejas. Cuanto más conoces, más poderoso puedes llegar a ser.
 
-This composable behavior echoes Unix philosophy: *do one thing well*. A motion has one job: go to X. An operator has one job: do Y. By combining an operator with a motion, you get YX: do Y on X.
+Este comportamiento componible proviene de la filosofía Unix: *hacer una cosa, y hacerlo bien*. Un movimiento tiene una tarea: Ir al lugar *X*. Un operador tiene una tarea: hacer *Y*. Combinando un operador con un movimiento, obtienes *XY*: Ve a *X* y haz *Y*.
 
-Even better,  motions and operators are extendable. You can create custom motions and operators to add to your Vim toolbelt. [`vim-textobj-user`](https://github.com/kana/vim-textobj-user) has a [list](https://github.com/kana/vim-textobj-user/wiki) of custom text objects.
+Esto es incluso mejor, los movimientos y operadores son extensibles. Puedes crear tus propios movimiento y operadores personalizados para añadirlos a tu conjunto de herramientas de Vim. [`vim-textobj-user`](https://github.com/kana/vim-textobj-user) tiene una [lista](https://github.com/kana/vim-textobj-user/wiki) de objetos de texto personalizados.
 
-By the way, it's okay if you don't know `column` or `awk` commands I just did. The point is that Vim integrates very well with terminal commands.
+Por cierto, no pasa nada si no conoces los comandos `column` o `awk`. El punto fundamental que debe quedar de esto es que Vim se integra perfectamente con los comandos de terminal que conozcas.
 
-# Learn Grammar the Smart Way
+## Aprendiendo la gramática de Vim de la manera más inteligente
 
-You just learned about Vim grammar's only rule:
+Simplemente has aprendido la única regla en la gramática de Vim:
 ```
-verb + noun
+verbo + sustantivo
 ```
-One of my biggest Vim "AHA!" moments was when I had just learned about the uppercase (`gU`) operator and wanted to uppercase a word, I instinctively ran `gUiw` and it worked! The word I was on was uppercased. I finally began to understand Vim. My hope is that you will have your own "AHA!" moment soon, if not already.
+Uno de mis grandes momentos de Vim donde dije *eureka* fue cuando aprendí el operador para convertir en mayúsculas y quise convertir a mayúsculas una palabra, de manera instintiva simplemente ejecuté `gUiw` ¡y funcionó! La palabra en la que estaba situado mi cursor se convirtió a mayúsculas. En ese momento empecé a comprender Vim. Espero que si aún no lo has tenido, tengas pronto tu momento *eureka*.
 
-The goal is this chapter is to show you the `verb + noun` pattern in Vim so you will approach learning Vim like learning a new language instead of memorizing every command combinations. 
+El objetivo en este capítulo es mostrarte el patrón de `verbo + sustantivo` en Vim, así irás aprendiendo Vim de la misma manera que se aprende un nuevo idioma en vez de memorizar cada combinación de comandos.
 
-Learn the pattern and understand the implications. That's the smart way to learn.
+Aprende el patrón y comprende las implicaciones de este. Esa es la manera más inteligente de aprender.
