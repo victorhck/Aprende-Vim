@@ -147,17 +147,16 @@ Vim tiene tres registros de solo lectura: `.`, `:`, y `%`. Estos son muy fácile
 :    Almacena lo último que fue ejecutado en la línea de comandos
 %    Almacena el nombre del archivo actual
 ```
-Si escribes "Hola Vim", al ejecutar`".p` se imprimirá el texto "Hola Vim". Si deseas obtener el nombre del archivo actual, escribe `"%p`. Si ejecutas el comando `:s/foo/bar/g`, `":p` imprimirá el texto literal "s/foo/bar/g".
+Si escribes "Hola Vim", al ejecutar`".p` se imprimirá el texto "Hola Vim". Si deseas obtener el nombre del archivo actual, escribe `"%p`. Si ejecutas el comando `:s/foo/bar/g`, al ejecutar `":p` se mostrará el texto literal "s/foo/bar/g".
 
 ## El registro de búfer alterno (`"#`)
 
-En Vim, `#` usualmente representa el búfer alterno. Un búfer alterno es el último archivo que abriste. Para insertar el nombre del búfer alterno, puedes usar `"#p`.
+En Vim, `#` usualmente representa el archivo alterno. Un archivo alterno es el último archivo que abriste. Para insertar el nombre del archivo alterno, puedes usar `"#p`.
 
 
 ## El registro de expresiones (`"=`)
 
-Vim tiene un registro de expresiones, `"=`, para evaluar expresiones. Las expresiones son un tópico vasto en Vim, así que cubriré solo lo básico aquí. Voy a tratar las expresiones con más detalle en los capítulos siguientes.
-
+Vim tiene un registro de expresiones, `"=`, para evaluar expresiones. Las expresiones son un tema muy amplio en Vim, así que se tratará aquí solo lo básico. Voy a tratar las expresiones con más detalle en un capítulo posterior.
 
 Puedes calcular la expresión matemática `1 + 1` con:
 
@@ -165,7 +164,7 @@ Puedes calcular la expresión matemática `1 + 1` con:
 "=1+1<Enter>p
 ```
 
-Aqui, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es (`1 + 1`). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, tú puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
+Aqui, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es (`1 + 1`). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
 
 ```
 Ctrl-r =1+1
@@ -182,7 +181,7 @@ Luego pulsa `<enter>`, después `p`. Igualmente, para obtener valores desde el r
 Ctrl-r =@a
 ```
 
-Puedes también calcular scripts de Vim con el registro de expresiones. Si defines una variable `i` para ejecutar `:let i = 1`, puedes tener el valor con `"=i`, presionar enter y luego `p`. Para obtener la variable desde el modo insertar, escribe `Ctrl-r=i`.
+También puedes evaluar scripts de Vim con el registro de expresiones. Si defines una variable `i` para ejecutar `:let i = 1`, puedes tener el valor con `"=i`, presionar enter y luego `p`. Para obtener la variable desde el modo insertar, escribe `Ctrl-r=i`.
 
 Supón que tienes una función: 
 ```
