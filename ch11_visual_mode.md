@@ -253,56 +253,56 @@ Coloca tu cursor en la sugunda "app-a". Utiliza la misma técnica que en el ejem
 <div id="app-d"></div>
 <div id="app-e"></div>
 ```
-## Selecting the Last Visual Mode Area
+## Seleccionar la última área del modo visual
 
-You learned that `gv` can quickly highlight the last visual mode highlight. You can also go to the location of the start and the end of the last visual mode with these two special marks:
+Ya has aprendido que con con `gv` puedes resaltar rápidamente la anterior zona marcada en el modo visual. También puedes ir a la ubicación del comienzo y final de la anterior zona del modo visual con estas marcas especiales:
 
 ```
-`<    Go to the last place of the previous visual mode highlight
-`>    Go to the first place of the previous visual mode highlight
+`<    Ir a último pugar de la anterior zona resaltada del modo visual
+`>    Ir al comienzo de la anterior zona resaltada del modo visual
 ```
 
-I want you to observe something. Earlier, I mentioned that you can selectively execute Ex commands on a highlighted text, like `:s/const/let/g`. When you did that, you should see this:
+Quiero que te fijes en algo. Anteriormente, mencioné que puedes ejecutar de manera selectiva un comando Ex en un texto resaltado, como `:s/const/let/g`. Cuando ejecutaste ese comando, deberías haber visto esto:
 ```
 :`<,`>s/const/let/g
 ```
 
-You were actually executing `s/const/let/g` command using marks as range. You can always edit these marks anytime you wish. If instead you needed to substitute from the start of the highlighted text to the end of the file, you just change the command line to:
+Estabas ejecutando `s/const/let/g` el comando utilizando las marcas como rango de ejecución. Siempre puedes editar estas marcas en cualquier momento que desees. Si necesitabas sustituir desde el comienzo del texto resaltado hasta el final del archivo, simplemente cambia el comando a este::
 ```
 :`<,$s/const/let/g
 ```
 
-## Entering Visual Mode from Insert Mode
+## Entrando en el modo visual desde el modo insertar
 
-You can also enter visual mode from the insert mode. To go to character-wise visual mode while you are in insert mode:
+También puedes entrar en el modo visual desde el modo insertar. Para ir al modo visual de selección de caracter mientras en el modo insertar, ejecuta:
 
 ```
 Ctrl-O v
 ```
 
-Recall that running `Ctrl-O` while in the insert mode lets you to execute a normal mode command. While in this normal-mode-command-pending mode, run `v` to enter character-wise visual mode. Notice that on the bottom left of the screen, it says `--(insert) VISUAL--`. This trick works with any visual mode operator: `v`, `V`, and `Ctrl-V`.
+Volver a ejecutar `Ctrl-O` mientras estás en el modo insertar te permite ejecutar un comando en el modo normal. Mientras estás en este modo-normal-momentáneo, ejecuta `v` para entrar en el modo visual de selección de caracter. Fíjate que en la parte inferior izquierda de la pantalla se muestra `--(insert) VISUAL--`. Este truco funciona con cualquier operador de cualquier modo visual: `v`, `V`, y `Ctrl-V`.
 
-## Select Mode
+## Modo selecionar
 
-Vim has a mode similar to visual mode called the *select mode*. Like visual mode, it also has three different modes:
+Vim tiene un modo similar al modo visual llamado el *modo seleccionar*. De manera similar al modo visual, también tiene tres modos diferentes::
 ```
-gh         Character-wise select mode
-gH         Line-wise select mode
-gCtrl-h    Block-wise select mode
+gh         Modo seleccionar de selección de caracter
+gH         Modo seleccionar de selección de línea
+gCtrl-h    Modo seleccionar de selección de bloque
 ```
 
-Select mode emulates a regular editor's text highlighting behavior closer than Vim's visual mode does. 
+El modo seleccionar emula al comportamiento de un editor de texto normal al seleccionar un texto de una manera más cercana a como lo hace Vim en el modo visual.
 
-In a regular editor, after you highlight a text block and type a letter, say the letter "y", it will delete the highlighted text and insert the letter "y".
+En un editor normal, después de seleccionar un bloque de texto y escribir una letra, por ejemplo la letra "y", el editor borrará todo el texto resaltado e insertará la letra escrita, en nuestro ejemplo la letra "y".
 
-If you highlight a line of text with line-wise select mode (`gH`) and type "y", it will delete the highlighted text and insert the letter "y", much like the regular text editor.
+Si resaltas una línea de texto con el modo de selección de línea (`gH`) y escribre "y", se borrará el texto resaltado y se insertará la letra "y", de manera similar a como se hace en un editor de texto normal.
 
-Contrast this behavior with visual mode: if you  highlight a line of text with line-wise visual mode (`V`) and type "y", the highlighted text will not be deleted and replaced by the literal letter "y". It will only be yanked and stored in the yanked register `"0`.
+Este comportamiento contrasta con el modo visual: si resaltas una línea de de texto en el modo visual de selección de línea (`V`) y escribres "y", el texto resaltado no será eliminado y reemplazado con la letra "y". Solo será copiado y almacenado en el registro de copia `"0`.
 
-I personally never used select mode, but it's good to know that it exists.
+Personalmente nunca he utilizado el modo seleccionar, pero es bueno saber que existe.
 
-## Learn Visual Mode the Smart Way
+## Aprende el modo visual de la manera más inteligente
 
-The visual mode is Vim's representation of the text highlighting procedure. 
+El modo visual es la representación de Vim del procedimiento de resaltado de texto.
 
-If you find yourself using visual mode operation far more often than normal mode operations, be careful. I think this is an anti-pattern. It takes more keystrokes to run a visual mode operation than its normal mode counterpart. If you need to delete an inner word, why use four keystrokes, `viwd` (visually highlight an inner word then delete), if you can accomplish it with just three keystrokes (`diw`)? The latter is more direct and concise. Of course, there will be times when visual modes are appropriate, but in general, favor a more direct approach.
+Si te encuentras a ti mismo utilizando el modo visual mucho más a menudo que operaciones en el modo normal, ten cuidado. Creo que esto es un antipatrón. Conlleva más pulsaciones de teclas el ejecutar operaciones en el modo visual que hacer la misma operación en el modo normal. Si necesitas eliminar una palabra en la que te encuentras, por qué utilizar cuatro pulsaciones de teclas, `viwd` (resaltar visualmente una palabra y después eliminarla), si puedes hacer eso mismo con solo tres pulsaciones de teclas (`diw`)? Esto último es más directo y conciso. Por supuesto, habrá ocasiones en las que el modo visual será apropiado, pero en general, es mejor un enfoque más directo.
