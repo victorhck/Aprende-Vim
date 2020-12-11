@@ -1,57 +1,58 @@
-# Capítulo 12: Search and Substitute
-This chapter covers two separate but related concepts: search and substitute. Many times, the texts that you are searching for are not straightforward and you must search for a common pattern. By learning how to use meaningful patterns in search and substitute instead of literal strings, you will be able to target any text quickly.
+# Capítulo 12: Buscar y sustituir
 
-As a side note, in this chapter, I will mainly use `/` when talking about search. Everything you can do with `/` can also be done with `?`.
+Este capítulo trata sobre dos conceptos separados pero relacionados: buscar y sustituir. Muchas veces, los textos que estás buscando no son simples y debes buscar un patrón común. Aprender cómo utilizar patrones significativos en las búsquedas y sustituciones en vez de cadenas de texto literales, hará que seas capaz de localizar cualquier texto rápidamente.
 
-## Smart Case Sensitivity
+Como nota complementaria, en este capítulo, utilizará principalmente `/` cuando me refiera a la búsqueda. Todo lo que puedes realizar con el comando `/` puede también ser realizado con `?`.
 
-It can be tricky trying to match the case of the search term. If you are searching for the text "Learn Vim", you can easily mistype the case of one letter and get a false search result. Wouldn't it be easier and safer if you can match any case? This is where the option `ignorecase` shines. Just add `set ignorecase` in your vimrc and all your search terms become case insensitive. Now you don't have to do `/Learn Vim` anymore. `/learn vim` will work.
+## Sensibilidad inteligente a mayúsculas y minúsculas
 
-However, there are times when you need to search for a case specific phrase. One way to do that is to turn off `ignorecase` option with `set noignorecase`, but that is a lot of work to turn on and off each time you need to search for a case sensitive phrase.
+Puede ser complicado hacer coincidir las mayúsculas y minúsculas en el término buscado. Si estás buscando el texto "Aprende Vim", te puedes confundir fácilmente al escribir una letra y obtener unos resultados de la búsqueda falsos. ¿No sería más sencillo y fácil si pudieras hacer coincidir tanto si está en mayúsculas o minúsculas? Aquí es donde la opción `ignorecase` es más útil. Simplemente añade `set ignorecase` en tu archivo de configuración vimrc y todos tus términos de búsqueda no tendrán en cuenta las mayúsculas o minúsculas. Ahora ya no será necesario que escribas `/Learn Vim` nunca mas. `/learn vim` será más que necesario para realizar la misma búsqueda.
 
-Is there a setting that allows you to do case insensitive search most of the time, but also know to do case sensitive search when you need it? Turns out there is a way.
+Sin embargo, hay ocasiones en las que necesitas buscar una frase específica con diferenciación entre mayúsculas o minúsculas. Una forma de hacer eso es inhabilitando la opción `ignorecase` mediante `set noignorecase`, pero es muy laborioso el inhabilitar y volver a habilitar la opción cada vez que necesites una u otra forma de realizar búsquedas.
 
-Vim has a `smartcase` option to override `ignorecase` if the search pattern *contains at least one uppercase character*. You can combine both `ignorecase` and `smartcase` to perform a case insensitive search when you enter all lowercase characters and a case sensitive search when you enter one or more uppercase characters. 
+¿Existe un ajuste que te permita realizar búsquedas que no tengan en cuenta las mayúsculas la mayor parte de las veces, pero también sepa cuando una búsqueda requiere buscar las mayúsculas cuando lo necesites? Resulta que hay una manera.
 
-Inside your vimrc, add:
+Vim tiene una opción llamada `smartcase` para anular `ignorecase` si el patrón de búsqueda *contiene al menos una letra en mayúscula*. Puedes combinar tanto `ignorecase` y `smartcase` para realizar búsquedas que no tengan en cuenta las mayúsculas cuando introduzcas caracteres en minúsculas y tenga en cuenta las mayúsculas y minúsculas cuando introduzcas una o más letras en mayúsculas.
+
+Dentro de tu archivo vimrc, añade:
 
 ```
 set ignorecase smartcase
 ```
 
-If you have these texts:
+Si tienes estos textos:
 ```
-hello
-HELLO
-Hello
-```
-
-You can control case insensitivity with the case of your search phrase:
-- `/hello` matches "hello", "HELLO", and "Hello".
-- `/HELLO` matches only "HELLO".
-- `/Hello` matches only "Hello"
-
-There is one downside. What if you need to search for only a lowercase string? When you do `/hello`, Vim will always match its uppercase variants. What if you don't want to match them? You can use `\c` pattern in front of your search term to tell Vim that the subsequent search term will be case sensitive. If you do `/\chello`, it will strictly match "hello", not "HELLO" or "Hello".
-
-## First and Last Character in a Line
-
-You can use `^` to match the first character in a line and `$` to match the last character in a line.
-
-If you have this text:
-
-```
-hello hello
+hola
+HOLA
+Hola
 ```
 
-You can target the first "hello" with `/^hello`. The character that follows `^` must be the first character in a line. To target the last "hello", run `/hello$`. The character before `$` must be the last character in a line. 
+Puedes controlar si la búsqueda debe encontrar uno u otro término de la manera en la que escribas el el término de búsqueda con o sin mayúsculas:
+- `/hola` encontrará los términos "hola", "HOLA" y "Hola".
+- `/HOLA` encontrará solo "HOLA".
+- `/Hola` encontrará solo "Hola".
 
-If you have this text:
+Solo hay una pega. ¿Qué pasa cuando necesitas solo encontrar la cadena de texto en minúscula? Cuando buscas `/hola`, Vim siempre encontrará sus variantes con mayúsculas. ¿Qué pasa si no quieres que se muestren en la búsqueda? Puedes utilizar el patrón `\c` anteponiéndolo a tu búsqueda para decir que en el término de búsqueda siguiente tenga en cuenta las minúsculas. Ahora si ejecutas `/\chola`, restringirá las coincidencias únicamente a "hola" y no aparecerán ni "HOLA" ni "Hola".
+
+## El primer y último caracter en una línea
+
+Puedes utilizar `^` para encontrar el primer caracter en una línea y `$` para encontrar el última caracter en una línea.
+
+Si tienes este texto:
 
 ```
-hello hello friend
+hola hola
 ```
 
-Running `/hello$` will match anything because "friend" is the last term in that line, not "hello".
+Puedes llegar al primer "hola" con `/^hello`. El caracter que siga a `^` deberá ser el primer caracter de la línea. Para buscar el último "hola", ejecuta `/hello$`. El caracter anterior a `$` deberá se el último caracter de la línea. 
+
+Si tienes el siguiente texto:
+
+```
+hola hola amigo
+```
+
+Al ejecutar `/hello$` no encontrará nada porque "amigo" es el último término en esa línea, no "hola".
 
 ## Repeating Search
 
