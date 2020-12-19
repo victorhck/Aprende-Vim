@@ -54,19 +54,19 @@ hola hola amigo
 
 Al ejecutar `/hello$` no encontrará nada porque "amigo" es el último término en esa línea, no "hola".
 
-## Repeating Search
+## Repetir la búsqueda
 
-You can repeat the previous search with `//`. If you have just searched for `/hello`, running `//` is equivalent to running `/hello`. This shortcut can save you some keystrokes especially if you just did a long search term. Also recall that you can also use `n` and `N` to repeat the last search with the same direction and opposite direction, respectively.
+Puedes repetir la búsqueda con `//`. Si has buscado `/hola`, al ejecutar `//` será equivalente a ejecutar `/hola`. Este atajo de teclado te puede ahorrar varias pulsaciones de teclas, especialmente si anteriormente hiciste una búsqueda de un término bastante largo. También recordar que puedes utilizar `n` y `N` para repetir la última búsqueda en la misma dirección o en la dirección contraria, respectivamente.
 
-What if you want to quickly recall *n* last search term? You can quickly traverse the search history by first pressing `/`, then press `up`/`down` arrow keys (or `Ctrl-N`/`Ctrl-P`) until you find the search term you need. To see all your search history, you can run `:history /`.
+¿qué pasa si quieres volver a ejecutar rápidamente la búsqueda anterior *n*? Puedes navegar rápidamente por el historial de búsquedas pulsando primero la tecla `/`, y después las teclas  `arriba`/`abajo` (o `Ctrl-N`/`Ctrl-P`) hasta que encuentres el término de búsqueda que necesitas. Para ver todo el historial de búsquedas, puedes ejecutar `:history /`.
 
-When you reach the end of a file while searching, Vim throws an error: `"Search hit the BOTTOM without match for: <your-search>"`. Sometimes this can be a good safeguard from oversearching, but other times you want to cycle the search back to the top again. You can use the `set wrapscan` option to make Vim to search back at the top of the file when you reach the end of the file. To turn this feature off, do `set nowrapscan`.
+Cuando llegues al final de un archivo mientras estás buscando, Vim te mostrará un error: `"Search hit the BOTTOM without match for: <your-search>"`. A veces esto puede ser una buena protección para no hacer una búsqueda sin fin, pero otras veces puedes necesitar que el ciclo de búsqueda vuelva a empezar desde la parte superior de nuevo. Puedes utilizar la opción `set wrapscan` para hacer que Vim vuelva a buscar desde el inicio de un archivo cuando llega al final de un archivo. Para inhabilitar esta opción simplemente ejecuta `set nowrapscan`.
 
-## Searching for Alternative Words
+## Buscando palabras alternativas
 
-It is common to search for multiple words at once. If you need to search for *either* "hello vim" or "hola vim", but not "salve vim" or "bonjour vim", you can use the `|` pipe alternative syntax.
+Es común buscar múltiples palabras a la vez. Si necesitas buscar *tanto* "hello vim" u "hola vim", pero no "salve vim" o "bonjour vim", puedes utilizar la tubería `|`.
 
-Given this text:
+Dado este texto:
 
 ```
 hello vim
@@ -75,13 +75,13 @@ salve vim
 bonjour vim
 ```
 
-To match both "hello" and  "hola", you can do `/hello\|hola`. You have to escape (`\`) the pipe (`|`) operator, otherwise Vim will literally search for the string "|". 
+Para encontrar tanto "hello" como "hola", puedes ejecutar `/hello\|hola`. Es necesario *escapar* (`\`) el operador de la tubería (`|`), de lo contrario Vim literalmente buscará la cadena "|". 
 
-If you don't want to type `\|` every time, you can use the `magic` syntax (`\v`) at the start of the search: `/\vhello|hola`. I will not cover `magic` in this chapter, but with `\v`, you don't have to escape special characters anymore. To learn more about `\v`, feel free to check out `:h \v`.
+Si no quieres escribir `\|` cada vez, puedes utilizar la sintáxis `magic` (`\v`) al comienzo de la búsqueda: `/\vhello|hola`. No se va a tratar `magic` en este capítulo, pero con `\v`, ya no necesitará escapar caracteres especiales nunca más. Para aprender más sobre `\v`, echa un vistazo a la ayuda de Vim mediante `:h \v`.
 
-## Setting the Start and End of a Match
+## Estableciendo el inicio y el final de una búsqueda
 
-Maybe you need to search for a text that is a part of a compound word. If you have these texts:
+Quizás necesites buscar un texto que es parte de una palabra compuesta. Si tienes estos textos:
 
 ```
 11vim22
@@ -90,36 +90,36 @@ vim22
 vim
 ```
 
-If you need to select "vim" but only when it starts with "11" and ends with "22", you can use `\zs` (starting match) and `\ze` (ending match) operators. Run:
+Si necesitas seleccionar "vim" pero solo cuando esta comienza con "11" y termina con "22", puedes utilizar los comandos `\zs` (coincidencia de comienzo) y `\ze` (coincidencia final). Ejecuta:
 
 ```
 /11\zsvim\ze22
 ```
 
-Vim still has to match the entire pattern "11vim22", but only highlights the pattern sandwiched between `\zs` and `\ze`. Another example:
+Vim buscará el patrón entero "11vim22", pero solo resaltará el patrón que está entre los comandos `\zs` y `\ze`. Otro ejemplo:
 
 ```
 foobar
 foobaz
 ```
 
-If you need to search for the "foo" in "foobaz" but not in "foobar", run:
+Si necesitar buscar "foo" en "foobaz" pero no en "foobar", ejecuta:
 
 ```
 /foo\zebaz
 ```
 
-## Searching Character Ranges
+## Buscando un rango de caracteres
 
-All your search terms up to this point have been a literal word search. In real life, you may have to use a general pattern to find your text. The most basic pattern is the character range, `[ ]`.
+Todos tus términos de búsqueda hasta este punto han sido una búsqueda literal de una palabra. En la vida real, puede que tengas que utilizar un patrón general para encontrar tu texto. El patrón básico es el rango de caracteres, `[ ]`.
 
-If you need to search for any digit, you probably don't want to type `/0\|1\|2\|3\|4\|5\|6\|7\|8\|9\|0` every single time. Instead, use `/[0-9]` to match for a single digit. The `0-9` expression represents a range of numbers 0-9 that Vim will try to match, so if you are looking for digits between 1 to 5 instead, use `/[1-5]`. 
+si necesitas buscar cualquier dígito, lo más probable es que no quieras escribir `/0\|1\|2\|3\|4\|5\|6\|7\|8\|9\|0` cada vez que lo necesites. En vez de eso, utiliza `/[0-9]` para encontrar cualquier dígito entre ese rango. La expresión `0-9` representa un rangos de números entre 0-9 que Vim intentará encontrar, así que si estás buscando dígitos entre 1 y 5, en ese caso utilizaríamos `/[1-5]`. 
 
-Digits are not the only data types Vim can look up. You can also do `/[a-z]` to search for lowercase alphas and `/[A-Z]` to search for uppercase alphas. 
+Los dígitos no son el único tipo de datos que Vim puede buscar. También puedes buscar entre `/[a-z]` para buscar letras en minúsculas y `/[A-Z]` para letras en mayúsculas. 
 
-You can combine these ranges together. If you need to search for digits 0-9 and both lowercase and uppercase alphas from a to f (a hex), you can do `/[0-9a-fA-F]`. 
+También puedes combinar estos rangos juntos. Si necesitas buscar dígitos entre 0-9 y a la vez letras en mayúsculas y minúsculas de la "a" a la "f" (una cifra en hexadecimal), puedes ejecutar `/[0-9a-fA-F]`. 
 
-To do a negative search, you can add `^` inside the character range brackets. To search for a non-digit, run `/[^0-9]`. Vim will match any character as long as it is not a digit. Beware that the caret (`^`) inside the range brackets is different from the beginning-of-a-line caret (ex: `/^hello`). If a caret is outside of a pair of brackets and is the first character in the search term, it means "the first character in a line". If a caret is inside a pair of brackets and it is the first character inside the brackets, it means a negative search operator. `/^abc` matches the first "abc" in a line and `/[^abc]` matches any character except for an "a", "b", or "c".
+Para realizar una búsqueda inversa, puedes añadir `^` dentro de los corchetes dentro del rango. Para buscar algo que no sea un dígito, ejecuta `/[^0-9]`. Vim encontrará cualquier caracter mientras que no sea un dígito. Ten en cuenta que el caracter (`^`) dentro de los corchetes del rango es diferente del caracter al principio de una línea (ejemplo: `/^hello`). Si el caracter está fuera del par de corchetes y es el primer caracter en el término de búsqueda, esto significa "el primer caracter en una línea". Si el caracter está dentro de un par de corchetes y es el primer caracter dentro de los corchetes, esto significa un operador de búsqueda negativo. `/^abc` encontrará el primer "abc" en una línea y `/[^abc]` encontrará cualquier caracter excepto una "a", "b" o "c".
 
 ## Searching for Repeating Characters
 
