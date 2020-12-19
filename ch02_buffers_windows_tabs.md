@@ -14,7 +14,7 @@ Un *buffer* es un espacio en la memoria en el que puedes escribir y editar algú
 
 Si tu *buffer* no está ligado todavía a un archivo pero quieres guardar su contenido, puedes guardarlo mediante `:w </ruta/al/archivo>`.
 
-```
+```bash
 vim file1.js
 ```
 
@@ -24,7 +24,7 @@ Lo que se muestra en la imagen anterior es el *buffer* del archivo `file1.js`. C
 
 Sal de Vim. Esta vez, abre dos nuevos archivos:
 
-```
+```bash
 vim file1.js file2.js
 ```
 ![one buffer displayed.png](./img/screen-one-buffer.png)
@@ -67,7 +67,7 @@ Una ventana es una división gráfica en un *buffer*. Puedes tener múltiples ve
 ![buffers command showing 2 buffers](./img/screen-vscode-3-windows.png)
 
 Abramos el archivo `file1.js` de nuevo desde la terminal:
-```
+```bash
 vim file1.js
 ```
 ![one buffer displayed.png](./img/screen-one-buffer.png)
@@ -135,7 +135,7 @@ Para más información, echa un vistazo a la ayuda de Vim `:h window`. Dedícale
 Una pestaña en una colección de ventanas. Piensa en ello como en un diseño para ventanas. En la mayoría de los editores modernos (y en los modernos navegadores de internet), una pestaña significa un archivo/página abierta y cuando la cierras, el archivo/página desaparece. En Vim, una pestaña no representa un archivo abierto. Cuando cierras una pestaña en Vim, no estás cerrando un archivo. Recuerda, Vim almacena los archivos en la memoria mediante los *buffers*. Cerrar una pestaña (o una ventana) no hace que ese archivo desaparezca de los *buffers*.
 
 Veamos las pestañas de Vim en acción. Abre `file1.js`:
-```
+```bash
 vim file1.js
 ```
 
@@ -167,7 +167,7 @@ Una ventaja de tener varias pestañas es que puedes tener diferentes disposicion
 ![segunda pestaña con múltiples ventanas](./img/tabs-file2js.png)
 
 Para arrancar Vim con múltiples pestañas, puedes ejecutar esto desde la terminal:
-```
+```bash
 vim -p archivo1.js archivo2.js archivo3.js
 ```
 ## Moviéndote en 3D

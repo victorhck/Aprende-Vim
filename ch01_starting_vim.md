@@ -16,7 +16,7 @@ De manera alternativa, también puedes echar un vistazo al [repositorio oficial 
 
 Ahora que ya tienes Vim instalado, ejecuta esto desde la terminal:
 
-```
+```bash
 vim
 ```
 
@@ -76,13 +76,13 @@ O `:h` de forma abreviada. También puedes indicarle al comando `:h` el tema sob
 
 Desde la terminal, para abrir el archivo `hola1.txt`, ejecuta:
 
-```
+```bash
 vim hola1.txt
 ```
 
 También puedes abrir varios archivos a la vez:
 
-```
+```bash
 vim hola1.txt hola2.txt hola3.txt
 ```
 
@@ -94,7 +94,7 @@ Puedes pasarle al comando de la terminal `vim` diferentes banderas y opciones.
 
 Para comprobar la versión actual de Vim, ejecuta:
 
-```
+```bash
 vim --version
 ```
 
@@ -118,13 +118,13 @@ Si quieres abrir el archivo `hola.txt` e inmediatamente ejecutar un comando, pod
 
 En Vim, puedes sustituir texto con el comando `:s` (abreviatura de `:substitute`). Si quieres abrir `hola.txt` y sustituir todo el texto "foo" con "bar", ejecuta:
 
-```
+```bash
 vim +%s/foo/bar/g hola.txt
 ```
 
 Estos comandos también pueden ser apilados:
 
-```
+```bash
 vim +%s/foo/bar/g +%s/bar/baz/g +%s/baz/donut/g hola.txt
 ```
 
@@ -132,7 +132,7 @@ Vim primero reemplazará todas las instancias que encuentre de "foo" con "bar", 
 
 También puedes añadir la bandera `c` seguida con el comando en vez de la sintáxis `+`:
 
-```
+```bash
 vim -c %s/foo/bar/g hola.txt
 vim -c %s/foo/bar/g -c %s/bar/baz/g -c %s/baz/donut/g hola.txt
 ```
@@ -145,25 +145,25 @@ Puedes ejecutar Vim en ventanas divididas de manera horizontal y vertical con `o
 
 Para abrir Vim con dos ventanas horizontales, ejecuta:
 
-```
+```bash
 vim -o
 ```
 
 Para abrir Vim con 5 ventanas horizontales, ejecuta:
 
-```
+```bash
 vim -o5
 ```
 
 Para abrir Vim con 5 ventanas horizontales y ocupar las dos primeras con los archivos `hola1.txt` and `hola2.txt`, ejecuta:
 
-```
+```bash
 vim -o5 hola1.txt hola2.txt
 ```
 
 Para abrir Vim con dos ventanas verticales, 5 ventanas verticales y 5 ventanas verticales con 2 archivos:
 
-```
+```bash
 vim -O
 vim -O5
 vim -O5 hola1.txt hola2.txt

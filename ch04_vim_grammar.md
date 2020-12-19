@@ -61,7 +61,7 @@ c    Eliminar un texto, guardarlo en el registro y comenzar en el modo de insert
 
 Ahora que ya conocer los sustantivos y verbos básicos, ¡Vamos a aplicar nuestras reglas gramáticas! Supongamos que tenemos la siguiente expresión en un texto:
 
-```
+```javascript
 const learn = "vim"; 
 ```
 Estas serían las acciones que queremos realizar construidas a partir de la gramática de Vim y sus correspondientes comandos:
@@ -101,7 +101,7 @@ Dentro del objeto del texto selecciona el objeto del interior *sin* los espacios
 
 Echemos un vistazo a un ejemplo diferente. Supongamos que tenemos esta función de Javascript y tu cursor está en la palabra "Hello":
 
-```
+```javascript
 const hello = function() {
   console.log("Hello Vim"); 
   return true;
@@ -115,7 +115,7 @@ const hello = function() {
 Los objetos de texto son muy potentes porque puedes seleccionar diferentes objetos desde una misma ubicación, como hemos visto en el ejemplo anterior. Puedes borrar objetos dentro de un par de paréntesis, el bloque de la función entera o una palabra. Además, cuando ves `di(`, `di{`, o `diw`, te haces una buena idea de qué objetos están representando (un par de paréntesis, un par de llaves y una palabra). 
 
 Echemos un vistazo a un último ejemplo. Supongamos que tenemos estas etiquetas (*tags* en inglés) de código HTML:
-```
+```html
 <div>
   <h1>Header1</h1>
   <p>Paragraph1</p>
