@@ -121,9 +121,9 @@ También puedes combinar estos rangos juntos. Si necesitas buscar dígitos entre
 
 Para realizar una búsqueda inversa, puedes añadir `^` dentro de los corchetes dentro del rango. Para buscar algo que no sea un dígito, ejecuta `/[^0-9]`. Vim encontrará cualquier caracter mientras que no sea un dígito. Ten en cuenta que el caracter (`^`) dentro de los corchetes del rango es diferente del caracter al principio de una línea (ejemplo: `/^hello`). Si el caracter está fuera del par de corchetes y es el primer caracter en el término de búsqueda, esto significa "el primer caracter en una línea". Si el caracter está dentro de un par de corchetes y es el primer caracter dentro de los corchetes, esto significa un operador de búsqueda negativo. `/^abc` encontrará el primer "abc" en una línea y `/[^abc]` encontrará cualquier caracter excepto una "a", "b" o "c".
 
-## Searching for Repeating Characters
+## Buscando caracteres repetidos
 
-If you need to search for double digits in this text:
+Si necesitas buscar dígitos dobles en este texto:
 
 ```
 1aa
@@ -131,23 +131,23 @@ If you need to search for double digits in this text:
 111
 ```
 
-You can use `/[0-9][0-9]` to match a two-digit character, but this method is unscalable. What if you need to match twenty digits? Typing `[0-9]` twenty times is not a fun experience. That's why you need a `count` argument.
+Puedes utilizar `/[0-9][0-9]` para encontrar una pareja de dos dígitos, pero este método no es escalable. ¿Qué pasa si necesitas encontrar veinte dígitos? Escribir `[0-9]` veinte veces no es una solución muy elegante. Por eso necesitas el argumento `count`.
 
-You can pass `count` to your search. It has the following syntax:
+Puedes pasarle el argumento `count` a tu búsqueda. Tiene la siguiente sintáxis:
 
 ```
 {n,m}
 ```
 
-By the way, these `count` braces need to be escaped when you use them in Vim. The `count` operator is placed after a single character you want to increment.
+Por cierto, estos llaves de `count` necesitan ser *escapadas* cuando las utilizas en Vim. El operador `count` es ubicado después del caracter que quieres incrementar.
 
-Here are the four different variations of the `count` syntax:
-- `{n}` is an exact match. `/[0-9]\{2\}`  matches the two digit numbers: "11" and the "11" in "111".
-- `{n,m}` is a range match. `/[0-9]\{2,3\}` matches between 2 and 3 digit numbers: "11"  and "111".
-- `{,m}` is an up-to match. `/[0-9]\{,3\}` matches up to 3 digit numbers: "1", "11", and "111".
-- `{n,}` is an at-least match. `/[0-9]\{2,\}` matches at least a 2 or more digit numbers: "11" and "111".
+Aquí tienes cuatro variaciones diferente de la sintáxis de `count`:
+- `{n}` es una búsqueda exacta. `/[0-9]\{2\}`  encontrará números de dos dígitos: "11" y el "11" en "111".
+- `{n,m}` es un rango de búsqueda. `/[0-9]\{2,3\}` encontrará números con 2 y 3 dígitos: "11" y "111".
+- `{,m}` es un límite superior debúsqueda. `/[0-9]\{,3\}` encontrará números hasta de 3 dígitos: "1", "11" y "111".
+- `{n,}` es una búsqueda con límite al menos *n* elementos. `/[0-9]\{2,\}` encontrará números con al menos 2 o más dígitos: "11" y "111".
 
-The count arguments `\{0,\}` (zero or more) and `\{1,\}` (one or more) are common search patterns and Vim has special operators for them: `*` and `+` (`+` needs to be escaped while `*` works fine without the escape). If you do `/[0-9]*`, it is the same as `/[0-9]\{0,\}`. It searches for zero or more digits. It will match "", "1", "123". By the way, it will also match non-digits like "a", because there is technically zero digit in the letter "a". Think carefully before using `*`. If you do `/[0-9]\+`, it is the same as `/[0-9]\{1,\}`. It searches for one or more digits. It will match "1" and "12".
+Los argumentos de contaje `\{0,\}` (cero o más) y `\{1,\}` (uno o más) son patrones de búsqueda comunes y Vim tiene operadores especiales para estos casos: `*` y `+` (`+` necesita ser *escapado* mientras que `*` funciona bien sin necesidad de añadir símbolos de escape). Si ejecutas `/[0-9]*`, esto es lo mismo que ejecutar `/[0-9]\{0,\}`. Buscará cero o más dígitos. Esto encontrará "", "1", "123". Por cierto, también encontrará caracteres que no sean dígitos como "a", porque técnicamente hay un dígito cero en la letra "a". Piénsalo detenidamente antes de utilizar `*`. Si ejecutas `/[0-9]\+`, es lo mismo que ejecutar `/[0-9]\{1,\}`. Esto buscará uno o más dígitos. Encontrará "1" y "12".
 
 ## Predefined Ranges
 
