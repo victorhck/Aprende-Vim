@@ -229,37 +229,37 @@ Puedes repetir el último comando de sustitución ya sea con el comando normal `
 
 También, previamente en este mismo capítulo mencioné que puedes utilizar `//` para repetir el patrón de búsqueda previo. Este truco funciona con el comando de sustitución. Si `/bueno` fue ejecutado recientemente y dejas el primer argumento del patrón de sustitución en blanco, de esta manera `:s//increíble/`, es lo mismo que ejecutar lo siguiente `:s/bueno/increíble/`.
 
-## Substitution Range
+## Rango de sustituciones
 
-Just like many Ex commands, you can pass a range argument into the substitute command. The syntax is:
-
-```
-:[range]s/old/new/
-```
-
-If you have these expressions:
+Igual que en muchos comandos Ex, puedes pasarle un rango como argumento al comando de sustitución. La sintaxis es:
 
 ```
-let one = 1;
-let two = 2;
-let three = 3;
-let four = 4;
-let five = 5;
+:[rango]s/antiguo/nuevo/
 ```
 
-To substitute the "let" into "const" on lines three to five, you can do:
+Si tienes estas expresiones:
+
+```
+let uno = 1;
+let dos = 2;
+let tres = 3;
+let cuatro = 4;
+let cinco = 5;
+```
+
+Para sustituir "let" por "const" de la línea tres a la cinco, deberás ejecutar:
 
 ```
 :3,5s/let/const/
 ```
 
-The substitute command's range syntax is similar to the count syntax in search (`{n,m}`), with minor differences. Here are some variations to pass the range:
+La sintaxis del rango del comando de sustitución es similar a la sintaxis del contador en el comando de la búsqueda (`{n,m}`), con algunas pequeñas diferencias. Aquí tienes algunas variaciones para pasar el rango:
 
-- `:,3/let/const/` - if nothing is given before the comma, it represents the current line. Substitute from current line to line 3.
-- `:1,s/let/const/` - if nothing is given after the comma, it also represents the current line. Substitute from line 1 to current line.
-- `:3s/let/const/` - if only one value is given as range (no comma), it does substitution on that line only.
+- `:,3/let/const/` - si no se da ningún parámetro antes de la coma, representa la línea actual. Sustituye desde la línea actual hasta la línea 3.
+- `:1,s/let/const/` - si no se da ningún dato después de la coma, también representa la línea actual. Sustituye desde la línea 1 hasta la línea actual.
+- `:3s/let/const/` - si solo se da un valor como rango (sin coma), realiza la sustitución únicamente en esa línea.
 
-In Vim, `%` usually means the entire file. If you run `:%s/let/const/`, it will do substitution on all lines.
+En Vim, `%` normalmente se refiere al archivo entero. Si ejecutas `:%s/let/const/`, esto realizará la sustitución en todas las líneas del archvo.
 
 ## Pattern Matching
 
