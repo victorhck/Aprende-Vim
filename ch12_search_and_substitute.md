@@ -77,7 +77,7 @@ bonjour vim
 
 Para encontrar tanto "hello" como "hola", puedes ejecutar `/hello\|hola`. Es necesario *escapar* (`\`) el operador de la tubería (`|`), de lo contrario Vim literalmente buscará la cadena "|". 
 
-Si no quieres escribir `\|` cada vez, puedes utilizar la sintáxis `magic` (`\v`) al comienzo de la búsqueda: `/\vhello|hola`. No se va a tratar `magic` en este capítulo, pero con `\v`, ya no necesitará escapar caracteres especiales nunca más. Para aprender más sobre `\v`, echa un vistazo a la ayuda de Vim mediante `:h \v`.
+Si no quieres escribir `\|` cada vez, puedes utilizar la sintaxis `magic` (`\v`) al comienzo de la búsqueda: `/\vhello|hola`. No se va a tratar `magic` en este capítulo, pero con `\v`, ya no necesitará escapar caracteres especiales nunca más. Para aprender más sobre `\v`, echa un vistazo a la ayuda de Vim mediante `:h \v`.
 
 ## Estableciendo el inicio y el final de una búsqueda
 
@@ -133,7 +133,7 @@ Si necesitas buscar dígitos dobles en este texto:
 
 Puedes utilizar `/[0-9][0-9]` para encontrar una pareja de dos dígitos, pero este método no es escalable. ¿Qué pasa si necesitas encontrar veinte dígitos? Escribir `[0-9]` veinte veces no es una solución muy elegante. Por eso necesitas el argumento `count`.
 
-Puedes pasarle el argumento `count` a tu búsqueda. Tiene la siguiente sintáxis:
+Puedes pasarle el argumento `count` a tu búsqueda. Tiene la siguiente sintaxis:
 
 ```
 {n,m}
@@ -141,7 +141,7 @@ Puedes pasarle el argumento `count` a tu búsqueda. Tiene la siguiente sintáxis
 
 Por cierto, estos llaves de `count` necesitan ser *escapadas* cuando las utilizas en Vim. El operador `count` es ubicado después del caracter que quieres incrementar.
 
-Aquí tienes cuatro variaciones diferente de la sintáxis de `count`:
+Aquí tienes cuatro variaciones diferente de la sintaxis de `count`:
 - `{n}` es una búsqueda exacta. `/[0-9]\{2\}`  encontrará números de dos dígitos: "11" y el "11" en "111".
 - `{n,m}` es un rango de búsqueda. `/[0-9]\{2,3\}` encontrará números con 2 y 3 dígitos: "11" y "111".
 - `{,m}` es un límite superior debúsqueda. `/[0-9]\{,3\}` encontrará números hasta de 3 dígitos: "1", "11" y "111".
@@ -163,7 +163,7 @@ Vim tiene unos rangos predefinidos para los caracteres más comunies como dígit
 \u    Letras mayúsculas [A-Z]
 ```
 
-Los puedes utilizar como utilizarías un rango de caracteres. Para buscar un único dígito, en vez de utilizar `/[0-9]`, puedes utilizar `/\d` para una sintáxis más concisa.
+Los puedes utilizar como utilizarías un rango de caracteres. Para buscar un único dígito, en vez de utilizar `/[0-9]`, puedes utilizar `/\d` para una sintaxis más concisa.
 
 ## Mas ejemplos de búsqueda
 ### Encontrar un texto entre un par de caracteres similares
@@ -203,31 +203,31 @@ Este patrón es también útil para capturar dígitos repetidos, como direccione
 
 Con esto finaliza la parte de búsquedas de este capítulo. Ahora veamos las sustituciones.
 
-## Basic Substitution
+## Sustitución básica
 
-Vim's substitute command is a useful command to quickly find and replace any pattern. The substitution syntax is:
-
-```
-:s/old-pattern/new-pattern/
-```
-
-Let's start with a basic usage. If you have this text:
+El comando de sustitución de Vim es útil para rápidamente encontrar y reemplazar cualquier patrón. La sintaxis de una sustitución básica es:
 
 ```
-vim is good
+:s/patrón_antiguo/patrón_nuevo/
 ```
 
-Let's substitute "good" with "awesome" because Vim is awesome. Run `:s/good/awesome/.` You should see:
+Vamos a empezar con un uso básico. Si tenemos el siguiente texto:
 
 ```
-vim is awesome
+vim es bueno
 ```
 
-## Repeating the Last Substitution
+Vamos a sustituir "bueno" con "increíble" porque Vim es realmente increíble. Ejecuta `:s/bueno/increíble/.` Con lo que quedaría de esta forma:
 
-You can repeat the last substitute command with either the normal command `&` or by running `:s`. If you have just run `:s/good/awesome/`, running either `&` or `:s` will repeat it. 
+```
+vim es increíble
+```
 
-Also, earlier in this chapter I mentioned that you can use `//` to repeat the previous search pattern.  This trick works with the substitution command. If `/good` was done recently and you leave the first substitute pattern argument blank, like in `:s//awesome/`, it is the same as running `:s/good/awesome/`.
+## Repetir la última sustitución
+
+Puedes repetir el último comando de sustitución ya sea con el comando normal `&` o ejecutando `:s`. Si acabas de ejecutar `:s/good/awesome/`, tanto ejecutando `&` o `:s` repetirá la misma sustitución. 
+
+También, previamente en este mismo capítulo mencioné que puedes utilizar `//` para repetir el patrón de búsqueda previo. Este truco funciona con el comando de sustitución. Si `/bueno` fue ejecutado recientemente y dejas el primer argumento del patrón de sustitución en blanco, de esta manera `:s//increíble/`, es lo mismo que ejecutar lo siguiente `:s/bueno/increíble/`.
 
 ## Substitution Range
 
