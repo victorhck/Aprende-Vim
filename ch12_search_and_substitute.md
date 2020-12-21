@@ -149,59 +149,59 @@ Aquí tienes cuatro variaciones diferente de la sintáxis de `count`:
 
 Los argumentos de contaje `\{0,\}` (cero o más) y `\{1,\}` (uno o más) son patrones de búsqueda comunes y Vim tiene operadores especiales para estos casos: `*` y `+` (`+` necesita ser *escapado* mientras que `*` funciona bien sin necesidad de añadir símbolos de escape). Si ejecutas `/[0-9]*`, esto es lo mismo que ejecutar `/[0-9]\{0,\}`. Buscará cero o más dígitos. Esto encontrará "", "1", "123". Por cierto, también encontrará caracteres que no sean dígitos como "a", porque técnicamente hay un dígito cero en la letra "a". Piénsalo detenidamente antes de utilizar `*`. Si ejecutas `/[0-9]\+`, es lo mismo que ejecutar `/[0-9]\{1,\}`. Esto buscará uno o más dígitos. Encontrará "1" y "12".
 
-## Predefined Ranges
+## Rangos predefinidos
 
-Vim has predefined ranges for common characters like digits and alphas. I will not go through every single one here, but you can find the full list inside `:h /character-classes`. Here are the useful ones:
-
-```
-\d    Digit [0-9]
-\D    Non-digit [^0-9]
-\s    Whitespace character (space and tab)
-\S    Non-whitespace character (everything except space and tab)
-\w    Word character [0-9A-Za-z_]
-\l    Lowercase alphas [a-z]
-\u    Uppercase character [A-Z]
-```
-
-You can use them like you would use character ranges. To search for any single digit, instead of using `/[0-9]`, you can use `/\d` for a more concise syntax.
-
-## More Search Examples
-### Capturing a Text Between a Pair of Similar Characters
-
-If you want to search for a phrase surrounded by a pair of double quotes:
+Vim tiene unos rangos predefinidos para los caracteres más comunies como dígitos o letras. No vamos a entrar en detalle de todos, pero si lo necesitas puedes encontrar la lista ejecutando: `:h /character-classes`. Aquí tienes los más útiles:
 
 ```
-"Vim is awesome!"
+\d    Dígitos [0-9]
+\D    No digitos [^0-9]
+\s    Caracter de espacio en blanco (espacio y tabulador)
+\S    Caracter que no sea espacio en blanco (todo excepto un espacio o tabulador)
+\w    Caracter de palabra [0-9A-Za-z_]
+\l    Letras minúsculas [a-z]
+\u    Letras mayúsculas [A-Z]
 ```
 
-Run this:
+Los puedes utilizar como utilizarías un rango de caracteres. Para buscar un único dígito, en vez de utilizar `/[0-9]`, puedes utilizar `/\d` para una sintáxis más concisa.
 
+## Mas ejemplos de búsqueda
+### Encontrar un texto entre un par de caracteres similares
+
+Si quieres buscar una frase rodeada por un par de comillas dobles:
+
+```
+"¡Vim es asombroso!"
+```
+
+Ejecuta esto:
 
 `/"[^"]\+"`
 
+Vamos a diseccionar el comando:
+- `"` es una doble comilla literal. Encontrará la primera comilla doble.
+- `[^"]` significa cualquier caracter excepto una comilla doble. Encontrará cualquier caracter alfanumérico y espacios en blanco mientras que no sea una comilla doble.
+- `\+` significa uno o más. Como está precedido por `[^"]`, Vim busca uno o más caracteres que no sean una comilla doble.
+- `"` es una doble comilla literal. Encontrará las comillas dobles de cierre.
 
-Let's break it down:
-- `"` is a literal double quote. It matches the first double quote.
-- `[^"]` means any character except for a double quote. It matches any alphanumeric and whitespace character as long as it is not a double quote. 
-- `\+` means one or more. Since it is preceded by `[^"]`, Vim looks for one or more character that is not a double quote.
-- `"` is a literal double quote. IT matches the closing double quote.
+Cuando ve el primer `"`, comenzará el patrón de captura. En el momento que Vim ve las segundas comillas dobles en una línea, encuentra el segunto patrón de `"` y detiene el patrón de captura. Mientras, todos los caracteres que no sean `"` entre las dos comillas `"` son capturados por el patrón `[^"]\+`, en este caso, la frase `¡Vim es asombroso!`. Este es un patrón común a la hora de capturar una frase encerrada entre un par de delimitadores similares: para capturar una frase entre dos comillas simples, puedes utilizar  `/'[^']\+'`. 
 
-When sees the first `"`, it begins the pattern capture. The moment Vim sees the second double quote in a line, it matches the second `"` pattern and stops the pattern capture. Meanwhile, all non-`"` characters between the two `"` are captured by the `[^"]\+` pattern, in this case, the phrase `Vim is awesome!`. This is a common pattern to capture a phrase surrounded by a pair of similar delimiters: to capture a phrase surrounded by a single quote, you can use `/'[^']\+'`. 
+### Encontrando un número de teléfono
 
-### Capturing a Phone Number
+Si quieres encontrar un número de teléfono de EE.UU. separados por guiones (`-`), como `123-456-7890`, puedes utilizar:
 
-If you want to match a US phone number separated by a hyphen (`-`), like `123-456-7890`, you can use:
 ```
 /\v\d\{3\}-\d\{3\}-\d\{4\}
 ```
 
-US Phone number consists of a set of three digit number, followed by another three digits, and finally by four digits. Let's break it down:
-- `\d\{3\}` matches a digit repeated exactly three times
-- `-` is a literal hyphen
+Los números de teléfono de EE.UU. están formados por un conjunto de tres números, seguidos por otros tres números y finalmente cuatro dígitos. Vamos a ver en detalle el comando:
 
-This pattern is also useful to capture any repeating digits, such as IP addresses and zip codes. 
+- `\d\{3\}` contrará un dígito repetido exactamente tres veces
+- `-` es literalmente un guión
 
-That covers the search part of this chapter. Now let's move to substitution.
+Este patrón es también útil para capturar dígitos repetidos, como direcciones IP o códigos postales.
+
+Con esto finaliza la parte de búsquedas de este capítulo. Ahora veamos las sustituciones.
 
 ## Basic Substitution
 
