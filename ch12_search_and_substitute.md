@@ -261,79 +261,82 @@ La sintaxis del rango del comando de sustitución es similar a la sintaxis del c
 
 En Vim, `%` normalmente se refiere al archivo entero. Si ejecutas `:%s/let/const/`, esto realizará la sustitución en todas las líneas del archvo.
 
-## Pattern Matching
+## Encontrando un patrón
 
-The next few sections will cover basic regular expressions. A strong pattern knowledge is essential to master the substitute command.
+En las siguientes secciones vamos a tratar de ver algunas de las expresiones regualres básicas. El conocimiento de un patrón robusto es esencial para dominar el comando de sustitución.
 
-If you have the following expressions:
+Imaginemos que tenemos las siguientes expresiones:
 
 ```
-let one = 1;
-let two = 2;
-let three = 3;
-let four = 4;
-let five = 5;
+let uno = 1;
+let dos = 2;
+let tres = 3;
+let cuatro = 4;
+let cinco = 5;
 ```
 
-To add a pair of double quotes around the digits:
+Y queremos añadir un par de comillas dobles al comienzo y final de cada número:
 
 ```
 :%s/\d/"\0"/
 ```
 
-The result:
+Este es el resultado:
 ```
-let one = "1";
-let two = "2";
-let three = "3";
-let four = "4";
-let five = "5";
+let uno = "1";
+let dos = "2";
+let tres = "3";
+let cuatro = "4";
+let cinco = "5";
 ```
 
-Let's break down the command:
-- `:%s` targets the entire file to perform substitution.
-- `\d` is Vim's predefined range for digits (`[0-9]`). 
-- `"\0"` the double quotes are literal double quotes. `\0` is a special character representing "the whole matched pattern". The matched pattern here is a single digit number, `\d`. On line one, `\0` has the value of "1". On line two, value of "2". On line three, value of "3", and so on.
+Vamos a ver el comando en detalle:
 
-Alternatively, `&` also represents "the whole matched pattern" like `\0`. `:s/\d/"&"/` would have also worked.
+- `:%s` esto busca en el archivo entero para realizar una acción de sustitución.
+- `\d` es el rango predefinido en Vim para los dígito, similar a (`[0-9]`). 
+- `"\0"` las comillas dobles son literalmente comillas dobles. `\0` es un caracter especial que representa "el patrón de encontrado completo". El patrón de búsqueda aquí es un número de un solo dígito, `\d`. En la línea uno, `\0` tienes el valor "1". En la línea dos, tiene el valor "2". En la línea tres, el valor "3", y así sucesivamente.
 
-Let's consider another example. Given these expressions:
+De igual manera, el símbolo `&` también representa "el patrón encontrado completo" igual que `\0`. Por lo que `:s/\d/"&"/` también hubiera funcionado
+
+Vamos a considerar otro ejemplo, Dadas estas expresiones:
 ```
-one let = "1";
-two let = "2";
-three let = "3";
-four let = "4";
-five let = "5";
+uno let = "1";
+dos let = "2";
+tres let = "3";
+cuatro let = "4";
+cinco let = "5";
 ```
-You need to swap all the "let" with the variable names. To do that, run:
+Necesitas intercambiar todos los "let" con los nobres de las variable. Para hacer eso, ejecuta:
 
 ```
 :%s/\(\w\+\) \(\w\+\)/\2 \1/
 ```
 
-The command above contains too many backslashes and is hard to read. It is more convenient to use the `\v` operator:
+El comando anterior contine demasiadas barras invertidas y es difícil de leer. Es más conveniente utilizar el operador `\v`:
 
 ```
 :%s/\v(\w+) (\w+)/\2 \1/
 ```
 
-The result:
+Este es el resultado:
+
 ```
-let one = "1";
-let two = "2";
-let three = "3";
-let four = "4";
-let five = "5";
+let uno = "1";
+let dos = "2";
+let tres = "3";
+let cuatro = "4";
+let cinco = "5";
 ```
 
-Great! Let's break down that command:
-- `:%s` targets all the lines in the file
-- `(\w+) (\w+) `groups the patterns. `\w` is one of Vim's predefined ranges for a word character (`[0-9A-Za-z_]`). The `( )` surrounding it captures a word character match in a group. Notice the space between the two groupings. `(\w+) (\w+)` captures in two groups. On the first line, the first group captures "one" and the second group captures "two".
-- `\2 \1` returns the captured group in a reversed order. `\2` contains the captured string "let" and `\1` the string "one". Having `\2 \1` returns the string "let one".
+¡Genial! Veamos el comando en detalle:
 
-Recall that `\0` represents the entire matched pattern. You can break the matched string into smaller groups with `( )`. Each group is represented by `\1`, `\2`, `\3`, etc.
+- `:%s` busca en todas las líneas del archivo.
+- `(\w+) (\w+)` agrupa los patrones. `\w` es uno de los rangos predefinidos de Vim para un caracter d euna palabra (`[0-9A-Za-z_]`). Los paréntesis `( )` rodeando captura un caracter de palabra coincidente en un frupo. Ten en cuenta el espacio entre los dos agrupamientos. `(\w+) (\w+)` captura en dos grupos. en la primera línea, el primer grupo captura el "uno" y el segundo grupo captura el "dos".
+- `\2 \1` devuelve el grupo capturado en orden inverso. `\2` contiene la cadena "let" y `\1` la cadena "uno". Al tener `\2 \1` esto devuelve la cadena "let uno".
 
-Let's do one more example to solidify this matched group concept. If you have these numbers:
+Recordemos que `\0` representa el patrón encontrado al completo. Puedes romper la cadena encontrada en grupos más pequeños con `( )`. Cada grupo es representado por `\1`, `\2`, `\3`, etc.
+
+Vamos a ver un ejemplo más para tratar de clarificar más el concepto de grupo encontrado. Si tienes los siguiente números:
 
 ```
 123
@@ -341,12 +344,12 @@ Let's do one more example to solidify this matched group concept. If you have th
 789
 ```
 
-To reverse the order, run:
+Para invertir el orden, ejecuta:
 ```
 :%s/\v(\d)(\d)(\d)/\3\2\1/
 ```
 
-The result is:
+El resultado es:
 
 ```
 321
@@ -354,20 +357,20 @@ The result is:
 987
 ```
 
-Each `(\d)` matches and groups each digit. On the first line, the first `(\d)` has a value of "1", the second `(\d)` "2", and the third `(\d)` "3". They are stored in the variables `\1`, `\2`, and `\3`. In the second half of your substitution, the new pattern `\3\2\1` results in the "321" value on line one.
+Cada `(\d)` encuentra y agrupa cada dígito. En la primera línea, el primer `(\d)` tiene el valor "1", el segundo `(\d)` "2" y el trecer `(\d)` "3". Son almacenados en las variables `\1`, `\2` y `\3`. En la segunda mitad de tu sustitución, el nuevo patrón `\3\2\1` resultará en el valor "321" en la primera línea.
 
-If you had run this instead:
+Si hubieras ejecutado este comando:
 ```
 :%s/\v(\d\d)(\d)/\2\1/
 ```
-You would have gotten a different result:
+Hubieras obtenido un resultado diferente:
 ```
 312
 645
 978
 ```
 
-This is because you now only have two groups. The first group,captured by `(\d\d)`, is stored within `\1` and has the value of "12". The second group, captured by `(\d)`, is stored inside `\2` and has the value of "3". `\2\1` then, returns "312".
+Esto es debido a que ahora solo tienes dos grupos. El primer grupo, capturado por `(\d\d)`, es almacenado en `\1` y tiene el valor "12". El segundo grupo, capturado por `(\d)`, es almacenado dentro de `\2` y tiene el valor "3". `\2\1` entonces, esto devolverá "312".
 
 ## Substitution Flags
 
