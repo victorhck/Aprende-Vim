@@ -415,69 +415,70 @@ Existen más opciones que las que están mostradas en este listado. Para leer so
 
 Por cierto, el comando de repetir una sustitución (`&` y `:s`) no mantiene las opciones ejecutadas anteriormente. Al ejecutar `&` esto solo repetirá `:s/tarta/donut/` sin `g`. Pararepetir rápidamente el último comando de sustitución con todas sus opciones, deberás ejecutar `:&&`.
 
-## Changing the Delimiter
+## Cambiando el delimitador
 
-If you need to replace a URL with a long path:
+Si necesitas reemplazar una URL con una ruta larga, algo similar a:
 
 ```
 https://mysite.com/a/b/c/d/e
 ```
 
-To substitute it with the word "hello", run:
+Para sustituirla por la palabra "hola", ejecuta:
 ```
-:s/https:\/\/mysite.com\/a\/b\/c\/d\/e/hello/
-```
-
-However, it is hard to tell which forward slashes (`/`) are part of the substitution pattern and which ones are the delimiters. You can change the delimiter with any single-byte characters (except for alphabets, numbers, or `"`, `|`, and `\`). Let's replace them with `+`. The substitution command above then can be rewritten as:
-
-```
-:s+https:\/\/mysite.com\/a\/b\/c\/d\/e+hello+
+:s/https:\/\/mysite.com\/a\/b\/c\/d\/e/hola/
 ```
 
-It is now easier to see where the delimiters are.
-
-## Special Replace
-
-You can also modify the case of the text you are substituting. Given the following expressions:
+Sin embargo, es difícil discernir qué barras (`/`) son parte del patrón de sustitución y cuales son delimitadores. Puedes cambiar el delimitador por cualquier caracter de un único byte (excepto por letras, números o `"`, `|`, y `\`). Vamos a reemplazarlo por `+`. El comando de sustitución anterior puede ser reescrito como:
 
 ```
-let one = "1";
-let two = "2";
-let three = "3";
-let four = "4";
-let five = "5";
+:s+https:\/\/mysite.com\/a\/b\/c\/d\/e+hola+
+```
+
+Ahora es más sencillo ver donde están los delimitadores.
+
+## Reemplazo especial
+
+También puedes modificar las mayúsculas o minúsculas del texto que está sustituyendo. Dadas las siguientes expresiones:
 
 ```
-To uppercase the variables "one", "two", "three", etc., run:
+let uno = "1";
+let dos = "2";
+let tres = "3";
+let cuatro = "4";
+let cinco = "5";
+
+```
+Para convertir en mayúsculas las variables "uno", "dos", "tres", etc. Ejecuta:
 
 ```
 %s/\v(\w+) (\w+)/\1 \U\2/
 
 ```
-You will get:
+Y obtendrás:
 
 ```
-let ONE = "1";
-let TWO = "2";
-let THREE = "3";
-let FOUR = "4";
-let FIVE = "5";
+let UNO = "1";
+let DOS = "2";
+let TRES = "3";
+let CUATRO = "4";
+let CINCO = "5";
 ```
 
-Here is the breakdown of that command:
-- `(\w+) (\w+)` captures the first two matched groups, such as "let" and "one".
-- `\1` returns the value of the first group, "let"
-- `\U\2` uppercases (`\U`) the second group (`\2`).
+Veamos el comando en detalle:
 
-The trick of this command is the expression `\U\2`. `\U` instructs the following character to be uppercased.
+- `(\w+) (\w+)` captura el primero de los dos grupos encontrado, que son "let" y "one".
+- `\1` devuelve el valor del primer grupo: "let".
+- `\U\2` cambia a mayúsculas (`\U`) el segundo grupo (`\2`).
 
-Let's do one more example. Suppose you are writing a Vim book and you need to capitalize the first letter of each word in a line.
+El truco de este comando reside en la expresión `\U\2`. `\U` hace que el siguiente caracter se convertido a mayúsculas.
+
+Vamos a ver un ejemplo más. Supongamos que estás escribiendo un libro sobre Vim y necesitas convertir en mayúsculas la primera letra de cada palabra de una línea.
 
 ```
-vim is the greatest text editor in the whole galaxy
+vim es el mejor editor de texto en toda la galaxia
 ```
 
-You can run:
+Puedes ejecutar:
 
 ```
 :s/\<./\u&/g
@@ -486,20 +487,21 @@ You can run:
 The result:
 
 ```
-Vim Is The Greatest Text Editor In The Whole Galaxy
+Vim Es El Mejor Editor De Texto En Toda La Galaxia
 ```
 
-Here is the breakdowns:
-- `:s` substitutes the current line
-- `\<.` is comprised of two parts: `\<` to match the start of a word and `.` to match any character. `\<` operator makes the following character to be the first character of a word. Since `.` is the next character, it will match the first character of any word.
-- `\u&`  uppercases the subsequent symbol, `&`. Recall that `&` (or `\0`) represents the whole match. It matches the first character of nay word.
-- `g` the global flag. Without it, this command only substitutes the first match. You need to substitute every match on this line.
+Veamos el comando en detalle:
 
-To learn more of substitution's special replace symbols like `\u` and `\U`, check out `:h sub-replace-special`.
+- `:s` realiza la sustitución en la línea actual.
+- `\<.` está formado por dos partes: `\<` para encontrar el comienzo de cada palabra y `.` para encontrar cualquier caracter. El operador `\<` hace que el siguiente caracter sea el primer caracter de una palabra. Como `.` es el siguiente caracter, esto encontrará el primer caracter de cualquier palabra.
+- `\u&`  convierte en mayúsculas el símbolo `&`. Recordemos que `&` (o `\0`) representa la coincidencia entera. Encontrará el primer caracter de cualquier palabra.
+- `g` la opción o *flag* global. Sin este, este comando solo sustituirá la primera coincidencia encontrada. Y deberemos sustituir cada coincidencia encontrada en esta línea.
 
-## Alternative Patterns
+Para aprender más sobre los símbolos especiales de sustitución como `\u` y `\U`, echa un vistazo a la ayuda de Vim `:h sub-replace-special`.
 
-Sometimes you need to match multiple patterns simultaneously. If you have the following greetings:
+## Patrones alternativos
+
+A veces necesitas encontrar múltiples patrones de manera simultánea. Si tienes los siguientes saludos:
 
 ```
 hello vim
@@ -508,26 +510,27 @@ salve vim
 bonjour vim
 ```
 
-You need to substitute the word "vim" with "friend" but only on the lines containing the word "hello" or "hola". Run:
+Y necesitas sustituie la palabra "vim" por "amigo" pero solo en las líneas que contengan las palabras "hello" u "hola". Ejecuta:
 
 ```
-:%s/\v(hello|hola) vim)/\1 friend/g
+:%s/\v(hello|hola) vim)/\1 amigo/g
 ```
 
 The result:
 ```
-hello friend
-hola friend
+hello amigo
+hola amigo
 salve vim
 bonjour vim
 ```
 
-Here is the breakdown:
-- `%s` runs the substitute command on each line in a file.
-- `(hello|hola)` Matches *either* "hello" or "hola" and consider it as a group.
-- `vim` is the literal word "vim".
-- `\1` is the first match group, which is either the text "hello" or "hola".
-- `friend` is the literal word "friend".
+Esta es la explicación del comando:
+
+- `%s` ejecuta el comando de sustitución en cada línea de un archivo.
+- `(hello|hola)` encuentra *tanto* "hello" u "hola" y lo considera como un grupo.
+- `vim` es literalmente la palabra "vim".
+- `\1` es el primer grupo encontrado, que es tanto "hello" u "hola".
+- `amigo` es literalmente la palabra "amigo".
 
 ## Substituting the Start and the End of a Pattern
 
