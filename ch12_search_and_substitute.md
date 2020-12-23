@@ -372,48 +372,48 @@ Hubieras obtenido un resultado diferente:
 
 Esto es debido a que ahora solo tienes dos grupos. El primer grupo, capturado por `(\d\d)`, es almacenado en `\1` y tiene el valor "12". El segundo grupo, capturado por `(\d)`, es almacenado dentro de `\2` y tiene el valor "3". `\2\1` entonces, esto devolverá "312".
 
-## Substitution Flags
+## Las opciones de sustitución
 
-If you have the sentence:
-
-```
-chocolate pancake, strawberry pancake, blueberry pancake
-```
-
-To substitute all the pancakes into donuts, you cannot just run:
+Si tienes la sigueinte frase:
 
 ```
-:s/pancake/donut
+tarta de chocolate, tarta de fresa, tarta de frambuesa
 ```
 
-The command above will only substitute the first match, giving you:
+Para sustituir todas las palabras "tarta" por "donut", no sirve ejecutar:
 
 ```
-chocolate donut, strawberry pancake, blueberry pancake
+:s/tarta/donut
 ```
 
-There are two ways to solve this. First, you can run the substitute command twice more. Second, you can pass it a global (`g`) flag to substitute all of the matches in a line. 
-
-Let's talk about the global flag. Run:
+El comando anterior, solo sustituirá la primera coincidencia que encuentre, por lo que tendrás:
 
 ```
-:s/pancake/donut/g
+donut de chocolate, tarta de fresa, tarta de frambuesa
 ```
 
-Vim substitutes all pancakes with donuts in one swift command. The global command is one of the several  flags the substitute command accepts. You pass flags at the end of the substitute command. Here is a list of useful flags:
+Hay dos maneras de solucionar esto, Primera, puedes ejecutar el comando de sustitución un par de veces más. Segunda, puedes ejecutar el comando de sustitución añadiendo la opción de sustitución global (`g`) para que realice el comando en todas las coincidencias que encuentre en la línea.
+
+Veamos la opción de global. Ejecuta:
 
 ```
-&    Reuse the flags from the previous substitute command. Must be passed as the first flag.
-g    Replace all matches in the line.
-c    Ask for substitution confirmation.
-e    Prevent error message from displaying when substitution fails.
-i    Perform case insensitive substitution
-I    Perform case sensitive substitution
+:s/tarta/donut/g
 ```
 
-There are more flags that I do not list above. To read about all the flags, check out `:h s_flags`.
+Vim sustituirá todas las "tarta" por "donut" en un único comando. El comando global es una de las muchas opciones que admite el comando de sustitución. Le pasas esas opciones el final del comando de sustitución. Aquí tienes una lista de las opciones más útiles:
 
-By the way, the repeat-substitution commands (`&` and `:s`) do not retain the flags. Running `&` will only repeat `:s/pancake/donut/` without `g`. To quickly repeat the last substitute command with all the flags, run `:&&`.
+```
+&    Reutiliza las opciones del comando previo de sustitución. Debe pasarse como primera opción. Must be passed as the first flag.
+g    Reemplaza todas las ocurrencias encontradas en la línea actual.
+c    Pregunta una confirmación en cada sustitución.
+e    Evita que se muestre un mensaje de error cuando falla una sustitución.
+i    Realiza una sustitución sin tener en cuenta mayúsculas y minúsculas.
+I    Realiza una sustitución teniendo en cuenta mayúsculas y minúsculas.
+```
+
+Existen más opciones que las que están mostradas en este listado. Para leer sobre estas opciones, llamadas *flags* en Vim, echa un vistazo a la ayuda: `:h s_flags`.
+
+Por cierto, el comando de repetir una sustitución (`&` y `:s`) no mantiene las opciones ejecutadas anteriormente. Al ejecutar `&` esto solo repetirá `:s/tarta/donut/` sin `g`. Pararepetir rápidamente el último comando de sustitución con todas sus opciones, deberás ejecutar `:&&`.
 
 ## Changing the Delimiter
 
