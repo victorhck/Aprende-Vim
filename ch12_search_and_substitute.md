@@ -622,11 +622,11 @@ Para obtener:
 ABC1defg1
 ```
 
-## Substituting Across Multiple Files
+## Sustituyendo en múltiples archivos 
 
-Finally, let's learn how to substitute phrases across multiple files. For this section, assume that you have two files: `food.txt` and `animal.txt`.
+Finalmente veamos cómo sustituir frases a través de múltiples archivos. Para esta sección asumiremos que tenemos dos archivos: `food.txt` y `animal.txt`.
 
-Inside `food.txt`:
+Dentro de `food.txt`:
 
 ```
 corndog
@@ -634,7 +634,7 @@ hotdog
 chilidog
 ```
 
-Inside `animal.txt`:
+Dentro de `animal.txt`:
 
 ```
 large dog
@@ -642,49 +642,49 @@ medium dog
 small dog
 ```
 
-Assume your directory structure looks like this:
+Asumimos que la escrutura del directorio es la siguiente:
 
 ```
 - food.txt
 - animal.txt
 ```
 
-First, capture both `food.txt` and `animal.txt` inside `:args`. Recall from earlier chapters that `:args` can be used to create a list of file names. There are several ways to do this from inside Vim:
+Primero, vamos a capturar tanto `food.txt` como `animal.txt` dentro de `:args`. Recordemos de capítulos anteriores que `:args` puede ser utilizado para crear una lista de nombres de archivos. Hay varias formas de realizar esto dentro de Vim:
 
 ```
-:args *.txt                  captures all txt files in current location 
-:args food.txt animal.txt    captures only index and server js files
-:args **/*.txt               captures every txt files
-:args **                     captures everything 
+:args *.txt                  captura todos los archivos txt en la ubicación actual
+:args food.txt animal.txt    captura solo los archivos indicados
+:args **/*.txt               captura todos los archivos txt
+:args **                     captura todo
 ```
 
-You can also run the commands above from outside Vim, passing the files as *arguments* for Vim (hence it is called the "args" command). From the terminal, run 
+También puedes ejecutar los comandos anteriors desde fuera de Vim, pasando los archivos como *argumentos* de Vim (por esto es llamado el comando "args"). Desde la terminal, ejecuta:
 
 ```
 vim food.txt animal.txt
 ```
 
-When Vim starts, you will find `food.txt` and `animal.txt` inside `:args`.
+Cuando Vim arranca, encontrarás que `food.txt` y `animal.txt` están dentro de `:args`.
 
-Either way, when you run `:args`, you should see:
+De cualquier manera, si ejecutas `:args`, deberías ver:
 
 ```
 [food.txt] animal.txt
 ```
 
-To go to the next or previous argument on the list, type `:next` or `:previous`. Now that all the relevant files are stored inside the argument list, you can perform a multi-file substitution with the `:argdo` command. Run:
+Para ir al argumento siguiente o previo de la lista, escribe `:next` o `:previous`. Ahora que todos los archivos relevantes están almacenados dentro de la lista de argumentos, puedes realizar una sustitución en múltiples archivos con el comando `:argdo`. Ejecuta:
 
 ```
 :argdo %s/dog/chicken/
 ```
 
-This performs substitution against the all files inside the  `:args` list. Finally, save the changed files with:
+Esto realiza una sustitución en todos los archivos que estén dentro de la lista `:args`. Finalmente, guarda los archivos modificados con:
 
 ```
 :argdo update
 ```
 
-`:args` and `:argdo` are  useful tools to apply command line commands across multiple files. Try it with other commands!
+`:args` y `:argdo` son herramientas útiles para aplicar comandos de la línea de comandos de Vim a múltiples archivos. ¡Inténtalo con otros comandos!
 
 ## Substituting Across Multiple Files with Macros
 
