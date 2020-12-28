@@ -686,9 +686,9 @@ Esto realiza una sustitución en todos los archivos que estén dentro de la list
 
 `:args` y `:argdo` son herramientas útiles para aplicar comandos de la línea de comandos de Vim a múltiples archivos. ¡Inténtalo con otros comandos!
 
-## Substituting Across Multiple Files with Macros
+## Sustituyendo a través de múltiples archivos con macros
 
-Alternatively, you can also run the substitute command across multiple files with macros. Let's start by getting the relevant files into the args list. Run:
+De manera alternativa, también puedes ejecutar el comando de sustituir en múltiples archivos con macros. Vamos a empezar obteniendo los archivos relevantesen la lista de argumentos. Ejecuta:
 
 ```
 :args animal.txt food.txt
@@ -699,18 +699,19 @@ q
 99@q
 ```
 
-Here is the breakdown of the steps:
-- `:args animal.txt food.txt` lists the relevant files into the `:args` list.
-- `qq` starts the macro in the "q" register.
-- `:%s/dog/chicken/g` substitutes "dog" with "chicken on all lines in the current file.
-- `:wnext` writes (saves) the file then go to the next file on the `args` list. It's like running `:w` and `:next` at the same time.
-- `q` stops the macro recording.
-- `99@q` executes the macro ninety-nine times. Vim will stop the macro execution after it encounters the first error, so Vim won't actually execute the macro ninety-nine times.
+Veamos los pasos seguidos en detalle:
 
-## Learning Search and Substitution the Smart Way
+- `:args animal.txt food.txt` lista los archivos relevantes dentro de la lista de `:args`.
+- `qq` comienza la grabación de la marcho en el registro "q".
+- `:%s/dog/chicken/g` sustituye "dog" con "chicken" en todas las líneas del archivo actual.
+- `:wnext` escribe (guarda) el archivo y después va al siguiente archivo de la lista `args`. Sería similar a ejecutar `:w` y `:next` al mismo tiempo.
+- `q` detiene la grabación de la macro.
+- `99@q` ejecuta la macro noventa y nueve veces. Vim detendrá la ejecución de la macro después de encontrar el primer error, así que Vim no ejecutará la macro noventa y nueve veces.
 
-The ability to do search well is a necessary skill in editing. Mastering the search lets you to utilize the flexibility of regular expressions to search for any pattern in a file. Take your time to learn these. Actually do the searches and substitutions in this chapter yourself. I once read a book about regular expression without actually doing it and I forgot almost everything I read afterwards. Active coding is the best way to master any skill.
+## Aprendiendo a buscar y sustituir de la manera más inteligente
 
-A good way to improve your pattern matching skill is whenever you need to search for a pattern (like "hello 123"), instead of querying for the literal search term (`/hello 123`), try to come up with a pattern for it (`/\v(\l+) (\d+)`). Many of these regular expression concepts are also applicable in general programming, not only when using Vim.
+La habilidad para realizar búsquedas correctas es una habilidad necesaria cuando se está editando. Dominar las búsquedas te permite utilizar la flexibilidad de las expresiones regulares para buscar cualquier patrón en un archivo. Tómate tu tiempo para aprender estas técnicas. Incluso haz las búsquedas y sustituciones de este capítulo por tí mismo. Hace tiempo leí un libro sobre expresiones regulares sin realmente realizar ninguna y he olvidado casi por completo todo lo que leí. La lectura activa practicando es la mejor manera de dominar cualquier habilidad.
 
-Now that you learned about advanced search and substitution in Vim, let's learn one of the most versatile commands, the global command.
+Una buena manera de mejorar tu habilidad con los patrones de búsqueda es, todo lo que necesites buscar con un patrón (como "hello 123"), en vez de buscarlo de manera literal el término completo (`/hello 123`), intenta realizarlo con un patrón (`/\v(\l+) (\d+)`). Muchos de estos conceptos de expresiones regulares también son aplicables a la programación en general, no solo cuando estás utilizando Vim.
+
+Ahora que has aprendido sobre la búsqueda y sustitución avanzada en Vim, vamos a aprender uno de los comandos más versátiles, el comando global.
