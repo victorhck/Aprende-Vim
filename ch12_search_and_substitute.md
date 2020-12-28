@@ -532,9 +532,9 @@ Esta es la explicación del comando:
 - `\1` es el primer grupo encontrado, que es tanto "hello" u "hola".
 - `amigo` es literalmente la palabra "amigo".
 
-## Substituting the Start and the End of a Pattern
+## Sustituir el comienzo y el final de un patrón
 
-Recall that you can use `\zs` and `\ze` to define the start and the end of a match. This technique works in substitution too. If you have:
+Recordemos que puedes utilizar `\zs` y `\ze` para definir el comienzo y el final de una coincidencia. Esta técnica también funciona en la sustitución. Si tienes este texto:
 
 ```
 chocolate pancake
@@ -542,13 +542,13 @@ strawberry sweetcake
 blueberry hotcake
 ```
 
-To substitute the "cake" in "hotcake" with "dog" to get a "hotdog":
+Para sustituir el texto "cake" en "hotcake" con "dog" para obtener "hotdog":
 
 ```
 :%s/hot\zscake/dog/g
 ```
 
-Result:
+Este sería el resultado:
 
 ```
 chocolate pancake
@@ -556,67 +556,67 @@ strawberry sweetcake
 blueberry hotdog
 ```
 
-You can also substitute the nth match in a line with this trick:
+También puedes sustituir la coincidencia número *x* en una línea con este truco:
 
 ```
-One Mississippi, two Mississippi, three Mississippi, four Mississippi, five Mississippi.
+Uno Mississippi, dos Mississippi, tres Mississippi, cuatro Mississippi, cinco Mississippi.
 ```
 
-To substitute the third "Mississippi" with "Arkansas", run:
+Para sustituir el tercer "Mississippi" con "Arkansas", ejecuta:
 
 ```
 :s/\v(.{-}\zsMississippi){3}/Arkansas/g
 ```
 
-The breakdown:
-- `:s/` the substitute command.
-- `\v` is the magic keyword so you don't have to escape special keywords.
-- `.` matches any single character
-- `{-}` performs non-greedy match of 0 or more of the preceding atom.
-- `\zsMississippi` makes "Mississippi" the start of the match.
-- `(...){3}` looks for the third match.
+Veamos en detalle el comando:
+- `:s/` el comando de sustitución.
+- `\v` es la clave mágica así no es necesario escapar palabras clave especiales.
+- `.` encuentra cualquier único caracter.
+- `{-}` realiza una coincidencia no excesiva de 0 o más del caracter anterior.
+- `\zsMississippi` hace que "Mississippi" sea el comienzo de la coincidencia.
+- `(...){3}` busca la tercera coincidencia de los parámetros anteriores.
 
-You have seen the `{3}` syntax before. It is a type of `{n,m}`. In this case, you have `{3}` which will match exactly the third match. The new trick here is `{-}`. It is a non-greedy match. It finds the shortest match of the given pattern. In this case, `(.{-}Mississippi)` matches the least amount of "Mississippi" preceded by any character. Contrast this with `(.*Mississippi)` where it finds the longest match of the given pattern.
+Ya has visto antes la sintaxis de `{3}`. Es del tipo `{n,m}`. En este caso, tienes `{3}` que será exactamente la tercera coincidencia. El único truco nuevo que hemos utilizado aquí es `{-}`. Es una coincidencia no excesiva. Encuentra la coincidencia más corta dada en el patrón. En este caso, `(.{-}Mississippi)` encuentra la mínima cantidad de "Mississippi" precedida por cualquier caracter. Esto contrasta con `(.*Mississippi)` que encuentra la coincidencia más larga del patrón dado.
 
-If you use `(.{-}Mississippi)`, you get five matches: "One Mississippi", "Two Mississippi", etc. If you use `(.*Mississippi)`, you get one match: the last "Mississippi". To learn more check out `:h /\{-` and `:h non-greedy`.
+Si utilizas `(.{-}Mississippi)`, esto encontrará cinco coincidencias: "Uno Mississippi", "dos Mississippi", etc. Si utilizas `(.*Mississippi)`, encontrarás una coincidencia: el último "Mississippi". Para aprender más, echa un vistazo `:h /\{-` y `:h non-greedy`.
 
-Let's do a simpler example. If you have the string:
+Vamos a realizar un ejemplo más simple. Si tienes la siguiente cadena de caracteres:
 
 ```
 abc1de1
 ```
 
-You can match "abc1de1" (greedy) with:
+Puedes encontrar "abc1de1" (coincidencia excesiva o *greedy*) con:
 
 ```
 /a.*1
 ```
 
-You can match "abc1" (non-greedy) with:
+Puedes encontrar "abc1" (coincidencia no excesiva o *non-greedy*) with:
 
 ```
 /a.\{-}1
 ```
 
-So if you need to uppercase the longest match (greedy), run:
+Así que si necesitas convertir a mayúsculas la coincidencia más larga (greedy), ejecuta:
 
 ```
 :s/a.*1/\U&/g
 ```
 
-To get:
+Para obtener:
 
 ```
 ABC1DEFG1
 ```
 
-If you need to uppercase the shortest match (non-greedy), run:
+Si necesitas convertir a mayúsculas la coincidencia más corta (non-greedy), ejecuta:
 
 ```
 :s/a.\{-}1/\U&/g
 ```
 
-To get:
+Para obtener:
 
 ```
 ABC1defg1
