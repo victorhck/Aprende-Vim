@@ -9,7 +9,7 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 
 ### Parte 1: Aprendiendo Vim de la manera más inteligente
 
-- [Cap 1  - Arrancando Vim](./01_starting_vim.md) .................................... En progreso [ ]  / Traducido ✅ / Revisado [ ]
+- [Cap 1  - Arrancando Vim](./ch01_starting_vim.md) .................................... En progreso [ ]  / Traducido ✅ / Revisado [ ]
 - [Cap 2  - *Buffers*, ventanas y pestañas](./ch02_buffers_windows_tabs.md) ................ En progreso [ ]  / Traducido ✅  / Revisado [ ]
 - [Cap 3  - Abriendo y buscando archivos](./ch03_opening_and_searching_files.md) ............... En progreso [ ]  / Traducido ✅  / Revisado [ ]
 - [Cap 4  - La gramática de Vim](./ch04_vim_grammar.md) ............................. En progreso [ ] / Traducido ✅ / Revisado [ ]
