@@ -9,36 +9,36 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 
 ### Parte 1: Aprendiendo Vim de la manera más inteligente
 
-- [Ch 1     - Arrancando Vim](./01_starting_vim.md) ........................... En progreso [ ]  / Traducido [X] / Revisado [ ]
-- [Ch 2     - *Buffers*, ventanas y pestañas](./ch02_buffers_windows_tabs.md) ........................... En progreso [ ]  / Traducido [X] / Revisado [ ]
-- [Ch 3     - Abriendo y buscando archivos](./ch03_opening_and_searching_files.md) ........................... En progreso [ ]  / Traducido [X] / Revisado [ ]
-- [Ch 4     - La gramática de Vim](./ch04_vim_grammar.md) ........................... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 5     - Moviéndote en un archivo](./ch05_moving_in_file.md) ........................... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 6     - El modo insertar](./ch06_insert_mode.md) ........................... En progreso [X] / Traducido [ ] / Revisado [ ]
-- [Ch 7     - El comando del punto](./ch07_the_dot_command.md) ........................... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 8     - Registros](./ch08_registers.md) ........................... En progreso [X] / Traducido [ ] / Revisado [ ]
-- [Ch 9     - Macros](./ch09_macros.md) ........................... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 10    - Deshacer](./ch10_undo.md) ........................... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 11    - El modo visual](./ch11_visual_mode.md) ........................... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 12    - Buscar y sustituir](./ch12_search_and_substitute.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 13    - El comando global](./ch13_the_global_command.md) ......... En progreso [X] / Traducido [ ] / Revisado [ ]
-- [Ch 14    - Comandos externos](./ch14_external_commands.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- [Ch 15    - El modo de línea de comandos](./ch15_command-line_mode.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- [Ch 16    - Etiquetas](./ch16_tags.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- [Ch 17    - Desplegables](./ch17_fold.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- [Ch 18    - Git](./ch18_git.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- [Ch 19    - Compilar](./ch19_compile.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ]
-- [Ch 20    - Vistas, sesiones y Viminfo](./ch20_views_sessions_viminfo.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+- [Cap 1  - Arrancando Vim](./01_starting_vim.md) ....................... En progreso [ ]  / Traducido [X] / Revisado [ ]
+- [Cap 2  - *Buffers*, ventanas y pestañas](./ch02_buffers_windows_tabs.md) ....... En progreso [ ]  / Traducido [X] / Revisado [ ]
+- [Cap 3  - Abriendo y buscando archivos](./ch03_opening_and_searching_files.md) ........ En progreso [ ]  / Traducido [X] / Revisado [ ]
+- [Cap 4  - La gramática de Vim](./ch04_vim_grammar.md) ................. En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 5  - Moviéndote en un archivo](./ch05_moving_in_file.md) ............ En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 6  - El modo insertar](./ch06_insert_mode.md) ..................... En progreso [X] / Traducido [ ] / Revisado [ ]
+- [Cap 7  - El comando del punto](./ch07_the_dot_command.md) ................. En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 8  - Registros](./ch08_registers.md) ............................ En progreso [X] / Traducido [ ] / Revisado [ ]
+- [Cap 9  - Macros](./ch09_macros.md) ................................. En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 10 - Deshacer](./ch10_undo.md) ................................... En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 11 - El modo visual](./ch11_visual_mode.md) ........................ En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 12 - Buscar y sustituir](./ch12_search_and_substitute.md) ................... En progreso [ ] / Traducido [X] / Revisado [ ]
+- [Cap 13 - El comando global](./ch13_the_global_command.md) .......................... En progreso [X] / Traducido [ ] / Revisado [ ]
+- [Cap 14 - Comandos externos](./ch14_external_commands.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 15 - El modo de línea de comandos](./ch15_command-line_mode.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 16 - Etiquetas](./ch16_tags.md) ............................ En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 17 - Desplegables](./ch17_fold.md) ............................ En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 18 - Git](./ch18_git.md) .................................. En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 19 - Compilar](./ch19_compile.md) ............................. En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 20 - Vistas, sesiones y Viminfo](./ch20_views_sessions_viminfo.md) ........... En progreso [ ] / Traducido [ ] / Revisado [ ] 
 
 ### Parte 2: Personaliza Vim de la manera más inteligente
 
-- [Ch 21 - Vimrc](./ch21_vimrc.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
-- [Ch 22 - Paquetes de Vim](./ch22_vim_packages.md)  ......... En progreso [ ] / Traducido [ ] / Revisado [ ]                           
-- Ch 23 - Vim runtime  ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+- [Cap 21 - Vimrc](./ch21_vimrc.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+- [Cap 22 - Paquetes de Vim](./ch22_vim_packages.md)  ......... En progreso [ ] / Traducido [ ] / Revisado [ ]                           
+- Cap 23 - Vim runtime  ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
 
 ### Parte 3: Aprende Vimscript de la manera más inteligente
 
-- Ch 24 - Vimscript
+- Cap 24 - Vimscript
 
 
 # Licencia y derechos de autor
