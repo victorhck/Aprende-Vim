@@ -21,7 +21,7 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 - [Ch 10    - Undo](./ch10_undo.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
 - [Ch 11    - Visual Mode](./ch11_visual_mode.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
 - [Ch 12    - Search and Substitute](./ch12_search_and_substitute.md) ......... En progreso [ ] / Traducido [X] / Revisado [ ]
-- [Ch 13    - The Global Command](./ch13_the_global_command.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Ch 13    - The Global Command](./ch13_the_global_command.md) ......... En progreso [X] / Traducido [ ] / Revisado [ ]
 - [Ch 14    - External Commands](./ch14_external_commands.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 15    - Command-line Mode](./ch15_command-line_mode.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Ch 16    - Tags](./ch16_tags.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ]

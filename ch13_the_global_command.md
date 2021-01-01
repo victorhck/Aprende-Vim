@@ -1,24 +1,24 @@
-# Capítulo 13: The Global Command
+# Capítulo 13: El comando global
 
-So far you have learned how to repeat the last change with the dot command (`.`), to replay actions with macros (`q`), and to store texts in the registers (`"`). 
+Hasta ahora has aprendido cómo repetir el último cambio con el comando del punto (`.`), repetir acciones con macros (`q`) y almacenar textos en los registros (`"`). 
 
-In this chapter, you will learn how to repeat a command-line command with the global command. Run once, apply everywhere (in a buffer).
+En este capítulo, aprenderás cómo repetir un comando ejecutado en la línea de comandos de Vim con el comando global. Ejecútalo una vez, aplícalo en todas partes (dentro de un *buffer*).
 
-## Global Command Overview
+## Un vistazo al comando global
 
-Vim's global command is used to running a command-line command on multiple lines simultaneously. 
+El comando global de Vim es utilizado para ejecutar un comando de la línea de comandos en múltiples líneas de manera simultánea. 
 
-By the way, you may have heard of the term "Ex Commands" before. In this book, I refer them as command-line commands, but both Ex commands and command-line commands are the same. They are the commands that start with a colon (`:`). In the last chapter, you learned about the substitute command. It was an example of an Ex command. They are called Ex because they originally came from the Ex text editor. I will continue to refer to them as command-line commands in this book. For a full list of Ex commands, check out `:h ex-cmd-index`.
+Por cierto, puede que hayas leído anteriormente el témino "comandos Ex". En este libro, yo me refiero a ellos como comandos de la línea de comandos, pero ambos tanto los comandos Ex como los comandos de la línea de comandos son lo mismo. Hay comandos que comienzan con el símbolo de dos puntos (`:`). En el capítulo anterior aprendiste sobre los comandos de sustitución. Fue un ejemplo de los comandos Ex. Son llamados Ex porque originalmente provenían del editor de texto Ex. Me seguiré refiriendo a ellos en este libro como comandos de la línea de comandos. Para obtener una lista completa de los comandos Ex, echa un vistazo en Vim a `:h ex-cmd-index`.
 
-The global command has the following syntax:
+El comando global tiene la siguiente sintaxis:
 
 ```
-:g/pattern/command
+:g/patrón/comando
 ```
 
-The `pattern` matches all lines containing that pattern, similar to the pattern in the substitute command. The `command` can be any command-line command. The global command works by executing `command` against each line that matches the `pattern`.
+El `patrón` busca todas las líneas que contengan ese patrón, de manera similar al patrón en el comando de sustitución. El `comando` puede ser cualquier comando de la línea de comandos. El comando global funciona al ejecutar `comando` en cada línea que coincida con el `patrón`.
 
-If you have the following expressions:
+Si tienes las siguiente expresiones:
 
 ```
 const one = 1;
@@ -31,13 +31,13 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-To remove all lines containing "console", you can run:
+Para eliminar todas las líneas que contengan la palabra "console", puedes ejecutar:
 
 ```
 :g/console/d
 ```
 
-Result:
+Este sería el resultado:
 
 ```
 const one = 1;
@@ -47,17 +47,17 @@ const two = 2;
 const three = 3;
 ```
 
-The global command executes the delete command (`d`) on all lines that match the "console" pattern.
+El comando global ejecuta el comando eliminar (`d`) en todas las líneas que coincidan con el patrón "console".
 
-When running the `g` command, Vim  makes two scans across the file. On the first run, it scans each line and marks the line that matches the `/console/` pattern. Once all the matching lines are marked, it makes the second run, where it executes the `d` command on the marked lines.
+Al ejecutar el comando `g`, Vim realiza dos escaneos del archivo. En el primero, escanea cada línea y marca las líneas qeu coinciden con el patrón `/console/`. Una vez que todas las líneas que coinciden están marcadas, vuelve a hacer otra pasada por todo el archivo, donde ejecuta el comando `d` en las líneas marcadas.
 
-If you want to delete all lines containing "const" instead, run:
+Si en vez de eso, quieres eliminar todas las líneas que contienen "const", ejecuta:
 
 ```
 :g/const/d
 ```
 
-Result:
+Este sería el resultado:
 
 ```
 console.log("one: ", one);
