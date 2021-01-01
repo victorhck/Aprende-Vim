@@ -4,7 +4,7 @@ En este capítulo, aprenderás diferentes maneras de ejecutar Vim desde la termi
 
 ## Instalar Vim
 
-No voy a entrar en detalles de cómo instalar Vim (porque hay demasiadas distribuciones diferentes ahí fuera). La buena noticia es, la mayoría de los equipos con Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
+No voy a entrar en detalles de cómo instalar Vim (porque hay demasiadas distribuciones diferentes ahí fuera). La buena noticia es que la mayoría de los equipos con Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
 
 Para más información de cómo descargar, echa un vistazo a la web oficial de descargas de Vim:
 
@@ -20,7 +20,7 @@ Ahora que ya tienes Vim instalado, ejecuta esto desde la terminal:
 vim
 ```
 
-Deberías ver una pantalla de bienvenida. Ahí será donde trabajarás con tus archivos. A diferencia de la mayoría de editores de texto e IDE's, Vim es un editor modal. Si quieres escribir "Hola", necesitas cambiar al modo Insertar con `i`. Escribe: `ihello<Esc>`.
+Deberías ver una pantalla de bienvenida. Ahí será donde trabajarás con tus archivos. A diferencia de la mayoría de editores de texto e IDE's, Vim es un editor modal. Si quieres escribir "Hola", necesitas cambiar al modo Insertar con `i`. Escribe: `ihola<Esc>`.
 
 ## Saliendo de Vim
 
