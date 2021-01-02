@@ -49,7 +49,7 @@ const three = 3;
 
 El comando global ejecuta el comando eliminar (`d`) en todas las líneas que coincidan con el patrón "console".
 
-Al ejecutar el comando `g`, Vim realiza dos escaneos del archivo. En el primero, escanea cada línea y marca las líneas qeu coinciden con el patrón `/console/`. Una vez que todas las líneas que coinciden están marcadas, vuelve a hacer otra pasada por todo el archivo, donde ejecuta el comando `d` en las líneas marcadas.
+Al ejecutar el comando `g`, Vim realiza dos escaneos del archivo. En el primero, escanea cada línea y marca las líneas que coinciden con el patrón `/console/`. Una vez que todas las líneas que coinciden están marcadas, vuelve a hacer otra pasada por todo el archivo, donde ejecuta el comando `d` en las líneas marcadas.
 
 Si en vez de eso, quieres eliminar todas las líneas que contienen "const", ejecuta:
 
@@ -67,27 +67,27 @@ console.log("two: ", two);
 console.log("three: ", three);
 ```
 
-## Inverse Match
+## Invertir las coincidencias
 
-To run the global command on non-matching lines, you can run:
-
-```
-:g!/{pattern}/{command}
-```
-
-or
+Para ejecutar el comando global en las líneas que no cumplan la coincidencia con el patrón, puedes ejecutar:
 
 ```
-:v/{pattern}/{command}
+:g!/{patrón}/{comando}
 ```
 
-If you run `:v/console/d`, it will delete all lines *not* containing "console".
+o
 
-## Pattern
+```
+:v/{patrón}/{comando}
+```
 
-The global command uses the same pattern system as the substitute command, so this section will serve as a refresher.  Feel free to skip to the next section or read along!
+Si ejecutas `:v/console/d`, esto eliminará todas las líneas que *no* contengan la palabra "console".
 
-If you have these expressions:
+## Patrón
+
+El comando global utiliza el mismo sistema de patrones que el comando de sustitución, así que esta sección servirá como repaso. Si lo deseas, sientete libre de saltar a la siguiente sección o sigue leyendo.
+
+Si tienes las siguientes expresiones:
 
 ```
 const one = 1;
@@ -100,25 +100,25 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-To delete the lines containing either "one" or "two", run:
+Para eliminar las líneas que contienen tanto "one" o "two", ejecuta:
 
 ```
 :g/one\|two/d
 ```
 
-To delete the lines containing any single digits, run either:
+Para eliminar las líneas que contienen algún número de una cifra, ejecuta una de estas dos opciones:
 
 ```
 :g/[0-9]/d
 ```
 
-or
+o
 
 ```
 :g/\d/d
 ```
 
-If you have the expression:
+Si tienes las siguientes expresiones:
 
 ```
 const oneMillion = 1000000;
@@ -126,7 +126,7 @@ const oneThousand = 1000;
 const one = 1;
 ```
 
-To match the lines containing between three to six zeroes, run:
+Para encontrar las líneas que contienen entre tres a seis ceros, ejecuta:
 
 ```
 :g/0\{3,6\}/d
