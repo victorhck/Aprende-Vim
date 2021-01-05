@@ -132,21 +132,21 @@ Para encontrar las líneas que contienen entre tres a seis ceros, ejecuta:
 :g/0\{3,6\}/d
 ```
 
-## Passing a Range
+## Pasando un rango
 
-You can pass a range before the `g` command. Here are some ways you can do it:
+Puedes pasar un rango antes del comando `g`. Aquí tienes algunas maneras de cómo lo puedes hacer:
 
-- `:1,5/g/console/d`  matches the string "console" between lines 1 and 5 and deletes them.
-- `:,5/g/console/d` if there is no address before the comma, then it starts from the current line. It looks for the string "console" between the current line and line 5 and deletes them.
-- `:3,/g/console/d` if there is no address after the comma, then it ends at the current line. It looks for the string "console" between line 3 and the current line and deletes them.
-- `:3g/console/d` if you only pass one address without a comma, it executes the command only on line 3. It looks on line 3 and deletes it if has the string "console".
+- `:1,5/g/console/d`  encuentra la cadena "console" entre las líneas 1 y 5 y las elimina.
+- `:,5/g/console/d` si no se especifica un número delante de la coma, entonces esto indica que comience el comando desde la línea actual. Busca la cadena "console" entre la línea actual y la línea 5 y las elimina.
+- `:3,/g/console/d` si no se especifica un número después de la coma, entonces indica que el comando finaliza en la línea actual. Busca la cadena "console" entre la línea 3 y la línea actual y las elimina.
+- `:3g/console/d` si solo se le pasa un número sin el símbolo de la coma, esto ejecuta el comando solo en la línea 3. Busca en la línea 3 y la elimina si existe la cadena "console".
 
-In addition to numbers, you can also use these symbols as range:
-- `.` means the current line. A range of `.,3` means between the current line and line 3.
-- `$` means the last line in the file. `3,$` range means between line 3 and the last line.
-- `+n` means n lines after the current line. You can use it with `.` or without. `3,+1` or `3,.+1` means between line 3 and the line after the current line.
+Además de los números, también se pueden utilizar esto símbolos como rango:
+- `.` significa la línea actual. Un rango de `.,3` significa entre la línea actual y la línea 3.
+- `$` significa la última línea del archivo. `3,$` es un rango entre la línea 3 y la última línea del archivo.
+- `+n` significa *n* líneas después de la línea actual. Lo puedes utilizar con `.` o sin ese símbolo. `3,+1` o `3,.+1` ambas significa, entre la línea 3 y la línea después de la línea actual.
 
-If you don't give it any range, by default it affects the entire file. This is actually not the norm. Most of Vim's command-line commands run on only the current line if you don't pass it any range. The two notable exceptions are the global (`:g`) and the save (`:w`) commands. 
+Si no pasas ningún rango, de manera predeterminada se entiende que el comando se aplica al archivo completo. Esto realmente no es la norma general. La mayoría de los comandos para la línea de comandos de Vim se ejecutan solo en la línea actual si no se le pasa ningún rango. Las dos excepciones más notables son los comandos globales (`:g`) y el comando de guardar (`:w`). 
 
 ## Normal Command
 
