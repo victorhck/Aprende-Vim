@@ -228,7 +228,7 @@ Ctrl-b    Desplaza una pantalla completa hacia abajo el texto
 También puedes desplazrte de manera relativa en función de la línea actual donde se encuentre el cursor:
 ```
 zt    LLeva la línea actual donde está el cursor cerca de la parte superior de la pantalla
-zh    LLeva la línea actual donde está el cursor a la parte media de la pantalla
+zz    LLeva la línea actual donde está el cursor a la parte media de la pantalla
 zb    LLeva la línea actual donde está el cursor cerca de la parte inferior de la pantalla
 ```
 
