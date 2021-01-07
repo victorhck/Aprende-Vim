@@ -148,35 +148,35 @@ Además de los números, también se pueden utilizar esto símbolos como rango:
 
 Si no pasas ningún rango, de manera predeterminada se entiende que el comando se aplica al archivo completo. Esto realmente no es la norma general. La mayoría de los comandos para la línea de comandos de Vim se ejecutan solo en la línea actual si no se le pasa ningún rango. Las dos excepciones más notables son los comandos globales (`:g`) y el comando de guardar (`:w`). 
 
-## Normal Command
+## El comando normal
 
-You can run a normal command with the global command with `:normal` command-line command.
+Puedes ejecutar un comando normal dentro del comando global con el comando `:normal` de la línea de comandos.
 
-If you have this text:
+Si tienes el siguiente texto:
 ```
-const one = 1;
-console.log("one: ", one);
+const one = 1
+console.log("one: ", one)
 
-const two = 2;
-console.log("two: ", two);
+const two = 2
+console.log("two: ", two)
 
-const three = 3;
-console.log("three: ", three);
+const three = 3
+console.log("three: ", three)
 
 ```
-To add a ";" to the end of each line, run:
+Para añadir un símbolo ";" al final de cada línea, ejecuta:
 ```
 :g/./normal A;
 ```
 
-Let's break it down:
-- `:g` is the global command.
-- `/./` is a pattern for "non-empty lines". Recall that the dot (`.`) in regex represents *any character*. It matches the lines with at least one character, so it matches the lines with "const" and "console". It does not match empty lines.
-- `normal A;` runs the `:normal` command-line command. `A;` is the normal mode command to insert a ";" at the end of the line.
+Diseccionesmos el comando:
+- `:g` es el comando global.
+- `/./` es el patrón para "todas las líneas que no estén vacías". Recuerda que el punto (`.`) es un registro que representa *cualquier caracter*. Lo que hace es buscar las líneas con al menos un caracter, así que en este caso marcará las líneas con las palabras "const" y "console". Ignorando las líneas vacías.
+- `normal A;` ejecuta el comando de la línea de comando `:normal`. `A;` es el comando normal para insertar un ";" al final de la línea.
 
-## Executing a Macro
+## Ejecutar una macro
 
-You can also execute a macro with the global command. A macro is just a normal mode operation, so it is possible to execute a macro with `:normal`. If you have the expressions:
+También puedes ejecutar una macro con el comando global. Una macroes simplemente un modo normal de operación, así que es posible ejecutarlo con `:normal`. Si tienes las siguiente expresiones:
 
 ```
 const one = 1
@@ -189,19 +189,19 @@ const three = 3
 console.log("three: ", three);
 ```
 
-Notice that the lines with "const" do not have semi-colons. Let's create a macro to add a comma to the end of those lines in the register "a":
+Ten en cuenta que las líneas con "const" no tienen un símbolo de punto y coma al final de la línea. Vamos a crear una macro, que almacenaremos en el registro "a", que añada un símbolo de punto y coma al final de esas líneas:
 
 ```
 qa0A;<esc>q
 ```
 
-If you need a refresher, check out the chapter on macro. Now run:
+Si necesitas refrescar conocimientos, echa un vistazo al capítulo que trata sobre las macros. Ahora ejecuta:
 
 ```
 :g/const/normal @a
 ```
 
-Now all lines with "const" will have a ";" at the end.
+Ahora todas las líneas con "const" tendrán un ";" al final de la línea.
 
 ```
 const one = 1;
@@ -214,11 +214,11 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-## Recursive Global Command
+## Comando recursivo global
 
-The global command itself is a type of a command-line command, so you can technically run the global command inside a global command.
+El comando global pro sí mismo es un tipo de comando de la línea de comandos, así que técnicamente puedes ejecutar el comando global dentro de un comando global.
 
-Given the expressions:
+Dadas las siguientes expresiones:
 
 ```
 const one = 1;
@@ -231,39 +231,39 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-If you run:
+Si ejecutas:
 
 ```
 :g/console/g/two/d
 ```
 
-First, `g` will look for the lines containing the pattern "console" and find 3 matches. Then the second `g` will look for the line containing the pattern "two" from those three matches. Finally, it will delete that match.
+Primero, `g` buscará las líneas que contengan el patrón "console" y encontrará 3 coincidencias. El segundo `g` buscará la línea que contenga el patrón "two" para esas tres coincidencias encontradas anteriormente. Finalmente, eliminará esas coincidencias.
 
-You can also combine `g` with `v` to find positive and negative patterns. For example:
+Puedes combinar `g` con `v` para encontrar patrones positivos o negativos. Por ejemplo:
 
 ```
 :g/console/v/two/d
 ```
 
-Instead of looking for the line containing the pattern "two", it will look for the lines *not* containing the pattern "two".
+En vez de buscar las líneas que contienen "two", buscará las líneas que *no* contienen el patrón "two".
 
-## Changing the Delimiter
+## Cambiando el símbolo del delimitador del comando global
 
-You can change the global command's delimiter like the substitute command. The rules are the same: you can use any single byte character except for alphabets, numbers, `"`, `|`, and `\`.
+Puedes cambiar el delimitador del comando global de igual manera que se podía hacer en el comando de sustitución. Las reglas son las mismas: puedes utilizar cualquier caracter de un único byte excepto las letras del alfabeto, números, `"`, `|`, y `\`.
 
-To delete the lines containing "console":
+Para eliminar las líneas que contienen la palabra "console":
 
 ```
 :g@console@d
 ```
 
-If you are using the substitute command with the global command, you can have two different delimiters:
+Si estás utilizando el comando de sustitución con el comando global, puedes utilizar dos delimitadores diferentes:
 
 ```
 g@one@s+const+let+g
 ```
 
-Here the global command will look for all lines containing "one". The substitute command will substitute, from those matches, the string "const" with "let".
+Aquí el comando global buscará todas laslíneas que contienen "one". El comando de sustitución, sustituirá de esas líneas encontradas, la cadena "const" con "let".
 
 ## The Default Command
 
