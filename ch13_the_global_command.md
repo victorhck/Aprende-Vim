@@ -265,33 +265,33 @@ g@one@s+const+let+g
 
 Aquí el comando global buscará todas laslíneas que contienen "one". El comando de sustitución, sustituirá de esas líneas encontradas, la cadena "const" con "let".
 
-## The Default Command
+## El comando predeterminado
 
-What happens if you don't specify any command-line command in the global command? 
+¿Qué pasa si no especificas ningún comando de la línea de comandos en el comando global? 
 
-The global command will use the print (`:p`) command to print the current line's text. If you run:
+El comando global utilizará el comando *print* o mostrar por pantalla (`:p`) para mostrar la línea actual. Si ejecutas:
 
 ```
 :g/console
 ```
 
-It will print at the bottom of the screen all the lines containing "console".
+Esto mostrará en la parte inferior de la pantalla todas las líneas que contengan "console".
 
-By the way, here is one interesting fact. Because the default command used by the global command is `p`, this makes the `g` syntax to be:
+Por cierto, aquí hay un hecho curioso. Debido a que el comando predeterminado utilizado por el comando global es `p`, esto hace que la sintaxis de `g` sea:
 
 ```
 :g/re/p
 ```
 
-- `g` = the global command
-- `re` = the regex pattern
-- `p` = the print command
+- `g` = el comando global
+- `re` = la expresión regular del patrón de búsqueda
+- `p` = el comando *imprimir* por pantalla
 
-It spells *"grep"*, the same `grep` from the command line. This is **not** a coincidence. The `g/re/p` command originally came from the Ed Editor, one of the first line text editors. The `grep` command got its name from Ed. 
+Esto forma "grep"*, el mismo `grep` que se utiliza en la línea de comandos. Esto **no** es una coincidencia. El comando `g/re/p` procede originalmente del editor Ed, uno de los primeros editores de texto. El comando `grep` toma su nombre de Ed. 
 
-Your computer probably still has the Ed editor. Run `ed` from the terminal (hint: to quit, type `q`).
+Tu equipo probablemente todavía tenga un editor Ed instalado. Ejecuta `ed` en una terminal (pista: para salir, escribe `q`).
 
-## More examples
+## Más ejemplos
 
 ### Reverse the Entire Buffer
 
