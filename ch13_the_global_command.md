@@ -293,79 +293,79 @@ Tu equipo probablemente todavía tenga un editor Ed instalado. Ejecuta `ed` en u
 
 ## Más ejemplos
 
-### Reverse the Entire Buffer
+### Invertir el *buffer* completo
 
-To reverse the entire file, run:
+Para invertir un archivo por completo, ejecuta:
 
 ```
 :g/^/m 0 
 ```
 
-`^` is a pattern for the "beginning of a line". Use `^` to match all lines, including empty lines.
+`^` es un patrón que significa "el comienzo de una línea". Utiliza `^` para seleccionar todas las líneas, incluyendo las líneas vacías.
 
-If you need to reverse only a few lines, pass it a range. To reverse the lines between line five to line ten, run:
+Si solo necesitas invertir unas cuantas líneas y no el archivo por completo, puedes añadir un rango. Para invertir las líneas de la cinco a la diez, ejecuta:
 
 ```
 :5,10g/^/m 0
 ```
 
-To learn more about the move command, check out `:h :move`.
+Para aprender más sobre el comando de mover, echa un vistazo a `:h :move`.
 
-### Aggregating All TODOs
+### Agregar todas las tareas pendientes o *TODO*
 
-When I code, sometimes I think of a random brilliant ideas. Not wanting to lose concentration, I usually write them down in the file I am editing, for example:
+Mientras estás escribiendo código, a veces te vienen a la cabeza diferentes ideas aleatoria brillantes. Si no quieres perder la concentración de lo que estás haciendo, puedes anotarlas en el propio archivo que estás editando, y etiquetarlas como *TODO* o PENDIENTE, por ejemplo:
 
 ```
 const one = 1;
 console.log("one: ", one);
-// TODO: feed the puppy
+// TODO: dar de comer a las gatas
 
 const two = 2;
-// TODO: feed the puppy automatically
+// TODO: dar de comer a las gatas automáticamente
 console.log("two: ", two);
 
 const three = 3;
 console.log("three: ", three);
-// TODO: create a startup selling an automatic puppy feeder
+// TODO: crear un invento que sirva para dar de comer a las gatas automáticamente
 ```
 
-It can be hard to keep track of all the created TODOs. Vim has a `:t` (copy) method to copy all matches to an address. To learn more about the copy method, check out `:h :copy`.
+Puede ser complicado llevar la cuenta de todas las tareas *TODO* que hemos ido creando. Vim tiene un método para copiar todas las coincidencias encontradas a una dirección con el comando `:t`. Para aprender más sobre este método de copiado, echa un vistazo a `:h :copy`.
 
-To copy all TODOs to the end of the file for easier introspection, run:
+Para copiar todas las tareas *TODOs* al final del archivo para darles un repaso, ejecuta:
 
 ```
 :g/TODO/t $
 ```
 
-Result:
+Este sería el resultado:
 
 ```
 const one = 1;
 console.log("one: ", one);
-// TODO: feed the puppy
+// TODO: dar de comer a las gatas
 
 const two = 2;
-// TODO: feed the puppy automatically
+// TODO: dar de comer a las gatas automáticamente
 console.log("two: ", two);
 
 const three = 3;
 console.log("three: ", three);
-// TODO: create a startup selling an automatic puppy feeder
+// TODO: crear un invento que sirva para dar de comer a las gatas automáticamente
 
-// TODO: feed the puppy
-// TODO: feed the puppy automatically
-// TODO: create a startup selling an automatic puppy feeder
+// TODO: dar de comer a las gatas
+// TODO: dar de comer a las gatas automáticamente
+// TODO: crear un invento que sirva para dar de comer a las gatas automáticamente
 ```
 
-Now I can review all the TODOs I created, find a time to do them or delegate them to someone else, and continue to work on my next task.
+Ahora puede revisar fácilmente todas las tareas *TODO* que he ido creando, y encontrar el tiempo para realizarlas o delegarlas a otra persona y continuar en mi trabajo con mis siguientes tareas.
 
-Another alternative is to use `m`:
+Otra alternativa es utilizar `m`:
 
 ```
 :g/TODO/m $
 ```
 
-Result:
+Y este sería el resultado:
 
 ```
 const one = 1;
@@ -377,12 +377,12 @@ console.log("two: ", two);
 const three = 3;
 console.log("three: ", three);
 
-// TODO: feed the puppy
-// TODO: feed the puppy automatically
-// TODO: create a startup selling an automatic puppy feeder
+// TODO: dar de comer a las gatas
+// TODO: dar de comer a las gatas automáticamente
+// TODO: crear un invento que sirva para dar de comer a las gatas automáticamente
 ```
 
-I can just delete the list once I decided what to do with it.
+Puedo simplemente eliminar la lista una vez que decida qué hacer con ella.
 
 ### Black Hole Delete
 
