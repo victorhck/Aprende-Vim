@@ -384,19 +384,19 @@ console.log("three: ", three);
 
 Puedo simplemente eliminar la lista una vez que decida qué hacer con ella.
 
-### Black Hole Delete
+### Mandar el contenido borrado a un agujero negro
 
-Recall from the register chapter that deleted texts are stored inside the numbered registers (granted they are sufficiently large ). Whenever you run `:g/console/d`, Vim stores the deleted lines in the numbered registers. If you delete many lines, you can quickly fill up all the numbered registers. To avoid this, you can always use the black hole register (`"_`) to *not* store your deleted lines into the registers. Run:
+Recuerda del capítulo de los registros que los textos eliminados son almacenados dentro de los registros numerados (aunque son suficientemente grandes). Cada vez que ejecutas `:g/console/d`, Vim almacena las líneas eliminadas en los registros numerados. Si eliminas muchas líneas, puedes rápidamente llenar el contenido de esos registros numerados. Para eliminar esto, siempre puedes utilizar el registro del agujero negro (`"_`) para *no* almacenar las líneas eliminadas en los registros. Ejecuta:
 
 ```
 :g/console/d _
 ```
 
-By passing `_` after `d`, Vim won't save the deleted lines into any registers.
+Al pasar al comando el símbolo `_` después del comando de borrar `d`, Vim no almacenará las líneas eliminadas en ningún registro.
 
-### Reduce Multiple Empty Lines to One Empty Line
+### Reducir múltiples líneas vacías en una única línea vacía
 
-If you have a file with multiple empty lines like the following:
+Si tienes un archivo con múltiples líneas vacías como este:
 
 ```
 const one = 1;
@@ -414,13 +414,13 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-You can quickly reduce each the long empty lines to one empty line. Run:
+Puedes reducir rápidamente cada conjunto de líneas vacías consecutivas a una única línea vacía. Ejecuta:
 
 ```
 :g/^$/,/./-1j
 ```
 
-Result:
+Este es el resultado:
 
 ```
 const one = 1;
@@ -433,27 +433,28 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-Let's break it down:
-- `:g` is the global command
-- `/^$/` is the pattern for an empty line. Recall that `^` means the beginning of the line and `$` the end of the line. `^$` matches an empty line (a line with zero characters long).
-- `,/./-1` is the range for the `j` command. Since you don't pass a value for the starting range, it starts from the current line. You just learned earlier that `/./` is a pattern for a non-empty line. `,/./` is a range from the current line to the next non-empty line. The global command's range, `/^$/`, takes you to the first match on the line below `console.log("one: ", one);`. This is the current line. `/./` matches the first non-empty line, the line `const two = 2;`. Finally, `-1` offsets that by one line. The effective range for the first match is the empty line below the `console.log("one: ", one);` and the empty line above the `const two = 2;`.
-- `j` is the join command `:j`. You can join all the lines given as its range. For example, `:1,5j` joins lines one through five.
+Vamos a verlo en detalle:
 
-Notice that you are passing a range (`,/./-1`) before the `j` command. Just because you are using a command-line command with the global command, does not mean you cannot give it a range. In this code, you are passing to the `j` command its own range to execute on. You can pass a range to any command while executing the global command.
+- `:g` es el comando global.
+- `/^$/` es el patrón para una línea vacía. Recuerda que `^` significa el comienzo de una línea y `$` el final de una línea. `^$` encuentra una línea vacía (una línea con una longitud de cero caracteres).
+- `,/./-1` es el rango para el comando `j`. Como no se le pasa ningún valor para el comienzo del rango, este comienza en la línea actual. Ya aprendiste anteriormente que  `/./` es el patrón para una línea no vacía. `,/./` es un rango desde la línea actual hasta la siguiente línea no vacía. El rango del comando global, `/^$/`, te llevará hasta la primera coincidencia en la línea inferior `console.log("one: ", one);`. Esta es la línea actual. `/./` encuentra la primera línea no vacía, la línea  `const two = 2;`. Finalmente, `-1` cambia eso por una línea. El rango efectivo para la primera concurrencia es la línea vacía debajo de `console.log("one: ", one);` y la línea vacía encima de `const two = 2;`.
+- `j` es el comando Para unir líneas `:j`. Puedes unir todas las líneas dadas como su rango. Por ejemplo, `:1,5j` une las líneas de la uno a la cinco.
 
-By the way, if you want to reduce multiple empty lines into no lines, instead of using `,/./-1` as the range for `j` command, just use `,/./` as the range instead:
+Ten en cuenta que estás pasando un rango (`,/./-1`) antes del comando `j`. Solo porqie estás utilizando un comando para la línea de comandos de Vim con el comando global, no significa que no puedas pasarla un rango. En este código, estás pasando al comando `j` su propio rango para ejecutarlo. Puedes pasar un rango para cualquier comando mientras estás ejecutando el comando global.
+
+Por cierto, si quieres reducir múltiples líneas vacías en una línea, en vez de utilizar `,/./-1` como rango para el comando `j`, simplemente utiliza `,/./` como rango en vez del anterior.
 
 ```
 :g/^$/,/./j
 ```
 
-Or simpler:
+O simplificado:
 
 ```
 :g/^$/-j
 ```
 
-Your text is now reduced to:
+Tu texto ahora es reducido a:
 
 ```
 const one = 1;
