@@ -59,7 +59,7 @@ d    Eliminar un texto y guardarlo en el registro (*delete* en Vim sería la acc
 c    Eliminar un texto, guardarlo en el registro y comenzar en el modo de insertar
 ```
 
-Ahora que ya conocer los sustantivos y verbos básicos, ¡Vamos a aplicar nuestras reglas gramáticas! Supongamos que tenemos la siguiente expresión en un texto:
+Ahora que ya conoces los sustantivos y verbos básicos, ¡Vamos a aplicar nuestras reglas gramáticas! Supongamos que tenemos la siguiente expresión en un texto:
 
 ```javascript
 const learn = "vim"; 
@@ -94,7 +94,7 @@ Los objetos de texto son usados con operadores. Hay dos tipos de objetos de text
 i + objeto    Dentro del objeto de texto
 a + objeto    Fuera del objeto de texto
 ```
-Dentro del objeto del texto selecciona el objeto del interior *sin* los espacios en blanco o los objetos que lo rodean. Fuera del objeto de texto selecciona el onjeto interior *incluyendo* los espacios en blanco y los objetos que lo rodean. La selección de fuera del objeto de texto siempre selecciona más texto que la selección de dentro del objeto de texto. Así que si tu cursor está en algún lugar dentro del paréntesis dentro de la expresión `(hello vim)`:
+Dentro del objeto del texto selecciona el objeto del interior *sin* los espacios en blanco o los objetos que lo rodean. Fuera del objeto de texto selecciona el objeto interior *incluyendo* los espacios en blanco y los objetos que lo rodean. La selección de fuera del objeto de texto siempre selecciona más texto que la selección de dentro del objeto de texto. Así que si tu cursor está en algún lugar dentro del paréntesis dentro de la expresión `(hello vim)`:
 
 - Para eliminar el texto dentro del paréntesis sin borrar el propio paréntesis, ejecuta: `di(`.
 - Para eliminar el paréntesis y el texto interior, ejecuta: `da(`.
@@ -152,7 +152,7 @@ Para aprender más, echa un vistazo a la ayuda de Vim con este comando `:h text-
 
 Después de aprender la gramática de Vim, vamos a hablar sobre la capacidad de componer frases (N.d.T: En el texto original utiliza una palabra que se podría traducir como "componibilidad" que traduciré como la capacidad o habilidad de componer frases) en Vim y de porqué esta es una gran funcionalidad para tener en un editor de texto.
 
-La capacidad o habilidad de contruir frases significa disponer de un conjunto de comandos generales que pueden ser combinados para desarrollar comandos más complicados. De manera similar a como se hace en programación, donde puedes crear abstracciones más complejas de abstracciones simples, en Vim puedes ejecutar comandos complejos utilizando comandos más simples. La gramática de Vim es la manifestación de la naturaleza componible de Vim.
+La capacidad o habilidad de construir frases significa disponer de un conjunto de comandos generales que pueden ser combinados para desarrollar comandos más complicados. De manera similar a como se hace en programación, donde puedes crear abstracciones más complejas de abstracciones simples, en Vim puedes ejecutar comandos complejos utilizando comandos más simples. La gramática de Vim es la manifestación de la naturaleza componible de Vim.
 
 El verdadero poder de la capacidad de componer frases en Vim se manifiesta cuando se integra con programas externos. Vim tiene un operador de filtro (`!`) para utilizar programas externos como filtros para nuestros textos. Supongamos que tenemos este texto un poco desordenado que aparece a continuación y quieres ordenarlo con tabuladores.
 ```
