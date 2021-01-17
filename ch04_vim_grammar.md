@@ -2,7 +2,7 @@
 
 Es sencillo sentirse intimidado por la complejidad de muchos de los comandos de Vim. Si ves a una persona que usa Vim habitualmente ejecutando `gUfV` o `1GdG`, puede que no sepas inmediatamente qué es lo que realizan esos comandos. En este capítulo, voy a romper la estructura general de los comandos de Vim en reglas simples de gramática.
 
-Este es el capítulo más importante de todo el libre. Una vez que entiendas la estructura similar a la gramática de los comandos de Vim, serás capaz de "hablarle" a Vim. Por cierto, cuando me refiero a *lenguaje de Vim* en este capítulo, no estoy refiriéndome a Vimscript (el lenguaje de programación propio para adaptar y crear complementos de Vim). Aquí se refiere al patrón general de los comandos del modo normal de Vim.
+Este es el capítulo más importante de todo el libro. Una vez que entiendas la estructura similar a la gramática de los comandos de Vim, serás capaz de "hablarle" a Vim. Por cierto, cuando me refiero a *lenguaje de Vim* en este capítulo, no estoy refiriéndome a Vimscript (el lenguaje de programación propio para adaptar y crear complementos de Vim). Aquí se refiere al patrón general de los comandos del modo normal de Vim.
 
 ## Cómo aprender un lenguaje
 
