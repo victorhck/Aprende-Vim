@@ -1,11 +1,11 @@
 # Aprende Vim (de la manera más inteligente)
 
 ## ¿De qué trata esto?
-*Aprende Vim (de la manera más inteligente)* es un libro para aprender las partes más interesantes del editor Vim. Es una traducción del libro original en inglés que puedes encontrar en: [https://github.com/iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
+*Aprende Vim (de la manera más inteligente)* es una guía para aprender las partes más interesantes del editor Vim. Es una traducción de la guía original en inglés que puedes encontrar en: [https://github.com/iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim)
 
-La idea es trauducir el libro del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR.
+La idea es trauducir la guía del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un *issue*.
 
-## Índice de contenidos (En progreso. Se irán traduciendo los diferentes capítulos)
+## Índice de contenidos (Trabajo en progreso. Se irán traduciendo los diferentes capítulos)
 
 ### Parte 1: Aprendiendo Vim de la manera más inteligente
 
@@ -22,7 +22,7 @@ La idea es trauducir el libro del inglés al español para difundir y dar a cono
 - [Cap 11 - El modo visual](./ch11_visual_mode.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 12 - Buscar y sustituir](./ch12_search_and_substitute.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 13 - El comando global](./ch13_the_global_command.md) ............................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 14 - Comandos externos](./ch14_external_commands.md) ........................... En progreso [ ] / Traducido [ ] / Revisado [ ]
+- [Cap 14 - Comandos externos](./ch14_external_commands.md) ........................... En progreso ✅ / Traducido [ ] / Revisado [ ]
 - [Cap 15 - El modo de línea de comandos](./ch15_command-line_mode.md) .......... En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Cap 16 - Etiquetas](./ch16_tags.md) ............................................ En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Cap 17 - Desplegables](./ch17_fold.md) ........................................ En progreso [ ] / Traducido [ ] / Revisado [ ]
