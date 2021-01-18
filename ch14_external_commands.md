@@ -1,61 +1,61 @@
-# Capítulo 14: External Commands
+# Capítulo 14: Comandos externos
 
-Inside the Unix system, you will find many small, hyper-specialized commands where each does one thing well. You can chain these commands  to work together to solve a complex problem. Wouldn't it be great if you can use these commands from inside Vim?
+Dentro del sistema Unix, encontrarás muchos comandos pequeños y muy específicos donde cada uno hace una tarea y la hace eficientemente. Puedes encadenar estos comandos para que funcionen de manera conjunta para dar solución a un problema complejo. ¿No sería genial si pudieras utilizar estos comandos dentro de Vim?
 
-In this chapter, you will learn how extend Vim to work seamlessly with external commands.
+En este capítulo, aprenderás cómo extender las funcionalidades de Vim para que trabaje sin problemas con estos comandos externos.
 
-## The Bang Command
+## El comando *bang*
 
-Vim has a bang (`!`) command that can do three things:
+Vim tiene un comando llamado *bang* (`!`) que puede realizar tres cosas:
 
-1. Read the STDOUT of an external command into the current buffer.
-2. Write the content of your buffer as the STDIN to an external command.
-3. Execute an external command from inside Vim.
+1. Leer la salida estándar (STDOUT) de un comando externo dentro del *buffer* actual.
+2. Escribir el contenido de tu *buffer* como la entrada estándar (STDIN) a un comando externo.
+3. Ejecutar un comando externo desde dentro de Vim.
 
 
-## Reading the STDOUT of a Command Into Vim
+## Leer la salida estándar (STDOUT) de un comando dentro de Vim
 
-The syntax to read the STDOUT of an external command into the current buffer is:
+La sintaxis para leer la salida estándar (STDOUT) de un comando externo dentro del *buffer* actual es:
 
 ```
 :r !{cmd}
 ```
 
-`:r` is Vim's read command. If you use it without `!`, you can use it to get the content of a file. If you have a file `file1.txt` in the current directory and you run:
+`:r` es el comando de Vim para leer. Si lo utilizas sin `!`, puedes utilizarlo para obtener el contenido de un archivo. Si tienes un archivo llamado `archivo1.txt` en el directorio actual y ejecutas:
 
 ```
-:r file1.txt
+:r archivo1.txt
 ```
 
-Vim will put the content of `file1.txt` into the current buffer.
+Vim pondrá el contenido de `archivo1.txt` dentro del *buffer* actual.
 
-If you run the `:r` command followed by a `!` and an external command, the output of that commmand will be inserted into the current buffer. To get the result of the `ls` command, run:
+Si ejecutas el comado `:r` seguido por un `!` y un comando externo, la salida de ese comando será insertada dentro del *buffer* actual. Para obtener el resultado del comando `ls`, ejecuta:
 
 ```
 :r !ls
 ```
 
-It returns something like:
+Esto devolverá algo similar a esto:
 
 ```
-file1.txt
-file2.txt
-file3.txt
+archivo1.txt
+archivo2.txt
+archivo3.txt
 ```
 
-You can read the data from the `curl` command:
+Puedes leer los datos desde el comando `curl`:
 
 ```
 :r !curl -s 'https://jsonplaceholder.typicode.com/todos/1'
 ```
 
-The `r` command also accepts an address:
+El comando `r` también acepta una dirección:
 
 ```
-:10r !cat file1.txt
+:10r !cat archivo1.txt
 ```
 
-Now the STDOUT from running `cat file.txt` will be inserted after line 10.
+Ahora la salida estándar (STDOUT) de ejecutar `cat archivo1.txt` será insertada después de la línea 10.
 
 ## Writing the Buffer Content Into an External Command
 
