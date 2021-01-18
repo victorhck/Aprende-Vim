@@ -433,16 +433,15 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-Vamos a verlo en detalle:
+Normalmente el comando global acepta el siguiente formato: `:g/patrón/comando`. Sin embargo puedes ejecutar también el comando global con el siguiente formato: `:g/patrón1/,/patrón2/comando`. De esta manera, Vim aplicará el comando `comando` dentro del `patrón1` y `patrón2`.
 
-- `:g` es el comando global.
-- `/^$/` es el patrón para una línea vacía. Recuerda que `^` significa el comienzo de una línea y `$` el final de una línea. `^$` encuentra una línea vacía (una línea con una longitud de cero caracteres).
-- `,/./-1` es el rango para el comando `j`. Como no se le pasa ningún valor para el comienzo del rango, este comienza en la línea actual. Ya aprendiste anteriormente que  `/./` es el patrón para una línea no vacía. `,/./` es un rango desde la línea actual hasta la siguiente línea no vacía. El rango del comando global, `/^$/`, te llevará hasta la primera coincidencia en la línea inferior `console.log("one: ", one);`. Esta es la línea actual. `/./` encuentra la primera línea no vacía, la línea  `const two = 2;`. Finalmente, `-1` cambia eso por una línea. El rango efectivo para la primera concurrencia es la línea vacía debajo de `console.log("one: ", one);` y la línea vacía encima de `const two = 2;`.
-- `j` es el comando Para unir líneas `:j`. Puedes unir todas las líneas dadas como su rango. Por ejemplo, `:1,5j` une las líneas de la uno a la cinco.
+Con esto en mente, vamos a ver en detalle el anterior comando `:g/^$/,/./-1j` que sigue el formato de: `:g/patrón1/,/patrón2/comando`:
 
-Ten en cuenta que estás pasando un rango (`,/./-1`) antes del comando `j`. Solo porqie estás utilizando un comando para la línea de comandos de Vim con el comando global, no significa que no puedas pasarla un rango. En este código, estás pasando al comando `j` su propio rango para ejecutarlo. Puedes pasar un rango para cualquier comando mientras estás ejecutando el comando global.
+- `/patrón1/` es `/^$/`. Esto representa una lína vacía (una línea sin ningún caracter).
+- `/patrón2/` es `/./` con el modificador de línea `-1`. `/./` representa una línea no vacía (una línea con al menos un caracter). El `-1` significa la línea superior a esa línea no vacía.
+- `comando` es en este caso `j`, el comando de unión de líneas (`:j`). En este contexto, este comando global unirá todas las líneas especificadas en una.
 
-Por cierto, si quieres reducir múltiples líneas vacías en una línea, en vez de utilizar `,/./-1` como rango para el comando `j`, simplemente utiliza `,/./` como rango en vez del anterior.
+Por cierto, si quieres reducir múltiples líneas vacías y eliminarlas por completo, en vez de utilizar `,/./-1` como rango para el comando `j`, simplemente utiliza `,/./` como rango.
 
 ```
 :g/^$/,/./j
