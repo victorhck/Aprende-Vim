@@ -464,9 +464,9 @@ const three = 3;
 console.log("three: ", three);
 ```
 
-### Advanced sort
+### Ordenado avanzado
 
-Vim has a `:sort` command to sort the lines within a range. For example:
+Vim dispone del comando `:sort` para ordenar líneas de un rango. Por ejemplo:
 
 ```
 d
@@ -476,9 +476,9 @@ e
 c
 ```
 
-You can sort them by running `:sort`. If you give it a range, it will sort only the lines within that range. For example, `:3,5sort` sorts only between lines three and five. 
+Puedes ordenarlas ejecutando `:sort`. Si le añades un rango, solo ordenará las líneas dentro de ese rango. Por ejemplo `:3,5sort` ordenará solo las líneas entre las líneas 3 y 5. 
 
-If you have the following expressions:
+Si tienes las siguiente expresiones:
 
 ```
 const arrayB = [
@@ -504,13 +504,14 @@ const arrayA = [
 ]
 ```
 
-If you need to sort the elements inside the arrays, but not the arrays themselves, you can run this:
+Si necesitar ordenar los elementos dentro de los arrays, pero no los propios arrays, puedes ejecutar lo siguiente:
 
 ```
 :g/\[/+1,/\]/-1sort
 ```
 
-Result:
+Este es el resultado:
+
 ```
 const arrayB = [
   "a",
@@ -535,27 +536,27 @@ const arrayA = [
 ]
 ```
 
-This is great! But the command looks complicated. Let's break it down. The command consists of three main parts: the global command pattern, the sort command range, and the sort command.
+¡Esto es genial! Pero el comando parece complicado. Vamos a verlo en detalle. El comando consiste en tres partes principales: el patrón del comando global, el rango del comando `sort` y el propio comando.
 
-`:g/\[/` is the global command pattern. 
-- `:g` is the global command.
-- `/\[/` is the pattern used by the global command. `\[` looks for a literal "[" string.
+`:g/\[/` es el patrón del comando global. 
+- `:g` es el comando global.
+- `/\[/` es el patrón utilizado por el comando global. `\[` busca literalmente la cadena "[".
 
-`+1,/\]/-1` is the range for the sort command.
-- A range can have a starting and an ending addresses. In this case, `+1` is the starting address and `/\]/-1` is the ending address.
-- `+1` represents the line after the current line, which is the line that matches the pattern "[" from the global command. `+1` offsets the current line by one line. So in the first match, the range actually starts one line *after* the `const arrayB = [` text.
-- `/\]/-1` is the ending address. `\]` represents a literal closing square bracket "]". `-1` offsets it by one line. The ending address is the line above the "]".
+`+1,/\]/-1` es el rango del comando `sort`.
+- Un rango puede tener una dirección de comienzo y otra de final. En este caso, `+1` es la dirección de comienzo y `/\]/-1` es la dirección final.
+- `+1` representa la linea después de la línea actual, que es la línea que coincide con el patrón "[" del comando global. `+1` añade un offset de una línea a la línea actual. Así en la primera ocurrencia encontrada, el rango comenzará una línea *después* del texto `const arrayB = [`.
+- `/\]/-1` es la dirección del final. `\]` representa de manera literal un corchete de cierre "]". `-1` añade un offset de una línea. La dirección final será la línea superior a "]".
 
-`sort` is the sort command-line command. It sorts everything within the given range. Everything after the "[" to the line above "]" is getting sorted.
+`sort` es el comando para ordenar en la línea de comandos. Ordena todo con el rango dado. Todo lo que hay después de "[" hasta todo lo que hay encima de "]" será ordenado.
 
-If you are still confused by the command, do not worry. It took me a long time to grasp it. Take a break, leave the screen, and come back again with a fresh mind.
+Si todavía estás confundido con el comando, no te preocupes. Me llevó mucho tiempo llegar a dominar el comando. Date un descanso, deja de mirar a la pantalla y regresa de nuevo con la mente despejada.
 
-## Learn the Global Command the Smart Way
+## Aprendiendo el comando global de la manera más inteligente
 
-The global command executes the command-line command against all matching lines. With it, you only need to run a command once and Vim will do the rest for you. To become proficient at the global command, two things are required: a good vocabulary of command-line commands and a knowledge of regular expressions. As you spend more time using Vim, you will naturally learn more command-line commands. A regular expression knowledge will require a more active approach. But once you become comfortable with regular expressions, you will be ahead of many. 
+El comando global ejecuta comandos de la línea de comandos en todas las líneas especificadas. Con este comando, solo necesitarás ejecutar el comando una vez y Vim hará el resto por ti. Para convertirte en un usuario eficiente del comando global, se necesitan dos cosas: un buen vocabulario de los comandos de la línea de comandos y un conocimiento de las expresiones regulares. Cuanto más tiempo pases utilizando Vim, más fácil será aprender más comandos de la línea de comandos de manera natural. Un conocimiento de las expresiones regulares requerirá un acercamiento más activo. Pero una vez que llegues a sentirte cómodo y cómoda con las expresiones regulares, llegarás a dominar muchas de estas. 
 
-Some of the examples here are complicated. Do not be intimidated. Really take your time to understand them. Learn to read the patterns. Make sure you know what each letter in each command represent. Do not give up.
+Algunos de los ejemplos que has podido leer aquí son somplicados. Pero no te sientas intimidado ni intimidada. Realmente lleva tiempo el entenderlos. Aprende a leer patrones. Asegúrate que comprendes qué significa cada letra y qué representa en cada comando. No te rindas.
 
-Whenever you need to apply a command in several locations, pause and see if you can use the `g` command. Look for the best command for the job and write a pattern to target as many things at once. Then repeat it until you can do it without thinking. The next time, see if there is even a faster and more efficient way to do it.
+Allí donde necesites aplicar un comando en diferentes sitios, detente y reflexiona si puedes utilizar el comando `g`. Busca el mejor comando para el trabajo y escribe un patrón que pueda hacer muchas cosas de una vez. Después repítelo hasta que puedas hacerlo sin necesidad de pensarlo. La siguiente vez, comprueba si existe una manera de hacerlo de una manera incluso más rápida y más eficiente.
 
-Now that you know how powerful the global command is, let's learn how to use the external commands to increase your tool arsenals.
+Ahora que conoces lo potente que es el comando global, vamos a aprender a utilizar los comandos externos para incrementar tu arsenal de herramientas.
