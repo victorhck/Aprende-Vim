@@ -57,38 +57,38 @@ El comando `r` también acepta una dirección:
 
 Ahora la salida estándar (STDOUT) de ejecutar `cat archivo1.txt` será insertada después de la línea 10.
 
-## Writing the Buffer Content Into an External Command
+## Escribir el contenido de un *buffer* en un comando externo
 
-In addition to saving a file, you can also use the write command (`:w`) to pass the text in the current buffer as the STDIN for an external command. The syntax is:
+Además de para guardar un archivo, también puedes utilizar el comando de escribir (`:w`) para pasar el contenido del *buffer* actual como la entrada estándar (STDIN) a un comando externo. La sintaxis es:
 
 ```
 :w !cmd
 ```
 
-If you have these expressions:
+Si tienes las siguientes expresiones en el *buffer*:
 
 ```
-console.log("Hello Vim");
-console.log("Vim is awesome");
+console.log("Hola Vim");
+console.log("Vim es asombroso");
 ```
 
-Make sure you have [node](https://nodejs.org/en/) installed in your machine, then run:
+Asegúrate de tener [node](https://nodejs.org/en/) instalado en tu equipo y después ejecuta:
 
 ```
 :w !node
 ```
 
-Vim will use `node` to execute the Javascript expressions to print "Hello Vim" and "Vim is awesome". 
+Vim usará  `node` para ejecutar las expresiones de Javascript para mostrar por pantalla "Hola Vim" y "Vim is asombroso". 
 
-When using the `:w` command, Vim uses all texts in the current buffer, similar to the global command (most command-line commands, if you don't pass it a range, only executes the command against the current line). If you pass `:w` a specific address:
+Al utilizar el comando `:w`, Vim utiliza todo el texto del *buffer* actual, de manera similar al comando global (la mayoría de comandos de la línea de comandos, si no les pasas un rango, solo ejecutan el comando en la línea actual, no en todo el *buffer*). Si le pasas al comando `:w` una dirección específica:
 
 ```
 :2w !node
 ```
 
-Vim only uses the text from the second line into the `node` interpreter.
+Vim solo utilizará el texto de la segunda línea en el intérprete de `node`.
 
-There is a subtle but significant difference between `:w !node` and `:w! node`. With `:w !node`, you are "writing" the text in the current buffer into the external command `node`. With `:w! node`, you are force-saving a file and naming the file "node".
+Existe una sutil pero significativa diferencia entre `:w !node` y `:w! node`. Con `:w !node`, estás "escribiendo" el texto del *buffer* actual en un comando externo, en este caso `node`. Con `:w! node`, estás forzando a guardar un archivo y dándole el nombre de "node".
 
 ## Executing an External Command
 
