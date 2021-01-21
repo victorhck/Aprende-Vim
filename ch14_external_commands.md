@@ -90,101 +90,101 @@ Vim solo utilizará el texto de la segunda línea en el intérprete de `node`.
 
 Existe una sutil pero significativa diferencia entre `:w !node` y `:w! node`. Con `:w !node`, estás "escribiendo" el texto del *buffer* actual en un comando externo, en este caso `node`. Con `:w! node`, estás forzando a guardar un archivo y dándole el nombre de "node".
 
-## Executing an External Command
+## Ejecutando un comando externo
 
-You can execute an external command from inside Vim with the bang command. The syntax is:
+Puedes ejecutar un comando externo desde dentro de Vim con comando *bang*. La sintaxis es:
 
 ```
 :!cmd
 ```
 
-To see the content of the current directory in the long format, run:
+Verás el contenido del directorio actual en su formado extendido, ejecuta:
 
 ```
 :!ls -ls
 ```
 
-To kill a process that is running on PID 3456, you can run:
+Para matar un proceso que se está ejecutando con el identificativo de proceso PID 3456, puedes ejecutar:
 
 ```
 :!kill -9 3456
 ```
 
-You can run any external command without leaving Vim so you can stay focused on your task.
+Puedes ejecutar cualquier comando externo sin dejar Vim y así permanecer centrado en tu tarea.
 
-## Filtering Texts
+## Filtranto textos
 
-If you give `!` a range, it can be used to filter texts. Suppose you have this:
+Si das un rango al comando `!`, esto puede ser utilizado para filtrar textos. Supongamos que tenemos estos textos:
 
 ```
 hello vim
 hello vim
 ```
 
-Let's uppercase the current line using the `tr` (translate) command. Run:
+Vamos a convertir a mayúsculas la línea actual utilizando el comando `tr` (translate). Ejecuta:
 
 ```
 :.!tr '[:lower:]' '[:upper:]'
 ```
 
-The result:
+Este es el resultado:
 
 ```
 HELLO VIM
 hello vim
 ```
 
-The breakdown:
-- `.!` executes the filter command on the current line.
-- `!tr '[:lower:]' '[:upper:]'` calls the `tr` command to replace all lowercase characters with uppercase ones.
+Vamos a ver en detalle el comando:
+- `.!` ejecuta el filtro del comando en la línea actual.
+- `!tr '[:lower:]' '[:upper:]'` llama al comando `tr` para reemplazar los caracteres en minúsculas a mayúsculas.
 
-It is imperative to pass a range to run the external command as a filter. If you try running the command above without the `.` (`:!tr '[:lower:]' '[:upper:]'`), you will see an error.
+Es imperativo pasar un rango para ejecutar el comando externo como un filtro. Si tratas de ejecutar el comando anterios sin el `.` (`:!tr '[:lower:]' '[:upper:]'`), verás un error.
 
-Let's assume that you need to remove the second column on both lines with the `awk` command:
+Asumamos ahora que necesitamos eliminar la segunda columna de ambas líneas utilizando el comando `awk`:
 
 ```
 :%!awk "{print $1}"
 ```
 
-The result:
+Este es el resultado:
 
 ```
 hello
 hello
 ```
 
-The breakdown:
-- `:%!` executes the filter command on all lines (`%`).
-- `awk "{print $1}"` prints only the first column of the match. In this case, the word "hello". 
+La explicación:
+- `:%!` ejecuta el filtro del comando en todas las líneas (`%`).
+- `awk "{print $1}"` imprime solo la primera columna. En este caso la palabra "hello". 
 
-You can chain multiple commands with the chain operator (`|`) just like in the terminal. Let's say you have a file with these delicious breakfast items:
+Puedes encadenar múltiples comando con el operado `|` de igual manera que en la terminal. Supongamos que tenemos un archivo con estos elementos de un delicioso desayuno:
 
 ```
-name price
-chocolate pancake 10
-buttermilk pancake 9
-blueberry pancake 12
+nombre precio
+Tarde chocolate 10
+Tarta merengue 9
+Tarta frambuesa 12
 ```
 
-If you need to sort them based on the price and display only the menu with an even spacing, you can run:
+Si necesitas ordenar la lisya en base al precio y mostrar solo el menu incluso con los espacios, puedes ejecutar:
 
 ```
 :%!awk 'NR > 1' | sort -nk 3 | column -t
 ```
 
-The result:
+El resultado:
 ```
-buttermilk pancake 9
-chocolate pancake 10
-blueberry pancake 12
+Tarta merengue 9
+Tarde chocolate 10
+Tarta frambuesa 12
 ```
 
-The breakdown:
-- `:%!` applies the filter to all lines (`%`).
-- `awk 'NR > 1'` displays the texts only from row number two onwards.
-- `|` chains the next command.
-- `sort -nk 3` sorts numerically (`n`) using the values from column 3 (`k 3`).
-- `column -t` organizes the text with even spacing.
+La explicación:
+- `:%!` aplica el filtro a todas las líneas (`%`).
+- `awk 'NR > 1'` muestra los texto solo desde la columna 2 en adelante.
+- `|` encadena esto con el siguiente comando.
+- `sort -nk 3` ordena numéricamente (`n`) utilizando los valores de la columna 3 (`k 3`).
+- `column -t` organiza el texto con los espaciados.
 
 ## Normal mode command
 
