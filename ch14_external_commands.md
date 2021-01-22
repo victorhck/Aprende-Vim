@@ -186,9 +186,9 @@ La explicación:
 - `sort -nk 3` ordena numéricamente (`n`) utilizando los valores de la columna 3 (`k 3`).
 - `column -t` organiza el texto con los espaciados.
 
-## Normal mode command
+## Comando del modo normal
 
-Vim has a filter operator (`!`) in the normal mode. If you have the following greetings:
+Vim tiene un filtro de operador (`!`) en el modo normal. Si tienes los siguientes saludos:
 
 ```
 hello vim
@@ -197,19 +197,19 @@ bonjour vim
 salve vim
 ```
 
-To uppercase the current line and the line below, you can run:
+Para convertir en mayúsculas la línea actual y la línea inferior, puedes ejecutar:
 ```
 !jtr '[a-z]' '[A-Z]'
 ```
 
-The breakdown:
-- `!j` runs the normal command filter operator (`!`) targetting the current line and the line below it. Recall that because it is a normal mode operator, the grammar rule `verb + noun` applies. 
-- `tr '[a-z]' '[A-Z]'` replaces the lowercase letters with the uppercase letters.
+La explicación:
+- `!j` ejecuta el filtro operador del comando normal (`!`) en la línea actual y la línea inferior. Recuerda que es un operador del modo normal, la regla gramática de `verbo + sustantivo` se aplica en este caso. 
+- `tr '[a-z]' '[A-Z]'` reemplaza las letras minúsculas con letras mayúsculas.
 
-The filter normal command only works on motions / text objects that are at least one line or longer. If you had tried running `!iwtr '[a-z]' '[A-Z]'` (execute `tr` on inner word), you will find that it applies the `tr` command on the entire line, not the word your cursor is on.
+El filtro del comando normal solo funciona en movimientos u objetos de texto que tengan al menos una línea o más. Si intentas ejecutar `!iwtr '[a-z]' '[A-Z]'` (ejecutar `tr` dentro de la palabra donde está el cursor), verás que se aplica el comando `tr` a la línea completa, no a la palabra sobre la que está el cursor.
 
-## Learn External Commands the Smart Way
+## Aprender los comandos externos de la manera más inteligente
 
-Vim is not an IDE. It is a lightweight modal editor that is highly extensible by design. Because of this extensibility, you have easy access to any external command in your system. With this, Vim is one step closer from becoming an IDE. Someone said that the Unix system is the first IDE ever.
+Vim no es un entorno de desarrollo integrado (o IDE por sus siglas en inglés). Es un editor modal ligero que por diseño es altamente extensible. Debido a esa propiedad de ser extensible, tienes un acceso sencillo a los comandos externos de tu sistema. Con esto, Vim está un paso más cerca de convertirse en un IDE. Alguien dijo alguna vez que el sistema Unix es el primer IDE que ha existido.
 
-The bang command is as useful as how many external commands you know. Don't worry if your external command knowledge is limited. I still have a lot to learn too. Take this as a motivation for continuous learning. Whenever you need to filter a text, look if there is an external command that can solve your problem. Don't worry about mastering everything about a particular command. Just learn the ones you need to complete the current task.
+El comando *bang* es tan útil como el número de comandos que conozcas. No te preocupes si tienes un conocimiento limitado de los comando modernos. Siempre hay que estar aprendiendo nuevos comandos, toma esto como una motivación para seguir aprendiendo. Cada vez que necesites filtrar un texto, echa un vistazo si existe un comando externo que pueda solucionar tu problema. No te preocupes en dominar todo sobre un comando en particular. Simplemente aprende los que necesites para realizar tu tarea actual.
