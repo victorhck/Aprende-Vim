@@ -1,8 +1,8 @@
 # Capítulo 12: Buscar y sustituir
 
-Este capítulo trata sobre dos conceptos separados pero relacionados: buscar y sustituir. Muchas veces, los textos que estás buscando no son simples y debes buscar un patrón común. Aprender cómo utilizar patrones significativos en las búsquedas y sustituciones en vez de cadenas de texto literales, hará que seas capaz de localizar cualquier texto rápidamente.
+Este capítulo trata sobre dos conceptos separados pero relacionados: buscar y sustituir. A menudo cuando estás editando con Vim, necesitas buscar múltiples textos basando esas búsquedas en un patrón que sea su mínimo denominador común. Aprender cómo utilizar expresiones regulares en la búsqueda y sustitución en vez de búsquedas de cadenas literales, hará que seas capaz de localizar cualquier texto rápidamente.
 
-Como nota complementaria, en este capítulo, utilizará principalmente `/` cuando me refiera a la búsqueda. Todo lo que puedes realizar con el comando `/` puede también ser realizado con `?`.
+Como nota complementaria, en este capítulo, utilizaré principalmente `/` cuando me refiera a la búsqueda. Todo lo que puedes realizar con el comando `/` puede también ser realizado con `?`.
 
 ## Sensibilidad inteligente a mayúsculas y minúsculas
 
@@ -10,9 +10,7 @@ Puede ser complicado hacer coincidir las mayúsculas y minúsculas en el términ
 
 Sin embargo, hay ocasiones en las que necesitas buscar una frase específica con diferenciación entre mayúsculas o minúsculas. Una forma de hacer eso es inhabilitando la opción `ignorecase` mediante `set noignorecase`, pero es muy laborioso el inhabilitar y volver a habilitar la opción cada vez que necesites una u otra forma de realizar búsquedas.
 
-¿Existe un ajuste que te permita realizar búsquedas que no tengan en cuenta las mayúsculas la mayor parte de las veces, pero también sepa cuando una búsqueda requiere buscar las mayúsculas cuando lo necesites? Resulta que hay una manera.
-
-Vim tiene una opción llamada `smartcase` para anular `ignorecase` si el patrón de búsqueda *contiene al menos una letra en mayúscula*. Puedes combinar tanto `ignorecase` y `smartcase` para realizar búsquedas que no tengan en cuenta las mayúsculas cuando introduzcas caracteres en minúsculas y tenga en cuenta las mayúsculas y minúsculas cuando introduzcas una o más letras en mayúsculas.
+Para evitar estar alternando la opción `ignorecase`, Vim tiene la opción `smartcase` para buscar cadenas de texto sin importar las mayúsculas o minúsculas si el patrón de búsqueda *contiene al menos una caracter en mayúscula*. Puedes combinar tanto `ignorecase` y `smartcase` para realizar búsquedas que no tengan en cuenta las mayúsculas cuando introduzcas caracteres en minúsculas y tenga en cuenta las mayúsculas y minúsculas cuando introduzcas una o más letras en mayúsculas.
 
 Dentro de tu archivo vimrc, añade:
 
@@ -27,12 +25,11 @@ HOLA
 Hola
 ```
 
-Puedes controlar si la búsqueda debe encontrar uno u otro término de la manera en la que escribas el el término de búsqueda con o sin mayúsculas:
 - `/hola` encontrará los términos "hola", "HOLA" y "Hola".
 - `/HOLA` encontrará solo "HOLA".
 - `/Hola` encontrará solo "Hola".
 
-Solo hay una pega. ¿Qué pasa cuando necesitas solo encontrar la cadena de texto en minúscula? Cuando buscas `/hola`, Vim siempre encontrará sus variantes con mayúsculas. ¿Qué pasa si no quieres que se muestren en la búsqueda? Puedes utilizar el patrón `\c` anteponiéndolo a tu búsqueda para decir que en el término de búsqueda siguiente tenga en cuenta las minúsculas. Ahora si ejecutas `/\chola`, restringirá las coincidencias únicamente a "hola" y no aparecerán ni "HOLA" ni "Hola".
+Solo hay una pega. ¿Qué pasa cuando necesitas solo encontrar la cadena de texto en minúscula? Cuando buscas `/hola`, Vim siempre encontrará sus variantes con mayúsculas. Puedes utilizar el patrón `\C` en cualquier parte en tu término de búsqueda para decirle a Vim que en el teŕmino de búsqueda tenga en cuenta las minúsculas. Ahora si ejecutas `/\Chola`, restringirá las coincidencias únicamente a "hola" y no aparecerán ni "HOLA" ni "Hola".
 
 ## El primer y último caracter en una línea
 
@@ -58,7 +55,7 @@ Al ejecutar `/hello$` no encontrará nada porque "amigo" es el último término 
 
 Puedes repetir la búsqueda con `//`. Si has buscado `/hola`, al ejecutar `//` será equivalente a ejecutar `/hola`. Este atajo de teclado te puede ahorrar varias pulsaciones de teclas, especialmente si anteriormente hiciste una búsqueda de un término bastante largo. También recordar que puedes utilizar `n` y `N` para repetir la última búsqueda en la misma dirección o en la dirección contraria, respectivamente.
 
-¿qué pasa si quieres volver a ejecutar rápidamente la búsqueda anterior *n*? Puedes navegar rápidamente por el historial de búsquedas pulsando primero la tecla `/`, y después las teclas  `arriba`/`abajo` (o `Ctrl-N`/`Ctrl-P`) hasta que encuentres el término de búsqueda que necesitas. Para ver todo el historial de búsquedas, puedes ejecutar `:history /`.
+¿Qué pasa si quieres volver a ejecutar rápidamente la búsqueda anterior *n*? Puedes navegar rápidamente por el historial de búsquedas pulsando primero la tecla `/`, y después las teclas  `arriba`/`abajo` (o `Ctrl-N`/`Ctrl-P`) hasta que encuentres el término de búsqueda que necesitas. Para ver todo el historial de búsquedas, puedes ejecutar `:history /`.
 
 Cuando llegues al final de un archivo mientras estás buscando, Vim te mostrará un error: `"Search hit the BOTTOM without match for: <your-search>"`. A veces esto puede ser una buena protección para no hacer una búsqueda sin fin, pero otras veces puedes necesitar que el ciclo de búsqueda vuelva a empezar desde la parte superior de nuevo. Puedes utilizar la opción `set wrapscan` para hacer que Vim vuelva a buscar desde el inicio de un archivo cuando llega al final de un archivo. Para inhabilitar esta opción simplemente ejecuta `set nowrapscan`.
 
@@ -77,7 +74,7 @@ bonjour vim
 
 Para encontrar tanto "hello" como "hola", puedes ejecutar `/hello\|hola`. Es necesario *escapar* (`\`) el operador de la tubería (`|`), de lo contrario Vim literalmente buscará la cadena "|". 
 
-Si no quieres escribir `\|` cada vez, puedes utilizar la sintaxis `magic` (`\v`) al comienzo de la búsqueda: `/\vhello|hola`. No se va a tratar `magic` en este capítulo, pero con `\v`, ya no necesitará escapar caracteres especiales nunca más. Para aprender más sobre `\v`, echa un vistazo a la ayuda de Vim mediante `:h \v`.
+Si no quieres escribir `\|` cada vez, puedes utilizar la sintaxis `magic` (`\v`) al comienzo de la búsqueda: `/\vhello|hola`. No se va a tratar `magic` en esta guía, pero con `\v`, ya no necesitará escapar caracteres especiales nunca más. Para aprender más sobre `\v`, echa un vistazo a la ayuda de Vim mediante `:h \v`.
 
 ## Estableciendo el inicio y el final de una búsqueda
 
@@ -139,19 +136,19 @@ Puedes pasarle el argumento `count` a tu búsqueda. Tiene la siguiente sintaxis:
 {n,m}
 ```
 
-Por cierto, estos llaves de `count` necesitan ser *escapadas* cuando las utilizas en Vim. El operador `count` es ubicado después del caracter que quieres incrementar.
+Por cierto, estas llaves de `count` necesitan ser *escapadas* cuando las utilizas en Vim. El operador `count` es ubicado después del caracter que quieres incrementar.
 
 Aquí tienes cuatro variaciones diferente de la sintaxis de `count`:
 - `{n}` es una búsqueda exacta. `/[0-9]\{2\}`  encontrará números de dos dígitos: "11" y el "11" en "111".
 - `{n,m}` es un rango de búsqueda. `/[0-9]\{2,3\}` encontrará números con 2 y 3 dígitos: "11" y "111".
-- `{,m}` es un límite superior debúsqueda. `/[0-9]\{,3\}` encontrará números hasta de 3 dígitos: "1", "11" y "111".
+- `{,m}` es un límite superior de búsqueda. `/[0-9]\{,3\}` encontrará números hasta de 3 dígitos: "1", "11" y "111".
 - `{n,}` es una búsqueda con límite al menos *n* elementos. `/[0-9]\{2,\}` encontrará números con al menos 2 o más dígitos: "11" y "111".
 
 Los argumentos de contaje `\{0,\}` (cero o más) y `\{1,\}` (uno o más) son patrones de búsqueda comunes y Vim tiene operadores especiales para estos casos: `*` y `+` (`+` necesita ser *escapado* mientras que `*` funciona bien sin necesidad de añadir símbolos de escape). Si ejecutas `/[0-9]*`, esto es lo mismo que ejecutar `/[0-9]\{0,\}`. Buscará cero o más dígitos. Esto encontrará "", "1", "123". Por cierto, también encontrará caracteres que no sean dígitos como "a", porque técnicamente hay un dígito cero en la letra "a". Piénsalo detenidamente antes de utilizar `*`. Si ejecutas `/[0-9]\+`, es lo mismo que ejecutar `/[0-9]\{1,\}`. Esto buscará uno o más dígitos. Encontrará "1" y "12".
 
 ## Rangos predefinidos
 
-Vim tiene unos rangos predefinidos para los caracteres más comunies como dígitos o letras. No vamos a entrar en detalle de todos, pero si lo necesitas puedes encontrar la lista ejecutando: `:h /character-classes`. Aquí tienes los más útiles:
+Vim tiene unos rangos predefinidos para los caracteres más comunes como dígitos o letras. No vamos a entrar en detalle de todos, pero si lo necesitas puedes encontrar la lista ejecutando: `:h /character-classes`. Aquí tienes los más útiles:
 
 ```
 \d    Dígitos [0-9]
@@ -165,8 +162,7 @@ Vim tiene unos rangos predefinidos para los caracteres más comunies como dígit
 
 Los puedes utilizar como utilizarías un rango de caracteres. Para buscar un único dígito, en vez de utilizar `/[0-9]`, puedes utilizar `/\d` para una sintaxis más concisa.
 
-## Mas ejemplos de búsqueda
-### Encontrar un texto entre un par de caracteres similares
+## Ejemplo de búsqueda: Encontrar un texto entre un par de caracteres similares
 
 Si quieres buscar una frase rodeada por un par de comillas dobles:
 
@@ -176,7 +172,9 @@ Si quieres buscar una frase rodeada por un par de comillas dobles:
 
 Ejecuta esto:
 
-`/"[^"]\+"`
+```
+/"[^"]\+"
+```
 
 Vamos a diseccionar el comando:
 - `"` es una doble comilla literal. Encontrará la primera comilla doble.
@@ -184,20 +182,29 @@ Vamos a diseccionar el comando:
 - `\+` significa uno o más. Como está precedido por `[^"]`, Vim busca uno o más caracteres que no sean una comilla doble.
 - `"` es una doble comilla literal. Encontrará las comillas dobles de cierre.
 
-Cuando ve el primer `"`, comenzará el patrón de captura. En el momento que Vim ve las segundas comillas dobles en una línea, encuentra el segunto patrón de `"` y detiene el patrón de captura. Mientras, todos los caracteres que no sean `"` entre las dos comillas `"` son capturados por el patrón `[^"]\+`, en este caso, la frase `¡Vim es asombroso!`. Este es un patrón común a la hora de capturar una frase encerrada entre un par de delimitadores similares: para capturar una frase entre dos comillas simples, puedes utilizar  `/'[^']\+'`. 
+Cuando ve el primer `"`, comenzará el patrón de captura. En el momento que Vim ve las segundas comillas dobles en una línea, encuentra el segundo patrón de `"` y detiene el patrón de captura. Mientras, todos los caracteres que no sean `"` entre las dos comillas `"` son capturados por el patrón `[^"]\+`, en este caso, la frase `¡Vim es asombroso!`. Este es un patrón común a la hora de capturar una frase encerrada entre un par de delimitadores similares.
 
-### Encontrando un número de teléfono
+- Para capturar una frase entre dos comillas simples, puedes utilizar  `/'[^']\+'`. 
+- Para capturar una frase entre ceros, puedes utilizar `/0[^0]\+0`. 
+
+## Ejemplo de búsqueda: Encontrando un número de teléfono
 
 Si quieres encontrar un número de teléfono de EE.UU. separados por guiones (`-`), como `123-456-7890`, puedes utilizar:
 
 ```
-/\v\d\{3\}-\d\{3\}-\d\{4\}
+/\d\{3\}-\d\{3\}-\d\{4\}
 ```
 
 Los números de teléfono de EE.UU. están formados por un conjunto de tres números, seguidos por otros tres números y finalmente cuatro dígitos. Vamos a ver en detalle el comando:
 
-- `\d\{3\}` contrará un dígito repetido exactamente tres veces
+- `\d\{3\}` encontrará un dígito repetido exactamente tres veces
 - `-` es literalmente un guión
+
+Puedes evitar tener que escribir los signos de *escapado* de caracteres especiales utilizando `\v`:
+
+```
+/\v\d{3}-\d{3}-\d{4}
+```
 
 Este patrón es también útil para capturar dígitos repetidos, como direcciones IP o códigos postales.
 
@@ -208,7 +215,7 @@ Con esto finaliza la parte de búsquedas de este capítulo. Ahora veamos las sus
 El comando de sustitución de Vim es útil para rápidamente encontrar y reemplazar cualquier patrón. La sintaxis de una sustitución básica es:
 
 ```
-:s/patrón_antiguo/patrón_nuevo/
+:s/{patrón_antiguo}/{patrón_nuevo}/
 ```
 
 Vamos a empezar con un uso básico. Si tenemos el siguiente texto:
@@ -225,7 +232,7 @@ vim es increíble
 
 ## Repetir la última sustitución
 
-Puedes repetir el último comando de sustitución ya sea con el comando normal `&` o ejecutando `:s`. Si acabas de ejecutar `:s/good/awesome/`, tanto ejecutando `&` o `:s` repetirá la misma sustitución. 
+Puedes repetir el último comando de sustitución ya sea con el comando normal `&` o ejecutando `:s`. Si acabas de ejecutar `:s/bueno/increíble/`, tanto ejecutando `&` o `:s` repetirá la misma sustitución. 
 
 También, previamente en este mismo capítulo mencioné que puedes utilizar `//` para repetir el patrón de búsqueda previo. Este truco funciona con el comando de sustitución. Si `/bueno` fue ejecutado recientemente y dejas el primer argumento del patrón de sustitución en blanco, de esta manera `:s//increíble/`, es lo mismo que ejecutar lo siguiente `:s/bueno/increíble/`.
 
@@ -253,17 +260,17 @@ Para sustituir "let" por "const" de la línea tres a la cinco, deberás ejecutar
 :3,5s/let/const/
 ```
 
-La sintaxis del rango del comando de sustitución es similar a la sintaxis del contador en el comando de la búsqueda (`{n,m}`), con algunas pequeñas diferencias. Aquí tienes algunas variaciones para pasar el rango:
+Aquí tienes algunas variaciones para pasar el rango:
 
 - `:,3/let/const/` - si no se da ningún parámetro antes de la coma, representa la línea actual. Sustituye desde la línea actual hasta la línea 3.
 - `:1,s/let/const/` - si no se da ningún dato después de la coma, también representa la línea actual. Sustituye desde la línea 1 hasta la línea actual.
 - `:3s/let/const/` - si solo se da un valor como rango (sin coma), realiza la sustitución únicamente en esa línea.
 
-En Vim, `%` normalmente se refiere al archivo entero. Si ejecutas `:%s/let/const/`, esto realizará la sustitución en todas las líneas del archvo.
+En Vim, `%` normalmente se refiere al archivo entero. Si ejecutas `:%s/let/const/`, esto realizará la sustitución en todas las líneas del archvo. Ten en mente la sintaxis de este rango. Muchos comandos para la línea de comandos que aprenderás en capítulos siguientes seguirán esta misma forma.
 
 ## Encontrando un patrón
 
-En las siguientes secciones vamos a tratar de ver algunas de las expresiones regualres básicas. El conocimiento de un patrón robusto es esencial para dominar el comando de sustitución.
+En las siguientes secciones vamos a tratar de ver algunas de las expresiones regulares básicas. El conocimiento de un patrón robusto es esencial para dominar el comando de sustitución.
 
 Imaginemos que tenemos las siguientes expresiones:
 
@@ -293,12 +300,12 @@ let cinco = "5";
 Vamos a ver el comando en detalle:
 
 - `:%s` esto busca en el archivo entero para realizar una acción de sustitución.
-- `\d` es el rango predefinido en Vim para los dígito, similar a (`[0-9]`). 
-- `"\0"` las comillas dobles son literalmente comillas dobles. `\0` es un caracter especial que representa "el patrón de encontrado completo". El patrón de búsqueda aquí es un número de un solo dígito, `\d`. En la línea uno, `\0` tienes el valor "1". En la línea dos, tiene el valor "2". En la línea tres, el valor "3", y así sucesivamente.
+- `\d` es el rango predefinido en Vim para los dígitos, similar a (`[0-9]`). 
+- `"\0"` las comillas dobles son literalmente comillas dobles. `\0` es un caracter especial que representa "el patrón de encontrado completo". El patrón de búsqueda aquí es un número de un solo dígito, `\d`.
 
-De igual manera, el símbolo `&` también representa "el patrón encontrado completo" igual que `\0`. Por lo que `:s/\d/"&"/` también hubiera funcionado
+De igual manera, el símbolo `&` también representa "el patrón encontrado completo" igual que `\0`. Por lo que `:s/\d/"&"/` también hubiera funcionado.
 
-Vamos a considerar otro ejemplo, Dadas estas expresiones:
+Vamos a considerar otro ejemplo. Dadas estas expresiones, necesitamos intercambiar todos los "let" con los nombres de las variables.
 ```
 uno let = "1";
 dos let = "2";
@@ -306,7 +313,7 @@ tres let = "3";
 cuatro let = "4";
 cinco let = "5";
 ```
-Necesitas intercambiar todos los "let" con los nobres de las variable. Para hacer eso, ejecuta:
+Para hacer eso, ejecuta:
 
 ```
 :%s/\(\w\+\) \(\w\+\)/\2 \1/
@@ -330,8 +337,8 @@ let cinco = "5";
 
 ¡Genial! Veamos el comando en detalle:
 
-- `:%s` busca en todas las líneas del archivo.
-- `(\w+) (\w+)` agrupa los patrones. `\w` es uno de los rangos predefinidos de Vim para un caracter d euna palabra (`[0-9A-Za-z_]`). Los paréntesis `( )` rodeando captura un caracter de palabra coincidente en un frupo. Ten en cuenta el espacio entre los dos agrupamientos. `(\w+) (\w+)` captura en dos grupos. en la primera línea, el primer grupo captura el "uno" y el segundo grupo captura el "dos".
+- `:%s` busca en todas las líneas del archivo para realizar la sustitución.
+- `(\w+) (\w+)` agrupa los patrones. `\w` es uno de los rangos predefinidos de Vim para un caracter de una palabra (`[0-9A-Za-z_]`). Los paréntesis `( )` rodeando captura un caracter de palabra coincidente en un frupo. Ten en cuenta el espacio entre los dos agrupamientos. `(\w+) (\w+)` captura en dos grupos. en la primera línea, el primer grupo captura el "uno" y el segundo grupo captura el "dos".
 - `\2 \1` devuelve el grupo capturado en orden inverso. `\2` contiene la cadena "let" y `\1` la cadena "uno". Al tener `\2 \1` esto devuelve la cadena "let uno".
 
 Recordemos que `\0` representa el patrón encontrado al completo. Puedes romper la cadena encontrada en grupos más pequeños con `( )`. Cada grupo es representado por `\1`, `\2`, `\3`, etc.
@@ -370,7 +377,7 @@ Hubieras obtenido un resultado diferente:
 978
 ```
 
-Esto es debido a que ahora solo tienes dos grupos. El primer grupo, capturado por `(\d\d)`, es almacenado en `\1` y tiene el valor "12". El segundo grupo, capturado por `(\d)`, es almacenado dentro de `\2` y tiene el valor "3". `\2\1` entonces, esto devolverá "312".
+Esto es debido a que ahora solo tienes dos grupos. El primer grupo, capturado por `(\d\d)`, es almacenado en `\1` y tiene el valor 12. El segundo grupo, capturado por `(\d)`, es almacenado dentro de `\2` y tiene el valor 3. `\2\1` entonces, esto devolverá 312.
 
 ## Las opciones de sustitución
 
@@ -392,7 +399,7 @@ El comando anterior, solo sustituirá la primera coincidencia que encuentre, por
 donut de chocolate, tarta de fresa, tarta de frambuesa
 ```
 
-Hay dos maneras de solucionar esto, Primera, puedes ejecutar el comando de sustitución un par de veces más. Segunda, puedes ejecutar el comando de sustitución añadiendo la opción de sustitución global (`g`) para que realice el comando en todas las coincidencias que encuentre en la línea.
+Hay dos maneras de solucionar esto. Puedes ejecutar el comando de sustitución un par de veces más o puedes ejecutar el comando de sustitución añadiendo la opción de sustitución global (`g`) para que realice el comando en todas las coincidencias que encuentre en la línea.
 
 Veamos la opción de global. Ejecuta:
 
@@ -413,7 +420,7 @@ I    Realiza una sustitución teniendo en cuenta mayúsculas y minúsculas.
 
 Existen más opciones que las que están mostradas en este listado. Para leer sobre estas opciones, llamadas *flags* en Vim, echa un vistazo a la ayuda: `:h s_flags`.
 
-Por cierto, el comando de repetir una sustitución (`&` y `:s`) no mantiene las opciones ejecutadas anteriormente. Al ejecutar `&` esto solo repetirá `:s/tarta/donut/` sin `g`. Pararepetir rápidamente el último comando de sustitución con todas sus opciones, deberás ejecutar `:&&`.
+Por cierto, el comando de repetir una sustitución (`&` y `:s`) no mantiene las opciones ejecutadas anteriormente. Al ejecutar `&` esto solo repetirá `:s/tarta/donut/` sin `g`. Para repetir rápidamente el último comando de sustitución con todas sus opciones, deberás ejecutar `:&&`.
 
 ## Cambiando el delimitador
 
@@ -438,7 +445,7 @@ Ahora es más sencillo ver donde están los delimitadores.
 
 ## Reemplazo especial
 
-También puedes modificar las mayúsculas o minúsculas del texto que está sustituyendo. Dadas las siguientes expresiones:
+También puedes modificar las mayúsculas o minúsculas del texto que está sustituyendo. Dadas las siguientes expresiones, tu tatera es convertir en mayúsculas las variables "uno", "dos", "tres", etc.
 
 ```
 let uno = "1";
@@ -448,7 +455,7 @@ let cuatro = "4";
 let cinco = "5";
 
 ```
-Para convertir en mayúsculas las variables "uno", "dos", "tres", etc. Ejecuta:
+Ejecuta:
 
 ```
 %s/\v(\w+) (\w+)/\1 \U\2/
@@ -466,13 +473,13 @@ let CINCO = "5";
 
 Veamos el comando en detalle:
 
-- `(\w+) (\w+)` captura el primero de los dos grupos encontrado, que son "let" y "one".
+- `(\w+) (\w+)` captura el primero de los dos grupos encontrado, que son "let" y "uno".
 - `\1` devuelve el valor del primer grupo: "let".
 - `\U\2` cambia a mayúsculas (`\U`) el segundo grupo (`\2`).
 
-El truco de este comando reside en la expresión `\U\2`. `\U` hace que el siguiente caracter se convertido a mayúsculas.
+El truco de este comando reside en la expresión `\U\2`. `\U` hace que el siguiente caracter sea convertido a mayúsculas.
 
-Vamos a ver un ejemplo más. Supongamos que estás escribiendo un libro sobre Vim y necesitas convertir en mayúsculas la primera letra de cada palabra de una línea.
+Vamos a ver un ejemplo más. Supongamos que estás escribiendo una guía sobre Vim y necesitas convertir en mayúsculas la primera letra de cada palabra de una línea.
 
 ```
 vim es el mejor editor de texto en toda la galaxia
@@ -510,7 +517,7 @@ salve vim
 bonjour vim
 ```
 
-Y necesitas sustituie la palabra "vim" por "amigo" pero solo en las líneas que contengan las palabras "hello" u "hola". Ejecuta:
+Y necesitas sustituie la palabra "vim" por "amigo" pero solo en las líneas que contengan las palabras "hello" u "hola". Recuerda que en este capítulo vimos que se podía utilizar `|` para encadenar múltiples patrones.
 
 ```
 :%s/\v(hello|hola) vim)/\1 amigo/g
@@ -542,7 +549,7 @@ strawberry sweetcake
 blueberry hotcake
 ```
 
-Para sustituir el texto "cake" en "hotcake" con "dog" para obtener "hotdog":
+Para sustituir el texto "cake" dentro de "hotcake" con "dog" para obtener "hotdog":
 
 ```
 :%s/hot\zscake/dog/g
@@ -649,30 +656,19 @@ Asumimos que la escrutura del directorio es la siguiente:
 - animal.txt
 ```
 
-Primero, vamos a capturar tanto `food.txt` como `animal.txt` dentro de `:args`. Recordemos de capítulos anteriores que `:args` puede ser utilizado para crear una lista de nombres de archivos. Hay varias formas de realizar esto dentro de Vim:
+Primero, vamos a capturar tanto `food.txt` como `animal.txt` dentro de `:args`. Recordemos de capítulos anteriores que `:args` puede ser utilizado para crear una lista de nombres de archivos. Hay varias formas de realizar esto dentro de Vim, una de ellas es ejecutando esto dentro de Vim:
 
 ```
 :args *.txt                  captura todos los archivos txt en la ubicación actual
-:args food.txt animal.txt    captura solo los archivos indicados
-:args **/*.txt               captura todos los archivos txt
-:args **                     captura todo
 ```
 
-También puedes ejecutar los comandos anteriors desde fuera de Vim, pasando los archivos como *argumentos* de Vim (por esto es llamado el comando "args"). Desde la terminal, ejecuta:
-
-```
-vim food.txt animal.txt
-```
-
-Cuando Vim arranca, encontrarás que `food.txt` y `animal.txt` están dentro de `:args`.
-
-De cualquier manera, si ejecutas `:args`, deberías ver:
+Para comprobarlo, cuando ejecutas `:args`, deberías ver:
 
 ```
 [food.txt] animal.txt
 ```
 
-Para ir al argumento siguiente o previo de la lista, escribe `:next` o `:previous`. Ahora que todos los archivos relevantes están almacenados dentro de la lista de argumentos, puedes realizar una sustitución en múltiples archivos con el comando `:argdo`. Ejecuta:
+Ahora que todos los archivos necesarios están almacenados dentro de la lista de argumentos, puedes realizar una sustitución en múltiples archivos con el comando `:argdo`. Ejecuta:
 
 ```
 :argdo %s/dog/chicken/
@@ -688,10 +684,10 @@ Esto realiza una sustitución en todos los archivos que estén dentro de la list
 
 ## Sustituyendo a través de múltiples archivos con macros
 
-De manera alternativa, también puedes ejecutar el comando de sustituir en múltiples archivos con macros. Vamos a empezar obteniendo los archivos relevantesen la lista de argumentos. Ejecuta:
+De manera alternativa, también puedes ejecutar el comando de sustituir en múltiples archivos con macros. Vamos a empezar obteniendo los archivos relevantes en la lista de argumentos. Ejecuta:
 
 ```
-:args animal.txt food.txt
+:args *.txt
 qq
 :%s/dog/chicken/g
 :wnext
@@ -701,10 +697,10 @@ q
 
 Veamos los pasos seguidos en detalle:
 
-- `:args animal.txt food.txt` lista los archivos relevantes dentro de la lista de `:args`.
-- `qq` comienza la grabación de la marcho en el registro "q".
+- `:args *.txt` añade todos los archivos de texto a la lista de `:args`.
+- `qq` comienza la grabación de la macro en el registro "q".
 - `:%s/dog/chicken/g` sustituye "dog" con "chicken" en todas las líneas del archivo actual.
-- `:wnext` escribe (guarda) el archivo y después va al siguiente archivo de la lista `args`. Sería similar a ejecutar `:w` y `:next` al mismo tiempo.
+- `:wnext` escribe (guarda) el archivo y después va al siguiente archivo de la lista `args`.
 - `q` detiene la grabación de la macro.
 - `99@q` ejecuta la macro noventa y nueve veces. Vim detendrá la ejecución de la macro después de encontrar el primer error, así que Vim no ejecutará la macro noventa y nueve veces.
 
