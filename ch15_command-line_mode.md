@@ -26,20 +26,20 @@ Si ejecutaste previamente `:s/foo/bar/g`, ahora ejecutando `@:` repetirá esa su
 
 Si ejecutaste `:.!tr '[a-z]' '[A-Z]'`, ejecutando `@:` repetirá el último filtro del comando externo de traducción.
 
-## Command-line Mode Shortcuts
+## Atajos de teclado del modo línea de comandos
 
-While in the command-line mode, you can move to the left or to the right, one character at a time, with the `Left` or `Right` arrow.
+Mientras estás en el modo línea de comandos, puede moverta a izquierda o derecha un caracter cada vez con las flechas de dirección del cursor `Izquierda` o `Derecha`.
 
-If you need to move word-wise, use `Shift-Left` or `Shift-Right` (in some OS, you might have to use `Ctrl` instead of `Shift`).
+Si necesitas moverte una palabra cada vez, utiliza `Shift-Izquierda` o `Shift-Derecha` (en algunos sistemas operativos, deberás utilizar la tecla `Ctrl` en vez de `Shift`).
 
-To go to the start of the line, use `Ctrl-B`. To go to the end of the line, use `Ctrl-E`.
+Para ir al comienzo de la línea, utiliza `Ctrl-B`. Para ir al final de la línea, utiliza `Ctrl-E`.
 
-Similar to the insert mode, inside the command-line mode, you have three ways to delete characters:
+De manera similar al modo de insertar, dentro del modo línea de comandos, tienes tres maneras de eliminar caracteres:
 
 ```
-Ctrl-H    Delete one character
-Ctrl-W    Delete one word
-Ctrl-U    Delete the entire line
+Ctrl-H    Elimina un caracter
+Ctrl-W    Elimina una palabra
+Ctrl-U    Elimina la línea entera
 ```
 
 ## Register and Autocomplete
