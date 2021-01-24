@@ -18,12 +18,13 @@ Para dejar el modo línea de comandos, puedes utilizar `<esc>`, `Ctrl-C, o Ctrl-
 
 *Algunas veces en otras guías o libros puede que refieran a los "comandos de la línea de comandos" como "comandos Ex" y los "comandos externos" como "comandos de filtros" u "operadores bang".*
 
-## Repeating the Previous Command
-You can repeat the previous command-line command or external command with `@:`. 
+## Repitiendo el comando previo
 
-If you just ran `:s/foo/bar/g`, running `@:` repeats that substitution.
+Puedes repetir tanto el comando o comando externo ejecutado previamente medianto `@:`. 
 
-If you just ran `:.!tr '[a-z]' '[A-Z]'`, running `@:` repeats the last external command translation filter.
+Si ejecutaste previamente `:s/foo/bar/g`, ahora ejecutando `@:` repetirá esa sustitución.
+
+Si ejecutaste `:.!tr '[a-z]' '[A-Z]'`, ejecutando `@:` repetirá el último filtro del comando externo de traducción.
 
 ## Command-line Mode Shortcuts
 
