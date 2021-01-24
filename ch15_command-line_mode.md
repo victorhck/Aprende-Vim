@@ -4,19 +4,19 @@ En los últimos tres capítulos, aprendiste cómo utilizar los comandos de búsq
 
 En este capítulo, aprenderás varios trucos para el modo línea de comandos.
 
-## Entering and Exiting the Command-line Mode
-The command-line mode is a mode in itself, just like normal mode, insert mode, and visual mode. When you are in this mode, the cursor goes to the bottom of the screen where you can type in different commands.
+## Entrar y salir del modo línea de comandos
+El modo línea de comandos es un modo en sí mismo, como el modo normal, el modo insertar y el modo visual. Cuando estás en este modo, el cursor se situa en la parte inferior de la pantalla en donde se pueden escribir diferentes comandos.
 
-There are 4 different commands you can use to enter the command-line mode:
-- Search patterns (`/`, `?`)
-- Command-line commands (`:`)
-- External commands (`!`)
+Hay 4 comandos diferentes que puedes introducir cuando estás en el modo línea de comandos:
+- Patrones de búsqueda (`/`, `?`)
+- Comandos de la línea de comandos (`:`)
+- Comandos externos (`!`)
 
-You can enter the command-line mode from the normal mode or the visual mode. 
+Puedes entrar en el modo línea de comandos desde el modo normal o desde el modo visual. 
 
-To leave the command-line mode, you can use `<esc>`, `Ctrl-C, or Ctrl-[`.
+Para dejar el modo línea de comandos, puedes utilizar `<esc>`, `Ctrl-C, o Ctrl-[`.
 
-*Sometimes other literatures might refer the "Command-line command" as "Ex command" and the "External command" as "filter command" or "bang operator".*
+*Algunas veces en otras guías o libros puede que refieran a los "comandos de la línea de comandos" como "comandos Ex" y los "comandos externos" como "comandos de filtros" u "operadores bang".*
 
 ## Repeating the Previous Command
 You can repeat the previous command-line command or external command with `@:`. 
