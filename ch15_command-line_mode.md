@@ -1,7 +1,8 @@
-# Capítulo 15: Command-line Mode
-In the last three chapters, you learned how to use the search commands (`/`, `?`), substitute command (`:s`), global command (`:g`), and external command (`!`). These are examples of command-line mode commands.
+# Capítulo 15: El modo de línea de comando.
 
-In this chapter, you will learn various tips and tricks for the command-line mode.
+En los últimos tres capítulos, aprendiste cómo utilizar los comandos de búsqueda (`/`, `?`), sustitución (`:s`), el comando global (`:g`) y el comando externo (`!`). Estos son ejemplos de comandos para la línea de comandos.
+
+En este capítulo, aprenderás varios trucos para el modo línea de comandos.
 
 ## Entering and Exiting the Command-line Mode
 The command-line mode is a mode in itself, just like normal mode, insert mode, and visual mode. When you are in this mode, the cursor goes to the bottom of the screen where you can type in different commands.
