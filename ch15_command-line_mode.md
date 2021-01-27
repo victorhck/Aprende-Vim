@@ -54,11 +54,11 @@ También puedes autocompletar los comandos existentes. Para autocompletar el com
 
 Algunos de los comandos de la línea de los comandos aceptan nombres de archivos como argumentos. Un ejemplo es `edit`. También puedes utilizar el autocompletado en este caso. Después de ecribir el comando, `:e ` (no olvides añadir un espacio al final), presiona `<Tab>`. Vim mostrará un listado de todos los nombres de archivos relevantes entre los que puedes escoger, así no tendrás que escribirlo tu mismo.
 
-## History Window And Command-line Window
+## La ventana del historial y la ventana de la línea de comandos
 
-You can view the histoy of command-line commands and search terms (this requires the `+cmdline_hist` feature).
+Puedes consultar el historial de comandos ejecutados en la línea de comandos y buscar términos (para eso es necesario que Vim incluya la funcionalidad `+cmdline_hist` ).
 
-To open the command-line history, run `:his :`. You should see something like the following:
+Para abrir el historial de la línea de comandos, ejecuta `:his :`. Deberías ver algo similar a esto (pero con los comandos que tu hayas ejecutado recientemente en tu editor Vim):
 
 ```
 ##  cmd History
@@ -67,30 +67,30 @@ To open the command-line history, run `:his :`. You should see something like th
 4  s/foo/bar/g
 ```
 
-Vim lists the history of all the `:` commands you run. By default, Vim stores the last 50 commands. To change the amount of the entries that Vim remembers to 100, you run `set history=100`.
+Vim muestra un listado de todos los comandos `:` que has ejecutado, Vim de manera predeterminada almacena 50 registros en ese historial. Para cambiar la cantidad total de comandos que Vim puede recordar a 100, deberás ejecutar `set history=100`.
 
-A more useful use of the command-line history is through the command-line window,`q:`. This will open a searchable, editable history window. Suppose you have these expressions in the history when you press `q:`:
+Para manejar mejor ese historial de comandos de la línea de comandos lo mejor es hacerlo mediante su ventana, para ello ejecutaremos ,`q:`. Esto abrirá una ventana en la que podremos buscar y editar el historial. Supongamos que nos aparecen estas expresiones en el historial al pulsar `q:`:
 
 ```
-51  s/verylongsubstitutionpattern/pancake/g
+51  s/patróndesustituciónsuperlargo/tarta/g
 52  his :
 53  wq
 ```
 
-If your current task is to do `s/verylongsubstitutionpattern/donut/g`, instead of typing the command from scratch, why don't you reuse `s/verylongsubstitutionpattern/pancake/g`? After all, the only thing that's different is the word substitute, "donut" vs "pancake". Everything else is the same.
+Si lo que necesitas hacer es `s/patróndesustituciónsuperlargo/donut/g`, en vez de escribir el comando de nuevo, porque no reutilizar el comando que encontramos en el historial `s/patróndesustituciónsuperlargo/tarta/g`? Después de todo, la única diferencia es la palabra que se quiere sustituir, "donut" vs "tarta". Todo lo demás es lo mismo.
 
-After you ran `q:`, find that `s/verylongsubstitutionpattern/pancake/g` in the history (you can use the Vim navigation in this environment) and edit it directly! Change "pancake" to "donut" inside the history window, then press `<Enter>`. Boom! Vim executes `s/verylongsubstitutionpattern/donut/g` for you. Super convenient!
+Después de ejecutar `q:`, encuentra ese comando `s/patróndesustituciónsuperlargo/tarta/g` en el historial (puedes utilizar las teclas de navegación de Vim cuando estás en esta pantalla) ¡y editarlo directamente! Cambia "tarta" por "donut" dentro de la propia ventana del historial, y después pulsa `<Enter>`. ¡Boom! Vim ejecuta `s/patróndesustituciónsuperlargo/donut/g` para ti. ¡Justo lo que querías!
 
-Similarly, to view the search history, run `:his /` or `:his ?`. To open the search history window where you can search and edit past history, run `q/` or `q?`.
+De manera similar, para ver el historial de búsquedas, ejecuta `:his /` o `:his ?`. Para abrir la ventana del historial de búsquedas en donde prodrás buscar y editar entradas anteriores del historial, ejecuta `q/` o `q?`.
 
-To quit this window, press `Ctrl-C`, `Ctrl-W C`, or type `:quit`.
+Para salir de esta ventana, pulsa `Ctrl-C`, `Ctrl-W C`, o escribe `:quit`.
 
-## More Command-line Commands
+## Más comandos para la línea de comandos
 
-Vim has hundreds of built-in commands. To see all the commands Vim have, check out `:h ex-cmd-index` or `:h :index`.
+Vim tiene cientos de comandos propios. Para ver todos los comandos que tiene Vim, echa un vistazo a `:h ex-cmd-index` o `:h :index`.
 
-## Learn Command-line Mode The Smart Way
+## Aprender el modo línea de comandos de la manera más inteligente
 
-Compared to the other three modes, the command-line mode is like the Swiss Army knife of text editing. You can edit text, modify files, and execute commands, just to name a few. This chapter is a collection of odds and ends of the command-line mode. It also brings Vim modes into closure. Now that you know how to use the normal, insert, visual, and command-line mode you can edit text with Vim faster than ever.
+Comparado con los otros tres modos, el modo de línea de comandos de Vim es como una "navaja suiza" de la edición de textos. Puedes editar texto, modificar archivos y ejecutar comandos, solo por nombrar unos pocos. Este capítulo cierra la serie de los modos de Vim. Ahora que ya conoces y sabes utilizar el modo normal, insetar, visual y el modo línea de comandos de Vim ya puedes editar textos en Vim más eficaz y rápidamente.
 
-It's time to move away from Vim modes and learn how to do an even faster navigation with Vim tags.
+Es la hora de movernos de los modos de Vim y aprender cómo hacer una navegación más veloz con las etiquetas de Vim.
