@@ -48,11 +48,11 @@ Esto también te permite buscar entre comandos previos, editarlos y volverlos a 
 
 Mientras estás en el modo de línea de comandos, puedes insertar textos desde los registros de Vim con `Ctrl-R` de la misma manera que lo haces en el modo insertar. Si tienes la cadena "foo" guardada en el registro "a", puedes insertarlo ejecutando `Ctrl-R a`. Todo lo que puedes hacer desde los registros en el modo normal, también puedes hacerlo en el modo línea de comandos.
 
-In addition, you can also get the word under the cursor with `Ctrl-R Ctrl-W` (`Ctrl-R Ctrl-A` for the WORD under cursor). To get the line under the cursor, use `Ctrl-R Ctrl-L`. To get the filename under the cursor, use `Ctrl-R Ctrl-F`.
+Además, también puedes insetar la palabra que está bajo el cursor con `Ctrl-R Ctrl-W` (puedes utilizar `Ctrl-R Ctrl-A` para la PALABRA bajo el cursor). Para insertar la línea que está bajo el cursor utiliza `Ctrl-R Ctrl-L`. Para insertar todo el nombre del archivo bajo el cursor, usa `Ctrl-R Ctrl-F`.
 
-You can also autocomplete existing commands. To autocomplete the `echo` command, while in the command-line mode, type "ec", then press `<Tab>`. You should see on the bottom left Vim commands starting with "ec" (example: `echo echoerr echohl echomsg econ`). To go to the next option, press either `<Tab>` or `Ctrl-N`. To go the previous option, press either `<Shift-Tab>` or `Ctrl-P`.
+También puedes autocompletar los comandos existentes. Para autocompletar el comando `echo`, mientras estás en el modo línea de comandos, escribe "ec", después pulsa `<Tab>`. Deberías ver en la parte inferior izquierda de la pantalla los comandos de Vim que empiezan con "ec" (ejemplo: `echo echoerr echohl echomsg econ`). Para ir a la siguiente opción, pulsa tanto `<Tab>` o `Ctrl-N`. Para ir a la opción previa, puedes pulsar tando `<Shift-Tab>` o `Ctrl-P`.
 
-Some command-line commands accept file names as arguments. One example is `edit`. You can autocomplete here too. After typing the command, `:e ` (don't forget the space), press `<Tab>`. Vim will list all the relevant file names that you can choose from so you don't have to type it from scratch.
+Algunos de los comandos de la línea de los comandos aceptan nombres de archivos como argumentos. Un ejemplo es `edit`. También puedes utilizar el autocompletado en este caso. Después de ecribir el comando, `:e ` (no olvides añadir un espacio al final), presiona `<Tab>`. Vim mostrará un listado de todos los nombres de archivos relevantes entre los que puedes escoger, así no tendrás que escribirlo tu mismo.
 
 ## History Window And Command-line Window
 
