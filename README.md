@@ -23,7 +23,7 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 - [Cap 12 - Buscar y sustituir](./ch12_search_and_substitute.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 13 - El comando global](./ch13_the_global_command.md) ............................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 14 - Comandos externos](./ch14_external_commands.md) ........................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 15 - El modo de línea de comandos](./ch15_command-line_mode.md) .......... En progreso ✅/ Traducido [ ] / Revisado [ ]
+- [Cap 15 - El modo de línea de comandos](./ch15_command-line_mode.md) .......... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 16 - Etiquetas](./ch16_tags.md) ............................................ En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Cap 17 - Desplegables](./ch17_fold.md) ........................................ En progreso [ ] / Traducido [ ] / Revisado [ ]
 - [Cap 18 - Git](./ch18_git.md) ....................................................... En progreso [ ] / Traducido [ ] / Revisado [ ]
