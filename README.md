@@ -44,7 +44,7 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 # Licencia y derechos de autor
 El materia original en iglés es autoría de ©2020-2021 [Igor Irianto.](https://github.com/iggredible/Learn-Vim) publicado bajo una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a>.
 
-La traducción en español, es mía junto con las diferentes personas que colaboren en este repositorio. Al colaborar en este repositorio estás de acuerdo en compartir tu trabajo con la licencia utilizada para el repositorio completo.
+La traducción en español, es mía junto con las [diferentes personas](https://github.com/victorhck/learn-Vim-es/graphs/contributors) que colaboren en este repositorio. Al colaborar en este repositorio estás de acuerdo en compartir tu trabajo con la licencia utilizada para el repositorio completo.
 
 Si creas tu propia versión utilizando esta traducción, por favor da crédito al repositorio desde el que creas tu versión para respetar la licencia:
 
