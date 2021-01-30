@@ -23,9 +23,9 @@ Iggy1    1234 Calle felicidad, 11111
 Iggy2    9876 Avenida alegría, 2222
 ```
 
-Instead of having a name-address pair, tags store definitions paired with addresses.
+En vez de tener un par de nombres y direcciones, las etiquetas almacenan las definiciones emparejadas con direcciones.
 
-Let's assume that you have these two Ruby files inside the same directory:
+Vamos a asumir que tenemos estos dos archivos escritos en lenguaje Ruby que están guardados dentro del mismo directorio:
 
 ```
 # one.rb
@@ -40,7 +40,7 @@ class One
 end
 ```
 
-and
+y
 
 ```
 # two.rb
@@ -50,9 +50,9 @@ one = One.new
 one.donut
 ```
 
-To jump to a definition, you can use `Ctrl-]` in the normal mode. Inside `two.rb`, go to the line where `one.donut` is and move the cursor over `donut`. Press `Ctrl-]`.
+Para saltar a una definición, puedes utilizar la combinación de teclas `Ctrl-]` estando en el modo normal. Dentro del archivo `two.rb`, ve a la línea donde aparece `one.donut` y posiciona el cursor encima de la palabra `donut`. Pulsa `Ctrl-]`.
 
-Whoops, Vim could not find the tag file. You need to generate the tag file first.
+¡Vaya! Vim no puede encontrar el archivo de etiquetas. Necesitas primero generar el archivo de etiquetas.
 
 ## Tag Generator
 
