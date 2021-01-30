@@ -1,26 +1,26 @@
-# Capítulo 16: Tags
+# Capítulo 16: Etiquetas
 
-One useful feature in text editing is being able to go to any definition quickly. In this chapter, you will learn how to use Vim tags to do that.
+Una característica muy útil a la hora de editar texto es poder ser capaz de ir a cualquier definición rápidamente. En este capítulo aprenderás cómo utilizar las etiquetas de Vim para hacer eso.
 
-## Tag Overview
+## Descripción general de las etiquetas
 
-Suppose someone handed you a new codebase:
+Supongamos que alguien te ha enviado un nuevo código, por ejemplo:
 
 ```
 one = One.new
 one.donut
 ```
 
-`One`? `donut`? Well, these might have been obvious to the developers writing the code way back then, but now those developers are no longer here and it is up to you to understand these obscure lines of codes. One way to help understand this is to follow the source code where `One` and `donut` are defined.
+¿`One`? ¿`donut`? Bueno, estos nombre podrían ser obvios para el desarrollador o desarrolladora que escribieran el código hace tiempo, pero ahora esas personas ya no están aquí y te corresponde a tí entender estas líneas de código tan enrevesadas. Una manera de ayudar a entender esto es seguir el código fuente donde `One` y `donut` están definidas.
 
-You can search for them with either `fzf` or `grep`, but it is faster to use tags.
+Puedes buscarlas tanto con `fzf` como con `grep`, pero es más rápido utilizar etiquetas.
 
-Think of tags like an address book:
+Piensa en que las etiquetas son como una libreta de direcciones de contactos:
 
 ```
-Name    Address
-Iggy1   1234 Cool St, 11111
-Iggy2   9876 Awesome Ave, 2222
+Nombre   Direcciones
+Iggy1    1234 Calle felicidad, 11111
+Iggy2    9876 Avenida alegría, 2222
 ```
 
 Instead of having a name-address pair, tags store definitions paired with addresses.
