@@ -54,22 +54,22 @@ Para saltar a una definición, puedes utilizar la combinación de teclas `Ctrl-]
 
 ¡Vaya! Vim no puede encontrar el archivo de etiquetas. Necesitas primero generar el archivo de etiquetas.
 
-## Tag Generator
+## Generador de etiquetas
 
-Modern Vim does not come with tag generator, so you will have to download an external tag generator. There are several options to choose:
+El Vim actual no trae incorporado un generador de etiquetas, así que tendrás que descargar un generador de etiquetas externo. Hay varias opciones entre las que escoger:
 
-- ctags = C only. Available almost everywhere.
-- exuberant ctags = One of the most popular ones. Has many language support. 
-- universal ctags = Similar to exuberant ctags, but newer.
-- etags = For Emacs. Hmm...
+- ctags = solo para C. disponible casi para todas las plataformas.
+- exuberant ctags = Uno de los más populares. Admite muchos lenguajes. 
+- universal ctags = Similar a ctags, pero más moderno.
+- etags = Para Emacs. Hmm...
 - JTags = Java
 - ptags.py = Python
 - ptags = Perl
 - gnatxref = Ada
 
-If you look at Vim tutorials online, many will recommend [exuberant ctags](http://ctags.sourceforge.net/). It supports [41 programming languages](http://ctags.sourceforge.net/languages.html). I used it and it worked great. However, because it has not been maintained since 2009, Universal ctags would be a better choice. It works similar to exuberant ctags and is currently being maintained.
+Si echas un vistazo a tutoriales de Vim en internet, muchos recomendarán [Exuberant ctags](http://ctags.sourceforge.net/). Admite [41 lenguajes de programación](http://ctags.sourceforge.net/languages.html). Yo lo utilizaba y funcionaba genial. Sin embargo, debido a que ya no está mantenido desde 2009, **Universal ctags** sería una opción más adecuada. Funciona de manera similar a **Exuberant ctags** y actualmente está mantenido.
 
-I won't go into details on how to install the universal ctags. Check out the [universal ctags](https://github.com/universal-ctags/ctags) repository for more instructions. Once you have the universal ctags installed, run `ctags --version`. It should show:
+No entraré en detalles de cómo instalar ctags. Echa un vistazo al repositorio de [universal ctags](https://github.com/universal-ctags/ctags) para consultar las instrucciones. Una vez que tengas ctags instalado, ejecuta `ctags --version`. Esto debería mostrar:
 
 ```
 Universal Ctags 0.0.0(b43eb39), Copyright (C) 2015 Universal Ctags Team
@@ -77,15 +77,15 @@ Universal Ctags is derived from Exuberant Ctags.
 Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
 ```
 
-Make sure that you see "`Universal Ctags`".
+Asegúrate de que se muestra "`Universal Ctags`".
 
-Next, let's generate a basic tag file. Run:
+A continuación, vamos a generar un archivo de etiquetas básico. Ejecuta lo siguiente:
 
 ```
 ctags -R .
 ```
 
-The `R` option tells `ctags` to run a recursive scan from your current location (`.`). You should see a `tags` file in your current directory. Inside you will see something like this:
+La opción `R` le dice a `ctags` que ejecute un escaneo desde tu ubicación actual (`.`). Ahora se debería poder ver un archivo `tags` en tu directorio actual. Dentro del archivo verás algo parecido a esto:
 
 ```
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
@@ -102,9 +102,9 @@ donut	one.rb	/^  def donut$/;"	f	class:One
 initialize	one.rb	/^  def initialize$/;"	f	class:One
 ```
 
-Yours might look a little different depending on your Vim setting and the ctags generator. A tag file is composed of two parts: the tag metadata and the tag list. These metadata (`!TAG_FILE...`) are usually controlled by the ctags generator. I won't discuss it here, but feel free to check the documentation!
+El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. Una etiqueta está compuesta por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos (`!TAG_FILE...`) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echasr un vistazo a su documentación!
 
-Now go to `two.rb`, put the cursor on `donut`, and type `Ctrl-]`. Vim will take you to the file `one.rb` on the line where `def donut` is. Success! But how did Vim do this?
+Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y escribe `Ctrl-]`. Vim te llevará al archivo `one.rb` a la línea donde está `def donut`. ¡Eureka! ¿Pero cómo hizo esto Vim?
 
 ## Tags Anatomy
 
