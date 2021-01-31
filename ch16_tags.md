@@ -108,37 +108,37 @@ Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y
 
 ## Tags Anatomy
 
-Let's look at the `donut` tag item:
+Echemos un vistazo a la etiqueta del elemento `donut`:
 
 ```
 donut	one.rb	/^  def donut$/;"	f	class:One
 ```
 
-The above tag item is composed of four components: a `tagname`, a `tagfile`, a `tagaddress`, and tag options.
+El elemento de la etiqueta está compuesto por cuatro componentes: un nombre de etiqueta o `tagname`, un nombre de archivo de la etiqueta o `tagfile`, una dirección de etiqueta o `tagaddress` y opciones de la etiqueta. (N. del T: Me referiré por sus nombre en inglés porque quizás es la nomenclatura más utilizada en los tutoriales y por quienes lo usan).
 
-- `donut` is the `tagname`. When your cursor is on "donut", Vim searches the tag file for a line that has the "donut" string.
-- `one.rb` is the `tagfile`. Vim looks for a file `one.rb`.
-- `/^ def donut$/` is the `tagaddress`. `/.../` is a pattern indicator. `^` is a pattern for the first element on a line. It is followed by two spaces , then the string `def donut`. Finally, `$` is a pattern for the last element on a line.
-- `f class:One` is the tag option that tells Vim that the function `donut` is a function (`f`) and is part of the `One` class.
+- `donut` es el `tagname`. Cuando tu cursor está encima de la palabra "donut", Vim busca el archivo dentro del archivo de la etiqueta una línea que contenga la cadena "donut".
+- `one.rb` es el `tagfile`. Vim busca un archivo llamado `one.rb`.
+- `/^ def donut$/` es el `tagaddress`. `/.../` es un indicador patrón. `^` es un patrón para el primer elemento de una línea. Está seguido por dos espacios y después la cadena `def donut`. Finalmente, `$` es el patrón para el último elemento de una línea.
+- `f class:One` es la opción de la etiqueta que le dice a Vim que la función `donut` es una función (`f`) y es parte de la clase `One`.
 
-Let's look at another item in the tag list:
+Echemos un vistazo de otro elemento de la lista de etiquetas:
 
 ```
 One	one.rb	/^class One$/;"	c
 ```
 
-This line works the same way as the `donut` pattern:
+Esta línea funciona de la misma manerá que el patrón `donut`:
 
-- `One` is the `tagname`. Note that with tags, the first scan is case sensitive. If you have `One` and `one` on the list, Vim will prioritize `One` over `one`.
-- `one.rb` is the `tagfile`. Vim looks for a file `one.rb`.
-- `/^class One$/` is the `tagaddress` pattern. Vim looks for a line that starts with (`^`) `class` and ends with (`$`) `One`.
-- `c` is one of the possible tag options. Since `One` is a ruby class and not a procedure, it marks it with a `c`.
+- `One` es el `tagname`. Ten en cuenta que con las etiquetas, el primer escaneo tiene en cuenta las mayúsculas y minúsculas. Si tienes `One` y `one` en la lista, Vim priorizará `One` sobre `one`.
+- `one.rb` es el `tagfile`. Vim buscará un archivo `one.rb`.
+- `/^class One$/` es el patrón de `tagaddress`. Vim buscará una línea que comience (`^`) con `class` y termine (`$`) con `One`.
+- `c` es una de las opciones de etiqueta posible. Como `One` es una clase de Ruby y no un procedimiento, lo marca con una `c`.
 
-Depending on which tag generator you use, the content of your tag file may look different. At minimum, a tag file must have either one of these formats:
+Dependiendo de qué generador de etiquetas utilices, el contenido de tu archivo de etiquetas puede tener un aspecto algo diferente. Como mínimo, un archivo de etiquetas debe tener uno de estos formatos:
 
 ```
 1.  {tagname} {TAB} {tagfile} {TAB} {tagaddress}
-2.  {tagname} {TAB} {tagfile} {TAB} {tagaddress} {term} {field} ..
+2.  {tagname} {TAB} {tagfile} {TAB} {tagaddress} {término} {campo} ..
 ```
 
 ## The Tag File
