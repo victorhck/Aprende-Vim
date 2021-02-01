@@ -106,7 +106,7 @@ El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes 
 
 Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y escribe `Ctrl-]`. Vim te llevará al archivo `one.rb` a la línea donde está `def donut`. ¡Eureka! ¿Pero cómo hizo esto Vim?
 
-## Tags Anatomy
+## Antatomía de las etiquetas
 
 Echemos un vistazo a la etiqueta del elemento `donut`:
 
@@ -141,20 +141,20 @@ Dependiendo de qué generador de etiquetas utilices, el contenido de tu archivo 
 2.  {tagname} {TAB} {tagfile} {TAB} {tagaddress} {término} {campo} ..
 ```
 
-## The Tag File
+## El archivo de etiquetas
 
-You have learned that a new file, `tags`, is created after running `ctags -R .`. How does Vim know where to look for the tag file?
+Has aprendido que un nuevo archivo, `tags`, es creado después de ejecutar `ctags -R .`. ¿Cómo sabe Vim dónde buscar el archivo de etiquetas?
 
-If you run `:set tags?`, you might see `tags=./tags,tags` (depending on your Vim settings, it might be different). Here Vim looks for all tags in the path of the current file in the case of `./tags` and the current directory (your project root) in the case of `tags`.
+Si ejecutas `:set tags?`, podrás ver `tags=./tags,tags` (dependiendo de tus ajustes de Vim, esto podría ser diferente). Aquí Vim busca todas las etiquetas en la ruta del archivo actual para el caso de `./tags` y dentro del directorio actual (la raíz de tu proyecto) para el caso de `tags`.
 
-Also in the case of `./tags`, Vim will first look for a tag file inside the path of your current file regardless how nested it is, then it will look for a tag file of the current directory (project root). Vim stops after it finds the first match.
+También en el caso de `./tags`, Vim primero buscará un archivo de etiquetas dentro de la ruta de tu archivo actual independientemente de lo anidado que esté, después buscará un archivo de etiquetas del directorio actual (la raíz del proyecto). Vim detiene la búsqueda después de encontrar la primera coincidencia.
 
-If your `'tags'` file had said `tags=./tags,tags,/user/iggy/mytags/tags`, then Vim will also look at the `/user/iggy/mytags` directory for a tag file after Vim finishes searching `./tags` and `tags` directory. You don't have to store your tag file inside your project, you can keep them separate.
+Si tu archivo `'tags'` ha dicho `tags=./tags,tags,/user/iggy/mytags/tags`, entonces Vim también buscará en el directorio `/user/iggy/mytags` un archivo de etiquetas después de finalizar la búsqueda en los directorios `./tags` y `tags`. No es necesario que almacenes tu archivo de etiquetas dentro de tu proyecto, puedes mantenerlo de manera separada.
 
-To add to a tag file location, just run:
+Para añadir una ubicación de un archivo de etiquetas, simplemente ejecuta:
 
 ```
-:set tags+=path/to/my/tags/file
+:set tags+=ruta/a/mi/archivode/etiquetas
 ```
 
 ## Generating Tags For a Large Project.
