@@ -173,23 +173,25 @@ Esta vez debería durar menos de un segundo. Por cierto, puedes utilizar la opci
 ctags -R --exclude=.git --exclude=vendor --exclude=node_modules --exclude=db --exclude=log .
 ```
 
-## Tags Navigation
+La cuestión es que si quieres omitir un directorio, ``--exclude`` es la opción que debes utilizar.
 
-You can get good milage using only `Ctrl-]`, but let's learn a few more tricks. The tag jump key `Ctrl-]` has an command-line mode alternative: `:tag my-tag`. If you run:
+## Navegando por las etiquetas
+
+Puedes ahorrar mucho tiempo utilizando únicamente `Ctrl-]`, pero vamoa a aprender unos cuantos trucos más. La tecla para saltar a una etiqueta `Ctrl-]` tiene un modo alternativo para la línea de comandos: `:tag mi-etiqueta`. Si ejecutas lo siguiente:
 
 ```
 :tag donut
 ```
 
-Vim will jump to the `donut` method, just like doing `Ctrl-]` on "donut" string. You can autocomplete the argument too, with `<Tab>`:
+Vim saltará al método `donut`, de igual manera que si pulsaras `Ctrl-]` en una cadena donde aparezca "donut". También puedes autocompletar el argumento con la tecla  `<Tab>`:
 
 ```
 :tag d<Tab>
 ```
 
-Vim lists all tags that starts with "d". In this case, "donut".
+Vim muestra un listado con todas las etiquetas que comienzan con "d". En este caso, "donut".
 
-In a real project, you may encounter multiple methods with the same name. Let's update the two files. Inside `one.rb`:
+En un proyecto real, te puedes encontrar con múltiples métodos con el mismo nombre. Vamos a actualizar los dos archivos de los ejemplos anteriores. Dentro del archivo `one.rb` tenemos lo siguiente:
 
 ```
 # one.rb
@@ -208,7 +210,7 @@ class One
 end
 ```
 
-And `two.rb`:
+Y esto en el archivo `two.rb`:
 
 ```
 # two.rb
