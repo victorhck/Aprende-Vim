@@ -157,17 +157,17 @@ Para añadir una ubicación de un archivo de etiquetas, simplemente ejecuta:
 :set tags+=ruta/a/mi/archivode/etiquetas
 ```
 
-## Generating Tags For a Large Project.
+## Generando etiquetas para un proyecto extenso
 
-If you tried to run ctags in a large project, it may take a long time because Vim also looks inside every nested directories. If you are a Javascript developer, you know that `node_modules` can be very large. Imagine if you have a five sub-projects and each contains its own `node_modules` directory. If you run `ctags -R .`, ctags will try to scan through all 5 `node_modules`. You probably don't need to run ctags on `node_modules`.
+Si has intentado ejecutar ctags en un proyecto extenso, puede que haya durado mucho tiempo porque Vim también busca dentro de los directorios anidados. Si eres desarrollador o desarrolladora de Javascript, ya sabrás que `node_modules` pueden ser muy grandes. Imagina si tienes cinco subproyectos y cada uno contiene su propio directorio `node_modules`. Si ejecutas `ctags -R .`, ctags tratará de escanear todos los cinco `node_modules`. Probablemente quizás no necesites ejecutar ctags en `node_modules`.
 
-To run ctags excluding the `node_modules`, run:
+Para ejecutar ctags excluyendo `node_modules`, ejecuta:
 
 ```
  ctags -R --exclude=node_modules .
 ```
 
-This time it should take less than a second. By the way, you can use the `exclude` option multiple times:
+Esta vez debería durar menos de un segundo. Por cierto, puedes utilizar la opción `exclude` múltiples veces:
 
 ```
 ctags -R --exclude=.git --exclude=vendor --exclude=node_modules --exclude=db --exclude=log .
