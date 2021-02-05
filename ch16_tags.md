@@ -177,13 +177,13 @@ La cuestión es que si quieres omitir un directorio, ``--exclude`` es la opción
 
 ## Navegando por las etiquetas
 
-Puedes ahorrar mucho tiempo utilizando únicamente `Ctrl-]`, pero vamoa a aprender unos cuantos trucos más. La tecla para saltar a una etiqueta `Ctrl-]` tiene un modo alternativo para la línea de comandos: `:tag mi-etiqueta`. Si ejecutas lo siguiente:
+Puedes avanzar mucho tiempo utilizando únicamente `Ctrl-]`, pero vamos a aprender unos cuantos trucos más. La tecla para saltar a una etiqueta `Ctrl-]` tiene un modo alternativo para la línea de comandos: `:tag mi-etiqueta`. Si ejecutas lo siguiente:
 
 ```
 :tag donut
 ```
 
-Vim saltará al método `donut`, de igual manera que si pulsaras `Ctrl-]` en una cadena donde aparezca "donut". También puedes autocompletar el argumento con la tecla  `<Tab>`:
+Vim saltará al método `donut`, de igual manera que si hubieras pulsado `Ctrl-]` en una cadena donde aparezca "donut". También puedes autocompletar el argumento con la tecla  `<Tab>`:
 
 ```
 :tag d<Tab>
@@ -225,9 +225,9 @@ one.donut
 puts pancake
 ```
 
-If you are coding along, don't forget to run `ctags -R .` again since you now have several new procedures. You have two instances of the `pancake` procedure. If you are inside `two.rb` and you pressed `Ctrl-]`, what would happen?
+Si has vuelto a escribir el contenido del archivo, no ovide ejectuar de nuevo `ctags -R .` ya que ahora aparecen muchos procedimientos nuevos. Tienes dos instancias del procedimiento `pancake`. Si estás dentro del archivo `two.rb` y pulsas `Ctrl-]`, ¿qué es lo que ocurriría?
 
-Vim will jump to `def pancake` inside `two.rb`, not the `def pancake` inside `one.rb`. This is because Vim sees the `pancake` procedure inside `two.rb` as having a higher priority than the other `pancake` procedure.
+Vim saltará a `def pancake` dentro de `two.rb`, no a `def pancake` dentro de `one.rb`. Esto es debido a que Vim Vim ve el procedimiento `pancake` dento del archivo `two.rb` como de mayor prioridad que el del procedimiento dentro del archivo `pancake`.
 
 ## Tag Priority
 
