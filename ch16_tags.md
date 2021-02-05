@@ -229,9 +229,9 @@ Si has vuelto a escribir el contenido del archivo, no ovide ejectuar de nuevo `c
 
 Vim saltará a `def pancake` dentro de `two.rb`, no a `def pancake` dentro de `one.rb`. Esto es debido a que Vim Vim ve el procedimiento `pancake` dento del archivo `two.rb` como de mayor prioridad que el del procedimiento dentro del archivo `pancake`.
 
-## Tag Priority
+## Prioridad de las etiquetas
 
-Not all tags are equal. Some tags have higher priorities. If Vim is presented with duplicate item names, Vim checks the priority of the keyword. The order is:
+No todas etiquetas son iguales. Algunas etiquetas tienen unas prioridades mayores. Si Vim se encuentra con nombres de elementos duplicados, Vim comprueba de la palabra clave. El orden es el siguiente:
 
 1. A fully matched static tag in the current file.
 2. A fully matched global tag in the current file.
