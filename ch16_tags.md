@@ -233,26 +233,26 @@ Vim saltará a `def pancake` dentro de `two.rb`, no a `def pancake` dentro de `o
 
 No todas etiquetas son iguales. Algunas etiquetas tienen unas prioridades mayores. Si Vim se encuentra con nombres de elementos duplicados, Vim comprueba de la palabra clave. El orden es el siguiente:
 
-1. A fully matched static tag in the current file.
-2. A fully matched global tag in the current file.
-3. A fully matched global tag in a different file.
-4. A fully matched static tag in another file.
-5. A case-insensitively matched static tag in the current file.
-6. A case-insensitively matched global tag in the current file.
-7. A case-insensitively matched global tag in the a different file.
-8. A case-insensitively matched static tag in the current file.
+1. Una etiqueta estática que coincida completamente en el archivo actual.
+2. Una etiqueta global que coincida completamente en el archivo actual.
+3. Una etiqueta global que coincida completamente en un archivo diferente.
+4. Una etiqueta estática que coincida completamente en otro archivo.
+5. Una etiqueta estática sin importar mayúsculas y minúsculas en el archivo actual.
+6. Una etiqueta global sin importar mayúsculas y minúsculas en el archivo actual.
+7. Una etiqueta global sin importar mayúsculas y minúsculas en un archivo diferente.
+8. Una etiqueta estática sin importar mayúsculas y minúsculas en el archivo actual.
 
-According to the priority list, Vim prioritizes the exact match found on the same file. That's why Vim chooses the `pancake` procedure inside `two.rb` over the `pancake` procedure inside `one.rb`. There are some exceptions to the priority list above depending on your `'tagcase'`, `'ignorecase'`, and `'smartcase'` settings, but I will not discuss them here. If you are interested, check out `:h tag-priority`.
+De acuerdo a esta lista de prioridades, Vim prioriza una coincidencia exacta encontrada en el mismo archivo. Es por eso que Vim escoge el procedimiento `pancake` dentro de `two.rb` sobre el procedimiento `pancake` dentro del archivo `one.rb`. Hay algunas excepciones a esta lista de prioridades que acabamos de ver, dependiendo de tus ajustes de `'tagcase'`, `'ignorecase'` y `'smartcase'`, pero no las veremos en este caso. Si estás interesado en aprender más, echa un vistazo a este capítulo de la ayuda de Vim `:h tag-priority`.
 
-## Selective Tag Jumps
+## Saltos selectivos a etiquetas
 
-It would be nice if you can choose which tag items to jump to instead of always going to the highest priority tag item. Maybe you actually need to jump to the `pancake` method in `one.rb` and not the one in `two.rb`. To do that, you can use `:tselect`. Run:
+Estaría muy bien si se pudiera escoger a qué elementos de etiquetas saltar en vez de siempre hacerlo a la etiqueta de más prioridad. Quizás en un momento dado necesites saltar a `pancake` que está dentro del archivo `one.rb` y no a la que está dentro del archivo `two.rb`. Para hacer eso, puedes utilizar `:tselect`. Ejecuta:
 
 ```
 :tselect pancake
 ```
 
-You will see, on the bottom of the screen:
+Ejecutándolo con los archivos del ejemplo, verás algo como esto en la parte inferior de la pantalla:
 
 ```
 # pri kind tag               file
@@ -263,27 +263,27 @@ You will see, on the bottom of the screen:
              def pancake
 ```
 
-If you type `2` then `<Return>`, Vim will jump to the procedure in `one.rb`. If you type `1` then `<Return>`, Vim will jump to the procedure in `two.rb`.
+Si escribes `2` y después pulsas `<Enter>`, Vim saltará al procedimiento del archivo `one.rb`. Si escribes `1` y pulsas `<Enter>`, Vim saltará al archivo `two.rb`.
 
-Pay attention to the `pri` column. You have `F C` on the first match and `F` on the second match. This is what Vim uses to determine the tag priotity. `F C` means a fully-matched (`F`) global tag in the current (`C`) file. `F` means only a fully-matched (`F`) global tag. `F C` always have a higher priority than `F`.
+Presta atención a la columna de `pri`. En esta vemos `F C` en la primera ocurrencia y `F` en la segunda. Esto es lo utiliza Vim para determinar la prioridad de la etiqueta. `F C` significa que ha encontrado una coincidencia completa (en inglés *fully-matched* `F`) de una etiqueta global en el archivo actual (en inglés *current* `C`). Si solo aparece `F` esto significa que solo ha encontrado una etiqueta de una coincidencia completa. `F C` siempre tiene una prioridad mayor que `F`.
 
-If you run `:tselect donut`, Vim also prompts you to select which tag item to jump to, even though there is only one option to choose from. Is there a way for Vim to prompt the tag list only if there are multiple matches and to jump immediately if there is only one tag found?
+Si ejecutas `:tselect donut`, Vim también te preguntará que escojas una etiqueta de las disponibles, aunque solo hay una opción para escoger. ¿Hay alguna manera apropiada para hacer que Vim solo pregunte qué etiqueta escoger cuando haya múltiples entre las que escoger y que salte inmediatamente a una etiqueta cuando solo haya una opción?
 
-Of course! Vim has a `:tjump` method. Run:
+¡Desde luego que sí! Vim tiene el método `:tjump`. Ejecuta:
 
 ```
 :tjump donut
 ```
 
-Vim will immediately jump to the `donut` procedure in `one.rb`, much like running `:tag donut`. Now run:
+Vim saltará inmediatamente al procedimiento `donut` en el archivo `one.rb`, de manera similar a si ejecutáramos `:tag donut`. Ahora ejecuta:
 
 ```
 :tjump pancake
 ```
 
-Vim will prompt you tag options to choose from, much like running `:tselect pancake`. With `tjump` You get the best of both methods.
+Vim te mostrará las opciones de las etiquetas entre las que escoger, de manera similar a si hibiéramos ejecutado `:tselect pancake`. Con `tjump` tienes lo mejor de ambos métodos.
 
-Vim has a normal mode key for `tjump`: `g Ctrl-]`. I personally like `g Ctrl-]` better than `Ctrl-]`.
+Vim tiene una tecla en el modo normal para `tjump`: `g Ctrl-]`. Personalmente me gusta más utilizar `g Ctrl-]` que `Ctrl-]`.
 
 ## Autocompletion With Tags
 
