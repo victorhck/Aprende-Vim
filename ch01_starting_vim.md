@@ -6,13 +6,12 @@ En este capítulo, aprenderás diferentes maneras de ejecutar Vim desde la termi
 
 No voy a entrar en detalles de cómo instalar Vim (porque hay demasiadas distribuciones diferentes ahí fuera). La buena noticia es que la mayoría de los equipos con Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
 
-Para más información de cómo descargar, echa un vistazo a la web oficial de descargas de Vim:
+Para más información de cómo descargar, echa un vistazo a la web oficial de descargas de Vim o el repositorio oficial de Vim en Github:
 
-[https://www.vim.org/download.php](https://www.vim.org/download.php)
+- [Sitio web de Vim](https://www.vim.org/download.php)
+- [Repositorio de Vim en GitHub](https://github.com/vim/vim)
 
-De manera alternativa, también puedes echar un vistazo al [repositorio oficial de Vim en GitHub](https://github.com/vim/vim).
-
-## `vim`
+## El comando Vim
 
 Ahora que ya tienes Vim instalado, ejecuta esto desde la terminal:
 
@@ -30,7 +29,9 @@ Hay muchas maneras de salir del editor Vim. La más común es escribir:
 :quit
 ```
 
-También puedes escribir `:q` de forma abreviada. El comando es un comando del modo de comandos (otro de los modos de Vim). Si escribes `:` en el modo Normal, el cursor se moverá a la parte inferior de la pantalla donde podrás escribir algunos comandos. Aprenderás más del modo de línea de comandos más tarde en el capítulo 15. Si estás en el modo Insertar, al escribir `:` esto literalmente escribirá el caracter ":" en la pantalla. En este caso, necesitas regresar al modo Normal. Pulsa sobre la tecla `<Esc>` para cambiar a ese modo Normal. Por cierto, puedes regresar al modo Normal desde el modo Línea de comandos pulsando `<Esc>`. Notarás que puedes "escapar" de diversos modos de Vim de vuelta al modo Normal pulsando la tecla `<Esc>`.
+También puedes escribir `:q` de forma abreviada. El comando es un comando del modo línea de comandos (otro de los modos de Vim). Si escribes `:` en el modo normal, el cursor se moverá a la parte inferior de la pantalla donde podrás escribir algunos comandos. Aprenderás más del modo de línea de comandos más tarde en el capítulo 15. Si estás en el modo insertar, al escribir `:` esto literalmente escribirá el caracter ":" en la pantalla. En este caso, necesitas regresar al modo normal. Pulsa sobre la tecla `<Esc>` para cambiar a ese modo normal. Por cierto, puedes regresar al modo normal desde el modo línea de comandos pulsando `<Esc>`. Aprenderás que puedes "escapar" de diversos modos de Vim de vuelta al modo normal pulsando la tecla `<Esc>`.
+
+## Guardando un fichero
 
 Para guardar tus cambios, escribe:
 
@@ -38,7 +39,7 @@ Para guardar tus cambios, escribe:
 :write
 ```
 
-También puedes escribir `:w` de forma abreviada. Si este es un archivo nuevo, necesitarás darle un nombre antes de guardarlo. Vamos a llamrlo `archivo.txt`. Ejecuta:
+También puedes escribir `:w` de forma abreviada. Si este es un archivo nuevo, necesitarás darle un nombre antes de guardarlo. Vamos a llamarlo `archivo.txt`. Ejecuta:
 
 ```
 :w archivo.txt
@@ -60,17 +61,13 @@ Hay otras maneras de salir de Vim, pero estas que hemos visto las utilizarás di
 
 ## Ayuda
 
-A lo largo del libro, te referiré a varias páginas de ayuda de Vim. Puedes acceder a la página de ayuda escribiendo el siguiente comando en la línea de comandos:
-
-```
-:help
-```
-
-O `:h` de forma abreviada. También puedes indicarle al comando `:h` el tema sobre el que quiere aprender pasándoselo como un argumento. Por ejemplo, para aprender más sobre diferentes maneras de salir de Vim, puedes escribir:
+A lo largo del libro, te referiré a varias páginas de ayuda de Vim. Puedes acceder a la página de ayuda escribiendo `:help {comando}` (puedes usar `:h` como abreviatura de *help*). Puedes pasarle al comando `:h` un tema o el nombre de un comando como argumento. Por ejemplo, para aprender diferentes maneras de salir de Vim, escribe:
 
 ```
 :h write-quit
 ```
+
+¿Cómo sabía que había que buscar "write-quit"? La verdad, no lo sabía. Solo escribí `:h`, y después "quit" y después pulsé sobre la tecla `<Tab>`. Vim mostró las palabras clave relevantes entre las que escoger. Si alguna vez necesitas buscar algo ("Me gustaría que Vim pudiera hacer esto..."), simplemente escribe `:h` y prueba algunas palabras clave, y después pulsa `<Tab>`. (N.del T: lo mejor es escribir términos en inglés, para que Vim los encuentre entre sus temas dee ayuda).
 
 ## Abriendo un archivo
 
@@ -98,46 +95,36 @@ Para comprobar la versión actual de Vim, ejecuta:
 vim --version
 ```
 
-Esta bandera te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `.` Algunas de estas características en esta guía requieren que están disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en el capítulo 15 con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione.
+Esta bandera te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `.` Algunas de estas características en esta guía requieren que están disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en el capítulo 15 con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione. Hay muchas posibilidades de que el Vim que tienes instalado tenga las funcionalidades necesarias, especialmente si lo has instalado desde las fuentes más conocidas.
 
-Esto podría sonar a tener que hacer un montón de trabajo, pero las descargas de Vim más populares deberían tener todas las funcionalidades necesarias. En mi equipo Mac (N.d.T: El equipo Mac del escritor del libro en Inglés) la versión de Vim que tengo instalada desde `brew install vim` tiene todas las funcionalidades que necesito. (N.d.T: En el Vim instalado desde los repositorios de la distribución de GNU/Linux openSUSE que utilizo, también tiene todo lo necesario).
-
-De manera alternativa, para ver la versión estando *dentro* de Vim, también puedes ejecutar este comando:
+Muchas cosas que puedes hacer desde la terminal, también pueden hacerse dentro de Vim. Para ver la versión desde el propio Vim, puedes ejecutar esto:
 
 ```
 :version
 ```
 
-Más adelante, probablemente comenzarás a añadir complementos a Vim. Si alguna vez necesitas ejecutar Vim sin ningún complemento, podrás hacerlo pasándole la bandera `noplugin`:
-
-```
-vim --noplugin
-```
-
 Si quieres abrir el archivo `hola.txt` e inmediatamente ejecutar un comando, podrás hacerlo añadiendo al comando `vim` la opción `+{cmd}`.
 
-En Vim, puedes sustituir texto con el comando `:s` (abreviatura de `:substitute`). Si quieres abrir `hola.txt` y sustituir todo el texto "foo" con "bar", ejecuta:
+En Vim, puedes sustituir texto con el comando `:s` (abreviatura de `:substitute`). Si quieres abrir `hola.txt` y sustituir todo el texto "donut" con "rosquilla", ejecuta:
 
 ```bash
-vim +%s/foo/bar/g hola.txt
+vim +%s/donut/rosquilla/g hola.txt
 ```
 
 Estos comandos también pueden ser apilados:
 
 ```bash
-vim +%s/foo/bar/g +%s/bar/baz/g +%s/baz/donut/g hola.txt
+vim +%s/tarta/rosquilla/g +%s/rosquilla/huevo/g +%s/huevo/donut/g hola.txt
 ```
 
-Vim primero reemplazará todas las instancias que encuentre de "foo" con "bar", después reemplazará "bar" con "baz", después reemplazará "baz" con "donut" (aprenderás sobre cómo sustituir texto en el capítulo 12).
+Vim primero reemplazará todas las instancias que encuentre de "tarta" con "rosquilla", después reemplazará "rosquilla" con "huevo", después reemplazará "huevo" con "donut" (aprenderás sobre cómo sustituir texto en un capítulo posterior).
 
 También puedes añadir la bandera `c` seguida con el comando en vez de la sintáxis `+`:
 
 ```bash
-vim -c %s/foo/bar/g hola.txt
-vim -c %s/foo/bar/g -c %s/bar/baz/g -c %s/baz/donut/g hola.txt
+vim -c %s/tarta/rosquilla/g hola.txt
+vim -c %s/tarta/rosquilla/g -c %s/rosquilla/huevo/g -c %s/huevo/donut/g hola.txt
 ```
-
-Durante todo este libro aprenderás varios comandos para la Línea de comandos de Vim. Todos estos comandos pueden ser ejecutados al inicio.
 
 ## Abriendo múltiples ventanas
 
@@ -146,7 +133,7 @@ Puedes ejecutar Vim en ventanas divididas de manera horizontal y vertical con `o
 Para abrir Vim con dos ventanas horizontales, ejecuta:
 
 ```bash
-vim -o
+vim -o2
 ```
 
 Para abrir Vim con 5 ventanas horizontales, ejecuta:
@@ -155,7 +142,7 @@ Para abrir Vim con 5 ventanas horizontales, ejecuta:
 vim -o5
 ```
 
-Para abrir Vim con 5 ventanas horizontales y ocupar las dos primeras con los archivos `hola1.txt` and `hola2.txt`, ejecuta:
+Para abrir Vim con 5 ventanas horizontales y ocupar las dos primeras con los archivos `hola1.txt` y `hola2.txt`, ejecuta:
 
 ```bash
 vim -o5 hola1.txt hola2.txt
@@ -171,13 +158,11 @@ vim -O5 hola1.txt hola2.txt
 
 ## Suspender
 
-Si necesitar suspender la ejecución de Vim mientras estás a la mitad de una edición de texto, puedes presionar la combinación de teclas `Ctrl-Z`. De manera alternativa, también puedes ejecutar los comandos `:stop` o `:suspend`.
-
-Para volver a retomar la sesión suspendida de Vim, ejecuta `fg` desde la terminal.
+Si necesitar suspender la ejecución de Vim mientras estás a la mitad de una edición de texto, puedes presionar la combinación de teclas `Ctrl-z`. También puedes ejecutar los comandos `:stop` o `:suspend`. Para volver a retomar la sesión suspendida de Vim, ejecuta `fg` desde la terminal.
 
 ## Arrancando Vim de la manera más inteligente
 
-Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos (`+{cmd}` o `c cmd`). Cuantos más comandos para la propia línea de comandos de Vim aprendas en este libro, verás que puedes utilizarlos al arrancar Vim.
+Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos (`+{cmd}` o `c cmd`). Cuantos más comandos aprendas mientras lees esta guía, comprueba si puedes utilizarlos al arrancar Vim. También al ser un comando para la terminal, puedes combinar `vim` con muchos otros comandos. Por ejemplo, puedes redireccionar la salida del comando `ls` para que pueda ser editado en Vim con `ls -l | vim -`.
 
 Para aprender más sobre las diferentes opciones que puedes utilizar desde la terminal, echa un vistazo mediante el comando `man vim`. Para aprender más sobre los modos de Vim y los comandos, echa un vistazo con `:help`.
 
