@@ -334,25 +334,25 @@ Uno de los grandes inconvenientes de las etiquetas en Vim es que cada vez que ha
 
 Afortunadamente hay varios métodos que puedes utilizar para generar etiquetas automáticamente. Mi propósito en esta sección no es crear un proceso infalible, si no sugerir algunas ideas para que después seas tu quien las explore y las extienda.
 
-### Generate a Tag on Save
+### Generar una etiqueta al guardar
 
-Vim has an autocommand (`autocmd`) method to execute any command on an event trigger. You can use this to generate tags on each save. Run:
+Vim tiene un método para crear comandos automáticos (`autocmd`) para ejecutar cualquier comando ante la aparición de un evento. Puedes utilizar esto para generar etiquetas cada vez que guardes el archivo. Ejecuta:
 
 ```
 :autocmd BufWritePost *.rb silent !ctags -R .
 ```
 
-Breakdown:
+La explicación:
 
-- `autocmd` is Vim's autocommand method. It accepts an event name, file pattern, and a command.
-- `BufWritePost` is an event for saving a buffer. Each time you save a file, you trigger a `BufWritePost` event.
-- `.rb` is a file pattern for ruby (`rb`) files.
-- `silent` is actually part of the command you are passing. Without this, Vim will display `press ENTER or type command to continue` each time you trigger the autocommand.
-- `!ctags -R .` is the command to execute. Recall that `!cmd` from inside Vim executes terminal command.
+- `autocmd` es el método de comandos automáticos de Vim. Acepta cualquier nombre de evento, patrón de archivo y un comando.
+- `BufWritePost` es un evento para guardar un *buffer*. Cada vez que guardas un archivo, se lanza un evento `BufWritePost`.
+- `.rb` es el patrón de archivo para archivos ruby (`rb`).
+- `silent` es parte del comando que estás pasando al comando automático. Sin este, Vim mostrará `press ENTER or type command to continue` cada vez que se dispare el comando automático.
+- `!ctags -R .` es el comando a ejecutar. Recuerda que `!cmd` desde dentro del propio Vim ejecuta cualquier comando de la terminal.
 
-Now each time you save from inside a ruby file, Vim will run `ctags -R .`.
+Ahora cada vez que guardes desde dentro de un archivo de ruby, Vim ejecutará `ctags -R .`.
 
-Add a new procedure in `two.rb`:
+Añade un nuevo procedimiento en el archivo `two.rb`:
 
 ```
 def waffle
@@ -360,7 +360,7 @@ def waffle
 end
 ```
 
-Save the file. If you check the tag file, you will see `waffle` as part of the tags. Success!
+Guarda el archivo. Puedes comprobar el archivo de etiquetas, verás que `waffle` es parte de las etiquetas. ¡Conseguido!
 
 ### Using Plugins
 
