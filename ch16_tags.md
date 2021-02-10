@@ -285,11 +285,11 @@ Vim te mostrará las opciones de las etiquetas entre las que escoger, de manera 
 
 Vim tiene una tecla en el modo normal para `tjump`: `g Ctrl-]`. Personalmente me gusta más utilizar `g Ctrl-]` que `Ctrl-]`.
 
-## Autocompletion With Tags
+## Autocompletado con etiquetas
 
-Tags can assist autocompletions. Recall from chapter 6, Insert Mode, that you can use `Ctrl-X` sub-mode to do various autocompletions. One autocompletion sub-mode that I did not mention was `Ctrl-]`. If you do `Ctrl-X Ctrl-]` while in the insert mode, Vim will use the tag file for autocompletion.
+Las etiquetas pueden ayudar en los autocompletados. Recuerda el capítulo 6, sobre el modo insertar, donde aprendimos que puedes utilizar `Ctrl-X` como un submodo para realizar varias acciones de autocompletado. Un submodo de autocompletado que no mencioné fue `Ctrl-]`. Si pulsas `Ctrl-X Ctrl-]` mientras estás en el modo insertar, Vim utilizará el archivo de etiquetas para el autocompletado.
 
-If you go into the insert mode and type `Ctrl-X Ctrl-]`, you will see:
+Siguiendo el ejemplo anterior, si entras en el modo insertar y escribes `Ctrl-X Ctrl-]`, verás lo siguiente:
 
 ```
 One
@@ -298,9 +298,9 @@ initialize
 pancake
 ```
 
-## Tag Stack
+## Pila de etiquetas
 
-Vim keeps a list of all the tags you have jumped to and from in a tag stack. You can see this stack with `:tags`. If you had first tag-jumped to `pancake`, followed by `donut`, and run `:tags`, you will see:
+Vim guarda en una pila una lista de todas las etiquetas a las que has saltado o desde las que has saltado. Puedes consultar esta pila con el comando `:tags`. Si primero habías hecho un salto a la etiqueta `pancake`, seguido por `donut` y ejecutas `:tags`, verás lo siguiente:
 
 ```
   # TO tag         FROM line  in file/text
@@ -309,7 +309,7 @@ Vim keeps a list of all the tags you have jumped to and from in a tag stack. You
 >
 ```
 
-Note the `>` symbol above. It shows your current position in the stack. To "pop" the stack to go back to one previous stack, you can run `:pop`. Try it, then run `:tags` again:
+Ten en cuenta el símbolo `>`. Muestra tu posición actual en la pila. Para retrasar un puesto el puntero de la posición hasta el elemento anterior, puedes ejecutar el comando `:pop`. Pruébalo y después vuelve a ejecutar `:tags` de nuevo:
 
 ```
   # TO tag         FROM line  in file/text
@@ -318,7 +318,7 @@ Note the `>` symbol above. It shows your current position in the stack. To "pop"
 
 ```
 
-Note that the `>` symbol is now on line two, where the `donut` is. `pop` one more time, then run `:tags` again:
+Comprueba cómo el símbolo `>` ahora está en la línea dos, apuntando al elemento `donut`. Ejecuta `pop` una vez más y comprueba de nuevo la posición con el comando `:tags`:
 
 ```
   # TO tag         FROM line  in file/text
@@ -326,7 +326,7 @@ Note that the `>` symbol is now on line two, where the `donut` is. `pop` one mor
   2  1 donut               9  one.donut
 ```
 
-In normal mode, you can run `Ctrl-T` to achieve the same effect as `:pop`.
+En el modo normal, puedes ejecutar `Ctrl-T` para conseguir el mismo efecto que si ejecutaras `:pop`.
 
 ## Automatic Tag Generation
 
