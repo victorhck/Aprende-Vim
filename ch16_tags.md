@@ -328,11 +328,11 @@ Comprueba cómo el símbolo `>` ahora está en la línea dos, apuntando al eleme
 
 En el modo normal, puedes ejecutar `Ctrl-T` para conseguir el mismo efecto que si ejecutaras `:pop`.
 
-## Automatic Tag Generation
+## Generación automática de etiquetas
 
-One of the biggest drawbacks of Vim tags is that each time you make a significant change, you have to regenerate the tag file. If you recently renamed the `pancake` procedure to the `waffle` procedure, the tag file did not know that the `pancake` procedure had been renamed. It still stored `pancake` in the list of tags. You have to run `ctags -R .` to create an updated tag file. Recreating a new tag file can be cumbersome.
+Uno de los grandes inconvenientes de las etiquetas en Vim es que cada vez que haces un cambio significativo, necesitas volver a generar el archivo de etiquetas. Si recientemente renombraste el procedimiento llamado `pancake` y ahora se llama `waffle`, el archivo de etiquetas no sabe que el procedimiento `pancake` había sido cambiado de nombre. Todavía es almacenado como `pancake` en la lista de etiquetas. Tienes que ejecutar `ctags -R .` para crear y actualizar el archivo de etiquetas. Volver a crear un nuevo archivo de etiquetas puede ser una tarea incómoda.
 
-Luckily there are several methods you can employ to generate tags automatically. My goal in this section is not to create a foolproof process, but to suggest some ideas so you can expand them.
+Afortunadamente hay varios métodos que puedes utilizar para generar etiquetas automáticamente. Mi propósito en esta sección no es crear un proceso infalible, si no sugerir algunas ideas para que después seas tu quien las explore y las extienda.
 
 ### Generate a Tag on Save
 
