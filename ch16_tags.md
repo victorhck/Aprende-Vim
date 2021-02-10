@@ -362,31 +362,31 @@ end
 
 Guarda el archivo. Puedes comprobar el archivo de etiquetas, verás que `waffle` es parte de las etiquetas. ¡Conseguido!
 
-### Using Plugins
+### Utilizando complementos
 
-There are several plugins to generate ctags automatically:
+Hay muchos complementos para generar ctags automáticamente:
 
 - [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)
 - [vim-tags](https://github.com/szw/vim-tags)
 - [vim-easytags](https://github.com/xolox/vim-easytags)
 - [vim-autotag](https://github.com/craigemery/vim-autotag)
 
-I use vim-gutentags. If you use a Vim plugin manager ([vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc), just install the plugin and it will work right ouf of the box!
+Yo utilizo vim-gutentags. Si utilizas un gestor de complementos en Vim ([vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc), simplemente instala el complemento ¡y este funcionará sin más configuraciones!
 
-### Ctags and Git Hooks
+### Ctags y Git Hooks
 
-Tim Pope, author of many great Vim plugins, wrote a blog suggesting to use git hooks. [Check it out](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html).
+Tim Pope, autor de un montón de complementos geniales para Vim, escribió un artículo de cómo utilizar *git hooks*. Puedes leerlo en [este enlace](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html).
 
-## Learn Tags the Smart Way
+## Aprende el uso de las etiquetas de la manera más inteligente
 
-A tag is useful once configured properly. If you are like me and you forget things easily, tags can help you visualize a project.
+Una etiqueta es útil cuando está configurada adecuadamente. Si tu eres como yo, que olvida las cosas fácilmente, las etiquetas te pueden ayudar a visualizar un proyecto.
 
-Suppose you are faced with a new codebase and you want to understand what `functionFood` does, you can easily read it by jumping to its definition. Inside it, you learn that it also calls `functionBreakfast`. You follow it and you learn that it calls `functionPancake`. Your function call graph looks something like this:
+Supón que te encuentras con un código nuevo y quieres qué hace `functionFood`, podrás leerlo fácilmente saltando a la parte del código donde está definido. Dentro de este, también puedes descubrir que también llama a `functionBreakfast`. Vas hasta su definición y descubre que a su vez llama a `functionPancake`. El gráfico de saltos y llamadas tendría el siguiente esquema:
 
 ```
 functionFood -> functionBreakfast -> functionPancake
 ```
 
-This gives you insight that this code flow is related to having a pancake for breakfast.
+Esto te muestra que el flujo del código está relacionado con tener tortitas para desayunar.
 
-To learn more about tags, check out `:h tags`. Now that you know how to use tags, let's explore a different feature: folding.
+Para aprender más sobre las etiquetas, echa un vistazo a la ayuda de Vim sobre esto con `:h tags`. Ahora que ya sabes utilizar las etiquetas, vamos a explorar otra funcionalidad diferente: el plegado o *folding* por su término en inglés.
