@@ -1,12 +1,12 @@
-# New To Vim? Read This First
+# ¿Nuevo o nueva usando Vim? Lee esto primero
 
-## Why This Guide Was Written
+## Por qué se ha escrito este guía
 
-There are many places to learn Vim: the `vimtutor` is a great place to start and the `:help` manual has all the references you will ever need.
+Hay muchos lugares donde aprender a usar Vim: el `vimtutor` es un buen lugar para comenzar y los manuales de la ayuda de Vim `:help` tienen todas las referencias que vayas a poder necesitar.
 
-However, the average user needs something more than `vimtutor` and less than the `:help` manual. This guide attempts to bridge that gap by highlighting only the key features to learn the most useful parts of Vim in the least time possible.
+Sin embargo, el usuario medio necesita algo más que lo que ofrece `vimtutor` y algo menos que el manual de `:help`. Esta guía trata de cerrar esa brecha destacando solo las funcionalidades más importante para aprender las partes más útiles de Vim en el menor tiempo posible.
 
-Chances are you won't need all 100% of Vim features. You probably only need to know about 20% of them to become a powerful Vimmer. This guide will show you which Vim features you will find most useful.
+Lo más probable es que no vayas a necesitar el 100% de las funcionalidades que ofrece Vim. Probablemente solo necesitarás saber el 20% de estas para convertirte en *Vimmer* destacado. Esta guía te enseñará cuales de las funcionalidades de Vim vas a encontrar más útiles.
 
 This is an opinionated guide. It covers techniques that I often use when using Vim. The chapters are sequenced based on what I think would make the most logical sense for a beginner to learn Vim.
 
