@@ -39,15 +39,15 @@ Cada persona programa de manera diferente. Sobre la introspección, encontrará 
 
 Una vez que puedas editar al 50% de velociad que lo hacías originalmente, es hora de pasarte por completo a Vim.
 
-## How To Read This Guide
+## Cómo leer esta guía
 
-This is a practical guide. To become good in Vim you need to develop your muscle memory, not head knowledge.
+Esta es una guía práctica. Para llegar a dominar Vim necesitas desarrollar el músculo de tu memoria, no conocimiento intelectual.
 
-You don't learn how to ride a bike by reading a guide about how to ride a bike. You need to actually ride a bike.
+No aprendes a montar en bicicleta leyendo una guía sobre cómo montar en bicicleta. Necesitas realmente montar en bicicleta.
 
-You need to type along every commands referred in this guide. Not only that, but you need to repeat them several times and try different combinations. Look up what other features the command you just learned has. The `:help` command and Google are your best friends. Your goal is not to know everything about a command, but to be able to execute that command naturally and instinctively.
+Necesitas escribir cada comando que encontrarás en esta guía. No solo eso, necesitarás repetirlos varias veces y probar combinaciones diferentes. Busca que otras funcionalidades tiene el comando que acabas de aprender. El comando `:help` y un buscador de internet son tus mejores amigos. Tu meta no es conocer todo sobre un comando, si no ser capaz de jecutar ese comando con naturalidad y de manera instintiva.
 
-As much as I try to fashion this guide to be linear, some concepts in this guide have to be presented out-of-order. For example in chapter 1, I mention the substitute command (`:s`), even though it won't be covered until chapter 12. To remedy this, whenever a new concept that has not been covered yet is mentioned early, I will provide a quick how-to guide without a detailed explanation. So please bear with me :).
+Por mucho que haya tratado de moldear esta guía para ser lineal en su temática, algunos conceptos de esta guía tienen que ser presentados fuera de orden. Por ejemplo en el capítulo 1, menciono el comando de sustitución (`:s`), incluso aunque no trato sobre el hasta el capítulo 12. Para remediar esto, cada vez que un nuevo concepto que no se haya tratado todavía sea mencionado prematuramente, ofreceré una rápida guía de utilización sin una explicación detallada. Así que por favor, tengan paciencia conmigo :).
 
 ## More Help
 
