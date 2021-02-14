@@ -18,26 +18,26 @@ Puedes llegar lejos utilizando Vim sin conocer en absoluto Vimscript, pero conoc
 
 Esta guía está escrita tanto para principiantes como para personas que utilicen Vim de una manera más avanzada. Comienza con conceptos amplios y simples y acaba con conceptos específicos y avanzados. Si ya crees que eres una persona con conocimientos avanzados, te recomendaría que igualmente leyeras esta guía desde el principio hasta el fin, porque ¡aprenderás algo nuevo!
 
-## How To Transition To Vim From Using A Different Text Editor
+## Cómo hacer la transición a Vim desde un editor de texto diferente
 
-Learning Vim is a satisfying experience, albeit hard. There are two main approaches to learn Vim:
+Aprender Vim es una experiencia satisfactoria, aunque dura. Hay dos enfoques principales a la hora de aprender Vim:
 
-1. Cold turkey
+1. De un día para otro
 2. Gradual
 
-Going cold turkey means to stop using whatever editor / IDE you were using and to use Vim exclusively starting now. The downside of this method is you will have a serious productivity loss during the first week or two. If you're a full-time programmer, this method may not be feasible. That's why for most people, I believe the best way to transition to Vim is to use it gradually.
+Hacerlo de un día para otro significa dejar de utilizar el IDE o editor que estuvieras utilizando y comenzar de inmediato a utilizar de manera exclisva Vim. La pega de este método es que tendrás una importante pérdida de productividad durante la primera o dos primeras semanas. Si eres un programador a tiempo completo, este método puede que no sea factible. Por esto es por lo que a la mayoría de personas, creo que la mejor manera de hacer la transición a Vim es utilizarlo de manera gradual.
 
-To gradually use Vim, during the first two weeks, spend an hour a day using Vim as your editor while the rest of the time you can use other editors. Many modern editors come with Vim plugins. When I first started, I used VSCode's popular Vim plugin for an hour per day. I gradually increased the time with the Vim plugin until I finally used it all day. Keep in mind that these plugins can only emulate a fraction of Vim features. To experience the full power of Vim like Vimscript, Command-line (Ex) Commands, and external commands integration, you will need to use Vim itself.
+Para utilizar Vim gradualmente, durante las primeras dos semanas, pasa una hora al día utilizando Vim como tu editor, mientras que el resto del tiempo puedes utilizar otros editores. Muchos editores modernos vienen con complementos de Vim. Cuando comencé, utilizaba un complemento popular de Vim para VSCode durante una hora al día. Gradualmente incrementé el tiempo con el complemento de Vim hasta que al final lo utilizaba durante todo el día. Ten en cuenta que estos complementos solo pueden emular una parte de las funcionalidades de Vim. Para experimentar toda la potencia de Vim como Vimscript, comamndos para la línea de comandos (Ex) y la integración con comandos externos, necesitarás utilizar el propio Vim.
 
-There were two pivotal moments that made me start to use Vim 100%: when I grasped that Vim has a grammar-like structure (see chapter 4) and the [fzf.vim](https://github.com/junegunn/fzf.vim) plugin (see chapter 3).
+Hubo dos momentos cruciales que me hicieron comenzar a utilizar Vim al 100%: cuando me enteré de que Vim tiene una estructura similar a la gramatical a la hora de ejecutar comandos (ver capítulo 4) y el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) (ver capítulo 3).
 
-The first, when I realized Vim's grammar-like structure, was the defining moment that I finally understood what these Vim users were talking about. I didn't need to learn hundreds of unique commands. I only had to learn a small handful of commands and I could chain in a very intuitive way to do many things.
+El primero, cuando me di cuenta de la esctructura similar a la gramática de Vim, fue el momento definitivo en el que comprendí de lo que hablaban las personas que usaban Vim. No necesitaba aprender cientos de comandos únicos. Solo tenía que aprender un pequeño puñado de comandos y podría encadenarlos de una manera muy intuitiva para hacer muchas cosas.
 
-The second, the ability to quickly run a fuzzy file-search was the IDE feature that I used most. When I learned how to do that in Vim, I gained a major speed boost and never looked back ever since.
+El segundo, la posibilidad de ejecutar rápidamente una búsqueda de archivos de manera difusa era la funcionalidad de un IDE que más utilizaba. Cuando aprendí cómo hacerlo en Vim, gané un mayor impulso de velocidad y desde entonces nunca he vuelto a mirar atrás.
 
-Everyone programs differently. Upon introspection, you will find that there are one or two features from your favorite editor / IDE that you use all the time. Maybe it was fuzzy-search, jump-to-definition, or quick compilation. Whatever they may be, identify them quickly and learn how to implement those in Vim (chances are Vim can probably do them too). Your editing speed will receive a huge boost.
+Cada persona programa de manera diferente. Sobre la introspección, encontrará que hay una o dos funcionalidades de tu editor o IDE favoritso que utilizas todo el tiempo. Quizás son la búsqueda difusa, saltar a una definición o una compilación rápida. Cualquiera que sea, identifícalas rápidamente y aprende cómo implementar esas en Evim (lo más probable es que Vim también pueda hacerlo). Tu velocidad a la hora de editar tendrá un gran impulso.
 
-Once you can edit at 50% of the original speed, it's time to go full-time Vim.
+Una vez que puedas editar al 50% de velociad que lo hacías originalmente, es hora de pasarte por completo a Vim.
 
 ## How To Read This Guide
 
