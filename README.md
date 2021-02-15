@@ -9,7 +9,7 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 
 ### Prólogo
 
-- [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](./ch00_new_to_vim_read_this_first.md) .................................... En progreso ✅ / Traducido [ ]  / Revisado [ ]
+- [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](./ch00_new_to_vim_read_this_first.md) .................................... En progreso [ ] / Traducido ✅  / Revisado [ ]
 
 ### Parte 1: Aprendiendo Vim de la manera más inteligente
 
