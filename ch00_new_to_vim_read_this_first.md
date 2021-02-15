@@ -63,19 +63,19 @@ Los comandos de Vim pueden ser abreviados. Por ejemplo, `:join` tiene un comando
 
 ## Vimrc
 
-At various points in the guide, I will refer to vimrc options. If you're new to Vim, a vimrc is like a config file.
+En varios puntos de esta guía, me referiré a las opciones de *vimrc*. Si acabas de llegar a Vim, debes saber que *vimrc* es el archivo de configuración del editor.
 
-Vimrc won't be covered until chapter 21. For the sake of clarity, I will show briefly here how to set it up.
+No se tratará el tema de *vimrc* hasta el capítulo 21. Para aclarar un poco el tema, te mostraré brevemente cómo configurarlo.
 
-Suppose you need to set the number options (`set number`). If you don't have a vimrc already, create one. It is usually placed at the root directory named `.vimrc`. Depending on your OS, the location may differ. In macOS, I have it on `~/.vimrc`. To see where you should put yours, check out `:h vimrc`.
+Supongamos que necesitamos configurar las opciones de numeración de línea (`set number`). Si todavía no tienes un archivo *vimrc*, vamos a crear uno. Normalmente este archivo se ubica en la raíz de un directorio lammado `.vimrc` dentro de nuestro usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, ehca un vistazo a `:h vimrc`.
 
-Inside it, add `set number`. Save it (`:w`), then source it (`:source %`). You should now see line numbers displayed on the left side.
+Dentro del archivo añade una línea con lo siguiente `set number`. Guárdalo (`:w`) y después haz que Vim lo tenga en cuenta ejecutando `:source %`. Ahora deberías ver los números de línea mostrados en el margen izquierdo.
 
-Alternatively, if you don't want to a make permanent setting change, you can always run the `set` command inline, by running `:set number`. The downside of this approach is that this setting is temporary. When you close Vim, the option disappears.
+De manera alternativa, si no quieres realizar cambios en los ajustes que se guarden de forma permanentes, siempre puedes ejecutar el comando `set` en la línea de comandos, ejecutando `:set number`. La contrapartida de este método es que estos ajustes son temporales. Cuando cierres Vim los cambios y opciones desaparecen.
 
-Since we are learning about Vim and not Vi, a setting that you must have is the `nocompatible` option. Add `set nocompatible` in your vimrc. Many Vim-specific features are disabled when it is running on `compatible` option.
+Ya que estamos aprendiendo sobre Vim y no sobre Vi, un ajuste que debes incluir es la opción `nocompatible`. Añade `set nocompatible` en tu archivo *vimrc*. Muchas funcionalidades específicas de Vim están inhabilitadas cuando está siendo ejecutado con la opción `compatible`.
 
-In general, whenever a passage mentions a vimrc option, just add that option into vimrc, save it, and source it.
+En general, siempre que en la guía se mencione una opción de *vimrc*, simplemente añade esa opción en el archivo *vimrc*, guárdalo y haz que después Vim lo tenga en cuenta.
 
 ## Future, Errors, Questions
 
