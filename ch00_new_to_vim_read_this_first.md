@@ -77,12 +77,12 @@ Ya que estamos aprendiendo sobre Vim y no sobre Vi, un ajuste que debes incluir 
 
 En general, siempre que en la guía se mencione una opción de *vimrc*, simplemente añade esa opción en el archivo *vimrc*, guárdalo y haz que después Vim lo tenga en cuenta.
 
-## Future, Errors, Questions
+## Futuro, errores, preguntas
 
-Expect more updates in the future. If you find any errors or have any questions, please feel free to reach out.
+Llegarán más actualizaciones de la guía en el futuro. Si encuentras algún error o tienes alguna pregunta, por favor siéntete libre de ponerte en contacto conmigo.
 
-I also have planned a few more upcoming chapters, so stay tuned!
+También planeo más capítulos en futuras entregas, así que ¡permanece atento y atenta!
 
-## I Want More Vim Tricks
+## Quiero más trucos sobre Vim
 
-To learn more about Vim, please follow [@learnvim](https://twitter.com/learnvim).
+Para aprender más sobre Vim, puedes seguir en Twitter a [@learnvim](https://twitter.com/learnvim).
