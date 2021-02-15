@@ -49,9 +49,9 @@ Necesitas escribir cada comando que encontrarás en esta guía. No solo eso, nec
 
 Por mucho que haya tratado de moldear esta guía para ser lineal en su temática, algunos conceptos de esta guía tienen que ser presentados fuera de orden. Por ejemplo en el capítulo 1, menciono el comando de sustitución (`:s`), incluso aunque no trato sobre el hasta el capítulo 12. Para remediar esto, cada vez que un nuevo concepto que no se haya tratado todavía sea mencionado prematuramente, ofreceré una rápida guía de utilización sin una explicación detallada. Así que por favor, tengan paciencia conmigo :).
 
-## More Help
+## Más ayuda
 
-Here's one extra tip to use the help manual: suppose you want to learn more about what `Ctrl-P` does in insert mode. If you merely search for `:h CTRL-P`, you will be directed to normal mode's `Ctrl-P`. This is not the `Ctrl-P` help that you're looking for. In this case, search instead for `:h i_CTRL-P`. The appended `i_` represents the insert mode. Pay attention to which mode it belongs to.
+Aquí tienes un truco extra al utilizar el manual de la ayuda de Vim: supon que quieres aprender más sobre lo que hace `Ctrl-P` en el modo insertar. Si solo buscas `:h CTRL-P`, te enviará a lo que hace `Ctrl-P` en el modo normal.  Esa no es la ayuda sobre `Ctrl-P` que estabas buscando. En este caso, deberás buscar esto `:h i_CTRL-P`. El prefijo `i_` representa al modo insertar. Pon atención sobre a qué modo pertenece lo que andas buscando.
 
 ## Syntax
 
