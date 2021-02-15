@@ -53,13 +53,13 @@ Por mucho que haya tratado de moldear esta guía para ser lineal en su temática
 
 Aquí tienes un truco extra al utilizar el manual de la ayuda de Vim: supon que quieres aprender más sobre lo que hace `Ctrl-P` en el modo insertar. Si solo buscas `:h CTRL-P`, te enviará a lo que hace `Ctrl-P` en el modo normal.  Esa no es la ayuda sobre `Ctrl-P` que estabas buscando. En este caso, deberás buscar esto `:h i_CTRL-P`. El prefijo `i_` representa al modo insertar. Pon atención sobre a qué modo pertenece lo que andas buscando.
 
-## Syntax
+## Sintaxis
 
-Most of the command or code-related phrases are in code-case (`like this`).
+La mayoría de los comandos o frases relacionadas con código se mostrarán `de esta forma`.
 
-Strings are surrounded by a pair of double-quotes ("like this").
+Las cadenas de texto están rodeadas por un par de comillas dobles ("de esta forma").
 
-Vim commands can be abbreviated. For example, `:join` can be abbreviated as `:j`. Throughout the guide, I will be mixing the shorthand and the longhand descriptions. For commands that are not frequently used in this guide, I will use the longhand version. For commands that are frequently used, I will use the shorthand version. I apologize for the inconsistencies. In general, whenever you spot a new command, always check it on `:help` to see its abbreviations.
+Los comandos de Vim pueden ser abreviados. Por ejemplo, `:join` tiene un comando similar abreviado como `:j`. A lo largo de la guía, se utilizarán tanto las descripciones largas como cortas. Para los comandos que no son usados frecuentemente en esta guía, utilizaré la versión larga. Para los comandos que son utilizados frecuentemente, utilizaré la versión corta. Siento esta diversidad de uso. En general, cuando te encuentres con un comando nuevo, comprueba siempre en la ayuda de Vim para ver su forma abreviada
 
 ## Vimrc
 
