@@ -93,32 +93,34 @@ Ctrl-x Ctrl-y    Desplaza el contenido de la pantalla hacia arriba
 Ctrl-x Ctrl-e    Desplaza el contenido de la pantalla hacia abajo
 ```
 
-## Autocompletion
+## Autocompletado
 
-Vim has a built-in autocompletion mechanism using `Ctrl-x` sub-mode (like scrolling). Although it is not as good as [intellisense](https://code.visualstudio.com/docs/editor/intellisense) or any other Language Server Protocol (LSP), but for something that is available right out-of-the-box, it is a very capable feature.
+Vim tiene un mecanismo de autocompletado propio utilizando un submodo con `Ctrl-x` (como con el desplazamiento que hemos visto antes). Aunque esto no es tan bueno como [intellisense](https://code.visualstudio.com/docs/editor/intellisense) o cualquier otro Protocolo de lenguaje de servidor (o LSP por sus siglas en inglés), pero para algo que está disponible de manera predeterminada, es una característica muy capaz.
 
-Here are some useful autocomplete commands to get started:
-```
-Ctrl-x Ctrl-l	   Insert a whole line
-Ctrl-x Ctrl-n	   Insert a text from current file
-Ctrl-x Ctrl-i	   Insert a text from included files
-Ctrl-x Ctrl-f	   Insert a file name
-```
-
-When you trigger autocompletion, Vim will display a pop-up window. To navigate up and down the pop-up window, use `Ctrl-n` and `Ctrl-p`.
-
-Vim also has two autocompletions that don't use `Ctrl-x` sub-mode:
+Aquí tienes algunos comandos de autocompletado útiles para empezar a utilizarlo:
 
 ```
-Ctrl-n             Find the next word match
-Ctrl-p             Find the previous word match
+Ctrl-x Ctrl-l	   Inserta una línea completa
+Ctrl-x Ctrl-n	   Inserta un texto desde el archivo actual
+Ctrl-x Ctrl-i	   Inserta un texto desde los archivos incluidos
+Ctrl-x Ctrl-f	   Inserta un nombre de archivo 
 ```
 
-In general, Vim looks at the text in all available buffers for autocompletion source. If you have an open buffer with a line that says "Chocolate donuts are the best":
-- When you type "Choco" and do `Ctrl-x Ctrl-l`, it will match and print the entire line.
-- When you type "Choco" and do `Ctrl-p`, it will match and print the word "Chocolate".
+Cuando lanzas el autocompletado, Vim mostrará una ventana emergente. Para navegar arriba y abajo por la ventana, utiliza `Ctrl-n` y `Ctrl-p`.
 
-Autocomplete is a vast topic in Vim. This is just the tip of the iceberg. To learn more, check out `:h ins-completion`.
+Vim también tiene dos autocompletados que no utiliza el submodo `Ctrl-x`: 
+
+```
+Ctrl-n             Encuentra la siguiente palabra que coincide
+Ctrl-p             Encuentra la palabra anterior que coincide
+```
+
+En general, Vim busca en todo el texto disponible en todos los *buffers* la fuente para el autocompletado. Si tienes abierto un *buffer* con una línea que dice: "Los donuts de chocolate son los mejores":
+
+- Cuando escribes "Choco" y después `Ctrl-x Ctrl-l`, esto encontrará y añadirá la línea complet.
+- Cuando escribes "Choco" y después `Ctrl-p`, esto encontrará y añadirá la palabra "Chocolate".
+
+El autocompletado es un tema muy amplio en Vim. Esto es solo la punta de iceberg. Para aprender más, echa un vistazo a la ayuda de Vim `:h ins-completion`.
 
 ## Executing a Normal Mode Command
 
