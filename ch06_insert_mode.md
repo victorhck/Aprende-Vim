@@ -30,7 +30,7 @@ Hay unas cuantas maneras de regresar al modo normal mientras estás en el modo i
 ```
 <Esc>    Salir del modo insertar y volver al modo normal
 Ctrl-[   Salir del modo insertar y volver al modo normal
-Ctrl-c   Similar a Ctrl-[ y <Esc>, pero no controla las abreviaciones
+Ctrl-C   Similar a Ctrl-[ y <Esc>, pero no controla las abreviaciones
 ```
 
 Encuentro la tecla `<Esc>` está algo apartada, por lo que mapeo el teclado de mi equipo para que la tecla de `<Bloq mayús>` se comporte como `<Esc>`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `<Esc>` no estaba en la esquina superior izquierda como en los teclados modernos, si no al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar el `<Bloq mayús>` por `<Esc>`.
@@ -57,9 +57,9 @@ Si después escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el
 Cuando comentes un error al escribir, puede ser molesto pulsar la tecla `<Retroceso>` repetidamente. Podría tener más sentido si vas al modo normal y borras tu error. También puedes borrar varios caracteres al mismo tiempo mientras estás en el modo insertar:
 
 ```
-Ctrl-h    Borrar un carácter
-Ctrl-w    Borrar una palabra
-Ctrl-u    Borrar una línea entera
+Ctrl-H    Borrar un carácter
+Ctrl-W    Borrar una palabra
+Ctrl-U    Borrar una línea entera
 ```
 
 ## Insertar desde un registro
@@ -79,7 +79,7 @@ Veamos el comando en detalle:
 El registro "a" ahora contiene la palabra que acabas de copiar. Mientras estás en el modo insertar, para pegar el texto almacenado en el registro "a", escribe:
 
 ```
-Ctrl-r a
+Ctrl-R a
 ```
 
 Hay múltiples de tipos de registros en Vim. Trataré sobre ellos con gran detalle en el siguiente capítulo.
@@ -89,8 +89,8 @@ Hay múltiples de tipos de registros en Vim. Trataré sobre ellos con gran detal
 ¿Sabías que puedes mover el contenido de la pantalla (hacer *scroll*) mientras estás en el modo insertar? Mientras estás en el modo insertar, si entras en el submodo con `Ctrl-x`, puedes realizar operaciones adicionales. Desplazar la pantalla es una de ellas.
 
 ```
-Ctrl-x Ctrl-y    Desplaza el contenido de la pantalla hacia arriba
-Ctrl-x Ctrl-e    Desplaza el contenido de la pantalla hacia abajo
+Ctrl-x Ctrl-Y    Desplaza el contenido de la pantalla hacia arriba
+Ctrl-x Ctrl-E    Desplaza el contenido de la pantalla hacia abajo
 ```
 
 ## Autocompletado
@@ -100,10 +100,10 @@ Vim tiene un mecanismo de autocompletado propio utilizando un submodo con `Ctrl-
 Aquí tienes algunos comandos de autocompletado útiles para empezar a utilizarlo:
 
 ```
-Ctrl-x Ctrl-l	   Inserta una línea completa
-Ctrl-x Ctrl-n	   Inserta un texto desde el archivo actual
-Ctrl-x Ctrl-i	   Inserta un texto desde los archivos incluidos
-Ctrl-x Ctrl-f	   Inserta un nombre de archivo 
+Ctrl-x Ctrl-L	   Inserta una línea completa
+Ctrl-x Ctrl-N	   Inserta un texto desde el archivo actual
+Ctrl-x Ctrl-I	   Inserta un texto desde los archivos incluidos
+Ctrl-x Ctrl-F	   Inserta un nombre de archivo 
 ```
 
 Cuando lanzas el autocompletado, Vim mostrará una ventana emergente. Para navegar arriba y abajo por la ventana, utiliza `Ctrl-n` y `Ctrl-p`.
@@ -111,8 +111,8 @@ Cuando lanzas el autocompletado, Vim mostrará una ventana emergente. Para naveg
 Vim también tiene dos autocompletados que no utiliza el submodo `Ctrl-x`: 
 
 ```
-Ctrl-n             Encuentra la siguiente palabra que coincide
-Ctrl-p             Encuentra la palabra anterior que coincide
+Ctrl-N             Encuentra la siguiente palabra que coincide
+Ctrl-P             Encuentra la palabra anterior que coincide
 ```
 
 En general, Vim busca en todo el texto disponible en todos los *buffers* la fuente para el autocompletado. Si tienes abierto un *buffer* con una línea que dice: "Los donuts de chocolate son los mejores":
