@@ -84,13 +84,13 @@ Ctrl-r a
 
 Hay múltiples de tipos de registros en Vim. Trataré sobre ellos con gran detalle en el siguiente capítulo.
 
-## Scrolling
+## Desplazamiento de la pantalla (*scroll*)
 
-Did you know that you can scroll while inside insert mode? While in insert mode, if you go to `Ctrl-x` sub-mode, you can do additional operations. Scrolling is one of them.
+¿Sabías que puedes mover el contenido de la pantalla (hacer *scroll*) mientras estás en el modo insertar? Mientras estás en el modo insertar, si entras en el submodo con `Ctrl-x`, puedes realizar operaciones adicionales. Desplazar la pantalla es una de ellas.
 
 ```
-Ctrl-x Ctrl-y    Scroll up
-Ctrl-x Ctrl-e    Scroll down
+Ctrl-x Ctrl-y    Desplaza el contenido de la pantalla hacia arriba
+Ctrl-x Ctrl-e    Desplaza el contenido de la pantalla hacia abajo
 ```
 
 ## Autocompletion
