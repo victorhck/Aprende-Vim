@@ -35,7 +35,7 @@ Ctrl-c   Similar a Ctrl-[ y <Esc>, pero no controla las abreviaciones
 
 Encuentro la tecla `<Esc>` está algo apartada, por lo que mapeo el teclado de mi equipo para que la tecla de `<Bloq mayús>` se comporte como `<Esc>`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `<Esc>` no estaba en la esquina superior izquierda como en los teclados modernos, si no al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar el `<Bloq mayús>` por `<Esc>`.
 
-Otra convención común que he visto en personas que utilizan Vim es que mapean `<Esc>` a `jj` o `jk` en el modo insertar.
+Otra convención común que he visto en personas que utilizan Vim es que mapean `<Esc>` a `jj` o `jk` en el modo insertar. Si quieres probar esta opción, añade una de estas líneas (o ambas) en tu archivo vimrc.
 
 ```
 inoremap jj <esc>
@@ -45,24 +45,22 @@ inoremap jk <esc>
 ## Repetir el modo insertar
 
 Puedes pasar un parámetro de conteo antes de entrar al modo insertar. Por ejemplo:
+
 ```
 10i
 ```
 
-Si escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el texto 10 veces. Esto funcionará con cualquier otro método del modo insertar (`10I`, `11a`, `12o`).
+Si después escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el texto 10 veces. Esto funcionará con cualquier otro método del modo insertar (por ejemplo: `10I`, `11a`, `12o`).
 
 ## Borrar segmentos en el modo insertar
 
-Cuando comentes un error de escritura, puede ser molesto teclear `Retroceso` repetidamente. Esto puede tener más sentido si vas al modo normal y borras (`d`) tus errores. De manera alternativa, puedes borrar uno o más caracteres al mismo tiempo que estás en el modo insertar:
+Cuando comentes un error al escribir, puede ser molesto pulsar la tecla `<Retroceso>` repetidamente. Podría tener más sentido si vas al modo normal y borras tu error. También puedes borrar varios caracteres al mismo tiempo mientras estás en el modo insertar:
 
 ```
 Ctrl-h    Borrar un carácter
 Ctrl-w    Borrar una palabra
 Ctrl-u    Borrar una línea entera
-
 ```
-
-A propósito, estos atajos también funcionan en la línea de comándos y en el modo Ex (Trataremos la línea de comandos y el modo Ex en los siguientes capítulos).
 
 ## Insert From Register
 
