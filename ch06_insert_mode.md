@@ -62,24 +62,27 @@ Ctrl-w    Borrar una palabra
 Ctrl-u    Borrar una línea entera
 ```
 
-## Insert From Register
+## Insertar desde un registro
 
-Registers are like in-memory scratchpads that store and retrieve texts. To insert a text from any named register while in insert mode, type `Ctrl-r` plus the register symbol. There are many symbols you can use, but for this section, just know that you can use named registers (a-z).
+Los registros de Vim pueden almacenar textos para un uso futuro. Para insertar un texto en cualquier registro nominal mientras estás en el moco insertar, escribe `Ctrl-R` más el símbolo del registro. Hay muchos símbolos que puedes utilizar, pero para esta sección vamos a utilizar solo los registros nominales (a-z).
 
-To see it in action, first you need to yank a word to register a. You can do this with:
+Para ver esto en acción, primero necesitas copiar una palabra al registro "a". Situa tu cursor encima de cualquier palabra y después teclea:
+
 ```
 "ayiw
 ```
-- `"a` tells Vim that the target of your next action will go to register a.
-- `yiw` yanks inner word. Review the chapter on Vim grammar.
+Veamos el comando en detalle:
 
-Register "a" now contains the word you just yanked. While in insert mode, to paste the text stored in register "a":
+- `"a` le dice a Vim que resultado de tu siguiente acción irá al registro "a"
+- `yiw` copia la palabra completa sobre la que está el cursor. Revisa el capítulo sobre la gramática de Vim
+
+El registro "a" ahora contiene la palabra que acabas de copiar. Mientras estás en el modo insertar, para pegar el texto almacenado en el registro "a", escribe:
 
 ```
 Ctrl-r a
 ```
 
-There are multiple types of registers in Vim. I will cover them in greater detail in the next chapter.
+Hay múltiples de tipos de registros en Vim. Trataré sobre ellos con gran detalle en el siguiente capítulo.
 
 ## Scrolling
 
