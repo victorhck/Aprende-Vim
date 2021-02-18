@@ -18,7 +18,7 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 - [Cap 3  - Abriendo y buscando archivos](./ch03_opening_and_searching_files.md) ............... En progreso [ ]  / Traducido ✅  / Revisado [ ]
 - [Cap 4  - La gramática de Vim](./ch04_vim_grammar.md) ............................. En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 5  - Moviéndote en un archivo](./ch05_moving_in_file.md) ...................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 6  - El modo insertar](./ch06_insert_mode.md) ................................... En progreso ✅ / Traducido [ ] / Revisado [ ]
+- [Cap 6  - El modo insertar](./ch06_insert_mode.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 7  - El comando del punto](./ch07_the_dot_command.md) ........................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 8  - Registros](./ch08_registers.md) ................................................ En progreso ✅ / Traducido [ ] / Revisado [ ]
 - [Cap 9  - Macros](./ch09_macros.md) ................................................. En progreso [ ] / Traducido ✅ / Revisado [ ]
