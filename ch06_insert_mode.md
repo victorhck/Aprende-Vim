@@ -122,38 +122,38 @@ En general, Vim busca en todo el texto disponible en todos los *buffers* la fuen
 
 El autocompletado es un tema muy amplio en Vim. Esto es solo la punta de iceberg. Para aprender más, echa un vistazo a la ayuda de Vim `:h ins-completion`.
 
-## Executing a Normal Mode Command
+## Ejecutar un comando del modo normal
 
-Did you know Vim can execute a normal mode command while inside insert mode?
+¿Sabías que Vim puede ejecutar un comando del modo normal mientras estás en el modo insertar?
 
-While in insert mode, if you press `Ctrl-o`, you'll be in `insert-normal` sub-mode. If you look at the mode indicator on bottom left, normally you will see `-- INSERT --`, but pressing `Ctrl-o`  changes it to `-- (insert) --`. In this mode, you can do *one* normal mode command. Some things you can do:
+Mientras estás en el modo insertar, su pulsas `Ctrl-o`, estarás en el submodo `insert-normal`. Si miras el indicador de modo en la parte inferior izquierda, normalmente verás `-- INSERT --`, pero al pulsar `Ctrl-o`  este cambi a `-- (insert) --`. En este modo, solo puedes ejecutar *un solo comando* del modo normal. Algunas cosas que puedes hacer:
 
-**Centering and jumping**
+**Centrado y salto**
 ```
-Ctrl-o zz       Center window
-Ctrl-o H/M/L    Jump to top/middle/bottom window
-Ctrl-o 'a       Jump to mark 'a'
-```
-
-**Repeating text**
-```
-Ctrl-o 100ihello    Insert "hello" 100 times
+Ctrl-o zz       Lleva la línea donde está el cursor al centro de la ventana
+Ctrl-o H/M/L    Mueve el cursor a la parte superior/media/baja de la ventana
+Ctrl-o 'a       Salta a la marca a
 ```
 
-**Executing terminal commands**
+**repitiendo texto**
 ```
-Ctrl-o !! curl https://google.com    Run curl
-Ctrl-o !! pwd                        Run pwd
-```
-
-**Deleting faster**
-```
-Ctrl-o dtz    Delete from current location till the letter "z"
-Ctrl-o D      Delete from current location to the end of the line
+Ctrl-o 100ihola    Inserta "hola" 100 veces
 ```
 
-## Learn Insert Mode the Smart Way
+**Ejecutar comandos de la terminal**
+```
+Ctrl-o !! curl https://google.com    Ejecuta curl
+Ctrl-o !! pwd                        Ejecuta pwd
+```
 
-If you are like me and you come from another text editor, it can be tempting to stay in insert mode. However, staying in insert mode when you're not entering a text is an anti-pattern. Develop a habit to go to normal mode when your fingers aren't typing new texts.
+**Borrado más rápido**
+```
+Ctrl-o dtz    Elimina desde la ubicación actual del cursor hasta justo antes de la primera letra "z" que encuentre
+Ctrl-o D      Elimina desde la posición actual del cursor hasta el final de la línea
+```
 
-When you need to insert a text, first ask yourself if that text already exists. If it does, try to yank or move that text instead of typing it. Should you have to enter insert mode, see if you can autocomplete that text as much as possible. Avoid typing the same word more than once if you can.
+## Aprende el modo insertar de la manera más inteligente
+
+Si tu, al igual que yo provienes de otro editor de texto, puede ser tentador permanecer en el modo insertar. sin embargo, el permanecer en el modo insertar cuando no tienes que introducir texto no es lo más indicado. Desarrolla un hábito de volver al modo normal cuando tus dedos no estén escribiendo nuevo texto.
+
+Cuando necesites insertar un texto, pregúntate si ese texto ya existe. Si lo hay, trata de copiarlo o mover ese texto en vez de escribirlo. Si tienes que entrar en el modo insertar, comprueba si puedes autocompletar el texto lo máximo posible. Evita escribir la misma palabra más de una vez si puedes.
