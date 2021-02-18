@@ -1,35 +1,41 @@
-# Capítulo 6: Formas de entrar al modo insertar
+# Capítulo 6: EL modo insertar
 
-Hay varias formas de entrar en el modo insertar desde el modo normal. Aquí algunas de ellas:
+El modo insertar es el modo predeterminado de la mayoría de los editores de texto. En este modo, lo que escribes es lo que aparece en la pantalla.
+
+Sin embargo, eso no significa que no haya cosas que aprender. El modo insertar de Vim contiene muchas funcionalidades útiles. En este capítulo, aprenderás cómo utilizar  estas funcionalidades del modo insertar en Vim para mejorar tu eficiencia a la hora de escribir.
+
+## Formas de entrar al modo insertar
+
+Hay varias formas de entrar en el modo insertar desde el modo normal. Aquí tienes algunas de ellas:
+
+```
+i    Inserta texto antes del cursor
+I    Inserta texto antes del primer carácter que no sea un espacio en blanco de la linea
+a    Añadir texto después del cursor
+A    Añadir texto al final de la linea
+o    Crea una nueva línea debajo del cursor y cambia al modo insertar
+O    Crea una nueva línea encima del cursor y cambia al modo insertar
+s    Elimina el carácter debajo del cursor e inserta texto
+S    Elimina la línea actual e inserta texto
+gi   Inserta texto en la misma posición donde el modo insertar fue detenido por última vez en al *buffer* actual
+gI   Inserta texto al comienzo de una línea (columna 1)
 ```
 
-i    Insertar texto antes del cursor.
-I    Insertar texto antes del primer carácter imprimible de la linea.
-a    Agregar texto después del cursor.
-A    Agregar texto al final de la linea.
-o    Crea una nueva línea debajo del cursor y cambia al modo insertar.
-O    Crea una nueva línea encima del cursor y cambia al modo insertar.
-s    Borra el carácter debajo del cursor y cambia al modo insertar.
-S    Borra la actual línea  y cambia al modo insertar.
-gi   Insertar texto en la misma posición donde el modo insertar fue detenido por última vez en al actual búfer.
-gI   Insertar texto al principio de una línea (columna 1)
-```
-
-Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres un usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `a`, estos comandos son suficientes para empezar, y poco a poce ve añadiendo más comandos a tu memoria.
+Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres un usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `o`. Estos comandos deberían ser suficientes para empezar. Gradualmente ve aprendiendo más con el paso del tiempo.
 
 ## Formas diferentes de salir del modo insertar
 
 Hay unas cuantas maneras de regresar al modo normal mientras estás en el modo insertar:
+
 ```
-<esc>    Salir del modo insertar y volver al modo normal
+<Esc>    Salir del modo insertar y volver al modo normal
 Ctrl-[   Salir del modo insertar y volver al modo normal
-Ctrl-c   Similar a Ctrl-[ y <esc>, pero no controla las abreviaciones
-
+Ctrl-c   Similar a Ctrl-[ y <Esc>, pero no controla las abreviaciones
 ```
 
-Encuentro la tecla `esc` algo apartada, por lo que mapeo el teclado de mi equipo para que `bloq mayús` se comporte como `esc`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `esc` no estaba en la esquina izquierda como en los teclados modernos, sino al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar `bloq mayús` por `esc`.
+Encuentro la tecla `<Esc>` está algo apartada, por lo que mapeo el teclado de mi equipo para que la tecla de `<Bloq mayús>` se comporte como `<Esc>`. Si buscas el teclado de la ADM-3A de Bill Joy (creador de Vi), verás que la tecla `<Esc>` no estaba en la esquina superior izquierda como en los teclados modernos, si no al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar el `<Bloq mayús>` por `<Esc>`.
 
-Otra convención común que he visto en usuarios de Vim es que mapean `esc` a `jj` o `jk` en el modo insertar.
+Otra convención común que he visto en personas que utilizan Vim es que mapean `<Esc>` a `jj` o `jk` en el modo insertar.
 
 ```
 inoremap jj <esc>
