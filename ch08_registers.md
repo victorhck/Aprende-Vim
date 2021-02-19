@@ -187,17 +187,17 @@ Ctrl-r =@a
 
 Las expresiones son un tema muy amplio en Vim, así que aquí solo se trata lo básico. Volveré al tema de las expresiones en más detalle en los capítulos finales de Vimscript.
 
-## Learning Registers The Smart Way
+## Aprendiendo los registros de la manera más inteligente
 
-You made it to the end. Congratulations! If you are feeling overwhelmed by the sheer information, you are not alone. When I first started learning about Vim registers, there were way too much information to take at once.
+Lo conseguiste. ¡Enhorabuena! Si sientes una sensación de agobio por la cantidad de información, no te pasa a ti únicamente. Cuando comencé a aprender sobre los registros de Vim, había mucha información que asimilar de una vez.
 
-I don't think you should memorize all the registers immediately. To become productive, you can start by using only these 3 registers:
-1. The unnamed register (`""`).
-2. The named registers (`"a-z`).
-3. The numbered registers (`"0-9`).
+No creo que debieras memorizar los registros de manera inmediata. Para ser más eficaz, puedes empezar por utilizar solo estos 3 registros:
+1. El registro sin nombre (`""`).
+2. Los registro nominales (`"a-z`).
+3. Los registros numerados (`"0-9`).
 
-Since the unnamed register defaults to `p` and `P`, you only have to learn two registers: the named registers and the numbered registers. Gradually learn more registers when you need them. Take your time.
+Como el registro sin nombre de manera predeterminada usa `p` y `P`, solo tienes que aprender dos registro: los nominales y los numerados. Aprende de manera gradual más registros cuando los necesites. Tómate tu tiempo.
 
-The average human has a limited short-term memory capacity, about 5 - 7 items at once. That is why in my everyday editing, I only use about 5 -  7 named registers. There is no way I can remember all twenty-six in my head. I normally start with register a, then b, ascending the alphabetical order. Try it and experiment around to see what technique works best for you.
+Una persona de media tiene una capacidad limitada de memoria a corto plazo, sobre unos 5 a 7 elementos a la vez. Por eso en mi trabajo diario con Vim, solo utilizo unos 5 o 7 registros nominales. No hay manera de que pueda recordar todos los 26. Normalmente comienzo con el registro a, después el b, ascendiendo en orden alfabético. Inténtalo y experimenta sobre ello para ver qué técnicas funcionan mejor en tu caso.
 
-Vim registers are powerful. Used strategically, it can save you from typing countless repeating texts. Next, let's learn about macros.
+Los registros de Vim son muy potentes. Utilízalos estratégicamente, te pueden ahorrar el tener que escribir de manera repetitiva mucho texto. Ahora vamos a aprender sobre las macros.
