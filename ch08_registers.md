@@ -2,20 +2,20 @@
 
 Aprender los registros de Vim es como aprender álgebra por primera vez. No piensas que los necesitas hasta que lo aprendes.
 
-Probablemente has usado los registros de Vim cuando al copiar o borrar un texto y luego lo pegaste con `p` o `P`. No obstante, ¿sabes que Vim tiene 10 tipos diferentes de registros?
+Probablemente has usado los registros de Vim al copiar o borrar un texto y luego lo pegaste con `p` o `P`. sin embargo, ¿sabías que Vim tiene 10 tipos diferentes de registros? Usados correctamente, los registros de Vim te pueden ahorrar es tener que escribir lo mismo de manera repetitiva.
 
-En este capítulo repasaré todos los tipos de registros de Vim y como usarlos eficientemente.
+En este capítulo repasaré todos los tipos de registros de Vim y cómo usarlos eficientemente.
 
 ## Los diez tipos de registros
 
-Aquí están los 10 tipos de registros que tiene Vim:
+Estos son los 10 tipos de registros que tiene Vim:
 
 1. El registro predeterminado (`""`).
 2. Los registros numerados (`"0-9`).
 3. El registro de pequeñas eliminaciones (`"-`).
 4. Los registros nominales (`"a-z`).
 5. El registro de solo lectura (`":`, `".`,y `"%`).
-6. El registro de búfer alterno (`"#`).
+6. El registro de *buffer* alterno (`"#`).
 7. El registro de expresiones (`"=`).
 8. Los registros de selección (`"*` y `"+`).
 9. El registro de agujero negro (`"_`).
@@ -24,7 +24,7 @@ Aquí están los 10 tipos de registros que tiene Vim:
 
 ## Operadores del registro
 
-Aquí algunos operadores que almacenan valores en los registros:
+Para utilizar los registros, necesitas primero almacenarlos con operadores. Estos son algunos operadores que almacenan valores en los registros:
 
 ```
 y    Yank (copiar)
@@ -32,18 +32,18 @@ c    Borrar texto e iniciar el modo insertar
 d    Borrar texto
 ```
 
-Existen algunos operadores más (como `s` o `x`), pero estos son los más comunes. El criterio general es, si un operador elimina texto, probablemente lo guarde en un registro.
+Existen algunos operadores más (como `s` o `x`), pero estos son los más comunes. El criterio general es, si un operador elimina texto, lo más probable es que almacene el texto en los registros.
 
-Para poner (pegar) texto desde los registros, puedes usar:
+Para pegar texto desde los registros, puedes usar:
 
 ```
-p    Ubica el texto después del cursor
-P    Ubica el texto antes del cursor
+p    Pega el texto después del cursor
+P    Pega el texto antes del cursor
 ```
 
-Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para poner diez veces el texto recientemente copiado, debes escribir `10p`. Para poner el texto del registro "a", utiliza `"ap`. Y para poner 10 veces el texto del registro "a", es `10"ap`.
+Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para pegar diez veces, debes escribir `10p`. Para pegar el texto del registro a, utiliza `"ap`. Para pegar 10 veces el texto del registro a, ejecuta `10"ap`. Por cierto, la `p` del comando es la abreviación de la palabra "put" (poner en inglés), no de "pegar" (paste en inglés), pero creo que usar la palabra pegar es más conveniente.
 
-En general la sintaxis para obtener el contenido desde un registro en específico es `"x`, donde `x` es el símbolo del registro.
+La sintanxis general para obtener el contenido desde un registro en específico es `"a`, donde `a` es el símbolo del registro.
 
 
 ## Llamar a los registros desde el modo insertar
