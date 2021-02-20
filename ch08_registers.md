@@ -15,7 +15,7 @@ Estos son los 10 tipos de registros que tiene Vim:
 3. El registro de pequeñas eliminaciones (`"-`).
 4. Los registros nominales (`"a-z`).
 5. El registro de solo lectura (`":`, `".`,y `"%`).
-6. El registro del archivo alterno (`"#`).
+6. El registro de archivo alternativo (`"#`).
 7. El registro de expresiones (`"=`).
 8. Los registros de selección (`"*` y `"+`).
 9. El registro de agujero negro (`"_`).
@@ -153,9 +153,9 @@ Vim tiene tres registros de solo lectura: `.`, `:`, y `%`. Estos son muy fácile
 
 Si el último texto que escribiste fue "Hola Vim", al ejecutar `".p` se imprimirá el texto "Hola Vim". Si deseas obtener el nombre del archivo actual, escribe `"%p`. Si ejecutas el comando `:s/foo/bar/g`, al ejecutar `":p` se mostrará el texto literal "s/foo/bar/g".
 
-## El registro del archivo alterno 
+## El registro de archivo alternativo 
 
-En Vim, `#` usualmente representa el archivo alterno. Un archivo alterno es el último archivo que abriste. Para insertar el nombre del archivo alterno, puedes usar `"#p`.
+En Vim, `#` usualmente representa el archivo alternativo. Un archivo alternativo es el último archivo que abriste. Para insertar el nombre del archivo alternativo, puedes usar `"#p`.
 
 ## El registro de expresiones 
 
@@ -167,7 +167,7 @@ Puedes calcular la expresión matemática `1 + 1` con:
 "=1+1<Enter>p
 ```
 
-Aqui, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es (`1 + 1`). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
+En el ajemplo anterior, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es (`1 + 1`). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
 
 ```
 Ctrl-R =1+1
