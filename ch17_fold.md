@@ -1,16 +1,18 @@
-# Ch17. Fold
+# Capítulo 17: Desplegables (*Fold*)
 
-When you read a file, often there are many irrelevant texts that hinder you from understanding what that file does. To hide the unnecessary noise, use Vim fold.
+*Nota del traductor: He traducido el término **fold** que es sobre lo que trata el capítulo por desplegable. Pero en el resto del capítulo utilizaré el término en inglés, ya que es un término técnico utilizado en su término original en inglés por muchas personas que lo usan en su trabajo diario.*
 
-In this chapter, you will learn different ways to fold a file.
+Cuando lees un archivo, a menudo hay mucho texto irrelevante que te impide entender lo que realiza ese archivo. Para ocultar ese *ruido* innecesario, utiliza los desplegables de Vim (Vim Fold).
 
-## Manual Fold
+En este capítulo, aprenderás las diferentes formas de plegar y desplegar partes de un archivo.
 
-Imagine that you are folding a sheet of paper to cover some text. The actual text does not go away, it is still there. Vim fold works the same way. It folds a range of text, hiding it from display without actually deleting it.
+## Plegado manual
 
-The fold operator is `z` (when a paper is folded, it is shaped like the letter z).
+Imagina que estás doblando una hoja de papel para cubrir una parte de texto. El texto actual no ha desaparecido, todavía sigue ahí. El plegado de Vim funciona de una manera similar. Este pliega una parte del texto, evitando mostrarlo pero sin eliminarlo del archivo.
 
-Suppose you have this text:
+El operador para el plegado es `z` (cuando un papel es plegado, este tiene forma de la letra z).
+
+Supón que tienes el siguiente texto:
 
 ```
 Fold me
