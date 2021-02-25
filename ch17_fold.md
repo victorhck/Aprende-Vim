@@ -1,7 +1,5 @@
 # Capítulo 17: Desplegables (*Fold*)
 
-*Nota del traductor: He traducido el término **fold** que es sobre lo que trata el capítulo por desplegable. Pero en el resto del capítulo utilizaré el término en inglés, ya que es un término técnico utilizado en su término original en inglés por muchas personas que lo usan en su trabajo diario.*
-
 Cuando lees un archivo, a menudo hay mucho texto irrelevante que te impide entender lo que realiza ese archivo. Para ocultar ese *ruido* innecesario, utiliza los desplegables de Vim (Vim Fold).
 
 En este capítulo, aprenderás las diferentes formas de plegar y desplegar partes de un archivo.
@@ -10,7 +8,7 @@ En este capítulo, aprenderás las diferentes formas de plegar y desplegar parte
 
 Imagina que estás doblando una hoja de papel para cubrir una parte de texto. El texto actual no ha desaparecido, todavía sigue ahí. El plegado de Vim funciona de una manera similar. Este pliega una parte del texto, evitando mostrarlo pero sin eliminarlo del archivo.
 
-El operador para el plegado es `z` (cuando un papel es plegado, este tiene forma de la letra z).
+El operador para el plegado es `z` (cuando pliegas un papel, este tiene forma de la letra z).
 
 Supón que tienes el siguiente texto:
 
@@ -19,36 +17,36 @@ Fold me
 Hold me
 ```
 
-Type `zfj`. Vim folds both lines into one. You should see something like this:
+Con el cursor situado en la primera línea, escribe `zfj`. Vim plegará las dos líneas en una sola. Deberías ver algo similar a esto:
 
 ```
 +-- 2 lines: Fold me -----
 ```
 
-Here is the breakdown:
-- `zf` `zf` is the fold operator.
-- `j` is the motion for the fold operator.
+Vamos a ver en detalle el comando:
+- `zf` es el operador del operador del plegado.
+- `j` es el indicador de movimiento para el operador del plegado.
 
-You can open a folded text with `zo`. To close the fold, use `zc`.
+Puedes abrir un texto plegado con `zo`. Para cerrarlo utiliza `zc`.
 
-Fold is an operator, so it follows the grammar rule (`verb + noun`). You can pass the fold operator with a motion or text object. To fold an inner paragraph, run `zfip`. To fold to the end of a file, run `zfG`. To fold the texts between `{` and `}`, run `zfa{`.
+El comando para plegar texto en Vim es un operador, por lo que cumple las reglas gramaticales de Vim (`verbo + sustantivo`). Puedes pasarle al operador de plegado un movimiento o un objeto de texto. Para plegar el párrafo en el que se encuentra el cursor, ejecuta `zfip`. Para plegar desde la posición actual hasta el final del archivo, ejecuta `zfG`. Para plegar los textos entre `{` y `}`, ejecuta `zfa{`.
 
-You can fold from the visual mode. Highlight the area you want to fold (`v`, `V`, or `Ctrl-v`), then run `zf`.
+Puedes plegar texto desde el modo visual. Selecciona el área que quieres plegar (puedes hacerlo con `v`, `V` o `Ctrl-v`), y después ejecuta `zf`.
 
-You can execute a fold from the command-line mode with the `:fold` command. To fold the current line and the line after it, run:
+También puedes ejecutar un plegado de texto desde la línea de comandos con el comando `:fold`. Para plegar la línea actual y la línea posterior, ejecuta:
 
 ```
 :,+1fold
 ```
 
-`,+1` is the range. If you don't pass parameters to the range, it defaults to the current line. `+1` is the range indicator for the next line. To fold the lines 5 to 10, run `:5,10fold`. To fold from the current line to the end of the line, run `:,$fold`.
+`,+1` es el rango. Si no le pasas parámetros al rango, el comando de manera predeterminada lo aplica a la línea actual. `+1` es el indicador de rango para la línea siguiente. Para plegar las líneas de la 5 a la 10, ejecuta `:5,10fold`. Para plegar desde la posición actual hasta el final de la línea, ejecuta `:,$fold`.
 
-There are many other fold and unfold commands. I find them too many to remember when starting out. The most useful ones are:
-- `zR` to open all folds.
-- `zM` to close all folds.
-- `za` toggle a fold.
+Hay muchos otros comandos para gestionar el plegado de texto. Creo que son muchos para recordar cuando estás comenzando. Los más útiles son:
+- `zR` para abrir todos los plegados.
+- `zM` para cerrar todos los plegados.
+- `za` para alternar el estado en el que se encuentra un plegado.
 
-You can run `zR` and `zM` on any line, but `za` only works when you are on a folded / unfolded line. To learn more folding commands, check out `:h fold-commands`.
+Puedes ejecutar `zR` y `zM` estando en cualquier línea, pero `za` solo funciona cuando estás en una línea que pertenece a un plegado de texto. Para aprender más sobre los comandos de los plegados de texto, echa un vistazo a `:h fold-commands`.
 
 ## Different Fold Methods
 
