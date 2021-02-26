@@ -48,44 +48,44 @@ Hay muchos otros comandos para gestionar el plegado de texto. Creo que son mucho
 
 Puedes ejecutar `zR` y `zM` estando en cualquier línea, pero `za` solo funciona cuando estás en una línea que pertenece a un plegado de texto. Para aprender más sobre los comandos de los plegados de texto, echa un vistazo a `:h fold-commands`.
 
-## Different Fold Methods
+## Diferentes métodos de plegado de texto
 
-The section above covers Vim's manual fold. There are six different folding methods in Vim:
-1. Manual
-2. Indent
-3. Expression
-4. Syntax
-5. Diff
-6. Marker
+La sección anterior trata sobre el plegado de texto manual de Vim. Hay seis métodos de plegado de texto en Vim:
+1. Manual (Manual)
+2. Sangría (Indent)
+3. Expresión (Expression)
+4. Sintaxis (Syntax)
+5. Diferencia (Diff)
+6. Marcador (Marker)
 
-To see which folding method you are currently using, run `:set foldmethod?`. By default, Vim uses the `manual` method.
+Para ver el método de plegado de texto que estás utilizando actualmente, ejecuta `:set foldmethod?`. De manera predeterminada, Vim utiliza el método `manual`.
 
-In the rest of the chapter, you will learn the other five folding methods. Let's get started with the indent fold.
+En el resto del capítulo, aprenderás los otros cinco métodos. Vamos a empezar con el plgado por sangría (o en inglés *indent*).
 
-## Indent Fold
+## Plegado por sangría (*Indent Fold*)
 
-To use an indent fold, change the `'foldmethod'` to indent:
+Para utilizar el plegado de texto por sangría de margen, cambia el método de plegado `'foldmethod'` a *indent*. Ejecuta:
 
 ```
 :set foldmethod=indent
 ```
 
-Suppose that you have the text:
+Supongamos que tenemos este texto:
 
 ```
-One
-  Two
-  Two again
+Uno
+  Dos
+  Dos de nuevo
 ```
 
-If you run `:set foldmethod=indent`, you will see:
+Si ejecutas `:set foldmethod=indent`, verás algo así:
 
 ```
-One
-+-- 2 lines: Two -----
+Uno
++-- 2 lines: Dos -----
 ```
 
-With indent fold, Vim looks at how many spaces each line has at the beginning and compares it with the `'shiftwidth'` option to determine its foldability. `'shiftwidth'` returns the number of spaces required for each step of the indent. If you run:
+Con este método de plegado de texto, Vim mira cuantos espacios tiene cada línea al comienzo y lo compara con la opción `'shiftwidth'` para determinar cómo lo puede plegar. `'shiftwidth'` devuelve el número de espacios requeridos para cada paso del sangrado de línea. Si ejecutas:
 
 ```
 :set shiftwidth?
