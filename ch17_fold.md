@@ -91,53 +91,53 @@ Con este método de plegado de texto, Vim mira cuantos espacios tiene cada líne
 :set shiftwidth?
 ```
 
-Vim's default `'shiftwidth'` value is 2. On the text above, there are two spaces between the start of the line and the text "Two" and "Two again". When Vim sees the number of spaces and that the `'shiftwidth'` value is 2, Vim considers that line to have an indent fold level of one.
+El valor predeterminado de Vim de `'shiftwidth'` es 2. En el texto del ejemplo anterior, hay dos espacios al comienzo de la línea y los textos "Dos" y "Dos de nuevo". Cuando Vim comprueba el número de espacios al inicio de la líea y el valor 2 de `'shiftwidth'`, Vim cosidera que las líneas tienen que ser plegadas en un primer nivel.
 
-Suppose this time you only one space between the start of the line and the text:
+Supón esta vez que solo tienes un espacio entre el comienzo de la línea y el texto:
 
 ```
-One
- Two
- Two again
+Uno
+ Dos
+ Dos de nuevo
 ```
 
-Right now if you run `:set foldmethod=indent`, Vim does not fold the indented line because there isn't sufficient space on each line. One space is not considered an indentation. However, if you change the `'shiftwidth'` to 1:
+Ahora mismo si ejecutas `:set foldmethod=indent`, Vim no plegará el texto sangrado debido a que no tiene el margen indicado en cada línea. Un solo espacio no es considerado dentro de sangrado de margen. Sin embargo, si cambias el valor de la variable `'shiftwidth'` a 1:
 
 ```
 :set shiftwidth=1
 ```
 
-The text is now foldable. It is now considered an indentation. 
+El texto ahora sí se podrá plegar, ya que entra dentro de los valores de sangrado de márgenes.
 
-Restore the `shiftwidth` back to 2 and the spaces between the texts to two again. In addition, add two additional texts:
-
-```
-One
-  Two
-  Two again
-    Three
-    Three again
-```
-
-Run fold (`zM`), you will see:
+Devuelve de nuevo el valor de `shiftwidth` a 2 y los espacios de las líneas de nuevo a dos. Y además añade otras dos líneas de texto, como en el ejemplo:
 
 ```
-One
-+-- 4 lines: Two -----
+Uno
+  Dos
+  Dos de nuevo
+    Tres
+    Tres de nuevo
 ```
 
-Unfold the folded lines (`zR`), then put your cursor on "Three" and toggle the text's folding state (`za`):
+Ejecuta el plegado (`zM`), y verás:
 
 ```
-One
-  Two
-  Two again
-+-- 2 lines: Three -----
+Uno
++-- 4 lines: Dos -----
 ```
 
-What's this? A fold within a fold?
+Despliega las líneas plegadas (`zR`), y después situa el cursor sobre la palabra "Tres" y alterna el estado del plegado del texto (`za`):
 
-Nested folds are valid. The text "Two" and "Two again" have fold level of one. The text "Three" and "Three again" have fold level of two. If you have a foldable text with a higher fold level within a foldable text, you will have multiple fold layers.
+```
+Uno
+  Dos
+  Dos de nuevo
++-- 2 lines: Tres -----
+```
+
+¿Qué es esto? ¿Un plegado dentro de otro plegado de texto?
+
+Los plegados anidados son válidos. El texto "Dos" y "Dos de nuevo" están plegados en un primer nivel. El texto "Tres" y "Tres de nuevo" están plegados en un segundo nivel. Si tienes un texto plegado con un nivel de plegado mayor con texto plegado dentro, tienes múltiples capas de plegados.
 
 ## Marker Fold
 
