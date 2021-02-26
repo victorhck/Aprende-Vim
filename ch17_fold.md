@@ -1,6 +1,6 @@
-# Capítulo 17: Desplegables (*Fold*)
+# Capítulo 17: Plegado de texto (*Fold*)
 
-Cuando lees un archivo, a menudo hay mucho texto irrelevante que te impide entender lo que realiza ese archivo. Para ocultar ese *ruido* innecesario, utiliza los desplegables de Vim (Vim Fold).
+Cuando lees un archivo, a menudo hay mucho texto irrelevante que te impide entender lo que realiza ese archivo. Para ocultar ese *ruido* innecesario, utiliza el plegado de texto que ofrece Vim (Vim Fold).
 
 En este capítulo, aprenderás las diferentes formas de plegar y desplegar partes de un archivo.
 
