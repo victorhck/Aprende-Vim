@@ -139,15 +139,15 @@ Uno
 
 Los plegados anidados son válidos. El texto "Dos" y "Dos de nuevo" están plegados en un primer nivel. El texto "Tres" y "Tres de nuevo" están plegados en un segundo nivel. Si tienes un texto plegado con un nivel de plegado mayor con texto plegado dentro, tienes múltiples capas de plegados.
 
-## Marker Fold
+## Plegado por marcador (*Marker Fold**)
 
-To use a marker fold, run:
+Para utilizar el plegado por marcador, ejecuta:
 
 ```
 :set foldmethod=marker
 ```
 
-Suppose you have the text:
+Supongamos que tenemos el siguiente text:
 
 ```
 Hello
@@ -158,7 +158,7 @@ vim
 }}}
 ```
 
-Run `zM`, you will see:
+Al ejecutar `zM`, verás:
 
 ```
 hello
@@ -166,19 +166,19 @@ hello
 +-- 4 lines: -----
 ```
 
-Vim sees `{{{` and `}}}` as fold indicators and folds the texts between them. With the marker fold, Vim looks for special markers, defined by `'foldmarker'` option, to mark folding areas. To see what markers Vim uses, run:
+Vim ve `{{{` y `}}}` como indicadores de plegado y pliega el texto que hay entre ellos. Con el plegado por marcador, Vim busca los marcadores especiales, definidos por la opción `'foldmarker'`, para marcar las áreas de plegado. Para ver qué marcadores utiliza Vim, ejecuta:
 
 ```
 :set foldmarker?
 ```
 
-By default, Vim uses `{{{` and `}}}` as indicators. If you want to change the indicator to another texts, like "coffee1" and "coffee2":
+De manera predeterminada, Vim utiliza `{{{` y `}}}` como indicadores. Si quieres cambiar el indicador a otros textos como "coffee1" y "coffee2":
 
 ```
 :set foldmarker=coffee1,coffee2
 ```
 
-If you have the text:
+Si tienes el texto:
 
 ```
 hello
@@ -189,7 +189,7 @@ vim
 coffee2
 ```
 
-Now Vim uses `coffee1` and `coffee2` as the new folding markers. As a side note, an indicator must be a literal string and cannot be a regex.
+Ahora Vim utiliza `coffee1` y `coffee2` como los nuevos marcadores de plegado de texto. Como nota complementaria, un indicador debe ser una cadena literal y no puede ser una expresión regular.
 
 ## Syntax Fold
 
