@@ -262,54 +262,54 @@ salmon
 huevos revueltos
 ```
 
-## Diff Fold
+## Plegado por diferencia (*Diff Fold*)
 
-Vim can do a diff procedure to compare two or more files.
+Vim puede hacer un procedimiento de búsqueda de diferencias para comparar dos o más archivos.
 
-If you have `file1.txt`:
-
-```
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-```
-
-And `file2.txt`:
+Si tienes el archivo `archivo1.txt`:
 
 ```
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-emacs is ok
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
 ```
 
-Run `vimdiff file1.txt file2.txt`:
+Y el archivo `archivo2.txt`:
 
 ```
-+-- 3 lines: vim is awesome -----
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-vim is awesome
-[vim is awesome] / [emacs is ok]
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+emacs está bien
 ```
 
-Vim automatically folds some of the identical lines. When you are running the `vimdiff` command, Vim automatically uses `foldmethod=diff`. If you run `:set foldmethod?`, it will return `diff`.
+Ejecuta `vimdiff archivo1.txt archivo2.txt`:
+
+```
++-- 3 lines: vim es genial -----
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+[vim es genial] / [emacs está bien]
+```
+
+Vim de manera automática pliega algunas líneas idénticas. Cuando ejecutas el comando `vimdiff`, Vim automáticamente utiliza `foldmethod=diff`. Si ejecutas ahora `:set foldmethod?`, verás que devuelve `diff` como método de plegado utilizado.
 
 ## Persisting Fold
 
