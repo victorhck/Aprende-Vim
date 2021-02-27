@@ -218,47 +218,48 @@ syntax region  jsBracket                      matchgroup=jsBrackets            s
 
 Esta guía no tratará de manera detallada la funcionalidad de `syntax`. Si tienes más curiosidad por esto, echa un vistazo a la ayuda de Vim `:h syntax.txt`.
 
-## Expression Fold
+## Plegado por expresión (*Expression Fold*)
 
-Expression fold allows you to define an expression to match for a fold. After you define the fold expressions, Vim scans each line for the value of `'foldexpr'`. This is the variable that you have to configure to return the appropriate value. If the `'foldexpr'` returns 0, then the line is not folded. If it returns 1, then that line has a fold level of 1. If it returns 2, then that line has a fold level of 2. There are more values other than integers, but I won't go over them. If you are curious, check out `:h fold-expr`.
+El plegado por expresión te permite definir una expresión que encaje en un plegado de texto. Después de definir las expresiones que se pueden plegar, Vim busca cada línea el valor de `'foldexpr'`. Esta es la variable que tienes que configurar para devolver el valor adecuado. Si `'foldexpr'` devuelve un valor 0, entonces la línea no puede meterse en un plegado. Si devuelve un valor 1, entonces esa línea tiene un nivel de plegado de 1. Si devuelve un 2, entonces esa línea tiene un nivel de plegado de 2. Hay más valores que números, pero no voy a repasarlos todos. Si tienes curiosidad, echa un vistazo a `:h fold-expr`.
 
-First, let's change the foldmethod:
+Primero, vamos a cambiar el método de plegado:
 
 ```
 :set foldmethod=expr
 ```
 
-Suppose you have a list of breakfast foods and you want to fold all breakfast items starting with "p":
+Supongamos que tienes una lista de alimentos para desayunar y quieres plegar todos los elementos de desayuno que comiencen con "c":
 
 ```
 donut
-pancake
-pop-tarts
-protein bar
+churros
+croissant
+chocolate
 salmon
-scrambled eggs
+huevos revueltos
 ```
 
-Next, change the `foldexpr` to capture the expressions starting with "p":
+Después, vamos a cambiar `foldexpr` para capturar todas las expresiones que comiencen con "c":
 
 ```
-:set foldexpr=getline(v:lnum)[0]==\\"p\\"
+:set foldexpr=getline(v:lnum)[0]==\\"c\\"
 ```
 
-The expression above looks complicated. Let's break it down:
-- `:set foldexpr` sets up the `'foldexpr'` option to accept a custom expression.
-- `getline()` is a Vimscript function that returns the content of any given line. If you run `:echo getline(5)`, it will return the content of line 5.
-- `v:lnum` is Vim's special variable for the `'foldexpr'` expression. Vim scans each line and at that moment stores each line's number in `v:lnum` variable. On line 5, `v:lnum` has value of 5. On line 10, `v:lnum` has value of 10.
-- `[0]` in the context of `getline(v:lnum)[0]` is the first character of each line. When Vim scans a line, `getline(v:lnum)` returns the content of each line. `getline(v:lnum)[0]` returns the first character of each line. On the first line of our list, "donut", `getline(v:lnum)[0]` returns "d". On the second line of our list, "pancake", `getline(v:lnum)[0]` returns "p".
-- `==\\"p\\"` is the second half of the equality expression. It checks if the expression you just evaluated is equal to "p". If it is true, it returns 1. If it is false, it returns 0. In Vim, 1 is truthy and 0 is falsy. So on the lines that start with an "p", it returns 1. Recall if a `'foldexpr'` has a value of 1, then it has a fold level of 1.
+La expresión anterior parece un poco complicada. Vamos a dividirla y explicarla por partes:
 
-After running this expression, you should see:
+- `:set foldexpr` establece la opción `'foldexpr'` para que acepte expresiones personalizadas.
+- `getline()` es una función de Vimscript que devuelve el contenido de cualquier línea dada. Si ejecutas `:echo getline(5)`, esto devolverá el contenido de la línea 5.
+- `v:lnum` es una variable especial de Vim para la expresión `'foldexpr'`. Vim busca cada línea y en cada momento almacena cada número de línea en la variabl `v:lnum`. En la línea 5, `v:lnum` tiene el valor 5. En la línea 10, `v:lnum` tiene el valor 10.
+- `[0]` en el contexto de `getline(v:lnum)[0]` es el primer caracter de cada línea. Cuando Vim rastrea una línea, `getline(v:lnum)` devuelve el contenido de cada línea. `getline(v:lnum)[0]` devuelve el primer caracter de cada línea. En la primera línea de nuestra lista, "donut", `getline(v:lnum)[0]` devuelve "d". En la segunda línea de nuestra lista, "churros", `getline(v:lnum)[0]` devuelve "c".
+- `==\\"c\\"` es la segunda mitad de la expresión de igualdad. Esta comprueba si la expresión que acaba de evaluar es igual a "c". Si esto es cierto, esto devuelve 1. Si esto es falso, esto devuelve 0. En Vim, 1 es verdadero y 0 es falso. Así que las líneas que comiencen con "c" devuelven un 1. Recuerda que si `'foldexpr'` tiene un valor de 1, entonces tiene un nivel de plegado de 1.
+
+Después de ejecutar esta expresión, deberías ver:
 
 ```
 donut
-+-- 3 lines: pancake -----
++-- 3 lines: churros -----
 salmon
-scrambled eggs
+huevos revueltos
 ```
 
 ## Diff Fold
