@@ -191,32 +191,32 @@ coffee2
 
 Ahora Vim utiliza `coffee1` y `coffee2` como los nuevos marcadores de plegado de texto. Como nota complementaria, un indicador debe ser una cadena literal y no puede ser una expresión regular.
 
-## Syntax Fold
+## Plegado por sintaxis (*Syntax Fold*)
 
-Syntax fold is determined by syntax language highlighting. If you use a language syntax plugin like [vim-polyglot](https://github.com/sheerun/vim-polyglot), the syntax fold will work right out of the box. Just change the fold method to syntax:
+El plegado por sintaxis está determinado por el resaltado de lenguaje de sintaxis. Si utilizas un complemento de sintaxis de lenguaje como [vim-polyglot](https://github.com/sheerun/vim-polyglot), el plegado por sintaxis funcionará sin necesidad de configurar nada. Simplemente cambia el método de plegado a sintaxis:
 
 ```
 :set foldmethod=syntax
 ```
 
-Let's assume you are editing a JavaScript file and you have vim-polyglot installed. If you have an array like the following:
+Vamos a asumir que estás editando un archivo en lenguaje JavaScript y tienes el complemento vim-polyglot instalado. Si tienes un array como el siguiente:
 
 ```
 const nums = [
-  one,
-  two,
-  three,
-  four
+  uno,
+  dos,
+  tres,
+  cuatro
 ]
 ```
 
-It will be folded with a syntax fold. When you define a syntax highlighting for a particular language (typically inside the `syntax/` directory), you can add a `fold` attribute to make it foldable. Below is a snippet from vim-polyglot JavaScript syntax file. Notice the `fold` keyword at the end.
+Esto será plegado con un plegado por sintaxis. Cuando defines un resaltado de sintaxis para un lenguaje en particular (normalmente dentro del directorio `syntax/`), puedes añadir un atributo `fold` para hacer que puede ser plegado. A continuación tienes una porción de código del archivo de sintaxis de vim-polyglot para JavaScript. Ten en cuenta la palabra clave `fold` al final de la línea.
 
 ```
 syntax region  jsBracket                      matchgroup=jsBrackets            start=/\[/ end=/\]/ contains=@jsExpression,jsSpreadExpression extend fold
 ```
 
-This guide won't cover the `syntax` feature. If you're curious, check out `:h syntax.txt`.
+Esta guía no tratará de manera detallada la funcionalidad de `syntax`. Si tienes más curiosidad por esto, echa un vistazo a la ayuda de Vim `:h syntax.txt`.
 
 ## Expression Fold
 
