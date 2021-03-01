@@ -139,6 +139,126 @@ Uno
 
 Los plegados anidados son válidos. El texto "Dos" y "Dos de nuevo" están plegados en un primer nivel. El texto "Tres" y "Tres de nuevo" están plegados en un segundo nivel. Si tienes un texto plegado con un nivel de plegado mayor con texto plegado dentro, tienes múltiples capas de plegados.
 
+## Plegado por expresión (*Expression Fold*)
+
+El plegado por expresión te permite definir una expresión que encaje en un plegado de texto. Después de definir las expresiones que se pueden plegar, Vim busca cada línea el valor de `'foldexpr'`. Esta es la variable que tienes que configurar para devolver el valor adecuado. Si `'foldexpr'` devuelve un valor 0, entonces la línea no puede meterse en un plegado. Si devuelve un valor 1, entonces esa línea tiene un nivel de plegado de 1. Si devuelve un 2, entonces esa línea tiene un nivel de plegado de 2. Hay más valores que números, pero no voy a repasarlos todos. Si tienes curiosidad, echa un vistazo a `:h fold-expr`.
+
+Primero, vamos a cambiar el método de plegado:
+
+```
+:set foldmethod=expr
+```
+
+Supongamos que tienes una lista de alimentos para desayunar y quieres plegar todos los elementos de desayuno que comiencen con "c":
+
+```
+donut
+churros
+croissant
+chocolate
+salmon
+huevos revueltos
+```
+
+Después, vamos a cambiar `foldexpr` para capturar todas las expresiones que comiencen con "c":
+
+```
+:set foldexpr=getline(v:lnum)[0]==\\"c\\"
+```
+
+La expresión anterior parece un poco complicada. Vamos a dividirla y explicarla por partes:
+
+- `:set foldexpr` establece la opción `'foldexpr'` para que acepte expresiones personalizadas.
+- `getline()` es una función de Vimscript que devuelve el contenido de cualquier línea dada. Si ejecutas `:echo getline(5)`, esto devolverá el contenido de la línea 5.
+- `v:lnum` es una variable especial de Vim para la expresión `'foldexpr'`. Vim busca cada línea y en cada momento almacena cada número de línea en la variabl `v:lnum`. En la línea 5, `v:lnum` tiene el valor 5. En la línea 10, `v:lnum` tiene el valor 10.
+- `[0]` en el contexto de `getline(v:lnum)[0]` es el primer caracter de cada línea. Cuando Vim rastrea una línea, `getline(v:lnum)` devuelve el contenido de cada línea. `getline(v:lnum)[0]` devuelve el primer caracter de cada línea. En la primera línea de nuestra lista, "donut", `getline(v:lnum)[0]` devuelve "d". En la segunda línea de nuestra lista, "churros", `getline(v:lnum)[0]` devuelve "c".
+- `==\\"c\\"` es la segunda mitad de la expresión de igualdad. Esta comprueba si la expresión que acaba de evaluar es igual a "c". Si esto es cierto, esto devuelve 1. Si esto es falso, esto devuelve 0. En Vim, 1 es verdadero y 0 es falso. Así que las líneas que comiencen con "c" devuelven un 1. Recuerda que si `'foldexpr'` tiene un valor de 1, entonces tiene un nivel de plegado de 1.
+
+Después de ejecutar esta expresión, deberías ver:
+
+```
+donut
++-- 3 lines: churros -----
+salmon
+huevos revueltos
+```
+
+## Plegado por sintaxis (*Syntax Fold*)
+
+El plegado por sintaxis está determinado por el resaltado de lenguaje de sintaxis. Si utilizas un complemento de sintaxis de lenguaje como [vim-polyglot](https://github.com/sheerun/vim-polyglot), el plegado por sintaxis funcionará sin necesidad de configurar nada. Simplemente cambia el método de plegado a sintaxis:
+
+```
+:set foldmethod=syntax
+```
+
+Vamos a asumir que estás editando un archivo en lenguaje JavaScript y tienes el complemento vim-polyglot instalado. Si tienes un array como el siguiente:
+
+```
+const nums = [
+  uno,
+  dos,
+  tres,
+  cuatro
+]
+```
+
+Esto será plegado con un plegado por sintaxis. Cuando defines un resaltado de sintaxis para un lenguaje en particular (normalmente dentro del directorio `syntax/`), puedes añadir un atributo `fold` para hacer que puede ser plegado. A continuación tienes una porción de código del archivo de sintaxis de vim-polyglot para JavaScript. Ten en cuenta la palabra clave `fold` al final de la línea.
+
+```
+syntax region  jsBracket                      matchgroup=jsBrackets            start=/\[/ end=/\]/ contains=@jsExpression,jsSpreadExpression extend fold
+```
+
+Esta guía no tratará de manera detallada la funcionalidad de `syntax`. Si tienes más curiosidad por esto, echa un vistazo a la ayuda de Vim `:h syntax.txt`.
+
+## Plegado por diferencia (*Diff Fold*)
+
+Vim puede hacer un procedimiento de búsqueda de diferencias para comparar dos o más archivos.
+
+Si tienes el archivo `archivo1.txt`:
+
+```
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+```
+
+Y el archivo `archivo2.txt`:
+
+```
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+emacs está bien
+```
+
+Ejecuta `vimdiff archivo1.txt archivo2.txt`:
+
+```
++-- 3 lines: vim es genial -----
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+vim es genial
+[vim es genial] / [emacs está bien]
+```
+
+Vim de manera automática pliega algunas líneas idénticas. Cuando ejecutas el comando `vimdiff`, Vim automáticamente utiliza `foldmethod=diff`. Si ejecutas ahora `:set foldmethod?`, verás que devuelve `diff` como método de plegado utilizado.
+
 ## Plegado por marcador (*Marker Fold**)
 
 Para utilizar el plegado por marcador, ejecuta:
@@ -191,179 +311,59 @@ coffee2
 
 Ahora Vim utiliza `coffee1` y `coffee2` como los nuevos marcadores de plegado de texto. Como nota complementaria, un indicador debe ser una cadena literal y no puede ser una expresión regular.
 
-## Plegado por sintaxis (*Syntax Fold*)
+## Plegado persistente (**Persisting Fold**)
 
-El plegado por sintaxis está determinado por el resaltado de lenguaje de sintaxis. Si utilizas un complemento de sintaxis de lenguaje como [vim-polyglot](https://github.com/sheerun/vim-polyglot), el plegado por sintaxis funcionará sin necesidad de configurar nada. Simplemente cambia el método de plegado a sintaxis:
-
-```
-:set foldmethod=syntax
-```
-
-Vamos a asumir que estás editando un archivo en lenguaje JavaScript y tienes el complemento vim-polyglot instalado. Si tienes un array como el siguiente:
+Al cerrar Vim se pierde toda la información de plegado. Si tienes este archivo, `cuenta.txt`:
 
 ```
-const nums = [
-  uno,
-  dos,
-  tres,
-  cuatro
-]
+uno
+dos
+tres
+cuatro
+cinco
 ```
 
-Esto será plegado con un plegado por sintaxis. Cuando defines un resaltado de sintaxis para un lenguaje en particular (normalmente dentro del directorio `syntax/`), puedes añadir un atributo `fold` para hacer que puede ser plegado. A continuación tienes una porción de código del archivo de sintaxis de vim-polyglot para JavaScript. Ten en cuenta la palabra clave `fold` al final de la línea.
+Ahora vamos a hacer un plegado de texto desde la línea "tres" hacia abajo (`:3,$fold`):
 
 ```
-syntax region  jsBracket                      matchgroup=jsBrackets            start=/\[/ end=/\]/ contains=@jsExpression,jsSpreadExpression extend fold
+uno
+dos
++-- 3 lines: tres ---
 ```
 
-Esta guía no tratará de manera detallada la funcionalidad de `syntax`. Si tienes más curiosidad por esto, echa un vistazo a la ayuda de Vim `:h syntax.txt`.
+Cuando sales de Vim y vuelves a abrir el archivo `cuenta.txt`, el plegado de texto ¡ha desaparecido!
 
-## Plegado por expresión (*Expression Fold*)
-
-El plegado por expresión te permite definir una expresión que encaje en un plegado de texto. Después de definir las expresiones que se pueden plegar, Vim busca cada línea el valor de `'foldexpr'`. Esta es la variable que tienes que configurar para devolver el valor adecuado. Si `'foldexpr'` devuelve un valor 0, entonces la línea no puede meterse en un plegado. Si devuelve un valor 1, entonces esa línea tiene un nivel de plegado de 1. Si devuelve un 2, entonces esa línea tiene un nivel de plegado de 2. Hay más valores que números, pero no voy a repasarlos todos. Si tienes curiosidad, echa un vistazo a `:h fold-expr`.
-
-Primero, vamos a cambiar el método de plegado:
-
-```
-:set foldmethod=expr
-```
-
-Supongamos que tienes una lista de alimentos para desayunar y quieres plegar todos los elementos de desayuno que comiencen con "c":
-
-```
-donut
-churros
-croissant
-chocolate
-salmon
-huevos revueltos
-```
-
-Después, vamos a cambiar `foldexpr` para capturar todas las expresiones que comiencen con "c":
-
-```
-:set foldexpr=getline(v:lnum)[0]==\\"c\\"
-```
-
-La expresión anterior parece un poco complicada. Vamos a dividirla y explicarla por partes:
-
-- `:set foldexpr` establece la opción `'foldexpr'` para que acepte expresiones personalizadas.
-- `getline()` es una función de Vimscript que devuelve el contenido de cualquier línea dada. Si ejecutas `:echo getline(5)`, esto devolverá el contenido de la línea 5.
-- `v:lnum` es una variable especial de Vim para la expresión `'foldexpr'`. Vim busca cada línea y en cada momento almacena cada número de línea en la variabl `v:lnum`. En la línea 5, `v:lnum` tiene el valor 5. En la línea 10, `v:lnum` tiene el valor 10.
-- `[0]` en el contexto de `getline(v:lnum)[0]` es el primer caracter de cada línea. Cuando Vim rastrea una línea, `getline(v:lnum)` devuelve el contenido de cada línea. `getline(v:lnum)[0]` devuelve el primer caracter de cada línea. En la primera línea de nuestra lista, "donut", `getline(v:lnum)[0]` devuelve "d". En la segunda línea de nuestra lista, "churros", `getline(v:lnum)[0]` devuelve "c".
-- `==\\"c\\"` es la segunda mitad de la expresión de igualdad. Esta comprueba si la expresión que acaba de evaluar es igual a "c". Si esto es cierto, esto devuelve 1. Si esto es falso, esto devuelve 0. En Vim, 1 es verdadero y 0 es falso. Así que las líneas que comiencen con "c" devuelven un 1. Recuerda que si `'foldexpr'` tiene un valor de 1, entonces tiene un nivel de plegado de 1.
-
-Después de ejecutar esta expresión, deberías ver:
-
-```
-donut
-+-- 3 lines: churros -----
-salmon
-huevos revueltos
-```
-
-## Plegado por diferencia (*Diff Fold*)
-
-Vim puede hacer un procedimiento de búsqueda de diferencias para comparar dos o más archivos.
-
-Si tienes el archivo `archivo1.txt`:
-
-```
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-```
-
-Y el archivo `archivo2.txt`:
-
-```
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-emacs está bien
-```
-
-Ejecuta `vimdiff archivo1.txt archivo2.txt`:
-
-```
-+-- 3 lines: vim es genial -----
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-vim es genial
-[vim es genial] / [emacs está bien]
-```
-
-Vim de manera automática pliega algunas líneas idénticas. Cuando ejecutas el comando `vimdiff`, Vim automáticamente utiliza `foldmethod=diff`. Si ejecutas ahora `:set foldmethod?`, verás que devuelve `diff` como método de plegado utilizado.
-
-## Persisting Fold
-
-You loses all fold information when you close the Vim session. If you have this file, `count.txt`:
-
-```
-one
-two
-three
-four
-five
-```
-
-Then do a manual fold from line "three" down (`:3,$fold`):
-
-```
-one
-two
-+-- 3 lines: three ---
-```
-
-When you exit Vim and reopen `count.txt`, the folds are no longer there!
-
-To preserve the folds, after folding, run:
+Para preservar los plegados te texto que hagamos en un archivo, después de ejecutar el plegado, ejecuta:
 
 ```
 :mkview
 ```
 
-Then when you open up `count.txt`, run:
+Después cuando vuelvas a abrir el archivo `cuenta.txt`, ejecuta:
 
 ```
 :loadview
 ```
 
-Your folds are restored. However, you have to manually run `mkview` and `loadview`. I know that one of these days, I will forget to run `mkview` before closing the file and I will lose all the folds. How can we automate this process?
+Los plegados de texto que haya quedarán restaurados. Sin embargo, tienes que ejecutar `mkview` y `loadview` de manera manual. Estoy seguro que un día u otro olvidarás ejeutar `mkview` antes de cerrar el archivo y perderás todos esos plegados de texto. ¿Cómo podemos automatizar este proceso?
 
-To automatically run `mkview` when you close a `.txt` file and run `loadview` when you open a `.txt` file, add this in your vimrc:
+Para ejecutar automáticamente `mkview` cuando cierras un archivo de tipo `.txt` y ejecutar `loadview` cuando abras un archivo `.txt`, añade esto en tu archivo de configuración vimrc:
 
 ```
 autocmd BufWinLeave *.txt mkview
 autocmd BufWinEnter *.txt silent loadview
 ```
 
-Recall that `autocmd` is used to execute a command on an event trigger. The two events here are:
-- `BufWinLeave` for when you remove a buffer from a window.
-- `BufWinEnter` for when you load a buffer in a window.
+Recuerda que `autocmd` es utilizado para ejecutar un comando ante la aparición de un evento. Los dos eventos aquí son:
+- `BufWinLeave` para cuando eliminas un *buffer* de una ventana.
+- `BufWinEnter` para cuando cargas un *buffer* en una ventana.
 
-Now after you fold inside a `.txt` file and exit Vim, the next time you open that file, your fold information will be restored.
+Ahora cuando hayas creado un plegado de texto dentro de un archivo `.txt` y salgas de Vim, la próxima vez que abras un archivo, la próxima vez que habras ese archivo la información de los plegados que hayas creado se restaurará automáticamente.
 
-By default, Vim saves the fold information when running `mkview` inside `~/.vim/view` for the Unix system. For more information, check out `:h 'viewdir'`.
+De manera predeterminada, Vim guarda la información del plegado cuando ejecutas `mkview` dentro de `~/.vim/view` en sistemas operativos basados en Unix. Para más información, echa un vistazo a `:h 'viewdir'`.
 
-## Learn Fold The Smart Way
+## Aprende el plegado de texto de la manera más inteligente
 
-When I first started Vim, I neglected ot learn fold because I didn't think it was useful. However, the longer I code, the more useful I find folding is. Strategically placed folds can give you a better overview of the text structure, like a book's table of content.
+Cuando comencé a utilizar Vim, me negué a aprender sobre el plegado o *fold* porque no creí que fuera útil. Sin embargo, cuanto más programaba, más encontraba lo útil que era. Ubicar los plegados de texto de manera estratégica te puede dar una mejor visión de la estructura del texto, como el índice de contenidos de un libro.
 
-When you learn fold, start with the manual fold because that can be used on-the-go. Then gradually learn different tricks to do indent and marker folds. Finally, learn how to do syntax and expression folds. You can even use the latter two to write your own Vim plugins.
+Cuando comiences con el plegado de texto o *fold*, comienza con el plegado manual, porque eso puede utilizarse sobre la marcha. Después de manera gradual aprende diferentes trucos para plegar texto con otros métodos como el de sangría y marcadores. Finalmente, aprende cómo hacer plegados en base a la sintaxis y expresiones. Puedes utilizar estos dos métodos para escribir tus propios complementos de Vim.
