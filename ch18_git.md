@@ -1,8 +1,8 @@
-# Ch18. Git
+# Capítulo 18: Git
 
-Vim and git are two great tools for two different things. Git is a version control tool. Vim is a text editor.
+Vim y git son dos grandes herramientas para dos cosas diferentes. Git es una herramienta para el control de versiones. Vim es un editor de texto.
 
-In this chapter, you will learn different ways to integrate Vim and git together.
+En este capítulo, aprenderás diferentes maneras de integrar Vim y git.
 
 ## Diffing
 
