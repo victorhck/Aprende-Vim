@@ -4,57 +4,57 @@ Vim y git son dos grandes herramientas para dos cosas diferentes. Git es una her
 
 En este capítulo, aprenderás diferentes maneras de integrar Vim y git.
 
-## Diffing
+## Destacando las diferencia
 
-Recall in the previous chapter, you can run a `vimdiff` command to show the differences between multiple files.
+Recuerda del capítulo anterior que puedes ejecutar el comando `vimdiff` para mostrar las diferencias entre múltiples archivo.
 
-Suppose you have two files, `file1.txt` and `file2.txt`. 
+Supongamos que tienes dos archivos, `archivo1.txt` y `archivo2.txt`. 
 
-Inside `file1.txt`:
-
-```
-pancakes
-waffles
-apples
-
-milk
-apple juice
-
-yogurt
-```
-
-Inside `file2.txt`:
+Dentro de `archivo1.txt`:
 
 ```
-pancakes
-waffles
-oranges
+tortitas
+gofres
+manzanas
 
-milk
-orange juice
+leche
+zumo de manzana
 
-yogurt
+yogur
 ```
 
-To see the differences between both files, run:
+Dentro de `Archivo2.txt`:
 
 ```
-vimdiff file1.txt file2.txt
+tortitas
+gofres
+naranjas
+
+leche
+zumo de naranja
+
+yogur
 ```
 
-Alternatively you could run:
+Para ver las diferencias entre ambos archivos, ejecuta:
 
 ```
-vim -d file1.txt file2.txt
+vimdiff archivo1.txt archivo2.txt
+```
+
+De manera alternativa también podrías ejecutar:
+
+```
+vim -d archivo1.txt archivo2.txt
 ```
 
 <p align="center">
   <img alt="Basic diffing with Vim" width="900" height="auto" src="images/diffing-basic.png">
 </p>
 
-`vimdiff` displays two buffers side-by-side. On the left is `file1.txt` and on the right is `file2.txt`. The first differences (apples and oranges) are highlighted on both lines.
+`vimdiff` muestra dos *buffers* uno al lado del otro. En la izquierda está `archivo1.txt` y en la derecha está `archivo2.txt`. La primera diferencia (manzanas y naranjas) aparecen resaltadas en ambas líneas.
 
-Suppose you want to make the second buffer to have apples, not oranges. To transfer the content from your current position (you're currently on `file1.txt`) to `file2.txt`, first go to the next diff with `]c` (to jump to the previous diff window, use `[c`). The cursor should be on apples now. Run `:diffput`. Both files should now have apples.
+Supongamos que quieres hacer que el segundo *buffer* tenga también manzanas, en vez de naranjas. PAra transferir el contenido del *buffer* actual (estando el cursor en el archivo `archivo1.txt`) a `archivo2.txt`, primero ve a la siguiente diferencia con `]c` (para saltar a una diferencia previa, utiliza `[c`). El cursor debería estar ahora en manzanas. Ejecuta `:diffput`. Ambos archivos deberían tener ahora la palabra manzanas.
 
 <p align="center">
   <img alt="Diffing Apples" width="900" height="auto" src="images/diffing-apples.png">
