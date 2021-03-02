@@ -60,11 +60,11 @@ Supongamos que quieres hacer que el segundo *buffer* tenga también manzanas, en
   <img alt="Diffing Apples" width="900" height="auto" src="images/diffing-apples.png">
 </p>
 
-If you need to transfer the text from the other buffer (orange juice, `file2.txt`) to replace the text on the current buffer (apple juice, `file1.txt`), with your cursor still on `file1.txt` window, first go to the next diff with `]c`. Your cursor now should be on apple juice. Run `:diffget` to get the orange juice from another buffer to replace apple juice in our buffer.
+Si necesitas transferir el texto desde el otro *buffer* (zumo de naranja, `archivo2.txt`) para reemplazar el texto del *buffer* actual (zumo de manzana, `archivo1.txt`), con tu cursor todavía en la ventana de `archivo1.txt`, primero dirígete hasta la siguiente diferencia mediante `]c`. Tu cursor ahora debería estar sobre el texto zumo de manzana. Ejecuta `:diffget` para incorporar el texto zumo de naranja desde el otro *buffer* para reemplazar el zumo de manzana en el *buffer* actual.
 
-`:diffput` *puts out* the text from the current buffer to another buffer. `:diffget` *gets* the text from another buffer to the current buffer.
+`:diffput` *pone* el texto desde el *buffer* actual a otro *buffer*. `:diffget` *incorpora* el texto desde otro *buffer* al *buffer* actual.
 
-If you have multiple buffers, you can run `:diffput fileN.txt` and `:diffget fileN.txt` to target the the fileN buffer.
+Si tienes múltiples *buffers*, puedes ejecutar `:diffput archivoN.txt` y `:diffget archivoN.txt` para apuntar al *buffer* del archivoN.
 
 ## Vim As A Merge Tool
 
