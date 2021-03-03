@@ -66,13 +66,13 @@ Si necesitas transferir el texto desde el otro *buffer* (zumo de naranja, `archi
 
 Si tienes múltiples *buffers*, puedes ejecutar `:diffput archivoN.txt` y `:diffget archivoN.txt` para apuntar al *buffer* del archivoN.
 
-## Vim As A Merge Tool
+## Vim como herramienta para la fusión (merge)
 
-> "I love resolving merge conflicts!" - Nobody
+> "¡Me encanta resolver los conflictos de fusión en git!" - Nadie
 
-I don't know anyone who likes resolving merge conflicts. However, they are inevitable. In this section, you will learn how to leverage Vim as a merge conflict resolution tool.
+No conozco a nadie que le guste resolver conflictos a la hora de fusionar código en git (*merge*). Sin embargo, son inevitables. En esta sección aprenderás cómo aprovechar los recursos de Vim como herramienta para la resolución de conflictos de fusión de código en git.
 
-First, change the default merge tool to use `vimdiff` by running:
+Primero, cambia la herramienta para realizar la fusión para utilizar `vimdiff` ejecutando:
 
 ```
 git config merge.tool vimdiff
@@ -80,7 +80,7 @@ git config merge.conflictstyle diff3
 git config mergetool.prompt false
 ```
 
-Alternatively, you can modify the `~/.gitconfig` directly (by default it should be in root, but yours might be in different place). The commands above should modify your gitconfig to look like the setting below, if you haven't run them already, you can also manually edit your gitconfig.
+De manera alternativa, puedes modificar directamente en `~/.gitconfig` (de manera predeterminada ese archivo debería estar en la raíz de tu usuario en sistemas basados en Unix, pero tu archivo puede que este en un lugar diferente). Los comandos anteriores deberían modificar tu archivo gitconfig para tener un aspecto similar al texto que se reproduce a continuación, si no todavía no has ejecutado los comandos anteriores, puedes editar manualmente tu archivo gitconfig.
 
 ```
 [core]
@@ -92,84 +92,84 @@ Alternatively, you can modify the `~/.gitconfig` directly (by default it should 
   prompt = false
 ```
 
-Let's create a fake merge conflict to test this out. Create a directory `/food` and make it a git repository:
+Vamos a crear un falso conflicto de fusión para probar esto. Vamos a crear un directorio llamado `/comida` y hacer que sea un repositorio de git:
 
 ```
 git init
 ```
 
-Add a file, `breakfast.txt`. Inside:
+Añade un fichero llamado `desayuno.txt`. Dentro escribimos:
 
 ```
-pancakes
-waffles
-oranges
+tortitas
+gofres
+naranjas
 ```
 
-Add the file and commit it:
-
-```
-git add .
-git commit -m "Initial breakfast commit"
-```
-
-Next, create a new branch and call it apples branch:
-
-```
-git checkout -b apples
-```
-
-Change the `breakfast.txt`:
-
-```
-pancakes
-waffles
-apples
-```
-
-Save the file, then add and commit the change:
+Añade el archivo y haz un *commit*:
 
 ```
 git add .
-git commit -m "Apples not oranges"
+git commit -m "commit inicial de desayuno"
 ```
 
-Great. Now you have oranges in the master branch and apples in the apples branch. Let's return to the master branch:
+Ahora, vamos a crear una nueva rama y llamarla manzanas:
+
+```
+git checkout -b manzanas
+```
+
+Edita el archivo y cambia el archivo `desayuno.txt`:
+
+```
+tortitas
+gofres
+manzanas
+```
+
+Guarda el archivo, añádelo a git y haz un *commit* con los cambios:
+
+```
+git add .
+git commit -m "Manzanas en vez de naranjas"
+```
+
+Genial. Ahora tenemos naranjas en el archivo de la rama principal y manzanas en el archivo de la rama manzanas. Vamos a volver a la rama principal:
 
 ```
 git checkout master
 ```
 
-Inside `breakfast.txt`, you should see the base text, oranges. Let's change it to grapes because they are in season right now:
+Dentro de `desayuno.txt`, deberías ver naranjas. Vamos a cambiar esa línea a uvas porque son buenas para la salud:
 
 ```
-pancakes
-waffles
-grapes
+tortitas
+gofres
+uvas
 ```
 
-Save, add, and commit:
+Guarda los cambios, añádelo a git y realiza un *commit*:
 
 ```
 git add .
-git commit -m "Grapes not oranges"
+git commit -m "Uvas en vez de naranjas"
 ```
 
-Now you are ready to merge the apples branch into the master branch:
+Ahora ya puedes realizar una fusión (*merge*) de la rama manzanas a la rama principal:
 
 ```
-git merge apples
+git merge manzanas
 ```
 
-You should see an error:
+Deberías ver un error:
 
 ```
-Auto-merging breakfast.txt
-CONFLICT (content): Merge conflict in breakfast.txt
+Auto-merging desayuno.txt
+CONFLICT (content): Merge conflict in desayuno.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-A conflict, great! Let's resolve the conflict using our newly-configured `mergetool`. Run:
+¡Un conflicto, genial! Vamos a resolver el conflicto utilizando nuestra recién configurada herramienta `mergetool`. Ejecuta:
 
 ```
 git mergetool
@@ -179,7 +179,7 @@ git mergetool
   <img alt="Three-way mergetool with Vim" width="900" height="auto" src="images/mergetool-initial.png">
 </p>
 
-Vim displays four windows. Pay attention to the top three:
+Vim muestra cuatro ventanas. Pon atención a las tres superiores:
 
 - `LOCAL` contains `grapes`. This is the change in "local", what you are merging into.
 - `BASE` contains `oranges`. This is the common ancestor between `LOCAL` and `REMOTE` to compare how they diverge.
