@@ -181,31 +181,31 @@ git mergetool
 
 Vim muestra cuatro ventanas. Pon atención a las tres superiores:
 
-- `LOCAL` contains `grapes`. This is the change in "local", what you are merging into.
-- `BASE` contains `oranges`. This is the common ancestor between `LOCAL` and `REMOTE` to compare how they diverge.
-- `REMOTE` contains `apples`. This is what is being merged into.
+- `LOCAL` continene `uvas`. Este es el cambio realizado en "local", en el que vas a fusionar.
+- `BASE` continene `naranjas`. Este es el ancestro común entre `LOCAL` y `REMOTE` para comparar cómo difieren.
+- `REMOTE` continene `manzanas`. Esto es lo que está siendo fusionado.
 
-At the bottom (the fourth window) you see:
+En la parte inferior (la cuarta ventanas) verás:
 
 ```
-pancakes
-waffles
+tortitas
+gofres
 <<<<<<< HEAD
-grapes
+uvas
 ||||||| db63958
-oranges
+naranjas
 =======
-apples
->>>>>>> apples
+manzanas
+>>>>>>> manzanas
 ```
 
-The fourth window contains the merge conflict texts. With this setup, it is easier to see what change each environment has. You can see the content from `LOCAL`, `BASE`, and `REMOTE` at the same time. 
+La cuarta ventana contiene los textos del conflito de fusión. Con este escenario, es sencillo ver qué cambios tiene cada entorno. Puedes ver el contenido de `LOCAL`, `BASE` y `REMOTE` al mismo tiempo. 
 
-Your cursor should be on the fourth windows, on the highlighted area. To get the change from `LOCAL` (grapes), run `:diffget LOCAL`. To get the change from `BASE` (oranges), run `:diffget BASE` and to get the change from `REMOTE` (apples), run `:diffget REMOTE`.
+Tu cursor debería estar en la cuarta ventana, en el área resaltada. Para obtener los cambios desde `LOCAL` (uvas), ejecuta `:diffget LOCAL`. Para incorporar los cambios desde `BASE` (naranjas), ejecuta `:diffget BASE` y para obtener los cambios desde `REMOTE` (manzanas), ejecuta `:diffget REMOTE`.
 
-In this case, let's get the change from `LOCAL`. Run `:diffget LOCAL`. The fourth window will now have grapes. Save and exit all files (`:wqall`) when you are done. That wasn't bad, right?
+En este caso, vamos a incorporar el cambio desde `LOCAL`. Por lo que ejecutaremos `:diffget LOCAL`. En la cuarta ventana ahora tendremos uvas. Guarda y sal de todos los archivos (`:wqall`) cuando hayas terminado. ¿No fue tan mal, verdad?
 
-If you notice, you also have a file `breakfast.txt.orig` now. Git creates a backup file in case things don't go well. If you don't want git to create a backup during a merge, run:
+Quizás has notado que ahora también tienes un archivo llamado `desayuno.txt.orig`. Git crea un archivo de respaldo en caso de que las cosas no hayan salido bien. Si no quieres que git cree ese archivo durante la fusión, ejecuta:
 
 ```
 git config --global mergetool.keepBackup false
