@@ -211,11 +211,11 @@ Quizás has notado que ahora también tienes un archivo llamado `desayuno.txt.or
 git config --global mergetool.keepBackup false
 ```
 
-## Git Inside Vim
+## Git dentro de Vim
 
-Vim does not have a native git feature built-in. One way to run git commands from Vim is to use the bang operator, `!`, in the command-line mode.
+Vim no tiene una funcionalidad propia para trabajar con git. Una manera de ejecutar comandos de git desde Vim es utilizando el operador `!`, en el modo línea de comandos.
 
-Any git command can be run with `!`:
+Cualquier comando de git puede ser ejecutado con `!`:
 
 ```
 :!git status
@@ -224,28 +224,28 @@ Any git command can be run with `!`:
 :!git push origin master
 ```
 
-You can also use Vim's `%` (current buffer) or `#` (other buffer) conventions:
+También puedes utilizar las convenciones de Vim para el *buffer* actual con `%` o para otro *buffer* con `#`:
 
 ```
-:!git add %         " git add current file
-:!git checkout #    " git checkout the other file
+:!git add %         " git añade el archivo actual
+:!git checkout #    " git hace un *checkout* para el archivo alternativo
 ```
 
-One Vim trick you can use to add multiple files in different Vim window is to run:
+Un truco de Vim que puedes utilizar para añadir múltiples archivos en una ventana diferente de Vim es ejecutar:
 
 ```
 :windo !git add %
 ```
 
-Then make a commit:
+Después haz un *commit*:
 
 ```
-:!git commit "Just git-added everything in my vim window, cool"
+:!git commit "Añadido todo a git en mi ventana de Vim, genial"
 ```
 
-The `windo` command is one of Vim's "do" commands, similar to `argdo` that you saw previously. `windo` executes the command on each window.
+El comando `windo` es uno de los comandos "do", similar a `argdo` que ya has visto previamente. `windo` ejecuta el comando en cada ventana.
 
-Alternatively, you can also use `bufdo !git add %` to git add all buffers or `argdo !git add %` to git add all the file arguments, depending on your workflow.
+De manera alternativa, también puedes utilizar `bufdo !git add %` para añadir en git todos los *buffers* o `argdo !git add %` para añadir todos los argumentos del archivo, dependiendo de tu forma de trabajar.
 
 ## Plugins
 
