@@ -247,9 +247,9 @@ El comando `windo` es uno de los comandos "do", similar a `argdo` que ya has vis
 
 De manera alternativa, también puedes utilizar `bufdo !git add %` para añadir en git todos los *buffers* o `argdo !git add %` para añadir todos los argumentos del archivo, dependiendo de tu forma de trabajar.
 
-## Plugins
+## Complementos
 
-There are many Vim plugins for git support. Below is a list of some of the popular git-related plugins for Vim (there is probably more at the time you read this):
+Hay muchos complementos para Vim para ayudarte con git. A continuación te muestro una lista de algunos complementos relacionados con git (es probable que existan muchos más cuando estés leyendo esto):
 
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [vim-signify](https://github.com/mhinz/vim-signify)
@@ -259,7 +259,7 @@ There are many Vim plugins for git support. Below is a list of some of the popul
 - [vim-twiggy](https://github.com/sodapopcan/vim-twiggy)
 - [rhubarb](https://github.com/tpope/vim-rhubarb)
 
-One of the most popular ones is vim-fugitive. For the remaining of the chapter, I will go over a several git workflow using this plugin.
+Uno de los más populares es vim-fugitive. En lo que queda del capítulo, repasaremos cómo es el flujo de trabajo con git utilizando este complemento.
 
 ## Vim-fugitive
 
