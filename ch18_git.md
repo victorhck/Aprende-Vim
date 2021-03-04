@@ -263,24 +263,25 @@ Uno de los más populares es vim-fugitive. En lo que queda del capítulo, repasa
 
 ## Vim-fugitive
 
-The vim-fugitive plugin allows you to run the git CLI without leaving the Vim editor. You will find that some commands are better when executed from inside Vim.
+El complemento vim-fugitive te permite ejecutar los comandos de git para la línea de comandos sin necesidad de abandonar el editor Vim. Verás que algunos comandos son mejores cuando son ejecutados dentro del propio Vim.
 
-To get started, install the vim-fugitive with a vim plugin manager ([vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc).
+Para empezar, vamos a instalar vim-fugitive con un gestor de complementos de Vim ([vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc).
 
 ## Git Status
 
-When you run the `:Git` command without any parameters, vim-fugitive displays a git summary window. It shows the untracked, unstaged, and staged file(s). While in this "`git status`" mode, you can do several things:
-- `Ctrl-N` / `Ctrl-P` to go up or down the file list.
-- `-` to stage or unstage the file name under the cursor.
-- `s` to stage the file name under the cursor.
-- `u` to unstage the file name under the cursor.
-- `>` / `<` to display or hide an inline diff of the file name under the cursor.
+Cuando ejecutas el comando `:Git` sin ningún parámetro,vim-fugitive muestra una ventana con un sumario de git. Muestra el archivo o archivos que no tienen seguimiento de git (untracked), que todavía no han sido tomados en cuenta (unstaged) o que ya se han añadido (staged). Mientras estás en este modo "`git status`", puedes realizar varias cosas:
+
+- `Ctrl-N` / `Ctrl-P` ir arriba o abajo en la lista de archivos.
+- `-` cambiar el archivo que está bajo el cursor a *stage* o *unstage.
+- `s` cambiar a *stage* el nombre del archivo que está bajo el cursor.
+- `u` cambiar a *unstage* el nombre del archivo que está bajo el cursor.
+- `>` / `<` para mostrar u ocultar las diferencias mostradas en una sola línea del nombre del archivo bajo el cursor.
 
 <p align="center">
   <img alt="Fugitive Git" width="900" height="auto" src="images/fugitive-git.png">
 </p>
 
-For more, check out `:h fugitive-staging-maps`.
+Para saber más, echa un vistazo a `:h fugitive-staging-maps`.
 
 ## Git Blame
 
