@@ -273,8 +273,8 @@ Cuando ejecutas el comando `:Git` sin ningún parámetro,vim-fugitive muestra un
 
 - `Ctrl-N` / `Ctrl-P` ir arriba o abajo en la lista de archivos.
 - `-` cambiar el archivo que está bajo el cursor a *stage* o *unstage.
-- `s` cambiar a *stage* el nombre del archivo que está bajo el cursor.
-- `u` cambiar a *unstage* el nombre del archivo que está bajo el cursor.
+- `s` cambiar a *stage* el archivo que está bajo el cursor.
+- `u` cambiar a *unstage* el archivo que está bajo el cursor.
 - `>` / `<` para mostrar u ocultar las diferencias mostradas en una sola línea del nombre del archivo bajo el cursor.
 
 <p align="center">
@@ -285,15 +285,15 @@ Para saber más, echa un vistazo a `:h fugitive-staging-maps`.
 
 ## Git Blame
 
-When you run the `:Git blame` command from the current file, vim-fugitive displays a split blame window. This can be useful to find the person responsible for writing that buggy line of code so you can yell at him / her (just kidding).
+Cuando ejecutas el comando `:Git blame` desde el archivo actual, vim-fugitive muestra una ventana dividida. Esto puede ser útil para encontrar a la persona responsable de escribir esa línea de código que hace que todo falle y poder encontrar al culpable (solo es una broma).
 
-Some things you can do while in this `"git blame"` mode:
-- `q` to close the blame window.
-- `A` to resize the author column.
-- `C` to resize the commit column.
-- `D` to resize the date / time column.
+Algunas cosas que puedes hacer mientras estás en el modo `"git blame"`:
+- `q` para cerrar la ventana que habre el comando.
+- `A` para redimensionar la columna del autor.
+- `C` para redimensionar la columna de los *commit*.
+- `D` para redimensionar la columna de fecha/hora.
 
-For more, check out `:h :Git_blame`.
+Para más información, echa un vistazo a `:h :Git_blame`.
 
 <p align="center">
   <img alt="Fugitive Git Blame" width="900" height="auto" src="images/fugitive-git-blame.png">
