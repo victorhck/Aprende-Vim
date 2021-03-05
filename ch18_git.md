@@ -317,26 +317,26 @@ Cuando ejecutas el comando `:Gread` en un archivo después de hacer cambios, vim
 
 ## Gclog
 
-When you run the `:Gclog` command, vim-fugitive displays the commit history. It is like running the `git log` command. Vim-fugitive uses Vim's quickfix to accomplish this, so you can use `:cnext` and `:cprevious` to traverse to the next or previous log information. You can open and close the log list with `:copen` and `:cclose`.
+Cuando ejecutas el comando `:Gclog`, vim-fugitive muestra el historial de *commits*. Es similar a ejecutar el comando `git log`. Vim-fugitive utiliza la ventana *quickfix* de Vim para realizar esta tarea, así que puedes utilizar `:cnext` y `:cprevious` para navegar a través de la información ofrecida por el registro de git hacia adelante o atrás. Puedes abrir y cerrar el listado de registros con `:copen` y `:cclose`.
 
 <p align="center">
   <img alt="Fugitive Git Log" width="900" height="auto" src="images/fugitive-git-log.png">
 </p>
 
-While in this `"git log"` mode, you can do two things:
-- View the tree.
-- Visit the parent (the previous commit).
+Mientras estás en el modo `"git log"`, puedes realizar dos cosas:
+- Ver el árbol del repositorio git.
+- Visitar el *commit* anterior.
 
-You can pass to `:Gclog` arguments just like the `git log` command. If your project has a long commit history and you only need to view the last three commits, you can run `:Gclog -3`. If you need to filter it based on the committer's date, you can run something like `:Gclog --after="January 1" --before="March 14"`.
+De manera similar al comando `git log` también puedes pasarle argumentos a `:Gclog`. Si tu proyecto tiene un historial de *commits* muy extenso y solo necesitar ver los tres últimos *commits*, puedes ejecutar `:Gclog -3`. Si necesitas filtrar por la fecha de *commits*, puedes hacerlo ejecutando algo similar a `:Gclog --after="Enero 1" --before="Marzo 14"`.
 
-## More Vim-Fugitive
+## Más Vim-Fugitive
 
-These are only a few examples of what vim-fugitive can do. To learn more about vim-fugitive, check out `:h fugitive.txt`. Most of the popular git commands are probably optimized with vim-fugitive. You just have to look for them in the documentation.
+Estos son solo unos pocos ejemplos de lo que puede hacer vim-fugitive. Para aprender más sobre vim-fugitive, echa un vistazo a `:h fugitive.txt`. La mayoría de los comandos más populares de git probablemente están optimizados en vim-fugitive. Solo es necesario que los busques en la documentación.
 
-If you are inside one of vim-fugitive's "special mode" (for example, inside `:Git` or `:Git blame` mode) and you want to learn what shortcuts are available, press `g?`. Vim-fugitive will display the appropriate `:help` window for the mode you are in. Neat!
+Si estás dentro de uno de los "modos especiales de vim-fugitive (por ejemplo, dentro de los modos `:Git` o `:Git blame`) y quieres aprender qué atajos de teclado hay disponibles, pulsa `g?`. Vim-fugitive mostrará la ventana `:help` apropiada para el modo en el que estás. ¡Ordenada!
 
-## Learn Vim And Git The Smart Way
+## Aprende Vim y Git de la manera más inteligente
 
-You may find vim-fugitive to be a good compliment to your workflow (or not). Regardless, I would strongly encourage you to check out all the plugins listed above. There are probably others I didn't list. Go try them out.
+Puede que encuentres que vim-fugitive es un buen complemento (o no) para tu modo de trabajo. A pesar de todo, te recomendaría que le echaras un vistazo a todos los complementos que he citado anteriormente. Probablemente hay otros que no he incluido en la lista. Descúbrelos y pruébalos.
 
-One obvious way to get better with Vim-git integration is to read more about git. Git, on its own, is a vast topic and I am only showing a fraction of it. With that, let's *git going* (pardon the pun) and talk about how to use Vim to compile your code!
+Una manera obvia de tener una mejor integración entre Vim y git es leer más sobre git. Git, por si mismo, es un tema muy amplio y aquí solo se muestra una pequeña fracción de lo que puede hacer. Con eso, vamos a *congituar* (perdón por el juego de palabras) y hablemos sobre cómo utilizar Vim para compilar tu código.
