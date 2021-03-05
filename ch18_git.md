@@ -301,19 +301,19 @@ Para más información, echa un vistazo a `:h :Git_blame`.
 
 ## Gdiffsplit
 
-When you run the `:Gdiffsplit` command, vim-fugitive runs a `vimdiff` of the current file's latest changes against the index or work tree. If you run `:Gdiffsplit <commit>`, vim-fugitive runs a `vimdiff` against that file inside `<commit>`.
+Cuando ejecutas el comando `:Gdiffsplit`, vim-fugitive ejecuta un comando `vimdiff` del archivo actual comparándolo con el ínidce del árbol de trabajo. Si ejecutas `:Gdiffsplit <commit>`, vim-fugitive ejecuta `vimdiff` pero esta vez comparándolo con el archivo dentro de `<commit>`.
 
 <p align="center">
   <img alt="Fugitive Gdiffsplit" width="900" height="auto" src="images/fugitive-gdiffsplit.png">
 </p>
 
-Because you are in a `vimdiff` mode, you can *get* or *put* the diff with `:diffput` and `:diffget`.
+Debido a que estás en el modo `vimdiff`, puedes *incorporar* o *poner* las diferencias con los comandos `:diffput` y `:diffget`.
 
-## Gwrite And Gread
+## Gwrite y Gread
 
-When you run the `:Gwrite` command in a file after you make changes, vim-fugitive stages the changes. It is like running `git add <current-file>`.
+Cuando ejectuas el comando `:Gwrite` en un archivo después de hacer cambios, vim-fugitive añade los cambios. Es como ejecutar `git add <archivo_actual>`.
 
-When you run the `:Gread` command in a file after you make changes, vim-fugitive restores the file to the state prior to the changes. It is like running `git checkout <current-file>`. One advantage of running `:Gread` is the action is undo-able. If, after you run `:Gread`, you change your mind and want to keep the old change, you can just run undo (`u`) and Vim will undo the `:Gread` action. This would not have been possible if you had run `git checkout <current-file>` from the CLI.
+Cuando ejecutas el comando `:Gread` en un archivo después de hacer cambios, vim-fugitive restablece el archivo al estado anterior a los cambios. Es como ejecutar `git checkout <archivo_actual>`. Una de las ventajas de ejecutar `:Gread` es que la acción es revertible. Si, después de ejecutar `:Gread`, cambias de opinión y quieres mantener los antiguos cambios, simplemente puedes ejecutar la acción de deshacer (`u`) y Vim revertirá la acción de `:Gread`. Esto no sería posible si hubieras ejecutado `git checkout <archivo_actual>` desde la línea de comandos.
 
 ## Gclog
 
