@@ -37,22 +37,22 @@ Vim lo ejecuta de la misma manera que si lo estuvieras ejecutando desde la termi
 
 ```
 :make foo
-" Outputs "Hello foo"
+" Outputs "Hola foo"
 
 :make list_pls
 " Outputs the ls command result
 ```
 
-The `:make` command uses Vim's quickfix to store any error if you run a bad command. Let's run a nonexisting target:
+El comando `:make` utiliza la ventana *quickfix* de Vim para almacenar cualquier error si has ejecutado mal un comando. Vamos a ejecutar un archivo objetivo inexistente:
 
 ```
-:make dontexist
+:make noexistente
 ```
 
-You should see an error running that command. To view that error, run the quickfix command `:copen` to view the quickfix window:
+Deberías ver un error al ejecutar ese comando. Para ver ese error, ejecuta `:copen` para ver la ventana *quickfix*:
 
 ```
-|| make: *** No rule to make target `dontexist'.  Stop.
+|| make: *** No rule to make target `noexistente'.  Stop.
 ```
 
 ## Compiling With Make
