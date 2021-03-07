@@ -1,39 +1,39 @@
-# Ch19. Compile
+# Capítulo 19: Compilar
 
-Compiling is an important subject for many languages. In this chapter, you will learn how to compile from Vim. You will also look at ways to take advantage of Vim's `:make` command.
+Compilar es un tema importante en muchos lenguajes de programación. En este capítulo, aprenderás cómo compilar desde Vim. También podrás ver formas de sacar partido del comando `:make` de Vim.
 
-## Compile From the Command Line
+## Compilar desde la línea de comandos
 
-You can use the bang operator (`!`) to compile. If you need to compile your `.cpp` file with `g++`, run:
+Puedes utilizar el comando *bang* (`!`) para compilar. Si necesitas compilar tu archivo `.cpp` con `g++`, ejecuta:
 
 ```
-:!g++ hello.cpp -o hello
+:!g++ hola.cpp -o hola
 ```
 
-However, having to manually type the filename and the output filename each time is error-prone and tedious. A makefile is the way to go.
+Sin embargo, tener que escribir manualmente el nombre del archivo fuente y del archivo de salida todas las veces provoca que podamos cometer un error y además es tedioso. Por eso un archivo *makefile* nos puede ayudar con eso.
 
-## The Make Command
+## El comando *make*
 
-Vim has a `:make` command to run a makefile. When you run it, Vim looks for a makefile in the current directory to execute.
+Vim tienes el comando `:make` para ejecutar un archivo *makefile*. Cuando lo ejecutas, Vim busca un archivo *makefile* en el directorio actual para ejecutarlo.
 
-Create a file named `makefile` in the current directory and put these inside:
+Crea un archivo llamado `makefile` en el directorio actual y escribe esto dentro del archivo:
 
 ```
 all:
-	echo "Hello all"
+	echo "Hola all"
 foo:
-	echo "Hello foo"
+	echo "Hola foo"
 list_pls:
 	ls
 ```
 
-Run this from Vim:
+Ejecuta esto desde Vim:
 
 ```
 :make
 ```
 
-Vim executes it the same way as when you're running it from the terminal. The `:make` command accepts parameter just like the terminal make command. Run:
+Vim lo ejecuta de la misma manera que si lo estuvieras ejecutando desde la terminal. El comando `:make` acepta parámetros igual que el comando de la terminal. Ejecuta:
 
 ```
 :make foo
