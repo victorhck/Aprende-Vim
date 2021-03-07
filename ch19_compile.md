@@ -55,43 +55,43 @@ Deberías ver un error al ejecutar ese comando. Para ver ese error, ejecuta `:co
 || make: *** No rule to make target `noexistente'.  Stop.
 ```
 
-## Compiling With Make
+## Compilando con make
 
-Let's use the makefile to compile a basic `.cpp` program. First, let's create a `hello.cpp` file:
+Vamos a utilizar un archivo *makefile* para compilar un programa `.cpp`. Primero vamos a crear un archivo llamado `hola.cpp`:
 
 ```
 #include <iostream>
 
 int main() {
-    std::cout << "Hello!\\n";
+    std::cout << "¡Hola!\\n";
     return 0;
 }
 ```
 
-Update your makefile to build and run a `.cpp` file:
+Actualiza tu *makefile* para compilar y ejecutar el archivo `.cpp`:
 
 ```
 all:
-	echo "build, run"
+	echo "compilar, ejecutar"
 build:
-	g++ hello.cpp -o hello
+	g++ hola.cpp -o hola
 run:
-	./hello
+	./hola
 ```
 
-Now run:
+Ahora ejecuta:
 
 ```
 :make build
 ```
 
-The `g++` compiles `./hello.cpp` and creates `./hello`. Then run:
+El compilador `g++` compilará `./hola.cpp` y creará `./hola`. Después ejecuta:
 
 ```
 :make run
 ```
 
-You should see `"Hello!"` printed on the terminal.
+Deberías ver `"!Hola!"` mostrado en la terminal.
 
 ## Different Make Program
 
