@@ -124,15 +124,15 @@ Cuando ejecutas `:make` desde dentro de `./hola.cpp`, este es compilado a `./hol
 
 Para más información puedes leer la información de Vim en `:h :compiler` o `:h write-compiler-plugin`.
 
-## Auto-compile On Save
+## Compilado automático al guardar el archivo
 
-You can make life even easier by automating compilation. Recall that you can use Vim's `autocmd` to trigger automatic actions based on certain events. To automatically compile `.cpp` files on each save add this on your vimrc:
+Puedes hacer tu vida más sencilla automatizando el proceso de compilación. Recuerda que en Vim puedes utilizar `autocmd` para lanzar una acción automática basada en ciertos eventos. Para compilar automáticamente los archivos `.cpp` cada vez que guardes los cambios añade esto en tu archivo vimrc:
 
 ```
 autocmd BufWritePost *.cpp make
 ```
 
-Each time you save inside a `.cpp` file, Vim executes the `make` command.
+Cada vez que guardes un archivo `.cpp` file, Vim ejecutará el comando `make`.
 
 ## Switching Compiler
 
