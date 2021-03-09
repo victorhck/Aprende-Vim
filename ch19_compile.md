@@ -93,36 +93,36 @@ El compilador `g++` compilará `./hola.cpp` y creará `./hola`. Después ejecuta
 
 Deberías ver `"!Hola!"` mostrado en la terminal.
 
-## Different Make Program
+## Programa diferente para make
 
-When you run `:make`, Vim actually runs whatever command that is set under the `makeprg` option. If you run `:set makeprg?`, you'll see:
+Cuando ejecutas `:make`, Vim realmente ejecuta cualquier comando que esté configurado bajo la opción `makeprg`. Si ejecutas `:set makeprg?`, verás:
 
 ```
 makeprg=make
 ```
 
-The default `:make` command is the `make` external command. To change the `:make` command to execute `g++ {your-file-name}` each time you run it, run:
+El comando predeterminado de `:make` es el comando externo `make`. Para cambiar el comando `:make` para que ejecute `g++ {nombre_de_tu_archivo}` cada vez que lo ejecutas, ejecuta lo siguiente:
 
 ```
 :set makeprg=g++\ %
 ```
 
-The `\` is to escape the space after `g++`. The `%` symbol in Vim represents the current file. The command `g++\\ %` is equivalent to running `g++ hello.cpp`.
+El símbolo `\` es pars escapar el espacio después de `g++`. El símbolo `%` en Vim representa el archivo actual. El comando `g++\\ %` es equivalente a ejecutar `g++ hola.cpp`.
 
-Go to `./hello.cpp` then run `:make`. Vim compiles `hello.cpp` and creates `a.out` because you didn't specify the output. Let's refactor it so it will name the compiled output with the name of the original file minus the extension. Run or add this to vimrc:
+Ve al archivo `./hola.cpp` después ejecuta `:make`. Vim compila `hola.cpp` y crea el archivo `a.out` porque no has especificado un nombre para un archivo de salida. Vamos a cambiar eso para que le asigne un nombre al archivo de salida compilado con el nombre del archivo original menos la extensión. Añade o ejecuta esto a tu archivo vimrc:
 
 ```
 set makeprg=g++\ %\ -o\ %<
 ```
 
-The breakdown:
-- `g++\ %` is the same as above. It is equivalent to running `g++ <your-file>`.
-- `-o` is the output option.
-- `%<` in Vim represents the current file name without an extension (`hello.cpp` becomes `hello`).
+Veamos en detalle el comando:
+- `g++\ %` es lo mismo que hemos visto anteriormente. Es equivalente a ejecutar `g++ <tu_archivo>`.
+- `-o` es la opción de salida.
+- `%<` en Vim representa el nombre del archivo actual sin la extensión (`hola.cpp` se convierte en `hola`).
 
-When you run `:make` from inside `./hello.cpp`, it is compiled into `./hello`. To quickly execute `./hello` from inside `./hello.cpp`, run `:!./%<`. Again, this is the same as running `:!./{current-file-name-minus-the-extension}`.
+Cuando ejecutas `:make` desde dentro de `./hola.cpp`, este es compilado a `./hola`. Para ejecutar rápidamente `./hola` desde dentro de `./hola.cpp`, ejecuta `:!./%<`. De nuevo, esto es lo mismo que ejecutar `:!./{nombre_del_archivo_actual_menos_la_extensión}`.
 
-For more, check out `:h :compiler` and `:h write-compiler-plugin`.
+Para más información puedes leer la información de Vim en `:h :compiler` o `:h write-compiler-plugin`.
 
 ## Auto-compile On Save
 
