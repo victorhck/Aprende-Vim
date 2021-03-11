@@ -134,31 +134,31 @@ autocmd BufWritePost *.cpp make
 
 Cada vez que guardes un archivo `.cpp` file, Vim ejecutará el comando `make`.
 
-## Switching Compiler
+## Cambiando de compilador
 
-Vim has a `:compiler` command to quickly switch compilers. Your Vim build probably comes with several pre-built compiler configurations. To check what compilers you have, run:
+Vim tiene el comando `:compiler` para cambiar rápidamente entre compiladores. La versión compilada de tu Vim probablemente venga ya incluida con configuraciones de compiladores ya preconfiguradas. Para comprobar qué compiladores tienes disponibles, ejecuta:
 
 ```
 :e $VIMRUNTIME/compiler/<Tab>
 ```
 
-You should see a list of compilers for different programming languages.
+Deberías ver una lista de compiladores para diferentes lenguajes de programación.
 
-To use the `:compiler` command, suppose you have a ruby file, `hello.rb` and inside it has:
+Para utilizar el comando `:compiler`, supongamos que tienes un archivo en Ruby llamado `hola.rb` y dentro de ese archivo este código:
 
 ```
-puts "Hello ruby"
+puts "Hola Ruby"
 ```
 
-Recall that if you run `:make`, Vim executes whatever command is assigned to `makeprg` (default is `make`). If you run:
+Recuerda que si ejecutas `:make`, Vim ejecutará cualquier comando que este asignado a `makeprg` (de manera predeterminada es `make`). Si ejecutas:
 
 ```
 :compiler ruby
 ```
 
-Vim runs the `$VIMRUNTIME/compiler/ruby.vim` script and changes the `makeprg` to use the `ruby` command. Now if you run `:set makeprg?`, it should say `makeprg=ruby` (this depends on what is inside your `$VIMRUNTIME/compiler/ruby.vim` file or if you have another custom ruby compilers. Yours might be different). The `:compiler {your-lang}` command allows you to switch to different compilers  quickly. This is useful if your project uses multiple languages.
+Vim ejecuta el script `$VIMRUNTIME/compiler/ruby.vim` y cambia el `makeprg` para utilizar el comando `ruby`. Ahora si ejecutas `:set makeprg?`, debería aparecer `makeprg=ruby` (esto depende de qué haya dentro de tu archivo `$VIMRUNTIME/compiler/ruby.vim` o si tienes otros compiladores personalizados para Ruby. El tuyo podría ser diferente que el mostrado). El comando `:compiler {tu_lenguaje}` te permite cambiar a diferentes compiladores rápidamente. Esto es útil si tu proyecto utiliza múltiples lenguajes.
 
-You don't have to use the `:compiler` and `makeprg` to compile a program. You can run a test script, lint a file, send a signal, or anything you want.
+No tienes que utilizar el `:compiler` y `makeprg` para compilar un programa. Puedes ejecutar un script de prueba, enviar una señal o cualquier cosa que quieras.
 
 ## Creating A Custom Compiler
 
