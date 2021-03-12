@@ -160,71 +160,71 @@ Vim ejecuta el script `$VIMRUNTIME/compiler/ruby.vim` y cambia el `makeprg` para
 
 No tienes que utilizar el `:compiler` y `makeprg` para compilar un programa. Puedes ejecutar un script de prueba, enviar una señal o cualquier cosa que quieras.
 
-## Creating A Custom Compiler
+## Crear un compilador personalizado
 
-Let's create a simple Typescript compiler. Install Typescript (`npm install -g typescript`) to your machine. You should now have the `tsc` command. If you haven't played with typescript before, `tsc` compiles a Typescript file into a Javascript file. Suppose that you have a file, `hello.ts`:
-
-```
-const hello = "hello";
-console.log(hello);
-```
-
-If you run `tsc hello.ts`, it will compile into `hello.js`. However, if you have the following expressions inside `hello.ts`:
+Vamos a crear un simple compilador de Typescript. Instala Typescript (`npm install -g typescript`) en tu equipo. Deberías tener disponible el comando `tsc`. Si no has utilizado antes typescript, `tsc` complila un archivo de formato Typescript en un archivo Javascript. Supongamos que tienes un archivo llamado, `hola.ts`:
 
 ```
-const hello = "hello";
-hello = "hello again";
-console.log(hello);
+const hola = "hola";
+console.log(hola);
 ```
 
-This will throw an error because you can't mutate a `const` variable. Running `tsc hello.ts` will throw an error:
+Si ejecutas `tsc hola.ts`, esto lo compilará en `hola.js`. Sin embargo, si tienes la siguiente expresión dentro de `hola.ts`:
 
 ```
-hello.ts:2:1 - error TS2588: Cannot assign to 'person' because it is a constant.
+const hola = "hola";
+hola = "hola de nuevo";
+console.log(hola);
+```
 
-2 person = "hello again";
+Esto dará como resultado un error, porque no puedes mutar una variable de tipo `const`. Al ejecutar `tsc hola.ts` mostrará el error:
+
+```
+hola.ts:2:1 - error TS2588: Cannot assign to 'person' because it is a constant.
+
+2 person = "hola de nuevo";
   ~~~~~~
 
 
 Found 1 error.
 ```
 
-To create a simple Typescript compiler, in your `~/.vim/` directory, add a `compiler` directory (`~/.vim/compiler/`), then create a `typescript.vim` file (`~/.vim/compiler/typescript.vim`). Put this inside:
+Para crear un compilador simple de Typescript, en tu directorio `~/.vim/`, añade un directorio llamado `compiler` (`~/.vim/compiler/`), después crea dentro de ese directorio un archivo llamado `typescript.vim` (`~/.vim/compiler/typescript.vim`). Y escribe dentro:
 
 ```
 CompilerSet makeprg=tsc
 CompilerSet errorformat=%f:\ %m
 ```
 
-The first line sets the `makeprg` to run the `tsc` command. The second line sets the error format to display the file (`%f`), followed by a literal colon (`:`) and an escaped space (`\ `), followed by the error message (`%m`). To learn more about the error formatting, check out `:h errorformat`.
+La primero línea establece el `makeprg` para ejecutar el comando `tsc`. La segunda línea establece el formato de error para mostrar el archivo (`%f`), seguido por un símbolo de dos puntos (`:`) y un espacio en blanco, por lo que necesitamos una barra invertida para escapar ese espacio (`\ `), seguido por el mensaje de error (`%m`). Para aprender más sobre cómo darle formato al error, echa un vistazo en `:h errorformat`.
 
-You should also read some of the pre-made compilers to see how others do it. Check out `:e $VIMRUNTIME/compiler/<some-language>.vim`.
+También deberías leer algo sobre otros compiladores que se hayan hecho para ver cómo lo hacen otras personas. Echa un vistazo en `:e $VIMRUNTIME/compiler/<cualquier_lenguaje>.vim`.
 
-Because some plugins may interfere with the Typescript file, let's open the `hello.ts` without any plugin, using the `--noplugin` flag:
+Debido a que algunos complementos pueden interferir con el archivo Typescript, vamos a abrir el archivo `hola.ts` sin ningún complemento activado, utilizando la opción `--noplugin`:
 
 ```
-vim --noplugin hello.ts
+vim --noplugin hola.ts
 ```
 
-Check the `makeprg`:
+Comprueba el `makeprg`:
 
 ```
 :set makeprg?
 ```
 
-It should say the default `make` program. To use the new Typescript compiler, run:
+Debería mostrar el programa `make` predeterminado. Para utilizar el nuevo compilador de Typescript, ejecuta:
 
 ```
 :compiler typescript
 ```
 
-When you run `:set makeprg?`, it should say `tsc` now. Let's put it to the test. Run:
+Ahora cuando ejecutes de nuevo `:set makeprg?`, debería mostrar `tsc`. Vamos a ponerlo a prueba. Ejecuta:
 
 ```
 :make %
 ```
 
-Recall that `%` means the current file. Watch your Typescript compiler work as expected! To see the list of error(s), run `:copen`.
+Recuerda que `%` hace referencia al archivo actual. ¡Comprueba que tu compilador de Typescript funciona como debería! Para ver la lista de error(es), ejecuta `:copen`.
 
 ## Async Compiler
 
