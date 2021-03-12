@@ -1,14 +1,14 @@
-# Ch20. Views, Sessions, And Viminfo
+# Capítulo 20: Vistas, sesiones y Viminfo
 
-After you worked on a project for a while, you may find the project to gradually take shape with its own settings, folds, buffers, layouts, etc. It's like decorating your apartment after living in it for a while. The problem is, when you close Vim, you lose those changes. Wouldn't it be nice if you can keep those changes so the next time you open Vim, it looks just like you had never left?
+Después de haber trabajado en un proyecto durante un tiempo, puedes encontrar que el proyecto de manera gradual va tomando forma con sus propios ajustes, carpetas, *buffers*, diseños, etc. Es como decorar tu apartamento después de vivir en el durante un tiempo. Es problema es, que cuando cierras Vim, pierdes esos cambios. ¿No sería genial si pudieras mantener esos cambios para que la próxima vez que abras Vim, pareciera que nunca lo hubieras cerrado?
 
-In this chapter, you will learn how use View, Session, and Viminfo to preserve a "snapshot" of your projects.
+En este capítulo, aprenderás a utilizar las vistas, sesiones y Viminfo para preservar una *instantánea" de tus proyectos.
 
-## View
+## Vista (View)
 
-A View is the smallest subset of the three (View, Session, Viminfo). It is a collection of settings for one window. If you spend a long time working on a window and you want to preserve the maps and folds, you can use a View.
+Una vista es el subconjunto más pequeño de los tres temas de este capítulo (vista, sesiones, Viminfo). Es una colección de ajustes para una ventana. Si pasas mucho tiempo trabajando en una ventana y quieres preservar los mapas y carpetas, puedes utilizar una vista.
 
-Let's create a file called `foo.txt`:
+Vamos a crear un archivo llamado `foo.txt`:
 
 ```
 foo1
@@ -23,12 +23,12 @@ foo9
 foo10
 ```
 
-In this file, create three changes:
-1. On line 1, create a manual fold `zf4j` (fold the next 4 lines).
-2. Change the `number` setting: `setlocal nonumber norelativenumber`. This will remove the number indicators on the left side of the window.
-3. Create a local mapping to go down two lines each time you press `j` instead of one: `:nnoremap <buffer> j jj`.
+En este archivo, creamos tres cambios:
+1. En la línea 1, crea un pliegue de texto (fold) manual con `zf4j` (pliega el contenido de las cuatro líneas siguientes).
+2. Cambia el ajuste de la numeración de las líneas `number`: `setlocal nonumber norelativenumber`. Esto eliminará los indicadores de número de la parte izquierda de la ventana.
+3. Crea un mapeado local para bajar dos líneas cada vez que presiones `j` en vez de solo una línea, mediante `:nnoremap <buffer> j jj`.
 
-Your file should look like this:
+Tu archivo ahora deberá tener un aspecto similar a este:
 
 ```
 +-- 5 lines: foo1 -----
