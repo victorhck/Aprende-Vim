@@ -239,55 +239,55 @@ Para finalizar este capítulo, trataré sobre vim-dispatch, pero te recomendarí
 
 *Vim y NeoVim realmente admiten tareas asíncronas, pero eso se escapa del tema a tratar en este capítulo. Si tienes curiosidad, echa un vistazo en `:h job-channel-overview.txt`.*
 
-## Plugin: Vim-dispatch
+## Complemento: Vim-dispatch
 
-Vim-dispatch has several commands, but the two main ones are `:Make` and `:Dispatch` commands.
+Vim-dispatch tiene varios comandos, pero los dos más importante son los comandos `:Make` y `:Dispatch`.
 
-### Async Make
+### Make asíncrono
 
-Vim-dispatch's `:Make` command is similar to Vim's `:make`, but it runs asynchronously. If you are in a Javascript project and you need to run `npm t`, you might attempt to set your makeprg to be:
+El comando `:Make` de Vim-dispatch es similar al `:make` de Vim, pero este se ejecuta de manera asíncrona. Si estás en un proyecto de Javascript y necesitas ejecutar `npm t`, podrías intentarlo configurando tu makeprg para que sea:
 
 ```
 :set makeprg=npm\\ t
 ```
 
-If you run:
+Si ejecutas:
 
 ```
 :make
 ```
 
-Vim will execute `npm t`, but you will be staring at the frozen screen while your JavaScript test runs. With vim-dispatch, you can just run:
+Vim ejecutará `npm t`, pero te quedarás mirando a una pantalla congelada mientras se está ejecutando el test de JavaScript. Con vim-dispatch, simplemente puedes ejecutar:
 
 ```
 :Make
 ```
 
-Vim will run `npm t` asynchronously. This way, while `npm t` is running on a background process, you can continue doing whatever you were doing. Awesome!
+Y Vim ejecutará `npm t` de manera asíncrona. De esta manera, mientras `npm t` se está ejecutando en un proceso de segundo plano, puedes continuar haciendo cualquier cosa que estuvieras haciendo con Vim. ¡Asombroso!
 
-### Async Dispatch
+### Dispatch asíncrono
 
-The `:Dispatch` command is like the `:compiler` and the `:!` command. It can run any external command asynchronously in Vim.
+El comando `:Dispatch` es como el `:compiler` y el comando `:!`. Puede ejecutar cualquier comando externo de manera asíncrona en Vim.
 
-Assume that you are inside a ruby spec file and you need to run a test. Run:
+Vamos a imaginar que estás dentro de un archivo *spec* de Ruby y necesitas ejecutar un test. Ejecuta:
 
 ```
 :Dispatch bundle exec rspec %
 ```
 
-Vim will asynchronously run the `rspec` command against the current file (`%`).
+Vim ejecutará de manera asíncrona el comando `rspec` en el archivo actual (`%`).
 
-### Automating Dispatch
+### Dispatch automatizado
 
-Vim-dispatch has `b:dispatch` buffer variable that you can configure to evaluate specific command automatically. You can leverage it with `autocmd`. If you add this in your vimrc:
+Vim-dispatch tiene una variable de *buffer* `b:dispatch` que puedes configurar para evaluar un comando específico de manera automática. Puedes aprovecharlo con `autocmd`. Si añades esto en tu archivo vimrc:
 
 ```
 autocmd BufEnter *_spec.rb let b:dispatch = 'bundle exec rspec %'
 ```
 
-Now each time you enter a file (`BufEnter`) that ends with `_spec.rb`, running `:Dispatch` automatically executes `bundle exec rspec {your-current-ruby-spec-file}`.
+Ahora cada vez que abras un archivo (`BufEnter`) que acabe con `_spec.rb`, al ejecutar `:Dispatch` automáticamente se ejecutará `bundle exec rspec {tu_archivo_spec_de_ruby_actual}`.
 
-## Learn Compile The Smart Way
+## Aprender a compilar de la manera más inteligente
 
-In this chapter, you learned that you can use the `make` and `compiler` commands to run *any* process from inside Vim asynchronously to complement your programming workflow. Vim's ability to extend itself with other programs makes it powerful.
+En este capítulo has aprendido que puedes utilizar los comandos `make` y `compiler` para ejecutar *cualquier* proceso desde el propio Vim de manera asíncrona para complementar tu forma de trabajo al programar. La capacidad de Vim de poder extenderse con otros programas lo hacer realmente muy potente.
 
