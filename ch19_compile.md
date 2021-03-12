@@ -226,18 +226,18 @@ Ahora cuando ejecutes de nuevo `:set makeprg?`, debería mostrar `tsc`. Vamos a 
 
 Recuerda que `%` hace referencia al archivo actual. ¡Comprueba que tu compilador de Typescript funciona como debería! Para ver la lista de error(es), ejecuta `:copen`.
 
-## Async Compiler
+## Compilador asíncrono
 
-Sometimes compiling can take a long time. You don't want to be staring at a frozen Vim while waiting for your compilation process to finish. Wouldn't it be nice if you can compile asynchronously so you can still use Vim during compilation?
+A veces el proceso de compilación puede durar mucho tiempo. No quieres quedarte mirando fijamente a una pantalla congelada de Vim mientras esperas que termine tu proceso de compilación. ¿No estaría bien que pudieras compilar de manera asíncrona para así poder utilizar Vim durante el proceso de compilación?
 
-Luckily there are plugins to run async processes. The two big ones are:
+Por suerte hay complementos para ejecutar el proceso de manera asíncrona. Los dos más importantes son:
 
 - [vim-dispatch](https://github.com/tpope/vim-dispatch)
 - [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
 
-In the remaining of this chapter, I will go over vim-dispatch, but I would strongly encourage you to try all of them out there.
+Para finalizar este capítulo, trataré sobre vim-dispatch, pero te recomendaría encarecidamente que probaras todos los existentes.
 
-*Vim and NeoVim actually supports async jobs, but they are beyond the scope of this chapter. If you're curious, check out `:h job-channel-overview.txt`.*
+*Vim y NeoVim realmente admiten tareas asíncronas, pero eso se escapa del tema a tratar en este capítulo. Si tienes curiosidad, echa un vistazo en `:h job-channel-overview.txt`.*
 
 ## Plugin: Vim-dispatch
 
