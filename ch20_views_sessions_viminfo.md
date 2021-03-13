@@ -112,55 +112,55 @@ foo10
 
 Los pliegues de texto (folds), los ajustes locales y los mapeados locales se han recuperado. Si te das cuenta, también el cursor debería estar en la línea en la que estaba cuando ejecutaste `:mkview`. Siempre que tengas la opción `cursor`, las vistas también recuerdan la posición del cursor.
 
-### Multiple Views
+### Multiples vistas
 
-Vim lets you save 9 numbered Views (1-9).
+Vim te permite guardar hasta un número de 9 vistas (1-9).
 
-Suppose you want to make an additional fold (say you want to fold the last two lines) with `:9,10 fold`. Let's save this as View 1. Run:
+Supongamos que quieres hacer un pliegue (fold) adicional (por ejemplo quieres plegar texto de las dos últimas líneas) con `:9,10 fold`. Vamos a guardar esto como vista 1. Ejecuta:
 
 ```
 :mkview 1
 ```
 
-If you want to make one more fold with `:6,7 fold` and save it as a different View, run:
+Si quieres hacer un pliegue de texto más con `:6,7 fold` y guardarlo como una vista diferente, ejecuta:
 
 ```
 :mkview 2
 ```
 
-Close the file. When you open `foo.txt` and you want to load View 1, run:
+Cierra el archivo. Cuando vuelvas a abrir `foo.txt` y quieras cargar la vista 1, ejecuta:
 
 ```
 :loadview 1
 ```
 
-To load View 2, run:
+Para cargar la vista 2, ejecuta:
 
 ```
 :loadview 2
 ```
 
-To load the original View, run:
+Para cargar la vista original, ejecuta:
 
 ```
 :loadview
 ```
 
-### Automating View Creation
+### Automatizar la creación de vistas
 
-One of the worst things that can happen is, after spending countless hours organizing a large file with folds, you accidentally close the window and lose all fold information. To prevent this, you might want to automatically create a View each time you close a buffer. Add this in your vimrc:
+Una de las peores cosas que te pueden pasar trabajando con Vim es que después de pasar incontables horas organizando un archivo enorme con pliegues de texto, de manera accidental cierres la ventana y pierdas toda la información de los pliegues (folds). Para prevenir esto, quizás quieras crear automáticamente una vista cada vez que cierres un *buffer*. Para ello añade esto en tu archivo vimrc:
 
 ```
 autocmd BufWinLeave *.txt mkview
 ```
 
-Additionally, it might be nice to load View when you open a buffer:
+de manera adicional, podría estar bien el cargar la vista cada vez que abres un *buffer*:
 
 ```
 autocmd BufWinEnter *.txt silent loadview
 ```
 
-Now you don't have to worry about creating and loading View anymore when you are working with `txt` files. Keep in mind that over time, your `~/.vim/view` might start to accumulate View files. It's good to clean it up once every few months.
+Ahora no te tienes que preocupar de crear o cargar una vista nunca más cuando estés trabajando con archivos `txt`. Ten en cuenta que con el paso del tiempo, tu `~/.vim/view` podría empezar a acumular muchos archivos de vistas. Es buena idea limpiarlo cada pocos meses.
 
 ## Sessions
 
