@@ -39,67 +39,67 @@ foo9
 foo10
 ```
 
-### Configuring View Attributes
+### Configurar los atributos de las vistas
 
-Run:
+Ejecuta:
 
 ```
 :set viewoptions?
 ```
 
-By default it should say (yours may look different depending on your vimrc):
+De manera predeterminada debería aparecer (aunque tu mensaje podría ser diferente dependiendo de tu archivo vimrc):
 
 ```
 viewoptions=folds,cursor,curdir
 ```
 
-Let's configure `viewoptions`. The three attributes you want to preserve are the folds, the maps, and the local set options. If your setting looks like mine, you already have the `folds` option. You need to tell View to remember the `localoptions`. Run:
+Vamos a configurar `viewoptions`. Los tres atributos que quieres mantener son los pliegues de texto (folds), los mapeados y las opciones configuradas de manera local. Si tus ajustes se parecen a los míos, ya tienes la opción `folds`. Necesitas configurar las vistas para que recuerde las `localoptions`. Ejecuta:
 
 ```
 :set viewoptions+=localoptions
 ```
 
-To learn what other options are available for `viewoptions`, check out `:h viewoptions`. Now if you run `:set viewoptions?`, you should see:
+Para aprender qué otras opciones están disponibles para `viewoptions`, echa un vistazo a `:h viewoptions`. Ahora si ejecutas `:set viewoptions?`, deberías ver algo así:
 
 ```
 viewoptions=folds,cursor,curdir,localoptions
 ```
 
-### Saving The View
+### Guardando las vistas
 
-With the `foo.txt` window properly folded and having `nonumber norelativenumber` options, let's save the View. Run:
+Con la ventana en la que aparece el archivo `foo.txt` correctamente plegada y teniendo las opciones de `nonumber norelativenumber`, vamos a guardas las vistas. Ejecuta:
 
 ```
 :mkview
 ```
 
-Vim creates a View file.
+Vim crea un archivo de vistas.
 
-### View Files
+### Archivos de vistas
 
-You might wonder, "Where did Vim save this View file?" To see where Vim saves it, run:
+Quizás te preguntes ¿dónde guardó Vim el archivo de las vistas? Para ver donde lo guardó Vim, ejecuta:
 
 ```
 :set viewdir?
 ```
 
-The default should say `~/.vim/view` (if you have a different OS, it might show a different path. Check out `:h viewdir` for more). If you want to change it to a different path, add this into your vimrc:
+De manera predeterminada lo hace en esta ruta `~/.vim/view` (si tienes un sistema operativo diferente, podría mostrar una ruta diferente. Echa un vistazo a `:h viewdir` para más información). Si quieres cambiar esa ruta a otro sitio de tu sistema, añade esto en tu archivo de configuración vimrc:
 
 ```
-set viewdir=$HOME/else/where
+set viewdir=$HOME/tu_ruta/personalizada
 ```
 
-### Loading The View File
+### Cargando el archivo de vistas
 
-Close the `foo.txt` if you haven't, then open `foo.txt` again. **You should see the original text without the changes.** That's expected. 
+Cierra el archivo `foo.txt` si todavía no lo has hecho y después vuelve a abrirlo de nuevo. **Deberías ver el texto original sin los cambios.** Eso es lo esperado. 
 
-To restore the state, you need to load the View file. Run:
+Para restaurar el estado, necesitas cargar el archivo de vistas. Ejecuta:
 
 ```
 :loadview
 ```
 
-Now you should see:
+Ahora en tu archivo deberías ver:
 
 ```
 +-- 5 lines: foo1 -----
@@ -110,7 +110,7 @@ foo9
 foo10
 ```
 
-The folds, local settings, and local mappings are restored. If you notice, your cursor should also be on the line where you left it when you ran `:mkview`. As long as you have the `cursor` option, View also remembers your cursor position.
+Los pliegues de texto (folds), los ajustes locales y los mapeados locales se han recuperado. Si te das cuenta, también el cursor debería estar en la línea en la que estaba cuando ejecutaste `:mkview`. Siempre que tengas la opción `cursor`, las vistas también recuerdan la posición del cursor.
 
 ### Multiple Views
 
