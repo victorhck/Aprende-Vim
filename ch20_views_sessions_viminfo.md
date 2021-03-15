@@ -293,30 +293,30 @@ Las sesiones son una herramienta útil para preservar los atributos externos de 
 
 ## Viminfo
 
-If you notice, after yanking a word into register a and quitting Vim, the next time you open Vim you still that text stored in the register. This is actually a work of Viminfo. Without it, Vim won't remember the register after you close Vim.
+Quizás has notado, que después de copiar una palabra al registro a y salir de Vim, la próxima vez que abras Vim verás que el texto permanece almacenado en el registro. Esto es gracias al trabajo de Viminfo. Sin este, Vim no recordaría el registro después de haber cerrado Vim.
 
-If you use Vim 8 or higher, Vim enables Viminfo by default, so you may have been using Viminfo this whole time without knowing it!
+Si utilizas la versión 8 o superior de Vim, este habilita Viminfo de manera predeterminada, ¡así que has estado utilizando Viminfo todo este tiempo sin saberlo!
 
-You might ask: "What does Viminfo save? How does it differ from Session?"
+Quizás te preguntes: "¿Qué guarda Viminfo? ¿Qué tiene de diferente con las sesiones?"
 
-To use Viminfo, first you need to have `+viminfo` feature available (`:version`). Viminfo stores:
-- The command-line history.
-- The search string history.
-- The input-line history.
-- Contents of non-empty registers.
-- Marks for several files.
-- File marks, pointing to locations in files.
-- Last search / substitute pattern (for 'n' and '&').
-- The buffer list.
-- Global variables.
+Para utilizar Viminfo, primero necesita tener la funcionalidad `+viminfo` disponible (`:version`). Viminfo almacena:
+- El historial de la línea de comando
+- El historial de búsqueda de cadenas de texto
+- El historial de línea de entrada
+- El contenido de los registros no vacíos
+- Las marcas de diversos archivos
+- El archivo de marcas, apuntando a la ubicación en los archivos
+- El último patrón de búsqueda/sustitución (para 'n' y '&').
+- La lista de *buffer
+- Las variables globales
 
-In general, Session stores the "external" attributes and Viminfo the "internal" attributes.
+En general, las sesiones almacenan los atributos "externos" y Viminfo los atributos "internos".
 
-Unlike Session where you can have one Session file per project, you normally will use one Viminfo file per computer. Viminfo is project-agnostic.
+a diferencia de las sesiones en donde tenías un archivo de sesión por proyecto, normalmente usarás el archivo Viminfo por equipo. Viminfo es independiente del proyecto.
 
-The default Viminfo location for Unix is `$HOME/.viminfo` (`~/.viminfo`). If you use a different OS, your Viminfo location might be different. Check out `:h viminfo-file-name`. Each time you make "internal" changes, like yanking a text into a register, Vim automatically updates the Viminfo file.
+La ubicación predeterminada para Viminfo en sistemas basados en Unix es `$HOME/.viminfo` (`~/.viminfo`). Si utilizas un sistema operativo diferente, la ubicación de Viminfo podría ser diferente. Echa un vistazo a `:h viminfo-file-name`. Cada vez que haces cambios "internos", como copiar un texto a un registro, Vim automáticamente actualiza el archivo Viminfo.
 
-*Make sure that you have `nocompatible` option set (`set nocompatible`), otherwise your Viminfo will not work.*
+*Asegúrate que tienes activada la opción `nocompatible` (`set nocompatible`), de otro modo tu Viminfo no funcionará.*
 
 ### Writing And Reading Viminfo
 
