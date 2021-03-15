@@ -162,15 +162,15 @@ autocmd BufWinEnter *.txt silent loadview
 
 Ahora no te tienes que preocupar de crear o cargar una vista nunca más cuando estés trabajando con archivos `txt`. Ten en cuenta que con el paso del tiempo, tu `~/.vim/view` podría empezar a acumular muchos archivos de vistas. Es buena idea limpiarlo cada pocos meses.
 
-## Sessions
+## Sesiones
 
-If a View saves the settings of a window, a Session saves the information of all windows (including the layout).
+si una vista guarda los ajustes de una ventana, una sesión guarda la información de todas las ventanas (incluyendo el diseño).
 
-### Creating A New Session
+### Creando una nueva sesión
 
-Suppose you are working with these 3 files in a `foobarbaz` project:
+Supongamos que estás trabajando con estos 3 archivos en un proyecto llamado `foobarbaz`:
 
-Inside `foo.txt`:
+Dentro de `foo.txt`:
 
 ```
 foo1
@@ -185,7 +185,7 @@ foo9
 foo10
 ```
 
-Inside `bar.txt`:
+Dentro de `bar.txt`:
 
 ```
 bar1
@@ -200,7 +200,7 @@ bar9
 bar10
 ```
 
-Inside `baz.txt`:
+Dentro de `baz.txt`:
 
 ```
 baz1
@@ -215,25 +215,25 @@ baz9
 baz10
 ```
 
-Let's say that your windows layout look like the following (using strategically placed `split` and `vsplit`):
+Vamos a suponer que el diseño de las ventanas es similar al que aparece a continuación (utilizando de manera estratégica para ello `split` y `vsplit`):
 
 ![Session Layout](images/session-layout.png)
 
-To preserve this look, you need to save the Session. Run:
+Para preservar este aspecto, necesitas guardar la sesión. Ejecuta:
 
 ```
 :mksession
 ```
 
-Unlike `mkview` where it saves to `~/.vim/view` by default, `mksession` saves a Session file (`Session.vim`) in the current directory. Check out the file if you're curious what's inside.
+A diferencia de `mkview` donde de manera predeterminada guarda la configuración en `~/.vim/view`, `mksession` guarda el archivo de sesión (`Session.vim`) en el directorio actual. Echa un vistazo al archivo si tienes curosidad de qué guarda dentro Vim.
 
-If you want to save the Session file somewhere else, you can pass an argument to `mksession`:
+Si quieres guardar el archivo de sesión en algún otro lugar, puedes pasar un argumento al comando `mksession`:
 
 ```
-:mksession ~/some/where/else.vim
+:mksession ~/otra/ruta/distinta.vim
 ```
 
-If you want to overwrite the existing Session file, call the command with a `!` (`:mksession! ~/some/where/else.vim`).
+Si quieres sobreescribir el archivo de sesión existente, invoca el comando con el símbolo `!` (`:mksession! ~/otra/ruta/distinta.vim`).
 
 ### Loading A Session
 
