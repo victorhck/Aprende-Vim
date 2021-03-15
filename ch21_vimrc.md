@@ -1,13 +1,13 @@
 # Ch21. Vimrc
 
-In the previous chapters, you learned how to use Vim text editor. This is great, but not the whole thing. To use Vim more effectively, you will need to learn how to configure it. The best place to start is your vimrc. TBC
-In the previous chapters, you learned how to use Vim. In this chapter, you will learn how to orgnize and configure vimrc. 
+En los capitulos anteriores has aprendido sobre como usar el editor de textos VIM. Esto es genial, pero no es todo. Para usar Vim de una manera efectiva, vas a necesitar aprender como configurarlo. El mejor lugar para empezar es tu vimrc. TBC 
+En los capitulos anteriores aprendiste a usar Vim. En este capítulo, vas a aprender como organizar y configurar vimrc.
 
-## How Vim Finds Vimrc
+## Como Vim encuentra el archivo vimrc
+El uso convencional de vimrc es agregar el archivo `.vimrc` en la carpeta de usuario `~/.vimrc` (esto puede ser diferente dependiendo del Sistema Operativo).
 
-The conventional wisdom for vimrc is to add a `.vimrc` dotfile in the root directory `~/.vimrc` (it might be different depending on your OS).
 
-Behind the scene, Vim looks at multiple places for a vimrc file. Here are the places that Vim checks:
+Atras de escena, Vim mira muchos lugares para encontrar el archivo vimrc. Estos son los lugares que revisa:
 - `$VIMINIT`
 - `$HOME/.vimrc`
 - `$HOME/.vim/vimrc`
@@ -15,9 +15,9 @@ Behind the scene, Vim looks at multiple places for a vimrc file. Here are the pl
 - `$HOME/.exrc`
 - `$VIMRUNTIME/default.vim`
 
-When you start Vim, it will check the above six locations in that order for a vimrc file. The first found vimrc file will be used and the rest is ignored. 
+Cuando inicias Vim, se van a verificar estos 6 lugares en ese orden, buscando el archivo vimrc. El primer lugar con este archivo va a ser usado y los posteriores son ignorados.
 
-First Vim will look for a `$VIMINIT`. If there is nothing there, Vim will check for `$HOME/.vimrc`. If there is nothing there, Vim will check for `$HOME/.vim/vimrc`. If Vim finds it, it will stop looking and use `$HOME/.vim/vimrc`. 
+Primero Vim va a buscar `$VIMINIT`. Si no hay nada ahí, Vim va a buscar `$HOME/.vimrc`. Si no hay nada ahí, Vim va a buscar `$HOME/.vim/vimrc`. Si Vim lo encuentra va a dejar de buscar y usar `$HOME/.vim/vimrc`. 
 
 The first location, `$VIMINIT`, is an environment variable. By default it is undefined. If you want to use `~/dotfiles/testvimrc` as your `$VIMINIT` value, you can create an environment variable containing the path of that vimrc. After you run `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim will now use `~/dotfiles/testvimrc` as your vimrc file.
 
