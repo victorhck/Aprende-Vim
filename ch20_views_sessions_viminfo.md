@@ -235,61 +235,61 @@ Si quieres guardar el archivo de sesión en algún otro lugar, puedes pasar un a
 
 Si quieres sobreescribir el archivo de sesión existente, invoca el comando con el símbolo `!` (`:mksession! ~/otra/ruta/distinta.vim`).
 
-### Loading A Session
+### Cargando una sesión
 
-To load a Session, run:
+Para cargar una sesión existente, ejecuta:
 
 ```
 :source Session.vim
 ```
 
-Now Vim looks like just the way you left it! Alternatively, you can also load a Session file from the terminal:
+¡Ahora Vim vuelve a tener el mismo aspecto que cuando lo cerraste! De manera alternativa también puedes cargar el archivo de sesión desde la terminal:
 
 ```
 vim -S Session.vim
 ```
 
-### Configuring Session Attributes
+### Configurando atributos de la sesión
 
-You can configure the attributes Session saves. To see what is currently being saved, run:
+Puedes configurar los atributos que se guardan de las sesiones. Para ver qué es lo que actualmente se está guardando, ejecuta:
 
 ```
 :set sessionoptions?
 ```
 
-Mine says:
+En mi caso aparece lo siguiente:
 
 ```
 blank,buffers,curdir,folds,help,tabpages,winsize,terminal
 ```
 
-If you don't want to save `terminal` when you save a Session, remove it from the session options. Run:
+Si no quieres guardar la `terminal` cuando guardes una sesión, elimina esta opción de la sesión, para ello, ejecuta:
 
 ```
 :set sessionoptions-=terminal
 ```
 
-If you want to add an `options` when you save a Session, run:
+Si quiere añadir las `options` cuando guardes una sesión, ejecuta:
 
 ```
 :set sessionoptions+=options
 ```
 
-Here are some attributes that `sessionoptions` can store:
-- `blank` stores empty windows
-- `buffers` stores buffers
-- `folds` stores folds
-- `globals` stores global variables (must start with an uppercase letter and contain at least one lowercase letter)
-- `options` stores options and mappings
-- `resize` stores window lines and columns
-- `winpos` stores window position
-- `winsize` stores window sizes
-- `tabpages` stores tabs
-- `unix` stores files in Unix format
+Estos son algunos de los atributos que `sessionoptions` pueden gestiona:
+- `blank` almacena las ventanas vacía
+- `buffers` almacena los *buffers*
+- `folds` almacena los plegados de textos
+- `globals` almacena variables globales (debe comenzar con una letra mayúscula y contener al menos una letra minúscula)
+- `options` almacena las opciones y mapeados
+- `resize` almacena las líneas y columnas de las ventanas
+- `winpos` almacena la posición de las ventanas
+- `winsize` almacena los tamaños de las ventanas
+- `tabpages` almacena las pestañas
+- `unix` almacena archivos en formato Unix
 
-For the complete list check out `:h 'sessionoptions'`.
+Para consultar la lista completa, echa un vistazo a `:h 'sessionoptions'`.
 
-Session is a useful tool to preserve your project's external attributes. However, some internal attributes aren't saved by Session, like local marks, registers, histories, etc. To save them, you need to use Viminfo!
+Las sesiones son una herramienta útil para preservar los atributos externos de tu proyecto. Sin embargo, algunos atributos internos no se guardan en las sesiones, como las marcas locales, registros, historiales, etc. Para guardarlos, ¡necesitas utilizar Viminfo!
 
 ## Viminfo
 
