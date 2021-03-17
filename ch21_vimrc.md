@@ -1,13 +1,13 @@
-# Ch21. Vimrc
+# Capítulo 21: Vimrc
 
-In the previous chapters, you learned how to use Vim text editor. This is great, but not the whole thing. To use Vim more effectively, you will need to learn how to configure it. The best place to start is your vimrc. TBC
-In the previous chapters, you learned how to use Vim. In this chapter, you will learn how to orgnize and configure vimrc. 
+En los capitulos anteriores has aprendido cómo usar el editor de texto VIM. Esto es genial, pero no es todo. Para usar Vim de una manera efectiva, vas a necesitar aprender cómo configurarlo. El mejor lugar para empezar es tu archivo vimrc. 
+En los capitulos anteriores aprendiste a usar Vim. En este capítulo, vas a aprender cómo organizar y configurar vimrc.
 
-## How Vim Finds Vimrc
+## Como encuentra Vim el archivo vimrc
 
-The conventional wisdom for vimrc is to add a `.vimrc` dotfile in the root directory `~/.vimrc` (it might be different depending on your OS).
+El uso convencional de vimrc es agregar el archivo de configuración `.vimrc` en la carpeta de usuario `~/.vimrc` (en el caso de sistemas operativos basados en Unix. Puede ser diferente dependiendo del sistema operativo).
 
-Behind the scene, Vim looks at multiple places for a vimrc file. Here are the places that Vim checks:
+Sin que sea percibido por el usuario, Vim busca en muchos lugares para encontrar el archivo vimrc. Estos son los lugares que revisa:
 - `$VIMINIT`
 - `$HOME/.vimrc`
 - `$HOME/.vim/vimrc`
@@ -15,57 +15,58 @@ Behind the scene, Vim looks at multiple places for a vimrc file. Here are the pl
 - `$HOME/.exrc`
 - `$VIMRUNTIME/default.vim`
 
-When you start Vim, it will check the above six locations in that order for a vimrc file. The first found vimrc file will be used and the rest is ignored. 
+Cuando inicias Vim, verificará estos 6 lugares en ese orden, buscando el archivo vimrc. El primer lugar con este archivo va a ser usado y los posteriores son ignorados.
 
-First Vim will look for a `$VIMINIT`. If there is nothing there, Vim will check for `$HOME/.vimrc`. If there is nothing there, Vim will check for `$HOME/.vim/vimrc`. If Vim finds it, it will stop looking and use `$HOME/.vim/vimrc`. 
+Primero Vim va a buscar `$VIMINIT`. Si no hay nada ahí, Vim va a buscar `$HOME/.vimrc`. Si no hay nada ahí, Vim va a buscar `$HOME/.vim/vimrc`. Si Vim lo encuentra va a dejar de buscar y usar `$HOME/.vim/vimrc`. 
 
-The first location, `$VIMINIT`, is an environment variable. By default it is undefined. If you want to use `~/dotfiles/testvimrc` as your `$VIMINIT` value, you can create an environment variable containing the path of that vimrc. After you run `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim will now use `~/dotfiles/testvimrc` as your vimrc file.
+La primer ubicacion, `$VIMINIT`, es una variable de entorno. No esta definido de manera predeterminada. Se puede usar `~/dotfiles/testvimrc` como variable `$VIMINIT` , puede crearse una variable de entorno con la ubicación de este archivo. Después de ejecutar `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim va a usar el archivo `~/dotfiles/testvimrc` como su archivo vimrc.
 
-The second location, `$HOME/.vimrc`, is the conventional path for many Vim users. `$HOME` in many cases is your root directory (`~`). If you have a `~/.vimrc` file, Vim will use this as your vimrc file.
+La segunda ubicacion, `$HOME/.vimrc`, es la ruta usada por muchos usuarios de Vim de manera convencional. `$HOME` es en muchos casos el directorio del usuario raíz (`~`). Si existe `~/.vimrc`, Vim usará este como su archivo vimrc.
 
-The third, `$HOME/.vim/vimrc`, is located inside the `~/.vim` directory. You might have the `~/.vim` directory already for your plugins, custom scripts, or View files. Note that there is no dot in vimrc file name (`$HOME/.vim/.vimrc` won't work, but `$HOME/.vim/vimrc` will).
+El tercer lugar es para  `$HOME/.vim/vimrc`, esta alojado dentro del directorio `~/.vim`. Podrías tener el directorio `~/.vim` ya para tus complementos, *scripts* personalizados o archivos de vistas. Ten en cuenta que no hay un punto delante del nombre del archivo vimrc (`$HOME/.vim/.vimrc` no funcionará, pero `$HOME/.vim/vimrc` sí lo hará).
 
-The fourth, `$EXINIT` works similar to `$VIMINIT`. 
+El cuarto, `$EXINIT` funciona de manera similar a `$VIMINIT`. 
 
-The fifth, `$HOME/.exrc` works similar to `$HOME/.vimrc`.
+El quinto, `$HOME/.exrc` trabaja de manera similar a `$HOME/.vimrc`.
 
-The sixth, `$VIMRUNTIME/defaults.vim` is the default vimrc that comes with your Vim build. In my case, I have Vim 8.2 installed using Homebrew, so my path is (`/usr/local/share/vim/vim82`). If Vim does not find any of the previous six vimrc files, it will use this file.
+El sexto, `$VIMRUNTIME/defaults.vim` es el predeterminado al compilar Vim. En mi caso, tengo instalado Vim 8.2 usando Homebrew (en MAC), entonces la ruta es (`/usr/local/share/vim/vim82`). Si Vim, en ninguna de las 5 ubicaciones encuentra el archivo vimrc, entonces usará este archivo.
 
-For the remaining of this chapter, I am assuming that the vimrc uses the `~/.vimrc` path. 
+Para lo que queda de este capitulo, estamos asumiendo que Vim utiliza el archivo en la ruta  `~/.vimrc`. 
 
-## What To Put In My Vimrc?
+## ¿Qué poner en mi Vimrc?
 
-A question I asked when I started was, "What should I put in my vimrc?"
+La pregunta que me hice cuando me inicié fue: "¿Qué debería poner en mi archivo vimrc?"
 
-The answer is, "anything you want". The temptation to copy-paste other people's vimrc is real, but you should resist it. If you insist to use someone else's vimrc, make sure that you know what it does, why and how s/he uses it, and most importantly, if it is relevant to you. Just because someone uses it doesn't mean you'll use it too.
+La respuesta es, "cualquier cosa que quieras". La tentación de copiar y pegar el vimrc de otras personas es real, pero debes evitar esto. Si insistes en usar el vimrc de alguien más, revisa qué sabes lo que esto hace, porqué y cómo él/ella usa esto, y lo más importante, si es relevante para ti. Solo porque alguien mas lo use no quiere decir que tú también lo tengas que utilizar.
 
-## Basic Vimrc Content
+## Contenido básico de vimrc
 
-In the nutshell, a vimrc is a collection of:
-- Plugins
-- Settings
-- Custom Functions
-- Custom Commands
-- Mappings
+En resumen, un archivo vimrc es una colección de:
 
-There are other things not mentioned above, but in general, this covers most use cases.
+- Complementos
+- Configuraciones
+- Funciones personalizadas
+- Comandos personalizados
+- Mapeos
 
-### Plugins
+Hay otras cosas que he mencionado, pero en general, esto cubre la mayoría de los casos.
 
-In the previous chapters, I have mentioned different plugins, like [fzf.vim](https://github.com/junegunn/fzf.vim), [vim-mundo](https://github.com/simnalamburt/vim-mundo), and [vim-fugitive](https://github.com/tpope/vim-fugitive).
+### Complementos (Plugins)
 
-Ten years ago, managing plugins was a nightmare. However, with the rise of modern plugin managers, installing plugins can now be done in seconds. I am currently using [vim-plug](https://github.com/junegunn/vim-plug) as my plugin manager, so I will use it in this section. The concept should be similar with other popular plugin managers. I would strongly recommend you to check out different ones, such as:
+En los capítulos anteriores, mencionamos diferentes complementos, como [fzf.vim](https://github.com/junegunn/fzf.vim), [vim-mundo](https://github.com/simnalamburt/vim-mundo) y [vim-fugitive](https://github.com/tpope/vim-fugitive).
+
+Hace 10 años, manejar los complementos era una pesadilla. Sin embargo, con la llegada de los gestores modernos de complementos, instalarlos hoy se puede hacer en segundos. Actualmente utilizo [vim-plug](https://github.com/junegunn/vim-plug) como mi gestor de complementos, por eso lo usaré en esta sección. El concepto es similar al de otros gestores de complementos populares. La recomendación es que revises los disponibles, como por ejemplo:
 - [vundle.vim](https://github.com/VundleVim/Vundle.vim)
 - [vim-pathogen](https://github.com/tpope/vim-pathogen)
 - [dein.vim](https://github.com/Shougo/dein.vim)
 
-There are more plugin managers than the ones listed above, feel free to look around. To install vim-plug, if you have a Unix machine, run:
+Hay mas gestores que los listados arriba, siéntete libre en buscr información sobre ellos. Para instalar vim-plug, si utilizas Unix, ejecuta:
 
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-To add new plugins, drop your plugin names (`Plug 'github-username/repository-name'`) between the `call plug#begin()` and the `call plug#end()` lines. So if you want to install `emmet-vim` and `nerdtree`, put the following snippet down in your vimrc:
+Para agregar nuevos complementos, escribe el nombre del mismo (`Plug 'github-username/repository-name'`) entre las lineas `call plug#begin()` y `call plug#end()`. Por ejemplo, si quiere instalar `emmet-vim` y `nerdtree`, agrega las siguientes líneas en tu archivo vimrc:
 
 ```
 call plug#begin('~/.vim/plugged')
@@ -74,23 +75,23 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 ```
 
-Save the changes, source it (`:source %`), and run `:PlugInstall` to install them.
+Guarda los cambios, vuelve a leer el archivo de configuración con el comando (`:source %`) y ejecuta `:PlugInstall` para instalar ambos.
 
-In the future if you need to remove unused plugins, you just need to remove the plugin names from the `call` block, save and source, and run the `:PlugClean` command to remove it from your machine.
+En el futuro, si necesita eliminar los complementos que no utiliza, solo necesita eliminar el complemento del bloque escrito anteriormente, guardar, volver a leer el archivo de configuracion (con `:source %}`) y ejecutar el comando `PlugClean` para eliminarlo de su equipo.
 
-Vim 8 has its own built-in package managers. You can check out `:h packages` for more information. In the next chapter, I will show you how to use it.
+Vim 8 tiene su propio gestor de paquetes. Puedes consultar la ayuda con `:h packages` para mas información. En el próximo capítulo, vamos a mostrar como usarlo.
 
-### Settings
+### Configuraciones
 
-It is common to see a lot of `set` options in any vimrc. If you run the set command from the command-line mode, it is not permanent. You will lose it when you close Vim. For example, instead of running `:set relativenumber number` from the Command-line mode each time you run Vim, you could just put these inside vimrc:
+Es común ver muchas opciones que empiezan con `set` en cualquier vimrc. Si ejecutas la línea en el modo línea de comandos, esta configuración no será permanente. Se perderán las mismas al cerrar Vim. Por ejemplo, en vez de ejecutar `:set relativenumber number` desde el modo línea de comandos cada vez que inicias Vim, se puede agregar dentro del archivo .vimrc:
 
 ```
 set relativenumber number
 ```
 
-Some settings require you to pass it a value, like `set tabstop=2`. Check out the help page for each setting to learn what kind of values it accepts.
+Algunas veces es necesario pasar algún valor, como por ejemplo `set tabstop=2`. Revisa la página de ayuda para cada configuración para aprender qué tipo de valores acepta.
 
-You can also use a `let` instead of `set` (make sure to prepend it with `&`). With `let`, you can use an expression as a value. For example, to set the `'dictionary'` option to a path only if the path exists:
+También se puede usar `let` en lugar de `set` (verifique anteponer el mismo con `&`). Con `let`, se pueden usar expresiones como un valor. Por ejemplo, para configurar la opción `'dictionary'` a un directorio solo si ese directorio existe: 
 
 ```
 let s:english_dict = "/usr/share/dict/words"
@@ -100,27 +101,27 @@ if filereadable(s:english_dict)
 endif
 ```
 
-You will learn about Vimscript assignments and conditionals in later chapters. 
+Aprenderás sobre cómo hacer *scripts* con Vim para asignar valores y condicionales en los próximos capítulos.
 
-For a list of all possible options in Vim, check out `:h E355`.
+Para ver una lista de todas las posibles opciones de Vim, consulta `:h E355`.
 
-### Custom Functions
+### Funciones personalizadas
 
-Vimrc is a good place for custom functions. You will learn how to write your own Vimscript functions in a later chapter.
+Vimrc es un buen lugar para las funciones personalizadas. Aprenderás cómo escribir tus propias funciones de Vim en capítulos posteriores.
 
-### Custom Commands
+### Comandos personalizados
 
-You can create a custom Command-line command  with `command`.
+Se pueden crear un comando personalizado para la línea de comandos con `command`.
 
-To create a basic command `GimmeDate` to display today's date:
+Para crear el comando `GimmeDate` para mostrar el día actual:
 
 ```
 :command! GimmeDate echo call("strftime", ["%F"])
 ```
 
-When you run `:GimmeDate`, Vim will display a date like "2021-01-1".
+Cuando ejecutes `:GimmeDate`, Vim va a mostrar la fecha como "2021-01-1".
 
-To create a basic command with an input, you can use `<args>`. If you want to pass to `GimmeDate` a specific time/date format:
+Para crear un comando que reciba argumentos, se puede usar `<args>`. Si se le quiere pasar un formato específico a `GimmeDate`:
 
 ```
 :command! GimmeDate echo call("strftime", [<args>])
@@ -132,51 +133,51 @@ To create a basic command with an input, you can use `<args>`. If you want to pa
 " 11:30
 ```
 
-If you want to restrict the number of arguments, you can pass it `-nargs` flag. Use `-nargs=0` to pass no argument, `-nargs=1` to pass one argument, `-nargs=+` to pass at least one argument, `-nargs=*` to pass any number of arguments, and `-nargs=?` to pass 0 or one arguments. If you want to pass nth argument, use `-nargs=n` (where `n` is any integer).
+Si se quiere restringir el número de argumentos, se puede pasar la opción `-nargs`. Utiliza `-nargs=0` para que no se puedan pasar argumentos, `-nargs=1` para pasar un argumento, `-nargs=+` para pasar por lo menos un argumento, `-nargs=*` para pasar cualquier cantidad de argumentos, y `-nargs=?` para pasar 0 ó un argumento. Si quiere pasar n argumentos, usa `-nargs=n` (donde `n` es un entero).
 
-`<args>` has two variants: `<f-args>` and `<q-args>`. The former is used to pass arguments to Vimscript functions. The latter is used to automatically convert user input to strings.
+`<args>` tiene dos variantes: `<f-args>` y `<q-args>`. La primera es para pasar argumentos a una función VimScript. La última es usada para convertir la entrada del usuario en cadenas de texto.
 
-Using `args`:
-
-```
-:command! -nargs=1 Hello echo "Hello " . <args>
-:Hello "Iggy"
-" returns 'Hello Iggy'
-
-:Hello Iggy
-" Undefined variable error
-```
-
-Using `q-args`:
+Usando `args`:
 
 ```
-:command! -nargs=1 Hello echo "Hello " . <q-args>
-:Hello Iggy
-" returns 'Hello Iggy'
+:command! -nargs=1 Hola echo "Hola " . <args>
+:Hola "Iggy"
+" devuelve 'Hola Iggy'
+
+:Hola Iggy
+" Da un error de que la variable no ha sido definida.
 ```
 
-Using `f-args`:
+Usando `q-args`:
 
 ```
-:function! PrintHello(person1, person2)
-:  echo "Hello " . a:person1 . " and " . a:person2
+:command! -nargs=1 Hola echo "Hola " . <q-args>
+:Hola Iggy
+" Devuelve 'Hola Iggy'
+```
+
+Usando `f-args`:
+
+```
+:function! PrintHola(persona1, persona2)
+:  echo "Hola " . a:persona1 . " y " . a:persona2
 :endfunction
 
-:command! -nargs=* Hello call PrintHello(<f-args>)
+:command! -nargs=* Hola call PrintHola(<f-args>)
 
 :Hello Iggy1 Iggy2
-" returns "Hello Iggy1 and Iggy2"
+" Devuelve "Hola Iggy1 and Iggy2"
 ```
 
-The functions above will make a lot more sense once you get to the Vimscript functions chapter. 
+La función de arriba va a tener mucho mas sentido una vez que llegues al capítulo de las funciones Vimscripts.
 
-To learn more about command and args, check out `:h command` and `:args`.
+Para aprender más acerca de los comandos y argumentos, consulta `:h command` y `:args`.
 
-### Maps
+### Mapeos
 
-If you find yourself repeatedly performing the same complex task, it is a good indicator that you should create a mapping for that task.
+Si te ves a ti mismo haciendo de manera repetitiva la misma tarea compleja, este es un buen indicador para querer crear un mapeo para esta tarea.
 
-For example, I have these two mappings in my vimrc:
+Por ejemplo, tenemos estos dos mapeos en el archivo vimrc:
 
 ```
 nnoremap <silent> <C-f> :GFiles<CR>
@@ -184,70 +185,71 @@ nnoremap <silent> <C-f> :GFiles<CR>
 nnoremap <Leader>tn :call ToggleNumber()<CR>
 ```
 
-On the first one, I map `Ctrl-F` to [fzf.vim](https://github.com/junegunn/fzf.vim) plugin's `:Gfiles` command (quickly search for Git files). On the second one, I map `<Leader>tn` to call a custom function `ToggleNumber` (toggles `norelativenumber` and `relativenumber` options). The `Ctrl-F` mapping overwrites Vim's native page scroll. Your mapping will overwrite Vim controls if they collide. Because I almost never used that feature, I decided that it is safe to overwrite it.
+En el primero, se mapea la combinacion de teclas `Ctrl-F` para el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) al comando `:Gfiles` (que busca rápidamente por archivos en un repositorio git). En el segundo, se mapea la combinación `<Leader>tn` para llamar a la función personalizada `ToggleNumber` (que cambia entre si las opciones `norelativenumber` y `relativenumber`). La combinación `Ctrl-F` mapea y sobreescribe la función nativa de Vim para moverse en la pantalla. El mapeo va a sobreescribir los controles de Vim si entran en conflicto. En mi caso, como nunca uso esta característica, he decidido que es conveniente sobreescribirla.
 
-By the way, I personally like to use `<Space>` as the leader key instead of Vim's default. To change your leader key, add this in your vimrc:
+Por otro lado, a mi personalmente me gusta usar la tecla espaciadora que se escribe como `<Space>` como mi tecla para llamar a estos mapeos, conocida como "leader key" en inglés, para usarla, agregar esto en el archivo vimrc:
 
 ```
 let mapleader = "\<space>"
 ```
 
-The `nnoremap` command used above can be broken down into three parts:
-- `map` is the map command.
-- `n` represents the normal mode.
-- `nore` means non-recursive.
+El comando `nnoremap` usado anteriormente se puede descomponerse en tres partes:
+- `map` es el nombre del comando para mapear.
+- `n` representa el modo normal.
+- `nore` quiere decir no-recursivo.
 
-At minimum, you could have used `nmap` instead of `nnoremap` (`nmap <silent> <C-f> :Gfiles<CR>`). However, it is a good practice to use the non-recursive variant to avoid potential infinite loop.
+Como mínimo, se podría haber usado `nmap` en vez de `nnoremap` (`nmap <silent> <C-f> :Gfiles<CR>`). Igualmente, es una buena práctica el usar la variante que no es recursiva para prevenir potenciales bucles infinitos al ejecutar el comando.
 
-Here's what could happen if you don't map non-recursively. Suppose you want to add a mapping to `B` to add a semi-colon at the end of the line, then go back one WORD (recall that `B` n Vim is a normal-mode navigation key to go backward one WORD).
+Esto es lo que podría haber pasado si no se usa el mapeo no recursivo. Supongamos que se quiere agregar el mapeo  `B` para agregar el punto y coma (;) al final de la línea, luego, saltar una palabra hacia atrás (rellamamos a `B`que en el modo normal salta para atrás una palabra tal como necesitamos).
 
 ```
 nmap B A;<esc>B
 ```
 
-When you press `B`... oh no! Vim adds `;` uncontrollably (interrupt it with `Ctrl-C`). Why did that happen? Because in the mapping `A;<esc>B`, the `B` does not refer to Vim's native `B` function (go back one WORD), but it refers to the mapped function. What you have is actually this:
+Cuando se presiona `B` ... ¡vaya! Vim agrega de manera descontrolada `;` (se puede interrumpir presionando `Ctrl-C`). ¿Por qué pasó esto? Porque en el mapeo `A;<esc>B`, la letra `B` no hace referencia a la función nativa de Vim que es saltar una palabra hacia atrás, porque se esta refiriendo a la función mapeada que actualmente es:
 
 ```
 A;<esc>A;<esc>A;<esc>A;esc>...
 ```
 
-To solve this problem, you need to add a non-recursive map:
+Para resolver este problema, se tiene que agregar la opción para que no sea recursivo:
 
 ```
 nnoremap B A;<esc>B
 ```
 
-Now try calling `B` again. This time it successfully adds a `;` at the end of the line and go back one WORD. The `B` in this mapping represents Vim's original `B` functionality.
+Ahora, intente llamar a `B`. Esta vez si va a agregar al final de la linea `;` y volver una palabra antes. El `B` en este mapeo representa al mapeo original de Vim al llamar a la función `B`. 
 
-Vim has different maps for different modes. If you want to create a map for insert mode to exit insert mode when you press `jk`:
+Vim tiene diferentes mapeos para diferentes modos. Si quiere crear un mapeo para el modo de inserción para salir del mismo cuando presiona `jk`:
+
 
 ```
 inoremap jk <esc>
 ```
 
-The other map modes are: `map` (Normal, Visual, Select, and Operator-pending), `vmap` (Visual and Select), `smap` (Select), `xmap` (Visual), `omap` (Operator-pending), `map!` (Insert and Command-line), `lmap` (Insert, Command-line, Lang-arg), `cmap` (Command-line), and `tmap` (terminal-job). I won't cover them in detail. To learn more, check out `:h map.txt`.
+Los otros modos son: `map` (Normal, Visual, Select, and Operator-pending), `vmap` (Visual y Select), `smap` (Select), `xmap` (Visual), `omap` (Operator-pending), `map!` (Insert y Command-line), `lmap` (Insert, Command-line, Lang-arg), `cmap` (Command-line), and `tmap` (terminal-job). No vamos a entrar en detalle en todos. Para aprender más de ellos ejecuta `:h map.txt`.
 
-Create a map that's most intuitive, consistent, and easy-to-remember.
+Cree un mapeo que sea lo más intuitivo, consistente y fácil de recordar.
 
-## Organizing Vimrc
+## Organizando Vimrc
 
-Over time, your vimrc will grow large and become convoluted. There are two ways to keep your vimrc to look clean:
-- Split your vimrc into several files.
-- Fold your vimrc file.
+Con el paso del tiempo, tu vimrc va a crecer y se va a volver confuso. Hay varias maneras de mantener tu vimrc y que tenga un aspecto limpio:
+- Separar el archivo vimrc en varios archivos.
+- Plegando tu archivo vimrc.
 
-### Splitting Your Vimrc
+### Separando tu vimrc
 
-You can split your vimrc to multiple files using Vim's `source` command. This command reads command-line commands from the given file argument.
+Puedes separar tu vimrc en multiples archivos usando el comando de Vim `source`. Este comando lee los comandos que hay en el archivo utilizado como argumento.
 
-Let's create a file inside the `~/.vim` directory and name it `/settings` (`~/.vim/settings`). The name itself is arbitrary and you can name it whatever you like.
+Vamos a crear dentro de la carpeta `~/.vim`y vamos a llamarla `/settings` (`~/.vim/settings`). El nombre en sí es arbitrario y lo puedes llamar como quieras.
 
-You are going to split it into four components:
-- Third-party plugins (`~/.vim/settings/plugins.vim`).
-- General settings (`~/.vim/settings/configs.vim`).
-- Custom functions (`~/.vim/settings/functions.vim`).
-- Key mappings (`~/.vim/settings/mappings.vim`) .
+Lo vamos a separar en 4 componentes: 
+- Componentes de terceros (complementos) (`~/.vim/settings/plugins.vim`).
+- Configuraciones generales (`~/.vim/settings/configs.vim`).
+- Funciones personalizadas (`~/.vim/settings/functions.vim`).
+- Mapeos de teclado (`~/.vim/settings/mappings.vim`) .
 
-Inside `~/.vimrc`:
+Dentro del archivo `~/.vimrc`:
 
 ```
 source $HOME/.vim/settings/plugins.vim
@@ -256,7 +258,7 @@ source $HOME/.vim/settings/functions.vim
 source $HOME/.vim/settings/mappings.vim
 ```
 
-Inside `~/.vim/settings/plugins.vim`:
+Dentro del archivo `~/.vim/settings/plugins.vim`:
 
 ```
 call plug#begin('~/.vim/plugged')
@@ -265,7 +267,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 ```
 
-Inside `~/.vim/settings/configs.vim`:
+Dentro del archivo `~/.vim/settings/configs.vim`:
 
 ```
 set nocompatible
@@ -273,7 +275,7 @@ set relativenumber
 set number
 ```
 
-Inside `~/.vim/settings/functions.vim`:
+Dentro del archivo `~/.vim/settings/functions.vim`:
 
 ```
 function! ToggleNumber()
@@ -285,7 +287,7 @@ function! ToggleNumber()
 endfunc
 ```
 
-Inside `~/.vim/settings/mappings.vim`:
+Dentro del archivo `~/.vim/settings/mappings.vim`:
 
 ```
 inoremap jk <esc>
@@ -293,26 +295,13 @@ nnoremap <silent> <C-f> :GFiles<CR>
 nnoremap <Leader>tn :call ToggleNumber()<CR>
 ```
 
-Your vimrc should works as usual, but now it is only four lines long!
+Tu archivo vimrc funcionará como hasta siempre, ¡pero ahora solo tiene 4 líneas de largo!
 
-With this setup, you easily know where to go. If you need to add more mappings, add them to the `/mappings.vim` file. In the future, you can always add more directories as your vimrc grows. For example, if you need to create a setting for your colorschemes, you can add a `~/.vim/settings/themes.vim`.
+Con esta configuración, fácilmente ahora ves a donde hay que ir. Si necesita agregar mapeos, agregarlos en el archivo `/mappings.vim`. En el futuro, siempre se puede agregar mas directorios mientras el archivo vimrc crece. Por ejemplo si se necesita crear una configuracion para el color del tema, se puede agregar al archivo `~/.vim/settings/themes.vim`.
 
-### Keeping One Vimrc File
+### Manteniendo un solo archivo vimrc
 
-If you prefer to keep one vimrc file to keep it portable, you can use the marker folds to keep it organized. Add this at the top of your vimrc:
-
-```
-" setup folds {{{
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-" }}}
-```
-
-Vim can detect what kind of filetype the current buffer has (`:set filetype?`). If it is a `vim` filetype, you can use a marker fold method. Recall that a marker fold uses `{{{` and `}}}` to indicate the starting and ending folds.
-
-Add `{{{` and `}}}` folds to the rest of your vimrc (don't forget to comment them with `"`):
+Si la preferencia es tener un solo archivo vimrc para que se pueda llevar a otros equipos, se puede usar el plegado para mantener todo organizado. Agregue esto al inicio de su archivo vimrc: 
 
 ```
 " setup folds {{{
@@ -321,21 +310,34 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
+```
 
-" plugins {{{
+Vim puede detectar qué tipo de archivo hay en el *buffer* actual (con `:set filetype?` puede comprobarlo). Si este es un archivo del tipo `vim`, se puede usar el método de plegado. El metodo de plegado utiliza `{{{` y `}}}` para indicar el inicio y el final de un grupo que se esta plegando.
+
+Agregue `{{{` y `}}}` para plegar al resto de su vimrc (no se olvide de comentar estas lineas con `"`):
+
+```
+" Configuracion de Plegado {{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" Complementos {{{
 call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'
   Plug 'preservim/nerdtree'
 call plug#end()
 " }}}
 
-" configs {{{
+" Configuraciones {{{
 set nocompatible
 set relativenumber
 set number
 " }}}
 
-" functions {{{
+" Funciones {{{
 function! ToggleNumber()
   if(&relativenumber == 1)
     set norelativenumber
@@ -345,53 +347,53 @@ function! ToggleNumber()
 endfunc
 " }}}
 
-" mappings {{{
+" Mapeos {{{
 inoremap jk <esc>
 nnoremap <silent> <C-f> :GFiles<CR>
 nnoremap <Leader>tn :call ToggleNumber()<CR>
 " }}}
 ```
 
-Your vimrc should look like this:
+Tu archivo vimrc debería tener un aspecto como este:
 
 ```
-+-- 6 lines: setup folds -----
++-- 6 lines: Configuración de plegado -----
 
-+-- 6 lines: plugins ---------
++-- 6 lines: Complementos ---------
 
-+-- 5 lines: configs ---------
++-- 5 lines: Configuraciones ---------
 
-+-- 9 ilnes: functions -------
++-- 9 ilnes: Funciones -------
 
-+-- 5 lines: mappings --------
++-- 5 lines: Mapeos --------
 ```
 
-## Running Vim With Or Without Vimrc And Plugins
+## Ejecutar Vim con o sin vimrc y complementos
 
-If you need to run Vim without both vimrc and plugins, run:
+Si necesita ejecutar Vim sin vimrc ni los complementos, ejecute:
 
 ```
 vim -u NONE
 ```
 
-If you need to launch Vim without vimrc but with plugins, run:
+Si necesita iniciar Vim sin vimrc pero si con complementos, ejecute:
 
 ```
 vim -u NORC
 ```
 
-If you need to run Vim with vimrc but without plugins, run:
+Si quiere ejecutar Vim con vimrc pero sin complementos: 
 
 ```
 vim --noplugin
 ```
 
-If you need to run Vim with a *different* vimrc, say `~/.vimrc-backup`, run:
+Si lo que necesita es ejecutar Vim con un vimrc *diferente*, digamos `~/.vimrc-backup`, ejecute:
 
 ```
 vim -u ~/.vimrc-backup
 ```
 
-## Configure Vimrc The Smart Way
+## Configure vimrc de la manera más inteligente
 
-Vimrc is an important component of Vim customization. A good way to start building your vimrc is by reading other people's vimrcs and gradually build it over time. The best vimrc is not the one that developer X uses, but the one that is tailored exactly to fit your thinking framework and editing style.
+Vimrc es un componente importante de la configuración de Vim. Una buena manera de empezar a crear su vimrc es leyendo los vimrcs de otras personas y de manera gradual ir creando el suyo a través del tiempo. El mejor vimrc no es el que usa el desarrollador X, es el que está configurado de la manera que mejor encaja a su pensamiento y a su forma personal de editar. 
