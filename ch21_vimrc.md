@@ -1,9 +1,8 @@
 # Capítulo 21: Vimrc
 
-En los capitulos anteriores has aprendido cómo usar el editor de texto VIM. Esto es genial, pero no es todo. Para usar Vim de una manera efectiva, vas a necesitar aprender cómo configurarlo. El mejor lugar para empezar es tu archivo vimrc. 
-En los capitulos anteriores aprendiste a usar Vim. En este capítulo, vas a aprender cómo organizar y configurar vimrc.
+En los capítulos anteriores has aprendido cómo usar el editor de texto Vim. Esto es genial, pero no es todo. Para usar Vim de una manera efectiva, vas a necesitar aprender cómo configurarlo. El mejor lugar para empezar es tu archivo vimrc. En los capítulos anteriores aprendiste a usar Vim. En este capítulo, vas a aprender cómo organizar y configurar vimrc.
 
-## Como encuentra Vim el archivo vimrc
+## Cómo encuentra Vim el archivo vimrc
 
 El uso convencional de vimrc es agregar el archivo de configuración `.vimrc` en la carpeta de usuario `~/.vimrc` (en el caso de sistemas operativos basados en Unix. Puede ser diferente dependiendo del sistema operativo).
 
@@ -17,9 +16,9 @@ Sin que sea percibido por el usuario, Vim busca en muchos lugares para encontrar
 
 Cuando inicias Vim, verificará estos 6 lugares en ese orden, buscando el archivo vimrc. El primer lugar con este archivo va a ser usado y los posteriores son ignorados.
 
-Primero Vim va a buscar `$VIMINIT`. Si no hay nada ahí, Vim va a buscar `$HOME/.vimrc`. Si no hay nada ahí, Vim va a buscar `$HOME/.vim/vimrc`. Si Vim lo encuentra va a dejar de buscar y usar `$HOME/.vim/vimrc`. 
+Primero Vim va a buscar `$VIMINIT`. Si no hay nada ahí, Vim va a buscar `$HOME/.vimrc`. Si no hay nada ahí, Vim va a buscar `$HOME/.vim/vimrc`. Si Vim lo encuentra va a dejar de buscar y usará `$HOME/.vim/vimrc`. 
 
-La primer ubicacion, `$VIMINIT`, es una variable de entorno. No esta definido de manera predeterminada. Se puede usar `~/dotfiles/testvimrc` como variable `$VIMINIT` , puede crearse una variable de entorno con la ubicación de este archivo. Después de ejecutar `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim va a usar el archivo `~/dotfiles/testvimrc` como su archivo vimrc.
+La primer ubicación, `$VIMINIT`, es una variable de entorno. No esta definido de manera predeterminada. Se puede usar `~/dotfiles/testvimrc` como variable `$VIMINIT`, puedes crearte una variable de entorno con la ubicación de este archivo. Después de ejecutar `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim va a usar el archivo `~/dotfiles/testvimrc` como tu archivo vimrc.
 
 La segunda ubicacion, `$HOME/.vimrc`, es la ruta usada por muchos usuarios de Vim de manera convencional. `$HOME` es en muchos casos el directorio del usuario raíz (`~`). Si existe `~/.vimrc`, Vim usará este como su archivo vimrc.
 
@@ -29,7 +28,7 @@ El cuarto, `$EXINIT` funciona de manera similar a `$VIMINIT`.
 
 El quinto, `$HOME/.exrc` trabaja de manera similar a `$HOME/.vimrc`.
 
-El sexto, `$VIMRUNTIME/defaults.vim` es el predeterminado al compilar Vim. En mi caso, tengo instalado Vim 8.2 usando Homebrew (en MAC), entonces la ruta es (`/usr/local/share/vim/vim82`). Si Vim, en ninguna de las 5 ubicaciones encuentra el archivo vimrc, entonces usará este archivo.
+El sexto, `$VIMRUNTIME/defaults.vim` es el predeterminado al compilar Vim. En mi caso, tengo instalado Vim 8.2 usando Homebrew (en MAC), por lo que la ruta es (`/usr/local/share/vim/vim82`). Si Vim, en ninguna de las seis ubicaciones encuentra el archivo vimrc, entonces usará este archivo.
 
 Para lo que queda de este capitulo, estamos asumiendo que Vim utiliza el archivo en la ruta  `~/.vimrc`. 
 
@@ -37,12 +36,11 @@ Para lo que queda de este capitulo, estamos asumiendo que Vim utiliza el archivo
 
 La pregunta que me hice cuando me inicié fue: "¿Qué debería poner en mi archivo vimrc?"
 
-La respuesta es, "cualquier cosa que quieras". La tentación de copiar y pegar el vimrc de otras personas es real, pero debes evitar esto. Si insistes en usar el vimrc de alguien más, revisa qué sabes lo que esto hace, porqué y cómo él/ella usa esto, y lo más importante, si es relevante para ti. Solo porque alguien mas lo use no quiere decir que tú también lo tengas que utilizar.
+La respuesta es, "cualquier cosa que quieras". La tentación de copiar y pegar el vimrc de otras personas es real, pero debes evitar esto. Si insistes en usar el vimrc de alguien más, revisa que sabes lo que hace, porqué y cómo él/ella usa esto, y lo más importante, si es relevante para ti. Solo porque alguien mas lo use no quiere decir que tú también lo tengas que utilizar.
 
 ## Contenido básico de vimrc
 
 En resumen, un archivo vimrc es una colección de:
-
 - Complementos
 - Configuraciones
 - Funciones personalizadas
@@ -55,7 +53,7 @@ Hay otras cosas que he mencionado, pero en general, esto cubre la mayoría de lo
 
 En los capítulos anteriores, mencionamos diferentes complementos, como [fzf.vim](https://github.com/junegunn/fzf.vim), [vim-mundo](https://github.com/simnalamburt/vim-mundo) y [vim-fugitive](https://github.com/tpope/vim-fugitive).
 
-Hace 10 años, manejar los complementos era una pesadilla. Sin embargo, con la llegada de los gestores modernos de complementos, instalarlos hoy se puede hacer en segundos. Actualmente utilizo [vim-plug](https://github.com/junegunn/vim-plug) como mi gestor de complementos, por eso lo usaré en esta sección. El concepto es similar al de otros gestores de complementos populares. La recomendación es que revises los disponibles, como por ejemplo:
+Hace 10 años, gestionar los complementos era una pesadilla. Sin embargo, con la llegada de los gestores modernos de complementos, instalarlos hoy se puede hacer en segundos. Actualmente utilizo [vim-plug](https://github.com/junegunn/vim-plug) como mi gestor de complementos, por eso lo usaré en esta sección. El concepto es similar al de otros gestores de complementos populares. La recomendación es que revises los disponibles, como por ejemplo:
 - [vundle.vim](https://github.com/VundleVim/Vundle.vim)
 - [vim-pathogen](https://github.com/tpope/vim-pathogen)
 - [dein.vim](https://github.com/Shougo/dein.vim)
@@ -66,7 +64,7 @@ Hay mas gestores que los listados arriba, siéntete libre en buscr información 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Para agregar nuevos complementos, escribe el nombre del mismo (`Plug 'github-username/repository-name'`) entre las lineas `call plug#begin()` y `call plug#end()`. Por ejemplo, si quiere instalar `emmet-vim` y `nerdtree`, agrega las siguientes líneas en tu archivo vimrc:
+Para agregar nuevos complementos, escribe el nombre del mismo (`Plug 'github-username/repository-name'`) entre las líneas `call plug#begin()` y `call plug#end()`. Por ejemplo, si quiere instalar `emmet-vim` y `nerdtree`, agrega las siguientes líneas en tu archivo vimrc:
 
 ```
 call plug#begin('~/.vim/plugged')
@@ -75,9 +73,9 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 ```
 
-Guarda los cambios, vuelve a leer el archivo de configuración con el comando (`:source %`) y ejecuta `:PlugInstall` para instalar ambos.
+Guarda los cambios, vuelve a leer el archivo de configuración (con el comando `:source %`) y ejecuta `:PlugInstall` para instalar ambos.
 
-En el futuro, si necesita eliminar los complementos que no utiliza, solo necesita eliminar el complemento del bloque escrito anteriormente, guardar, volver a leer el archivo de configuracion (con `:source %}`) y ejecutar el comando `PlugClean` para eliminarlo de su equipo.
+En el futuro, si necesitas eliminar los complementos que no utilizas, solo necesita eliminar el complemento del bloque escrito anteriormente, guardar, volver a leer el archivo de configuracion y ejecutar el comando `:PlugClean` para eliminarlo de su equipo.
 
 Vim 8 tiene su propio gestor de paquetes. Puedes consultar la ayuda con `:h packages` para mas información. En el próximo capítulo, vamos a mostrar como usarlo.
 
@@ -121,7 +119,7 @@ Para crear el comando `GimmeDate` para mostrar el día actual:
 
 Cuando ejecutes `:GimmeDate`, Vim va a mostrar la fecha como "2021-01-1".
 
-Para crear un comando que reciba argumentos, se puede usar `<args>`. Si se le quiere pasar un formato específico a `GimmeDate`:
+Para crear un comando que reciba argumentos, se puede usar `<args>`. Si se le quiere pasar un formato específico de fecha y hora a `GimmeDate`:
 
 ```
 :command! GimmeDate echo call("strftime", [<args>])
@@ -187,7 +185,7 @@ nnoremap <Leader>tn :call ToggleNumber()<CR>
 
 En el primero, se mapea la combinacion de teclas `Ctrl-F` para el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) al comando `:Gfiles` (que busca rápidamente por archivos en un repositorio git). En el segundo, se mapea la combinación `<Leader>tn` para llamar a la función personalizada `ToggleNumber` (que cambia entre si las opciones `norelativenumber` y `relativenumber`). La combinación `Ctrl-F` mapea y sobreescribe la función nativa de Vim para moverse en la pantalla. El mapeo va a sobreescribir los controles de Vim si entran en conflicto. En mi caso, como nunca uso esta característica, he decidido que es conveniente sobreescribirla.
 
-Por otro lado, a mi personalmente me gusta usar la tecla espaciadora que se escribe como `<Space>` como mi tecla para llamar a estos mapeos, conocida como "leader key" en inglés, para usarla, agregar esto en el archivo vimrc:
+Por cierto, a mi personalmente me gusta usar la tecla espaciadora que se escribe como `<Space>` como mi tecla para llamar a estos mapeos, conocida como "leader key" en inglés, para usarla, agrega esto en el archivo vimrc:
 
 ```
 let mapleader = "\<space>"
