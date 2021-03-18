@@ -394,4 +394,4 @@ vim -u ~/.vimrc-backup
 
 ## Configure vimrc de la manera más inteligente
 
-Vimrc es un componente importante de la configuración de Vim. Una buena manera de empezar a crear su vimrc es leyendo los vimrcs de otras personas y de manera gradual ir creando el suyo a través del tiempo. El mejor vimrc no es el que usa el desarrollador X, es el que está configurado de la manera que mejor encaja a su pensamiento y a su forma personal de editar. 
+Vimrc es un componente importante de la configuración de Vim. Una buena manera de empezar a crear su vimrc es leyendo los vimrcs de otras personas y de manera gradual ir creando el suyo a través del tiempo. El mejor vimrc no es el que usa el desarrollador X, es el que está configurado de la manera que mejor encaja a tu pensamiento y a tu forma personal de editar. 
