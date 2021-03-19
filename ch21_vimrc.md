@@ -224,9 +224,9 @@ Vim tiene diferentes mapeos para diferentes modos. Si quieres crear un mapeo par
 inoremap jk <esc>
 ```
 
-Los otros modos son: `map` (Normal, Visual, Select, and Operator-pending), `vmap` (Visual y Select), `smap` (Select), `xmap` (Visual), `omap` (Operator-pending), `map!` (Insert y Command-line), `lmap` (Insert, Command-line, Lang-arg), `cmap` (Command-line), and `tmap` (terminal-job). No vamos a entrar en detalle en todos. Para aprender más de ellos ejecuta `:h map.txt`.
+Los otros modos son: `map` (para el modo normal, visual, selección y pendiente de operador), `vmap` (para modos visual y selección), `smap` (selección), `xmap` (visual), `omap` (pendiente de operador), `map!` (modo insertar y línea de comandos), `lmap` (insertar, línea de comandos y argumentos de lenguaje), `cmap` (línea de comandos) y `tmap` (trabajo en la terminal). No vamos a entrar en detalle en todos. Para aprender más de ellos ejecuta `:h map.txt`.
 
-Cree un mapeo que sea lo más intuitivo, consistente y fácil de recordar.
+Crea un mapeo que sea lo más intuitivo, consistente y fácil de recordar.
 
 ## Organizando Vimrc
 
