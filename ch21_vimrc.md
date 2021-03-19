@@ -192,9 +192,9 @@ let mapleader = "\<space>"
 ```
 
 El comando `nnoremap` usado anteriormente se puede descomponerse en tres partes:
-- `map` es el nombre del comando para mapear.
 - `n` representa el modo normal.
 - `nore` quiere decir no-recursivo.
+- `map` es el nombre del comando para mapear.
 
 Como mínimo, se podría haber usado `nmap` en vez de `nnoremap` (`nmap <silent> <C-f> :Gfiles<CR>`). Igualmente, es una buena práctica el usar la variante que no es recursiva para prevenir potenciales bucles infinitos al ejecutar el comando.
 
@@ -361,7 +361,7 @@ Tu archivo vimrc debería tener un aspecto como este:
 
 +-- 5 lines: Configuraciones ---------
 
-+-- 9 ilnes: Funciones -------
++-- 9 lines: Funciones -------
 
 +-- 5 lines: Mapeos --------
 ```
