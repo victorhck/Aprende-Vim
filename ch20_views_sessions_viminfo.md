@@ -352,45 +352,45 @@ vim -i viminfo_writing
 vim -i viminfo_coding
 ```
 
-### Starting Vim Without Viminfo
+### Arrancar Vim sin archivo Viminfo
 
-To start Vim without Viminfo, you can run from the terminal:
+Para arrancar Vim sin el archivo Viminfo, puedes ejecutar lo siguiente desde la terminal:
 
 ```
 vim -i NONE
 ```
 
-To make it permanent, you can add this in your vimrc file:
+Para hacer esta opción permanente, puedes añadir lo siguiente en tu archivo vimrc:
 
 ```
 set viminfo="NONE"
 ```
 
-### Configuring Viminfo Attributes
+### Configurando los atributos de Viminfo 
 
-Similar to `viewoptions` and `sessionoptions`, you can instruct what attributes to save with the `viminfo` option. Run:
+De manera similar a `viewoptions` y `sessionoptions`, puedes determinar qué atributos guardar con la opción `viminfo`. Ejecuta:
 
 ```
 :set viminfo?
 ```
 
-You will get:
+Obtendrás:
 
 ```
 !,'100,<50,s10,h
 ```
 
-This looks cryptic. Let's break it down:
-- `!` saves global variables that start with an uppercase letter and don't contain lowercase letters. Recall that `g:` indicates a global variable. For example, if at some point you wrote the assignment `let g:FOO = "foo"`, Viminfo will save the global variable `FOO`. However if you did `let g:Foo = "foo"`, Viminfo will not save this global variable because it contains lowercase letters. Without `!`, Vim won't safe those global variables.
-- `'100` represents marks. In this case, Viminfo will save the local marks (a-z) of the last 100 files. Be aware that if you tell Viminfo to save too many files, Vim can start slowing down. 1000 is a good number to have.
-- `<50` tells Viminfo how many maximum lines are saved for each registers (50 in this case). If I yank 100 lines of text into register a (`"ay99j`) and close Vim, the next time I open Vim and paste from register a (`"ap`), Vim will only paste 50 lines max. If you don't give maximum line number, *all* lines will be saved. If you give it 0, nothing will be saved.
-- `s10` sets a size limit (in kb) for a register. In this case, any register greater than 10kb size will be excluded.
-- `h` disables highlighting (from `hlsearch`) when Vim starts.
+Esto parece muy críptico. Vamos a verlo en detalle:
+- `!` guarda las variables globales que comienzan con una letra mayúscula y no contienen letras minúsculas. Recuerda que `g:` indica una variable global. Por ejemplo, si en algún punto escribiste la asignación `let g:FOO = "foo"`, Viminfo guardará la variable global `FOO`. Sin embargo si hiciste `let g:Foo = "foo"`, Viminfo no guardará esta variable global ya que contiene letras minúsculas. Sin `!`, Vim no guardará esas variables globales.
+- `'100` representa las marcas. En este caso, Viminfo guardará las marcas globales (a-z) de los últimos 100 archivos. Ten cuidado, ya que si le dices a Vim que guarde muchos archivos, Vim puede empezar a ralentizarse. 1000 es un buen número para establecer.
+- `<50` le dice a Viminfo cuantas líneas como máximo son guardadas para cada registro (50 en este caso). Si copio 100 líneas de texto en el registro a (`"ay99j`) y cierro Vim, la próxima vez que abra Vim y pegue desde el registro a (`"ap`), Vim solo pegará 50 líneas como máximo. Si no estableces un número máximo de líneas, *todas* las líneas se guardarán. Si estableces un 0, no se guardará nada.
+- `s10` estabece un límite de tamaño (en kb) para un registro. En este caso, cualquier registro de tamaño mayor de 10kb será excluido.
+- `h` inhabilita el reslatado (de `hlsearch`) cuando arranca Vim.
 
-There are other options that you can pass. To learn more, check out `:h 'viminfo'`.
+Hay otras opciones que puedes pasarle al comando. Para aprender más, echa un vistazo a `:h 'viminfo'`.
 
-## Using Views, Sessions, And Viminfo The Smart Way
+## Utilizando las vistas, sesiones y Viminfo de la manera más inteligente
 
-Vim has View, Session, and Viminfo to take different level of your Vim environment snapshots. For micro projects, use Views. For larger projects, use Sessions. You should take your time to check out all the options that View, Session, and Viminfo offers.
+Vim tiene vistas, sesiones y Viminfo para tener un nivel diferente de tu instantánea del entorno de Vim. Para proyectos pequeños, utiliza las vistas. Para proyectos más grandes, utiliza las sesiones. Deberías tomarte tu tiempo para echar un vistazo a todas las opciones que ofrecen estas tres herramientas de Vim.
 
-Create your own View, Session, and Viminfo for your own editing style. If you ever need to use Vim outside of your computer, you can just load your settings and you will immediately feel at home!
+Crea tu propia vista, sesión y Viminfo para tu propio estilo de edición. Si alguna vez necesitas utilizar Vim en otro equipo, puedes cargar tus ajustes !e inmediatamente te sentirás como en casa!
