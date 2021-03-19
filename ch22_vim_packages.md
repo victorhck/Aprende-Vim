@@ -1,8 +1,8 @@
-# Ch22. Vim Packages
+# Capítulo 22. Paquetes de Vim
 
-In the previous chapter, I mentioned using an external plugin manager to install plugins. Since version 8, Vim comes with its own built-in plugin manager called *packages*. In this chapter, you will learn how to use Vim packages to install plugins.
+En los capítulos anteriores, he mencionado el uso de un gestor externo de complementos para instalar complementos. Desde la versión 8, Vim ya incorpora su propio gestor de complementos llamado *packages*. En este capítulo, aprenderás cómo utilizar este gestor de complementos para instalar nuevos complementos.
 
-To see if your Vim build has the ability to use packages, run `:version` and look for `+packages` attribute. Alternatively, you can also run `:echo has('packages')` (if it returns 1, then it has the packages ability).
+Para ver si la compilación de Vim que usas tiene la posibilidad de utilizar este gestor propio, ejecuta `:version` y busca el atributo `+packages`. De manera alternativa, también puedes ejecutar `:echo has('packages')` (si esto devuelve un 1, entonces tu Vim viene con su gestor propio incorporado).
 
 ## Pack Directory
 
