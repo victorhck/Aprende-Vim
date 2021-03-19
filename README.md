@@ -45,7 +45,7 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 ### Parte 2: Personaliza Vim de la manera más inteligente
 
 - [Cap 21 - Vimrc](./ch21_vimrc.md) ......... En progreso [ ] / Traducido ✅ / Revisado [ ] 
-- [Cap 22 - Paquetes de Vim](./ch22_vim_packages.md)  ......... En progreso [ ] / Traducido [ ] / Revisado [ ]                           
+- [Cap 22 - Paquetes de Vim](./ch22_vim_packages.md)  ......... En progreso ✅ / Traducido [ ] / Revisado [ ]                           
 - [Ch 23 - Vim Runtime](./ch23_vim_runtime.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
 
 ### Parte 3: Aprende Vimscript de la manera más inteligente
