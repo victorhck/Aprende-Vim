@@ -318,33 +318,33 @@ La ubicación predeterminada para Viminfo en sistemas basados en Unix es `$HOME/
 
 *Asegúrate que tienes activada la opción `nocompatible` (`set nocompatible`), de otro modo tu Viminfo no funcionará.*
 
-### Writing And Reading Viminfo
+### Escribir y leer Viminfo
 
-Although you will use only one Viminfo file, you can create multiple Viminfo files. To write a Viminfo file, use the `:wviminfo` command (`:wv` for short).
+Aunque usarás solo un archivo Viminfo, puedes crear múltiples archivos Viminfo. Para escribir un archivo Viminfo, utiliza el comando `:wviminfo` (`:wv` en método abreviado).
 
 ```
 :wv ~/.viminfo_extra
 ```
 
-To overwrite an existing Viminfo file, add a bang to the `wv` command:
+Para sobre escribir un archivo Viminfo ya existente, añade un signo de cierre de exclamación al comando `wv`:
 
 ```
 :wv! ~/.viminfo_extra
 ```
 
-By default Vim will read from `~/.viminfo` file. To read from a different Viminfo file, run `:rviminfo`, or `:rv` for short:
+De manera predeterminada Vim leerá el archivo `~/.viminfo`. Para leer un archivo Viminfo diferente, ejecuta `:rviminfo`, o `:rv` en modo abreviado:
 
 ```
 :rv ~/.viminfo_extra
 ```
 
-To start Vim with a different Viminfo file from the terminal, use the `i` flag:
+Para arrancar Vim con un archivo Viminfo diferente desde la terminal, utiliza la opción `i`:
 
 ```
 vim -i viminfo_extra
 ```
 
-If you use Vim for different tasks, like coding and writing, you can create a Viminfo optimized for writing and another for coding.
+Si utilizas Vim para diferentes tareas, como crear código o escribir, puedes crear un Viminfo optimizado para crear código y otro para escribir.
 
 ```
 vim -i viminfo_writing
