@@ -198,7 +198,7 @@ El comando `nnoremap` usado anteriormente se puede descomponerse en tres partes:
 
 Como mínimo, se podría haber usado `nmap` en vez de `nnoremap` (`nmap <silent> <C-f> :Gfiles<CR>`). Igualmente, es una buena práctica el usar la variante que no es recursiva para prevenir potenciales bucles infinitos al ejecutar el comando.
 
-Esto es lo que podría haber pasado si no se usa el mapeo no recursivo. Supongamos que se quiere agregar el mapeo  `B` para agregar el punto y coma (;) al final de la línea, luego, saltar una palabra hacia atrás (rellamamos a `B`que en el modo normal salta para atrás una palabra tal como necesitamos).
+Esto es lo que podría haber pasado si no se usa el mapeo no recursivo. Supongamos que se quiere agregar el mapeo  `B` para agregar el punto y coma (;) al final de la línea, luego, saltar una palabra hacia atrás (volvemos a ejecutar `B` que en el modo normal salta para atrás una palabra tal como necesitamos).
 
 ```
 nmap B A;<esc>B
@@ -218,8 +218,7 @@ nnoremap B A;<esc>B
 
 Ahora, intente llamar a `B`. Esta vez si va a agregar al final de la linea `;` y volver una palabra antes. El `B` en este mapeo representa al mapeo original de Vim al llamar a la función `B`. 
 
-Vim tiene diferentes mapeos para diferentes modos. Si quiere crear un mapeo para el modo de inserción para salir del mismo cuando presiona `jk`:
-
+Vim tiene diferentes mapeos para diferentes modos. Si quieres crear un mapeo para el modo insertar para salir del mismo cuando pulses `jk`:
 
 ```
 inoremap jk <esc>
