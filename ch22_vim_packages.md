@@ -1,82 +1,82 @@
-# Capítulo 22. Paquetes de Vim
+# Capítulo 22. El gestor de complementos de Vim (Packages)
 
-En los capítulos anteriores, he mencionado el uso de un gestor externo de complementos para instalar complementos. Desde la versión 8, Vim ya incorpora su propio gestor de complementos llamado *packages*. En este capítulo, aprenderás cómo utilizar este gestor de complementos para instalar nuevos complementos.
+En los capítulos anteriores, he mencionado el uso de un gestor externo de complementos para instalar complementos. Desde la versión 8, Vim ya incorpora su propio gestor de complementos llamado *packages*. En este capítulo, aprenderás cómo utilizar este gestor para instalar nuevos complementos.
 
 Para ver si la compilación de Vim que usas tiene la posibilidad de utilizar este gestor propio, ejecuta `:version` y busca el atributo `+packages`. De manera alternativa, también puedes ejecutar `:echo has('packages')` (si esto devuelve un 1, entonces tu Vim viene con su gestor propio incorporado).
 
-## Pack Directory
+## El directorio de Pack 
 
-Check if you have a `~/.vim/` directory in the root path. If you don't, create one. Inside it, create a directory called `pack` (`~/.vim/pack/)`. Vim automatically knows to search inside this directory for packages.
+Comprueba si tienes un directorio llamado `~/.vim/` en la ruta raíz de tu usuario. Si no lo tienes, crealo. Dentro, crea un directorio llamado `pack` (`~/.vim/pack/)`. Vim de manera automática sabe que tiene que buscar dentro de este directorio para encontrar los paquetes o complementos.
 
-## Two Types Of Loading
+## Dos tipos de cargas
 
-Vim package has two loading mechanisms: automatic and manual loading.
+El gestor de complementos de Vim tiene dos mecanismos de carga: automático y manual.
 
-### Automatic Loading
+### Carga automática
 
-To load plugins automatically when Vim starts, you need to put them in the `start/` directory. The path looks like this:
+Para cargar complementos de manera automática cuando arranque Vim, necesitas ponerlos dentro del directorio `start/`. La ruta tendía un aspecto similar a este:
 
 ```
 ~/.vim/pack/*/start/
 ```
 
-Now you may ask, "What is the `*` between `pack/` and `start/`?" `*` is an arbitrary name and can be anything you want. let's name it `packdemo/`:
+Ahora podrías preguntar, "¿Qué significa el símbolo `*` entre `pack/` y `start/`?" `*` es un nombre arbitrario y puede ser cualquier cosa que quieras. Vamos a llamarle `packdemo/`:
 
 ```
 ~/.vim/pack/packdemo/start/
 ```
 
-Keep in mind that if you skip it and do something like this instead:
+Ten en cuenta que si lo omites y en vez de eso haces algo así:
 
 ```
 ~/.vim/pack/start/
 ```
 
-The package system won't work. It is imperative to put a name between `pack/` and `start/`.
+El sistema del gestor *package* no funcionará. Es imperativo el poner un nombre entre `pack/` y `start/`.
 
-For this demo, let's try to install the [NERDTree](https://github.com/preservim/nerdtree) plugin. Go all the way to the `start/` directory (`cd ~/.vim/pack/packdemo/start/`) and clone the NERDTree repository:
+Para esta demostración, vamos a tratar de instalar el complemento llamado [NERDTree](https://github.com/preservim/nerdtree). Ve directamente al directorio `start/` (`cd ~/.vim/pack/packdemo/start/`) y clona el repositorio NERDTree desde GitHub:
 
 ```
 git clone https://github.com/preservim/nerdtree.git
 ```
 
-That's it! You are all set. The next time you start Vim, you can immediately execute NERDTree commands like `:NERDTreeToggle`.
+¡Eso es todo! Ya está todo listo. La próxima vez que arranques Vim, podrás ejecutar inmediatamente comandos de NERDTree como `:NERDTreeToggle`.
 
-You can clone as many plugin repositories as you want inside the `~/.vim/pack/*/start/` path. Vim will automatically load each one. If you remove the cloned repository (`rm -rf nerdtree/`), that plugin will not be available anymore.
+Puedes clonar tantos repositorios de complementos como quieras dentro de la ruta `~/.vim/pack/*/start/`. Vim de manera automática cargará cada uno de ellos. Si quieres eliminar el repositorio clonado (`rm -rf nerdtree/`), ese complemento no estará disponible en tu Vim nunca más.
 
-### Manual Loading
+### Carga manual
 
-To load plugins manually when Vim starts, you need to put them in the `opt/` directory. Similar to automatic loading, the path looks like this:
+Para cargar complementos de manera manual cuando arranca Vim, necesitas ponerlos dentro del directorio `opt/`. De manera similar a la carha automática, la ruta tendrá un aspecto similar a este:
 
 ```
 ~/.vim/pack/*/opt/
 ```
 
-Let's use the same `packdemo/` directory from earlier:
+Vamos a utilizar el mismo directorio `packdemo/` que hemos usado antes:
 
 ```
 ~/.vim/pack/packdemo/opt/
 ```
 
-This time, let's install the [killersheep](https://github.com/vim/killersheep) game (this requires Vim 8.2). Go to the `opt/` directory (`cd ~/.vim/pack/packdemo/opt/`) and clone the repository:
+Esta vez, vamos a instalar el juego [killersheep](https://github.com/vim/killersheep) (esto necesita como mínimo Vim 8.2). Ve al directorio `opt/` (`cd ~/.vim/pack/packdemo/opt/`) y clona el repositorio:
 
 ```
 git clone https://github.com/vim/killersheep.git
 ```
 
-Start Vim. The command to execute the game is `:KillKillKill`. Try running it. Vim will complain that it is not a valid editor command. You need to *manually* load the plugin first. Let's do that:
+Arranca Vim. El comando para ejecutar el juego es `:KillKillKill`. Trata de ejecutarlo. Vim te avisará de que ese no es un comando válido del editor. Necesitas primero cargar *manualmente* el complemento. Vamos a hacer eso:
 
 ```
 :packadd killersheep
 ```
 
-Now try running the command again `:KillKillKill`. The command should work now.
+Ahora trata de ejecutar de nuevo el comando `:KillKillKill`. Ahora el comando debería funcionar.
 
-You may wonder, "Why would I ever want to manually load packages? Isn't it better to automatically load everything at the start?"
+Quizás te preguntes, "¿Por qué iba a querer alguna vez cargar manualmente los complementos? ¿No sería mejor que se cargaran automáticamente todos al inicio?".
 
-Great question. Sometimes there are plugins that you won't use all the time, like that KillerSheep game. You probably don't need to load 10 different games and slow down Vim startup time. However, once in a while, when you are bored, you might want to play a few games. Use manual loading for nonessential plugins.
+Buena pregunta. A veces hay complementos que no querrás utilizar todo el tiempo, como el juego KillerSheep. Lo más probable es que no necesites cargar 10 juegos diferentes y ralentizar el arranque de Vim. Sin embargo, de vez en cuando si estás aburrido o aburrida, quizás quieras jugar algún juego en Vim. Utiliza la carga manual para complementos que no sean esenciales.
 
-You can also use this to conditionally add plugins. Maybe you use both Neovim and Vim and there are plugins optimized for Neovim. You can add something like this in your vimrc:
+También puedes utilizar esto para para añadir de manera condicional complementos. Quizás tu usas tanto Neovim como Vim y hay complementos optimizados para Neovim. Puedes utilizar algo como esto en tu vimrc:
 
 ```
 if has('nvim')
