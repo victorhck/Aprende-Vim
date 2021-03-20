@@ -86,39 +86,39 @@ else
 endif
 ```
 
-## Organizing packages
+## Organizando el gestor
 
-Recall that the requirement to use Vim's package system is to have either:
+Recuerda que el requisito para utilizar el gestor de complementos de Vim es tener:
 
 ```
 ~/.vim/pack/*/start/
 ```
 
-Or:
+O:
 
 ```
 ~/.vim/pack/*/opt/
 ```
 
-The fact that `*` can be *any* name can be used to organize your packages. Suppose you want to group your plugins based on categories (colors, syntax, and games):
+El hecho que `*` pueda ser *cualquier* nombre puede ser utilizado para organizar tus complementos. Supongamos que quieres agrupar tus complementos basados en categorías (colores, sintaxis y juegos):
 
 ```
-~/.vim/pack/colors/
-~/.vim/pack/syntax/
-~/.vim/pack/games/
+~/.vim/pack/colores/
+~/.vim/pack/sintaxis/
+~/.vim/pack/juegos/
 ```
 
-You can still use `start/` and `opt/` inside each of the directories.
+Puedes todavía utilizar `start/` y `opt/` dentro de cada uno de los directorios.
 
 ```
-~/.vim/pack/colors/start/
-~/.vim/pack/colors/opt/
+~/.vim/pack/colores/start/
+~/.vim/pack/colores/opt/
 
-~/.vim/pack/syntax/start/
-~/.vim/pack/syntax/opt/
+~/.vim/pack/sintaxis/start/
+~/.vim/pack/sintaxis/opt/
 
-~/.vim/pack/games/start/
-~/.vim/pack/games/opt/
+~/.vim/pack/juegos/start/
+~/.vim/pack/juegos/opt/
 ```
 
 ## Adding Packages The Smart Way
