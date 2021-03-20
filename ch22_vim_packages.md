@@ -121,12 +121,12 @@ Puedes todavía utilizar `start/` y `opt/` dentro de cada uno de los directorios
 ~/.vim/pack/juegos/opt/
 ```
 
-## Adding Packages The Smart Way
+## Añadiendo complementos de la manera más inteligente
 
-You may wonder if Vim package will make popular plugin managers like vim-pathogen, vundle.vim, dein.vim, and vim-plug obsolete.
+Te podrías preguntar que quizás el gestor de complementos de Vim hará que los gestores de complementos más populares como vim-pathogen, vundle.vim, dein.vim o vim-plug se vuelvan obsoletos.
 
-The answer is, as always, "it depends."
+La respuesta es, como siempre, "depende".
 
-I still use vim-plug because it makes it easy to add, remove or update plugins. If you use many plugins, it may be more convenient to use plugin managers because it is easy to update many simultaneously. Some plugin managers also offer asynchronous functionalities.
+Yo todavía utilizo vim-plug porque hace muy sencillo añadir, eliminar o actualizar complementos. Si utilizas muchos complementos, sería más conveniente utilizar un gestor de complementos porque hace sencillo el actualizar muchos de manera simultánea. Algunos gestores de complementos también ofrecen funcionalidades asíncronas.
 
-If you are a minimalist, try out Vim packages. If you a heavy plugin user, you may want to consider using a plugin manager.
+Si tu eres minimalista, prueba el gestor de complementos propio de Vim, *Vim packages*. Si utilizas complementos de una manera más intensa, deberías considerar el utilizar un gestor de complementos.
