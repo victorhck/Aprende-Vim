@@ -17,32 +17,32 @@ Ve al directorio `~/.vim/` y crea un directorio llamado `plugin/`. Crea dos arch
 Dentro del archivo `~/.vim/plugin/donut.vim` añade esta línea:
 
 ```
-echo "donut!"
+echo "¡donut!"
 ```
 
 Dentro del archivo `~/.vim/plugin/chocolate.vim` añade esta línea:
 
 ```
-echo "chocolate!"
+echo "¡chocolate!"
 ```
 
 Ahora cierra Vim. La próxima vez que lo inicies, verás que se muestran las palabras `"donut!"` y `"chocolate!"`. La ruta de ejecutable de complemento puede ser utilizada para *scripts* de inicialización.
 
-## Filetype Detection
+## Detección de tipos de archivos
 
-Before you start, to ensure that these detections work, make sure that your vimrc contains at least the following line:
+Antes de comenzar, asegúrate que estas detecciones funcionan, asegurándote que tu archivo vimrc contiene al menos la siguiente línea:
 
 ```
 filetype plugin indent on
 ```
 
-Check out `:h filetype-overview` for more context. Essentially this turns on Vim's filetype detection.
+Echa un vistazo a `:h filetype-overview` para más información. En esencia, esto activa la detección de tipos de archivo en Vim.
 
-When you open a new file, Vim usually knows what kind of file it is. If you have a file `hello.rb`, running `:set filetype?` returns the correct response `filetype=ruby`.
+Cuando abre un archivo nuevo, Vim normalmente sabe qué clase de archivo es. Si tienes un archivo `hola.rb`, al ejecutar `:set filetype?` debería mostrar la respuesta correcta `filetype=ruby`.
 
-Vim knows how to detect "common" file types (Ruby, Python, Javascript, etc). But what if you have a custom file? You need to teach Vim to detect it and assign it with the correct file type.
+Vim sabe cómo detectar los tipos de archivos "más comunes" (Ruby, Python, Javascript, etc). Pero ¿qué pasa si tienes un tipo de archivos personalizados? Necesitas enseñar a Vim a detectarlo y asignarlo con el tipo de archivo correcto.
 
-There are two methods of detection: using file name and file content.
+Hay dos métodos de detección: utilizando un nombre de archivo o utilizando un archivo de contenido.
 
 ### File Name Detection
 
