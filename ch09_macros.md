@@ -2,14 +2,14 @@
 
 Cuando estás editando archivos, puede que te encuentres repitinedo las mismas acciones. ¿No sería genial si pudieras realizar esas acciones solo una vez y después poder reproducirlas cada vez que lo necesitaras? Gracias a las macros de Vim, puedes grabar tus acciones y almacenarlas dentro de los registros de Vim.
 
-En este capítulo, aprenderás a utilizar macros para automatizar las tareas mundanas (además es genial ver como editar el propio archivo).
+En este capítulo, aprenderás a utilizar macros para automatizar las tareas más triviales (además es genial ver cómo el propio archivo se edita a si mismo).
 
 ## Macros básicas
 
 Aquí puedes ver la sintaxis básica de una macro de Vim:
 
 ```
-qa                     Comienza a grabar una macro en el registro a
+qa                            Comienza a grabar una macro en el registro a
 q (mientras está grabando)    Detiene la grabación de la macro
 ```
 
@@ -23,27 +23,29 @@ Puedes utilizar cualquier letra minúscula (a-z) para almacenar las macros. Una 
 Supongamos que tienes el siguiente texto y quieres poner en mayúsculas todo el texto de todas las líneas:
 
 ```
-hello
-vim
+hola
+las
 macros
-are
-awesome
+de
+vim
+son
+geniales
 ```
 
-Con el cursor sutuado al inicio de a línea con el texto "hello", ejecuta:
+Con el cursor situado al comienzo de la línea con el texto "hola", ejecuta:
 ```
 qa0gU$jq
 ```
 
 Vamos a diseccionar el comando anterior para ver qué realiza:
 
-- `qa` comienza la grabación de la macro en el registro "a".
-- `0` situal el cursor al inicio de la línea.
+- `qa` comienza la grabación de la macro en el registro a.
+- `0` situa el cursor al inicio de la línea.
 - `gU$` convierte en mayúsculas el texto desde la posición actual hasta el final de la línea.
 - `j` baja el cursor una línea.
 - `q` detiene la grabación de la macro.
 
-Para volver a ejecutar la macro cada vez que lo necesites, ejecuta `@a`. Como en la mayoría de comandos de Vim, puedes pasarle un número como argumento a las macros. Por ejemplo, puedes ejecutar `3@a` para ejecutar la macro "a" tres veces. Puedes ejecutar `3@@` para ejecutar la última macro ejecutada tres veces.
+Para volver a ejecutar la macro cada vez que lo necesites, ejecuta `@a`. Como en la mayoría de comandos de Vim, puedes pasarle como argumento un número a las macros. Por ejemplo, puedes ejecutar `3@a` para ejecutar la macro a tres veces. Puedes ejecutar `3@@` para ejecutar la última macro ejecutada tres veces.
 
 ## Guarda de seguridad
 
