@@ -158,15 +158,15 @@ Asumamos que tienes las siguiente acciones almacenadas en una macro en el regist
 Así es como podrías añadir la nueva acción:
 
 ```
-qAA.<esc>q
+qAA.<Esc>q
 ```
 
 El desglose:
 - `qA` comienza la grabación de la macro en el registro A.
-- `A.<esc>` inserta un punto (".") al final de la línea (aquí `A` se refiera al comando para añadir texto al final de una línea, no confundir con la macro A), después sale del modo insertar (`<esc>`).
+- `A.<Esc>` inserta un punto (".") al final de la línea (aquí `A` se refiera al comando para añadir texto al final de una línea, no confundir con la macro A), después sale del modo insertar (`<Esc>`).
 - `q` detiene la grabación de la macro.
 
-Ahora cuando ejecutemos `@a`, irá al primer caracter de la línea (`0`), se dirige a la siguiente PALABRA (`W`), cambia el caracter de la palabra bajo el cursor (`~`), activa el modo insertar al final de la línea (`A`), escribirá un punto (".") y saldrá del modo insertar (`<esc>`).
+Ahora cuando ejecutemos `@a`, irá al primer caracter de la línea (`0`), se dirige a la siguiente PALABRA (`W`), cambia el caracter de la palabra bajo el cursor (`~`), activa el modo insertar al final de la línea (`A`), escribirá un punto (".") y saldrá del modo insertar (`<Esc>`).
 
 ## Modificar una macro
 
@@ -189,17 +189,17 @@ Primero, llamemos a la macro ya existente (asumamos que has guardado la macro de
 0W~A.^[
 ```
 
-¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<esc>`? `^[` es la representación con el *código interno* de Vim para representar `<esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<esc>`, `<backspace>`, y `<enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
+¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<Esc>`? `^[` es la representación con el *código interno* de Vim para representar `<Esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<Esc>`, `<backspace>`, y `<enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
 
-Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un caracter de minúscula a mayúscula (`~`), vamoa a añadir las instrucciones para ir al final de la línea (`$`), regresar una palabra (`b`), entrar en el modo de insertar (`i`), escribir "deep fried " (no olvides el espacio en blanco después de la palabra "fried "), y salir del modo insertar (`<esc>`).
+Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un caracter de minúscula a mayúscula (`~`), vamoa a añadir las instrucciones para ir al final de la línea (`$`), regresar una palabra (`b`), entrar en el modo de insertar (`i`), escribir "deep fried " (no olvides el espacio en blanco después de la palabra "fried "), y salir del modo insertar (`<Esc>`).
 
 Esto es el aspecto que tendrá la macro finalizada:
 
 ```
-0W~$bideep fried <esc>A.^[
+0W~$bideep fried <Esc>A.^[
 ```
 
-Pero hay un pequeño problema. Vim no entiende `<esc>`. Deberás escribir la representación del comando en su código interno, tal como lo usa Vim, para el `<esc>` que acabas de añadir. Mientras estás en el modo insertar, presiona `Ctrl-v` seguido de `<esc>`. Vim mostrará `^[`.` Ctrl-v` es un operador del modo insertar para insertar literalmente el siguiente carácter que no sea un dígito. El código de la macro debería ser así:
+Pero hay un pequeño problema. Vim no entiende `<Esc>`. Deberás escribir la representación del comando en su código interno, tal como lo usa Vim, para el `<Esc>` que acabas de añadir. Mientras estás en el modo insertar, presiona `Ctrl-v` seguido de `<Esc>`. Vim mostrará `^[`.` Ctrl-v` es un operador del modo insertar para insertar literalmente el siguiente carácter que no sea un dígito. El código de la macro debería ser así:
 
 ```
 0W~$bideep fried ^[A.^[
