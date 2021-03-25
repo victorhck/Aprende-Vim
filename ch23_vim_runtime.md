@@ -44,11 +44,11 @@ Vim sabe cómo detectar los tipos de archivos "más comunes" (Ruby, Python, Java
 
 Hay dos métodos de detección: utilizando un nombre de archivo o utilizando un archivo de contenido.
 
-### File Name Detection
+### Detección por nombre de archivo
 
-File name detection detects a file type using the name of that file. When you open the `hello.rb` file, Vim knows it is a Ruby file from the `.rb` extension.
+Mediante la detección por nombre de archivo se detecta el tipo de archivo utilizando el nombre del archivo. Cuando abres el archivo `hola.rb`, Vim sabe que es un tipo de archivo de lenguaje Ruby por la extensión `.rb`.
 
-There are two ways you can do file name detection: using `ftdetect/` runtime directory and using `filetype.vim` runtime file. Let's explore both.
+Hay dos maneras por las que puedes detectar un archivo por el nombre: utilizando el directorio `ftdetect/` o utilizando el archivo `filetype.vim`. Vamos a explorar ambas opciones.
 
 #### `ftdetect/`
 
