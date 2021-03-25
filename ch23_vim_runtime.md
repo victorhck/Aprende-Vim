@@ -1,32 +1,32 @@
-# Ch23. Vim Runtime
+# Capítulo 23: Los ejecutables (runtime) de Vim
 
-In the previous chapters, I mentioned that Vim automatically looks for special paths like `pack/` (Ch. 22) and `compiler/` (Ch. 19) inside the `~/.vim/` directory. These are examples of Vim runtime paths.
+En capítulos anteriores, he mencionado que Vim busca de manera automática rutas especiales como `pack/` (capítulo 22) o `compiler/` (capítulo 19) dentro del directorio `~/.vim/`. Estos son ejemplos de rutas de ejecutables de Vim.
 
-Vim has more runtime paths than these two. In this chapter, you will learn a high-level overview of these runtime paths. The goal of this chapter is to show you when they are called. Knowing this will allow you to understand and customize Vim further.
+Vim tiene más rutas de ejecutables que estas dos que he mencionado, repasaremos una descripción general de alto nivel de estas rutas de ejecutables. La meta de este capítulo es mostrar cuando son llamados. Sabiendo esto, te permitirá entender y personalizar ún mas.
 
-## Runtime Path
+## La ruta de ejecutables
 
-In a Unix machine, one of your Vim runtime paths is `$HOME/.vim/` (if you have a different OS like Windows, your path might be different). To see what the runtime paths for different OS are, check out `:h 'runtimepath'`. In this chapter, I will use `~/.vim/` as the default runtime path.
+En equipos con Unix o derivadas, una de tus rutas de ejecutables es `$HOME/.vim/` (si tienes un sistema operativo diferente como Windows, esto podría ser diferente). Para ver qué rutas diferentes de ejecutables hay para distintos sistemas operativos, echa un vistazo a `:h 'runtimepath'`. En este capítulo, usaré `~/.vim/` como ruta predeterminada.
 
-## Plugin Scripts
+## *Scripts* de complementos
 
-Vim has a plugin runtime path that executes any scripts in this directory once each time Vim starts. Do not confuse the name "plugin" with Vim external plugins (like NERDTree, fzf.vim, etc).
+Vim tiene una ruta de ejecutable para los complementos que ejecutan cualquier *script* en este directorio una vez que arranca Vim. No hay que confundir el nombre "complemento" (o *plugin*) con los complementos externos de Vim (como NERDTree, fzf.vim, etc).
 
-Go to `~/.vim/` directory and create a `plugin/` directory. Create two files: `donut.vim` and `chocolate.vim`.
+Ve al directorio `~/.vim/` y crea un directorio llamado `plugin/`. Crea dos archivos dentro: `donut.vim` y `chocolate.vim`.
 
-Inside `~/.vim/plugin/donut.vim`:
+Dentro del archivo `~/.vim/plugin/donut.vim` añade esta línea:
 
 ```
 echo "donut!"
 ```
 
-Inside `~/.vim/plugin/chocolate.vim`:
+Dentro del archivo `~/.vim/plugin/chocolate.vim` añade esta línea:
 
 ```
 echo "chocolate!"
 ```
 
-Now close Vim. The next time you start Vim, you will see both `"donut!"` and `"chocolate!"` echoed. The plugin runtime path can be used for initializations scripts.
+Ahora cierra Vim. La próxima vez que lo inicies, verás que se muestran las palabras `"donut!"` y `"chocolate!"`. La ruta de ejecutable de complemento puede ser utilizada para *scripts* de inicialización.
 
 ## Filetype Detection
 
