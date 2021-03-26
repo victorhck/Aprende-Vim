@@ -52,15 +52,15 @@ Hay dos maneras por las que puedes detectar un archivo por el nombre: utilizando
 
 #### `ftdetect/`
 
-Let's create an obscure (yet tasty) file, `hello.chocodonut`. When you open it and you run `:set filetype?`, since it is not a common file name extension Vim doesn't know what to make of it. It returns `filetype=`.
+Vamos a crear un archivo vacío (aunque sabroso), `hola.chocodonut`. Cuando lo abres y ejecutas `:set filetype?`, como no tiene una extensión común que Vim pueda reconocer, este devuelve lo siguiente `filetype=`.
 
-You need to instruct Vim to set all files ending with `.chocodonut` as a "chocodonut" file type. Create a directory named `ftdetect/` in the runtime root (`~/.vim/`). Inside, create a file and name it `chocodonut.vim` (`~/.vim/ftdetect/chocodonut.vim`). Inside this file, add:
+Necesitas enseñar a Vim que todos los archivos que acaban con `.chocodonut` es un archivo de tipo "chocodonut". Crea un directorio llamado `ftdetect/` en la ruta `~/.vim/`. Dentro crea un archivo y llámalo `chocodonut.vim` (`~/.vim/ftdetect/chocodonut.vim`). Dentro de ese archivo, añade:
 
 ```
 autocmd BufNewFile,BufRead *.chocodonut set filetype=chocodonut
 ```
 
-`BufNewFile` and `BufRead` are triggered whenever you create a new buffer and open a new buffer. `*.chocodonut` means that this event will only be triggered if the opened buffer has a `.chocodonut` filename extension. Finally, `set filetype=chocodonut` command sets the file type to be a chocodonut type.
+`BufNewFile` y `BufRead` are triggered whenever you create a new buffer and open a new buffer. `*.chocodonut` means that this event will only be triggered if the opened buffer has a `.chocodonut` filename extension. Finally, `set filetype=chocodonut` command sets the file type to be a chocodonut type.
 
 Restart Vim. Now open `hello.chocodonut` file and run `:set filetype?`. It returns `filetype=chocodonut`.
 
