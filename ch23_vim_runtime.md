@@ -128,29 +128,29 @@ endif
 
 La función `getline(1)` devuelve el texto de la primera línea. Esta comprueba si la primera línea comienza con la palabra "donutify". La función `did_filetype()` es una función propia de Vim. Esta devolverá "true" cuando un evento relacionado con un tipo de archivo se ejecute la primera vez. Es utilizado como medida de seguridad para impedir volver a ejecutar un evento de tipo de archivo.
 
-Open the `sugardonut` file and run `:set filetype?`, Vim now returns `filetype=donut`. If you open another donut files (`glazeddonut` and `frieddonut`), Vim also identifies their file types as `donut` types.
+Abre el archivo `sugardonut` y ejecuta `:set filetype?`, Vim ahora muestra `filetype=donut`. Si abre otro archivo de tipo "donut" (`glazeddonut` y `frieddonut`), Vim también identifica esos archivos como de tipo `donut`.
 
-Note that `scripts.vim` is only run when Vim opens a file with an unknown file type. If Vim opens a file with a known file type, `scripts.vim` won't run.
+Ten en cuenta que `scripts.vim` solo es ejecutado cuando Vim abre un archivo con un tipo de archivo desconocido. Si Vim abre un archivo con un tipo de archivo conocido `scripts.vim` no se ejecutará.
 
-## File Type Plugin
+## Tipo de archivo complemento
 
-What if you want Vim to run chocodonut-specific scripts when you open a chocodonut file and to not run those scripts when opening plaindonut file?
+¿Qué ocurre si quieres que Vim ejecute unos *scripts* específicos de archivos *chocodonut* cuando abres un archivo chocodonut y no quieres que ejecute esos *scripts* cuando abres archivos de tipo plaindonut?
 
-You can do this with file type plugin runtime path (`~/.vim/ftplugin/`). Vim looks inside this directory for a file with the same name as the file type you just opened. Create a `chocodonut.vim` (`~/.vim/ftplugin/chocodonut.vim`):
-
-```
-echo "Calling from chocodonut ftplugin"
-```
-
-Create another ftplugin file, `plaindonut.vim` (`~/.vim/ftplugin/plaindonut.vim`):
+Puedes hacer esto con tipos de archivos de complementos en la ruta de los ejecutables de Vim (`~/.vim/ftplugin/`). Vim busca dentro de este directorio un archivo con el mismo nombre que el tipo de archivo que acabas de abrir. Crea un archivo llamado `chocodonut.vim` (`~/.vim/ftplugin/chocodonut.vim`):
 
 ```
-echo "Calling from plaindonut ftplugin"
+echo "Mensaje desde chocodonut ftplugin"
 ```
 
-Now each time you open a chocodonut file type, Vim runs the scripts from `~/.vim/ftplugin/chocodonut.vim`. Each time you open a plaindonut file type, Vim runs the scripts from `~/.vim/ftplugin/plaindonut.vim`.
+Crea otro archivo ftplugin, `plaindonut.vim` (`~/.vim/ftplugin/plaindonut.vim`):
 
-One warning: these files are run each time a buffer file type is set (`set filetype=chocodonut` for example). If you open 3 different chocodonut files, the scripts will be run a *total* of three times.
+```
+echo "Mensaje desde plaindonut ftplugin"
+```
+
+Ahora cada vez que abras un tipo de archivo chocodonut, Vim ejecuta los *scripts* desde la ruta `~/.vim/ftplugin/chocodonut.vim`. Cada vez que abras un archivo de tipo plaindonut, Vim ejecuta los *scripts* desde la ruta `~/.vim/ftplugin/plaindonut.vim`.
+
+Una advertencia: estos archivos son ejecutados cada vez que un *buffer* de este tipo de archivo se establece (`set filetype=chocodonut` por ejemplo). Si abres 3 archivos diferentes de tipo chocodonut, los *scripts* serán ejecutados un *total* de tres veces.
 
 ## Indent Files
 
