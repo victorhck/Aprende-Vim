@@ -60,13 +60,13 @@ Necesitas enseñar a Vim que todos los archivos que acaban con `.chocodonut` es 
 autocmd BufNewFile,BufRead *.chocodonut set filetype=chocodonut
 ```
 
-`BufNewFile` y `BufRead` are triggered whenever you create a new buffer and open a new buffer. `*.chocodonut` means that this event will only be triggered if the opened buffer has a `.chocodonut` filename extension. Finally, `set filetype=chocodonut` command sets the file type to be a chocodonut type.
+`BufNewFile` y `BufRead` son ejecutados cada vez que creas o abres un nuevo *buffer*. `*.chocodonut` significa que este evento solo será ejecutado is el *buffer* abierto tiene `.chocodonut` como extensión en el nombre del archivo. Finalmente el comando, `set filetype=chocodonut` establece el tipo de archivo para que sea de tipo chocodonut.
 
-Restart Vim. Now open `hello.chocodonut` file and run `:set filetype?`. It returns `filetype=chocodonut`.
+Reinicia Vim. Ahora abre el archivo `hola.chocodonut` y ejecuta `:set filetype?`. Y ahora contestará `filetype=chocodonut`.
 
-Scrumptious! You can put as many files as you want inside `ftdetect/`. In the future, you can maybe add `ftdetect/strawberrydonut.vim`, `ftdetect/plaindonut.vim`, etc., if you ever decide to expand your donut file types.
+¡Delicioso! Puedes poner tantos archivos como quieras dentro de `ftdetect/`. En el futuro, quizás puedas añadir `ftdetect/fresadonut.vim`, `ftdetect/glasedodonut.vim`, etc., si decides expandir tus tipos de archivos de donuts.
 
-There are actually two ways to set a file type in Vim. One is what you just used `set filetype=chocodonut`. The other way is to run `setfiletype chocodonut`. The former command `set filetype=chocodonut` will *always* set the file type to chocodonut type, while the latter command `setfiletype chocodonut` will only set the file type if no file type was set yet.
+En realizidad hay dos manera de establecer el tipo de archivo en Vim. Una es la que acabas de utilizar `set filetype=chocodonut`. La otra manera es ejecutar `setfiletype chocodonut`. El primer comando `set filetype=chocodonut` *siempre* establecerá el tipo de archivo al tipo chocodonut, mientras que el segundo comando `setfiletype chocodonut` solo establecerá el tipo si todavía no se ha establecido el tipo de archivo.
 
 #### Filetype File
 
