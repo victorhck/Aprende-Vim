@@ -102,19 +102,19 @@ let did_load_filetypes = 1
 
 Cuando vim llama a este archivo, este define una variable `did_load_filetypes` y la establece a 1. 1 es equiparable a verdadero en Vim. Deberías también leer el resto de `filetype.vim`. Comprueba si puedes entender qué hace cuando Vim la llama.
 
-### File Type Script
+### *Script* de tipo de archivo
 
-Let's learn how to detect and assign a file type based on the file content.
+Vamos a aprender a detectar y asignar un tipo de archivo basándonos en el contenido del archivo.
 
-Suppose you have a collection of files without an agreeable extension. The only thing these files have in common is that they all start with the word "donutify" on the first line. You want to assign these files to a `donut` file type. Create new files named `sugardonut`, `glazeddonut`, and `frieddonut` (without extension). Inside each file, add this line:
+supongamos que tienes unos cuantos archivos sin una extensión que les identifique. La única cosa que tienen en común esos archivos es que todos ellos comienzan con la palabra "donutify" en su primera línea. Quieres asignar estos archivos a un tipo de archivo llamado `donut`. Crea unos nuevos archivos llamados `sugardonut`, `glazeddonut` y `frieddonut` (sin extensión). Dentro de cada archivo, añade esta línea:
 
 ```
 donutify
 ```
 
-When you run the `:set filetype?` from inside `sugardonut`, Vim doesn't know what file type to assign this file with. It returns `filetype=`.
+Cuando ejecutas `:set filetype?` dentro de `sugardonut`, Vim no sabe qué tipo de archivo asignar a este archivo. Así que devuelve `filetype=`.
 
-In the runtime root path, add a `scripts.vim` file (`~/.vim/scripts.vim`). Inside it, add these:
+En la ruta raíz de los ejecutables de Vim, añade un archivo llamado `scripts.vim` (`~/.vim/scripts.vim`). Dentro del archivo, añade estas líneas:
 
 ```
 if did_filetype()
@@ -126,7 +126,7 @@ if getline(1) =~ '^\\<donutify\\>'
 endif
 ```
 
-The function `getline(1)` returns the text on the first line. It checks if the first line starts with the word "donutify". The function `did_filetype()` is a Vim built-in function. It will return true when a file type related event is triggered at least once. It is used as a guard to stop re-running file type event.
+La función `getline(1)` devuelve el texto de la primera línea. Esta comprueba si la primera línea comienza con la palabra "donutify". La función `did_filetype()` es una función propia de Vim. Esta devolverá "true" cuando un evento relacionado con un tipo de archivo se ejecute la primera vez. Es utilizado como medida de seguridad para impedir volver a ejecutar un evento de tipo de archivo.
 
 Open the `sugardonut` file and run `:set filetype?`, Vim now returns `filetype=donut`. If you open another donut files (`glazeddonut` and `frieddonut`), Vim also identifies their file types as `donut` types.
 
