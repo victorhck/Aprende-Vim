@@ -68,17 +68,17 @@ Reinicia Vim. Ahora abre el archivo `hola.chocodonut` y ejecuta `:set filetype?`
 
 En realizidad hay dos manera de establecer el tipo de archivo en Vim. Una es la que acabas de utilizar `set filetype=chocodonut`. La otra manera es ejecutar `setfiletype chocodonut`. El primer comando `set filetype=chocodonut` *siempre* establecerá el tipo de archivo al tipo chocodonut, mientras que el segundo comando `setfiletype chocodonut` solo establecerá el tipo si todavía no se ha establecido el tipo de archivo.
 
-#### Filetype File
+#### Archivo Filetype
 
-The second file detection method requires you to create a `filetype.vim` in the root directory (`~/.vim/filetype.vim`). Add this inside:
+El segundo método de detección de archivo requiere que crees un archivo llamado `filetype.vim` en el directorio raíz de tu instalación de Vim (`~/.vim/filetype.vim`). Añade esto dentro del archivo:
 
 ```
 autocmd BufNewFile,BufRead *.plaindonut set filetype=plaindonut
 ```
 
-Create a `hello.plaindonut` file. When you open it and run `:set filetype?`, Vim displays the correct custom file type `filetype=plaindonut`.
+Crea un archivo `hola.plaindonut`. Cuando lo abres y ejecutas `:set filetype?`, Vim muestra el tipo de archivo personalizado correcto `filetype=plaindonut`.
 
-Holy pastry, it works! By the way, if you play around with `filetype.vim`, you may notice that this file is being run multiple times when you open `hello.plaindonut`. To prevent this, you can add a guard so the main script is run only once. Update the `filetype.vim`:
+¡Madre mía, funciona! Por cierto, si experimentas un poco con `filetype.vim`, puedes notar que este archivo está siendo ejecutado múltiples veces cuando abres `hola.plaindonut`. Para prevenir esto, puedes añadir un sistema para que el *script* principal solo se ejecute una vez. Añade lo siguiente en el archivo `filetype.vim`:
 
 ```
 if exists("did_load_filetypes")
@@ -90,7 +90,7 @@ augroup donutfiletypedetection
 augroup END
 ```
 
-`finish` is a Vim command to stop running the rest of the script. The `"did_load_filetypes"` expression is *not* a built-in Vim function. It is actually a global variable from inside `$VIMRUNTIME/filetype.vim`. If you're curious, run `:e $VIMRUNTIME/filetype.vim`. You will find these lines inside:
+`finish` es un comando de Vim para detener la ejecución del resto del *script*. La expresión `"did_load_filetypes"` *no* es una función propia de Vim. Es realmente una variable global de dentro de `$VIMRUNTIME/filetype.vim`. Si te puede la curiosidad, ejecuta `:e $VIMRUNTIME/filetype.vim`. Encontrará estas líneas dentro:
 
 ```
 if exists("did_load_filetypes")
@@ -100,7 +100,7 @@ endif
 let did_load_filetypes = 1
 ```
 
-When Vim calls this file, it defines `did_load_filetypes` variable and sets is to 1. 1 is truthy in Vim. You should read the rest of the `filetype.vim` too. See if you can understand what it does when Vim calls it.
+Cuando vim llama a este archivo, este define una variable `did_load_filetypes` y la establece a 1. 1 es equiparable a verdadero en Vim. Deberías también leer el resto de `filetype.vim`. Comprueba si puedes entender qué hace cuando Vim la llama.
 
 ### File Type Script
 
