@@ -156,13 +156,13 @@ Una advertencia: estos archivos son ejecutados cada vez que un *buffer* de este 
 
 Vim tiene una ruta para ejecutables para el sangrado que funciona de manera similar a ftplugin, donde Vim busca un archivo llamado de igual manera que el tipo de archivo abierto. El propósito de esta ruta de ejecutables de sangrado es almacenar los códigos relacionados con el sangrado. Si tienes el archivo `~/.vim/indent/chocodonut.vim`, este será ejecutado solo cuando abres un archivo de tipo chocodonut. Puedes almacenar códigos relacionados con el sangrado en esta ubicación.
 
-## Colors
+## Colores
 
-Vim has a colors runtime path (`~/.vim/colors/`) to store color schemes. Any file that goes inside the directory will be displayed in the `:color` command-line command.
+Vim tiene una ruta para los ejecutables de los colores (`~/.vim/colors/`) para almacenar los esquemas de colores. Cualquier archivo que este dentro de este directorio será mostrado al ejecutar el comando `:color`.
 
-If you have a `~/.vim/colors/beautifulprettycolors.vim` file, when you run `:color` and press tab, you will see `beautifulprettycolors` as one of the color options. If you prefer to add your own color scheme, this is the place to go.
+Si tienes un archivo `~/.vim/colors/beautifulprettycolors.vim`, cuando ejecutas `:color` y presionas la tecla tabulador, verás `beautifulprettycolors` como una de las opciones que puedes escoger con el color. Si prefieres añadir tu propio esquema de color, este es el lugar para hacerlo.
 
-If you want to check out the color schemes other people made, a good place to visit is [vimcolors](https://vimcolors.com/).
+Si quieres echar un vistazo a los esquemas de colores que han hecho otras personas, un buen lugar para visitar es [vimcolors](https://vimcolors.com/).
 
 ## Syntax Highlighting
 
