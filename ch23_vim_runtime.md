@@ -189,23 +189,23 @@ En este capítulo no entraremos en profundidad sobre el tema de resaltado de sin
 
 El complemento [vim-polyglot](https://github.com/sheerun/vim-polyglot) es un gran complemento que ofrece resaltado para los lenguajes de programación más populares.
 
-## Documentation
+## Documentación
 
-If you create a plugin, you will have to create your own documentation. You use the doc runtime path for that.
+si creas un complemento, tendrás que crear tu propia documentación de cómo funciona. Para eso deberás utilizar la ruta de la documentación.
 
-Let's create a basic documentation for chocodonut and plaindonut keywords. Create a `donut.txt` (`~/.vim/doc/donut.txt`). Inside, add these texts:
+Vamos a crear una documentación básica para las palabras clave chocodonut y plaindonut. Crea un archivo `donut.txt` (`~/.vim/doc/donut.txt`). Y dentro añade los siguientes textos:
 
 ```
-*chocodonut* Delicious chocolate donut
+*chocodonut* Delicioso donut con chocolate
 
-*plaindonut* No choco goodness but still delicious nonetheless
+*plaindonut* Sin chocolate, pero aún así sigue siendo delicioso
 ```
 
-If you try to search for `chocodonut` and `plaindonut` (`:h chocodonut` and `:h plaindonut`), you won't find anything.
+Si tratas de buscar ayuda para `chocodonut` o `plaindonut` (`:h chocodonut` o `:h plaindonut`), no encontrarás nada.
 
-First, you need to run `:helptags` to generate new help entries. Run `:helptags ~/.vim/doc/`
+Primero, necesitas ejecutar `:helptags` para generar nuevas entradas de la ayuda. Ejecuta `:helptags ~/.vim/doc/`
 
-Now if you run `:h chocodonut` and `:h plaindonut`, you will find these new help entries. Notice that the file is now read-only and has a "help" file type.
+Ahora si ejecutas `:h chocodonut` o `:h plaindonut`, encontrarás estas nuevas entradas de la ayuda de Vim. Ten en cuenta que ahora el archivo es de solo lectura y tiene asignado un tipo de archivo de ayuda ("help").
 
 ## Lazy Loading Scripts
 
