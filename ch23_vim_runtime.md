@@ -164,18 +164,18 @@ Si tienes un archivo `~/.vim/colors/beautifulprettycolors.vim`, cuando ejecutas 
 
 Si quieres echar un vistazo a los esquemas de colores que han hecho otras personas, un buen lugar para visitar es [vimcolors](https://vimcolors.com/).
 
-## Syntax Highlighting
+## Resaltado de sintaxis
 
-Vim has a syntax runtime path (`~/.vim/syntax/`) to define syntax highlighting.
+Vim tiene una ruta para los ejecutables de sintaxis (`~/.vim/syntax/`) para definir el resaltado de sintaxis.
 
-Suppose you have a `hello.chocodonut` file, inside it you have the following expressions:
+Supongamos que tenemos el archivo `hello.chocodonut`, dentro del archivo tienes las siguientes expresiones:
 
 ```
-(donut "tasty")
-(donut "savory")
+(donut "sabroso")
+(donut "salado")
 ```
 
-Although Vim now knows the correct file type, all texts have the same color. Let's add a syntax highlighting rule to highlight the "donut" keyword. Create a new chocodonut syntax file, `~/.vim/syntax/chocodonut.vim`. Inside it add:
+Aunque ahora Vim conoce el tipo de archivo correcto, todos los textos tienen el mismo color. Vamos a añadir una regla de resaltado de sintaxis para resaltar la palabra clave "donut". Crea un nuevo archivo de sintaxis llamado chocodonut, `~/.vim/syntax/chocodonut.vim`. Dentro añade lo siguiente:
 
 ```
 syntax keyword donutKeyword donut
@@ -183,11 +183,11 @@ syntax keyword donutKeyword donut
 highlight link donutKeyword Keyword
 ```
 
-Now reopen `hello.chocodonut` file. The `donut` keywords are now highlighted.
+Ahora vuelve a abrir el archivo `hola.chocodonut`. Las palabras claves `donut` ahora están resaltadas.
 
-This chapter won't go over syntax highlighting in depth. It is a vast topic. If you are curious, check out `:h syntax.txt`.
+En este capítulo no entraremos en profundidad sobre el tema de resaltado de sintaxis. Es un tema muy amplio. Si tienes curiosidad, echa un vistazo a `:h syntax.txt`.
 
-The [vim-polyglot](https://github.com/sheerun/vim-polyglot) plugin is a great plugin that provides highlights for many popular programming languages.
+El complemento [vim-polyglot](https://github.com/sheerun/vim-polyglot) es un gran complemento que ofrece resaltado para los lenguajes de programación más populares.
 
 ## Documentation
 
