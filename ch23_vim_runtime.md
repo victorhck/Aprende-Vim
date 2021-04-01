@@ -152,9 +152,9 @@ Ahora cada vez que abras un tipo de archivo chocodonut, Vim ejecuta los *scripts
 
 Una advertencia: estos archivos son ejecutados cada vez que un *buffer* de este tipo de archivo se establece (`set filetype=chocodonut` por ejemplo). Si abres 3 archivos diferentes de tipo chocodonut, los *scripts* serán ejecutados un *total* de tres veces.
 
-## Indent Files
+## Archivos de sangrado de márgenes (*indentado*)
 
-Vim has an indent runtime path that works similar to ftplugin, where Vim looks for a file named the same as the opened file type. The purpose of these indent runtime paths is to store indent-related codes. If you the file `~/.vim/indent/chocodonut.vim`, it will be executed only when you open a chocodonut file type. You can store indent-related codes for chocodonut files here.
+Vim tiene una ruta para ejecutables para el sangrado que funciona de manera similar a ftplugin, donde Vim busca un archivo llamado de igual manera que el tipo de archivo abierto. El propósito de esta ruta de ejecutables de sangrado es almacenar los códigos relacionados con el sangrado. Si tienes el archivo `~/.vim/indent/chocodonut.vim`, este será ejecutado solo cuando abres un archivo de tipo chocodonut. Puedes almacenar códigos relacionados con el sangrado en esta ubicación.
 
 ## Colors
 
