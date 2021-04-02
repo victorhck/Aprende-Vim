@@ -207,11 +207,11 @@ Primero, necesitas ejecutar `:helptags` para generar nuevas entradas de la ayuda
 
 Ahora si ejecutas `:h chocodonut` o `:h plaindonut`, encontrarás estas nuevas entradas de la ayuda de Vim. Ten en cuenta que ahora el archivo es de solo lectura y tiene asignado un tipo de archivo de ayuda ("help").
 
-## Lazy Loading Scripts
+## *Scripts* de carga diferida
 
-All of the runtime paths that you learned in this chapter were run automatically. If you want to manually load a script, use the autoload runtime path.
+Todas estas rutas de ejecutables que has aprendido en este capítulo son ejecutadas de manera automática. Si quieres cargar un *script* de manera manual, utiliza la ruta de *autoload*.
 
-Create an autoload directory (`~/.vim/autoload/`). Inside that directory, create a new file and name it `tasty.vim` (`~/.vim/autoload/tasty.vim`). Inside it:
+Crea un directorio autoload. (`~/.vim/autoload/`). Dentro del directorio, crea un nuevo archivo y ponle este nombre `tasty.vim` (`~/.vim/autoload/tasty.vim`). Dentro del archivo escribe:
 
 ```
 echo "tasty.vim global"
@@ -221,23 +221,23 @@ function tasty#donut()
 endfunction
 ```
 
-Note that the function name is `tasty#donut`, not `donut()`. The pound sign (`#`) is required when using the autoload feature. The function naming convention for the autoload feature is:
+Ten en cuenta que el nombre de la función es `tasty#donut`, no `donut()`. El símbolo de *almohadilla* (`#`) es necesario cuando se utiliza la funcionalidad de autoload. La convención para nombrar las funciones para autoload es la siguiente:
 
 ```
-function fileName#functionName()
+function Nombredearchivo#Nombredefunción()
   ...
 endfunction
 ```
 
-In this case, the file name is `tasty.vim` and the function name is (technically) `donut`.
+En este caso, el nombre del archivo es `tasty.vim` y el nombre de la función es (técnicamente) `donut`.
 
-To invoke a function, you need the `call` command. Let's call that function with `:call tasty#donut()`.
+Para invocar una función, necesitas el comando `call`. Vamos a llamar la función con `:call tasty#donut()`.
 
-The first time you call the function, you should see *both* echo messages ("tasty.vim global" and "tasty#donut"). The subsequent calls to` tasty#donut` function will only display "testy#donut" echo.
+La primera vez que llamas a la función, deberías ver *ambos* mensajes del comando echo ("tasty.vim global" y "tasty#donut"). Las siguiente llamadas a la función ` tasty#donut` solo mostrarán el mensaje de "testy#donut".
 
-When you open a file in Vim, unlike the previous runtime paths, autoload scripts aren't loaded automatically. Only when you explicitly call `tasty#donut()`, Vim looks for the `tasty.vim` file and loads everything inside it, including the `tasty#donut()` function. Autoload is the perfect mechanism for functions that use extensive resources but you don't use often.
+Cuando abres un archivo en Vim, a diferencia de las rutas que hemos visto anteriormente, los *scripts* de autoload no son cargados de manera automática. Solo cuando de manera explícita llamas `tasty#donut()`, es cuando Vim busca el archivo `tasty.vim` y carga todo lo que hay dentro de él, incluyendo la función `tasty#donut()`. Autoload es el mecanismo perfecto para funciones que utilizan muchos recursos de tu equipo pero que no las utilizas a menudo.
 
-You can add as many nested directories with autoload as you want. If you have the runtime path `~/.vim/autoload/one/two/three/tasty.vim`, you can call the function with `:call one#two#three#tasty#donut()`.
+Puedes añadir cuantos directorios anidados con autoload como quieras. Si tienes la siguiente ruta `~/.vim/autoload/uno/dos/tres/tasty.vim`, puedes llamar a la función mediante `:call uno#dos#tres#tasty#donut()`.
 
 ## After Scripts
 
