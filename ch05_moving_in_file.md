@@ -30,9 +30,7 @@ noremap <Right> <NOP>
 También hay complementos para tratar de romper ese mal hábito. Uno de ellos es [vim-hardtime](https://github.com/takac/vim-hardtime).
 Para mi sorpresa, solo lleva unos pocos días el habituarse al uso de `hjkl`.
 
-*Por cierto, si te preguntas porque Vim utiliza la combinación de teclas `hjkl` para moverse por el texto, es debido que el terminal Lear-Siegler ADM-3A donde terminal Bill Joy empezó a desarrollar Vi, no tenía teclas con flechas en el teclado y utilizó `hjkl` como izquierda/abajo/arriba/derecha.*
-
-si quieres moverte a un sitio cercano donde está actualmente el cursor, como moverse de una parte de la palabra a otra parte de la misma palabra, usaría las teclas `h` o `l`. Si quiero moverme arriba o abajo unas pocas líneas dentro de la ventana mostrada, usaría las teclas `j` o `k`. Si quisiera desplazarme a un lugar más lejano de la posición del cursor, utilizaría un tipo de movimiento diferente.
+Si te preguntas porque Vim utiliza la combinación de teclas `hjkl` para moverse por el texto, es debido que el terminal Lear-Siegler ADM-3A donde  Bill Joy empezó a desarrollar Vi, no tenía teclas con flechas en el teclado y utilizó `hjkl` como izquierda/abajo/arriba/derecha.
 
 ## Numeración relativa
 
@@ -46,11 +44,11 @@ Esto muestra la línea actual en la que se encuentra el cursor y los números de
 
 ¿Por qué esto puede ser útil? Esto me permite rápidamente ver cuantas a líneas de diferencia estoy desde la posición a la que quiero ir. Con esto, puedo ver fácilmente que mi objetivo está 12 líneas por debajo de mi posición actual, así que puedo ejecutar `12j`. Además, si estoy en la línea 69 y mi objetivo es desplazar el cursor a la línea 81, esto me lleva a tener que hacer un cálculo mental (81 - 69 = 12). Esto consume muchos recursos mentales. Cuanto menos tenga que pensar sobre donde quiero ir, mejor.
 
-Esto es 100% una preferencia personal. Experimenta con las opciones `relativenumber` / `norelativenumber`, `number` / `nonumber` ¡y utiliza cualquier método que encuentre más útil!
+Esto es 100% una preferencia personal. Experimenta con las opciones `relativenumber` / `norelativenumber`, `number` / `nonumber` ¡y utiliza cualquier método que encuentres más útil!
 
 ## Cuenta tu movimiento
 
-Una cosa más, hablemos sobre el argumento "contar". Los movimientos aceptan un argumento precedente numérico. He mencionado anteriormente que puedes desplazarte 12 líneas hacia abajo en el texto mediante `12j`. El 12 en `12j` es el número que lleva la cuenta.
+Hablemos sobre el argumento "contar". Los movimientos de Vim aceptan un argumento precedente numérico. He mencionado anteriormente que puedes desplazarte 12 líneas hacia abajo en el texto mediante `12j`. El 12 en `12j` es el número que lleva la cuenta.
 
 La sintáxis para utilizar el número de conteo en tu movimiento es:
 
@@ -58,7 +56,7 @@ La sintáxis para utilizar el número de conteo en tu movimiento es:
 [número] + movimiento
 ```
 
-Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` puedes ejecutar simplemente `9l`. Cuantos más movimientos aprendas, trata de darles un argumento de conteo.
+Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` puedes ejecutar simplemente `9l`.
 
 ## Navegación por palabras
 
@@ -77,20 +75,20 @@ ge    Mueve el cursor hacia atrás al final de la palabra previa
 gE    Mueve el cursor hacia atrás al final de la PALABRA previa
 ```
 
-Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están formadas por caracteres que no son espacios en blanco. Una palabra es una secuencia de caracteres que continen únicamente este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco (cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
+Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están separadas por caracteres que no son espacios en blanco. Una palabra es una secuencia de caracteres que continen *únicamente* este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco (cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
 
 Por ejemplo, supongamos que tenemos la siguiente frase:
 ```
 const hello = "world";
 ```
 
-Con el cursor al comienzo de la línea, ve al final de la línea con `l`, te llevará pulsar 21 teclas. Utilizando `w`, solo te llevará pulsar 6 veces. Utilizando `W`, solo te llevará 4 pulsacione. Tanto palabra como PALABRA sn buenas opciones para mover el cursor en pequeñas distancias.
+Con el cursor al comienzo de la línea, ve al final de la línea con `l`, te llevará pulsar 21 veces la tecla. Utilizando `w`, solo te llevará pulsar 6 veces. Utilizando `W`, solo te llevará 4 pulsacione. Tanto palabra como PALABRA son buenas opciones para mover el cursor en pequeñas distancias.
 
 Sin embargo, puedes pasar de "c" a ";" con una pulsación de tecla con la navegación de línea actual.
 
 ## Navegación de línea actual
 
-Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco den la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`.
+Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco de la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`.
 
 ```
 0     Ir al primer caracter de la línea actual
@@ -100,16 +98,16 @@ $     Ir al último caracter de la línea actual
 n|    Ir a la columna n en la línea actual
 ```
 
-También puede realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera conincidencia encontrada y `t` te lleva hasta (justo antes) de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se situe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se situe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la *próxima* coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
+También puedes realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera conincidencia encontrada y `t` te lleva hasta (justo antes) de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se situe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se situe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la *próxima* coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
 
-Para realizar una búsqueda hacia atrás en el texto para esa letra "h" del ejemplo, utiliza `Fh`. Para seguir buscando más letras "h" en la misma dirección, utiliza `;`. Ten en cuenta que `;` no siempre dirige la búsqueda hacia adelante en el texto. `;`  repite la última dirección de búsqueda en la línea actual. Si utilizas `F`, `;` realizará la búsqueda hacia atrás, mientras que `,` busca hacia adelante en la línea actual. Si utilizas `f`, `;`buscará hacia adelante y `,` lo hará hacia atrás en la línea actual.
+`F` y `T` son las opciones similares a `f` y `t` pero para buscar hacia atrás en el texto. Para buscar hacia atrás una "h", ejecuta `Fh`. Para seguir buscando "h" en la misma dirección, usa `;`. Ten en cuenta que `;` después de `Fh` continua la búsqueda hacia atrás y `,` después de `fh` busca hacia adelante.
 
 ```
 f    Busca hacia adelante una coincidencia en la línea actual
 F    Busca hacia atrás una coincidencia en la línea acual
 t    Busca hacia adelante una coincidencia en la línea actual, posicionando el cursor antes de la coincidencia
 T    Busca hacia atrás una coincidencia en la línea actual, posicionando el cursor antes de la coincidencia
-;    Repite la última búsqueda en la línea actual
+;    Repite la última búsqueda en la línea actual en la misma dirección
 ,    Repite la última búsqueda en la línea actual en dirección contraria
 ```
 
@@ -119,19 +117,20 @@ Volviendo al ejemplo previo
 const hello = "world";
 ```
 
-Con el curso al comienzo de la línea, puedes ir al último caracter de la línea actual (";) pulsando una única tecla: `$`. Si quieres ir a la letra "w" en la palabra "world", puedes utilizar `fw`. Un buen truco para ir a cualquier punto de la línea actual es echar un vistazo a ver si existe alguna letra poco común como "w", "x" o "z" cerca de tu objetivo.
+Con el curso al comienzo de la línea, puedes ir al último caracter de la línea actual (";") pulsando una única tecla: `$`. Si quieres ir a la letra "w" en la palabra "world", puedes utilizar `fw`. Un buen truco para ir a cualquier punto de la línea actual es echar un vistazo a ver si existe alguna letra poco común como "w", "x" o "z" cerca de tu objetivo.
 
 ## Navegación por frase y párrafo
 
 Las siguientes dos unidades por las que podemos navegar por un texto son la frase y el párrafo.
 
 Primero vamos a hablar sobre lo que es una frase. Una frase termina con alguno de estos signos de puntuación `. ! ?` seguido por un final de línea, un espacio en blanco o una tabulación. Puedes saltar a la siguiente frase mediante `)` y a la frase previa con `(`. 
+
 ```
 (    Salta a la frase previa
 )    Salta a la siguiente frase
 ```
 
-Echemos un vistazo a algunos ejemplos. ¿Qué frases crees que lo son y cuales no? Trata de navegar con `(` y `)` en Vim!
+Echemos un vistazo a algunos ejemplos. ¿Qué frases crees que lo son y cuales no? ¡Trata de navegar con `(` y `)` en Vim!
 
 ```
 Yo soy una frase. Yo soy otra frase porque termino con un punto. ¡Yo también soy una frase porque acabo con un signo de exclamación! ¿Qué pasa con el signo de interrogación? Yo no soy una frase, debido al guión - punto y coma ; o los dos puntos :
@@ -139,9 +138,9 @@ Yo soy una frase. Yo soy otra frase porque termino con un punto. ¡Yo también s
 Hay una línea vacía encima de mí.
 ```
 
-Por cierto, si tienes problemas con Vim porque no considera uan frase frases separadas por `.` seguido de una linea simple, quizás estás en el modo `'compatible'`. Ejecutando `:set nocompatible` los solucionará. En Vi, una frase termina en `.` seguido de **dos** espacios en blanco. Debería tener al ajuste `nocompatible` en todo momento.
+Por cierto, si tienes problemas con Vim porque no considera uan frase frases separadas por `.` seguido de una linea simple, quizás estás en el modo `'compatible'`. Añade `:set nocompatible` en vimrc. En Vi, una frase termina en `.` seguido de **dos** espacios en blanco. Deberías tener al ajuste `nocompatible` en todo momento.
 
-Ahora, vamos a hablar sobre lo que es un párrafo. Un párrafo comienza después de cada línea vacía y también en cada conjunto de una macro de párrafo especificada por los pares de caracteres en la opción de párrafos.
+Vamos a hablar sobre lo que es un párrafo. Un párrafo comienza después de cada línea vacía y también en cada conjunto de una macro de párrafo especificada por los pares de caracteres en la opción de párrafos.
 
 ```
 {    Salta al párrafo previo
@@ -151,7 +150,7 @@ Ahora, vamos a hablar sobre lo que es un párrafo. Un párrafo comienza después
 
 Si no estás seguro de qué es un macro de párrafo, no te preocupes. Lo importante es que un párrafo comienza y termina después de una línea vacía. Esto debería ser cierto en la mayoría de las veces.
 
-Echemos un vistazo a este ejemplo. Trata de navegar por el texto mediante `}` y `{` (¡también puedes practicar con la navegación por frases `( )`)
+Echemos un vistazo a este ejemplo. Trata de navegar por el texto mediante `}` y `{` (¡también puedes practicar con la navegación por frases `( )`!)
 
 ```
 Hola. ¿Cómo estás? ¡Estoy genial, gracias!
@@ -168,13 +167,14 @@ Echa un vistazo a la ayuda de Vim con `:h sentence` y `:h paragraph` para aprend
 
 ## Navegación entre parejas
 
-Los programadores a menudo editan archivos que continen código. Puede contener muchos paréntesis, llaves y corchetes y puede ser confuso saber dentro de qué pareja de paréntesis se encuentra el cursor. Muchos lenguajes de programación utilizan paréntesis, llaves y corchetes y te puedes perder entre ellos. Si estás dentro de una pareja de estos signos, puedes saltar a la otra pareja del mismo (si existe) mediante `%`. También puedes usar esto para averiguar si tienes paréntesis, llaves y corchetes que hagan pareja o falta alguna.
+Los programadores a menudo editan archivos que continen código. Puede contener muchos paréntesis, llaves y corchetes. Te puedes perder facilmente entre ellos. Si estás dentro de uno, puedes saltar a la otra pareja (si existe) con `%`. También puedes utilizar esto para encontrar cualquier pareja de paréntesis, llaves o corchetes.
 
 ```
 %    Navega de una a otra pareja, normalmente funciona con (), [], {}
 ```
 
 Echemos un vistazo a este código de ejemplo en Scheme, porque hace bastante uso de los paréntesis. Vamos a movernos con `%` dentro de los diferente paréntesis.
+
 ```
 (define (fib n)
   (cond ((= n 0) 0)
@@ -183,6 +183,7 @@ Echemos un vistazo a este código de ejemplo en Scheme, porque hace bastante uso
           (+ (fib (- n 1)) (fib (- n 2)))
         )))
 ```
+
 Personalmente, me gusta complementar `%` utilizando complementos que añadan un indicador visual como [vim-rainbow](https://github.com/frazrepo/vim-rainbow).  Para más información, echa un vistazo a la ayuda en Vim con `:h %`.
 
 ## Navegación por número de línea
@@ -198,13 +199,14 @@ nG    Va a la línea n
 n%    Va al n% del archivo
 ```
 
-Por cierto, si quieres ver el total de líneas de un archivo puedes utilizar `CTRL-G`.
+Por cierto, si quieres ver el total de líneas de un archivo puedes utilizar `Ctrl-g`.
 
 ## Navegación por la ventana
 
-Para ir rápidamente a la parte superior, central o inferior de tu *ventana*, puedes utilizar las teclas `H`, `M`, o `L`. 
+Para ir rápidamente a la parte superior, central o inferior de tu *ventana*, puedes utilizar las teclas `H`, `M`, o `L`. (*N.d.T: una regla para acordarse de estos atajos puede ser su correspondencia en inglés. `H` de High, `M` de Medium y `L` de Low*).
 
 También se puede pasar un número de conteo a `H` y `L`. Si utilizas `10H`, irás 10 líneas por debajo de la parte superior de la ventana. Si utilizas `3L`, se colocará el cursor 3 líneas por encima de la última línea de la ventana.
+
 ```
 H     Ir a la parte superior de la ventana
 M     Ir a la parte media de la ventana
@@ -215,17 +217,18 @@ nL    Va a la línea n desde la parte inferior de la ventana
 
 ## Desplazándose
 
-Para desplazarse por el texto (o hacer *scroll*), tienes 3 velocidades incrementales: Pantalla completa (`CTRL-F/CTRL-B`), media pantalla (`CTRL-D/CTRL-U`), y línea a línea (`CTRL-E/CTRL-Y`).
+Para desplazarse por el texto (o hacer *scroll*), tienes 3 velocidades incrementales: Pantalla completa (`Ctrl-F/Ctrl-B`), media pantalla (`Ctrl-D/Ctrl-U`), y línea a línea (`Ctrl-E/Ctrl-Y`).
 
 ```
-Ctrl-e    Desplaza el texto hacia arriba una línea
-Ctrl-d    Desplaza media pantalla hacia arriba
-Ctrl-f    Desplaza una pantalla completa hacia arriba el texto
-Ctrl-y    Desplaza el texto hacia abajo una línea
-Ctrl-u    Desplaza media pantalla hacia abajo
-Ctrl-b    Desplaza una pantalla completa hacia abajo el texto
+Ctrl-E    Desplaza el texto hacia arriba una línea
+Ctrl-D    Desplaza media pantalla hacia arriba
+Ctrl-F    Desplaza una pantalla completa hacia arriba el texto
+Ctrl-U    Desplaza el texto hacia abajo una línea
+Ctrl-U    Desplaza media pantalla hacia abajo
+Ctrl-B    Desplaza una pantalla completa hacia abajo el texto
 ```
 También puedes desplazrte de manera relativa en función de la línea actual donde se encuentre el cursor:
+
 ```
 zt    LLeva la línea actual donde está el cursor cerca de la parte superior de la pantalla
 zz    LLeva la línea actual donde está el cursor a la parte media de la pantalla
@@ -234,13 +237,13 @@ zb    LLeva la línea actual donde está el cursor cerca de la parte inferior de
 
 ## Navegación por búsqueda
 
-Muy a menudo, sabes que existe una frase concreta dentro del archivo. Puede utilizar la navegación por búsqueda para llegar hasta tu objetivo rápidamente. PAra buscar una frase, puedes utilizar `/` para hacer una búsqueda hacia adelante en el texto o `?` para buscar hacia atrás. Para repetir la última búsqueda, puedes utilizar `n`. Para repetir la última búsqueda pero en dirección opuesta, puedes utilizar `N`.
+Muy a menudo, sabes que existe una frase concreta dentro del archivo. Puede utilizar la navegación por búsqueda para llegar hasta tu objetivo rápidamente. Para buscar una frase, puedes utilizar `/` para hacer una búsqueda hacia adelante en el texto o `?` para buscar hacia atrás. Para repetir la última búsqueda, puedes utilizar `n`. Para repetir la última búsqueda pero en dirección opuesta, puedes utilizar `N`.
 
 ```
 /    Busca hacia adelante una coincidencia
 ?    Busca hacia atrás una coincidencia
-n    Repite la última búsqueda en la misma dirección que la búsqueda previa 
-N    Repite la última búsqueda en la dirección opuesta que la búsqueda previa
+n    Repite la última búsqueda (en la misma dirección que la búsqueda previa)
+N    Repite la última búsqueda (en la dirección opuesta que la búsqueda previa)
 ```
 
 Supongamos que tenemos el siguiente texto:
@@ -284,7 +287,7 @@ ma    Marca una posición, estableciendo la marca "a" en la posición actual del
 
 Existe una diferencia entre establecer marcas con letras minúsculas (a-z) y mayúsculas (A-Z). Las marcas con letras minúsculas, son marcas locales y las marcas con letras mayúsculas son marcas globales (a veces conocidas como marcas de archivo).
 
-Vamos a hablar sobre las marcas locales. Cada *buffer* puede tener su propio juego de marcas locales. Si tengo dos ficheros abiertos, puedo establecer una marca "a" (`ma`) en el primer archivo y otra marca "a" (`ma)` en el segundo archivo.
+Vamos a hablar sobre las marcas locales. Cada *buffer* puede tener su propio juego de marcas locales. Si tengo dos ficheros abiertos, puedo establecer una marca "a" (`ma`) en el primer archivo y otra marca "a" (`ma`) en el segundo archivo.
 
 A diferencia de las marcas locales con las que puedes tener un juego de marcas en cada *buffer*, solo puedes tener un juego de marcas globales. Si estableces una marca global "A" (`mA`) dentro de `miArchivo.txt`, la próxima vez que ejecutes `mA` en un archivo diferente, sobreescribirá la marca "A". Una ventaja de las marcas globales es que puedes saltar a cualquier marca global incluso si está dentro de un proyecto completamente diferente. Las marcas globales pueden viajar a través de los archivos.
 
@@ -330,22 +333,21 @@ H       Ir a la línea superior mostrada en la ventana
 :tag    Saltar a la etiqueta de definición
 ``` 
 
-No recomiendo memorizar esta lista. Una buena regla para recordarla es, que cualquier movimiento que mueve el cursor más de una palabra o más de la línea actual, probablemente sea un salto. Vim memoriza los lugares por los que te has movid y puedes ver esto dentro de `:jumps`. Para más información echa un vistazo a la ayuda de Vim con `:h jump-motions`.
+No recomiendo memorizar esta lista. Una buena regla para recordarla es, que cualquier movimiento que mueve el cursor más de una palabra o más de la línea actual, probablemente sea un salto. Vim memoriza los lugares por los que te has movido y puedes ver esto dentro de `:jumps`. Para más información echa un vistazo a la ayuda de Vim con `:h jump-motions`.
 
-¿Por qué los saltos son útiles? Porque puedes navegar por la lista de saltos realizados mediante `Ctrl-o` para moverte hacia arriba por la lista de saltos y con `Ctrl-i` para moverte hacia abajo en la lista. También puedes saltar por diferentes archivos, lo que veremos en la siguiente parte.
+¿Por qué los saltos son útiles? Porque puedes navegar por la lista de saltos realizados mediante `Ctrl-O` para moverte hacia arriba por la lista de saltos y con `Ctrl-I` para moverte hacia abajo en la lista. También puedes saltar por diferentes archivos, lo que veremos en la siguiente parte.
 
 ## Aprender a navegar de la manera más inteligente
 
-Si eres nuevo en Vim, aquí tienes mucho para aprender. No espero que nadie recuerde todo de manera inmediata. Lleva su tiempo el ejecutar estos comandos sin que tengas que parar a pensarlos.
+Si acabas de llegar a Vim, aquí tienes mucho para aprender. No espero que nadie recuerde todo de manera inmediata. Lleva su tiempo el ejecutar estos comandos sin que tengas que parar a pensarlos.
 
-Creo que la mejor manera de empezar es memorizar algunos comandos de movimiento esenciales. Recomiendo empezar con`h, j, k, l, w, b, G, /, ?, n`. No debería llevar mucho tiempo el aprender 10 movimientos y empezar a usarlos y estar cómodo con ellos.
-
+Creo que la mejor manera de empezar es memorizar algunos comandos de movimiento esenciales. Recomiendo empezar con estos 10 movimientos: `h, j, k, l, w, b, G, /, ?, n`. Repítelos suficientemente como para usarlos sin pensar en ellos.
 
 Para ir mejorando en la navegación, te ofrezco dos sugerencias:
 
 1. Estate alerta de acciones repetidas que realices. Si encuentras que ejecutas `l` de manera repetida, busca un movimiento que te lleve de una manera más rápida a tu destino. Encontrarás que puedes utilizar `w` para moverte entre palabras. Si descubres que ejecutas `w` de manera repetitiva, busca si hay un comando de movimiento que te lleve al final de la línea de manera inmediata. Encontrarás que puedes utilizar `$`. Si puedes describir de manera verbal lo que necesitas, hay muchas posibilidades de que Vim tenga una manera de hacer lo que necesitas. 
-2. Cada vez que aprendas un movimiento, pasa un tiempo considerable hasta que lo puedas realizar de manera automática sin necesidad de pensarlo..
+2. Cada vez que aprendas un movimiento, pasa un tiempo considerable hasta que lo puedas realizar de manera automática sin necesidad de pensarlo.
 
-Finalmente, no necesitas conocer cada uno de los comandos de movimeinto de Vim para ser productivo. La mayoría de los usuarios de Vim no los conocen. Yo tampoco. Aprende los comandos que te ayudarán a realizar tu tarea en cada momento.
+Finalmente, no necesitas conocer cada uno de los comandos de movimiento de Vim para ser productivo. La mayoría de los usuarios de Vim no los conocen. Yo tampoco. Aprende los comandos que te ayudarán a realizar tu tarea en cada momento.
 
 Toma tu tiempo. La habilidad para navegar en Vim es muy importante. Aprende una pequeña cosa cada día y apréndela bien.
