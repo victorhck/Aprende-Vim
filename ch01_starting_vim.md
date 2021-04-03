@@ -1,10 +1,10 @@
 # Capítulo 1: Ejecutando Vim
 
-En este capítulo, aprenderás diferentes maneras de ejecutar Vim desde la terminal. Te recomiendo encarecidamente que utilices Vim desde la terminal mientras estás escribiendo. Actualmente estoy usando Vim 8.2. Los comandos escritos deberían funcionar bien si utilizas una versión menor, pero quizás algunos comandos podrían no estar disponibles.
+En este capítulo, aprenderás diferentes maneras de ejecutar Vim desde la terminal. He utilizado Vim 8.2 para escribir esta guía. Los comandos escritos deberían funcionar bien si utilizas Neovim o una versión menor de Vim, pero quizás algunos comandos podrían no estar disponibles.
 
 ## Instalar Vim
 
-No voy a entrar en detalles de cómo instalar Vim (porque hay demasiadas distribuciones diferentes ahí fuera). La buena noticia es que la mayoría de los equipos con Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
+No voy a entrar en detalles de cómo instalar Vim en un equipo específico. La buena noticia es que la mayoría de los equipos con sistemas operativos basados en Unix debería venir con Vim instalado. Si no es así, la mayoría de las distribuciones tienen una manera sencilla de instalar Vim.
 
 Para más información de cómo descargar, echa un vistazo a la web oficial de descargas de Vim o el repositorio oficial de Vim en Github:
 
@@ -61,13 +61,13 @@ Hay otras maneras de salir de Vim, pero estas que hemos visto las utilizarás di
 
 ## Ayuda
 
-A lo largo del libro, te referiré a varias páginas de ayuda de Vim. Puedes acceder a la página de ayuda escribiendo `:help {comando}` (puedes usar `:h` como abreviatura de *help*). Puedes pasarle al comando `:h` un tema o el nombre de un comando como argumento. Por ejemplo, para aprender diferentes maneras de salir de Vim, escribe:
+A lo largo de la guía, te referiré a varias páginas de ayuda de Vim. Puedes acceder a la página de ayuda escribiendo `:help {comando}` (puedes usar `:h` como abreviatura de *help*). Puedes pasarle al comando `:h` un tema o el nombre de un comando como argumento. Por ejemplo, para aprender diferentes maneras de salir de Vim, escribe:
 
 ```
 :h write-quit
 ```
 
-¿Cómo sabía que había que buscar "write-quit"? La verdad, no lo sabía. Solo escribí `:h`, y después "quit" y después pulsé sobre la tecla `<Tab>`. Vim mostró las palabras clave relevantes entre las que escoger. Si alguna vez necesitas buscar algo ("Me gustaría que Vim pudiera hacer esto..."), simplemente escribe `:h` y prueba algunas palabras clave, y después pulsa `<Tab>`. (N.del T: lo mejor es escribir términos en inglés, para que Vim los encuentre entre sus temas dee ayuda).
+¿Cómo sabía que había que buscar "write-quit"? La verdad, no lo sabía. Solo escribí `:h`, y después "quit" y después pulsé sobre la tecla `<Tab>`. Vim mostró las palabras clave relevantes entre las que escoger. Si alguna vez necesitas buscar algo ("Me gustaría que Vim pudiera hacer esto..."), simplemente escribe `:h` y prueba algunas palabras clave, y después pulsa `<Tab>`. (N.del T: lo mejor es escribir términos en inglés, para que Vim los encuentre entre sus temas de ayuda).
 
 ## Abriendo un archivo
 
@@ -95,7 +95,7 @@ Para comprobar la versión actual de Vim, ejecuta:
 vim --version
 ```
 
-Esta bandera te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `.` Algunas de estas características en esta guía requieren que están disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en el capítulo 15 con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione. Hay muchas posibilidades de que el Vim que tienes instalado tenga las funcionalidades necesarias, especialmente si lo has instalado desde las fuentes más conocidas.
+Esto te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `.` Algunas de estas características en esta guía requieren que estén disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en un capítulo posyerior con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione. Hay muchas posibilidades de que el Vim que tienes instalado tenga las funcionalidades necesarias, especialmente si lo has instalado desde las fuentes más conocidas.
 
 Muchas cosas que puedes hacer desde la terminal, también pueden hacerse dentro de Vim. Para ver la versión desde el propio Vim, puedes ejecutar esto:
 
