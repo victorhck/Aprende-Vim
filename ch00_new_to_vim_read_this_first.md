@@ -1,6 +1,6 @@
 # ¿Nuevo o nueva usando Vim? Lee esto primero
 
-## Por qué se ha escrito este guía
+## Por qué se ha escrito esta guía
 
 Hay muchos lugares donde aprender a usar Vim: el `vimtutor` es un buen lugar para comenzar y los manuales de la ayuda de Vim `:help` tienen todas las referencias que vayas a poder necesitar.
 
@@ -8,11 +8,11 @@ Sin embargo, el usuario medio necesita algo más que lo que ofrece `vimtutor` y 
 
 Lo más probable es que no vayas a necesitar el 100% de las funcionalidades que ofrece Vim. Probablemente solo necesitarás saber el 20% de estas para convertirte en *Vimmer* destacado. Esta guía te enseñará cuales de las funcionalidades de Vim vas a encontrar más útiles.
 
-Esta es una guía obstinada. Trata de técnica que utilizo habitualmente cuando uso Vim. La secuencia de los capítulos está pensada basandome en lo que tendría un sentido más lógico para un principiante a la hora de aprender Vim.
+Esta es una guía obstinada. Trata de técnicas que utilizo habitualmente cuando uso Vim. La secuencia de los capítulos está pensada basandome en lo que tendría un sentido más lógico para un principiante a la hora de aprender Vim.
 
 Esta guía está llena de ejemplos. Al aprender una nueva materia, los ejemplos son indispensables, el disponer de numerosos ejemplos hará que se fijen estos conceptos de una manera más efectiva.
 
-Quiźas alguna persona se pregunten ¿por qué voy a necesitar aprender Vimscript? En mi primer año de uso de Vim, estaba satisfecho con solo saber utilizar Vim. A medida que pasó el tiempo y comencé a necesitar Vimscript más y más para escribir comandos personalizados para mis necesidades específicas a la hora de editar. Mientras estás dominando Vim, antes o después necesitarás aprender Vimscript. Así que ¿por qué no mejor cuanto antes? Vimscript es un lenguajes pequeño. Puedes aprender lo básico en solo cuatro capítulos de esta guía.
+Quiźas alguna persona se pregunten ¿por qué voy a necesitar aprender Vimscript? En mi primer año de uso de Vim, estaba satisfecho con solo saber utilizar Vim. A medida que pasó el tiempo comencé a necesitar Vimscript más y más para escribir comandos personalizados para mis necesidades específicas a la hora de editar. Mientras estás dominando Vim, antes o después necesitarás aprender Vimscript. Así que ¿por qué no mejor cuanto antes? Vimscript es un lenguaje pequeño. Puedes aprender lo básico en solo cuatro capítulos de esta guía.
 
 Puedes llegar lejos utilizando Vim sin conocer en absoluto Vimscript, pero conociéndolo te ayudará a sobresalir aún más.
 
@@ -25,7 +25,7 @@ Aprender Vim es una experiencia satisfactoria, aunque dura. Hay dos enfoques pri
 1. De un día para otro
 2. Gradual
 
-Hacerlo de un día para otro significa dejar de utilizar el IDE o editor que estuvieras utilizando y comenzar de inmediato a utilizar de manera exclisva Vim. La pega de este método es que tendrás una importante pérdida de productividad durante la primera o dos primeras semanas. Si eres un programador a tiempo completo, este método puede que no sea factible. Por esto es por lo que a la mayoría de personas, creo que la mejor manera de hacer la transición a Vim es utilizarlo de manera gradual.
+Hacerlo de un día para otro significa dejar de utilizar el IDE o editor que estuvieras utilizando y comenzar de inmediato a utilizar de manera exclusiva Vim. La pega de este método es que tendrás una importante pérdida de productividad durante la primera o dos primeras semanas. Si eres un programador a tiempo completo, este método puede que no sea factible. Por esto es por lo que a la mayoría de personas, creo que la mejor manera de hacer la transición a Vim es utilizarlo de manera gradual.
 
 Para utilizar Vim gradualmente, durante las primeras dos semanas, pasa una hora al día utilizando Vim como tu editor, mientras que el resto del tiempo puedes utilizar otros editores. Muchos editores modernos vienen con complementos de Vim. Cuando comencé, utilizaba un complemento popular de Vim para VSCode durante una hora al día. Gradualmente incrementé el tiempo con el complemento de Vim hasta que al final lo utilizaba durante todo el día. Ten en cuenta que estos complementos solo pueden emular una parte de las funcionalidades de Vim. Para experimentar toda la potencia de Vim como Vimscript, comamndos para la línea de comandos (Ex) y la integración con comandos externos, necesitarás utilizar el propio Vim.
 
@@ -35,7 +35,7 @@ El primero, cuando me di cuenta de la esctructura similar a la gramática de Vim
 
 El segundo, la posibilidad de ejecutar rápidamente una búsqueda de archivos de manera difusa era la funcionalidad de un IDE que más utilizaba. Cuando aprendí cómo hacerlo en Vim, gané un mayor impulso de velocidad y desde entonces nunca he vuelto a mirar atrás.
 
-Cada persona programa de manera diferente. Sobre la introspección, encontrará que hay una o dos funcionalidades de tu editor o IDE favoritso que utilizas todo el tiempo. Quizás son la búsqueda difusa, saltar a una definición o una compilación rápida. Cualquiera que sea, identifícalas rápidamente y aprende cómo implementar esas en Evim (lo más probable es que Vim también pueda hacerlo). Tu velocidad a la hora de editar tendrá un gran impulso.
+Cada persona programa de manera diferente. Sobre la introspección, encontrará que hay una o dos funcionalidades de tu editor o IDE favorito que utilizas todo el tiempo. Quizás son la búsqueda difusa, saltar a una definición o una compilación rápida. Cualquiera que sea, identifícalas rápidamente y aprende cómo implementar esas en Vim (lo más probable es que Vim también pueda hacerlo). Tu velocidad a la hora de editar tendrá un gran impulso.
 
 Una vez que puedas editar al 50% de velociad que lo hacías originalmente, es hora de pasarte por completo a Vim.
 
@@ -45,13 +45,13 @@ Esta es una guía práctica. Para llegar a dominar Vim necesitas desarrollar el 
 
 No aprendes a montar en bicicleta leyendo una guía sobre cómo montar en bicicleta. Necesitas realmente montar en bicicleta.
 
-Necesitas escribir cada comando que encontrarás en esta guía. No solo eso, necesitarás repetirlos varias veces y probar combinaciones diferentes. Busca que otras funcionalidades tiene el comando que acabas de aprender. El comando `:help` y un buscador de internet son tus mejores amigos. Tu meta no es conocer todo sobre un comando, si no ser capaz de jecutar ese comando con naturalidad y de manera instintiva.
+Necesitas escribir cada comando que encontrarás en esta guía. No solo eso, necesitarás repetirlos varias veces y probar combinaciones diferentes. Busca qué otras funcionalidades tiene el comando que acabas de aprender. El comando `:help` y un buscador de internet son tus mejores amigos. Tu meta no es conocer todo sobre un comando, si no ser capaz de ejecutar ese comando con naturalidad y de manera instintiva.
 
 Por mucho que haya tratado de moldear esta guía para ser lineal en su temática, algunos conceptos de esta guía tienen que ser presentados fuera de orden. Por ejemplo en el capítulo 1, menciono el comando de sustitución (`:s`), incluso aunque no trato sobre el hasta el capítulo 12. Para remediar esto, cada vez que un nuevo concepto que no se haya tratado todavía sea mencionado prematuramente, ofreceré una rápida guía de utilización sin una explicación detallada. Así que por favor, tengan paciencia conmigo :).
 
 ## Más ayuda
 
-Aquí tienes un truco extra al utilizar el manual de la ayuda de Vim: supon que quieres aprender más sobre lo que hace `Ctrl-P` en el modo insertar. Si solo buscas `:h CTRL-P`, te enviará a lo que hace `Ctrl-P` en el modo normal.  Esa no es la ayuda sobre `Ctrl-P` que estabas buscando. En este caso, deberás buscar esto `:h i_CTRL-P`. El prefijo `i_` representa al modo insertar. Pon atención sobre a qué modo pertenece lo que andas buscando.
+Aquí tienes un truco extra al utilizar el manual de la ayuda de Vim: supón que quieres aprender más sobre lo que hace `Ctrl-P` en el modo insertar. Si solo buscas `:h CTRL-P`, te enviará a lo que hace `Ctrl-P` en el modo normal.  Esa no es la ayuda sobre `Ctrl-P` que estabas buscando. En este caso, deberás buscar esto `:h i_CTRL-P`. El prefijo `i_` representa al modo insertar. Pon atención sobre a qué modo pertenece lo que andas buscando.
 
 ## Sintaxis
 
@@ -67,11 +67,11 @@ En varios puntos de esta guía, me referiré a las opciones de *vimrc*. Si acaba
 
 No se tratará el tema de *vimrc* hasta el capítulo 21. Para aclarar un poco el tema, te mostraré brevemente cómo configurarlo.
 
-Supongamos que necesitamos configurar las opciones de numeración de línea (`set number`). Si todavía no tienes un archivo *vimrc*, vamos a crear uno. Normalmente este archivo se ubica en la raíz de un directorio lammado `.vimrc` dentro de nuestro usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, ehca un vistazo a `:h vimrc`.
+Supongamos que necesitamos configurar las opciones de numeración de línea (`set number`). Si todavía no tienes un archivo *vimrc*, vamos a crear uno. Normalmente este archivo se ubica en la raíz de un directorio llamado `.vimrc` dentro de nuestro usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, ehca un vistazo a `:h vimrc`.
 
 Dentro del archivo añade una línea con lo siguiente `set number`. Guárdalo (`:w`) y después haz que Vim lo tenga en cuenta ejecutando `:source %`. Ahora deberías ver los números de línea mostrados en el margen izquierdo.
 
-De manera alternativa, si no quieres realizar cambios en los ajustes que se guarden de forma permanentes, siempre puedes ejecutar el comando `set` en la línea de comandos, ejecutando `:set number`. La contrapartida de este método es que estos ajustes son temporales. Cuando cierres Vim los cambios y opciones desaparecen.
+De manera alternativa, si no quieres realizar cambios en los ajustes que se guarden de forma permanente, siempre puedes ejecutar el comando `set` en la línea de comandos, ejecutando `:set number`. La contrapartida de este método es que estos ajustes son temporales. Cuando cierres Vim los cambios y opciones desaparecen.
 
 Ya que estamos aprendiendo sobre Vim y no sobre Vi, un ajuste que debes incluir es la opción `nocompatible`. Añade `set nocompatible` en tu archivo *vimrc*. Muchas funcionalidades específicas de Vim están inhabilitadas cuando está siendo ejecutado con la opción `compatible`.
 
@@ -86,3 +86,11 @@ También planeo más capítulos en futuras entregas, así que ¡permanece atento
 ## Quiero más trucos sobre Vim
 
 Para aprender más sobre Vim, puedes seguir en Twitter a [@learnvim](https://twitter.com/learnvim).
+
+## Agradecimientos
+
+Esta guía no hubiera sido posible sin Bram Moleenar el creador de Vim, Igor, el creador de la [guía en inglés](https://github.com/iggredible/Learn-Vim), los [colaboradores](https://github.com/victorhck/Aprende-Vim/graphs/contributors) que con traducciones o mejoras han participado en el proyecto, la comunidad de Vim y muchas más personas que de una forma u otra han *provocado* que esto sea posible.
+
+Y por supuesto a ti, lector o lectora que has escogido esta guía para iniciarte o para fomentar tus conocimientos sobre Vim.
+
+Gracias. Todas estas personas hacéis que editar texto sea divertido :)
