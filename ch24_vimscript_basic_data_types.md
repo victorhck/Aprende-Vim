@@ -1,29 +1,29 @@
-# Ch24. Vimscript Basic Data Types
+# Capítulo 24: Tipos de datos básicos de Vimscript 
 
-In the next few chapters, you will learn about Vimscript, Vim's built-in programming language.
+En los próximos capítulos, aprenderás sobre Vimscript, el lenguaje de programación propio de Vim.
 
-When learning a new language, there are three basic elements to look for:
-- Primitives
-- Means of Combination
-- Means of Abstraction
+Cuando aprender un nuevo lenguaje, hay tres elementos básicos para buscar:
+- Primitivos
+- Medios de combinación
+- Medios de abtracción
 
-In this chapter, you will learn Vim's primitive data types.
+En este capítulo, aprenderáslos tipos de datos primitivos de Vim.
 
-## Data Types
+## Tipos de datos
 
-Vim has 10 different data types:
-- Number
-- Float
-- String
-- List
-- Dictionary
-- Special
+Vim tiene 10 tipos de datos diferentes:
+- Números
+- Flotante
+- Cadenas
+- Lista
+- Diccionario
+- Especial
 - Funcref
-- Job
-- Channel
+- Trabajos
+- Canal
 - Blob
 
-I will cover the first six data types here. In Ch. 27, you will learn about Funcref. For more about Vim data types, check out `:h variables`.
+Veremos los seis primeros tipos de datos en este capítulo. En el capítulo 27 aprenderás sobre Funcref. Para aprender más sobre los tipos de datos, echa un vistazo a `:h variables`.
 
 ## Following Along With Ex Mode
 
