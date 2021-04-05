@@ -1,6 +1,6 @@
 # Capítulo 3: Buscar archivos
 
-El objetivo de este capítulo es cómo buscar rápidamente en Vim. Ser capaz de buscar rápidamente es una gran manera de aumentar tu productividad en Vim. Cuando aprendí cómo buscar archivos rápidamente, fue cuando hice mi salto a Vim y a utilizarlo a todas horas.
+El objetivo de este capítulo es aprender cómo buscar rápidamente en Vim. Ser capaz de buscar rápidamente es una gran manera de aumentar tu productividad en Vim. Cuando aprendí cómo buscar archivos rápidamente, fue cuando hice mi salto a Vim y a utilizarlo a todas horas.
 
 Este capítulo está dividido en dos partes: cómo buscar sin necesidad de complementos y cómo buscar con el complemento [fzf.vim](https://github.com/junegunn/fzf.vim). Dicho esto, ¡empecemos!
 
@@ -12,7 +12,7 @@ Para abrir un archivo en Vim, puedes utilizar `:edit`.
 :edit archivo.txt
 ```
 
-Si `archivo.txt` existe, abre `archivo.txt` en un *buffer*. Si `archivo.txt` no existe, crea un nuevo *buffer* para `archive.txt`.
+Si `archivo.txt` existe, abre `archivo.txt` en un *buffer*. Si `archivo.txt` no existe, crea un nuevo *buffer* para `archivo.txt`.
 
 El autocompletado del nombre con la tecla `<Tab>` funciona con `:edit`. Por ejemplo, si tu archivo está dentro de una carpeta *controller* de un proyecto en [Rails](https://rubyonrails.org/) como por ejemplo `./app/controllers/users_controllers.rb`, puedes utilizar la tecla `<Tab>` para ir expandiendo los términos rápidamente:
 ```
@@ -77,7 +77,7 @@ path=.,/usr/include,,
 - `,` significa buscar en el directorio actual.
 - `/usr/include` es el directorio para archivos de cabeceras de compiladores de C.
 
-Los dos primeros son importantes y el tercero puede ser ignorado por ahora.La conclusión aquí es que puedes modificar tus propios caminos. Supongamos que esta es la estructura de tu proyecto:
+Los dos primeros son importantes y el tercero puede ser ignorado por ahora. La conclusión aquí es que puedes modificar tus propias rutas. Supongamos que esta es la estructura de tu proyecto:
 
 ```
 app/
