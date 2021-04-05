@@ -257,28 +257,28 @@ Recuerda que en el capítulo 21 aprendiste que cuando abres Vim, este busca unos
 
 Para aprender más, echa un vistazo a `:h $VIMRUNTIME`.
 
-## Runtimepath Option
+## Opciones del *Runtimepath*
 
-To check your runtimepath, run `:set runtimepath?`
+Para comprobar la ruta de tus ejecutables, ejecuta `:set runtimepath?`
 
-If you use Vim-Plug or popular external plugin managers, it should display a list of directories. For example, mine shows:
+Si utilizas Vim-Plug u otros gestores de complementos externos populares, deberías mostrar una lista de directorios. Por ejemplo, la mía muestra:
 
 ```
 runtimepath=~/.vim,~/.vim/plugged/vim-signify,~/.vim/plugged/base16-vim,~/.vim/plugged/fzf.vim,~/.vim/plugged/fzf,~/.vim/plugged/vim-gutentags,~/.vim/plugged/tcomment_vim,~/.vim/plugged/emmet-vim,~/.vim/plugged/vim-fugitive,~/.vim/plugged/vim-sensible,~/.vim/plugged/lightline.vim, ...
 ```
 
-One of the things plugin managers does is adding each plugin into the runtime path. Each runtime path can have its own directory structure similar to `~/.vim/`.
+Una de las cosas que hacen los gestores de complementos es añadir cada complemento en la ruta de ejecutables. Cada ruta de ejecutable puede tener su propio estructura de directorio similar a `~/.vim/`.
 
-If you have a directory `~/box/of/donuts/` and you want to add that directory to your runtime path, you can add this to your vimrc:
+Si tienes un directorio `~/caja/de/donuts/` y quieres añadir ese directorio a tu ruta de ejecutables, puedes añadir esto en tu vimrc:
 
 ```
-set rtp+=$HOME/box/of/donuts/
+set rtp+=$HOME/caja/de/donuts/
 ```
 
-If inside `~/box/of/donuts/`, you have a plugin directory (`~/box/of/donuts/plugin/hello.vim`) and a ftplugin (`~/box/of/donuts/ftplugin/chocodonut.vim`), Vim will run all scripts from `plugin/hello.vim` when you open Vim. Vim will also run `ftplugin/chocodonut.vim` when you open a chocodonut file.
+Si dentro de `~/caja/de/donuts/`, tienes un directorio de complementos (`~/caja/de/donuts/plugin/hello.vim`) y un *ftplugin* (`~/caja/de/donuts/ftplugin/chocodonut.vim`), Vim ejecutará todos los *scripts* de `plugin/hello.vim` cuando abras Vim. Vim también ejecutará `ftplugin/chocodonut.vim` cuando abras un archivo de tipo chocodonut.
 
-Try this yourself: create an arbitrary path and add it to your runtimepath. Add some of the runtime paths you learned from this chapter. Make sure they work as expected.
+Prueba esto tu mismo: crea una ruta aleatoria y añadela en tu *runtimepath*. Añade algunas rutas de ejecutables que has aprendido en este capítulo. Asegúrate de que funcionen como se espera que lo hagan.
 
-## Learn Runtime The Smart Way
+## Aprende sobre los *runtime* de la manera más inteligente
 
-Take your time reading it and play around with these runtime paths. To see how runtime paths are being used in the wild, go to the repository of one of your favorite Vim plugins and study its directory structure. You should be able to understand most of them now. Try to follow along and discern the big picture. Now that you understand Vim directory structure, you're ready to learn Vimscript.
+Tómate tu tiempo en leerlo y practicar con estas rutas. Para ver cómo se utilizan, ve al repositorio de uno de tus complementos preferidos de Vim y estudia las estructuras de sus directorios. Deberías ser capaz de entender la mayoría de ellos a partir de ahora. Trata de continuar y ver el panorama en general. Ahora que entiendes la estructura de directorios de Vim, ya estás preparado y preparada para aprender Vimscript.
