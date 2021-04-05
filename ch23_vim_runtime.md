@@ -239,23 +239,23 @@ Cuando abres un archivo en Vim, a diferencia de las rutas que hemos visto anteri
 
 Puedes añadir cuantos directorios anidados con autoload como quieras. Si tienes la siguiente ruta `~/.vim/autoload/uno/dos/tres/tasty.vim`, puedes llamar a la función mediante `:call uno#dos#tres#tasty#donut()`.
 
-## After Scripts
+## Después de los *scripts*
 
-Vim has an after runtime path (`~/.vim/after/`) that mirrors the structure of `~/.vim/`. Anything in this path is executed last, so developers usually use these paths for script overrides.
+Vim tiene una ruta para los ejecutables posteriores (`~/.vim/after/`) este copia la estructura de `~/.vim/`. Cualquier cosa en esta ruta es ejecutada al final, así los desarrolladores utilizn estas rutas para *scripts* de anulaciones.
 
-For example, if you want to overwrite the scripts from `plugin/chocolate.vim`, you can create `~/.vim/after/plugin/chocolate.vim` to put the override scripts. Vim will run the `~/.vim/after/plugin/chocolate.vim` *after* `~/.vim/plugin/chocolate.vim`.
+Por ejemplo, si quieres sobrescribir los *scripts* de `plugin/chocolate.vim`, puedes crear `~/.vim/after/plugin/chocolate.vim` en los que ubicar los *scripts* de anulación. Vim ejecutará `~/.vim/after/plugin/chocolate.vim` *después* de `~/.vim/plugin/chocolate.vim`.
 
 ## $VIMRUNTIME
 
-Vim has an environment variable `$VIMRUNTIME` for default scripts and support files. You can check it out by running `:e $VIMRUNTIME`.
+Vim tiene una variable de entorno `$VIMRUNTIME` para *scripts* predeterminados y archivos admitidos. Puedes comprobarla ejecutando `:e $VIMRUNTIME`.
 
-The structure should look familiar. It contains many runtime paths you learned in this chapter.
+La estructura debería tener una aspecto similar. Este contiene muchas de las rutas de ejecutables que has aprendido en este capítulo.
 
-Recall in Chapter 21, you learned that when you open Vim, it looks for a vimrc files in seven different locations. I said that the last location Vim checks is `$VIMRUNTIME/default.vim`. If Vim fails to find any uservimrc files, Vim uses a `default.vim` as vimrc.
+Recuerda que en el capítulo 21 aprendiste que cuando abres Vim, este busca unos archivos vimrc en diferentes ubicaciones. Dije que la última ubicación que comprueba Vim es `$VIMRUNTIME/default.vim`. Si Vim falla al buscar cualquier archivo vimrc de usuario, Vim utiliza un archivo `default.vim` como vimrc.
 
-Have you ever tried running Vim without syntax plugin like vim-polyglot and yet your file is still syntatically highlighted? That is because when Vim fails to find a syntax file from the runtime path, Vim looks for a syntax file from `$VIMRUNTIME` syntax directory.
+¿Has intentado ejecutar Vim sin un complemento de sintaxis como vim-polyglot y aún así tu archivo está resaltado? Esto se produce cuando Vim falla al encontrar un archivo de sintaxis desde la ruta de ejecutables, Vim busca un archivo de sintaxis desde el directorio de sintaxis de `$VIMRUNTIME`.
 
-To learn more, check out `:h $VIMRUNTIME`.
+Para aprender más, echa un vistazo a `:h $VIMRUNTIME`.
 
 ## Runtimepath Option
 
