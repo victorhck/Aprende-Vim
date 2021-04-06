@@ -89,7 +89,7 @@ app/
   ...
 ```
 
-Si quieres ir al archivo `users_controller.rb` desde el directorio raíz, debes pasar por varios directorios (y pulsar un considerable número de veces la tecla tabulador). A menudi cuando estás trabajando con un *freamework*, pasas el 90% del tiempo en un directorio en particular. En esta situalicón solo te preocupa ir al directorio `controllers/` con el mínimo de pulsaciones de teclas. Los ajustes en `path` pueden acortar ese viaje entre directorios.
+Si quieres ir al archivo `users_controller.rb` desde el directorio raíz, debes pasar por varios directorios (y pulsar un considerable número de veces la tecla tabulador). A menudo cuando estás trabajando con un *freamework*, pasas el 90% del tiempo en un directorio en particular. En esta situación solo te preocupa ir al directorio `controllers/` con el mínimo de pulsaciones de teclas. Los ajustes en `path` pueden acortar ese viaje entre directorios.
 
 Necesitas añadir `app/controllers/` al `path` actual. Aquí verás cómo puedes hacerlo:
 
@@ -99,14 +99,14 @@ Necesitas añadir `app/controllers/` al `path` actual. Aquí verás cómo puedes
 
 Ahora que tu ruta ha sido actualizada, cuando escribas `:find u<Tab>`, Vim también buscará coincidencias dentro del directorio `app/controllers/` de archivos que empiezen con "u".
 
-Si tienes un directorio `controllers/` anidado, como `app/controllers/account/users_controller.rb`, Vim no encontrará `users_controllers`. En su lugar es necesario añadir `:set path+=app/controllers/**`  así el autocompletado podrá buscar `users_controller.rb`. ¡Esto es genial! Ahora puedes encontrar lo que necesitas con solo pulsar una vez la tecla Tabulador en vez de 3 veces.
+Si tienes un directorio `controllers/` anidado, como `app/controllers/account/users_controller.rb`, Vim no encontrará `users_controllers`. En su lugar es necesario añadir `:set path+=app/controllers/**`  así el autocompletado podrá buscar `users_controller.rb`. ¡Esto es genial! Ahora puedes encontrar lo que necesitas con solo pulsar una vez la tecla tabulador en vez de 3 veces.
 
 Podrás estar pensando en añadir los directorios del proyecto entero así cuando pulses `tab`, Vim buscará en cualquier lugar el archivo deseado, de esta manera:
 ```
 :set path+=$PWD/**
 ```
 
-`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscado al presionar el tabulador `tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios de los archivos más visitados.
+`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscados al presionar el tabulador `tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios de los archivos más visitados.
 
 Actualizar `path` solo te llevará unos segundos y haciendo esto te ahorrarás un montón de tiempo.
 
@@ -124,7 +124,7 @@ Revisemos el grep interno primero. `:vim` tiene la siguiente sintaxis:
 ```
 
 - `/patrón/` es el patrón de la expresión regular (regex) del termino buscado.
-- `file` es el argumento del nombre(s) de el(los) archivo(s). De la misma forma que `:find`, también puedes pasarle los comodines `*` y `**`.
+- `archivo` es el argumento del nombre(s) de el(los) archivo(s). De la misma forma que en `:find`, también puedes pasarle los comodines `*` y `**`.
 
 Por ejemplo, para encontrar todas las coincidencia de la cadena "desayuno" dentro de todos los archivos ruby (`.rb`) dentro de la carpeta `app/controllers/`:
 
@@ -223,8 +223,7 @@ if type rg &> /dev/null; then
 fi
 ```
 
-
-Debemos poner especial atención a `-m` en `FZF_DEFAULT_OPTS`. Esta opción nos permite hacer selecciones múltiples con `tab` o `shift-tab`. No es necesario tener esta línea para que FZF funcione con Vim, pero creo que es una opción muy útil que considerar. Puede volverse muy util cuando quieres realizar búsquedas y reemplazar en múltiples archivos, abarcaremos ese tema en un momento. `FZF` acepta más opciones, para aprender más, revisa [el repositorio de fzf](https://github.com/junegunn/fzf#usage) o `man fzf`. Bastará con que tengas `export FZF_DEFAULT_COMMAND='rg'`.
+Debemos poner especial atención a `-m` en `FZF_DEFAULT_OPTS`. Esta opción nos permite hacer selecciones múltiples con `tab` o `shift-tab`. No es necesario tener esta línea para que FZF funcione con Vim, pero creo que es una opción muy útil que considerar. Puede volverse muy útil cuando quieres realizar búsquedas y reemplazar en múltiples archivos, abarcaremos ese tema en un momento. `FZF` acepta más opciones, para aprender más, revisa [el repositorio de fzf](https://github.com/junegunn/fzf#usage) o `man fzf`. Bastará con que tengas `export FZF_DEFAULT_COMMAND='rg'`.
 
 Después de instalar fzf y ripgrep, vamos a configurar el complemento fzf. Estoy usando [vim-plug](https://github.com/junegunn/vim-plug) como gestor de complementos en este ejemplo, pero puedes usar el que prefieras.
 
