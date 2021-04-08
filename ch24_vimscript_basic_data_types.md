@@ -49,23 +49,23 @@ Para borrar el historial de mensajes, ejecuta:
 
 ## Number (Números)
 
-Vim has 4 different number types: decimal, hexadecimal, binary, and octal. By the way, when I say number data type, often this means an integer data type. In this guide, I will use the terms number and integer interchangeably.
+Vim tiene 4 tipos diferentes de números: decimales, hexadecimales, binarios y octales. Por cierto cuando menciono tipos de datos de números, a menudo esto significa un dato de tipo entero. En esta guía, usaré los términos números y enteros de manera indistinta.
 
 ### Decimal
 
-You should be familiar with the decimal system. Vim accepts positive and negative decimals. 1, -1, 10, etc. In Vimscript programming, you will probably be using the decimal type most of the time.
+Deberías estar familiarizado con el sistema decimal. Vim acepta decimales positivos y negativos. 1, -1, 10, etc. En programación con Vimscript, probablemente usarás el tipo decimal la mayor parte del tiempo.
 
 ### Hexadecimal
 
-Hexadecimals start with `0x` or `0X`. Mnemonic: He**x**adecimal.
+El tipo hexadecimal comienzo con `0x` o `0X`. Puedes asociarlo con He**x**adecimal.
 
-### Binary
+### Binario
 
-Binaries start with `0b` or `0B`. Mnemonic: **B**inary.
+El tipo binario comienza con `0b` o `0B`. Puedes asociarlo con : **B**inario.
 
 ### Octal
 
-Octals start with `0`, `0o`, and `0O`. Mnemonic: **O**ctal.
+El tipo octal comienza con `0`, `0o` y `0O`. Puedes asociarlo con **O**ctal.
 
 ### Printing Numbers
 
