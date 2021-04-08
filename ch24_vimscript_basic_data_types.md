@@ -12,15 +12,15 @@ En este capítulo, aprenderáslos tipos de datos primitivos de Vim.
 ## Tipos de datos
 
 Vim tiene 10 tipos de datos diferentes:
-- Números
-- Flotante
-- Cadenas
-- Lista
-- Diccionario
-- Especial
+- Number (Números)
+- Float (Flotante)
+- String (Cadenas)
+- List (Lista)
+- Dictionary (Diccionario)
+- Specia (Especial)
 - Funcref
-- Trabajos
-- Canal
+- Job (Trabajos)
+- Channel (Canal)
 - Blob
 
 Veremos los seis primeros tipos de datos en este capítulo. En el capítulo 27 aprenderás sobre Funcref. Para aprender más sobre los tipos de datos, echa un vistazo a `:h variables`.
