@@ -107,70 +107,70 @@ Sin embargo, esto sí lo hará:
 
 Cualquier otro valor que no sea 0 es tomado como verdadero, incluyendo los números negativos. 100 es verdadero. -1 es verdadero.
 
-### Number Arithmetic
+### Números aritméticos
 
-Numbers can be used to run arithmetic expressions:
+Los números pueden ser utilizados para ejecutar expresiones aritméticas:
 
 ```viml
 :echo 3 + 1
-" returns 4
+" devuelve 4
 
 : echo 5 - 3
-" returns 2
+" devuelve 2
 
 :echo 2 * 2
-" returns 4
+" devuelve 4
 
 :echo 4 / 2
-" returns 2
+" devuelve 2
 ```
 
-When dividing a number with a remainder, Vim drops the remainder.
+Cuando divides un número y la división produce un resto, Vim elimina ese resto.
 
 ```viml
 :echo 5 / 2
-" returns 2 instead of 2.5
+" devuelve 2 en vez de 2.5
 ```
 
-To get a more accurate result, you need to use a float number.
+Para obtener un resultado más acertado, necesitas utilizar un número flotante.
 
-## Float
+## Float (Flotante)
 
-Floats are numbers with trailing decimals. There are two ways to represent floating numbers: dot point notation (like 31.4) and exponent (3.14e01). Similar to numbers, you can use positive and negative signs:
+Los números flotantes son números con decimales finales. Hay dos maneras de representar los números flotantes: utilizar la notación con un punto (como 31.4) o con exponente (3.14e01). De manera similar a los números, puedes tener signo positivo o negativo:
 
 ```viml
 :echo +123.4
-" returns 123.4
+" devuelve 123.4
 
 :echo -1.234e2
-" returns -123.4
+" devuelve -123.4
 
 :echo 0.25
-" returns 0.25
+" devuelve 0.25
 
 :echo 2.5e-1
-" returns 0.25
+" devuelve 0.25
 ```
 
-You need to give a float a dot and trailing digits. `25e-2` (no dot) and `1234.` (has a dot, but no trailing digits) are both invalid float numbers.
+Necesitas darle el número entero un punto y los dígitos finales. `25e-2` (sin punto) y `1234.` (tiene un punto, pero no tiene decimales detrás) son ambos números flotantes inválidos.
 
-### Float Arithmetic
+### Aritmética con números flotantes
 
-When doing an arithmetic expression between a number and a float, Vim coerces the result to a float.
+Cuando realizas expresiones aritméticas entre un número y un número flotante, Vim fuerza el resultado a un número flotante.
 
 ```viml
 :echo 5 / 2.0
-" returns 2.5
+" devuelve 2.5
 ```
 
-Float and float arithmetic gives you another float.
+Una operación aritmética entre dos numeros flotantes te devuelve otro número flotante.
 
 ```
 :echo 1.0 + 1.0
-" returns 2.0
+" devuelve 2.0
 ```
 
-## String
+## String (Cadenas)
 
 Strings are characters surrounded by either double-quotes (`""`) or single-quotes (`''`). "Hello", "123", and '123.4' are examples of strings.
 
@@ -180,7 +180,7 @@ To concatenate a string in Vim, use the `.` operator.
 
 ```viml
 :echo "Hello" . " world"
-" returns "Hello world"
+" devuelve "Hello world"
 ```
 
 ### String Arithmetic
