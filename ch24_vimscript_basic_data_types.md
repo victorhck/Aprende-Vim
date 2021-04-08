@@ -29,25 +29,25 @@ Veremos los seis primeros tipos de datos en este capítulo. En el capítulo 27 a
 
 Vim técnicamente no tiene un [REPL](https://es.wikipedia.org/wiki/REPL) propio, pero tiene un modo, el modo Ex que puede utilizarse de ese modo. Puedes entrar en el modo Ex con `Q` o `gQ`. El modo Ex es como un modo extendido del modo línea de comandos (es como escribir en el modo línea de comandos sin fin) Para salir del modo Ex, escribe `:visual`.
 
-You can use either `:echo` or `:echom` on this chapter and the subsequent Vimscript chapters to code along. They are like `console.log` in JS or `print` in Python. The `:echo` command prints the evaluated expression you give. The `:echom` command does the same, but in addition, it stores the result in the message history.
+Puedes utilizar tanto `:echo` o `:echom` en este capítulo y los siguientes capítulos sobre Vimscript para continuar escribiendo código. Son similares a `console.log` en JS o `print` en Python. El comando `:echo` muestra las expresiones evaluadas que le das. El comando `:echom` hace lo mismo, pero además, este almacena el resultado en el historial de mensajes.
 
 ```viml
-:echom "hello echo message"
+:echom "hola mensaje hecho"
 ```
 
-You can view the message history with:
+Puedes ver el historial de mensajes con:
 
 ```
 :messages
 ```
 
-To clear your message history, run:
+Para borrar el historial de mensajes, ejecuta:
 
 ```
 :messages clear
 ```
 
-## Number
+## Number (Números)
 
 Vim has 4 different number types: decimal, hexadecimal, binary, and octal. By the way, when I say number data type, often this means an integer data type. In this guide, I will use the terms number and integer interchangeably.
 
