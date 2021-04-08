@@ -67,29 +67,29 @@ El tipo binario comienza con `0b` o `0B`. Puedes asociarlo con : **B**inario.
 
 El tipo octal comienza con `0`, `0o` y `0O`. Puedes asociarlo con **O**ctal.
 
-### Printing Numbers
+### Mostrando números
 
-If you `echo` either a hexadecimal, a binary, or an octal number, Vim automatically converts them to decimals.
+Si ejecutas el comando `echo` ya sea con números de tipo hexadecimal, binario, u octal, Vim automáticamente los convierte a decimales.
 
 ```viml
 :echo 42
-" returns 42
+" devuelve 42
 
 :echo 052
-" returns 42
+" devuelve 42
 
 :echo 0b101010
-" returns 42
+" devuelve 42
 
 :echo 0x2A
-" returns 42
+" devuelve 42
 ```
 
-### Truthy and Falsy
+### Verdadero y falso
 
-In Vim, a 0 value is falsy and all non-0 values are truthy.
+En Vim, un valor 0 es similar a falso y todos los valores que no son 0 son tomados como verdadero.
 
-The following will not echo anything.
+El siguiente ejemplo no mostrará nada:
 
 ```viml
 :if 0
@@ -97,15 +97,15 @@ The following will not echo anything.
 :endif
 ```
 
-However, this will:
+Sin embargo, esto sí lo hará:
 
 ```viml
 :if 1
-:  echo "Yes"
+:  echo "Sí"
 :endif
 ```
 
-Any values other than 0 is truthy, including negative numbers. 100 is truthy. -1 is truthy.
+Cualquier otro valor que no sea 0 es tomado como verdadero, incluyendo los números negativos. 100 es verdadero. -1 es verdadero.
 
 ### Number Arithmetic
 
