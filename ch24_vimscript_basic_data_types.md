@@ -172,60 +172,60 @@ Una operación aritmética entre dos numeros flotantes te devuelve otro número 
 
 ## String (Cadenas)
 
-Strings are characters surrounded by either double-quotes (`""`) or single-quotes (`''`). "Hello", "123", and '123.4' are examples of strings.
+Las *strings* o cadenas son caracteres rodeados ya sea con comillas dobles (`""`) o comillas simples (`''`). "Hola", "123" y '123.4' son ejemplos de cadenas.
 
-### String Concatenation
+### Concatenación de cadenas
 
-To concatenate a string in Vim, use the `.` operator.
+Para concatenar una cadena o *string* en Vim, utiliza el operador `.`.
 
 ```viml
-:echo "Hello" . " world"
-" devuelve "Hello world"
+:echo "Hola" . " mundo"
+" devuelve "Hola mundo"
 ```
 
-### String Arithmetic
+### Operaciones aritméticas con cadenas
 
-When you run arithmetic operators (`+ - * /`) with a number and a string, Vim coerces the string into a number.
+Cuando ejecutas operaciones aritméticas (`+ - * /`) con un número y una cadena, Vim fuerza la cadena a convertirse a número.
 
 ```viml
 :echo "12 donuts" + 3
-" returns 15
+" devuelve 15
 ```
 
-When Vim sees "12 donuts", it extracts the 12 from the string and converts it into the number 12. Then it performs addition, returning 15. For this string-to-number coercion to work, the number character needs to be the *first character* in the string.
+Cuando Vim ve "12 donuts", extrar el 12 de la cadena y lo convierte al número 12. Después realiza la suma, devolviendo 15. Para que funcione este forzado de cadena a número, los caracteres de los números necesitan ser *los primeros caracteres* de la cadena.
 
-The following won't work because 12 is not the first character in the string:
+Lo siguiente no funcionará porque 12 no está al comienzo de la cadena:
 
 ```viml
 :echo "donuts 12" + 3
-" returns 3
+" devuelve 3
 ```
 
-This also won't work because an empty space is the first character of the string:
+Esto tampoco funcionará porque hay un espacio en blanco al comienzo de la cadena:
 
 ```viml
 :echo " 12 donuts" + 3
-" returns 3
+" devuelve 3
 ```
 
-This coercion works even with two strings:
+Ese forzao funciona incluso con dos cadenas:
 
 ```
-:echo "12 donuts" + "6 pastries"
-" returns 18
+:echo "12 donuts" + "6 rosquillas"
+" devuelve 18
 ```
 
-This works with any arithmetic operator, not only `+`:
+Esto funciona con cualquier operador aritmético, no solo `+`:
 
 ```viml
-:echo "12 donuts" * "5 boxes"
-" returns 60
+:echo "12 donuts" * "5 cajas"
+" devuelve 60
 
 :echo "12 donuts" - 5
-" returns 7
+" devuelve 7
 
-:echo "12 donuts" / "3 people"
-" returns 4
+:echo "12 donuts" / "3 personas"
+" devuelve 4
 ```
 
 A neat trick to force a string-to-number conversion is to just add 0 or multiply by 1:
