@@ -433,9 +433,9 @@ Puedes pasarle un índice que exceda el máximo de elementos cuando selecciones 
 " devuelve ['plain', 'strawberry', 'lemon', 'sugar', 'cream']
 ```
 
-### Slicing String
+### Diseccionando una cadena
 
-You can slice and target strings just like lists:
+Puedes dividir una cadena igual que con las listas:
 
 ```viml
 :echo "choco"[0]
@@ -451,15 +451,15 @@ You can slice and target strings just like lists:
 " devuelve hoco
 ```
 
-### List Arithmetic
+### Lista aritmética
 
-You can use `+` to concatenate and mutate a list:
+Puedes utilizar `+` para concatenar y mutar una lista:
 
 ```viml
-:let sweetList = ["chocolate", "strawberry"]
-:let sweetList += ["sugar"]
+:let sweetList = ["chocolate", "fresa"]
+:let sweetList += ["azúcar"]
 :echo sweetList
-" devuelve ["chocolate", "strawberry", "sugar"]
+" devuelve ["chocolate", "fresa", "azúcar"]
 ```
 
 ### List Functions
