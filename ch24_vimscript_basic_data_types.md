@@ -238,34 +238,34 @@ Un buen truco para forzar una conversión de cadena a número es añadir 0 o mul
 " devuelve 12
 ```
 
-When arithmetic is done against a float in a string, Vim treats it like an integer, not a float:
+Cuando se realiza una operación aritmética de un flotante con una cadena, Vim lo trata como un entero, no como un número con coma flotante.
 
 ```
 :echo "12.0 donuts" + 12
-" devuelve 24, not 24.0
+" devuelve 24, no 24.0
 ```
 
-### Number and String Concatenation
+### Concatenación de número con una cadena
 
-You can coerce a number into a string with a dot operator (`.`):
+Puedes forzar un número en una cadena con el operador del punto (`.`):
 
 ```viml
 :echo 12 . "donuts"
 " devuelve "12donuts"
 ```
 
-The coercion only works with number data type, not float. This won't work:
+Este forzado solo funciona con tipo de datos de números, no flotantes. Esto no funcionará:
 
 ```
 :echo 12.0 . "donuts"
-" does not return "12.0donuts" but throws an error
+" Esto no devolverá "12.0donuts" si no que lanzará un error
 ```
 
-### String Conditionals
+### Condicionales de cadenas
 
-Recall that 0 is falsy and all non-0 numbers are truthy. This is also true when using string as conditionals.
+Recuerda que 0 es tratado como falso y todos los demás números son verdadero. Esto también se cumple cuando estamos utilizando cadenas como condicionales. This is also true when using string as conditionals.
 
-In the following if statement, Vim coerces "12donuts" into 12, which is truthy:
+En la siguiente declaración de un comando *if*, Vim fuerza "12donuts" en 12, lo que se considera verdadero:
 
 ```viml
 :if "12donuts"
@@ -274,16 +274,16 @@ In the following if statement, Vim coerces "12donuts" into 12, which is truthy:
 " devuelve "Yum"
 ```
 
-On the other hand, this is falsy:
+Por otra parte, esto es tratado como falso:
 
 ```viml
 :if "donuts12"
 :  echo "Nope"
 :endif
-" rerturns nothing
+" no devuelve nada
 ```
 
-Vim coerces "donuts12" into 0, because the first character is not a number.
+Vim fuerza "donuts12" a 0, porque el primer caracter no es un número.
 
 ### Double vs Single quotes
 
