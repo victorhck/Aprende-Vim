@@ -228,21 +228,21 @@ Esto funciona con cualquier operador aritmético, no solo `+`:
 " devuelve 4
 ```
 
-A neat trick to force a string-to-number conversion is to just add 0 or multiply by 1:
+Un buen truco para forzar una conversión de cadena a número es añadir 0 o multiplicar por 1:
 
 ```viml
 :echo "12" + 0
-" returns 12
+" devuelve 12
 
 :echo "12" * 1
-" returns 12
+" devuelve 12
 ```
 
 When arithmetic is done against a float in a string, Vim treats it like an integer, not a float:
 
 ```
 :echo "12.0 donuts" + 12
-" returns 24, not 24.0
+" devuelve 24, not 24.0
 ```
 
 ### Number and String Concatenation
@@ -251,7 +251,7 @@ You can coerce a number into a string with a dot operator (`.`):
 
 ```viml
 :echo 12 . "donuts"
-" returns "12donuts"
+" devuelve "12donuts"
 ```
 
 The coercion only works with number data type, not float. This won't work:
@@ -271,7 +271,7 @@ In the following if statement, Vim coerces "12donuts" into 12, which is truthy:
 :if "12donuts"
 :  echo "Yum"
 :endif
-" returns "Yum"
+" devuelve "Yum"
 ```
 
 On the other hand, this is falsy:
@@ -293,22 +293,22 @@ What are special characters? Check out the newline and double-quotes display:
 
 ```viml
 :echo "hello\nworld"
-" returns
+" devuelve
 " hello
 " world
 
 :echo "hello \"world\""
-" returns "hello "world""
+" devuelve "hello "world""
 ```
 
 Compare that with single-quotes:
 
 ```
 :echo 'hello\nworld'
-" returns 'hello\nworld'
+" devuelve 'hello\nworld'
 
 :echo 'hello \"world\"'
-" returns 'hello \"world\"'
+" devuelve 'hello \"world\"'
 ```
 
 Special characters are special string characters that when escaped, behave differently. `\n` acts like a newline. `\"` behaves like a literal `"`. For a list of other special characters, check out `:h expr-quote`.
@@ -321,17 +321,17 @@ You can get the length of a string with `strlen()`.
 
 ```
 :echo strlen("choco")
-" returns 5
+" devuelve 5
 ```
 
 You can convert string to a number with `str2nr()`:
 
 ```
 :echo str2nr("12donuts")
-" returns 12
+" devuelve 12
 
 :echo str2nr("donuts12")
-" returns 0
+" devuelve 0
 ```
 
 Similar to the string-to-number coercion earlier, if the number is not the first character, Vim won't catch it.
@@ -340,28 +340,28 @@ The good news is that Vim has a method that transforms a string to a float, `str
 
 ```
 :echo str2float("12.5donuts")
-" returns 12.5
+" devuelve 12.5
 ```
 
 You can substitute a pattern in a string with the `substitute()` method:
 
 ```
 :echo substitute("sweet", "e", "o", "g")
-" returns "swoot"
+" devuelve "swoot"
 ```
 
 The last parameter, "g", is the global flag. With it, Vim will substitute all matching occurrences. Without it, Vim will only substitute the first match.
 
 ```
 :echo substitute("sweet", "e", "o", "")
-" returns "swoet"
+" devuelve "swoet"
 ```
 
 The substitute command can be combined with `getline()`. Recall that the function `getline()` gets the text on the given line number. Suppose you have the text "chocolate donut" on line 5. You can use the procedure:
 
 ```
 :echo substitute(getline(5), "chocolate", "glazed", "g")
-" returns glazed donut
+" devuelve glazed donut
 ```
 
 There are many other string procedures. Check out `:h string-functions`.
@@ -383,54 +383,54 @@ Vim list is zero-indexed. You can access a particular item in a list with `[n]`,
 
 ```
 :echo ["a", "sweet", "dessert"][0]
-" returns "a"
+" devuelve "a"
 
 :echo ["a", "sweet", "dessert"][2]
-" returns "dessert"
+" devuelve "dessert"
 ```
 
 If you go over the maximum index number, Vim will throw an error saying that the index is out of range:
 
 ```
 :echo ["a", "sweet", "dessert"][999]
-" returns an error
+" devuelve an error
 ```
 
 When you go below zero, Vim will start the index from the last element. Going past the minimum index number will also throw you an error:
 
 ```
 :echo ["a", "sweet", "dessert"][-1]
-" returns "dessert"
+" devuelve "dessert"
 
 :echo ["a", "sweet", "dessert"][-3]
-" returns "a"
+" devuelve "a"
 
 :echo ["a", "sweet", "dessert"][-999]
-" returns an error
+" devuelve an error
 ```
 
 You can "slice" several elements from a list with `[n:m]`, where `n` is the starting index and `m` is the ending index.
 
 ```
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][2:4]
-" returns ["plain", "strawberry", "lemon"]
+" devuelve ["plain", "strawberry", "lemon"]
 ```
 
 If you don't pass `m` (`[n:]`), Vim will return the rest of the elements starting from the nth element. If you don't pass `n` (`[:m]`), Vim will return the first element up to the mth element.
 
 ```
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][2:]
-" returns ['plain', 'strawberry', 'lemon', 'sugar', 'cream']
+" devuelve ['plain', 'strawberry', 'lemon', 'sugar', 'cream']
 
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][:4]
-" returns ['chocolate', 'glazed', 'plain', 'strawberry', 'lemon']
+" devuelve ['chocolate', 'glazed', 'plain', 'strawberry', 'lemon']
 ```
 
 You can pass an index that exceeds the maximum items when slicing an array.
 
 ```viml
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][2:999]
-" returns ['plain', 'strawberry', 'lemon', 'sugar', 'cream']
+" devuelve ['plain', 'strawberry', 'lemon', 'sugar', 'cream']
 ```
 
 ### Slicing String
@@ -439,16 +439,16 @@ You can slice and target strings just like lists:
 
 ```viml
 :echo "choco"[0]
-" returns "c"
+" devuelve "c"
 
 :echo "choco"[1:3]
-" returns "hoc"
+" devuelve "hoc"
 
 :echo "choco"[:3]
-" returns choc
+" devuelve choc
 
 :echo "choco"[1:]
-" returns hoco
+" devuelve hoco
 ```
 
 ### List Arithmetic
@@ -459,7 +459,7 @@ You can use `+` to concatenate and mutate a list:
 :let sweetList = ["chocolate", "strawberry"]
 :let sweetList += ["sugar"]
 :echo sweetList
-" returns ["chocolate", "strawberry", "sugar"]
+" devuelve ["chocolate", "strawberry", "sugar"]
 ```
 
 ### List Functions
@@ -470,7 +470,7 @@ To get the length of a list, use `len()`:
 
 ```
 :echo len(["chocolate", "strawberry"])
-" returns 2
+" devuelve 2
 ```
 
 To prepend  an element to a list, you can use `insert()`:
@@ -480,7 +480,7 @@ To prepend  an element to a list, you can use `insert()`:
 :call insert(sweetList, "glazed")
 
 :echo sweetList
-" returns ["glazed", "chocolate", "strawberry"]
+" devuelve ["glazed", "chocolate", "strawberry"]
 ```
 
 You can also pass `insert()` the index where you want to prepend the element to. If you want to prepend an item before the second element (index 1):
@@ -490,7 +490,7 @@ You can also pass `insert()` the index where you want to prepend the element to.
 :call insert(sweeterList, "cream", 1)
 
 :echo sweeterList
-" returns ['glazed', 'cream', 'chocolate', 'strawberry']
+" devuelve ['glazed', 'cream', 'chocolate', 'strawberry']
 ```
 
 To remove a list item, use `remove()`. It accepts a list and the element index you want to remove.
@@ -500,7 +500,7 @@ To remove a list item, use `remove()`. It accepts a list and the element index y
 :call remove(sweeterList, 1)
 
 :echo sweeterList
-" returns ['glazed', 'strawberry']
+" devuelve ['glazed', 'strawberry']
 ```
 
 You can use `map()` and `filter()` on a list. To filter out element containing the phrase "choco":
@@ -509,12 +509,12 @@ You can use `map()` and `filter()` on a list. To filter out element containing t
 :let sweeterList = ["glazed", "chocolate", "strawberry"]
 :call filter(sweeterList, 'v:val !~ "choco"')
 :echo sweeterList
-" returns ["glazed", "strawberry"]
+" devuelve ["glazed", "strawberry"]
 
 :let sweetestList = ["chocolate", "glazed", "sugar"]
 :call map(sweetestList, 'v:val . " donut"')
 :echo sweetestList
-" returns ['chocolate donut', 'glazed donut', 'sugar donut']
+" devuelve ['chocolate donut', 'glazed donut', 'sugar donut']
 ```
 
 The `v:val` variable is a Vim special variable. It is available when iterating a list or a dictionary using `map()` or `filter()`. It represents each iterated item.
@@ -530,10 +530,10 @@ You can unpack a list and assign variables to the list items:
 :let [flavor1, flavor2, flavor3] = favoriteFlavor
 
 :echo flavor1
-" returns "chocolate"
+" devuelve "chocolate"
 
 :echo flavor2
-" returns "glazed"
+" devuelve "glazed"
 ```
 
 To assign the rest of list items, you can use `;` followed with a variable name:
@@ -543,10 +543,10 @@ To assign the rest of list items, you can use `;` followed with a variable name:
 :let [fruit1, fruit2; restFruits] = favoriteFruits
 
 :echo fruit1
-" returns "apple"
+" devuelve "apple"
 
 :echo restFruits
-" returns ['lemon', 'blueberry', 'raspberry']
+" devuelve ['lemon', 'blueberry', 'raspberry']
 ```
 
 ### Modifying List
@@ -557,7 +557,7 @@ You can modify a list item directly:
 :let favoriteFlavor = ["chocolate", "glazed", "plain"]
 :let favoriteFlavor[0] = "sugar"
 :echo favoriteFlavor
-" returns ['sugar', 'glazed', 'plain']
+" devuelve ['sugar', 'glazed', 'plain']
 ```
 
 You can mutate multiple list items directly:
@@ -566,7 +566,7 @@ You can mutate multiple list items directly:
 :let favoriteFlavor = ["chocolate", "glazed", "plain"]
 :let favoriteFlavor[2:] = ["strawberry", "chocolate"]
 :echo favoriteFlavor
-returns ['chocolate', 'glazed', 'strawberry', 'chocolate']
+devuelve ['chocolate', 'glazed', 'strawberry', 'chocolate']
 ```
 
 ## Dictionary
@@ -585,7 +585,7 @@ A Vim dictionary data object uses string for key. If you try to use a number, Vi
 :let breakfastNo = {1: "7am", 2: "9am", "11ses": "11am"}
 
 :echo breakfastNo
-" returns {'1': '7am', '2': '9am', '11ses': '11am'}
+" devuelve {'1': '7am', '2': '9am', '11ses': '11am'}
 ```
 
 If you are too lazy to put quotes around each key, you can use the `#{}` notation:
@@ -594,7 +594,7 @@ If you are too lazy to put quotes around each key, you can use the `#{}` notatio
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
 
 :echo mealPlans
-" returns {'lunch': 'pancakes', 'breakfast': 'waffles', 'dinner': 'donuts'}
+" devuelve {'lunch': 'pancakes', 'breakfast': 'waffles', 'dinner': 'donuts'}
 ```
 
 The only requirement for using the `#{}` syntax is that each key must be either:
@@ -621,10 +621,10 @@ To access a value from a dictionary, you can call the key with either the square
 :let lunch = meal.lunch
 
 :echo breakfast
-" returns "gruel omelettes"
+" devuelve "gruel omelettes"
 
 :echo lunch
-" returns "gruel sandwiches"
+" devuelve "gruel sandwiches"
 ```
 
 ### Modifying Dictionary
@@ -639,7 +639,7 @@ You can modify or even add a dictionary content:
 :let meal["dinner"] = "quesadillas"
 
 :echo meal
-" returns {'lunch': 'tacos al pastor', 'breakfast': 'breakfast tacos', 'dinner': 'quesadillas'}
+" devuelve {'lunch': 'tacos al pastor', 'breakfast': 'breakfast tacos', 'dinner': 'quesadillas'}
 ```
 
 ### Dictionary Functions
@@ -652,7 +652,7 @@ To check the length of a dictionary, use `len()`.
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
 
 :echo len(meaPlans)
-" returns 3
+" devuelve 3
 ```
 
 To see if a dictionary contains a specific key, use `has_key()`
@@ -661,10 +661,10 @@ To see if a dictionary contains a specific key, use `has_key()`
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
 
 :echo has_key(mealPlans, "breakfast")
-" returns 1
+" devuelve 1
 
 :echo has_key(mealPlans, "dessert")
-" returns 0
+" devuelve 0
 ```
 
 To see if a dictionary has any item, use `empty()`. The `empty()` procedure works with all data types: list, dictionary, string, number, float, etc.
@@ -674,10 +674,10 @@ To see if a dictionary has any item, use `empty()`. The `empty()` procedure work
 :let noMealPlan = {}
 
 :echo empty(noMealPlan)
-" returns 1
+" devuelve 1
 
 :echo empty(mealPlans)
-" returns 0
+" devuelve 0
 ```
 
 To remove an entry from a dictionary, use `remove()`.
@@ -686,10 +686,10 @@ To remove an entry from a dictionary, use `remove()`.
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
 
 :echo "removing breakfast: " . remove(mealPlans, "breakfast")
-" returns "removing breakfast: 'waffles'""
+" devuelve "removing breakfast: 'waffles'""
 
 :echo mealPlans
-" returns {'lunch': 'pancakes', 'dinner': 'donuts'}
+" devuelve {'lunch': 'pancakes', 'dinner': 'donuts'}
 ```
 
 To convert a dictionary into a list of lists, use `items()`:
@@ -698,7 +698,7 @@ To convert a dictionary into a list of lists, use `items()`:
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
 
 :echo items(mealPlans)
-" returns [['lunch', 'pancakes'], ['breakfast', 'waffles'], ['dinner', 'donuts']]
+" devuelve [['lunch', 'pancakes'], ['breakfast', 'waffles'], ['dinner', 'donuts']]
 ```
 
 `filter()` and `map()` are also available.
@@ -708,13 +708,13 @@ To convert a dictionary into a list of lists, use `items()`:
 :call filter(breakfastNo, 'v:key > 1')
 
 :echo breakfastNo
-" returns {'2': '9am', '11ses': '11am'}
+" devuelve {'2': '9am', '11ses': '11am'}
 
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
 :call map(mealPlans, 'v:key . " and milk"')
 
 :echo mealPlans
-" returns {'lunch': 'lunch and milk', 'breakfast': 'breakfast and milk', 'dinner': 'dinner and milk'}
+" devuelve {'lunch': 'lunch and milk', 'breakfast': 'breakfast and milk', 'dinner': 'dinner and milk'}
 ```
 
 The `v:key` is Vim's special variable, much like `v:val`. When iterating through a dictionary, `v:key` will hold the value of the current iterated key.
@@ -740,7 +740,7 @@ This is equivalent to `true`. It is equivalent to a number with value of non-0 .
 
 ```
 :echo json_encode({"test": v:true})
-" returns {"test": true}
+" devuelve {"test": true}
 ```
 
 ### False
@@ -749,7 +749,7 @@ This is equivalent to `false`. It is equivalent to a number with value of 0. Whe
 
 ```
 :echo json_encode({"test": v:false})
-" returns {"test": false}
+" devuelve {"test": false}
 ```
 
 ### None
@@ -758,7 +758,7 @@ It is equivalent to an empty string. When decoding json with `json_encode()`, it
 
 ```
 :echo json_encode({"test": v:none})
-" returns {"test": null}
+" devuelve {"test": null}
 ```
 
 ### Null
@@ -767,7 +767,7 @@ Similar to `v:none`.
 
 ```
 :echo json_encode({"test": v:null})
-" returns {"test": null}
+" devuelve {"test": null}
 ```
 
 ## Learn Data Types The Smart Way
