@@ -313,18 +313,18 @@ Compara esto con las comillas simples:
 
 Los caracteres especiales son caracteres de cadena especiales que cuando son escapados, se comportan de manera diferente. `\n` actúa como una línea nueva. `\"` se comporta como un literal `"`. Para consultar una lista de caracteres especiales, echa un vistazo a `:h expr-quote`.
 
-### String Procedures
+### Procedimientos con cadenas
 
-Let's look at some built-in string procedures.
+Vamos a echar un vistazo a los procedimientos internos con cadenas.
 
-You can get the length of a string with `strlen()`.
+Puedes obtener la longitud de una cadena con `strlen()`.
 
 ```
 :echo strlen("choco")
 " devuelve 5
 ```
 
-You can convert string to a number with `str2nr()`:
+Puedes convertir una cadena a un número con `str2nr()`:
 
 ```
 :echo str2nr("12donuts")
@@ -334,37 +334,37 @@ You can convert string to a number with `str2nr()`:
 " devuelve 0
 ```
 
-Similar to the string-to-number coercion earlier, if the number is not the first character, Vim won't catch it.
+De manera similar al forzado anterior de cadena a número, si el número no es el primer caracter, Vim no funcionará.
 
-The good news is that Vim has a method that transforms a string to a float, `str2float()`:
+La buena noticia es que Vim tiene un método para transformar una cadena a flotante, `str2float()`:
 
 ```
 :echo str2float("12.5donuts")
 " devuelve 12.5
 ```
 
-You can substitute a pattern in a string with the `substitute()` method:
+Puedes sustituir un patrón en una cadena con el método `substitute()`:
 
 ```
 :echo substitute("sweet", "e", "o", "g")
 " devuelve "swoot"
 ```
 
-The last parameter, "g", is the global flag. With it, Vim will substitute all matching occurrences. Without it, Vim will only substitute the first match.
+El último parámetro "g", es la opción global. Con este, Vim sustituirá todas las ocurrencias que coincidan. Sin este, Vim solo sustituirá la primera ocurrencia que encuentre.
 
 ```
 :echo substitute("sweet", "e", "o", "")
 " devuelve "swoet"
 ```
 
-The substitute command can be combined with `getline()`. Recall that the function `getline()` gets the text on the given line number. Suppose you have the text "chocolate donut" on line 5. You can use the procedure:
+El comando de sustitución puede ser combinado con `getline()`. Recuerda que la función `getline()` obtiene el texto de un número de línea dado. Supón ue tienes el texto "chocolate donut" en la línea 5. Puedes utilizar el siguiente procedimiento:
 
 ```
-:echo substitute(getline(5), "chocolate", "glazed", "g")
-" devuelve glazed donut
+:echo substitute(getline(5), "chocolate", "glaseado", "g")
+" devuelve glaseado donut
 ```
 
-There are many other string procedures. Check out `:h string-functions`.
+Hay muchos otros procedimientos con cadenas. Echa un vistazo a `:h string-functions`.
 
 ## List
 
