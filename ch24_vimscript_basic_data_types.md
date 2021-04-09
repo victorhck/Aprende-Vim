@@ -285,33 +285,33 @@ Por otra parte, esto es tratado como falso:
 
 Vim fuerza "donuts12" a 0, porque el primer caracter no es un número.
 
-### Double vs Single quotes
+### Comillad dobles vs simples
 
-Double quotes behave differently than single quotes. Single quotes display characters literally while double quotes accept special characters.
+Las comillas dobles se comportan de manera diferente que las comillas simples. Las comillas simples muestran los caracteres literalmente, mientras que las comillas dobles aceptan caracteres especiales.
 
-What are special characters? Check out the newline and double-quotes display:
+¿Qué son caracteres especiales? Por ejemplo una línea nueva y unas comillas dobles mostrarán:
 
 ```viml
-:echo "hello\nworld"
+:echo "hola\nmundo"
 " devuelve
-" hello
-" world
+" hola
+" mundo
 
-:echo "hello \"world\""
-" devuelve "hello "world""
+:echo "hola \"mundo\""
+" devuelve "hola "mundo""
 ```
 
-Compare that with single-quotes:
+Compara esto con las comillas simples:
 
 ```
-:echo 'hello\nworld'
-" devuelve 'hello\nworld'
+:echo 'hola\nmundo'
+" devuelve 'hola\nmundo'
 
-:echo 'hello \"world\"'
-" devuelve 'hello \"world\"'
+:echo 'hola \"mundo\"'
+" devuelve 'hola \"mundo\"'
 ```
 
-Special characters are special string characters that when escaped, behave differently. `\n` acts like a newline. `\"` behaves like a literal `"`. For a list of other special characters, check out `:h expr-quote`.
+Los caracteres especiales son caracteres de cadena especiales que cuando son escapados, se comportan de manera diferente. `\n` actúa como una línea nueva. `\"` se comporta como un literal `"`. Para consultar una lista de caracteres especiales, echa un vistazo a `:h expr-quote`.
 
 ### String Procedures
 
