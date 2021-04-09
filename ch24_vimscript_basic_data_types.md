@@ -285,7 +285,7 @@ Por otra parte, esto es tratado como falso:
 
 Vim fuerza "donuts12" a 0, porque el primer caracter no es un número.
 
-### Comillad dobles vs simples
+### Comillas dobles vs simples
 
 Las comillas dobles se comportan de manera diferente que las comillas simples. Las comillas simples muestran los caracteres literalmente, mientras que las comillas dobles aceptan caracteres especiales.
 
@@ -366,9 +366,9 @@ El comando de sustitución puede ser combinado con `getline()`. Recuerda que la 
 
 Hay muchos otros procedimientos con cadenas. Echa un vistazo a `:h string-functions`.
 
-## List
+## List (Listas)
 
-A Vimscript list is like an Array in Javascript or List in Python. It is an *ordered* sequence of items. You can mix-and-match the content with different data types:
+Una lista en Vimscript es como un Array en Javascript o List en Python. Es una secuencia de elementos *ordenados*. Puedes mezclar y combinar el contenido con diferentes tipos de datos:
 
 ```
 [1,2,3]
@@ -377,46 +377,46 @@ A Vimscript list is like an Array in Javascript or List in Python. It is an *ord
 [1,2,[3,4]]
 ```
 
-### Sublists
+### Sublistas
 
-Vim list is zero-indexed. You can access a particular item in a list with `[n]`, where n is the index.
+Las listas de Vim comienza en el elemento cero. Puedes acceder a un elemento en particular en una lista con `[n]`, donde n es el índice.
 
 ```
-:echo ["a", "sweet", "dessert"][0]
+:echo ["a", "dulce", "postre"][0]
 " devuelve "a"
 
-:echo ["a", "sweet", "dessert"][2]
-" devuelve "dessert"
+:echo ["a", "dulce", "postre"][2]
+" devuelve "postre"
 ```
 
-If you go over the maximum index number, Vim will throw an error saying that the index is out of range:
+Si sobrepasas el número máximo del índice, Vim mostrará un error que dice que el índice está fuera de rango:
 
 ```
-:echo ["a", "sweet", "dessert"][999]
-" devuelve an error
+:echo ["a", "dulce", "postre"][999]
+" devuelve un error
 ```
 
-When you go below zero, Vim will start the index from the last element. Going past the minimum index number will also throw you an error:
+Cuando estás por debajo de cero, Vim comenzará el índice desde el último elemento. Sobrepasar el número de índice mínimo también mostrará un error:
 
 ```
-:echo ["a", "sweet", "dessert"][-1]
-" devuelve "dessert"
+:echo ["a", "dulce", "postre"][-1]
+" devuelve "dulce"
 
-:echo ["a", "sweet", "dessert"][-3]
+:echo ["a", "dulce", "postre"][-3]
 " devuelve "a"
 
-:echo ["a", "sweet", "dessert"][-999]
-" devuelve an error
+:echo ["a", "dulce", "postre"][-999]
+" devuelve un error
 ```
 
-You can "slice" several elements from a list with `[n:m]`, where `n` is the starting index and `m` is the ending index.
+Puedes seleccionar varios elementos de una lista con `[n:m]`, donde `n` es el índice inicial y `m` es el índice final.
 
 ```
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][2:4]
 " devuelve ["plain", "strawberry", "lemon"]
 ```
 
-If you don't pass `m` (`[n:]`), Vim will return the rest of the elements starting from the nth element. If you don't pass `n` (`[:m]`), Vim will return the first element up to the mth element.
+Si no pasas el índice final `m` (`[n:]`), Vim devolverá el resto de elementos comenzando desde el elemento n. Sin no pasa el índice `n` (`[:m]`), Vim devolverá desde el primer elemento hasta el elemento m.
 
 ```
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][2:]
@@ -426,7 +426,7 @@ If you don't pass `m` (`[n:]`), Vim will return the rest of the elements startin
 " devuelve ['chocolate', 'glazed', 'plain', 'strawberry', 'lemon']
 ```
 
-You can pass an index that exceeds the maximum items when slicing an array.
+Puedes pasarle un índice que exceda el máximo de elementos cuando selecciones varios elementos de un array.
 
 ```viml
 :echo ["chocolate", "glazed", "plain", "strawberry", "lemon", "sugar", "cream"][2:999]
