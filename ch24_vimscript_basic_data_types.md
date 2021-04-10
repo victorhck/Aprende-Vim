@@ -597,7 +597,7 @@ Si no quieres poner comillas en cada clave, también puedes utilizar la notació
 " devuelve {'lunch': 'pancakes', 'breakfast': 'waffles', 'dinner': 'donuts'}
 ```
 
-El único requisito para utilizar `#{}` es que cada clave debe se al menos:
+El único requisito para utilizar `#{}` es que cada clave debe ser al menos:
 
 - Un caracter ASCII.
 - Digito.
@@ -610,36 +610,36 @@ Igual que en la lista, puedes utilizar cualquier tipo de dato como valor.
 :let mealPlan = {"breakfast": ["pancake", "waffle", "hash brown"], "lunch": WhatsForLunch(), "dinner": {"appetizer": "gruel", "entree": "more gruel"}}
 ```
 
-### Accessing Dictionary
+### Acceder al diccionario
 
-To access a value from a dictionary, you can call the key with either the square brackets (`['key']`) or the dot notation (`.key`).
+Para acceder a un valor de un diccionario, puedes llamar a la clave usando tanto la notación de los corchetes (`['key']`) o la notación del punto (`.key`).
 
 ```
-:let meal = {"breakfast": "gruel omelettes", "lunch": "gruel sandwiches", "dinner": "more gruel"}
+:let comida = {"desayuno": "huevos revueltos", "almuerzo": "bocadillo", "cena": "sopa"}
 
-:let breakfast = meal['breakfast']
-:let lunch = meal.lunch
+:let breakfast = comida['desayuno']
+:let lunch = comida.almuerzo
 
 :echo breakfast
-" devuelve "gruel omelettes"
+" devuelve "huevos revueltos"
 
 :echo lunch
-" devuelve "gruel sandwiches"
+" devuelve "bocadillo"
 ```
 
-### Modifying Dictionary
+### Modificar un diccionario
 
-You can modify or even add a dictionary content:
+Puedes modificar o añadir contenido en un diccionario:
 
 ```
-:let meal = {"breakfast": "gruel omelettes", "lunch": "gruel sandwiches"}
+:let comida = {"desayuno": "huevos revueltos", "almuerzo": "bocadillo"}
 
-:let meal.breakfast = "breakfast tacos"
-:let meal["lunch"] = "tacos al pastor"
-:let meal["dinner"] = "quesadillas"
+:let comida.desayuno = "tortitas"
+:let comida["almuerzo"] = "tacos al pastor"
+:let comida["cena"] = "quesadillas"
 
 :echo meal
-" devuelve {'lunch': 'tacos al pastor', 'breakfast': 'breakfast tacos', 'dinner': 'quesadillas'}
+" devuelve {'almuerzo': 'tacos al pastor', 'desayuno': 'tortitas', 'cena': 'quesadillas'}
 ```
 
 ### Dictionary Functions
