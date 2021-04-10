@@ -569,17 +569,17 @@ Puedes mutar directamente múltiples elementos de la lista:
 devuelve ['chocolate', 'glaseado', 'fresa', 'chocolate']
 ```
 
-## Dictionary
+## Diccionario
 
-A Vimscript dictionary is an associative, unordered list. A non-empty dictionary consists of at least a key-value pair.
+Un diccionario en Vimscript es una lista desordenada y asociada. Un diccionario no vacío consiste en al menos un par de valores clave.
 
 ```
-{"breakfast": "waffles", "lunch": "pancakes"}
-{"meal": ["breakfast", "second breakfast", "third breakfast"]}
-{"dinner": 1, "dessert": 2}
+{"desayuno": "gofres", "almuerzo": "tortitas"}
+{"comida": ["desayuno", "segundo desayuno", "tercer desayuno"]}
+{"cena": 1, "postre": 2}
 ```
 
-A Vim dictionary data object uses string for key. If you try to use a number, Vim will coerce it into a string.
+Un dato de un objeto de un diccionario utiliza una cadena como clave. Si tratas de utilizar un número, Vim lo forzará como cadena.
 
 ```
 :let breakfastNo = {1: "7am", 2: "9am", "11ses": "11am"}
@@ -588,7 +588,7 @@ A Vim dictionary data object uses string for key. If you try to use a number, Vi
 " devuelve {'1': '7am', '2': '9am', '11ses': '11am'}
 ```
 
-If you are too lazy to put quotes around each key, you can use the `#{}` notation:
+Si no quieres poner comillas en cada clave, también puedes utilizar la notación `#{}`:
 
 ```
 :let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
@@ -597,14 +597,14 @@ If you are too lazy to put quotes around each key, you can use the `#{}` notatio
 " devuelve {'lunch': 'pancakes', 'breakfast': 'waffles', 'dinner': 'donuts'}
 ```
 
-The only requirement for using the `#{}` syntax is that each key must be either:
+El único requisito para utilizar `#{}` es que cada clave debe se al menos:
 
-- ASCII character.
-- Digit.
-- An underscore (`_`).
-- A hyphen (`-`).
+- Un caracter ASCII.
+- Digito.
+- Una barra baja (`_`).
+- Un guión (`-`).
 
-Just like list, you can use any data type as values.
+Igual que en la lista, puedes utilizar cualquier tipo de dato como valor.
 
 ```
 :let mealPlan = {"breakfast": ["pancake", "waffle", "hash brown"], "lunch": WhatsForLunch(), "dinner": {"appetizer": "gruel", "entree": "more gruel"}}
