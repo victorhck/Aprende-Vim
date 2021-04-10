@@ -521,52 +521,52 @@ La variable `v:val` es una variable especial de Vim. Está disponible cuando int
 
 Para más información, echa un vistazo a `:h list-functions`.
 
-### List Unpacking
+### Desgranar una lista
 
-You can unpack a list and assign variables to the list items:
+Puedes desempaquetar, desgranar o separar una lista y asignar variables a los elementos de la lista:
 
 ```
-:let favoriteFlavor = ["chocolate", "glazed", "plain"]
+:let favoriteFlavor = ["chocolate", "glaseado", "fresa"]
 :let [flavor1, flavor2, flavor3] = favoriteFlavor
 
 :echo flavor1
 " devuelve "chocolate"
 
 :echo flavor2
-" devuelve "glazed"
+" devuelve "glaseado"
 ```
 
-To assign the rest of list items, you can use `;` followed with a variable name:
+Para asignar el resto de elementos de la lista, puedes utilizar `;` seguido con el nombre de una variable:
 
 ```
-:let favoriteFruits = ["apple", "banana", "lemon", "blueberry", "raspberry"]
+:let favoriteFruits = ["manzana", "banana", "limón", "arándano", "frambuesa"]
 :let [fruit1, fruit2; restFruits] = favoriteFruits
 
 :echo fruit1
-" devuelve "apple"
+" devuelve "manzana"
 
 :echo restFruits
-" devuelve ['lemon', 'blueberry', 'raspberry']
+" devuelve ['limón', 'arándano', 'frambuesa']
 ```
 
-### Modifying List
+### Modificar una lista
 
-You can modify a list item directly:
+Puedes modificar directamente el elemento de una lista:
 
 ```
-:let favoriteFlavor = ["chocolate", "glazed", "plain"]
-:let favoriteFlavor[0] = "sugar"
+:let favoriteFlavor = ["chocolate", "glaseado", "fresa"]
+:let favoriteFlavor[0] = "azucarado"
 :echo favoriteFlavor
-" devuelve ['sugar', 'glazed', 'plain']
+" devuelve ['azucarado', 'glaseado', 'fresa']
 ```
 
-You can mutate multiple list items directly:
+Puedes mutar directamente múltiples elementos de la lista:
 
 ```
-:let favoriteFlavor = ["chocolate", "glazed", "plain"]
-:let favoriteFlavor[2:] = ["strawberry", "chocolate"]
+:let favoriteFlavor = ["chocolate", "glaseado", "azucarado"]
+:let favoriteFlavor[2:] = ["fresa", "chocolate"]
 :echo favoriteFlavor
-devuelve ['chocolate', 'glazed', 'strawberry', 'chocolate']
+devuelve ['chocolate', 'glaseado', 'fresa', 'chocolate']
 ```
 
 ## Dictionary
