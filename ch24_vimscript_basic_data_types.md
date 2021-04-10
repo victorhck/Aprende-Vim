@@ -462,64 +462,64 @@ Puedes utilizar `+` para concatenar y mutar una lista:
 " devuelve ["chocolate", "fresa", "azúcar"]
 ```
 
-### List Functions
+### Funciones de listas
 
-Let's explore Vim's built-in list functions.
+Vamos a explorar las funciones de listas propias de Vim.
 
-To get the length of a list, use `len()`:
+Para obtener la longitud de una lisya, utiliza `len()`:
 
 ```
-:echo len(["chocolate", "strawberry"])
+:echo len(["chocolate", "fresa"])
 " devuelve 2
 ```
 
-To prepend  an element to a list, you can use `insert()`:
+Para anteponer un nuevo elemento en una lista, puedes utilizar `insert()`:
 
 ```
-:let sweetList = ["chocolate", "strawberry"]
-:call insert(sweetList, "glazed")
+:let sweetList = ["chocolate", "fresa"]
+:call insert(sweetList, "azucarado")
 
 :echo sweetList
-" devuelve ["glazed", "chocolate", "strawberry"]
+" devuelve ["azucarado", "chocolate", "fresa"]
 ```
 
-You can also pass `insert()` the index where you want to prepend the element to. If you want to prepend an item before the second element (index 1):
+También puedes pasar a `insert()` el índice donde quieres anteponer el elemento. Si quieres añadir un elemento antes del segundo elemento (índice 1):
 
 ```
-:let sweeterList = ["glazed", "chocolate", "strawberry"]
-:call insert(sweeterList, "cream", 1)
+:let sweeterList = ["azucarado", "chocolate", "fresa"]
+:call insert(sweeterList, "crema", 1)
 
 :echo sweeterList
-" devuelve ['glazed', 'cream', 'chocolate', 'strawberry']
+" devuelve ['azucarado', 'crema', 'chocolate', 'fresa']
 ```
 
-To remove a list item, use `remove()`. It accepts a list and the element index you want to remove.
+Para eliminar un elemento de una lista, utiliza `remove()`. Esto acepta una lista y el índice del elemento que quieres eliminar.
 
 ```
-:let sweeterList = ["glazed", "chocolate", "strawberry"]
+:let sweeterList = ["azucarado", "chocolate", "fresa"]
 :call remove(sweeterList, 1)
 
 :echo sweeterList
-" devuelve ['glazed', 'strawberry']
+" devuelve ['azucarado', 'fresa']
 ```
 
-You can use `map()` and `filter()` on a list. To filter out element containing the phrase "choco":
+Puedes utilizar `map()` o `filter()` en una lista para filtrar un element en una frase. Por ejemplo el elemento que contiene la palabra "choco":
 
 ```
-:let sweeterList = ["glazed", "chocolate", "strawberry"]
+:let sweeterList = ["azucarado", "chocolate", "fresa"]
 :call filter(sweeterList, 'v:val !~ "choco"')
 :echo sweeterList
-" devuelve ["glazed", "strawberry"]
+" devuelve ["azucarado", "fresa"]
 
-:let sweetestList = ["chocolate", "glazed", "sugar"]
+:let sweetestList = ["chocolate", "glaseado", "azucarado"]
 :call map(sweetestList, 'v:val . " donut"')
 :echo sweetestList
-" devuelve ['chocolate donut', 'glazed donut', 'sugar donut']
+" devuelve ['chocolate donut', 'glaseado donut', 'azucarado donut']
 ```
 
-The `v:val` variable is a Vim special variable. It is available when iterating a list or a dictionary using `map()` or `filter()`. It represents each iterated item.
+La variable `v:val` es una variable especial de Vim. Está disponible cuando interactuas con una lista o un diccionario utilizando `map()` o `filter()`. Representa cada elemento repetido.
 
-For more, check out `:h list-functions`.
+Para más información, echa un vistazo a `:h list-functions`.
 
 ### List Unpacking
 
