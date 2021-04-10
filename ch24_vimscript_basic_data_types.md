@@ -642,35 +642,35 @@ Puedes modificar o añadir contenido en un diccionario:
 " devuelve {'almuerzo': 'tacos al pastor', 'desayuno': 'tortitas', 'cena': 'quesadillas'}
 ```
 
-### Dictionary Functions
+### Funciones con el diccionario
 
-Let's explore some of Vim's built-in functions to handle Dictionaries.
+Vamos a explorar algunas de las funciones propias de Vim que podemos hacer para manejar diccionarios.
 
-To check the length of a dictionary, use `len()`.
+Para comprobar la longitud de un diccionario, utiliza `len()`.
 
 ```
-:let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
+:let mealPlans = #{desayuni: "gofres", almuerzo: "tortitas", cena: "donuts"}
 
 :echo len(meaPlans)
 " devuelve 3
 ```
 
-To see if a dictionary contains a specific key, use `has_key()`
+Para ver si un diccionario contiene una clave específica, utiliza `has_key()`
 
 ```
-:let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
+:let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
 
-:echo has_key(mealPlans, "breakfast")
+:echo has_key(mealPlans, "desayuno")
 " devuelve 1
 
-:echo has_key(mealPlans, "dessert")
+:echo has_key(mealPlans, "postre")
 " devuelve 0
 ```
 
-To see if a dictionary has any item, use `empty()`. The `empty()` procedure works with all data types: list, dictionary, string, number, float, etc.
+Para ver si un diccionario tiene cualquier elemento, utiliza `empty()`. El procedimiento `empty()` funciona con todo tipo de datos: listas, diccionario, cadenas, números, flotante, etc.
 
 ```
-:let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
+:let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
 :let noMealPlan = {}
 
 :echo empty(noMealPlan)
@@ -680,28 +680,28 @@ To see if a dictionary has any item, use `empty()`. The `empty()` procedure work
 " devuelve 0
 ```
 
-To remove an entry from a dictionary, use `remove()`.
+Para eliminar una entrada de un diccionario, utiliza `remove()`.
 
 ```
-:let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
+:let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
 
-:echo "removing breakfast: " . remove(mealPlans, "breakfast")
-" devuelve "removing breakfast: 'waffles'""
+:echo "eliminando el desayuno: " . remove(mealPlans, "desayuno")
+" devuelve "eliminando el desayuno: 'gofres'""
 
 :echo mealPlans
-" devuelve {'lunch': 'pancakes', 'dinner': 'donuts'}
+" devuelve {'almuerzo': 'tortitas', 'cena': 'donuts'}
 ```
 
-To convert a dictionary into a list of lists, use `items()`:
+Para convertir un diccionario a una lista de listas, utiliza `items()`:
 
 ```
-:let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
+:let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
 
 :echo items(mealPlans)
-" devuelve [['lunch', 'pancakes'], ['breakfast', 'waffles'], ['dinner', 'donuts']]
+" devuelve [['almuerzo', 'tortitas'], ['desayuno', 'gofres'], ['cena', 'donuts']]
 ```
 
-`filter()` and `map()` are also available.
+`filter()` y `map()` también están disponibles.
 
 ```
 :let breakfastNo = {1: "7am", 2: "9am", "11ses": "11am"}
