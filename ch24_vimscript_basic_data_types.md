@@ -710,16 +710,16 @@ Para convertir un diccionario a una lista de listas, utiliza `items()`:
 :echo breakfastNo
 " devuelve {'2': '9am', '11ses': '11am'}
 
-:let mealPlans = #{breakfast: "waffles", lunch: "pancakes", dinner: "donuts"}
-:call map(mealPlans, 'v:key . " and milk"')
+:let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
+:call map(mealPlans, 'v:key . " y leche"')
 
 :echo mealPlans
-" devuelve {'lunch': 'lunch and milk', 'breakfast': 'breakfast and milk', 'dinner': 'dinner and milk'}
+" devuelve {'almuerzo': 'almuerzo y leche', 'desayuno': 'desayuno y leche', 'cena': 'cena y leche'}
 ```
 
-The `v:key` is Vim's special variable, much like `v:val`. When iterating through a dictionary, `v:key` will hold the value of the current iterated key.
+La `v:key` es una variable especial de Vim, similar a `v:val`. Cuandoestás interactuando con un diccionario, `v:key` guardará el valor de la clave actual.
 
-To see more dictionary functions, check out `:h dict-functions`.
+Para saber más sobre funciones con diccionarios, echa un vistazo a `:h dict-functions`.
 
 ## Special Primitives
 
