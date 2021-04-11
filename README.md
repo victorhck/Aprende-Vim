@@ -50,8 +50,8 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 
 ### Parte 3: Aprende Vimscript de la manera más inteligente
 
-- [Ch 24 - Vimscript Basic Data Types](./ch24_vimscript_basic_data_types.md)......... En progreso ✅ / Traducido [ ] / Revisado [ ] 
-- [Ch 25 - Vimscript Conditionals And Loops](./ch25_vimscript_conditionals_and_loops.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
+- [Ch 24 - Vimscript Basic Data Types](./ch24_vimscript_basic_data_types.md)......... En progreso [ ] / Traducido ✅ / Revisado [ ] 
+- [Ch 25 - Vimscript Conditionals And Loops](./ch25_vimscript_conditionals_and_loops.md) ......... En progreso ✅ / Traducido [ ] / Revisado [ ] 
 - [Ch 26 - Vimscript Variable Scopes](./ch26_vimscript_variables_scopes.md) ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
 - [Ch 27 - Vimscript Functions](./ch27_vimscript_functions.md)  ......... En progreso [ ] / Traducido [ ] / Revisado [ ] 
 
