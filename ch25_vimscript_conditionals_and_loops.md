@@ -143,31 +143,31 @@ Yo prefiero utilizar `#` para siempre tener en cuenta las mayúsculas y minúscu
 
 ## If
 
-Now that you have seen Vim's equality expressions, let's touch a fundamental conditional operator, the `if` statement.
+Ahora que ya has visto las expresiones de igualdad de Vim, vamos a tratar un operador condicional fundamental, la sentencia `if`.
 
-At minimum, the syntax is:
+Como mínimo, la sintaxis es:
 
 ```
-if {clause}
-  {some expression}
+if {cláusula}
+  {alguna expresión}
 endif
 ```
 
-You can extend the case analysis with `elseif` and `else`.
+Puedes extender el análisis del caso con `elseif` y `else`.
 
 ```
-if {predicate1}
-  {expression1}
-elseif {predicate2}
-  {expression2}
-elseif {predicate3}
-  {expression3}
+if {predicado1}
+  {expresión1}
+elseif {predicado2}
+  {expresión2}
+elseif {predicado3}
+  {expresión3}
 else
-  {expression4}
+  {expresión4}
 endif
 ```
 
-For example, the plugin [vim-signify](https://github.com/mhinz/vim-signify) uses a different installation method depending on your Vim settings. Below is the installation instruction from their `readme`, using the `if` statement:
+Por ejemplo, el complemento [vim-signify](https://github.com/mhinz/vim-signify) utiliza un método diferente de instalación dependiendo de tus ajustes de Vim. Debajo está la instrucción de instalación copiada desde su `readme`, utilizando la instrucción `if`:
 
 ```
 if has('nvim') || has('patch-8.0.902')
