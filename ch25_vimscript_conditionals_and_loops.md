@@ -32,14 +32,14 @@ Recuerda que las *strings* o cadenas son forzadas a números en una expresión a
 
 ```
 :echo 5 == "5foo"
-" returns true
+" devuelve true
 ```
 
 Also recall that if you start a string with a non-numerical character like "foo5", the string is converted into number 0 (falsy).
 
 ```
 echo 5 == "foo5"
-" returns false
+" devuelve false
 ```
 
 ### String Logic Operators
@@ -57,23 +57,23 @@ For examples:
 let str = "hearty breakfast"
 
 echo str =~ "hearty"
-" returns true
+" devuelve true
 
 echo str =~ "dinner"
-" returns false
+" devuelve false
 
 echo str !~ "dinner"
-" returns true
+" devuelve true
 ```
 
 The `=~` operator performs a regex match against the given string. In the example above, `str =~ "hearty"` returns true because `str` *contains* the "hearty" pattern. You can always use `==` and `!=`, but using them will compare the expression against the entire string. `=~` and `!~` are more flexible choices.
 
 ```
 echo str == "hearty"
-" returns false
+" devuelve false
 
 echo str == "hearty breakfast"
-" returns true
+" devuelve true
 ```
 
 Let's try this one. Note the uppercase "H":
@@ -88,11 +88,11 @@ It returns true even though "Hearty" is capitalized. Interesting... It turns out
 ```
 set noignorecase
 echo str =~ "Hearty"
-" returns false because case matters
+" devuelve false because case matters
 
 set ignorecase
 echo str =~ "Hearty"
-" returns true because case doesn't matter
+" devuelve true because case doesn't matter
 ```
 
 If you are writing a plugin for others, this is a tricky situation. Does the user use `ignorecase` or `noignorecase`? You definitely do *not* want to force your users to change their ignore case option. So what do you do?
@@ -102,10 +102,10 @@ Luckily, Vim has an operator that can *always* ignore or match case. To always m
 ```
 set ignorecase
 echo str =~# "hearty"
-" returns true
+" devuelve true
 
 echo str =~# "HearTY"
-" returns false
+" devuelve false
 
 set noignorecase
 echo str =~# "hearty"
@@ -214,19 +214,19 @@ Vim evaluates the expression and return either 1 (truthy) or 0 (falsy).
 
 ```
 echo 5 || 0
-" returns 1
+" devuelve 1
 
 echo 5 || 5
-" returns 1
+" devuelve 1
 
 echo 0 || 0
-" returns 0
+" devuelve 0
 
 echo "foo5" || "foo5"
-" returns 0
+" devuelve 0
 
 echo "5foo" || "foo5"
-" returns 1
+" devuelve 1
 ```
 
 If the current expression evaluates to truthy, the subsequent expression won't be evaluated.
@@ -235,10 +235,10 @@ If the current expression evaluates to truthy, the subsequent expression won't b
 let one_dozen = 12
 
 echo one_dozen || two_dozen
-" returns 1
+" devuelve 1
 
 echo two_dozen || one_dozen
-" returns error
+" devuelve error
 ```
 
 Note that `two_dozen` is never defined. The expression `one_dozen || two_dozen` doesn't throw any error because `one_dozen` is evaluated first found to be truthy, so Vim doesn't evaluate `two_dozen`.
@@ -258,10 +258,10 @@ For example:
 
 ```
 echo 0 && 0
-" returns 0
+" devuelve 0
 
 echo 0 && 10
-" returns 0
+" devuelve 0
 ```
 
 Unlike "or", "and" will evaluate the subsequent expression after it reaches the first falsy expression. It will continue to evaluate the subsequent truthy expressions until the end or when it sees the first falsy expression.
@@ -269,16 +269,16 @@ Unlike "or", "and" will evaluate the subsequent expression after it reaches the 
 ```
 let one_dozen = 12
 echo one_dozen && 10
-" returns 1
+" devuelve 1
 
 echo one_dozen && v:false
-" returns 0
+" devuelve 0
 
 echo one_dozen && two_dozen
-" returns error
+" devuelve error
 
 echo exists("one_dozen") && one_dozen == 12
-" returns 1
+" devuelve 1
 ```
 
 ## For
