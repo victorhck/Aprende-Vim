@@ -721,49 +721,49 @@ La `v:key` es una variable especial de Vim, similar a `v:val`. Cuandoestás inte
 
 Para saber más sobre funciones con diccionarios, echa un vistazo a `:h dict-functions`.
 
-## Special Primitives
+## Primitivos especiales (Special Primitives)
 
-Vim has special primitives:
+Vim tiene unos primitivos especiales:
 
 - `v:false`
 - `v:true`
 - `v:none`
 - `v:null`
 
-By the way, `v:` is Vim's built-in variable. They will be covered more in a later chapter.
+Por cierto, `v:` es una variable interna de Vim. Trataremos más en detalle sobre esas variables en un capítulo posterior.
 
-In my experience, you won't use these special primitives often. If you need a truthy / falsy value, you can just use 0 (falsy) and non-0 (truthy). If you need an empty string, just use `""`. But it is still good to know, so let's quickly go over them.
+En mi experiencia, no vas a utilizar muy a menudi estos primitivos especiales. Si necesitas un valor verdadero o falso, puedes utilizar simplemente 0 (falso) y un valor distinto de 0 (verdadero). Si necesitas una cadena vacía, simplemente utiliza `""`. Pero es buena idea conocer que existen por si quieres utilizarlos, así que vamos a darles un repaso rápido.
 
-### True
+### True (Verdadero)
 
-This is equivalent to `true`. It is equivalent to a number with value of non-0 . When decoding json with `json_encode()`, it is interpreted as "true".
+Esto es equivalente a `true`. Es equivalente a un número con un valor distinto de 0. Cuando codificamos con json mediante `json_encode()`, esto es interpretado como "verdadero".
 
 ```
 :echo json_encode({"test": v:true})
 " devuelve {"test": true}
 ```
 
-### False
+### False (Falso)
 
-This is equivalent to `false`. It is equivalent to a number with value of 0. When decoding json with `json_encode()`, it is interpreted as "false".
+Esto es equivalente a `false`. Es equivalente a un número con un valor 0. Cuando codificamos con json mediante `json_encode()`, esto es interpretado como "falso".
 
 ```
 :echo json_encode({"test": v:false})
 " devuelve {"test": false}
 ```
 
-### None
+### None (Vacío)
 
-It is equivalent to an empty string. When decoding json with `json_encode()`, it is interpreted as an empty item (`null`).
+Es equivalente a una cadena vacía. Cuando codificamos con json mediante `json_encode()`, esto es interpretado como un elemento vacío (`null`).
 
 ```
 :echo json_encode({"test": v:none})
 " devuelve {"test": null}
 ```
 
-### Null
+### Null (Vacío)
 
-Similar to `v:none`.
+Similar a `v:none`.
 
 ```
 :echo json_encode({"test": v:null})
