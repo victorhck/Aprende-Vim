@@ -1,23 +1,23 @@
-# Ch25. Vimscript Conditionals And Loops
+# Capítulo 25. Condicionales y bucles en Vimscript
 
-After learning what the basic data types are, the next step is to learn how to combine them together to start writing a basic program. A basic program consists of conditionals and loops.
+Después de aprender cuales son los tipos básicos de tipos de datos que existen en Vimscript, el siguiente paso es aprender cómo combinarlos para empezar a escribir un programa básico. Un programa básico consiste en condicionales y bucles.
 
-In this chapter, you will learn how to use Vimscript data types to write conditionals and loops.
+En este capítulo, aprenderás cómo utilizar los tipos de datos de Vimscript para escribir esos condicionales y bucles.
 
-## Relational Operators
+## Operadores relacionales
 
-Vimscript relational operators are similar to many programming languages:
+Los operadores relacionales de Vimscript son similares a los que que existen en la mayoría de lenguajes de programación:
 
 ```
-a == b		equal to
-a != b		not equal to
-a >  b		greater than
-a >= b		greater than or equal to
-a <  b		less than
-a <= b		less than or equal to
+a == b		igual a
+a != b		no igual a
+a >  b		mayor quegreater than
+a >= b		mayor o igual que
+a <  b		menor que
+a <= b		menor o igual que
 ```
 
-For example:
+Por ejemplo:
 
 ```
 :echo 5 == 5
@@ -28,7 +28,7 @@ For example:
 :echo 5 <= 5
 ```
 
-Recall that strings are coerced into numbers in an arithmetic expression. Here Vim also coerces strings into numbers in an equality expression. "5foo" is coerced into 5 (truthy):
+Recuerda que las *strings* o cadenas son forzadas a números en una expresión aritmética. Aquí Vim fuerza las cadenas a números en una expresión de igualdad."5foo" es forzado a 5 (verdadero):
 
 ```
 :echo 5 == "5foo"
