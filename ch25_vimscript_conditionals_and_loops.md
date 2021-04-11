@@ -95,51 +95,51 @@ echo str =~ "Abundante"
 " devuelve true porque no tiene en cuenta las mayúsculas
 ```
 
-If you are writing a plugin for others, this is a tricky situation. Does the user use `ignorecase` or `noignorecase`? You definitely do *not* want to force your users to change their ignore case option. So what do you do?
+Si estás escribiendo un complemento para otras personas, esto puede ser una situación engorrosa. ¿Utiliza esa persona `ignorecase` o `noignorecase`? Realmente *no* quieres forzar a nadie a cambiar sus opciones de ignorar o no las mayúsculas. ¿Qué puedes hacer?
 
-Luckily, Vim has an operator that can *always* ignore or match case. To always match case, add a `#` at the end.
+Afortunadamente, Vim tiene un par de operadores que *siempre* puede ignorar o tener en cuenta las mayúsculas y minúsculas. Para siempre tener en cuenta las mayúsculas, añade un `#` al final.
 
 ```
 set ignorecase
-echo str =~# "hearty"
+echo str =~# "abundante"
 " devuelve true
 
-echo str =~# "HearTY"
+echo str =~# "AbundaNTe"
 " devuelve false
 
 set noignorecase
-echo str =~# "hearty"
+echo str =~# "abundante"
 " true
 
-echo str =~# "HearTY"
+echo str =~# "AbundaNTe"
 " false
 
-echo str !~# "HearTY"
+echo str !~# "AbundaNTe"
 " true
 ```
 
-To always ignore case when comparing, append it with `?`:
+Para siempre ignorar las mayúsculas y minúsculas al comparar, añade `?`:
 
 ```
 set ignorecase
-echo str =~? "hearty"
+echo str =~? "abundante"
 " true
 
-echo str =~? "HearTY"
+echo str =~? "AbundaNTe"
 " true
 
 set noignorecase
-echo str =~? "hearty"
+echo str =~? "abundante"
 " true
 
-echo str =~? "HearTY"
+echo str =~? "AbundaNTe"
 " true
 
-echo str !~? "HearTY"
+echo str !~? "AbundaNTe"
 " false
 ```
 
-I prefer to use `#` to always match the case and be on the safe side.
+Yo prefiero utilizar `#` para siempre tener en cuenta las mayúsculas y minúsculas y siempre ir sobre seguro.
 
 ## If
 
