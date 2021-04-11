@@ -35,7 +35,7 @@ Recuerda que las *strings* o cadenas son forzadas a números en una expresión a
 " devuelve true
 ```
 
-Also recall that if you start a string with a non-numerical character like "foo5", the string is converted into number 0 (falsy).
+También recuerda que si comienzas una cadena con un caracter no numérico como "foo5", la cadena es convertida al número 0 (falso).
 
 ```
 echo 5 == "foo5"
