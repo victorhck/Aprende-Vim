@@ -42,57 +42,57 @@ echo 5 == "foo5"
 " devuelve false
 ```
 
-### String Logic Operators
+### Operadores lógicos para cadenas
 
-Vim has more relational operators for comparing strings:
+Vim tiene más operadores relacionales para comparar cadenas:
 
 ```
 a =~ b
 a !~ b
 ```
 
-For examples:
+Por ejemplo:
 
 ```
-let str = "hearty breakfast"
+let str = "abundante desayuno"
 
-echo str =~ "hearty"
+echo str =~ "abundante"
 " devuelve true
 
-echo str =~ "dinner"
+echo str =~ "cena"
 " devuelve false
 
-echo str !~ "dinner"
+echo str !~ "cena"
 " devuelve true
 ```
 
-The `=~` operator performs a regex match against the given string. In the example above, `str =~ "hearty"` returns true because `str` *contains* the "hearty" pattern. You can always use `==` and `!=`, but using them will compare the expression against the entire string. `=~` and `!~` are more flexible choices.
+El operador `=~` realiza una coincidencia de expresiones regulares contra la cadena dada. En el ejemplo anterior, `str =~ "hearty"` devuelve verdadero porque `str` *contiene* el patrón "abundante". Siempre puedes utilizar `==` o `!=`, pero al usarlos comparará la expresión contra la cadena entera. `=~` o `!~` son unas elecciones más flexibles.
 
 ```
-echo str == "hearty"
+echo str == "abundante"
 " devuelve false
 
-echo str == "hearty breakfast"
+echo str == "abundante desayuno"
 " devuelve true
 ```
 
-Let's try this one. Note the uppercase "H":
+Vamos a probar esta otra. Ten en cuenta la letra mayúscula "A":
 
 ```
-echo str =~ "Hearty"
+echo str =~ "Abundante"
 " true
 ```
 
-It returns true even though "Hearty" is capitalized. Interesting... It turns out that my Vim setting is set to ignore case (`set ignorecase`), so when Vim checks for equality, it uses my Vim setting and ignores the case. If I were to turn off ignore case (`set noignorecase`), the comparison now returns false.
+Devuelve verdadero incluso aunque "Abundante" comience con mayúscula. Interesante... Resulta que mi ajuste de Vim está establecido para ignorar las mayúsculas (`set ignorecase`), así que cuando Vim comprueba la igualdad, utiliza mis ajustes de Vim e ignora esa letra en mayúscula. Si inhabilitara esa opción de ignorar mayúsculas (`set noignorecase`), la comparación ahora devolvería un falso.
 
 ```
 set noignorecase
-echo str =~ "Hearty"
-" devuelve false because case matters
+echo str =~ "Abundante"
+" devuelve false porque tiene en cuenta las mayúsculas
 
 set ignorecase
-echo str =~ "Hearty"
-" devuelve true because case doesn't matter
+echo str =~ "Abundante"
+" devuelve true porque no tiene en cuenta las mayúsculas
 ```
 
 If you are writing a plugin for others, this is a tricky situation. Does the user use `ignorecase` or `noignorecase`? You definitely do *not* want to force your users to change their ignore case option. So what do you do?
