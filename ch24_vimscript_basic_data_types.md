@@ -770,8 +770,8 @@ Similar a `v:none`.
 " devuelve {"test": null}
 ```
 
-## Learn Data Types The Smart Way
+## Aprendiendo los tipos de datos de la manera más inteliginte
 
-In this chapter, you learned about Vimscript's basic data types: number, float, string, list, dictionary, and special. Learning these is the first step to start Vimscript programming.
+En este capítulo, has aprendido sobre los tipos básicos de datos de Vimscript: números, flotantes, cadenas, listas, diccionarios y especiales. Aprender esto es el primer paso para comenzar a programar en Vimscript.
 
-In the next chapter, you will learn how to combine them for writing expressions like equalities, conditionals, and loops.
+En el siguiente capítulo, aprenderás cómo combinar estos tipos para escribir expresiones como igualdades, condicionales o bucles.
