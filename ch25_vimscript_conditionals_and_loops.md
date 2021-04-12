@@ -200,16 +200,16 @@ let &background = strftime("%H") < 18 ? "light" : "dark"
 
 ## Or
 
-The logical "or" (`||`) works like many programming languages.
+El "or" lógico (`||`) funciona como en la mayoría de lenguajes de programación.
 
 ```
-{Falsy expression}  || {Falsy expression}   false
-{Falsy expression}  || {Truthy expression}  true
-{Truthy expression} || {Falsy expression}   true
-{Truthy expression} || {Truthy expression}  true
+{Expresión falsa}  || {Expresión falsa}   false
+{Expresión falsa}  || {Expresión verdadera}  true
+{Expresión verdadera} || {Expresión falsa}   true
+{Expresión verdadera} || {Expresión verdadera}  true
 ```
 
-Vim evaluates the expression and return either 1 (truthy) or 0 (falsy).
+Vim evalua la expresión y devuelve un 1 (verdadero) o 0 (falso).
 
 ```
 echo 5 || 0
@@ -228,19 +228,19 @@ echo "5foo" || "foo5"
 " devuelve 1
 ```
 
-If the current expression evaluates to truthy, the subsequent expression won't be evaluated.
+Dentro del `or` la primera expresión se evalúa y si es verdadera, la expresión siguiente no será evaluada.
 
 ```
-let one_dozen = 12
+let una_docena = 12
 
-echo one_dozen || two_dozen
+echo una_docena || dos_docenas
 " devuelve 1
 
-echo two_dozen || one_dozen
+echo dos_docenas || una_docena
 " devuelve error
 ```
 
-Note that `two_dozen` is never defined. The expression `one_dozen || two_dozen` doesn't throw any error because `one_dozen` is evaluated first found to be truthy, so Vim doesn't evaluate `two_dozen`.
+Ten en cuenta que `dos_docena` no se ha definido nunca. La expresión `una_docena || dos_docenas` no muestra ningún error porque `una_docena` es evaluada primero y encuentra que es verdadera, por lo que Vim ya no evalua `dos_docenas`.
 
 ## And
 
