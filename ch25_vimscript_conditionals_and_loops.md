@@ -198,7 +198,7 @@ let &background = strftime("%H") < 18 ? "light" : "dark"
 
 `&background` es la opción de `'background'` en Vim. `strftime("%H")` devuelve la hora actual. Si todavía no son las 6 PM, utiliza un fondo claro. De lo contrario, utilizará un fondo oscuro.
 
-## Or
+## Or (O)
 
 El "or" lógico (`||`) funciona como en la mayoría de lenguajes de programación.
 
@@ -242,19 +242,18 @@ echo dos_docenas || una_docena
 
 Ten en cuenta que `dos_docena` no se ha definido nunca. La expresión `una_docena || dos_docenas` no muestra ningún error porque `una_docena` es evaluada primero y encuentra que es verdadera, por lo que Vim ya no evalua `dos_docenas`.
 
-## And
+## And (Y)
 
-The logical "and" (`&&`) is the complement of the logical or.
+El "and" lógico (`&&`) es el complemento del "o" lógico.
 
 ```
-{Falsy Expression}  && {Falsy Expression}   false
-{Falsy expression}  && {Truthy expression}  false
-{Truthy Expression} && {Falsy Expression}   false
-{Truthy expression} && {Truthy expression}  true
+{Expresión falsa}  && {Expresión falsa}   false
+{Expresión falsa}  && {Expresión verdadera}  false
+{Expresión verdadera} && {Expresión falsa}   false
+{Expresión verdadera} && {Expresión verdadera}  true
 ```
 
-For example:
-
+Por ejemplo:
 ```
 echo 0 && 0
 " devuelve 0
@@ -263,20 +262,20 @@ echo 0 && 10
 " devuelve 0
 ```
 
-Unlike "or", "and" will evaluate the subsequent expression after it reaches the first falsy expression. It will continue to evaluate the subsequent truthy expressions until the end or when it sees the first falsy expression.
+A diferencia del "or", "and" evaluará la expresión siguiente después de obtener la primera expresión como falsa. Continuará evaluando la siguiente expresión verdadera hasta el final o si ve que la primera expresión es falsa.
 
 ```
-let one_dozen = 12
-echo one_dozen && 10
+let una_docena = 12
+echo una_docena && 10
 " devuelve 1
 
-echo one_dozen && v:false
+echo una_docena && v:false
 " devuelve 0
 
-echo one_dozen && two_dozen
+echo una_docena && dos_docenas
 " devuelve error
 
-echo exists("one_dozen") && one_dozen == 12
+echo exists("una_docena") && una_docena == 12
 " devuelve 1
 ```
 
