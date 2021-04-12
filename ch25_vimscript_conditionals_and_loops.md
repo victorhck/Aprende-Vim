@@ -1,6 +1,6 @@
 # Capítulo 25. Condicionales y bucles en Vimscript
 
-Después de aprender cuales son los tipos básicos de tipos de datos que existen en Vimscript, el siguiente paso es aprender cómo combinarlos para empezar a escribir un programa básico. Un programa básico consiste en condicionales y bucles.
+Después de aprender cuales son los tipos básicos de datos que existen en Vimscript, el siguiente paso es aprender cómo combinarlos para empezar a escribir un programa básico. Un programa básico consiste en condicionales y bucles.
 
 En este capítulo, aprenderás cómo utilizar los tipos de datos de Vimscript para escribir esos condicionales y bucles.
 
@@ -177,27 +177,26 @@ else
 endif
 ```
 
-## Ternary Expression
+## Expresiones ternarias
 
-Vim has a ternary expression for a one-liner case analysis:
-
-```
-{predicate} ? expressiontrue : expressionfalse
-```
-
-For example:
+Vim tiene expresiones ternarias para analizar en una sola línea:
 
 ```
-echo 1 ? "I am true" : "I am false"
+{predicado} ? expresión verdadera : expresión falsa
 ```
 
-Since 1 is truthy, Vim echoes "I am true". Suppose you want to conditionally set the `background` to dark if you are using Vim past a certain hour. Add this to vimrc:
+Por ejemplo:
+```
+echo 1 ? "Soy verdadero" : "Soy falso"
+```
+
+Como 1 es tomado como verdadero, Vim mostrará el mensaje "Soy verdadero". Supongamos que quieres establecer una condición para configurar `background` a oscuro si estás usando Vim después de cierta hora. Añade esto a tu vimrc:
 
 ```
 let &background = strftime("%H") < 18 ? "light" : "dark"
 ```
 
-`&background` is the `'background'` option in Vim. `strftime("%H")` returns the current time in hours. If it is not yet 6 PM, use a light background. Otherwise, use a dark background.
+`&background` es la opción de `'background'` en Vim. `strftime("%H")` devuelve la hora actual. Si todavía no son las 6 PM, utiliza un fondo claro. De lo contrario, utilizará un fondo oscuro.
 
 ## Or
 
