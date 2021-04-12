@@ -262,7 +262,7 @@ echo 0 && 10
 " devuelve 0
 ```
 
-A diferencia del "or", "and" evaluará la expresión siguiente después de obtener la primera expresión como falsa. Continuará evaluando la siguiente expresión verdadera hasta el final o si ve que la primera expresión es falsa.
+`&&` evalua una expresión hasta que ve la primera expresión falsa. Por ejemplo, si tienes `true && true`, evaluará ambas y devolverá `true`. Si tienes `true && false && true`, evaluará el primer `true` y parará en el primer `false`. No evaluará el tercer `true`.
 
 ```
 let una_docena = 12
