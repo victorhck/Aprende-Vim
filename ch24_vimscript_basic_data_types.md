@@ -2,12 +2,12 @@
 
 En los próximos capítulos, aprenderás sobre Vimscript, el lenguaje de programación propio de Vim.
 
-Cuando aprender un nuevo lenguaje, hay tres elementos básicos para buscar:
+Cuando aprendes un nuevo lenguaje, hay tres elementos básicos para buscar:
 - Primitivos
 - Medios de combinación
-- Medios de abtracción
+- Medios de abstracción
 
-En este capítulo, aprenderáslos tipos de datos primitivos de Vim.
+En este capítulo, aprenderás los tipos de datos primitivos de Vim.
 
 ## Tipos de datos
 
@@ -27,12 +27,12 @@ Veremos los seis primeros tipos de datos en este capítulo. En el capítulo 27 a
 
 ## Continuando con el modo Ex
 
-Vim técnicamente no tiene un [REPL](https://es.wikipedia.org/wiki/REPL) propio, pero tiene un modo, el modo Ex que puede utilizarse de ese modo. Puedes entrar en el modo Ex con `Q` o `gQ`. El modo Ex es como un modo extendido del modo línea de comandos (es como escribir en el modo línea de comandos sin fin) Para salir del modo Ex, escribe `:visual`.
+Vim técnicamente no tiene un [REPL](https://es.wikipedia.org/wiki/REPL) propio, pero tiene un modo, el modo Ex que puede utilizarse de esa manera. Puedes entrar en el modo Ex con `Q` o `gQ`. El modo Ex es como un modo extendido del modo línea de comandos (es como escribir en el modo línea de comandos sin fin). Para salir del modo Ex, escribe `:visual`.
 
 Puedes utilizar tanto `:echo` o `:echom` en este capítulo y los siguientes capítulos sobre Vimscript para continuar escribiendo código. Son similares a `console.log` en JS o `print` en Python. El comando `:echo` muestra las expresiones evaluadas que le das. El comando `:echom` hace lo mismo, pero además, este almacena el resultado en el historial de mensajes.
 
 ```viml
-:echom "hola mensaje hecho"
+:echom "hola mensaje echo"
 ```
 
 Puedes ver el historial de mensajes con:
@@ -709,7 +709,13 @@ Para convertir un diccionario a una lista de listas, utiliza `items()`:
 
 :echo breakfastNo
 " devuelve {'2': '9am', '11ses': '11am'}
+```
 
+Como un diccionario contiene un par de valores clace, Vim dispone de la variable especial `v:key` que funciona de manera similar a `v:val`. Cuando recorremos un diccionario, `v:key` tendrá el valor de la clave del elemento actual.
+
+Si tienes un diccionario llamado `mealPlans`, puedes mapearlo utilizando `v:key`.
+
+```
 :let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
 :call map(mealPlans, 'v:key . " y leche"')
 
@@ -717,7 +723,15 @@ Para convertir un diccionario a una lista de listas, utiliza `items()`:
 " devuelve {'almuerzo': 'almuerzo y leche', 'desayuno': 'desayuno y leche', 'cena': 'cena y leche'}
 ```
 
-La `v:key` es una variable especial de Vim, similar a `v:val`. Cuandoestás interactuando con un diccionario, `v:key` guardará el valor de la clave actual.
+De manera similar, puedes mapear el diccionario utilizando `v:val`:
+
+```
+:let mealPlans = #{desayuno: "gofres", almuerzo: "tortitas", cena: "donuts"}
+:call map(mealPlans, 'v:val . " y leche"')
+
+:echo mealPlans
+" devuelve {'almuerzo': 'tortitas y leche', 'desayuno': 'gofres y leche', 'cena': 'donuts y leche'}
+```
 
 Para saber más sobre funciones con diccionarios, echa un vistazo a `:h dict-functions`.
 
