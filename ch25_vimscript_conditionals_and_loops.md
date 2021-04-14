@@ -281,32 +281,32 @@ echo exists("una_docena") && una_docena == 12
 
 ## For
 
-The `for` loop is commonly used with the list data type.
+El bucle `for` es comunmente utilizado con el tipo de datos listas.
 
 ```
-let breakfasts = ["pancakes", "waffles", "eggs"]
+let desayunos = ["tortitas", "gofres", "huevos"]
 
-for breakfast in breakfasts
-  echo breakfast
+for comida in desayunos
+  echo comida
 endfor
 ```
 
-It works with nested list:
+También funciona con listas anidadas:
 
 ```
-let meals = [["breakfast", "pancakes"], ["lunch", "fish"], ["dinner", "pasta"]]
+let meals = [["desayuno", "tortitas"], ["almuerzo", "pescado"], ["cena", "pasta"]]
 
-for [meal_type, food] in meals
-  echo "I am having " . food . " for " . meal_type
+for [tipo_comida, comida] in meals
+  echo "Estoy tomando " . comida . " para " . tipo_comida
 endfor
 ```
 
-You can technically use the `for` loop with a dictionary using the `keys()` method.
+Técnicamente puedes utilizar el bucle `for` con un diccionario utilizando el método `keys()`.
 
 ```
-let beverages = #{breakfast: "milk", lunch: "orange juice", dinner: "water"}
-for beverage_type in keys(beverages)
-  echo "I am drinking " . beverages[beverage_type] . " for " . beverage_type
+let bebidas = #{desayuno: "leche", almuerzo: "zumo de naranja", cena: "agua"}
+for tipo_de_bebida in keys(bebidas)
+  echo "Estoy bebiendo " . bebidas[tipo_de_bebida] . " para " . tipo_de_bebida
 endfor
 ```
 
