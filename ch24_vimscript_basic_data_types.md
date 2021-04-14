@@ -784,7 +784,7 @@ Similar a `v:none`.
 " devuelve {"test": null}
 ```
 
-## Aprendiendo los tipos de datos de la manera más inteliginte
+## Aprendiendo los tipos de datos de la manera más inteligente
 
 En este capítulo, has aprendido sobre los tipos básicos de datos de Vimscript: números, flotantes, cadenas, listas, diccionarios y especiales. Aprender esto es el primer paso para comenzar a programar en Vimscript.
 
