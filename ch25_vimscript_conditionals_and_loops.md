@@ -377,29 +377,29 @@ Al ejecutar el bucle `while` anterior, este mostrará "uno dos tres" y no mostra
 
 ### Continue
 
-The `continue` method is similar to `break`, where it is invoked during a loop. The difference is that instead of breaking out of the loop, it just skips that current iteration.
+El método `continue` es similar a `break`, cuando es invocado en un bucle. La diferencia está en que en vez de detener el bucle, simplemente omite la evaluación actual.
 
-Suppose you have the same text but instead of `break`, you use `continue`:
+Supongamos que tenemos el mismo texto que antes, pero en vez de `break`, utilizamos `continue`:
 
 ```
-let line = 0
-let last_line = line("$")
-let total_word = ""
+let linea = 0
+let ultima_linea = line("$")
+let total_palabras = ""
 
-while line <= last_line
-  let line += 1
-  let line_text = getline(line)
-  if line_text =~# "donut"
+while linea <= ultima_linea
+  let linea += 1
+  let texto_linea = getline(linea)
+  if texto_linea =~# "donut"
     continue
   endif
-  echo line_text
-  let total_word .= line_text . " "
+  echo texto_linea
+  let total_palabras .= linea_texto . " "
 endwhile
 
-echo total_word
+echo total_palabras
 ```
 
-This time it returns `one two three four five`. It skips the line with the word "donut", but the loop continues.
+Esta vez mostrará `uno dos tres cuatro cinco`. Ahora salta la línea que contiene la palabra "donut", pero la ejecución del bucle continua.
 
 ### Try, Finally, And Catch
 
