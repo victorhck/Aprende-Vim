@@ -312,31 +312,31 @@ endfor
 
 ## While
 
-Another common loop is the `while` loop.
+Otro bucle común es el bucle `while`.
 
 ```
-let counter = 1
-while counter < 5
-  echo "Counter is: " . counter
-  let counter += 1
+let contador = 1
+while contador < 5
+  echo "El valor del contador es: " . contador
+  let contador += 1
 endwhile
 ```
 
-To get the content of the current line to the last line:
+Otro ejemplo, para obtener el contenido desde la línea actual hasta la última línea:
 
 ```
-let current_line = line(".")
-let last_line = line("$")
+let linea_actual = line(".")
+let ultima_linea = line("$")
 
-while current_line <= last_line
-  echo getline(current_line)
-  let current_line += 1
+while linea_actual <= ultima_linea
+  echo getline(linea_actual)
+  let linea_actual += 1
 endwhile
 ```
 
-## Error Handling
+## Gestión del error
 
-Often your program doesn't run the way you expect it to. As a result, it throws you for a loop (pun intended). What you need is a proper error handling.
+A menudo tu programa no funciona en la maera que esperas. Como resultado, el programa te lleva a un bucle (valga el juego de palabras). Lo que necesitas es una gestión del error adecuada.
 
 ### Break
 
