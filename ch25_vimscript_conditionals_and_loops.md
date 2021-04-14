@@ -401,9 +401,9 @@ echo total_palabras
 
 Esta vez mostrará `uno dos tres cuatro cinco`. Ahora salta la línea que contiene la palabra "donut", pero la ejecución del bucle continua.
 
-### Try, Finally, And Catch
+### Try, Finally y Catch
 
-Vim has a `try`, `finally`, and `catch` to handle errors. To simulate an error, you can use the `throw` command.
+En Vim existe `try`, `finally` y `catch` para la gestión de errores. Para simular un error, puedes utilizar el comando `throw`.
 
 ```
 try
@@ -412,79 +412,79 @@ try
 endtry
 ```
 
-Run this. Vim will complain with `"Exception not caught: Nope` error.
+Ejecuta esto. Vim mostrará un error `"Exception not caught: Nope`.
 
-Now add a catch block:
-
-```
-try
-  echo "Try"
-  throw "Nope"
-catch
-  echo "Caught it"
-endtry
-```
-
-Now there is no longer any error. You should see "Try" and "Caught it" displayed.
-
-Let's remove the `catch` and add a `finally`:
-
-```
-try
-  echo "Try"
-  throw "Nope"
-  echo "You won't see me"
-finally
-  echo "Finally"
-endtry
-```
-
-Run this. Now Vim displays the error and "Finally".
-
-Let's put all of them together:
+Ahora añade un bloque `catch`:
 
 ```
 try
   echo "Try"
   throw "Nope"
 catch
-  echo "Caught it"
-finally
-  echo "Finally"
+  echo "Pillado"
 endtry
 ```
 
-This time Vim displays both "Caught it" and "Finally". No error is displayed because Vim caught it.
+Ahora ya no habrá un error. Deberías ver "Try" y se mostrará "Pillado".
 
-Errors come from different places. Another source of error is calling a nonexistent function, like `Nope()` below:
+Vamos a eliminar `catch` y añadir `finally`:
 
 ```
 try
   echo "Try"
-  call Nope()
-catch
-  echo "Caught it"
+  throw "Nope"
+  echo "No me verás"
 finally
-  echo "Finally"
+  echo "Finalmente"
 endtry
 ```
 
-The difference between `catch` and `finally` is that `finally` is always run, error or not,  where a catch is only run when your code gets an error.
+Ejecuta esto. Ahora Vim muestra el error y el texto "Finalmente".
 
-You can catch specific error with `:catch`. According to `:h :catch`:
+Vamos a poner todo junto:
 
 ```
-catch /^Vim:Interrupt$/.             " catch interrupts (CTRL-C)
-catch /^Vim\\%((\\a\\+)\\)\\=:E/.    " catch all Vim errors
-catch /^Vim\\%((\\a\\+)\\)\\=:/.     " catch errors and interrupts
-catch /^Vim(write):/.                " catch all errors in :write
-catch /^Vim\\%((\\a\\+)\\)\\=:E123:/ " catch error E123
-catch /my-exception/.                " catch user exception
-catch /.*/                           " catch everything
-catch.                               " same as /.*/
+try
+  echo "Try"
+  throw "Nope"
+catch
+  echo "Pillado"
+finally
+  echo "Finalmente"
+endtry
 ```
 
-Inside a `try` block, an interrupt is considered a catchable error.
+Esta vez Vim muestra tanto "Pillado" y "Finalmente". No se muestra el error por que Vim lo ha "pillado". No error is displayed because Vim caught it.
+
+Los errores provienen de diferentes lugares. Otra fuente de error es una llamada a una función que no existe, como `Nada()` que veremos a continuación:
+
+```
+try
+  echo "Try"
+  call Nada()
+catch
+  echo "Pillado"
+finally
+  echo "Finalmente"
+endtry
+```
+
+La diferencia entre `catch` y `finally` es que `finally` siempre se ejecuta, haya error o no. Mientras que `catch` solo se ejecuta cuando tu código tiene algún error.
+
+Puedes detectar un error específico con `:catch`. De acuerdo a `:h :catch`:
+
+```
+catch /^Vim:Interrupt$/.             " detecta interrupciones (CTRL-C)
+catch /^Vim\\%((\\a\\+)\\)\\=:E/.    " detecta todos los errores de Vim
+catch /^Vim\\%((\\a\\+)\\)\\=:/.     " detecta errores e interrupciones
+catch /^Vim(write):/.                " detecta todos los errores en :write
+catch /^Vim\\%((\\a\\+)\\)\\=:E123:/ " detecta el error E123
+catch /my-exception/.                " detecta excepciones de usuario
+catch /.*/                           " detecta todo
+catch.                               " similar a /.*/
+```
+
+Dentro de un bloque `try`, una interrupción es considerada un error que se puede detectar.
 
 ```
 try
@@ -493,7 +493,7 @@ try
 endtry
 ```
 
-In your vimrc, if you use a custom colorscheme, like [gruvbox](https://github.com/morhetz/gruvbox), and you accidentally delete the colorscheme directory but still have the line `colorscheme gruvbox` in your vimrc, Vim will throw an error when you `source` it. To fix this, I added this in my vimrc:
+En tu vimrc, si utilizas un esquema de color personalizado, como [gruvbox](https://github.com/morhetz/gruvbox), y de manera accidental eliminas el esquema de color del directorio, pero todavía tienes la línea `colorscheme gruvbox` en tu vimrc, Vim mostrará un error al ejecutar `source` para volver a tomar en cuenta las modificaciones del vimrc. Para solucionar esto, he añadido lo siguiente a mi vimrc:
 
 ```
 try
@@ -503,7 +503,7 @@ catch
 endtry
 ```
 
-Now if you `source` vimrc without `gruvbox` directory, Vim will use the `colorscheme default`.
+Ahora al ejecutar `source` sin el directorio `gruvbox`, Vim utilizará `colorscheme default` el esquema de color predeterminado.
 
 ## Learn conditionals the smart way
 
