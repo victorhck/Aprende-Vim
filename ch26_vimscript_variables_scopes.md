@@ -54,7 +54,7 @@ Vim can access your terminal environment variable. For example, if you have the 
 
 ```
 echo $SHELL
-" returns $SHELL value. In my case, it returns /bin/bash
+" devuelve $SHELL value. In my case, it returns /bin/bash
 ```
 
 ### Option Variable
@@ -65,7 +65,7 @@ For example, to see what background Vim uses, you can run:
 
 ```
 echo &background
-" returns either "light" or "dark"
+" devuelve either "light" or "dark"
 ```
 
 Alternatively, you can always run `set background?` to see the value of the `background` option.
@@ -78,12 +78,12 @@ Suppose the value "chocolate" is already saved in register a. To access it, you 
 
 ```
 echo @a
-" returns chocolate
+" devuelve chocolate
 
 let @a .= " donut"
 
 echo @a
-" returns "chocolate donut"
+" devuelve "chocolate donut"
 ```
 
 Now when you paste from register `a` (`"ap`), it will return "chocolate donut". The operator `.=` concatenates two strings. The expression `let @a .= " donut"` is the same as `let @a = @a . " donut"`
@@ -124,16 +124,16 @@ In this case both `pancake` and `g:waffle` have the same scope. You can call eac
 
 ```
 echo pancake
-" returns "pancake"
+" devuelve "pancake"
 
 echo g:pancake
 "returns "pancake"
 
 echo waffle
-" returns "waffle"
+" devuelve "waffle"
 
 echo g:waffle
-" returns "waffle"
+" devuelve "waffle"
 ```
 
 ### Buffer Variable
@@ -215,10 +215,10 @@ Source the file with `:source dozen.vim`. Now call the `Consume` function:
 
 ```
 :call Consume()
-" returns "11 is left"
+" devuelve "11 is left"
 
 :call Consume()
-" returns "10 is left"
+" devuelve "10 is left"
 
 :echo s:dozen
 " Undefined variable error
