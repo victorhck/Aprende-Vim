@@ -340,40 +340,40 @@ A menudo tu programa no funciona en la maera que esperas. Como resultado, el pro
 
 ### Break
 
-When you use `break` inside a `while` or `for` loop, it stops the loop.
+Cuando utilizas `break` dentro de un bucle `while` o `for`, esto detiene el bucle.
 
-To get the texts from the start of the file to the current line, but stop when you see the word "donut":
+Veamos un ejemplo, modificando un poco el anterior. Para obtener los textos desde el inicio del archivo hasta la línea actual, pero parar el bucle cuando encuentre la palabra "donut":
 
 ```
-let line = 0
-let last_line = line("$")
-let total_word = ""
+let linea = 0
+let ultima linea = line("$")
+let total_palabras = ""
 
-while line <= last_line
-  let line += 1
-  let line_text = getline(line)
-  if line_text =~# "donut"
+while linea <= ultima_linea
+  let linea += 1
+  let texto_linea = getline(linea)
+  if texto_linea =~# "donut"
     break
   endif
-  echo line_text
-  let total_word .= line_text . " "
+  echo texto_linea
+  let total_palabras .= texto_linea . " "
 endwhile
 
-echo total_word
+echo total_palabras
 ```
 
-If you have the text:
+Si tienes el siguiente texto:
 
 ```
-one
-two
-three
+uno
+dos
+tres
 donut
-four
-five
+cuatro
+cinco
 ```
 
-Running the above `while` loop gives "one two three" and not the rest of the text because the loop breaks once it matches "donut".
+Al ejecutar el bucle `while` anterior, este mostrará "uno dos tres" y no mostrará el resto de texto, ya que el bucle se detiene por el comando `break` cuando encuentra en esa lista la palabra "donut".
 
 ### Continue
 
