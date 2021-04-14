@@ -1,47 +1,47 @@
-# Ch26. Vimscript Variables And Scopes
+# Capítulo 26. Variables de Vimscript y su alcance
 
-Before diving into Vimscript functions, let's learn about the different sources and scopes of Vim variables.
+Antes de adentrarnos en las funciones de Vimscript, vamos a aprender las diferentes fuentes y alcances de las variables en Vim.
 
-## Mutable And Immutable Variables
+## Variables mutables e inmutables
 
-You can assign a value to a variable in Vim with `let`:
-
-```
-let pancake = "pancake"
-```
-
-Later you can call that variable any time.
+Puedes asignar un valor a una variable en Vim con `let`:
 
 ```
-echo pancake
-" returns "pancake"
+let tortitas = "tortitas"
 ```
 
-`let` is mutable, meaning you can change the value at any time in the future.
+Después puedes llamar a la variable en cualquier momento.
 
 ```
-let pancake = "pancake"
-let pancake = "not waffles"
-
-echo pancake
-" returns "not waffles"
+echo tortitas
+" devuelve "tortitas"
 ```
 
-Notice that when you want to change the value of a set variable, you still need to use `let`.
+`let` es mutable, esto significa que puedes cambiar el valor de la variable en cualquier momento en el futuro.
 
 ```
-let beverage = "milk"
+let tortitas = "tortitas"
+let tortitas = "no gofres"
 
-beverage = "orange juice"
-" throws an error
+echo tortitas
+" devuelve "no gofres"
 ```
 
-You can define an immutable variable with `const`. Being immutable, once a variable value is assigned, you cannot reassign it with a different value.
+Ten en cuenta que cuando quieres cambiar el valor de una variable, necesitas utilizar `let`.
 
 ```
-const waffle = "waffle"
-const waffle = "pancake"
-" throws an error
+let bebida = "leche"
+
+bebida = "zumo de naranja"
+" lanza un error
+```
+
+Puedes definir variables inmutables con `const`. Al ser inmutables, una vez que a la variable se le asigna un valor, ya no puedes reasignarle un valor diferente más adelante.
+
+```
+const gofres = "gofres"
+const gofres = "tortitas"
+" lanza un error
 ```
 
 ## Variable Sources
