@@ -505,8 +505,8 @@ endtry
 
 Ahora al ejecutar `source` sin el directorio `gruvbox`, Vim utilizará `colorscheme default` el esquema de color predeterminado.
 
-## Learn conditionals the smart way
+## Aprende condicionales de la manera más inteligente
 
-In the previous chapter, you learned about Vim basic data types. In this chapter, you learned how to combine them to write basic programs using conditionals and loops. These are the building blocks of programming.
+En los capítulos previos, aprendiste sobre los tipos de datos básicos de Vim. En este capítulo, has aprendido cómo combinarlos para escribir programas básicos utilizando condicionales y bucles. Estos están construidos con bloques de programación.
 
-Next, let's learn about variable scopes.
+A continuación, vamos a aprender sobre el alcance de las variables.
