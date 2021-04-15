@@ -44,37 +44,37 @@ const gofres = "tortitas"
 " lanza un error
 ```
 
-## Variable Sources
+## Fuentes de variable
 
-There are three sources for variables: environment variable, option variable, and register variable.
+Hay tres fuentes de las que obtener los valores de variables: variables de entorno, variables de opciones y variables de registro.
 
-### Environment Variable
+### Variables de entorno
 
-Vim can access your terminal environment variable. For example, if you have the `SHELL` environment variable available in your terminal, you can access it from Vim with:
+Vim puede acceder a las variables de entorno de tu terminal. Por ejemplo, si tienes la variable `SHELL` de entorno en tu terminal, puedes acceder a ella desde Vim mediante:
 
 ```
 echo $SHELL
-" devuelve $SHELL value. In my case, it returns /bin/bash
+" devuelve el valor de $SHELL. E mi caso devuelve /bin/bash
 ```
 
-### Option Variable
+### Variables de opciones
 
-You can access Vim options with `&` (these are the settings you access with `set`).
+Puedes acceder a las opciones de Vim con `&` (estos son ajustes a los que accedes con `set`).
 
-For example, to see what background Vim uses, you can run:
+Por ejemplo, para ver qué fondo utiliza Vim, puedes ejecutar:
 
 ```
 echo &background
-" devuelve either "light" or "dark"
+" devuelve un valor que puede ser "light" o "dark" (claro u oscuro)
 ```
 
-Alternatively, you can always run `set background?` to see the value of the `background` option.
+De manera alternativa, siempre puedes ejecutar `set background?` para ver el valor de la opción `background`.
 
-### Register Variable
+### Variables de registro
 
-You can access Vim registers (Ch. 08) with `@`.
+Puedes acceder a los registros de Vim (ver el capítulo 08) mediante `@`.
 
-Suppose the value "chocolate" is already saved in register a. To access it, you can use `@a`. You can also update it with `let`.
+Supongamos que el valor "chocolate" está ya guardado en el registro a. Para acceder a el, puedes utilizar `@a`. También puedes actualizarlo con `let`.
 
 ```
 echo @a
@@ -86,7 +86,7 @@ echo @a
 " devuelve "chocolate donut"
 ```
 
-Now when you paste from register `a` (`"ap`), it will return "chocolate donut". The operator `.=` concatenates two strings. The expression `let @a .= " donut"` is the same as `let @a = @a . " donut"`
+Ahora cuando pegues el contenido del registro a (`"ap`), este mostrará el contenido que es "chocolate donut". El operador `.=` une dos cadenas. La expresión `let @a .= " donut"` es lo mismo que `let @a = @a . " donut"`
 
 ## Variable Scopes
 
