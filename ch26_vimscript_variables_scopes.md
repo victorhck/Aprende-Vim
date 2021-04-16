@@ -178,23 +178,23 @@ const w:donut = "frambuesa donut"
 
 En cada ventana podrás ejecutar `echo w:donut` y verás que en cada una devolverá valores únicos.
 
-### Tab Variable
+### Variable de pestaña
 
-A variable preceded with `t:` is a tab variable. It exists only in that tab.
+Una variable precdida de `t:` es una variable propia de esa pestaña. Solo existe en esa pestaña.
 
-In tab 1:
+En la pestaña 1:
 
 ```
 const t:donut = "chocolate donut"
 ```
 
-In tab 2:
+En la pestaña 2:
 
 ```
-const t:donut = "blackberry donut"
+const t:donut = "azucarado donut"
 ```
 
-On each tab, you can call `echo t:donut` to get unique values.
+En cada pestaña, podrás ejecutar `echo t:donut` para obtener valores distintos en cada una de ella.
 
 ### Script variable
 
