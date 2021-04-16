@@ -104,36 +104,36 @@ a:           Variable de parámetro de función formal
 v:           Variable propia de Vim
 ```
 
-### Global variable
+### Variable global 
 
-When you are declaring a "regular" variable:
-
-```
-let pancake = "pancake"
-```
-
-`pancake` is actually a global variable. When you define a global variable, you can call them from anywhere.
-
-Prepending `g:` to a variable also creates a global variable.
+Cuando estás declarando una variable "normal":
 
 ```
-let g:waffle = "waffle"
+let tortita = "tortita"
 ```
 
-In this case both `pancake` and `g:waffle` have the same scope. You can call each of them with or without `g:`.
+`tortita` es de hecho una variable global. Cuando defines una variable global, puedes llamarla desde cualquier lugar.
+
+Al anteponer `g:` a la declaración de una variable, también estás creando una variable global:
 
 ```
-echo pancake
-" devuelve "pancake"
+let g:gofre = "gofre"
+```
 
-echo g:pancake
-"returns "pancake"
+En este caso tanto `pancake` como `g:waffle` tienen el mismo ámbito de trabajo, son globales. Puedes llamar a cada una de ellas con o sin `g:`.
 
-echo waffle
-" devuelve "waffle"
+```
+echo tortita
+" devuelve "tortita"
 
-echo g:waffle
-" devuelve "waffle"
+echo g:tortita
+" devuelve "tortita"
+
+echo gofre
+" devuelve "gofre"
+
+echo g:gofre
+" devuelve "gofre"
 ```
 
 ### Buffer Variable
