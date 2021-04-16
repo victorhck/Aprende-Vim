@@ -196,50 +196,50 @@ const t:donut = "azucarado donut"
 
 En cada pestaña, podrás ejecutar `echo t:donut` para obtener valores distintos en cada una de ella.
 
-### Script variable
+### Variable de script 
 
-A variable preceded with `s:` is a script variable. These variables can only be accessed from inside that script.
+Una variable precedida de `s:` es una variable de script. A estas variables solo se puede acceder desde dentro de ese script.
 
-If you have an arbitrary file `dozen.vim` and inside it you have:
+Si tienes un archivo llamado `docena.vim` y dentro del archivo tienes lo siguiente:
 
 ```
-let s:dozen = 12
+let s:docena = 12
 
 function Consume()
-  let s:dozen -= 1
-  echo s:dozen " is left"
+  let s:docena -= 1
+  echo s:docena " quedan"
 endfunction
 ```
 
-Source the file with `:source dozen.vim`. Now call the `Consume` function:
+Haz que Vim tenga en cuenta este archivo mediante `:source dozen.vim`. Ahora llama a la función `Consume`:
 
 ```
 :call Consume()
-" devuelve "11 is left"
+" devuelve "11 quedan"
 
 :call Consume()
-" devuelve "10 is left"
+" devuelve "10 quedan"
 
 :echo s:dozen
 " Undefined variable error
 ```
 
-When you call `Consume`, you see it decrements the `s:dozen` value as expected. When you try to get `s:dozen` value directly, Vim won't find it because you are out of scope. `s:dozen` is only accessible from inside `dozen.vim`.
+Cuando llamas a la función `Consume`, ves que se decrementa el valor de la variable `s:dozen` tal como se espera. Cuando tratas de obtener directamente el valor de `s:dozen`, Vim no la encontrará porque la estás invocando fuera de su ámbito. `s:dozen` solo es accesible desde dentro de `dozen.vim`.
 
-Each time you source the `dozen.vim` file, it resets the `s:dozen` counter. If you are in the middle of decrementing `s:dozen` value and you run `:source dozen.vim`, the counter resets back to 12. This can be a problem for unsuspecting users. To fix this issue, refactor the code:
+Cada vez que vuelvas a hacer que Vim tenga en cuenta el archivo `dozen.vim` con el comando `source`, Vim resetea el contado de `s:dozen`. Si estás en la mitad de la acción de decrementar el valor de `s:dozen` y ejecutas `:source dozen.vim`, el contador volverá a poner su valor a 12. Esto puede ser un problema para los usuarios menos avezados. Para solucionar este problema, vamos a modificar el código:
 
 ```
-if !exists("s:dozen")
-  let s:dozen = 12
+if !exists("s:docena")
+  let s:docena = 12
 endif
 
 function Consume()
-  let s:dozen -= 1
-  echo s:dozen
+  let s:docena -= 1
+  echo s:docena
 endfunction
 ```
 
-Now when you source `dozen.vim` while in the middle of decrementing, Vim reads `!exists("s:dozen")`, finds that it is true, and doesn't reset the value back to 12.
+Ahora cuando volvemos a ejecutar el comando `source` con el archivo `dozen.vim` mientras estemos a la mitad del proceso de decremento de la variable, Vim lee `!exists("s:docena")`, encuentra que esto es verdad y no resetea el valor de nuevo a 12 manteniendo el valor que tenía.
 
 ### Function Local And Function Formal Parameter variable
 
