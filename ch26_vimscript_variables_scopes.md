@@ -1,6 +1,6 @@
-# Capítulo 26. Variables de Vimscript y su alcance
+# Capítulo 26. Variables de Vimscript y su ámbito
 
-Antes de adentrarnos en las funciones de Vimscript, vamos a aprender las diferentes fuentes y alcances de las variables en Vim.
+Antes de adentrarnos en las funciones de Vimscript, vamos a aprender las diferentes fuentes y ámbitos en los que operan las variables en Vim.
 
 ## Variables mutables e inmutables
 
@@ -88,20 +88,20 @@ echo @a
 
 Ahora cuando pegues el contenido del registro a (`"ap`), este mostrará el contenido que es "chocolate donut". El operador `.=` une dos cadenas. La expresión `let @a .= " donut"` es lo mismo que `let @a = @a . " donut"`
 
-## Variable Scopes
+## Ámbito de las variables 
 
-There are 9 different variable scopes in Vim. You can recognize them from their prepended letter:
+Hay 9 diferentes ámbitos en los que pueden operar las variables en Vim. Puedes reconocerlos porque les antecede una letra:
 
 ```
-g:           Global variable
-{nothing}    Global variable
-b:           Buffer-local variable
-w:           Window-local variable
-t:           Tab-local variable
-s:           Sourced Vimscript variable
-l:           Function local variable
-a:           Function formal parameter variable
-v:           Built-in Vim variable
+g:           Variable global 
+{nothing}    Variable global 
+b:           Variable de buffer local
+w:           Variable de ventana local
+t:           Variable de pestaña local
+s:           Variable procedente de Vimscript 
+l:           Variable de función local
+a:           Variable de parámetro de función formal
+v:           Variable propia de Vim
 ```
 
 ### Global variable
