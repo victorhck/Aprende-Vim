@@ -136,29 +136,29 @@ echo g:gofre
 " devuelve "gofre"
 ```
 
-### Buffer Variable
+### Variable de buffer 
 
-A variable preceded with `b:` is a buffer variable. A buffer variable is a variable that is local to the current buffer (Ch. 02). If you have multiple buffers open, each buffer will have their own separate list of buffer variables.
+Una variable precedida de `b:` es una variable de *buffer*. Una variable de *buffer* es una variable que es local al *buffer* actual (ver capítulo 02). Si tienes múltiples *buffers* abiertos, cada *buffer* tendrá su propia lista separada de variables de *buffer*.
 
-In buffer 1:
+En el *buffer* 1:
 
 ```
 const b:donut = "chocolate donut"
 ```
 
-In buffer 2:
+En el *buffer* 2:
 
 ```
-const b:donut = "blueberry donut"
+const b:donut = "frambuesa donut"
 ```
 
-If you run `echo b:donut` from buffer 1, it will return "chocolate donut". If you run it from buffer 2, it will return "blueberry donut".
+Si ejecutas `echo b:donut` en el *buffer* 1, mostrará "chocolate donut". Si ejecutas lo mismo pero ahora en el *buffer* 2, en este caso se mostrará "frambuesa donut".
 
-On the side note, Vim has a *special* buffer variable `b:changedtick` that keeps track of all the changes done to the current buffer.
+Como nota complementaria, Vim tiene una variable de *buffer* "especial" `b:changedtick` que guarda los cambios de todos los cambios realizados en el *buffer* actual.
 
-1. Run `echo b:changedtick` and note the number it returns..
-2. Make changes in Vim.
-3. Run `echo b:changedtick` again and note the number it now returns.
+1. Ejecuta `echo b:changedtick` y toma nota del número que devuelve..
+2. Haz cambios en Vim.
+3. Vuelve a ejecutar `echo b:changedtick` y comprueba el número que devuelve ahora.
 
 ### Window Variable
 
