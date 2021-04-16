@@ -154,29 +154,29 @@ const b:donut = "frambuesa donut"
 
 Si ejecutas `echo b:donut` en el *buffer* 1, mostrará "chocolate donut". Si ejecutas lo mismo pero ahora en el *buffer* 2, en este caso se mostrará "frambuesa donut".
 
-Como nota complementaria, Vim tiene una variable de *buffer* "especial" `b:changedtick` que guarda los cambios de todos los cambios realizados en el *buffer* actual.
+Como nota complementaria, Vim tiene una variable de *buffer* "especial" `b:changedtick` que guarda el número acumulado de todos los cambios realizados en el *buffer* actual.
 
 1. Ejecuta `echo b:changedtick` y toma nota del número que devuelve..
 2. Haz cambios en Vim.
 3. Vuelve a ejecutar `echo b:changedtick` y comprueba el número que devuelve ahora.
 
-### Window Variable
+### Variable de ventana
 
-A variable preceded with `w:` is a window variable. It exists only in that window.
+Una variable precedida con `w:` es una variable cuyo ámbito de trabajo es la ventana. Existe solo en esa ventana en la que se ha declarado.
 
-In window 1:
+En la ventana 1:
 
 ```
 const w:donut = "chocolate donut"
 ```
 
-In window 2:
+En la ventana 2:
 
 ```
-const w:donut = "raspberry donut"
+const w:donut = "frambuesa donut"
 ```
 
-On each window, you can call `echo w:donut` to get unique values.
+En cada ventana podrás ejecutar `echo w:donut` y verás que en cada una devolverá valores únicos.
 
 ### Tab Variable
 
