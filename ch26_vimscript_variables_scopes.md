@@ -255,8 +255,8 @@ Una variable precedida con `v:` es una variable especial propia de Vim. No puede
 
 Hay otras variables. Para consultar una lista de todas las variables propias de Vim, echa un vistazo a `:h vim-variable` o `:h v:`.
 
-## Using Vim Variable Scopes The Smart Way
+## Utilizando los ámbitos de las variables de Vim de la manera más inteligente
 
-Being able to quickly access environment, option, and register variables give you a broad flexibility to customize your editor and terminal environment. You also learned that Vim has 9 different variable scopes, each existing under a certain constraints. You can take advantage of these unique variable types to decouple your program.
+Ser capaz de acceder rápidamente a variables de entorno, opción y registros te da una mayor flexibilidad para personalizar tu editor y tu entorno de la terminal. También has aprendido que Vim tiene 9 ámbitos diferentes para las variables, cada una existe bajo ciertas condiciones. Puedes utilizar esto en tu beneficio usando estas variables únicas para usarlas en tu programa.
 
-You made it this far. You learned about data types, means of combinations, and variable scopes. Only one thing is left: functions.
+Has llegado muy lejos. Has aprendido sobre los tipos de datos, el significado de las combinaciones y el ámbito de las variables. Solo queda una cosa: funciones.
