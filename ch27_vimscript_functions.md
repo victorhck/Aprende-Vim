@@ -4,41 +4,41 @@ Las funciones son medios de abtracción, el tercer elemento en el aprendizaje de
 
 En capítulos previos, has visto en acción las funciones nativas de Vimscript (`len()`, `filter()`, `map()`, etc.) y las funciones personalizadas. en este capítulo, vas a profundizar en aprender cómo funcionan las funciones.
 
-## Function Syntax Rules
+## Reglas de sintaxis de las funciones
 
-At the core, a Vimscript function has the following syntax:
+En esencia, una función de Vimscript tiene la siguiente sintaxis:
 
 ```
-function {FunctionName}()
-  {do-something}
+function {NombreFuncion}()
+  {algunas_tareas}
 endfunction
 ```
 
-A function definition must start with a capital letter. It starts with the `function` keyword and ends with `endfunction`. Below is a valid function:
+Una definición de una función debe comenzar con una letra mayúscula. Comienza con la palabra clave `function` y termina con `endfunction`. A continuación encontrarás una función válida:
 
 ```
-function! Tasty()
-  echo "Tasty"
+function! Sabrosa()
+  echo "Sabrosa"
 endfunction
 ```
 
-The following is not a valid function because it does not start with a capital letter.
+La siguiente no es una función válida porque no comienza con una letra mayúscula.
 
 ```
-function tasty()
-  echo "Tasty"
+function sabrosa()
+  echo "Sabrosa"
 endfunction
 ```
 
-If you prepend a function with the script variable (`s:`), you can use it with a lower case. `function s:tasty()` is a valid name. The reason why Vim requires you to use an uppercase name is to prevent confusion with Vim's built-in functions (all lowercase).
+Si antepones una función con el prefijo que la marca como una variable de script (`s:`), puedes declararla con una letra minúscula . `function s:sabrosa()` es un nombre válido. La razón de porque Vim necesita que se utilice un nombre con la letra inicial en mayúscula es para prevenir una confusión con las funciones propias de Vim (que son todas en minúsculas).
 
-A function name cannot start with a number. `1Tasty()` is not a valid function name, but `Tasty1()` is. A function also cannot contain non-alphanumeric characters besides `_`. `Tasty-food()`, `Tasty&food()`, and `Tasty.food()` are not valid function names. `Tasty_food()` *is*.
+Un nombre de función no puede comenzar con un número. `1Sabrosa()` no es un nombre de función válido, pero `Sabrosa1()` si lo es. Una función tampoco puede contener caracteres no alfanuméricos menos `_`. `Sabrosa-comida()`, `Sabrosa&comida()` o `Sabrosa.comida()` todos estos son ejemplos de nombres no válidos para nombres de funciones. `Sabrosa_comida()` *si lo es*.
 
-If you define two functions with the same name, Vim will throw an error complaining that the function `Tasty` already exists. To overwrite the previous function with the same name, add a `!` after the `function` keyword.
+Si defines dos funciones con el mismo nombre, Vim mostrará un error quejándose de que la función `Sabrosa` ya existe. Para sobrescribit la función previa con el mismo nombre, añade un símbolo `!` después de la palabra clave `function`.
 
 ```
-function! Tasty()
-  echo "Tasty"
+function! Sabrosa()
+  echo "Sabrosa"
 endfunction
 ```
 
