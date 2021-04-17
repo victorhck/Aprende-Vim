@@ -1,8 +1,8 @@
-# Ch27. Vimscript Functions
+# Capítulo 27. Funciones en Vimscript
 
-Functions are means of abstraction, the third element in learning a new language.
+Las funciones son medios de abtracción, el tercer elemento en el aprendizaje de un nuevo lenguajes de programación.
 
-In the previous chapters, you have seen Vimscript native functions (`len()`, `filter()`, `map()`, etc.) and custom functions in action. In this chapter, you will go deeper to learn how functions work.
+En capítulos previos, has visto en acción las funciones nativas de Vimscript (`len()`, `filter()`, `map()`, etc.) y las funciones personalizadas. en este capítulo, vas a profundizar en aprender cómo funcionan las funciones.
 
 ## Function Syntax Rules
 
