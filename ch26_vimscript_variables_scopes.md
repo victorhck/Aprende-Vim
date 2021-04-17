@@ -241,19 +241,19 @@ endfunction
 
 Ahora cuando volvemos a ejecutar el comando `source` con el archivo `dozen.vim` mientras estemos a la mitad del proceso de decremento de la variable, Vim lee `!exists("s:docena")`, encuentra que esto es verdad y no resetea el valor de nuevo a 12 manteniendo el valor que tenía.
 
-### Function Local And Function Formal Parameter variable
+### Variables de función local y función formal de parámetro
 
-Both the function local variable (`l:`) and the function formal variable (`a:`) will be covered in the next chapter.
+Tanto la variable de función local (`l:`) como la variable de función formal (`a:`) serán tratadas en el próximo capítulo.
 
-### Built-in Vim Variables
+### Variables propias de Vim
 
-A variable prepended with `v:` is a special built-in Vim variable. You cannot define these variables. You have seen some of them already.
-- `v:version` tells you what Vim version you are using.
-- `v:key` contains the current item value when iterating through a dictionary.
-- `v:val` contains the current item value when running a `map()` or `filter()` operation.
-- `v:true`, `v:false`, `v:null`, and `v:none` are special data types.
+Una variable precedida con `v:` es una variable especial propia de Vim. No puedes definir estas variables, solo utilizarlas. Ya hemos visto algunas de estas.
+- `v:version` muestra la versión de Vim que estás utilizando.
+- `v:key` contiene el valor del elemento actual cuando interactuas con un diccionario.
+- `v:val` contiene el valor del elemento actual cuando ejecutas una operación `map()` o `filter()`.
+- `v:true`, `v:false`, `v:null` y `v:none` son tipos de datos especiales.
 
-There are other variables. For a list of Vim built-in variables, check out `:h vim-variable` or `:h v:`.
+Hay otras variables. Para consultar una lista de todas las variables propias de Vim, echa un vistazo a `:h vim-variable` o `:h v:`.
 
 ## Using Vim Variable Scopes The Smart Way
 
