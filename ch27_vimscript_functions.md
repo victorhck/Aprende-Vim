@@ -61,9 +61,9 @@ function fzf#vim#maps(mode, ...)
         Last set from ~/.vim/plugged/fzf.vim/autoload/fzf/vim.vim line 1263
 ```
 
-## Removing A Function
+## Eliminar una función
 
-To remove an existing function, use `:delfunction {function-name}`. To delete `Tasty`, run `:delfunction Tasty`.
+Para eliminar una función existente, utiliza `:delfunction {Nombre_de_funcion}`. Para eliminar `Sabrosa`, ejecuta `:delfunction Sabrosa`.
 
 ## Function Return Value
 
