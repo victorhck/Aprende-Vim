@@ -96,28 +96,28 @@ Ahora cuando ejecutas `:echo Sabrosa()`, esta función devuelve la cadena "Sabro
 
 Puedes utilizar una función dentro de una expresión. Vim utilizará el valor de retorno de esa función. La expresión `:echo Sabrosa() . " comida."` mostrará "Sabrosa comida."
 
-## Formal Arguments
+## Argumentos formales
 
-To pass a formal argument `food` to your `Tasty` function, you can do this:
+Para pasarle el argumento formal `comida` a tu función `Sabrosa`, puedes hacerlo de la siguiente manera:
 
 ```
-function! Tasty(food)
-  return "Tasty " . a:food
+function! Sabrosa(comida)
+  return "Sabrosa " . a:comida
 endfunction
 
-echo Tasty("pastry")
-" returns "Tasty pastry"
+echo Tasty("paella")
+" returns "Sabrosa paella"
 ```
 
-`a:` is one of the variable scopes mentioned in the last chapter. It is the formal parameter variable. It is Vim's way to get a formal parameter value in a function. Without it, Vim will throw an error:
+`a:` es uno de los ámbitos de las variables mencionados en el capítulo anterior. Es el de variable de parámtero formal. Es la manera de Vim para obtener un parámetro formal en una función. Sin este, Vim mostrará un errror:
 
 ```
-function! Tasty(food)
-  return "Tasty " . food
+function! Sabrosa(comida)
+  return "Sabrosa " . comida
 endfunction
 
-echo Tasty("pasta")
-" returns "undefined variable name" error
+echo Tasty("paella")
+" devuelve "undefined variable name" error
 ```
 
 ## Function Local Variable
