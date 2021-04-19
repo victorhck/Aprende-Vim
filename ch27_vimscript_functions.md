@@ -162,34 +162,34 @@ echo Calories()
 " returns "I do not count my calories"
 ```
 
-## Calling A Function
+## Llamar a una función
 
-Vim has a `:call` command to call a function.
+Vim tiene un comando `:call` para llamar a una función.
 
 ```
-function! Tasty(food)
-  return "Tasty " . a:food
+function! Sabrosa(comida)
+  return "Sabrosa " . a:comida
 endfunction
 
-call Tasty("gravy")
+call Sabrosa("salsa")
 ```
 
-The `call` command does not output the return value. Let's call it with `echo`.
+El comando `call` no muestra el valor de retorno. Vamos a llamar a la función combinando los comandos `call` y `echo`.
 
 ```
-echo call Tasty("gravy")
+echo call Sabrosa("salsa")
 ```
 
-Woops, you get an error. The `call` command above is a command-line command (`:call`). The `echo` command above is also a command-line command (`:echo`). You cannot call a command-line command with another command-line command. Let's try a different flavor of the `call` command:
+¡Vaya! obtuviste un error. El comando `call` anterior es un comando de la línea de comandos (`:call`). El comando `echo` anterior es también un comando para la línea de comandos (`:echo`). No puedes llamar a un comando para la línea de comandos con otro comando para la línea de comandos. Vamos a utilizar otra opción con el comando `call`:
 
 ```
-echo call("Tasty", ["gravy"])
-" returns "Tasty gravy"
+echo call("Sabrosa", ["salsa"])
+" devuelve "Sabrosa salsa"
 ```
 
-To clear any confusion, you have just used two different `call` commands: the `:call` command-line command and the `call()` function. The `call()` function accepts as its first argument the function name (string) and its second argument the formal parameters (list). 
+Para aclarar cualquier confusión, acabas de utilizar dos comandos `call` diferentes: el comando `:call` para la línea de comandos y la función `call()`. La función `call()` acepta como su primer argumento el nombre de la función (una cadena) y su segundo argumento los parámetros formales (una lista). 
 
-To learn more about `:call` and `call()`, check out `:h call()` and `:h :call`.
+Para aprender más sobre `:call` y `call()`, echa un vistazo `:h call()` y `:h :call`.
 
 ## Default Argument
 
