@@ -120,46 +120,46 @@ echo Tasty("paella")
 " devuelve "undefined variable name" error
 ```
 
-## Function Local Variable
+## Variable local de función
 
-Let's address the other variable you didn't learn on the previous chapter: the function local variable (`l:`).
+Vamos a ver el otro tipo de variable que no aprendimos en el capítulo anterior: la variable local de función (`l:`).
 
-When writing a function, you can define a variable inside:
+Cuando estás escribiendo una función, puedes definir una variable dentro de la función:
 
 ```
-function! Yummy()
-  let location = "tummy"
-  return "Yummy in my " . location
+function! Delicioso()
+  let sitio = "panza"
+  return "Delicioso en mi " . sitio
 endfunction
 
-echo Yummy()
-" returns "Yummy in my tummy"
+echo Delicioso()
+" devuelve "Delicioso en mi panza"
 ```
 
-In this context, the variable `location` is the same as `l:location`. When you define a variable in a function, that variable is *local* to that function. When a user sees `location`, it could easily be mistaken as a global variable. I prefer to be more verbose than not, so I prefer to put `l:` to indicate that this is a function variable.
+En este contexto, la variable `sitio` es lo mismo que `l:sitio`. Cuando defines una variable en una función, es variable es *local* a esa función. Cuando un usuario ve `sitio`, podría fácilmente caer en el error de que se trata de una variable global. Por eso prefiero no escatimar en información y siempre añadir `l:` para indicar que es una variable propia de la función.
 
-Another reason to use `l:count` is that Vim has special variables with aliases that look like regular variables. `v:count` is one example. It has an alias of `count`. In Vim, calling `count` is the same as calling `v:count`. It is easy to accidentally call one of those special variables.
+Otra razón para utilizar el método `l:count` al declarar una variable propia de una función es que Vim tiene unas variables especiales con alias que son similares a una variable normal. `v:count` es un ejemplo. Esta variable tien un alias `count`. En Vim, llamar a `count` es lo mismo que que llamar a `v:count`. Es muy sencillo llamar de manera accidental a una de esas variables especiales.
 
 ```
-function! Calories()
+function! Calorias()
   let count = "count"
-  return "I do not " . count . " my calories"
+  return "Yo no " . count . " mis calorias"
 endfunction
 
-echo Calories()
-" throws an error
+echo Calorias()
+" muestra un error
 ```
 
-The execution above throws an error because `let count = "Count"` implicitly attempts to redefine Vim's special variable `v:count`. Recall that special variables (`v:`) are read-only. You cannot mutate it. To fix it, use `l:count`:
+La ejecución anterior muestra un error, porque `let count = "count"` de manera implícita trata de redefinir una variable especial de Vim `v:count`. Recuerda que las variables especiales (`v:`) son de solo lectura. No las puedes cambiar. Para solucionar esto, utiliza `l:count`:
 
 ```
-function! Calories()
+function! Calorias()
   let l:count = "count"
-  return "I do not " . l:count . " my calories"
+  return "Yo no " . l:count . " mis calorías"
 endfunction
 
 echo Calories()
-" returns "I do not count my calories"
+" returns "Yo no count mis calorías"
 ```
 
 ## Calling A Function
