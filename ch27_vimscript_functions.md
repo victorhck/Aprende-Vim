@@ -143,7 +143,7 @@ Otra razón para utilizar el método `l:count` al declarar una variable propia d
 ```
 function! Calorias()
   let count = "count"
-  return "Yo no " . count . " mis calorias"
+  return "I do not " . count . " my calories"
 endfunction
 
 echo Calorias()
@@ -155,11 +155,11 @@ La ejecución anterior muestra un error, porque `let count = "count"` de manera 
 ```
 function! Calorias()
   let l:count = "count"
-  return "Yo no " . l:count . " mis calorías"
+  return "I do not " . l:count . " my calories"
 endfunction
 
 echo Calories()
-" returns "Yo no count mis calorías"
+" returns "I do not count my calories"
 ```
 
 ## Calling A Function
