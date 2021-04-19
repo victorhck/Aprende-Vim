@@ -42,19 +42,19 @@ function! Sabrosa()
 endfunction
 ```
 
-## Listing Available Functions
+## Mostrar un listado con las funciones disponibles
 
-To see all the built-in and custom functions in Vim, you can run `:function` command. To look at the content of the `Tasty` function, you can run `:function Tasty`.
+Para ver todas las funciones propias y personalizadas en Vim, puedes ejecutar el comando `:function`. Para ver el contenido de la función `Sabrosa`, puedes ejecutar `:function Sabrosa`.
 
-You can also search for functions with pattern with `:function /pattern`, similar to Vim's search navigation (`/pattern`). To search for all function containing the phrase "map", run `:function /map`. If you use external plugins, Vim will display the functions defined in those plugins.
+También puedes buscar funciones con un patrón mediante `:function /patrón`, de manera similar a la navegación de búsqueda con Vim (`/patrón`). Para buscar todas las funciones que contengan la palabra "map", ejecuta `:function /map`. Si utilizas complementos externos, Vim mostrará las funciones definidas en esos complementos.
 
-If you want to look at where a function originates, you can use the `:verbose` command with the `:function` command. To look at where all the functions containing teh word "map" are originated, run:
+Si quieres ver dónde se origina una función, puedes utilizar el comando `:verbose` junto con el comando `:function`. Para buscar dónde se originan todas las funciones que contienen la palabra "map", ejecuta:
 
 ```
 :verbose function /map
 ```
 
-When I ran it, I got a number of results. This one tells me that the function `fzf#vim#maps` autoload function (to recap, refer to Ch. 23) is written inside `~/.vim/plugged/fzf.vim/autoload/fzf/vim.vim` file, on line 1263. This is useful for debugging.
+Cuando lo ejecuto, obtengo un número de resultados. Esto me dice que la función `fzf#vim#maps` una función de autoload (vuelve a echar un vitazo al capítulo 23) está escrita dentro del archivo `~/.vim/plugged/fzf.vim/autoload/fzf/vim.vim`, en la línea 1263. Esto es muy útil a la hora de depurar errores.
 
 ```
 function fzf#vim#maps(mode, ...)
