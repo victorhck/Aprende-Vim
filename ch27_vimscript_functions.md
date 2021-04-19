@@ -65,36 +65,36 @@ function fzf#vim#maps(mode, ...)
 
 Para eliminar una función existente, utiliza `:delfunction {Nombre_de_funcion}`. Para eliminar `Sabrosa`, ejecuta `:delfunction Sabrosa`.
 
-## Function Return Value
+## Valor de retorno de una función
 
-For a function to return a value, you need to pass it an explicit `return` value. Otherwise, Vim automatically returns an implicit value of 0.
+Para que una función devuelva un valor, necesitas pasarle de manera explícita un valor `return`. De otra manera, Vim automáticamente devuelve de manera implícita un valor 0.
 
 ```
-function! Tasty()
-  echo "Tasty"
+function! Sabrosa()
+  echo "Sabrosa"
 endfunction
 ```
 
-An empty `return` is also equivalent to a 0 value.
+Un valor `return` vacío es equivalente a un valor 0.
 
 ```
-function! Tasty()
-  echo "Tasty"
+function! Sabrosa()
+  echo "Sabrosa"
   return
 endfunction
 ```
 
-If you run `:echo Tasty()` using the function above, after Vim displays "Tasty", it returns 0, the implicit return value. To make `Tasty()` to return "Tasty" value, you can do this:
+Si ejecutas `:echo Sabrosa()` utilizando la función anterior, después de que Vim muestre la palabra "Sabrosa", devolverá un 0, el valor implícito de retorno. Para hacer que la función `Sabrosa()` devuelva el valor "Sabrosa", puedes hacer lo siguiente:
 
 ```
-function! Tasty()
-  return "Tasty"
+function! Sabrosa()
+  return "Sabrosa"
 endfunction
 ```
 
-Now when you run `:echo Tasty()`, it returns "Tasty" string.
+Ahora cuando ejecutas `:echo Sabrosa()`, esta función devuelve la cadena "Sabrosa".
 
-You can use a function inside an expression. Vim will use the return value of that function. The expression `:echo Tasty() . " Food!"` outputs "Tasty Food!"
+Puedes utilizar una función dentro de una expresión. Vim utilizará el valor de retorno de esa función. La expresión `:echo Sabrosa() . " comida."` mostrará "Sabrosa comida."
 
 ## Formal Arguments
 
