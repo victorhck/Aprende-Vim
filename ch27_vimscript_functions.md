@@ -106,7 +106,7 @@ function! Sabrosa(comida)
 endfunction
 
 echo Tasty("paella")
-" returns "Sabrosa paella"
+" devuelve "Sabrosa paella"
 ```
 
 `a:` es uno de los ámbitos de las variables mencionados en el capítulo anterior. Es el de variable de parámtero formal. Es la manera de Vim para obtener un parámetro formal en una función. Sin este, Vim mostrará un errror:
@@ -159,7 +159,7 @@ function! Calorias()
 endfunction
 
 echo Calories()
-" returns "I do not count my calories"
+" devuelve "I do not count my calories"
 ```
 
 ## Llamar a una función
@@ -207,11 +207,11 @@ echo Desayuno("Cereales", "Zumo de naranja")
 " devuelve Cereales y Zumo de naranja
 ```
 
-## Variable Arguments
+## Argumentos de variables
 
-You can pass a variable argument with three-dots (`...`). Variable argument is useful when you don't know how many variables a user will give.
+Puedes pasarle una variable a un argumento mediante tres puntos (`...`). Un argumento de variable es útil cuando no sabes cuantas variables dará un usuario.
 
-Suppose you are creating an all-you-can-eat buffet (you'll never know how much food your customer will eat):
+Supongamos que estás creando un *buffet* en el que puedas comer todo lo que desees (nunca sabes cuanta comida comerán tus comensales):
 
 ```
 function! Buffet(...)
@@ -219,87 +219,87 @@ function! Buffet(...)
 endfunction
 ```
 
-If you run `echo Buffet("Noodles")`, it will output "Noodles". Vim uses `a:1` to print the *first* argument passed to `...`, up to 20 (`a:1` is the first argument, `a:2` is the second argument, etc). If you run `echo Buffet("Noodles", "Sushi")`, it will still display just "Noodles", let's update it:
+Si ejecutas `echo Buffet("Fideos")`, entonces mostrará "Fideos". Vim utiliza `a:1` para mostrar el *primer* argumento que se le pasa a la función hasta `...`, más de 20 (`a:1` es el primer argumento, `a:2` es el segundo argumento, etc). Si ejecutas `echo Buffet("Fideos", "Sushi")`, mostrará solo "Fideos", vamos a actualizar la función:
 
 ```
 function! Buffet(...)
   return a:1 . " " . a:2
 endfunction
 
-echo Buffet("Noodles", "Sushi")
-" Returns "Noodles Sushi"
+echo Buffet("Fideos", "Sushi")
+" devuelve "Fideos Sushi"
 ```
 
-The problem with this approach is if you now run `echo Buffet("Noodles")` (with only one variable), Vim complains that it has an undefined variable `a:2`. How can you make it flexible enough to display exactly what the user gives?
+El problema con este método es que si ejecutas `echo Buffet("Fideos")` (con solo una variables), Vim se quejará de que tiene una variable no definida  en `a:2`. ¿Cómo podemos hacerlo lo suficientemente flexible para mostrar exactamente lo que el usuario le de a la función?
 
-Luckily, Vim has a special variable `a:0` to display the *length* of the argument passed into `...`.
+Afortunadamente, Vim tiene una variable especial `a:0` para mostrar la *longitud* del argumento pasado en `...`.
 
 ```
 function! Buffet(...)
   return a:0
 endfunction
 
-echo Buffet("Noodles")
-" returns 1
+echo Buffet("Fideos")
+" devuelve 1
 
-echo Buffet("Noodles", "Sushi")
-" returns 2
+echo Buffet("Fideos", "Sushi")
+" devuelve 2
 
-echo Buffet("Noodles", "Sushi", "Ice cream", "Tofu", "Mochi")
-" returns 5
+echo Buffet("Fideos", "Sushi", "Helado", "Tofu", "Mochi")
+" devuelve 5
 ```
 
-With this, you can iterate using the length of the argument.
+Con esto, puedes consultar la longitud del argumento.
 
 ```
 function! Buffet(...)
-  let l:food_counter = 1
-  let l:foods = ""
-  while l:food_counter <= a:0
-    let l:foods .= a:{l:food_counter} . " "
-    let l:food_counter += 1
+  let l:contador_comida = 1
+  let l:alimentos = ""
+  while l:contador_comida <= a:0
+    let l:alimentos .= a:{l:contador_comida} . " "
+    let l:contador_comida += 1
   endwhile
-  return l:foods
+  return l:alimentos
 endfunction
 ```
 
-The curly braces `a:{l:food_counter}` is a string interpolation, it uses the value of `food_counter` counter to call the formal parameter arguments `a:1`, `a:2`, `a:3`, etc.
+Las llaves `a:{l:contador_comida}` es una interpolación de una cadena, utiliza el valor del contador `contador_comida` para llamar a los argumentos del parámetro formal `a:1`, `a:2`, `a:3`, etc.
 
 ```
-echo Buffet("Noodles")
-" returns "Noodles"
+echo Buffet("Fideos")
+" devuelve "Fideos"
 
-echo Buffet("Noodles", "Sushi", "Ice cream", "Tofu", "Mochi")
-" returns everything you passed: "Noodles Sushi Ice cream Tofu Mochi"
+echo Buffet("Fideos", "Sushi", "Helado", "Tofu", "Mochi")
+" devuelve todo lo que le has pasado: "Fideos Sushi Helado Tofu Mochi"
 ```
 
-The variable argument has one more special variable: `a:000`. It has the value of all variable arguments in a list format.
+El argumento de variable tiene una variable especial más `a:000`. Tiene el valor de todos los argumentos de variable en un formato de lista.
 
 ```
 function! Buffet(...)
   return a:000
 endfunction
 
-echo Buffet("Noodles")
-" returns ["Noodles"]
+echo Buffet("Fideos")
+" devuelve ["Fideos"]
 
-echo Buffet("Noodles", "Sushi", "Ice cream", "Tofu", "Mochi")
-" returns ["Noodles", "Sushi", "Ice cream", "Tofu", "Mochi"]
+echo Buffet("Fideos", "Sushi", "Helado", "Tofu", "Mochi")
+" devuelve ["Fideos", "Sushi", "Helado", "Tofu", "Mochi"]
 ```
 
-Let's refactor the function to use a `for` loop:
+Vamos a volver a escribir la función para utilizar un bucle `for`:
 
 ```
 function! Buffet(...)
-  let l:foods = ""
-  for food_item in a:000
-    let l:foods .= food_item . " "
+  let l:comidas = ""
+  for elemento_comida in a:000
+    let l:comidas .= elemento_comida . " "
   endfor
-  return l:foods
+  return l:comidas
 endfunction
 
-echo Buffet("Noodles", "Sushi", "Ice cream", "Tofu", "Mochi")
-" returns Noodles Sushi Ice cream Tofu Mochi
+echo Buffet("Fideos", "Sushi", "Helado", "Tofu", "Mochi")
+" devuelve Fideos Sushi Helado Tofu Mochi
 ```
 
 ## Range
@@ -357,7 +357,7 @@ Let's add this function to the `meals` dictionary:
 let meals = {"breakfast": "pancakes", "second_breakfast": function("SecondBreakfast"), "lunch": "pasta"}
 
 echo meals.second_breakfast()
-" returns "pancakes"
+" devuelve "pancakes"
 ```
 
 With `dict` keyword, the key variable `self` refers to the dictionary where the function is stored (in this case, the `meals` dictionary). The expression `self.breakfast` is equal to `meals.breakfast`.
@@ -370,7 +370,7 @@ function! meals.second_lunch()
 endfunction
 
 echo meals.second_lunch()
-" returns "pasta"
+" devuelve "pasta"
 ```
 
 With namespace, you do not have to use the `dict` keyword.
@@ -387,15 +387,15 @@ function! Breakfast(item)
 endfunction
 
 let Breakfastify = Breakfast
-" returns error
+" devuelve error
 
 let Breakfastify = function("Breakfast")
 
 echo Breakfastify("oatmeal")
-" returns "I am having oatmeal for breakfast"
+" devuelve "I am having oatmeal for breakfast"
 
 echo Breakfastify("pancake")
-" returns "I am having pancake for breakfast"
+" devuelve "I am having pancake for breakfast"
 ```
 
 In Vim, if you want to assign a function to a variable, you can't just run assign it directly like `let MyVar = MyFunc`. You need to use the `function()` function, like `let MyFar = function("MyFunc")`.
@@ -422,11 +422,11 @@ A better way to use functions in maps and filters is to use lambda expression (s
 ```
 let Plus = {x,y -> x + y}
 echo Plus(1,2)
-" returns 3
+" devuelve 3
 
 let Tasty = { -> 'tasty'}
 echo Tasty()
-" returns "tasty"
+" devuelve "tasty"
 ```
 
 You can call a function from insisde a lambda expression:
@@ -463,7 +463,7 @@ To convert a float to a number using method chaining:
 
 ```
 echo 3.14->float2nr()
-" returns 3
+" devuelve 3
 ```
 
 Let's do a more complicated example. Suppose that you need to capitalize the first letter of each item on a list, then sort the list, then join the list to form a string.
@@ -480,7 +480,7 @@ endfunction
 let dinner_items = ["bruschetta", "antipasto", "calzone"]
 
 echo dinner_items->CapitalizeList()->sort()->join(", ")
-" returns "Antipasto, Bruschetta, Calzone"
+" devuelve "Antipasto, Bruschetta, Calzone"
 ```
 
 With method chaining, the sequence is more easily read and understood. I can just glance at `dinner_items->CapitalizeList()->sort()->join(", ")` and know exactly what is going on.
