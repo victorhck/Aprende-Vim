@@ -302,24 +302,24 @@ echo Buffet("Fideos", "Sushi", "Helado", "Tofu", "Mochi")
 " devuelve Fideos Sushi Helado Tofu Mochi
 ```
 
-## Range
+## Rango
 
-You can define a *ranged* Vimscript function by adding a `range` keyword at the end of the function definition. A ranged function has two special variables available: `a:firstline` and `a:lastline`.
+Puedes definir un *rango* para una función de Vimscript añadiendo la palabra clave `range` al final de la definición de la función. Un rango de función tiene disponibles dos variables especiales `a:firstline` y `a:lastline`.
 
 ```
-function! Breakfast() range
+function! Desayuno() range
   echo a:firstline
   echo a:lastline
 endfunction
 ```
 
-If you are on line 100 and you run `call Breakfast()`, it will display 100 for both `firstline` and `lastline`. If you visually highlight (`v`, `V`, or `Ctrl-V`) lines 101 to 105 and run `call Breakfast()`, `firstline` displays 101 and `lastline` displays 105. `firstline` and `lastline` displays the minimum and maximum range where the function is called.
+Si estás en la línea 100 y ejecutas `call Desayuno()`, mostrará 100 tanto para `firstline` como para `lastline`. Si visualmente resaltas (mediante `v`, `V`, o `Ctrl-V`) las líneas de la 101 a la 105 y ejecutas `call Desayuno()`, `firstline` mostrará 101 y `lastline` mostrará 105. `firstline` y `lastline` muestran el rango mínimo y máximo de la función que es llamada.
 
-You can also use `:call` and passing it a range. If you run `:11,20call Breakfast()`, it will display 11 for `firstline` and 20 for `lastline`.
+También puedes utilizar `:call` y pasarle un rando. Si ejecutas `:11,20call Desayuno()`, mostrará 11 para `firstline` y 20 para `lastline`.
 
-You might ask, "That's nice that Vimscript function accepts range, but can't I get the line number with `line(".")`? Won't it do the same thing?"
+Te podrías preguntar, "Está bien que una función de Vimscript acepte un rango, pero ¿no puedo obtener el número de línea con `line(".")`? ¿No hará eso lo mismo?"
 
-Good question. If this is what you mean:
+Buena pregunta. Si esto es a lo que te refieres:
 
 ```
 function! Breakfast()
