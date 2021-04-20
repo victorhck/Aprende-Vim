@@ -12,7 +12,7 @@ Esta es una guía obstinada. Trata de técnicas que utilizo habitualmente cuando
 
 Esta guía está llena de ejemplos. Al aprender una nueva materia, los ejemplos son indispensables, el disponer de numerosos ejemplos hará que se fijen estos conceptos de una manera más efectiva.
 
-Quiźas alguna persona se pregunten ¿por qué voy a necesitar aprender Vimscript? En mi primer año de uso de Vim, estaba satisfecho con solo saber utilizar Vim. A medida que pasó el tiempo comencé a necesitar Vimscript más y más para escribir comandos personalizados para mis necesidades específicas a la hora de editar. Mientras estás dominando Vim, antes o después necesitarás aprender Vimscript. Así que ¿por qué no mejor cuanto antes? Vimscript es un lenguaje pequeño. Puedes aprender lo básico en solo cuatro capítulos de esta guía.
+Quiźas alguna persona se pregunte ¿por qué voy a necesitar aprender Vimscript? En mi primer año de uso de Vim, estaba satisfecho con solo saber utilizar Vim. A medida que pasó el tiempo comencé a necesitar Vimscript más y más para escribir comandos personalizados para mis necesidades específicas a la hora de editar. Mientras estás dominando Vim, antes o después necesitarás aprender Vimscript. Así que ¿por qué no mejor cuanto antes? Vimscript es un lenguaje pequeño. Puedes aprender lo básico en solo cuatro capítulos de esta guía.
 
 Puedes llegar lejos utilizando Vim sin conocer en absoluto Vimscript, pero conociéndolo te ayudará a sobresalir aún más.
 
@@ -67,7 +67,7 @@ En varios puntos de esta guía, me referiré a las opciones de *vimrc*. Si acaba
 
 No se tratará el tema de *vimrc* hasta el capítulo 21. Para aclarar un poco el tema, te mostraré brevemente cómo configurarlo.
 
-Supongamos que necesitamos configurar las opciones de numeración de línea (`set number`). Si todavía no tienes un archivo *vimrc*, vamos a crear uno. Normalmente este archivo se ubica en la raíz de un directorio llamado `.vimrc` dentro de nuestro usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, ehca un vistazo a `:h vimrc`.
+Supongamos que necesitamos configurar las opciones de numeración de línea (`set number`). Si todavía no tienes un archivo *vimrc*, vamos a crear uno. Normalmente este archivo se ubica en la raíz de un directorio llamado `.vimrc` dentro de nuestro usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, echa un vistazo a `:h vimrc`.
 
 Dentro del archivo añade una línea con lo siguiente `set number`. Guárdalo (`:w`) y después haz que Vim lo tenga en cuenta ejecutando `:source %`. Ahora deberías ver los números de línea mostrados en el margen izquierdo.
 
