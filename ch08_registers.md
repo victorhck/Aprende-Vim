@@ -1,8 +1,8 @@
 # Capítulo 8: Registros
 
-Aprender los registros de Vim es como aprender álgebra por primera vez. No piensas que los necesitas hasta que lo aprendes.
+Aprender los registros de Vim es como aprender álgebra por primera vez. No piensas que los necesitas hasta que los necesitas.
 
-Probablemente has usado los registros de Vim al copiar o borrar un texto y luego lo pegaste con `p` o `P`. sin embargo, ¿sabías que Vim tiene 10 tipos diferentes de registros? Usados correctamente, los registros de Vim te pueden ahorrar es tener que escribir lo mismo de manera repetitiva.
+Probablemente has usado los registros de Vim al copiar o borrar un texto y luego lo pegaste con `p` o `P`. Sin embargo, ¿sabías que Vim tiene 10 tipos diferentes de registros? Usados correctamente, los registros de Vim te pueden ahorrar el tener que escribir lo mismo de manera repetitiva.
 
 En este capítulo repasaré todos los tipos de registros de Vim y cómo usarlos eficientemente.
 
@@ -20,7 +20,6 @@ Estos son los 10 tipos de registros que tiene Vim:
 8. Los registros de selección (`"*` y `"+`).
 9. El registro de agujero negro (`"_`).
 10. El registro del último patrón de búsqueda (`"/`).
-
 
 ## Operadores del registro
 
@@ -43,7 +42,7 @@ P    Pega el texto antes del cursor
 
 Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para pegar diez veces, debes escribir `10p`. Para pegar el texto del registro a, utiliza `"ap`. Para pegar 10 veces el texto del registro a, ejecuta `10"ap`. Por cierto, la `p` del comando es la abreviación de la palabra "put" (poner en inglés), no de "pegar" (paste en inglés), pero creo que usar la palabra pegar es más conveniente.
 
-La sintanxis general para obtener el contenido desde un registro en específico es `"a`, donde `a` es el símbolo del registro.
+La sintaxis general para obtener el contenido desde un registro en específico es `"a`, donde `a` es el símbolo del registro.
 
 ## Llamar a los registros desde el modo insertar
 
@@ -52,17 +51,17 @@ Todo lo que aprendas en este capítulo puede también ser ejecutado en el modo i
 Ctrl-R a
 ```
 
-Donde `a` es el símbolo del registro. Ahora que sabes cómo almacenar y recuperar registros ¡vamos a ello!
+Donde `a` es el símbolo del registro. Ahora que sabes cómo almacenar y recuperar registros ¡vamos a profundizar!
 
 ## El registro sin nombre 
 
-Para obtener texto desde el registro sin nombre, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro sin nombre es como la operación  copiar/pegar estándar de una computadora.
+Para obtener texto desde el registro sin nombre, escribe `""p`. Este almacena el último texto que copiaste, modificaste o borraste. Si haces otra copia, modificación o borrado, Vim automáticamente reemplazará el texto. El registro sin nombre es como la operación copiar/pegar estándar de una computadora.
 
 De manera predeterminada, `p` (o `P`) está conectado al registro sin nombre (desde ahora me referiré al registro sin nombre con `p` en lugar de `""p`).
 
 ## Los registros numerados 
 
-Los registros numerados automáticamente se llenan así mismos en orden ascendente. Hay 2 registros numerados diferentes: el registro de copia (`0`) y los registros numerados (`1-9`). Vamos a ver primero el registro de copia.
+Los registros numerados automáticamente se llenan a sí mismos en orden ascendente. Hay 2 registros numerados diferentes: el registro de copia (`0`) y los registros numerados (`1-9`). Vamos a ver primero el registro de copia.
 
 ### El registro de copia 
 
@@ -87,22 +86,23 @@ Pero si en cambio haces esto otro:
 
 El registro de copia tendrá el texto del paso tres.
 
-Un último consejo, mientras estás en el modo insertar, puedes pegar rápidamente el texto que solo copiaste usando `Ctrl-R 0`.
+Un último consejo, mientras estás en el modo insertar, puedes pegar rápidamente el texto que acabas de copiar usando `Ctrl-R 0`.
 
 ### Los registros numerados que no son el cero
 
 Cuando cambias o borras un texto de al menos una línea de largo, este texto se almacenará en un registro numerado del 1 al 9, ordenados por el más reciente.
 
 Por ejemplo, si tienes estas líneas:
+
 ```
 línea tres
 línea dos
 línea uno
 ```
 
-Con tu cursor en la "línea tres" borra una a una las líneas con `dd`. Una vez que las líneas están borradas, el registro 1 debe contener "línea uno" (el texto más reciente), registro 2 la "línea dos" (el segundo texto más reciente) y el registro 3 "línea tres" (el último texto borrado). Para obtener el contenido del registro uno, escribe `"1p`.
+Con tu cursor en la "línea tres" borra una a una las líneas con `dd`. Una vez que las líneas están borradas, el registro 1 debe contener "línea uno" (el texto más reciente), registro 2 la "línea dos" (el segundo texto más reciente) y el registro 3 "línea tres" (el más antiguo). Para obtener el contenido del registro uno, escribe `"1p`.
 
-Como nota complementaria, los registros numerados son automáticamente incrementados cuando usas el comando punto. Si tu registro numerado uno (`"1`) contiene "línea uno", registro dos (`"2`) "línea dos" y el registro tres (`"3`) "línea tres", puedes pegarlos secuencialmente con este truco:
+Como nota complementaria, los registros numerados son incrementados automáticamente cuando usas el comando punto. Si tu registro numerado uno (`"1`) contiene "línea uno", registro dos (`"2`) "línea dos" y el registro tres (`"3`) "línea tres", puedes pegarlos secuencialmente con este truco:
 - Escribe `"1P` para pegar el contenido del registro del número uno.
 - Escribe `.` para pegar el contenido del registro numerado dos (`"2`).
 - Escribe `.` para pegar el contenido del registro numerado tres (`"3`).
