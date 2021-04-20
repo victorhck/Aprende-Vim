@@ -191,20 +191,20 @@ Para aclarar cualquier confusión, acabas de utilizar dos comandos `call` difere
 
 Para aprender más sobre `:call` y `call()`, echa un vistazo `:h call()` y `:h :call`.
 
-## Default Argument
+## Argumento predeterminado
 
-You can provide a function parameter with a default value with `=`. If you call `Breakfast` with only one argument, the `beverage` argument will use the "milk" default value.
+Puedes crear una función con un valor predeterminado con `=`. Si llamas a la función `Desayuno` con solo un argumento, el argumento `bebida` usará el valor predeterminado "leche".
 
 ```
-function! Breakfast(meal, beverage = "Milk")
-  return "I had " . a:meal . " and " . a:beverage . " for breakfast"
+function! Desayuno(comida, bebida = "Leche")
+  return "Tomé " . a:comida . " y " . a:bebida . " para desayunar"
 endfunction
 
-echo Breakfast("Hash Browns")
-" returns hash browns and milk
+echo Desayuno("Gofres")
+" devuelve Gofres y Leche
 
-echo Breakfast("Cereal", "Orange Juice")
-" returns Cereal and Orange Juice
+echo Desayuno("Cereales", "Zumo de naranja")
+" devuelve Cereales y Zumo de naranja
 ```
 
 ## Variable Arguments
