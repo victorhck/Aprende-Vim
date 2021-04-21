@@ -322,22 +322,22 @@ Te podrías preguntar, "Está bien que una función de Vimscript acepte un rango
 Buena pregunta. Si esto es a lo que te refieres:
 
 ```
-function! Breakfast()
+function! Desayuno()
   echo line(".")
 endfunction
 ```
 
-Calling `:11,20call Breakfast()` executes the `Breakfast` function 10 times (one for each line in the range). Compare that if you had passed the `range` argument:
+Al llamar a la función `:11,20call Desayuno()` ejecuta la función `Desayuni` 10 veces (una por cada línea del rango). Compara eso con la diferencia de si hubieras pasado el argumento del rango `range`:
 
 ```
-function! Breakfast() range
+function! Desayuno() range
   echo line(".")
 endfunction
 ```
 
-Calling `11,20call Breakfast()` executes the `Breakfast` function *once*.
+Al llamar con `11,20call Desayuno()` esto ejecuta la función `Desayuno` *una vez*.
 
-If you pass a `range` keyword and you pass a numerical range (like `11,20`) on `call`, Vim only executes that function once. If you don't pass a `range` keyword and you pass a numerical range (like `11,20`) on `call`, Vim executes that function N times depending on the range (in this case, N = 10).
+Si le añades la palabra clave `range` keyword y le pasas un rango numérico (como `11,20`) en la llamada `call`, Vim solo ejecutará esa función una vez. Si no pasas un rango `range` y le pasas un rango numérico (como `11,20`) en la llamada `call`, Vim ejecuta esa función un número N de veces deppendiendo del rango (en el caso del ejemplo, N = 10).
 
 ## Dictionary
 
