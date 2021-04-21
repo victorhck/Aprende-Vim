@@ -1,8 +1,8 @@
-# Capítulo 27. Funciones en Vimscript
+# Capítulo 27: Funciones en Vimscript
 
-Las funciones son medios de abtracción, el tercer elemento en el aprendizaje de un nuevo lenguajes de programación.
+Las funciones son medios de abstracción, el tercer elemento en el aprendizaje de un nuevo lenguajes de programación.
 
-En capítulos previos, has visto en acción las funciones nativas de Vimscript (`len()`, `filter()`, `map()`, etc.) y las funciones personalizadas. en este capítulo, vas a profundizar en aprender cómo funcionan las funciones.
+En capítulos previos, has visto en acción las funciones nativas de Vimscript (`len()`, `filter()`, `map()`, etc.) y las funciones personalizadas. En este capítulo, vas a profundizar en aprender cómo funcionan las funciones.
 
 ## Reglas de sintaxis de las funciones
 
@@ -14,7 +14,7 @@ function {NombreFuncion}()
 endfunction
 ```
 
-Una definición de una función debe comenzar con una letra mayúscula. Comienza con la palabra clave `function` y termina con `endfunction`. A continuación encontrarás una función válida:
+Una definición de una función debe comenzar con una letra mayúscula. Comienza con la palabra clave `function` y termina con `endfunction`. A continuación veremos un ejemplo de una función válida:
 
 ```
 function! Sabrosa()
