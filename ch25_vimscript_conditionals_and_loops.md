@@ -1,4 +1,4 @@
-# Capítulo 25. Condicionales y bucles en Vimscript
+# Capítulo 25: Condicionales y bucles en Vimscript
 
 Después de aprender cuales son los tipos básicos de datos que existen en Vimscript, el siguiente paso es aprender cómo combinarlos para empezar a escribir un programa básico. Un programa básico consiste en condicionales y bucles.
 
@@ -11,7 +11,7 @@ Los operadores relacionales de Vimscript son similares a los que que existen en 
 ```
 a == b		igual a
 a != b		no igual a
-a >  b		mayor quegreater than
+a >  b		mayor que
 a >= b		mayor o igual que
 a <  b		menor que
 a <= b		menor o igual que
