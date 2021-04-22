@@ -339,41 +339,41 @@ Al llamar con `11,20call Desayuno()` esto ejecuta la función `Desayuno` *una ve
 
 Si le añades la palabra clave `range` keyword y le pasas un rango numérico (como `11,20`) en la llamada `call`, Vim solo ejecutará esa función una vez. Si no pasas un rango `range` y le pasas un rango numérico (como `11,20`) en la llamada `call`, Vim ejecuta esa función un número N de veces deppendiendo del rango (en el caso del ejemplo, N = 10).
 
-## Dictionary
+## Diccionario
 
-You can add a function as a dictionary item by adding a `dict` keyword when defining a function.
+Puedes añadir una función como un elemento diccionario añadiendo la palabra clave `dict` cuando definas la función.
 
-If you have a function `SecondBreakfast` that returns whatever `breakfast` item you have:
+Si tienes una función `SegundoDesayuno` que devuelve cualquier elemento `desayuno` que tengas:
 
 ```
-function! SecondBreakfast() dict
-  return self.breakfast
+function! SegundoDesayuno() dict
+  return self.desayuno
 endfunction
 ```
 
-Let's add this function to the `meals` dictionary:
+Vamos a añadir esta función al diccionario `comidas`:
 
 ```
-let meals = {"breakfast": "pancakes", "second_breakfast": function("SecondBreakfast"), "lunch": "pasta"}
+let comidas = {"desayuno": "tortitas", "segundo_desayuno": function("SegundoDesayuno"), "almuerzo": "pasta"}
 
-echo meals.second_breakfast()
-" devuelve "pancakes"
+echo comidas.segundo_desayuno()
+" devuelve "tortitas"
 ```
 
-With `dict` keyword, the key variable `self` refers to the dictionary where the function is stored (in this case, the `meals` dictionary). The expression `self.breakfast` is equal to `meals.breakfast`.
+Con la palabra clave `dict`, la variable clave `self` se refiere al diccionario donde la función está almacenada (en este caso, el diccionario `comidas`). La expresión `self.desayuno` es equivalente a `comidas.desayuno`.
 
-An alternative way to add a function into a dictionary object to use a namespace.
+Una manera alternativa para añadir una función a un objeto de diccionario para utilizar un espacio de nombres.
 
 ```
-function! meals.second_lunch()
-  return self.lunch
+function! comidas.segundo_almuerzo()
+  return self.almuerzo
 endfunction
 
-echo meals.second_lunch()
+echo comidas.segundo_almuerzo()
 " devuelve "pasta"
 ```
 
-With namespace, you do not have to use the `dict` keyword.
+Con el espacio de nombres, no tienes que utilizar la palabra clave `dict`.
 
 ## Funcref
 
