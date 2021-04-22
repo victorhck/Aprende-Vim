@@ -327,7 +327,7 @@ function! Desayuno()
 endfunction
 ```
 
-Al llamar a la función `:11,20call Desayuno()` ejecuta la función `Desayuni` 10 veces (una por cada línea del rango). Compara eso con la diferencia de si hubieras pasado el argumento del rango `range`:
+Al llamar a la función `:11,20call Desayuno()` ejecuta la función `Desayuno` 10 veces (una por cada línea del rango). Compara eso con la diferencia de si hubieras pasado el argumento del rango `range`:
 
 ```
 function! Desayuno() range
@@ -362,7 +362,12 @@ echo comidas.segundo_desayuno()
 
 Con la palabra clave `dict`, la variable clave `self` se refiere al diccionario donde la función está almacenada (en este caso, el diccionario `comidas`). La expresión `self.desayuno` es equivalente a `comidas.desayuno`.
 
-Una manera alternativa para añadir una función a un objeto de diccionario para utilizar un espacio de nombres.
+Una manera alternativa para añadir una función a un objeto de diccionario es utilizar *namespace*. *namespace* de forma resumida, es una manera de organizar variables o funciones para evitar conflictos de nombres. Como por ejemplo:
+
+* `comida.arroz`
+* `comida.sopa`
+* `bebida.agua`
+* `bebida.cerveza`
 
 ```
 function! comidas.segundo_almuerzo()
@@ -373,7 +378,7 @@ echo comidas.segundo_almuerzo()
 " devuelve "pasta"
 ```
 
-Con el espacio de nombres, no tienes que utilizar la palabra clave `dict`.
+Con el *namespace*, no tienes que utilizar la palabra clave `dict`.
 
 ## Funcref
 
