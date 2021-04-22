@@ -403,20 +403,20 @@ echo Desayunando("tortitas")
 " devuelve "Estoy tomando tortitas para desayunar"
 ```
 
-In Vim, if you want to assign a function to a variable, you can't just run assign it directly like `let MyVar = MyFunc`. You need to use the `function()` function, like `let MyFar = function("MyFunc")`.
+En Vim, si quieres asignar una función a una variable, no puedes ejecutar la asignación simplemente de esta manera `let MiVariable = MiFuncion`. Necesutas utilizar la función `function()`, así `let MiVariable = function("MiFuncion")`.
 
-You can use funcref with maps and filters. Note that maps and filters will pass an index as the first argument and the iterated value as the second argument.
+Puedes utilizar *funcref*  con mapas y filtros. Ten en cuenta que los mapas y los filtros pasarán un índice como primer argumento y repetirán el valor como segundo argumento.
 
 ```
-function! Breakfast(index, item)
-  return "I am having " . a:item . " for breakfast"
+function! Desayuno(index, item)
+  return "Estoy tomando " . a:item . " para desayunar"
 endfunction
 
-let breakfast_items = ["pancakes", "hash browns", "waffles"]
-let first_meals = map(breakfast_items, function("Breakfast"))
+let desayuno_items = ["tortitas", "galletas", "gofres"]
+let primeras_comidas = map(desayuno_items, function("Desayuno"))
 
-for meal in first_meals
-  echo meal
+for comida in primeras_comidas
+  echo comida
 endfor
 ```
 
