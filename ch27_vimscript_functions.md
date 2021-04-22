@@ -380,27 +380,27 @@ echo comidas.segundo_almuerzo()
 
 Con el *namespace*, no tienes que utilizar la palabra clave `dict`.
 
-## Funcref
+## *Funcref*
 
-A funcref is a reference to a function. It is one of Vimscript's basic data types mentioned in Ch. 24.
+Una *funcref* es una referencia a una función. Es uno de los tipos de datos básicos de Vimscript mencionados en el capítulo 24.
 
-The expression `function("SecondBreakfast")` above is an example of funcref. Vim has a built-in function `function()` that returns a funcref when you pass it a function name (string).
+La expresión `function("SegundoDesayuno")` anterior es un ejemplo de *funcref*. Vim tiene una función propia `function()` que devuelve un *funcref* cuando le pasas el nombre de una función (cadena).
 
 ```
-function! Breakfast(item)
-  return "I am having " . a:item . " for breakfast"
+function! Desayuno(item)
+  return "Estoy tomando " . a:item . " para desayunar"
 endfunction
 
-let Breakfastify = Breakfast
+let Desayunando = Desayuno
 " devuelve error
 
-let Breakfastify = function("Breakfast")
+let Desayunando = function("Desayuno")
 
-echo Breakfastify("oatmeal")
-" devuelve "I am having oatmeal for breakfast"
+echo Desayunando("avena")
+" devuelve "Estoy tomando avena para desayunar"
 
-echo Breakfastify("pancake")
-" devuelve "I am having pancake for breakfast"
+echo Desayunando("tortitas")
+" devuelve "Estoy tomando tortitas para desayunar"
 ```
 
 In Vim, if you want to assign a function to a variable, you can't just run assign it directly like `let MyVar = MyFunc`. You need to use the `function()` function, like `let MyFar = function("MyFunc")`.
