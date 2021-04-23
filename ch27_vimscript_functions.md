@@ -506,28 +506,28 @@ function! Almuerzo()
 endfunction
 ```
 
-`appetizer` está definido dentro de la función `Almuerzo`, que devuelve la *funcref* `SegundoAlmuerzo`. Ten en cuenta que `SegundoAlmuerzo` utiliza `appetizer`, pero en Vimscript, esta no tiene acceso a esa variable. Si intentas ejecutar `echo Lunch()()`, Vim mostrará un error de variable no definida.
+`appetizer` está definido dentro de la función `Almuerzo`, que devuelve la *funcref* `SegundoAlmuerzo`. Ten en cuenta que `SegundoAlmuerzo` utiliza `appetizer`, pero en Vimscript, esta no tiene acceso a esa variable. Si intentas ejecutar `echo Desayuno()()`, Vim mostrará un error de variable no definida.
 
 Para solucionar este problema, utiliza la palabra clave `closure`. Volvamos a escribir el código:
 
 ```
-function! Lunch()
-  let appetizer = "shrimp"
+function! Deayuno()
+  let appetizer = "camarón"
 
-  function! SecondLunch() closure
+  function! SegundoDesayuno() closure
     return appetizer
   endfunction
 
-  return funcref("SecondLunch")
+  return funcref("SegundoDesayuno")
 endfunction
 ```
 
-Now if you run `echo Lunch()()`, Vim will return "shrimp".
+Ahora si ejecutas `echo Desayuno()()`, Vim devolverá "camarón".
 
-## Learn Vimscript Functions The Smart Way
+## Aprende las funciones de Vimscript de la manera más inteligente
 
-In this chapter, you learned the anatomy of Vim function. You learned how to use different special keywords `range`, `dict`, and `closure` to modify function behavior. You also learned how to use lambda and to chain multiple functions together. Functions are important tools for creating complex abstractions.
+En este capítulo, has aprendido la anatomía de una función de Vim. Has aprendido cómo utilizar las distintas palabras clave como `range`, `dict` y `closure` para modificar el comportamiento de una función. También has aprendido cómo utilizar *lambda* y cómo encadenar múltiples funciones. Las funciones son importantes para crear abstracciones complejas.
 
-This concludes this Vim guide. However, your Vim journey doesn't end here. In fact, it actually starts now. You should have sufficient knowledge to go on your own or even create your own plugins.
+Con esto concluye esta guía de Vim. Sin embargo, tu viaje no termina aquí. De hecho, no ha hecho más que comenzar. Deberías tener los suficientes conocimientos para valerte por ti mismo y poder crear tus propios complementos.
 
-Happy Vimming, friends!
+¡*Happy Vimming*, amigos y amigas!
