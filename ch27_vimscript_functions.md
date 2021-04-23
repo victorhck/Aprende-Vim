@@ -456,59 +456,59 @@ Si no quieres llamar la función desde dentro de *lambda*, puedes refactorizar e
 let comidas_diarias = map(almuerzo_items, {index, item -> "Estoy tomando " . item . " para almorzar"})
 ```
 
-## Method Chaining
+## Encadenamiento de métodos
 
-You can chain several Vimscript functions and lambda expressions sequentially with `->`. Keep in mind that `->` must be followed by a method name *without space.*
+Puedes encadenar varias funciones de Vimscript y expresiones *lambda* secuencialmente con `->`. Ten en mente que `->` debe ir seguido por un nombre de método *sin espacios en blanco*.
 
 ```
-Source->Method1()->Method2()->...->MethodN()
+Source->Metodo1()->Metodo2()->...->MetodoN()
 ```
 
-To convert a float to a number using method chaining:
+Para convertir un número flotante en número utilizando el método de encadenado, podemos hacer:
 
 ```
 echo 3.14->float2nr()
 " devuelve 3
 ```
 
-Let's do a more complicated example. Suppose that you need to capitalize the first letter of each item on a list, then sort the list, then join the list to form a string.
+Veamos un ejemplo más complicado. Supongamos que necesitas convertir a mayúsculas la primera letra de cada elemento de una lista, y después ordenar la lista y después unir la lista para formar una cadena.
 
 ```
-function! Capitalizer(word)
-  return substitute(a:word, "\^\.", "\\u&", "g")
+function! Mayuscula(palabra)
+  return substitute(a:palabra, "\^\.", "\\u&", "g")
 endfunction
 
-function! CapitalizeList(word_list)
-  return map(a:word_list, {index, word -> Capitalizer(word)})
+function! ListaMayuscula(lista_palabra)
+  return map(a:lista_palabra, {index, palabra -> Mayuscula(palabra)})
 endfunction
 
-let dinner_items = ["bruschetta", "antipasto", "calzone"]
+let cena_items = ["bruschetta", "antipasto", "calzone"]
 
-echo dinner_items->CapitalizeList()->sort()->join(", ")
+echo cena_items->ListaMayuscula()->sort()->join(", ")
 " devuelve "Antipasto, Bruschetta, Calzone"
 ```
 
-With method chaining, the sequence is more easily read and understood. I can just glance at `dinner_items->CapitalizeList()->sort()->join(", ")` and know exactly what is going on.
+Con el método de encadenado, la secuencia es más sencilla de leer y entender. Me basta con echar un vistazo a `cena_items->ListaMayuscula()->sort()->join(", ")` y saber exactamente qué va a suceder.
 
-## Closure
+## Cierre
 
-When you define a variable inside a function, that variable exists within that function boundaries. This is called a lexical scope.
+Cuando defines una variable dentro de una función, esa variable exsite dentro de los límites de esa función. A esto se le llama alcance léxico (lexical scope).
 
 ```
-function! Lunch()
-  let appetizer = "shrimp"
+function! Almuerzo()
+  let appetizer = "camarón"
 
-  function! SecondLunch()
+  function! SegundoAlmuerzo()
     return appetizer
   endfunction
 
-  return funcref("SecondLunch")
+  return funcref("SegundoAlmuerzo")
 endfunction
 ```
 
-`appetizer` is defined inside the `Lunch` function, which returns `SecondLunch` funcref. Notice that `SecondLunch` uses the `appetizer`, but in Vimscript, it doesn't have access to that variable. If you try to run `echo Lunch()()`, Vim will throw an undefined variable error.
+`appetizer` está definido dentro de la función `Almuerzo`, que devuelve la *funcref* `SegundoAlmuerzo`. Ten en cuenta que `SegundoAlmuerzo` utiliza `appetizer`, pero en Vimscript, esta no tiene acceso a esa variable. Si intentas ejecutar `echo Lunch()()`, Vim mostrará un error de variable no definida.
 
-To fix this issue, use the `closure` keyword. Let's refactor:
+Para solucionar este problema, utiliza la palabra clave `closure`. Volvamos a escribir el código:
 
 ```
 function! Lunch()
