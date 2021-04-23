@@ -422,7 +422,7 @@ endfor
 
 ## Lambda
 
-A better way to use functions in maps and filters is to use lambda expression (sometimes known as unnamed function). For example:
+Una manera más adecuada de utilizar funciones en mapas y filtros es utilizando la expresión *lambda* (a veces también conocida como la función sin nombre). Por ejemplo:
 
 ```
 let Plus = {x,y -> x + y}
@@ -434,26 +434,26 @@ echo Tasty()
 " devuelve "tasty"
 ```
 
-You can call a function from insisde a lambda expression:
+Puedes llamar una función desde dentro de la expresión *lambda*:
 
 ```
-function! Lunch(item)
-  return "I am having " . a:item . " for lunch"
+function! Almuerzo(item)
+  return "Estoy tomando " . a:item . " para almorzar"
 endfunction
 
-let lunch_items = ["sushi", "ramen", "sashimi"]
+let almuerzo_items = ["sushi", "ramen", "sashimi"]
 
-let day_meals = map(lunch_items, {index, item -> Lunch(item)})
+let comidas_diarias = map(almuerzo_items, {index, item -> Almuerzo(item)})
 
-for meal in day_meals
-  echo meal
+for comida in comidas_diarias
+  echo comida
 endfor
 ```
 
-If you don't want to call the function from inside lambda, you can refactor it:
+Si no quieres llamar la función desde dentro de *lambda*, puedes refactorizar el código así:
 
 ```
-let day_meals = map(lunch_items, {index, item -> "I am having " . item . " for lunch"})
+let comidas_diarias = map(almuerzo_items, {index, item -> "Estoy tomando " . item . " para almorzar"})
 ```
 
 ## Method Chaining
