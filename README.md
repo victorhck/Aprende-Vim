@@ -36,11 +36,11 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 - [Cap 13 - El comando global](./cap13_el_comando_global.md)
 - [Cap 14 - Comandos externos](./cap14_comandos_externos.md)
 - [Cap 15 - El modo de línea de comandos](./cap15_modo_linea_comandos.md)
-- [Cap 16 - Etiquetas](./ch16_tags.md) ............................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 17 - Desplegables](./ch17_fold.md) ........................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 18 - Git](./ch18_git.md) ....................................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 19 - Compilar](./ch19_compile.md) ............................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 20 - Vistas, sesiones y Viminfo](./ch20_views_sessions_viminfo.md) ................... En progreso [ ] / Traducido ✅ / Revisado [ ] 
+- [Cap 16 - Etiquetas](./cap16_etiquetas.md)
+- [Cap 17 - Desplegables](./cap17_plegado.md)
+- [Cap 18 - Git](./cap18_git.md)
+- [Cap 19 - Compilar](./cap19_compilar.md)
+- [Cap 20 - Vistas, sesiones y Viminfo](./cap20_vistas_sesiones_viminfo.md)
 
 ### Parte 2: Personaliza Vim de la manera más inteligente
 
