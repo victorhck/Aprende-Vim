@@ -13,7 +13,7 @@ Es una traducción de la guía original en inglés que puedes encontrar en: [htt
 
 La idea es trauducir la guía del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un *issue*.
 
-## Índice de contenidos (Trabajo en progreso. Se irán traduciendo los diferentes capítulos)
+## Índice de contenidos 
 
 ### Prólogo
 
