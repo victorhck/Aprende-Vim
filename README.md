@@ -46,14 +46,14 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 
 - [Cap 21 - Vimrc](./cap21_vimrc.md)
 - [Cap 22 - Paquetes de Vim](./cap22_paquetes_vim.md)
-- [Ch 23 - Vim Runtime](./cap23_ejecutables_vim.md)
+- [Ch 23 - Ejecutables en Vim](./cap23_ejecutables_vim.md)
 
 ### Parte 3: Aprende Vimscript de la manera más inteligente
 
-- [Ch 24 - Vimscript Basic Data Types](./cap24_tipos_basicos_datos_en_vim.md)
-- [Ch 25 - Vimscript Conditionals And Loops](./cap25_condicionales_y_bucles_vim.md)
-- [Ch 26 - Vimscript Variable Scopes](./cap26_ambito_variables_vimscript.md)
-- [Ch 27 - Vimscript Functions](./cap27_funciones_vimscript.md)
+- [Ch 24 - Tipos básicos de datos en Vimscript](./cap24_tipos_basicos_datos_en_vim.md)
+- [Ch 25 - Condicionales y bucles en Vimscript](./cap25_condicionales_y_bucles_vim.md)
+- [Ch 26 - Ámbito de las variables en Vimscript](./cap26_ambito_variables_vimscript.md)
+- [Ch 27 - Funciones en Vimscript](./cap27_funciones_vimscript.md)
 
 
 # Licencia y derechos de autor
