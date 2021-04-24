@@ -14,7 +14,9 @@ Esta guía está escrita tanto para principiantes como para personas que utilice
 
 Es una traducción de la guía original en inglés que puedes encontrar en: [https://github.com/iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim) creada por **Igor Irianto**
 
-La idea es trauducir la guía del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un _issue_.
+La idea que originó todo, fue la de traducir la guía del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Además de interés personal de aprender más en profundidad este gran editor de texto.
+
+Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un _issue_ en el repositorio en [GitHub](https://github.com/victorhck/Aprende-Vim/)
 
 ### Índice de contenidos
 
