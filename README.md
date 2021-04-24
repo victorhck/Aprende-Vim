@@ -27,15 +27,15 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 - [Cap 4  - La gramática de Vim](./cap04_gramatica_vim.md)
 - [Cap 5  - Moviéndote en un archivo](./cap05_moviendote_en_un_archivo.md)
 - [Cap 6  - El modo insertar](./cap06_modo_insertar.md)
-- [Cap 7  - El comando del punto](./ch07_the_dot_command.md) ........................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 8  - Registros](./ch08_registers.md) ................................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 9  - Macros](./ch09_macros.md) ................................................. En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 10 - Deshacer](./ch10_undo.md) ............................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 11 - El modo visual](./ch11_visual_mode.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 12 - Buscar y sustituir](./ch12_search_and_substitute.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 13 - El comando global](./ch13_the_global_command.md) ............................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 14 - Comandos externos](./ch14_external_commands.md) ........................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 15 - El modo de línea de comandos](./ch15_command-line_mode.md) .......... En progreso [ ] / Traducido ✅ / Revisado [ ]
+- [Cap 7  - El comando del punto](./cap07_el_comando_del_punto.md)
+- [Cap 8  - Registros](./cap08_registros.md)
+- [Cap 9  - Macros](./cap09_macros.md)
+- [Cap 10 - Deshacer](./cap10_deshacer.md)
+- [Cap 11 - El modo visual](./cap11_modo_visual.md)
+- [Cap 12 - Buscar y sustituir](./cap12_buscar_y_sustituir.md)
+- [Cap 13 - El comando global](./cap13_el_comando_global.md)
+- [Cap 14 - Comandos externos](./cap14_comandos_externos.md)
+- [Cap 15 - El modo de línea de comandos](./cap15_modo_linea_comandos.md)
 - [Cap 16 - Etiquetas](./ch16_tags.md) ............................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 17 - Desplegables](./ch17_fold.md) ........................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 18 - Git](./ch18_git.md) ....................................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
