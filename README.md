@@ -51,7 +51,7 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 ### Parte 3: Aprende Vimscript de la manera más inteligente
 
 - [Ch 24 - Vimscript Basic Data Types](./cap24_tipos_basicos_datos_en_vim.md)
-- [Ch 25 - Vimscript Conditionals And Loops](. cap25_condicionales_y_bucles_vim.md)
+- [Ch 25 - Vimscript Conditionals And Loops](./cap25_condicionales_y_bucles_vim.md)
 - [Ch 26 - Vimscript Variable Scopes](./cap26_ambito_variables_vimscript.md)
 - [Ch 27 - Vimscript Functions](./cap27_funciones_vimscript.md)
 
