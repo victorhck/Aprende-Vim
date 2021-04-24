@@ -17,16 +17,16 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 
 ### Prólogo
 
-- [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](./ch00_new_to_vim_read_this_first.md) .................................... En progreso [ ] / Traducido ✅  / Revisado [ ]
+- [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](. cap00_reciente_en_vim_lee_esto_primero.md)
 
 ### Parte 1: Aprendiendo Vim de la manera más inteligente
 
-- [Cap 1  - Arrancando Vim](./ch01_starting_vim.md) .................................... En progreso [ ]  / Traducido ✅ / Revisado [ ]
-- [Cap 2  - *Buffers*, ventanas y pestañas](./ch02_buffers_windows_tabs.md) ................ En progreso [ ]  / Traducido ✅  / Revisado [ ]
-- [Cap 3  - Abriendo y buscando archivos](./ch03_opening_and_searching_files.md) ............... En progreso [ ]  / Traducido ✅  / Revisado [ ]
-- [Cap 4  - La gramática de Vim](./ch04_vim_grammar.md) ............................. En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 5  - Moviéndote en un archivo](./ch05_moving_in_file.md) ...................... En progreso [ ] / Traducido ✅ / Revisado [ ]
-- [Cap 6  - El modo insertar](./ch06_insert_mode.md) ................................... En progreso [ ] / Traducido ✅ / Revisado [ ]
+- [Cap 1  - Arrancando Vim](./cap01_empezando_en_vim.md)
+- [Cap 2  - *Buffers*, ventanas y pestañas](./cap02_buffers_ventanas_pestañas.md)
+- [Cap 3  - Abriendo y buscando archivos](. cap03_abriendo_y_buscando_archivos.md)
+- [Cap 4  - La gramática de Vim](./cap04_gramatica_vim.md)
+- [Cap 5  - Moviéndote en un archivo](./cap05_moviendote_en_un_archivo.md)
+- [Cap 6  - El modo insertar](./cap06_modo_insertar.md)
 - [Cap 7  - El comando del punto](./ch07_the_dot_command.md) ........................... En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 8  - Registros](./ch08_registers.md) ................................................ En progreso [ ] / Traducido ✅ / Revisado [ ]
 - [Cap 9  - Macros](./ch09_macros.md) ................................................. En progreso [ ] / Traducido ✅ / Revisado [ ]
