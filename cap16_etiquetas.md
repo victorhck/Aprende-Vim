@@ -6,7 +6,7 @@ Una característica muy útil a la hora de editar texto es poder ser capaz de ir
 
 Supongamos que alguien te ha enviado un nuevo código, por ejemplo:
 
-```
+```text
 one = One.new
 one.donut
 ```
@@ -17,7 +17,7 @@ Puedes buscarlas tanto con `fzf` como con `grep`, pero es más rápido utilizar 
 
 Piensa en que las etiquetas son como una libreta de direcciones de contactos:
 
-```
+```text
 Nombre   Direcciones
 Iggy1    1234 Calle felicidad, 11111
 Iggy2    9876 Avenida alegría, 2222
@@ -27,7 +27,7 @@ En vez de tener un par de nombres y direcciones, las etiquetas almacenan las def
 
 Vamos a asumir que tenemos estos dos archivos escritos en lenguaje Ruby que están guardados dentro del mismo directorio:
 
-```
+```text
 # one.rb
 class One
   def initialize
@@ -42,7 +42,7 @@ end
 
 y
 
-```
+```text
 # two.rb
 require './one'
 
@@ -58,20 +58,20 @@ Para saltar a una definición, puedes utilizar la combinación de teclas `Ctrl-]
 
 El Vim actual no trae incorporado un generador de etiquetas, así que tendrás que descargar un generador de etiquetas externo. Hay varias opciones entre las que escoger:
 
-- ctags = solo para C. disponible casi para todas las plataformas.
-- exuberant ctags = Uno de los más populares. Admite muchos lenguajes. 
-- universal ctags = Similar a ctags, pero más moderno.
-- etags = Para Emacs. Hmm...
-- JTags = Java
-- ptags.py = Python
-- ptags = Perl
-- gnatxref = Ada
+* ctags = solo para C. disponible casi para todas las plataformas.
+* exuberant ctags = Uno de los más populares. Admite muchos lenguajes. 
+* universal ctags = Similar a ctags, pero más moderno.
+* etags = Para Emacs. Hmm...
+* JTags = Java
+* ptags.py = Python
+* ptags = Perl
+* gnatxref = Ada
 
 Si echas un vistazo a tutoriales de Vim en internet, muchos recomendarán [Exuberant ctags](http://ctags.sourceforge.net/). Admite [41 lenguajes de programación](http://ctags.sourceforge.net/languages.html). Yo lo utilizaba y funcionaba genial. Sin embargo, debido a que ya no está mantenido desde 2009, **Universal ctags** sería una opción más adecuada. Funciona de manera similar a **Exuberant ctags** y actualmente está mantenido.
 
 No entraré en detalles de cómo instalar ctags. Echa un vistazo al repositorio de [universal ctags](https://github.com/universal-ctags/ctags) para consultar las instrucciones. Una vez que tengas ctags instalado, ejecuta `ctags --version`. Esto debería mostrar:
 
-```
+```text
 Universal Ctags 0.0.0(b43eb39), Copyright (C) 2015 Universal Ctags Team
 Universal Ctags is derived from Exuberant Ctags.
 Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
@@ -81,28 +81,28 @@ Asegúrate de que se muestra "`Universal Ctags`".
 
 A continuación, vamos a generar un archivo de etiquetas básico. Ejecuta lo siguiente:
 
-```
+```text
 ctags -R .
 ```
 
-La opción `R` le dice a `ctags` que ejecute un escaneo desde tu ubicación actual (`.`). Ahora se debería poder ver un archivo `tags` en tu directorio actual. Dentro del archivo verás algo parecido a esto:
+La opción `R` le dice a `ctags` que ejecute un escaneo desde tu ubicación actual \(`.`\). Ahora se debería poder ver un archivo `tags` en tu directorio actual. Dentro del archivo verás algo parecido a esto:
 
-```
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	<https://ctags.io/>	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/b43eb39/
-One	one.rb	/^class One$/;"	c
-donut	one.rb	/^  def donut$/;"	f	class:One
-initialize	one.rb	/^  def initialize$/;"	f	class:One
+```text
+!_TAG_FILE_FORMAT    2    /extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED    1    /0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP    slash    /slash or backslash/
+!_TAG_OUTPUT_MODE    u-ctags    /u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT    96    /0 for no limit/
+!_TAG_PROGRAM_AUTHOR    Universal Ctags Team    //
+!_TAG_PROGRAM_NAME    Universal Ctags    /Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL    <https://ctags.io/>    /official site/
+!_TAG_PROGRAM_VERSION    0.0.0    /b43eb39/
+One    one.rb    /^class One$/;"    c
+donut    one.rb    /^  def donut$/;"    f    class:One
+initialize    one.rb    /^  def initialize$/;"    f    class:One
 ```
 
-El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. Una etiqueta está compuesta por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos (`!TAG_FILE...`) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echasr un vistazo a su documentación!
+El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. Una etiqueta está compuesta por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos \(`!TAG_FILE...`\) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echasr un vistazo a su documentación!
 
 Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y escribe `Ctrl-]`. Vim te llevará al archivo `one.rb` a la línea donde está `def donut`. ¡Eureka! ¿Pero cómo hizo esto Vim?
 
@@ -110,33 +110,33 @@ Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y
 
 Echemos un vistazo a la etiqueta del elemento `donut`:
 
-```
-donut	one.rb	/^  def donut$/;"	f	class:One
+```text
+donut    one.rb    /^  def donut$/;"    f    class:One
 ```
 
-El elemento de la etiqueta está compuesto por cuatro componentes: un nombre de etiqueta o `tagname`, un nombre de archivo de la etiqueta o `tagfile`, una dirección de etiqueta o `tagaddress` y opciones de la etiqueta. (N. del T: Me referiré por sus nombre en inglés porque quizás es la nomenclatura más utilizada en los tutoriales y por quienes lo usan).
+El elemento de la etiqueta está compuesto por cuatro componentes: un nombre de etiqueta o `tagname`, un nombre de archivo de la etiqueta o `tagfile`, una dirección de etiqueta o `tagaddress` y opciones de la etiqueta. \(N. del T: Me referiré por sus nombre en inglés porque quizás es la nomenclatura más utilizada en los tutoriales y por quienes lo usan\).
 
-- `donut` es el `tagname`. Cuando tu cursor está encima de la palabra "donut", Vim busca el archivo dentro del archivo de la etiqueta una línea que contenga la cadena "donut".
-- `one.rb` es el `tagfile`. Vim busca un archivo llamado `one.rb`.
-- `/^ def donut$/` es el `tagaddress`. `/.../` es un indicador patrón. `^` es un patrón para el primer elemento de una línea. Está seguido por dos espacios y después la cadena `def donut`. Finalmente, `$` es el patrón para el último elemento de una línea.
-- `f class:One` es la opción de la etiqueta que le dice a Vim que la función `donut` es una función (`f`) y es parte de la clase `One`.
+* `donut` es el `tagname`. Cuando tu cursor está encima de la palabra "donut", Vim busca el archivo dentro del archivo de la etiqueta una línea que contenga la cadena "donut".
+* `one.rb` es el `tagfile`. Vim busca un archivo llamado `one.rb`.
+* `/^ def donut$/` es el `tagaddress`. `/.../` es un indicador patrón. `^` es un patrón para el primer elemento de una línea. Está seguido por dos espacios y después la cadena `def donut`. Finalmente, `$` es el patrón para el último elemento de una línea.
+* `f class:One` es la opción de la etiqueta que le dice a Vim que la función `donut` es una función \(`f`\) y es parte de la clase `One`.
 
 Echemos un vistazo de otro elemento de la lista de etiquetas:
 
-```
-One	one.rb	/^class One$/;"	c
+```text
+One    one.rb    /^class One$/;"    c
 ```
 
 Esta línea funciona de la misma manerá que el patrón `donut`:
 
-- `One` es el `tagname`. Ten en cuenta que con las etiquetas, el primer escaneo tiene en cuenta las mayúsculas y minúsculas. Si tienes `One` y `one` en la lista, Vim priorizará `One` sobre `one`.
-- `one.rb` es el `tagfile`. Vim buscará un archivo `one.rb`.
-- `/^class One$/` es el patrón de `tagaddress`. Vim buscará una línea que comience (`^`) con `class` y termine (`$`) con `One`.
-- `c` es una de las opciones de etiqueta posible. Como `One` es una clase de Ruby y no un procedimiento, lo marca con una `c`.
+* `One` es el `tagname`. Ten en cuenta que con las etiquetas, el primer escaneo tiene en cuenta las mayúsculas y minúsculas. Si tienes `One` y `one` en la lista, Vim priorizará `One` sobre `one`.
+* `one.rb` es el `tagfile`. Vim buscará un archivo `one.rb`.
+* `/^class One$/` es el patrón de `tagaddress`. Vim buscará una línea que comience \(`^`\) con `class` y termine \(`$`\) con `One`.
+* `c` es una de las opciones de etiqueta posible. Como `One` es una clase de Ruby y no un procedimiento, lo marca con una `c`.
 
 Dependiendo de qué generador de etiquetas utilices, el contenido de tu archivo de etiquetas puede tener un aspecto algo diferente. Como mínimo, un archivo de etiquetas debe tener uno de estos formatos:
 
-```
+```text
 1.  {tagname} {TAB} {tagfile} {TAB} {tagaddress}
 2.  {tagname} {TAB} {tagfile} {TAB} {tagaddress} {término} {campo} ..
 ```
@@ -145,15 +145,15 @@ Dependiendo de qué generador de etiquetas utilices, el contenido de tu archivo 
 
 Has aprendido que un nuevo archivo, `tags`, es creado después de ejecutar `ctags -R .`. ¿Cómo sabe Vim dónde buscar el archivo de etiquetas?
 
-Si ejecutas `:set tags?`, podrás ver `tags=./tags,tags` (dependiendo de tus ajustes de Vim, esto podría ser diferente). Aquí Vim busca todas las etiquetas en la ruta del archivo actual para el caso de `./tags` y dentro del directorio actual (la raíz de tu proyecto) para el caso de `tags`.
+Si ejecutas `:set tags?`, podrás ver `tags=./tags,tags` \(dependiendo de tus ajustes de Vim, esto podría ser diferente\). Aquí Vim busca todas las etiquetas en la ruta del archivo actual para el caso de `./tags` y dentro del directorio actual \(la raíz de tu proyecto\) para el caso de `tags`.
 
-También en el caso de `./tags`, Vim primero buscará un archivo de etiquetas dentro de la ruta de tu archivo actual independientemente de lo anidado que esté, después buscará un archivo de etiquetas del directorio actual (la raíz del proyecto). Vim detiene la búsqueda después de encontrar la primera coincidencia.
+También en el caso de `./tags`, Vim primero buscará un archivo de etiquetas dentro de la ruta de tu archivo actual independientemente de lo anidado que esté, después buscará un archivo de etiquetas del directorio actual \(la raíz del proyecto\). Vim detiene la búsqueda después de encontrar la primera coincidencia.
 
 Si tu archivo `'tags'` ha dicho `tags=./tags,tags,/user/iggy/mytags/tags`, entonces Vim también buscará en el directorio `/user/iggy/mytags` un archivo de etiquetas después de finalizar la búsqueda en los directorios `./tags` y `tags`. No es necesario que almacenes tu archivo de etiquetas dentro de tu proyecto, puedes mantenerlo de manera separada.
 
 Para añadir una ubicación de un archivo de etiquetas, simplemente ejecuta:
 
-```
+```text
 :set tags+=ruta/a/mi/archivode/etiquetas
 ```
 
@@ -163,29 +163,29 @@ Si has intentado ejecutar ctags en un proyecto extenso, puede que haya durado mu
 
 Para ejecutar ctags excluyendo `node_modules`, ejecuta:
 
-```
+```text
  ctags -R --exclude=node_modules .
 ```
 
 Esta vez debería durar menos de un segundo. Por cierto, puedes utilizar la opción `exclude` múltiples veces:
 
-```
+```text
 ctags -R --exclude=.git --exclude=vendor --exclude=node_modules --exclude=db --exclude=log .
 ```
 
-La cuestión es que si quieres omitir un directorio, ``--exclude`` es la opción que debes utilizar.
+La cuestión es que si quieres omitir un directorio, `--exclude` es la opción que debes utilizar.
 
 ## Navegando por las etiquetas
 
 Puedes avanzar mucho tiempo utilizando únicamente `Ctrl-]`, pero vamos a aprender unos cuantos trucos más. La tecla para saltar a una etiqueta `Ctrl-]` tiene un modo alternativo para la línea de comandos: `:tag mi-etiqueta`. Si ejecutas lo siguiente:
 
-```
+```text
 :tag donut
 ```
 
-Vim saltará al método `donut`, de igual manera que si hubieras pulsado `Ctrl-]` en una cadena donde aparezca "donut". También puedes autocompletar el argumento con la tecla  `<Tab>`:
+Vim saltará al método `donut`, de igual manera que si hubieras pulsado `Ctrl-]` en una cadena donde aparezca "donut". También puedes autocompletar el argumento con la tecla `<Tab>`:
 
-```
+```text
 :tag d<Tab>
 ```
 
@@ -193,7 +193,7 @@ Vim muestra un listado con todas las etiquetas que comienzan con "d". En este ca
 
 En un proyecto real, te puedes encontrar con múltiples métodos con el mismo nombre. Vamos a actualizar los dos archivos de los ejemplos anteriores. Dentro del archivo `one.rb` tenemos lo siguiente:
 
-```
+```text
 # one.rb
 class One
   def initialize
@@ -212,7 +212,7 @@ end
 
 Y esto en el archivo `two.rb`:
 
-```
+```text
 # two.rb
 require './one.rb'
 
@@ -248,13 +248,13 @@ De acuerdo a esta lista de prioridades, Vim prioriza una coincidencia exacta enc
 
 Estaría muy bien si se pudiera escoger a qué elementos de etiquetas saltar en vez de siempre hacerlo a la etiqueta de más prioridad. Quizás en un momento dado necesites saltar a `pancake` que está dentro del archivo `one.rb` y no a la que está dentro del archivo `two.rb`. Para hacer eso, puedes utilizar `:tselect`. Ejecuta:
 
-```
+```text
 :tselect pancake
 ```
 
 Ejecutándolo con los archivos del ejemplo, verás algo como esto en la parte inferior de la pantalla:
 
-```
+```text
 # pri kind tag               file
 1 F C f    pancake           two.rb
              def pancake
@@ -265,19 +265,19 @@ Ejecutándolo con los archivos del ejemplo, verás algo como esto en la parte in
 
 Si escribes `2` y después pulsas `<Enter>`, Vim saltará al procedimiento del archivo `one.rb`. Si escribes `1` y pulsas `<Enter>`, Vim saltará al archivo `two.rb`.
 
-Presta atención a la columna de `pri`. En esta vemos `F C` en la primera ocurrencia y `F` en la segunda. Esto es lo utiliza Vim para determinar la prioridad de la etiqueta. `F C` significa que ha encontrado una coincidencia completa (en inglés *fully-matched* `F`) de una etiqueta global en el archivo actual (en inglés *current* `C`). Si solo aparece `F` esto significa que solo ha encontrado una etiqueta de una coincidencia completa. `F C` siempre tiene una prioridad mayor que `F`.
+Presta atención a la columna de `pri`. En esta vemos `F C` en la primera ocurrencia y `F` en la segunda. Esto es lo utiliza Vim para determinar la prioridad de la etiqueta. `F C` significa que ha encontrado una coincidencia completa \(en inglés _fully-matched_ `F`\) de una etiqueta global en el archivo actual \(en inglés _current_ `C`\). Si solo aparece `F` esto significa que solo ha encontrado una etiqueta de una coincidencia completa. `F C` siempre tiene una prioridad mayor que `F`.
 
 Si ejecutas `:tselect donut`, Vim también te preguntará que escojas una etiqueta de las disponibles, aunque solo hay una opción para escoger. ¿Hay alguna manera apropiada para hacer que Vim solo pregunte qué etiqueta escoger cuando haya múltiples entre las que escoger y que salte inmediatamente a una etiqueta cuando solo haya una opción?
 
 ¡Desde luego que sí! Vim tiene el método `:tjump`. Ejecuta:
 
-```
+```text
 :tjump donut
 ```
 
 Vim saltará inmediatamente al procedimiento `donut` en el archivo `one.rb`, de manera similar a si ejecutáramos `:tag donut`. Ahora ejecuta:
 
-```
+```text
 :tjump pancake
 ```
 
@@ -291,7 +291,7 @@ Las etiquetas pueden ayudar en los autocompletados. Recuerda el capítulo 6, sob
 
 Siguiendo el ejemplo anterior, si entras en el modo insertar y escribes `Ctrl-X Ctrl-]`, verás lo siguiente:
 
-```
+```text
 One
 donut
 initialize
@@ -302,7 +302,7 @@ pancake
 
 Vim guarda en una pila una lista de todas las etiquetas a las que has saltado o desde las que has saltado. Puedes consultar esta pila con el comando `:tags`. Si primero habías hecho un salto a la etiqueta `pancake`, seguido por `donut` y ejecutas `:tags`, verás lo siguiente:
 
-```
+```text
   # TO tag         FROM line  in file/text
   1  1 pancake            10  ch16_tags/two.rb
   2  1 donut               9  ch16_tags/two.rb
@@ -311,16 +311,15 @@ Vim guarda en una pila una lista de todas las etiquetas a las que has saltado o 
 
 Ten en cuenta el símbolo `>`. Muestra tu posición actual en la pila. Para retrasar un puesto el puntero de la posición hasta el elemento anterior, puedes ejecutar el comando `:pop`. Pruébalo y después vuelve a ejecutar `:tags` de nuevo:
 
-```
+```text
   # TO tag         FROM line  in file/text
   1  1 pancake            10  puts pancake
 > 2  1 donut               9  one.donut
-
 ```
 
 Comprueba cómo el símbolo `>` ahora está en la línea dos, apuntando al elemento `donut`. Ejecuta `pop` una vez más y comprueba de nuevo la posición con el comando `:tags`:
 
-```
+```text
   # TO tag         FROM line  in file/text
 > 1  1 pancake            10  puts pancake
   2  1 donut               9  one.donut
@@ -336,25 +335,25 @@ Afortunadamente hay varios métodos que puedes utilizar para generar etiquetas a
 
 ### Generar una etiqueta al guardar
 
-Vim tiene un método para crear comandos automáticos (`autocmd`) para ejecutar cualquier comando ante la aparición de un evento. Puedes utilizar esto para generar etiquetas cada vez que guardes el archivo. Ejecuta:
+Vim tiene un método para crear comandos automáticos \(`autocmd`\) para ejecutar cualquier comando ante la aparición de un evento. Puedes utilizar esto para generar etiquetas cada vez que guardes el archivo. Ejecuta:
 
-```
+```text
 :autocmd BufWritePost *.rb silent !ctags -R .
 ```
 
 La explicación:
 
-- `autocmd` es el método de comandos automáticos de Vim. Acepta cualquier nombre de evento, patrón de archivo y un comando.
-- `BufWritePost` es un evento para guardar un *buffer*. Cada vez que guardas un archivo, se lanza un evento `BufWritePost`.
-- `.rb` es el patrón de archivo para archivos ruby (`rb`).
-- `silent` es parte del comando que estás pasando al comando automático. Sin este, Vim mostrará `press ENTER or type command to continue` cada vez que se dispare el comando automático.
-- `!ctags -R .` es el comando a ejecutar. Recuerda que `!cmd` desde dentro del propio Vim ejecuta cualquier comando de la terminal.
+* `autocmd` es el método de comandos automáticos de Vim. Acepta cualquier nombre de evento, patrón de archivo y un comando.
+* `BufWritePost` es un evento para guardar un _buffer_. Cada vez que guardas un archivo, se lanza un evento `BufWritePost`.
+* `.rb` es el patrón de archivo para archivos ruby \(`rb`\).
+* `silent` es parte del comando que estás pasando al comando automático. Sin este, Vim mostrará `press ENTER or type command to continue` cada vez que se dispare el comando automático.
+* `!ctags -R .` es el comando a ejecutar. Recuerda que `!cmd` desde dentro del propio Vim ejecuta cualquier comando de la terminal.
 
 Ahora cada vez que guardes desde dentro de un archivo de ruby, Vim ejecutará `ctags -R .`.
 
 Añade un nuevo procedimiento en el archivo `two.rb`:
 
-```
+```text
 def waffle
   "Two waffles"
 end
@@ -366,16 +365,16 @@ Guarda el archivo. Puedes comprobar el archivo de etiquetas, verás que `waffle`
 
 Hay muchos complementos para generar ctags automáticamente:
 
-- [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)
-- [vim-tags](https://github.com/szw/vim-tags)
-- [vim-easytags](https://github.com/xolox/vim-easytags)
-- [vim-autotag](https://github.com/craigemery/vim-autotag)
+* [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)
+* [vim-tags](https://github.com/szw/vim-tags)
+* [vim-easytags](https://github.com/xolox/vim-easytags)
+* [vim-autotag](https://github.com/craigemery/vim-autotag)
 
-Yo utilizo vim-gutentags. Si utilizas un gestor de complementos en Vim ([vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc), simplemente instala el complemento ¡y este funcionará sin más configuraciones!
+Yo utilizo vim-gutentags. Si utilizas un gestor de complementos en Vim \([vim-plug](https://github.com/junegunn/vim-plug), [vundle](https://github.com/VundleVim/Vundle.vim), [dein.vim](https://github.com/Shougo/dein.vim), etc\), simplemente instala el complemento ¡y este funcionará sin más configuraciones!
 
 ### Ctags y Git Hooks
 
-Tim Pope, autor de un montón de complementos geniales para Vim, escribió un artículo de cómo utilizar *git hooks*. Puedes leerlo en [este enlace](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html).
+Tim Pope, autor de un montón de complementos geniales para Vim, escribió un artículo de cómo utilizar _git hooks_. Puedes leerlo en [este enlace](https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html).
 
 ## Aprende el uso de las etiquetas de la manera más inteligente
 
@@ -383,10 +382,11 @@ Una etiqueta es útil cuando está configurada adecuadamente. Si tu eres como yo
 
 Supón que te encuentras con un código nuevo y quieres qué hace `functionFood`, podrás leerlo fácilmente saltando a la parte del código donde está definido. Dentro de este, también puedes descubrir que también llama a `functionBreakfast`. Vas hasta su definición y descubre que a su vez llama a `functionPancake`. El gráfico de saltos y llamadas tendría el siguiente esquema:
 
-```
+```text
 functionFood -> functionBreakfast -> functionPancake
 ```
 
 Esto te muestra que el flujo del código está relacionado con tener tortitas para desayunar.
 
-Para aprender más sobre las etiquetas, echa un vistazo a la ayuda de Vim sobre esto con `:h tags`. Ahora que ya sabes utilizar las etiquetas, vamos a explorar otra funcionalidad diferente: el plegado o *folding* por su término en inglés.
+Para aprender más sobre las etiquetas, echa un vistazo a la ayuda de Vim sobre esto con `:h tags`. Ahora que ya sabes utilizar las etiquetas, vamos a explorar otra funcionalidad diferente: el plegado o _folding_ por su término en inglés.
+
