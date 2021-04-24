@@ -17,13 +17,13 @@ La idea es trauducir la guía del inglés al español para difundir y dar a cono
 
 ### Prólogo
 
-- [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](. cap00_reciente_en_vim_lee_esto_primero.md)
+- [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](./cap00_reciente_en_vim_lee_esto_primero.md)
 
 ### Parte 1: Aprendiendo Vim de la manera más inteligente
 
 - [Cap 1  - Arrancando Vim](./cap01_empezando_en_vim.md)
 - [Cap 2  - *Buffers*, ventanas y pestañas](./cap02_buffers_ventanas_pestañas.md)
-- [Cap 3  - Abriendo y buscando archivos](. cap03_abriendo_y_buscando_archivos.md)
+- [Cap 3  - Abriendo y buscando archivos](./cap03_abriendo_y_buscando_archivos.md)
 - [Cap 4  - La gramática de Vim](./cap04_gramatica_vim.md)
 - [Cap 5  - Moviéndote en un archivo](./cap05_moviendote_en_un_archivo.md)
 - [Cap 6  - El modo insertar](./cap06_modo_insertar.md)
