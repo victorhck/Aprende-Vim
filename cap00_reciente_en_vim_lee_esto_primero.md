@@ -27,7 +27,7 @@ Aprender Vim es una experiencia satisfactoria, aunque dura. Hay dos enfoques pri
 
 Hacerlo de un día para otro significa dejar de utilizar el IDE o editor que estuvieras utilizando y comenzar de inmediato a utilizar de manera exclusiva Vim. La pega de este método es que tendrás una importante pérdida de productividad durante la primera o dos primeras semanas. Si eres un programador a tiempo completo, este método puede que no sea factible. Por esto es por lo que a la mayoría de personas, creo que la mejor manera de hacer la transición a Vim es utilizarlo de manera gradual.
 
-Para utilizar Vim gradualmente, durante las primeras dos semanas, pasa una hora al día utilizando Vim como tu editor, mientras que el resto del tiempo puedes utilizar otros editores. Muchos editores modernos vienen con complementos de Vim. Cuando comencé, utilizaba un complemento popular de Vim para VSCode durante una hora al día. Gradualmente incrementé el tiempo con el complemento de Vim hasta que al final lo utilizaba durante todo el día. Ten en cuenta que estos complementos solo pueden emular una parte de las funcionalidades de Vim. Para experimentar toda la potencia de Vim como Vimscript, comamndos para la línea de comandos \(Ex\) y la integración con comandos externos, necesitarás utilizar el propio Vim.
+Para utilizar Vim gradualmente, durante las primeras dos semanas, pasa una hora al día utilizando Vim como tu editor, mientras que el resto del tiempo puedes utilizar otros editores. Muchos editores modernos vienen con complementos de Vim. Cuando comencé, utilizaba un complemento popular de Vim para VSCode durante una hora al día. Gradualmente incrementé el tiempo con el complemento de Vim hasta que al final lo utilizaba durante todo el día. Ten en cuenta que estos complementos solo pueden emular una parte de las funcionalidades de Vim. Para experimentar toda la potencia de Vim como Vimscript, comandos para la línea de comandos \(Ex\) y la integración con comandos externos, necesitarás utilizar el propio Vim.
 
 Hubo dos momentos cruciales que me hicieron comenzar a utilizar Vim al 100%: cuando me enteré de que Vim tiene una estructura similar a la gramatical a la hora de ejecutar comandos \(ver capítulo 4\) y el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) \(ver capítulo 3\).
 
@@ -67,7 +67,7 @@ En varios puntos de esta guía, me referiré a las opciones de _vimrc_. Si acaba
 
 No se tratará el tema de _vimrc_ hasta el capítulo 21. Para aclarar un poco el tema, te mostraré brevemente cómo configurarlo.
 
-Supongamos que necesitamos configurar las opciones de numeración de línea \(`set number`\). Si todavía no tienes un archivo _vimrc_, vamos a crear uno. Normalmente este archivo se ubica en la raíz de un directorio llamado `.vimrc` dentro de nuestro usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, echa un vistazo a `:h vimrc`.
+Supongamos que necesitamos configurar las opciones de numeración de línea \(`set number`\). Si todavía no tienes un archivo _vimrc_, vamos a crear uno. Normalmente este archivo tendrá el nombre de `.vimrc` y se ubica en la raíz del directorio personal del usuario del sistema. Dependiendo de tu sistema operativo, la ubicación puede ser diferente. En sistemas basados en Unix como GNU/Linux o macOS estará en `~/.vimrc`. Para ver donde deberías ubicar tu archivo, echa un vistazo a `:h vimrc`.
 
 Dentro del archivo añade una línea con lo siguiente `set number`. Guárdalo \(`:w`\) y después haz que Vim lo tenga en cuenta ejecutando `:source %`. Ahora deberías ver los números de línea mostrados en el margen izquierdo.
 
@@ -85,7 +85,7 @@ También planeo más capítulos en futuras entregas, así que ¡permanece atento
 
 ## Quiero más trucos sobre Vim
 
-Para aprender más sobre Vim, puedes seguir en Twitter a [@learnvim](https://twitter.com/learnvim).
+Para aprender más sobre Vim, puedes seguir en Twitter a [@learnvim](https://twitter.com/learnvim). O la sección específica en [mi blog](https://victorhckinthefreeworld.com/tag/vim/) sobre Vim. Así como esta [recopilación de comandos útiles de consulta rápida](https://victorhck.gitlab.io/comandos_vim/) sobre Vim.
 
 ## Agradecimientos
 
@@ -93,5 +93,5 @@ Esta guía no hubiera sido posible sin Bram Moleenar el creador de Vim, Igor, el
 
 Y por supuesto a ti, lector o lectora que has escogido esta guía para iniciarte o para fomentar tus conocimientos sobre Vim.
 
-Gracias. Todas estas personas hacéis que editar texto sea divertido :\)
+Gracias. Todas estas personas hacéis que editar texto sea divertido :)
 
