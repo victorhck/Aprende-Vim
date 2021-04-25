@@ -62,7 +62,7 @@ Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o 
 
 ## Licencia y derechos de autor
 
-El materia original en iglés es autoría de ©2020-2021 [Igor Irianto.](https://github.com/iggredible/Learn-Vim) publicado bajo una licencia [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+El materia original en inglés es autoría de ©2020-2021 [Igor Irianto.](https://github.com/iggredible/Learn-Vim) publicado bajo una licencia [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 La traducción en español, es mía junto con las [diferentes personas](https://github.com/victorhck/learn-Vim-es/graphs/contributors) que colaboren en este repositorio. Al colaborar en este repositorio estás de acuerdo en compartir tu trabajo con la licencia utilizada para el repositorio completo.
 
