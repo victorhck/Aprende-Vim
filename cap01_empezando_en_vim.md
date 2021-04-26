@@ -95,7 +95,7 @@ Para comprobar la versión actual de Vim, ejecuta:
 vim --version
 ```
 
-Esto te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `.` Algunas de estas características en esta guía requieren que estén disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en un capítulo posyerior con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione. Hay muchas posibilidades de que el Vim que tienes instalado tenga las funcionalidades necesarias, especialmente si lo has instalado desde las fuentes más conocidas.
+Esto te muestra la versión de Vim y todas la funcionalidades disponibles marcadas con `+` o `-`. Algunas de estas características en esta guía requieren que estén disponibles algunas funcionalidades. Por ejemplo, explorarás el historial de la línea de comandos de Vim en un capítulo posterior con el comando `:history`. Tu editor Vim necesita tener la funcionalidad `+cmdline_history` disponible para que el comando funcione. Hay muchas posibilidades de que el Vim que tienes instalado tenga las funcionalidades necesarias, especialmente si lo has instalado desde las fuentes más conocidas.
 
 Muchas cosas que puedes hacer desde la terminal, también pueden hacerse dentro de Vim. Para ver la versión desde el propio Vim, puedes ejecutar esto:
 
