@@ -162,7 +162,7 @@ Si necesitar suspender la ejecución de Vim mientras estás a la mitad de una ed
 
 ## Arrancando Vim de la manera más inteligente
 
-Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos \(`+{cmd}` o `c cmd`\). Cuantos más comandos aprendas mientras lees esta guía, comprueba si puedes utilizarlos al arrancar Vim. También al ser un comando para la terminal, puedes combinar `vim` con muchos otros comandos. Por ejemplo, puedes redireccionar la salida del comando `ls` para que pueda ser editado en Vim con `ls -l | vim -`.
+Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos \(`+{cmd}` o `-c cmd`\). Cuantos más comandos aprendas mientras lees esta guía, comprueba si puedes utilizarlos al arrancar Vim. También al ser un comando para la terminal, puedes combinar `vim` con muchos otros comandos. Por ejemplo, puedes redireccionar la salida del comando `ls` para que pueda ser editado en Vim con `ls -l | vim -`.
 
 Para aprender más sobre las diferentes opciones que puedes utilizar desde la terminal, echa un vistazo mediante el comando `man vim`. Para aprender más sobre los modos de Vim y los comandos, echa un vistazo con `:help`.
 
