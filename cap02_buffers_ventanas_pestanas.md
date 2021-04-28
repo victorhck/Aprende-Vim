@@ -1,16 +1,16 @@
-# Capítulo 2: Buffers, ventanas y pestañas
+# Capítulo 2: *Buffers*, ventanas y pestañas
 
-Si has utilizado un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: _buffers_, ventanas y pestañas.
-
-En este capítulo veremos cómo funcionan en Vim los _buffers_, ventanas y pestañas.
+Si has utilizado un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: _buffers_, ventanas y pestañas. En este capítulo veremos qué son y cómo funcionan en Vim los _buffers_, ventanas y pestañas.
 
 Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un _buffer_, Vim te pedirá que guardes el archivo \(no quieres eso si quieres moverte rápidamente entre distintos _buffers_. Para más información, echa un vistazo a la ayuda de Vim `:h hidden`.
 
 ## _Buffers_
 
-Un _buffer_ es un espacio en la memoria en el que puedes escribir y editar algún texto. Cuando abres un nuevo archivo en Vim, su contenido estará ligado a un nuevo _buffer_: 1. Dentro de Vim, abre un nuevo _buffer_ con el comando `:new` \(crea un nuevo _buffer vacío\) 2. Desde tu terminal, abre un nuevo archivo llamado `file1.js` \(crea un nuevo_ buffer\* con `file1.js` ligado a el\)
+¿Qué es un *buffer*?
 
-Si tu _buffer_ no está ligado todavía a un archivo pero quieres guardar su contenido, puedes guardarlo mediante `:w </ruta/al/archivo>`.
+Un _buffer_ es un espacio en la memoria en el que puedes escribir y editar algún texto. Cuando abres un nuevo archivo en Vim, su contenido estará ligado a un nuevo _buffer_. Cuando abres 3 archivos en Vim, tendrás 3 *buffers*.
+
+Supongamos que tenemos en nuestro equipo dos archivos llamados `file1.js` y `file2.js` (si es posible, mejor créalos con Vim). Ahora ejecuta esto en la terminal:
 
 ```bash
 vim file1.js
@@ -28,11 +28,16 @@ vim file1.js file2.js
 
 ![one buffer displayed.png](.gitbook/assets/screen-one-buffer%20%281%29.png)
 
-Vim muestra el _buffer_ de `file1.js`, pero ha creado dos _buffers_: el buffer de `file1.js` y el _buffer_ de `file2.js`. Puedes mostrar todos los _buffers_ mediante el comando `:buffers` \(como alternativa también puedes usar `:ls` o `:files`\).
+Vim muestra el _buffer_ de `file1.js`, pero ha creado dos _buffers_: el buffer de `file1.js` y el _buffer_ de `file2.js`. Puedes mostrar todos los _buffers_ mediante el comando `:buffers` (también puedes usar `:ls` o `:files`\).
 
 ![comando de buffers mostrando 2 buffers](.gitbook/assets/screen-one-buffer-buffers-command.png)
 
-Hay varias formas de poder desplazarse por los _buffers_: 1. `:bnext` o de manera abreviada puedes utilizar `:bn` para ir al _buffer_ siguiente \(`:bprevious` o `:bp` para ir al _buffer_ previo\). 2. `:buffer` + nombre\_de\_archivo. De manera abreviada puedes utilizar `:b`.Vim puede autocompletar el nombre de archivo con `tab`. 3. `:buffer` + `n`, donde `n` es el número del _buffer_. También puedes reemplazar `:buffer` por `:b`. Por ejemplo, escribiendo: `:buffer 2` o `:b 2` te llevará al _buffer_ número 2. 4. Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Hablaremos más sobre los saltos en el capítulo 5. 5. Ir al _buffer_ previamente editado con `Ctrl-^`.
+Hay varias formas de poder desplazarse por los _buffers_:
+* `:bnext` o de manera abreviada puedes utilizar `:bn` para ir al _buffer_ siguiente \(`:bprevious` o `:bp` para ir al _buffer_ previo\).
+* `:buffer` + nombre\_de\_archivo. De manera abreviada puedes utilizar `:b`.Vim puede autocompletar el nombre de archivo con `tab`.
+* `:buffer` + `n`, donde `n` es el número del _buffer_. También puedes reemplazar `:buffer` por `:b`. Por ejemplo, escribiendo: `:buffer 2` o `:b 2` te llevará al _buffer_ número 2.
+* Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Hablaremos más sobre los saltos en el capítulo 5.
+* Ir al _buffer_ previamente editado con `Ctrl-^`.
 
 Una vez que Vim crea un _buffer_, este permanecerá en tu lista de _buffers_. Para eliminarlo, puedes escribir `:bdelete`. También acepta un número de _buffer_ \(`:bdelete 3` para eliminar el _buffer_ \#3\) o un nombre de archivo \(`:bdelete` después utiliza `tab` para autocompletar el nombre\).
 
