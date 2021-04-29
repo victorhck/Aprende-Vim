@@ -2,7 +2,17 @@
 
 Si has utilizado un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: _buffers_, ventanas y pestañas. En este capítulo veremos qué son y cómo funcionan en Vim los _buffers_, ventanas y pestañas.
 
-Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un _buffer_, Vim te pedirá que guardes el archivo \(no quieres eso si quieres moverte rápidamente entre distintos _buffers_. Para más información, echa un vistazo a la ayuda de Vim `:h hidden`.
+Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un _buffer_, Vim te pedirá que guardes el archivo \(no quieres eso si quieres moverte rápidamente entre distintos _buffers_). 
+
+Todavía no hemos tratado el capítulo que trata sobre vimrc, lo haremos en el caítulo 21. En sistemas basados en Unix como cualquier distribución de GNU/Linux o MacOS, este archivo debería estar ubicado en el _home_ de tu usuario y debería llamarse `.vimrc`. Es decir la ruta sería `/home/tu_usuario/.vimrc`. El punto indica que es un archivo oculto.
+
+Para ver dónde crear tu archivo vimrc, echa un vistazo a `h: vimrc`. Dentro del archivo, añade la siguiente línea:
+
+```
+set hidden
+```
+
+Guarda los cambios (`:w`) y haz que Vim tenga en cuenta estas nuevas configuraciones ejecutando `:source %` dentro del propio archivo vimrc.
 
 ## _Buffers_
 
