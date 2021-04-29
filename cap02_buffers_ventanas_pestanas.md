@@ -4,9 +4,11 @@ Si has utilizado un editor de texto moderno, probablemente estás familiarizado 
 
 Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un _buffer_, Vim te pedirá que guardes el archivo \(no quieres eso si quieres moverte rápidamente entre distintos _buffers_). 
 
-Todavía no hemos tratado el capítulo que trata sobre vimrc, lo haremos en el caítulo 21. En sistemas basados en Unix como cualquier distribución de GNU/Linux o MacOS, este archivo debería estar ubicado en el _home_ de tu usuario y debería llamarse `.vimrc`. Es decir la ruta sería `/home/tu_usuario/.vimrc`. El punto indica que es un archivo oculto.
+Todavía no hemos tratado el capítulo que trata sobre vimrc, lo haremos en el capítulo 21. En sistemas basados en Unix como cualquier distribución de GNU/Linux o MacOS, este archivo debería estar ubicado en el _home_ de tu usuario y debería llamarse `.vimrc`. Es decir la ruta sería `/home/tu_usuario/.vimrc`. El punto indica que es un archivo oculto.
 
-Para ver dónde crear tu archivo vimrc, echa un vistazo a `h: vimrc`. Dentro del archivo, añade la siguiente línea:
+Para ver dónde crear tu archivo vimrc, echa un vistazo a `h: vimrc`. 
+
+Dentro del archivo, añade la siguiente línea:
 
 ```
 set hidden
@@ -57,23 +59,29 @@ Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo 
 
 ## Saliendo de Vim
 
-Si tienes varios _buffers_ abiertos y has realizado algunos cambios, puedes cerrarlos todos y salir de Vim mediante el comando:
+Por cierto, si tienes varios _buffers_ abiertos, puedes cerrarlos todos a la vez mediante el siguiente comando:
 
-```text
+```
 :qall
 ```
 
 Si quieres salir de Vim sin guardar los cambios realizados, simplemente añade `!` al final del comando anterior:
 
-```text
-:qall
+```
+:qall!
+```
+
+Para guardar sin salir, ejecuta:
+
+```
+:wqall
 ```
 
 ## Ventanas
 
 Una ventana es una división gráfica en un _buffer_. Puedes tener múltiples ventanas. La mayoría de los editores de texto tienen la posibilidad de mostrar múltiples ventanas. A continuación puedes ver una captura del editor VSCode mostrando 3 ventanas.
 
-![buffers command showing 2 buffers](.gitbook/assets/screen-vscode-3-windows.png)
+![VSCode mostrando 3 ventanas](.gitbook/assets/screen-vscode-3-windows.png)
 
 Abramos el archivo `file1.js` de nuevo desde la terminal:
 
@@ -95,13 +103,13 @@ No abandones Vim todavía. Ejecuta:
 
 Ahora estás viendo dos _buffers_ mediante **dos ventanas**. La ventana superior muestra el _buffer_ `file2.js`. La ventana inferior muestra el _buffer_ `file1.js`.
 
-Por cierto, si quieres navegar entre ventanas, puedes utilizar estos comandos:
+Por cierto, si quieres navegar entre ventanas, puedes utilizar estos atajos de teclado:
 
 ```text
-Ctrl-W h    Mueve el cursor a la ventana de la izquierda
-Ctrl-W j    Mueve el cursor a la ventana inferior
-Ctrl-W k    Mueve el cursor a la ventana superior
-Ctrl-W l    Mueve el cursor a la ventana de la derecha
+Ctrl-W H    Mueve el cursor a la ventana de la izquierda
+Ctrl-W J    Mueve el cursor a la ventana inferior
+Ctrl-W K    Mueve el cursor a la ventana superior
+Ctrl-W L    Mueve el cursor a la ventana de la derecha
 ```
 
 Ahora ejecuta:
@@ -114,7 +122,7 @@ Ahora ejecuta:
 
 Estás viendo tres ventanas mostrando tres _buffers_. La ventana superior izquierda muestra el buffer `file3.js`, la ventana superior derecha muestra el _buffer_ `file2.js`, y la ventana inferior muestra el _buffer_ `file1.js`.
 
-Puedes tener múltiples ventana mostranto el mismo _buffer_. Mientras estás en la ventana superior izquierda, escribe:
+Puedes tener múltiples ventanas mostranto el mismo _buffer_. Sitúate en la ventana superior izquierda, escribe:
 
 ```text
 :buffer file2.js
@@ -124,15 +132,15 @@ Puedes tener múltiples ventana mostranto el mismo _buffer_. Mientras estás en 
 
 Ahora las dos ventanas superiores, tanto la izquierda como la derecha, están mostrando el _buffer_ `file2.js`. Si comienzas a escribir en la superior izquierda, verás que el contenido de la superior izquierda y superior derecha está cambiando en tiempo real.
 
-Para cerrar la ventana actual, puedes ejecutar `Ctrl-W c` o escribir el comando `:quit`. Cuando cierras una ventana, el _buffer_ todavía permanece ahí \(de nuevo, para ver los _buffers_, puedes utilizar `:buffers, :ls, :files`\).
+Para cerrar la ventana actual, puedes ejecutar `Ctrl-W C` o escribir el comando `:quit`. Cuando cierras una ventana, el _buffer_ todavía permanece ahí \(de nuevo, para ver los _buffers_, puedes utilizar `:buffers, :ls, :files` para confirmarlo\).
 
 Aquí hay algunos de los comandos para las ventanas en el modo normal:
 
 ```text
-Ctrl-W v    Abre una nueva división vertical
-Ctrl-W s    Abre una nueva división horizontal
-Ctrl-W c    Cierra una ventana
-Ctrl-W o    Hace que la ventana actual sea la única en la pantalla y cierra las demás ventanas
+Ctrl-W V    Abre una nueva división vertical
+Ctrl-W S    Abre una nueva división horizontal
+Ctrl-W C    Cierra una ventana
+Ctrl-W O    Hace que la ventana actual sea la única en la pantalla y cierra las demás ventanas
 ```
 
 Y aquí hay una lista de los comandos para las ventanas:
@@ -163,7 +171,7 @@ Para abrir `file2.js` en una nueva pestaña:
 
 ![captura que muestra 2 pesta&#xF1;as](.gitbook/assets/screen-tab2.png)
 
-También puedes permitir que Vim autocomplete el archivo a abrir en una _nueva pestaña_ presionando `tab`.
+También puedes permitir que Vim autocomplete el archivo a abrir en una _nueva pestaña_ presionando `<Tab>`.
 
 A continuación puedes encontrar una lista de navegaciones útiles por las pestañas:
 
@@ -176,7 +184,7 @@ A continuación puedes encontrar una lista de navegaciones útiles por las pesta
 :tabfirst           Ir a la primera pestaña
 ```
 
-También puedes ejecutar `gt` para ir a la siguiente pestaña \(con `Gt` vas a la pestaña previa\). También puedes pasar un número como argumento a `gt`, donde el número corresponde al número de la pestaña. Para ir a la tercera pestaña, ejecuta `3gt`.
+También puedes ejecutar `gt` para ir a la siguiente pestaña \(con `gT` vas a la pestaña previa\). También puedes pasar un número como argumento a `gt`, donde el número corresponde al número de la pestaña. Para ir a la tercera pestaña, ejecuta `3gt`.
 
 Una ventaja de tener varias pestañas es que puedes tener diferentes disposiciones de ventanas en diferentes pestañas. Tal vez deseas que tu primera pestaña tenga 3 ventanas verticales y la segunda pestaña tenga un diseño de ventanas horizontal y vertical mixto. ¡Las pestañas son la herramienta perfecta para el trabajo!
 
