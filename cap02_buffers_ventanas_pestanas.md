@@ -204,7 +204,7 @@ Moverse entre ventanas es como viajar en dos dimensiones a través de los ejes X
 
 ![movimiento cartesiano en ejes x e y](.gitbook/assets/cartesian-xy.png)
 
-Moverse entre _buffers_ es cini viajar a través del eje Z en coordenadas Cartesianas. Imagina que los _buufers_ de tus archivos están alineados a través del eje Z. Puedes desplazarte por el eje Z un _buffer_ cada vez con `:bnext` y `:bprevious`. También puedes saltar a cualquier coordenada en el eje Z con `:buffer nombre_de_archivo/número de buffer`.
+Moverse entre _buffers_ es como viajar a través del eje Z en coordenadas Cartesianas. Imagina que los _buffers_ de tus archivos están alineados a través del eje Z. Puedes desplazarte por el eje Z un _buffer_ cada vez con `:bnext` y `:bprevious`. También puedes saltar a cualquier coordenada en el eje Z con `:buffer nombre_de_archivo/número de buffer`.
 
 ![movimiento cartesiano en el eje z](.gitbook/assets/cartesian-z.png)
 
@@ -216,9 +216,9 @@ Te puedes mover en un _espacio tridimensional_ combinando los movimientos de ven
 
 Has aprendido cómo funcionan los _buffers_, las ventanas y las pestañas en Vim. Para utilizarlas de manera eficiente, necesitas entender para qué están diseñadas y utilizarlas en tu propia forma de trabajar. Cada persona tiene una manera diferente de trabajar, aquí tienes un ejemplo.
 
-Yo utilizaría los _buffers_ para abrir todos los archivos necesarios para realizar la tarea que queremos hacer. Esta tarea puede necesitar que abras siete o siete veces siete archivos en _buffers_, pero no importa porque Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo verá un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y que puedo volar rápidamente a cualquier _buffer_ que desee.
+Yo utilizaría los _buffers_ para abrir todos los archivos necesarios para realizar la tarea que queremos hacer. Esta tarea puede necesitar que abras siete o siete veces siete archivos en _buffers_, pero no importa porque Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo veré un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y que puedo volar rápidamente a cualquier _buffer_ que desee.
 
-Yo utilizaría múltiples ventanas para ver múltiples _buffers_ a la vez, normalment cuando tengo archivos que muestran las diferencias entre archivos, comparando código o siguiendo el flujo de un código. Normalmente no tengo más de tres ventanas abiertas a la vez porque mo pantalla estaría llena. Cuando termino, cierro cualquier ventana extra. Prefiero tener las mínimas venttanas posibles.
+Yo utilizaría múltiples ventanas para ver múltiples _buffers_ a la vez, normalmente cuando tengo archivos que muestran las diferencias entre archivos, comparando código o siguiendo el flujo de un código. Normalmente no tengo más de tres ventanas abiertas a la vez porque mi pantalla estaría llena. Cuando termino, cierro cualquier ventana extra. Prefiero tener las mínimas ventanas posibles.
 
 Utilizaría una pestaña para gestionar los código del lado cliente y una pestaña diferente para los códigos de _back-end_. Personalmente, no utilizo pestañas en mi forma de trabajo. Utilizo ventanas de [tmux](https://github.com/tmux/tmux/wiki) como sustituto de las pestañas de Vim. Mi flujo de trabajo con tmux es similar a la forma de trabajar de las pestañas en Vim. En vez de tener abiertas múltiples **pestañas de Vim** para cada contexto, yo abro **ventanas de tmux** \(una ventana de tmux para código del lado cliente y otra ventana para código de _back-end_\).
 
