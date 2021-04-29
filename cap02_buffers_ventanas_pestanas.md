@@ -208,19 +208,20 @@ Moverse entre _buffers_ es como viajar a través del eje Z en coordenadas Cartes
 
 ![movimiento cartesiano en el eje z](.gitbook/assets/cartesian-z.png)
 
-Te puedes mover en un _espacio tridimensional_ combinando los movimientos de ventanas y _buffer_. Te puedes mover a la parte superior, derecha, inferior o la ventana izquierda \(navegación en ejes X-Y\) con las teclas de navegación por ventanas. Como cada ventana contiene _buffers_, te puedes mover hacia adelante o hacia atrás \(navigación en Z\) con los movimientos de _buffer_.
+Te puedes mover en un _espacio tridimensional_ combinando los movimientos de ventanas y _buffer_. Te puedes mover a la parte superior, derecha, inferior o la ventana izquierda \(navegación en ejes X-Y\) con las teclas de navegación por ventanas. Como cada ventana contiene _buffers_, te puedes mover hacia adelante o hacia atrás \(navegación en Z\) con los movimientos de _buffer_.
 
 ![movimiento cartesiano en ejes x, y y z](.gitbook/assets/cartesian-xyz.png)
 
 ## Utilizando los _buffers_, ventanas y pestañas de la manera más inteligente
 
-Has aprendido cómo funcionan los _buffers_, las ventanas y las pestañas en Vim. Para utilizarlas de manera eficiente, necesitas entender para qué están diseñadas y utilizarlas en tu propia forma de trabajar. Cada persona tiene una manera diferente de trabajar, aquí tienes un ejemplo.
+Has aprendido cómo funcionan los _buffers_, las ventanas y las pestañas en Vim. Para utilizarlas de manera eficiente, necesitas entender para qué están diseñadas y utilizarlas en tu propia forma de trabajar.
 
-Yo utilizaría los _buffers_ para abrir todos los archivos necesarios para realizar la tarea que queremos hacer. Esta tarea puede necesitar que abras siete o siete veces siete archivos en _buffers_, pero no importa porque Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo veré un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y que puedo volar rápidamente a cualquier _buffer_ que desee.
+Cada persona tiene una manera diferente de trabajar, esta es la mía por ejemplo:
 
-Yo utilizaría múltiples ventanas para ver múltiples _buffers_ a la vez, normalmente cuando tengo archivos que muestran las diferencias entre archivos, comparando código o siguiendo el flujo de un código. Normalmente no tengo más de tres ventanas abiertas a la vez porque mi pantalla estaría llena. Cuando termino, cierro cualquier ventana extra. Prefiero tener las mínimas ventanas posibles.
-
-Utilizaría una pestaña para gestionar los código del lado cliente y una pestaña diferente para los códigos de _back-end_. Personalmente, no utilizo pestañas en mi forma de trabajo. Utilizo ventanas de [tmux](https://github.com/tmux/tmux/wiki) como sustituto de las pestañas de Vim. Mi flujo de trabajo con tmux es similar a la forma de trabajar de las pestañas en Vim. En vez de tener abiertas múltiples **pestañas de Vim** para cada contexto, yo abro **ventanas de tmux** \(una ventana de tmux para código del lado cliente y otra ventana para código de _back-end_\).
+* Yo utilizo los _buffers_ para almacenar todos los archivos necesarios para realizar la tarea que queremos hacer. Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo veré un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y me permite centrarme en una pantalla. Cuando necesito desplazarme a otro lugar, puedo volar rápidamente a cualquier _buffer_ que desee cuando quiera.
+* Utilizo múltiples ventanas para ver múltiples _buffers_ a la vez, normalmente cuando tengo archivos que muestran las diferencias entre archivos, leyendo código o siguiendo el flujo de un código. Trato de no tener más de tres ventanas abiertas a la vez porque mi pantalla se llena. Cuando termino, cierro cualquier ventana extra. Menos ventanas abiertas implica menos distracciones.
+* Instead of tabs, I use tmux windows. I usually use multiple tmux windows at once. For example, one tmux window for client-side codes and another for backend codes.
+* En vez de pestañas, utilizo ventanas de [tmux](https://github.com/tmux/tmux/wiki). Por ejemplo, una ventana de tmux para código del lado cliente y otra ventana para código de _back-end_.
 
 Mi forma de trabajar puede ser diferente de la tuya debido a tu forma de editar y eso está bien. Experimenta hasta descubrir tu forma de trabajar y encontrar qué es lo que mejor se adapta a ti.
 
