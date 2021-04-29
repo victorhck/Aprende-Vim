@@ -6,7 +6,7 @@ Antes de comenzar, debes asegurarte que la opción `set hidden` está presente e
 
 Todavía no hemos tratado el capítulo que trata sobre vimrc, lo haremos en el capítulo 21. En sistemas basados en Unix como cualquier distribución de GNU/Linux o MacOS, este archivo debería estar ubicado en el _home_ de tu usuario y debería llamarse `.vimrc`. Es decir la ruta sería `/home/tu_usuario/.vimrc`. El punto indica que es un archivo oculto.
 
-Para ver dónde crear tu archivo vimrc, echa un vistazo a `h: vimrc`. 
+Para ver dónde crear tu archivo vimrc, echa un vistazo a la ayuda de Vim con `:h vimrc`. 
 
 Dentro del archivo, añade la siguiente línea:
 
