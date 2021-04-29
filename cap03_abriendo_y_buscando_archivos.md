@@ -20,10 +20,10 @@ El autocompletado del nombre con la tecla `<Tab>` funciona con `:edit`. Por ejem
 :edit a<Tab>c<Tab>u<Tab>
 ```
 
-`:edit` acepta comodines como argumentos. `*` reemplaza a cualquier archivo en la carpeta actual. Si solo estás buscando archivo con la extensión `.yml` en la carpeta actual, puedes ejecutar:
+`:edit` acepta comodines como argumentos. `*` reemplaza a cualquier archivo en la carpeta actual. Si solo estás buscando archivos con la extensión `.yml` en la carpeta actual, puedes ejecutar:
 
 ```text
-:edit *.yml<tab>
+:edit *.yml<Tab>
 ```
 
 Vim te mostrará una lista de todos los archivos `.yml` que existen en la carpeta actual para poder escoger el que queramos.
@@ -31,7 +31,7 @@ Vim te mostrará una lista de todos los archivos `.yml` que existen en la carpet
 Puedes utilizar `**` para buscar de manera recursiva. Si quieres buscar todos los archivos `*.md` en tu proyecto, pero no estás seguro de en qué carpeta está, puedes ejecutar lo siguiente:
 
 ```text
-:edit **/*.md<tab>
+:edit **/*.md<Tab>
 ```
 
 `:edit` puede ser utilizado para ejecutar `netrw`, el explorador nativo de Vim. Para hacer eso, se debe dar al comando `:edit` un argumento como directorio en vez de un archivo:
@@ -53,15 +53,15 @@ Puedes buscar archivos con el comandos `:find`. Por ejemplo:
 El autocompletado del nombre también funciona con el comando `:find`:
 
 ```text
-:find p<tab>                " Para encontrar el archivo package.json
-:find a<tab>c<tab>u<tab>    " Para encontrar la ruta del archivo app/controllers/users_controller.rb
+:find p<Tab>                " Para encontrar el archivo package.json
+:find a<Tab>c<Tab>u<Tab>    " Para encontrar la ruta del archivo app/controllers/users_controller.rb
 ```
 
 Quizás has notado que la sintaxis y el comportamiento del comando `:find` es similar al comando `:edit`. ¿Cuál es la diferencia?
 
 ## Find y Path
 
-La diferencia es que `:find` encuentra un archivo en la ruta o `path`, mientras que `:edit` no lo hace.
+La diferencia es que `:find` encuentra un archivo en la ruta o también llamado `path`, mientras que `:edit` no lo hace.
 
 Aprendamos un poco más sobre esta ruta o `path`. Una vez que aprendas cómo modificar tus rutas, `:find` puede convertirse en una herramienta de búsqueda muy potente. Para comprobar cuales son tus rutas, ejecuta:
 
@@ -126,7 +126,7 @@ Revisemos el grep interno primero. `:vim` tiene la siguiente sintaxis:
 :vim /patrón/ archivo
 ```
 
-* `/patrón/` es el patrón de la expresión regular \(regex\) del termino buscado.
+* `/patrón/` es el patrón de la expresión regular \(regex\) del término buscado.
 * `archivo` es el argumento del nombre\(s\) de el\(los\) archivo\(s\). De la misma forma que en `:find`, también puedes pasarle los comodines `*` y `**`.
 
 Por ejemplo, para encontrar todas las coincidencia de la cadena "desayuno" dentro de todos los archivos ruby \(`.rb`\) dentro de la carpeta `app/controllers/`:
@@ -135,7 +135,7 @@ Por ejemplo, para encontrar todas las coincidencia de la cadena "desayuno" dentr
 :vim /desayuno/ app/controllers/**/*.rb
 ```
 
-Después de ejecutar este comando, serás redirigido al primer resultado. El comando de búsqueda de Vim `vim` usa la operación `quickfix`. Para ver todos los resultados de la búsqueda, ejecutamos `:copen`. Esto abre una ventana `quickfix`. Aquí dejamos algunos comandos de _quickfix_ útiles para empezar a trabajar:
+Después de ejecutar este comando, serás redirigido al primer resultado. El comando de búsqueda de Vim `vim` usa la `quickfix`, esto es una ventana anexa en la que se muestra todas las ocurrencias que Vim ha encontrado. Para ver todos los resultados de la búsqueda, ejecutamos `:copen`. Esto abre una ventana `quickfix`. Aquí dejamos algunos comandos de _quickfix_ útiles para empezar a trabajar:
 
 ```text
 :copen        Abrir la ventana quickfix
