@@ -220,7 +220,6 @@ Cada persona tiene una manera diferente de trabajar, esta es la mía por ejemplo
 
 * Yo utilizo los _buffers_ para almacenar todos los archivos necesarios para realizar la tarea que queremos hacer. Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo veré un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y me permite centrarme en una pantalla. Cuando necesito desplazarme a otro lugar, puedo volar rápidamente a cualquier _buffer_ que desee cuando quiera.
 * Utilizo múltiples ventanas para ver múltiples _buffers_ a la vez, normalmente cuando tengo archivos que muestran las diferencias entre archivos, leyendo código o siguiendo el flujo de un código. Trato de no tener más de tres ventanas abiertas a la vez porque mi pantalla se llena. Cuando termino, cierro cualquier ventana extra. Menos ventanas abiertas implica menos distracciones.
-* Instead of tabs, I use tmux windows. I usually use multiple tmux windows at once. For example, one tmux window for client-side codes and another for backend codes.
 * En vez de pestañas, utilizo ventanas de [tmux](https://github.com/tmux/tmux/wiki). Por ejemplo, una ventana de tmux para código del lado cliente y otra ventana para código de _back-end_.
 
 Mi forma de trabajar puede ser diferente de la tuya debido a tu forma de editar y eso está bien. Experimenta hasta descubrir tu forma de trabajar y encontrar qué es lo que mejor se adapta a ti.
