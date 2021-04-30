@@ -38,7 +38,7 @@ Sal de Vim. Esta vez, abre dos nuevos archivos:
 vim file1.js file2.js
 ```
 
-![one buffer displayed.png](.gitbook/assets/screen-one-buffer%20%281%29.png)
+![mostrando un buffer](.gitbook/assets/screen-one-buffer%20%281%29.png)
 
 Vim muestra el _buffer_ de `file1.js`, pero ha creado dos _buffers_: el buffer de `file1.js` y el _buffer_ de `file2.js`. Puedes mostrar todos los _buffers_ mediante el comando `:buffers` (también puedes usar `:ls` o `:files`\).
 

@@ -59,6 +59,8 @@ La mayoría de los comandos o frases relacionadas con código se mostrarán `de 
 
 Las cadenas de texto están rodeadas por un par de comillas dobles \("de esta forma"\).
 
+Cuando en la guía se refiere a pulsar una combinación de teclas como por ejemplo `Ctrl-W` se refiere a que hay que pulsar la tecla "Control" y sin soltar esa tecla también pulsar la tecla especificada, en este ejemplo la "w".
+
 Los comandos de Vim pueden ser abreviados. Por ejemplo, `:join` tiene un comando similar abreviado como `:j`. A lo largo de la guía, se utilizarán tanto las descripciones largas como cortas. Para los comandos que no son usados frecuentemente en esta guía, utilizaré la versión larga. Para los comandos que son utilizados frecuentemente, utilizaré la versión corta. Siento esta diversidad de uso. En general, cuando te encuentres con un comando nuevo, comprueba siempre en la ayuda de Vim para ver su forma abreviada
 
 ## Vimrc
