@@ -297,7 +297,7 @@ nnoremap <silent> <Leader>h: :History:<CR>
 nnoremap <silent> <Leader>h/ :History/<CR>
 ```
 
-## Reemplazar Greo con Rg
+## Reemplazar Grep con Rg
 
 Como he mencionado previamente, Vim tiene dos maneras de buscar en archivos: `:vim` y `:grep`. `:grep` utiliza la herramienta externa de búsqueda que puedes reasignar utilizando la palabra clave `grepprg`. Te mostraré cómo configurar Vim para utilizar ripgrep en vez del grep de la terminal al ejecutar el comando `:grep`.
 
@@ -309,7 +309,7 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 ¡No dudes en modificar cualquiera de las opciones anteriores! Para más información de lo que significan las opciones anteriores, echa un vistazo a `man rg`.
 
-Después de actualizar `grepprg`, ahora cuando ejecutes `:grep`, esto ahora ejecutará `rg --vimgrep --smart-case --follow` en vez de ejecutar `grep`. Si quieres realizar una búsqueda de "donut" utilizando ripgrep, ahora puedes ejecutar el comando mencionado `:grep "donut"` en vez de `:grep "donut" . -R`.
+Después de actualizar `grepprg`, ahora cuando ejecutes `:grep`, esto  ejecutará `rg --vimgrep --smart-case --follow` en vez de ejecutar `grep`. Si quieres realizar una búsqueda de "donut" utilizando ripgrep, ahora puedes ejecutar el comando mencionado `:grep "donut"` en vez de `:grep "donut" . -R`.
 
 Como ocurre con el antiguo `:grep`, este nuevo `:grep` también utiliza _quickfix_ para mostrar los resultados.
 
@@ -335,7 +335,7 @@ Vamos a diseccionar los pasos que hacen estos comandos:
 
 El segundo método es buscar y reemplazar en el archivo seleccionado. Con este método, puedes escoger de manera manual qué archivos seleccionar y realizar la sustitución. Esto es lo que tienes que hacer:
 
-1. Limpiar tus _buffers_. Es imprescindible que tu lista de _buffers_ contenga solo los archivos que necesitas. Puedes realizar esa limpieza mediante `:%bd | e#` \(`%bd` elimina todos lod _buffers_ y `e#` abre el archivo en el que estabas\).
+1. Limpiar tus _buffers_. Es imprescindible que tu lista de _buffers_ contenga solo los archivos que necesitas. Puedes realizar esa limpieza mediante `:%bd | e#` \(`%bd` elimina todos los _buffers_ y `e#` abre el archivo en el que estabas\).
 2. Ejecuta `:Files`.
 3. Selecciona todos los archivos que deseas que se busque y se reemplace la cadena de texto. Para seleccionar múltiples archivos, utiliza `<Tab>` / `Shift+Tab`. Esto solo es posible si tienes la opción `-m` en `FZF_DEFAULT_OPTS` \(consulta la sección anterior de ajustes de fzf para saber qué hace la opción `-m`\).
 4. Ejecuta `:bufdo %s/pizza/donut/g | update`. El comando `:bufdo %s/pizza/donut/g | update` tiene un aspecto similar al anterior comando `:cfdo %s/pizza/donut/g | update`. Esto es debido a que son similares. La diferencia es que en vez de realizar la sustitución en toda la lista de archivos de _quickfix_ \(`:cfdo`\), estás realizando la sustitución en todos los _buffers_ abiertos en Vim \(`:bufdo`\).
