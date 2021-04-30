@@ -188,13 +188,21 @@ nnoremap <Leader>tn :call ToggleNumber()<CR>
 
 En el primero, se mapea la combinacion de teclas `Ctrl-F` para el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) al comando `:Gfiles` \(que busca rápidamente por archivos en un repositorio git\). En el segundo, se mapea la combinación `<Leader>tn` para llamar a la función personalizada `ToggleNumber` \(que cambia entre si las opciones `norelativenumber` y `relativenumber`\). La combinación `Ctrl-F` mapea y sobreescribe la función nativa de Vim para moverse en la pantalla. El mapeo va a sobreescribir los controles de Vim si entran en conflicto. En mi caso, como nunca uso esta característica, he decidido que es conveniente sobreescribirla.
 
-Por cierto, a mi personalmente me gusta usar la tecla espaciadora que se escribe como `<Space>` como mi tecla para llamar a estos mapeos, conocida como "leader key" en inglés, para usarla, agrega esto en el archivo vimrc:
+Por cierto, ¿qué es eso de tecla "leader" en `<Leader>tn`?
+
+Vim tiene una tecla "líder" llamada _leader_ para ayudarte a la hora de crear mapeados de teclas propios. Por ejemplo, he mapeado `<Leader>tn` para que ejecute la función `ToggleNumber()`. Sin la tecla _leader_, podría utilizar `tn`, pero Vim ya tiene utiliza la tecla `t` para acciones propias como es mover el cursor hasta antes de una ocurrencia o búsqueda.
+
+Con la tecla _leader_, ahora puedo presionar la tecla asignada como _leader_ y después `tn` sin que esto interfiera con el uso predeterminado de la tecla `t`. La tecla _leader_ es una tecla que puedes configurar para crear tus atajos de teclado personalizados.
+
+De manera predeterminada Vim utiliza la barra invertida como tecla _leader_. Por lo que `<Leader>tn` se convertiría en `\tn`.
+
+A mi personalmente me gusta usar la tecla espaciadora que se escribe como `<Space>` como mi tecla para llamar a estos mapeos en vez de la barra invertida. Para usarla, agrega esto en el archivo vimrc:
 
 ```text
 let mapleader = "\<space>"
 ```
 
-El comando `nnoremap` usado anteriormente se puede descomponerse en tres partes:
+El comando `nnoremap` usado anteriormente se puede descomponer en tres partes:
 
 * `n` representa el modo normal.
 * `nore` quiere decir no-recursivo.
