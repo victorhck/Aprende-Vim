@@ -14,7 +14,9 @@ Para abrir un archivo en Vim, puedes utilizar `:edit`.
 
 Si `archivo.txt` existe, abre `archivo.txt` en un _buffer_. Si `archivo.txt` no existe, crea un nuevo _buffer_ para `archivo.txt`.
 
-El autocompletado del nombre con la tecla `<Tab>` funciona con `:edit`. Por ejemplo, si tu archivo está dentro de una carpeta _controller_ de un proyecto en [Rails](https://rubyonrails.org/) como por ejemplo `./app/controllers/users_controllers.rb`, puedes utilizar la tecla `<Tab>` para ir expandiendo los términos rápidamente:
+El autocompletado del nombre con la tecla `<Tab>` funciona con `:edit`. Por ejemplo, si tu archivo está dentro de una carpeta _controller_ de un proyecto en [Rails](https://rubyonrails.org/) como por ejemplo `./app/controllers/users_controllers.rb`, puedes utilizar la tecla `<Tab>` para ir expandiendo los términos rápidamente.
+
+Pulsamos la primera letra del nombre de la carpeta, en este caso la "a" de `app`, y Vim lo autocompletará pulsan `tab`. Después la "c" de la carpeta `controllers` y de nuevo `tab`. Y finalmente la "u" y `tab` para que Vim autocomplete el nombre del archivo:
 
 ```text
 :edit a<Tab>c<Tab>u<Tab>
@@ -34,7 +36,7 @@ Puedes utilizar `**` para buscar de manera recursiva. Si quieres buscar todos lo
 :edit **/*.md<Tab>
 ```
 
-`:edit` puede ser utilizado para ejecutar `netrw`, el explorador nativo de Vim. Para hacer eso, se debe dar al comando `:edit` un argumento como directorio en vez de un archivo:
+`:edit` puede ser utilizado para ejecutar `netrw`, el explorador de archivos nativo de Vim. Para hacer eso, se debe dar al comando `:edit` un directorio como argumento en vez de un archivo:
 
 ```text
 :edit .
@@ -99,7 +101,7 @@ Necesitas añadir `app/controllers/` al `path` actual. Aquí verás cómo puedes
 :set path+=app/controllers/
 ```
 
-Ahora que tu ruta ha sido actualizada, cuando escribas `:find u<Tab>`, Vim también buscará coincidencias dentro del directorio `app/controllers/` de archivos que empiezen con "u".
+Ahora que tu ruta ha sido actualizada, cuando escribas `:find u<Tab>`, Vim también buscará coincidencias dentro del directorio `app/controllers/` de archivos que empiecen con "u".
 
 Si tienes un directorio `controllers/` anidado, como `app/controllers/account/users_controller.rb`, Vim no encontrará `users_controllers`. En su lugar es necesario añadir `:set path+=app/controllers/**` así el autocompletado podrá buscar `users_controller.rb`. ¡Esto es genial! Ahora puedes encontrar lo que necesitas con solo pulsar una vez la tecla tabulador en vez de 3 veces.
 
@@ -109,7 +111,7 @@ Podrás estar pensando en añadir los directorios del proyecto entero así cuand
 :set path+=$PWD/**
 ```
 
-`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscados al presionar el tabulador `tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios de los archivos más visitados.
+`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscados al presionar el tabulador `tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios o los archivos más visitados.
 
 Actualizar `path` solo te llevará unos segundos y haciendo esto te ahorrarás un montón de tiempo.
 
@@ -146,7 +148,7 @@ Después de ejecutar este comando, serás redirigido al primer resultado. El com
 :cnewer       Ir a la lista de errores mas nueva
 ```
 
-No voy a profundizar mas en _quickfix_ aquí. Para aprender mas sobre _quickfix_, revisa `:h quickfix`.
+Para aprender mas sobre _quickfix_, revisa `:h quickfix`.
 
 Es posible que observes que ejecutar el grep interno \(`:vim`\) podría ralentizarse si tienes una gran cantidad de coincidencias. Esto es provocado porque las lee desde la memoria. Vim carga cada archivo con coincidencias como si estuvieran siendo editados. Si Vim comprueba un gran número de archivos, esto consumirá una gran cantidad de memoria.
 
@@ -162,7 +164,7 @@ Vim usa la variable `grepprg` para determinar qué programa externo ejecutar cua
 
 ## Navegando los archivos con Netrw
 
-`netrw` el explorador de archivos predeterminado de Vim. Es útil para ver la estructura jerárquica de un proyecto. Para poder usar `netrw`, necesitas estas 2 configuraciones en tu `.vimrc`:
+`netrw` el explorador de archivos propio de Vim. Es útil para ver la estructura jerárquica de un proyecto. Para poder usar `netrw`, necesitas estas 2 configuraciones en tu `.vimrc`:
 
 ```text
 set nocp
@@ -193,7 +195,7 @@ Existen otras formas de abrir una ventana de `netrw` sin darle de argumento un d
 :Vexplore    Inicia netrw en una pantalla dividida en la mitad izquierda
 ```
 
-Podemos navegar dentro de `netrw` con los movimientos de Vim \(veremos más sobre este tema en el capítulo 5\). Si necesitas crear, eliminar, y renombrar un archivo/directorio, aquí tienes una lista de comandos `netrw` muy útiles:
+Podemos navegar dentro de `netrw` con los movimientos de Vim \(veremos más sobre este tema en un capítulo posterior\). Si necesitas crear, eliminar, y renombrar un archivo/directorio, aquí tienes una lista de comandos `netrw` muy útiles:
 
 ```text
 %    Crear un nuevo archivo
@@ -210,15 +212,15 @@ Si piensas que `netrw` es muy simple y necesitas más, [vim-vinegar](https://git
 
 Ahora que aprendimos a abrir y a buscar archivos en Vim con las herramientas incluidas, es hora de usar complementos para mejorar nuestra búsqueda.
 
-Un acierto de los editores de texto modernos que Vim no posee es la facilidad de encontrar archivos y encontrar en los archivos. En esta segunda mitad del capítulo, te mostraré como usar [FZF.vim](https://github.com/junegunn/fzf.vim) para volver tus búsquedas en Vim mas fáciles y poderosas.
+Un acierto de los editores de texto modernos que Vim no posee es la facilidad de encontrar archivos y encontrar en los archivos. En esta segunda mitad del capítulo, te mostraré como usar [fzf.vim](https://github.com/junegunn/fzf.vim) para volver tus búsquedas en Vim mas fáciles y poderosas.
 
 ## Configuración
 
 Pero primero, verifiquemos que tenemos [fzf](https://github.com/junegunn/fzf) y [ripgrep](https://github.com/BurntSushi/ripgrep) descargados. Para esto seguiremos las instrucciones incluidas en los respectivos repositorios de github. Los comandos `fzf` y `rg` deberían empezar a estar disponibles después de que las instalaciones de ambas herramientas fueran exitosas.
 
-Ripgrep es una herramienta de búsqueda muy parecida a grep \(de ahí el nombre\). Generalmente es más rápida que grep y posee muchas características interesantes. FZF es un buscador disperso \(fuzzy finder\) de propósito general para la línea de comandos. Puedes usarlo con cualquier comando incluyendo ripgrep. Juntos, hacen una poderosa herramienta de búsqueda.
+Ripgrep es una herramienta de búsqueda muy parecida a grep \(de ahí el nombre\). Generalmente es más rápida que grep y posee muchas características interesantes. Fzf es un buscador disperso \(fuzzy finder\) de propósito general para la línea de comandos. Puedes usarlo con cualquier comando incluyendo ripgrep. Juntos, hacen una poderosa herramienta de búsqueda.
 
-FZF no usa ripgrep por defecto, así que necesitamos decirle a FZF que use ripgrep con la variable `FZF_DEFAULT_COMMAND`. En mi `.zshrc` \(`.bashrc` si usas bash\), deberíamos tener esto:
+Fzf no usa ripgrep por defecto, así que necesitamos decirle a fzf que use ripgrep con la variable `FZF_DEFAULT_COMMAND`. En mi `.zshrc` \(`.bashrc` si usas bash\), deberíamos tener esto:
 
 ```text
 if type rg &> /dev/null; then
@@ -227,7 +229,7 @@ if type rg &> /dev/null; then
 fi
 ```
 
-Debemos poner especial atención a `-m` en `FZF_DEFAULT_OPTS`. Esta opción nos permite hacer selecciones múltiples con `tab` o `shift-tab`. No es necesario tener esta línea para que FZF funcione con Vim, pero creo que es una opción muy útil que considerar. Puede volverse muy útil cuando quieres realizar búsquedas y reemplazar en múltiples archivos, abarcaremos ese tema en un momento. `FZF` acepta más opciones, para aprender más, revisa [el repositorio de fzf](https://github.com/junegunn/fzf#usage) o `man fzf`. Bastará con que tengas `export FZF_DEFAULT_COMMAND='rg'`.
+Debemos poner especial atención a `-m` en `FZF_DEFAULT_OPTS`. Esta opción nos permite hacer selecciones múltiples con `Tab` o `Shift-Tab`. No es necesario tener esta línea para que fzf funcione con Vim, pero creo que es una opción muy útil que considerar. Puede volverse muy útil cuando quieres realizar búsquedas y reemplazar en múltiples archivos, abarcaremos ese tema en un momento. El comando fzf acepta más opciones, para aprender más, revisa [el repositorio de fzf](https://github.com/junegunn/fzf#usage) o `man fzf`. Bastará con que tengas `export FZF_DEFAULT_COMMAND='rg'`.
 
 Después de instalar fzf y ripgrep, vamos a configurar el complemento fzf. Estoy usando [vim-plug](https://github.com/junegunn/vim-plug) como gestor de complementos en este ejemplo, pero puedes usar el que prefieras.
 
@@ -238,7 +240,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 ```
 
-Para más información sobre este complemento, puedes revisar [fzf.Vim repo](https://github.com/junegunn/fzf/blob/master/README-VIM.md).
+Para más información sobre este complemento, puedes revisar [el repositorio de fzf.vim](https://github.com/junegunn/fzf/blob/master/README-VIM.md).
 
 ## La sintaxis de fzf
 
