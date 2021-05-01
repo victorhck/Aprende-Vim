@@ -1,4 +1,4 @@
-# Capítulo 6: EL modo insertar
+# Capítulo 6: El modo insertar
 
 El modo insertar es el modo predeterminado de la mayoría de los editores de texto. En este modo, lo que escribes es lo que aparece en la pantalla.
 
@@ -10,14 +10,14 @@ Hay varias formas de entrar en el modo insertar desde el modo normal. Aquí tien
 
 ```text
 i    Inserta texto antes del cursor
-I    Inserta texto antes del primer carácter que no sea un espacio en blanco de la linea
+I    Inserta texto antes del primer carácter que no sea un espacio en blanco de la línea
 a    Añadir texto después del cursor
-A    Añadir texto al final de la linea
+A    Añadir texto al final de la línea
 o    Crea una nueva línea debajo del cursor y cambia al modo insertar
 O    Crea una nueva línea encima del cursor y cambia al modo insertar
 s    Elimina el carácter debajo del cursor e inserta texto
 S    Elimina la línea actual e inserta texto
-gi   Inserta texto en la misma posición donde el modo insertar fue detenido por última vez en al *buffer* actual
+gi   Inserta texto en la misma posición donde el modo insertar fue detenido por última vez en el *buffer* actual
 gI   Inserta texto al comienzo de una línea (columna 1)
 ```
 
@@ -33,7 +33,7 @@ Ctrl-[   Salir del modo insertar y volver al modo normal
 Ctrl-C   Similar a Ctrl-[ y <Esc>, pero no controla las abreviaciones
 ```
 
-Encuentro la tecla `<Esc>` está algo apartada, por lo que mapeo el teclado de mi equipo para que la tecla de `<Bloq mayús>` se comporte como `<Esc>`. Si buscas el teclado de la ADM-3A de Bill Joy \(creador de Vi\), verás que la tecla `<Esc>` no estaba en la esquina superior izquierda como en los teclados modernos, si no al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar el `<Bloq mayús>` por `<Esc>`.
+Encuentro que la tecla `<Esc>` está algo apartada del resto de las teclas, por lo que mapeo el teclado de mi equipo para que la tecla de `<Bloq mayús>` se comporte como `<Esc>`. Si buscas el teclado de la ADM-3A de Bill Joy \(creador de Vi\), verás que la tecla `<Esc>` no estaba en la esquina superior izquierda como en los teclados modernos, si no al lado de la tecla `q`. Esta es la razón por lo que creo que tiene sentido cambiar el `<Bloq mayús>` por `<Esc>`.
 
 Otra convención común que he visto en personas que utilizan Vim es que mapean `<Esc>` a `jj` o `jk` en el modo insertar. Si quieres probar esta opción, añade una de estas líneas \(o ambas\) en tu archivo vimrc.
 
@@ -54,7 +54,7 @@ Si después escribes "¡Hola mundo!" y sales del modo insertar, Vim repetirá el
 
 ## Borrar segmentos en el modo insertar
 
-Cuando comentes un error al escribir, puede ser molesto pulsar la tecla `<Retroceso>` repetidamente. Podría tener más sentido si vas al modo normal y borras tu error. También puedes borrar varios caracteres al mismo tiempo mientras estás en el modo insertar:
+Cuando cometes un error al escribir, puede ser molesto pulsar la tecla `<Retroceso>` repetidamente. Podría tener más sentido si vas al modo normal y borras tu error. También puedes borrar varios caracteres al mismo tiempo mientras estás en el modo insertar:
 
 ```text
 Ctrl-H    Borrar un carácter
@@ -64,7 +64,7 @@ Ctrl-U    Borrar una línea entera
 
 ## Insertar desde un registro
 
-Los registros de Vim pueden almacenar textos para un uso futuro. Para insertar un texto en cualquier registro nominal mientras estás en el moco insertar, escribe `Ctrl-R` más el símbolo del registro. Hay muchos símbolos que puedes utilizar, pero para esta sección vamos a utilizar solo los registros nominales \(a-z\).
+Los registros de Vim pueden almacenar textos para un uso futuro. Para insertar un texto en cualquier registro nominal mientras estás en el modo insertar, escribe `Ctrl-R` más el símbolo del registro. Hay muchos símbolos que puedes utilizar, pero para esta sección vamos a utilizar solo los registros nominales \(a-z\).
 
 Para ver esto en acción, primero necesitas copiar una palabra al registro "a". Situa tu cursor encima de cualquier palabra y después teclea:
 
@@ -118,7 +118,7 @@ Ctrl-P             Encuentra la palabra anterior que coincide
 
 En general, Vim busca en todo el texto disponible en todos los _buffers_ la fuente para el autocompletado. Si tienes abierto un _buffer_ con una línea que dice: "Los donuts de chocolate son los mejores":
 
-* Cuando escribes "Choco" y después `Ctrl-x Ctrl-l`, esto encontrará y añadirá la línea complet.
+* Cuando escribes "Choco" y después `Ctrl-x Ctrl-l`, esto encontrará y añadirá la línea completa.
 * Cuando escribes "Choco" y después `Ctrl-p`, esto encontrará y añadirá la palabra "Chocolate".
 
 El autocompletado es un tema muy amplio en Vim. Esto es solo la punta de iceberg. Para aprender más, echa un vistazo a la ayuda de Vim `:h ins-completion`.
