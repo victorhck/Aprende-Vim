@@ -48,7 +48,7 @@ Esto es 100% una preferencia personal. Experimenta con las opciones `relativenum
 
 Hablemos sobre el argumento "contar". Los movimientos de Vim aceptan un argumento precedente numérico. He mencionado anteriormente que puedes desplazarte 12 líneas hacia abajo en el texto mediante `12j`. El 12 en `12j` es el número que lleva la cuenta.
 
-La sintáxis para utilizar el número de conteo en tu movimiento es:
+La sintaxis para utilizar el número de conteo en tu movimiento es:
 
 ```text
 [número] + movimiento
@@ -81,13 +81,13 @@ Por ejemplo, supongamos que tenemos la siguiente frase:
 const hello = "world";
 ```
 
-Con el cursor al comienzo de la línea, ve al final de la línea con `l`, te llevará pulsar 21 veces la tecla. Utilizando `w`, solo te llevará pulsar 6 veces. Utilizando `W`, solo te llevará 4 pulsacione. Tanto palabra como PALABRA son buenas opciones para mover el cursor en pequeñas distancias.
+Con el cursor al comienzo de la línea, ve al final de la línea con `l`, te llevará pulsar 21 veces la tecla. Utilizando `w`, solo te llevará pulsar 6 veces. Utilizando `W`, solo te llevará 4 pulsaciones. Tanto palabra como PALABRA son buenas opciones para mover el cursor en pequeñas distancias.
 
 Sin embargo, puedes pasar de "c" a ";" con una pulsación de tecla con la navegación de línea actual.
 
 ## Navegación de línea actual
 
-Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco de la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`.
+Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco de la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`, donde "n" será el número de la columna donde quieres desplazar el cursor.
 
 ```text
 0     Ir al primer caracter de la línea actual
@@ -97,7 +97,7 @@ $     Ir al último caracter de la línea actual
 n|    Ir a la columna n en la línea actual
 ```
 
-También puedes realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera conincidencia encontrada y `t` te lleva hasta \(justo antes\) de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se situe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se situe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
+También puedes realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera conincidencia encontrada y `t` te lleva *hasta justo* antes de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se situe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se situe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
 
 `F` y `T` son las opciones similares a `f` y `t` pero para buscar hacia atrás en el texto. Para buscar hacia atrás una "h", ejecuta `Fh`. Para seguir buscando "h" en la misma dirección, usa `;`. Ten en cuenta que `;` después de `Fh` continua la búsqueda hacia atrás y `,` después de `fh` busca hacia adelante.
 
@@ -171,7 +171,7 @@ Los programadores a menudo editan archivos que continen código. Puede contener 
 %    Navega de una a otra pareja, normalmente funciona con (), [], {}
 ```
 
-Echemos un vistazo a este código de ejemplo en Scheme, porque hace bastante uso de los paréntesis. Vamos a movernos con `%` dentro de los diferente paréntesis.
+Echemos un vistazo a este código de ejemplo en Scheme, porque hace bastante uso de los paréntesis. Vamos a movernos con `%` dentro de los diferentes paréntesis.
 
 ```text
 (define (fib n)
@@ -226,7 +226,7 @@ Ctrl-U    Desplaza media pantalla hacia abajo
 Ctrl-B    Desplaza una pantalla completa hacia abajo el texto
 ```
 
-También puedes desplazrte de manera relativa en función de la línea actual donde se encuentre el cursor:
+También puedes desplazarte de manera relativa en función de la línea actual donde se encuentre el cursor:
 
 ```text
 zt    LLeva la línea actual donde está el cursor cerca de la parte superior de la pantalla
