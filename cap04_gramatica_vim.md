@@ -60,25 +60,27 @@ d    Eliminar un texto y guardarlo en el registro (*delete* en Vim sería la acc
 c    Eliminar un texto, guardarlo en el registro y comenzar en el modo de insertar
 ```
 
-Ahora que ya conoces los sustantivos y verbos básicos, ¡Vamos a aplicar nuestras reglas gramáticas! Supongamos que tenemos la siguiente expresión en un texto:
+Por cierto, después de que copies un texto, lo puedes pegar con `p` (después de la posición del cursor) o con `P` (antes de la posición del cursor).
+
+### Verbo y sustantivo
+
+Ahora que ya conoces los sustantivos y verbos básicos, ¡Vamos a aplicar la regla gramática de verbo + sustantivo! Supongamos que tenemos la siguiente expresión en un texto:
 
 ```javascript
 const learn = "vim";
 ```
 
-Estas serían las acciones que queremos realizar construidas a partir de la gramática de Vim y sus correspondientes comandos:
-
 * Para copiar \(_yank_\) todo desde la ubicación actual del cursor hasta el final de la línea: `y$`.
 * Para eliminar desde la ubicación actual del cursor hasta el principio de la siguiente palabra: `dw`.
 * Para cambiar el texto desde la posición actual del cursor hasta el final de párrfo actual, di: `c}`.
 
-Los movimientos también aceptan números de conteo como argumentos _\(Veremos esto más en profundidad en el siguiente capítulo\)_. Si necesitas subir tres líneas, en vez de presionar la letra If you need `k` 3 veces, simplemente puedes ejecutar `3k`. Contar funciona a la hora de conjugar la gramática de Vim.
+Los movimientos también aceptan números de conteo como argumentos _\(Veremos esto más en profundidad en el siguiente capítulo\)_. Si necesitas subir tres líneas, en vez de presionar la letra `k` 3 veces, simplemente puedes ejecutar `3k`. Esas opciones de pasar un valor también funcionan a la hora de conjugar la gramática de Vim.
 
 * Para copiar dos caracteres a la izquierda: `y2h`.
 * Para eliminar las siguientes dos palabras: `d2w`.
 * To change the next two lines: `c2j`.
 
-Ahora mismo, quizás tengas que pensar bastante para construir comandos simples. Pero no creas que solo te pasa a ti. No estás solo. Cuando al principio comencé, tuve dificultades similares pero progresé rápidamente en el tiempo. Y también te pasará a ti.
+Ahora mismo, quizás tengas que pensar bastante para construir comandos simples. Pero no creas que solo te pasa a ti. No estás solo. Cuando comencé, tuve dificultades similares pero progresé rápidamente con el tiempo. Y también te pasará a ti.
 
 Como nota complementaria, las operaciones que afectan a una línea completa son las tareas más comunes a la hora de editar texto, y por eso Vim te permite realizar operaciones que implican a la línea completa tecleando los operadores que ya conocemos dos veces seguidas. Por ejemplo, `dd`, `yy`, y `cc` lo que hace es **eliminar**, **copiar** y **cambiar** el contenido de la línea completa. ¡Intenta esto con otros operadores!
 
@@ -86,7 +88,7 @@ Espero que todo comience a tener sentido poco a poco. Pero todavía no he termin
 
 ### Más sustantivos \(Objetos de texto\)
 
-Imagina que estás en algún lugar dentro de un paréntesis, como por ejemplo `(hello vim)` y necesitas eliminar la frase entera dentro del paréntesis. ¿Cómo puedes hacer esto rápidamente? ¿Hay una manera de borrar el "grupo" dentro del que estás?
+Imagina que estás en algún lugar dentro de un paréntesis, como por ejemplo `(hola Vim)` y necesitas eliminar la frase entera dentro del paréntesis. ¿Cómo puedes hacer esto rápidamente? ¿Hay una manera de borrar el "grupo" dentro del que estás?
 
 La respuesta es sí. Los textos a menudo vienen estructurados. A menudo están puestos dentro de paréntesis, comillas, corchetes, llaves y cosas similares. Vim tiene una manera de capturar esta estructura con los objetos de texto.
 
@@ -97,12 +99,16 @@ i + objeto    Dentro del objeto de texto
 a + objeto    Fuera del objeto de texto
 ```
 
-Dentro del objeto del texto selecciona el objeto del interior _sin_ los espacios en blanco o los objetos que lo rodean. Fuera del objeto de texto selecciona el objeto interior _incluyendo_ los espacios en blanco y los objetos que lo rodean. La selección de fuera del objeto de texto siempre selecciona más texto que la selección de dentro del objeto de texto. Así que si tu cursor está en algún lugar dentro del paréntesis dentro de la expresión `(hello vim)`:
+Dentro del objeto del texto selecciona el objeto del interior _sin_ los espacios en blanco o los objetos que lo rodean.
+
+Fuera del objeto de texto selecciona el objeto interior _incluyendo_ los espacios en blanco y los objetos que lo rodean.
+
+La selección de fuera del objeto de texto siempre selecciona más texto que la selección de dentro del objeto de texto. Así que si tu cursor está en algún lugar dentro del paréntesis dentro de la expresión `(hola Vim)`:
 
 * Para eliminar el texto dentro del paréntesis sin borrar el propio paréntesis, ejecuta: `di(`.
 * Para eliminar el paréntesis y el texto interior, ejecuta: `da(`.
 
-Echemos un vistazo a un ejemplo diferente. Supongamos que tenemos esta función de Javascript y tu cursor está en la palabra "Hello":
+Echemos un vistazo a un ejemplo diferente. Supongamos que tenemos esta función de Javascript y tu cursor está en la letra "H" de la palabra "Hello":
 
 ```javascript
 const hello = function() {
@@ -121,16 +127,16 @@ Echemos un vistazo a un último ejemplo. Supongamos que tenemos estas etiquetas 
 
 ```markup
 <div>
-  <h1>Header1</h1>
-  <p>Paragraph1</p>
-  <p>Paragraph2</p>
+  <h1>Cabecera1</h1>
+  <p>Párrafo1</p>
+  <p>Párrafo2</p>
 </div>
 ```
 
-Si tu cursor está sobre el texto "Header1":
+Si tu cursor está sobre el texto "Cabecera1":
 
-* Para eliminar "Header1": `dit`.
-* Para eliminar `<h1>Header1</h1>`: `dat`.
+* Para eliminar "Cabecera1": `dit`.
+* Para eliminar `<h1>Cabecera1</h1>`: `dat`.
 
 Si tu cursor está sobre la palabra "div":
 
