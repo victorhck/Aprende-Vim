@@ -127,39 +127,39 @@ El autocompletado es un tema muy amplio en Vim. Esto es solo la punta de iceberg
 
 ¿Sabías que Vim puede ejecutar un comando del modo normal mientras estás en el modo insertar?
 
-Mientras estás en el modo insertar, su pulsas `Ctrl-o`, estarás en el submodo `insert-normal`. Si miras el indicador de modo en la parte inferior izquierda, normalmente verás `-- INSERT --`, pero al pulsar `Ctrl-o` este cambi a `-- (insert) --`. En este modo, solo puedes ejecutar _un solo comando_ del modo normal. Algunas cosas que puedes hacer:
+Mientras estás en el modo insertar, su pulsas `Ctrl-O`, estarás en el submodo `insert-normal`. Si miras el indicador de modo en la parte inferior izquierda, normalmente verás `-- INSERT --`, pero al pulsar `Ctrl-O` este cambia a `-- (insert) --`. En este modo, solo puedes ejecutar _un solo comando_ del modo normal. Algunas cosas que puedes hacer:
 
 **Centrado y salto**
 
 ```text
-Ctrl-o zz       Lleva la línea donde está el cursor al centro de la ventana
-Ctrl-o H/M/L    Mueve el cursor a la parte superior/media/baja de la ventana
-Ctrl-o 'a       Salta a la marca a
+Ctrl-O zz       Lleva la línea donde está el cursor al centro de la ventana
+Ctrl-O H/M/L    Mueve el cursor a la parte superior/media/baja de la ventana
+Ctrl-O 'a       Salta a la marca a
 ```
 
 **repitiendo texto**
 
 ```text
-Ctrl-o 100ihola    Inserta "hola" 100 veces
+Ctrl-O 100ihola    Inserta "hola" 100 veces
 ```
 
 **Ejecutar comandos de la terminal**
 
 ```text
-Ctrl-o !! curl https://google.com    Ejecuta curl
-Ctrl-o !! pwd                        Ejecuta pwd
+Ctrl-O !! curl https://google.com    Ejecuta curl
+Ctrl-O !! pwd                        Ejecuta pwd
 ```
 
 **Borrado más rápido**
 
 ```text
-Ctrl-o dtz    Elimina desde la ubicación actual del cursor hasta justo antes de la primera letra "z" que encuentre
-Ctrl-o D      Elimina desde la posición actual del cursor hasta el final de la línea
+Ctrl-O dtz    Elimina desde la ubicación actual del cursor hasta justo antes de la primera letra "z" que encuentre
+Ctrl-O D      Elimina desde la posición actual del cursor hasta el final de la línea
 ```
 
 ## Aprende el modo insertar de la manera más inteligente
 
-Si tu, al igual que yo provienes de otro editor de texto, puede ser tentador permanecer en el modo insertar. sin embargo, el permanecer en el modo insertar cuando no tienes que introducir texto no es lo más indicado. Desarrolla un hábito de volver al modo normal cuando tus dedos no estén escribiendo nuevo texto.
+Si tu, al igual que yo provienes de otro editor de texto, puede ser tentador permanecer en el modo insertar. Sin embargo, el permanecer en el modo insertar cuando no tienes que introducir texto no es lo más indicado. Desarrolla un hábito de volver al modo normal cuando tus dedos no estén escribiendo texto nuevo.
 
 Cuando necesites insertar un texto, pregúntate si ese texto ya existe. Si lo hay, trata de copiarlo o mover ese texto en vez de escribirlo. Si tienes que entrar en el modo insertar, comprueba si puedes autocompletar el texto lo máximo posible. Evita escribir la misma palabra más de una vez si puedes.
 
