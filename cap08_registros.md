@@ -40,7 +40,7 @@ p    Pega el texto después del cursor
 P    Pega el texto antes del cursor
 ```
 
-Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para pegar diez veces, debes escribir `10p`. Para pegar el texto del registro a, utiliza `"ap`. Para pegar 10 veces el texto del registro a, ejecuta `10"ap`. Por cierto, la `p` del comando es la abreviación de la palabra "put" \(poner en inglés\), no de "pegar" \(paste en inglés\), pero creo que usar la palabra pegar es más conveniente.
+Ambos `p` y `P` aceptan un contador y un símbolo de registro como argumentos. Por ejemplo, para pegar diez veces, debes escribir `10p`. Para pegar el texto del registro a, utiliza `"ap`. Para pegar 10 veces el texto del registro a, ejecuta `10"ap`. Por cierto, la `p` del comando es la abreviación de la palabra "put" \(poner en inglés\), no de "paste" \(pegar en inglés\), pero creo que usar la palabra pegar es más conveniente.
 
 La sintaxis general para obtener el contenido desde un registro en específico es `"a`, donde `a` es el símbolo del registro.
 
@@ -73,11 +73,17 @@ Si copias una línea entera de texto \(`yy`\), Vim realmente guarda ese texto en
 
 Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el de sin nombre. Cualquier otra operación \(como eliminar\) no será almacenada en el registro 0. Esto puede ser usado para tu provecho, porque a menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuantos cambios y borrados hagas.
 
-Por ejemplo, si haces lo siguiente: 1. Copiar una línea \(`yy`\) 2. Borrar una línea \(`dd`\) 3. Borrar otra línea \(`dd`\)
+Por ejemplo, si haces lo siguiente:
+1. Copiar una línea \(`yy`\)
+2. Borrar una línea \(`dd`\)
+3. Borrar otra línea \(`dd`\)
 
 El registro de copia tendrá el texto del primer paso.
 
-Pero si en cambio haces esto otro: 1. Copias una línea \(`yy`\) 2. Borras una línea \(`dd`\) 3. Copias otra línea \(`yy`\)
+Pero si en cambio haces esto otro:
+1. Copias una línea \(`yy`\)
+2. Borras una línea \(`dd`\)
+3. Copias otra línea \(`yy`\)
 
 El registro de copia tendrá el texto del paso tres.
 
