@@ -26,7 +26,7 @@ En este caso el comando del punto, repite la secuencia `cwconst<Esc>`. Esto te a
 
 Si buscas en Vim la definición del comando del punto \(`:h .`\), verás que menciona que el comando repite el último cambio. ¿Qué es un cambio?
 
-Cada vez que realizas una actualización del contenido del _buffer_ actual \(añadir, modificar o eliminar\) utilizando cualquier comando del _modo normal_, estás realizando un cambio. Las excepciones son actualizaciones realizadas mediante comandos ejecutados en la línea de comandos \(los comando que comienzan con `:`\), esos no cuentan como cambios.
+Cada vez que realizas una actualización del contenido del _buffer_ actual \(añadir, modificar o eliminar\) utilizando cualquier comando del _modo normal_, estás realizando un cambio. Las excepciones son actualizaciones realizadas mediante comandos ejecutados en la línea de comandos \(los comandos que comienzan con `:`\), esos no cuentan como cambios.
 
 En el primer ejemplo, comprobaste que `cwconst<Esc>` fue el cambio. Ahora supongamos que tenemos esta frase:
 
@@ -42,7 +42,7 @@ Probemos otro ejemplo
 tarta, patatas, zumo de frutas,
 ```
 
-Esta vez solo necesitas borrar la coma, no la palabra que la precede. Con el cursor en el inicio de la frase, ve hasta la primera coma de la frase mediante el comando `f,`. Elimina el signo de puntuación bajo el cursor con el comando `x`. Repite mediante `.` la acción un par de veces más. ¿Sencillo, verdad? Espera, ¡no funcionó! ¿Por qué?
+Esta vez tu tarea es borrar la coma, no la palabra que la precede. Con el cursor en el inicio de la frase, ve hasta la primera coma de la frase mediante el comando `f,`. Elimina el signo de puntuación bajo el cursor con el comando `x`. Repite mediante `.` la acción un par de veces más. ¿Sencillo, verdad? Espera, ¡no funcionó! ¿Por qué?
 
 En Vim, los cambios no incluyen los movimientos, porque estos no actualizan el contenido del _buffer_. Cuando ejecutamos `f,x`, realizamos dos acciones diferentes: el comando `f,` mueve el cursor y `x` actualiza el _buffer_. Solo este último realiza un cambio. A diferencia que con `df,` del ejemplo anterior. En este, `f,` indica al operador de borrado donde eliminar el contenido. Es una parte de todo la operación de borrado, `df,`.
 
