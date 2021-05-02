@@ -14,9 +14,13 @@ let two = "2";
 let three = "3";
 ```
 
-Primero, utiliza `/let` para colocarte encima de la primera coincidencia que encuentre Vim. Segundo, utiliza `cwconst<esc>` para reemplazar "let" con "const" . Tercero, utiliza `n` para encontrar la siguiente coincidencia en el texto, utilizando la búsqueda que hemos realizado previamente. Finalmente, repite la acción de sustitución que realizaste con el comando del punto \(`.`\). Continua haciendo `n . n .` hasta que reemplaces todas las coincidencias que quieras.
+* Utiliza `/let` para colocarte encima de la primera coincidencia que encuentre Vim.
+* Utiliza `cwconst<Esc>` para reemplazar "let" con "const".
+* Utiliza `n` para encontrar la siguiente coincidencia en el texto, utilizando la búsqueda que hemos realizado previamente.
+* Repite la acción de sustitución que realizaste con el comando del punto \(`.`\). 
+* Continua presionando `n . n .` hasta que reemplaces todas las coincidencias que quieras.
 
-En este caso el comando del punto, repite la secuencia `cwconst<esc>`. Esto te ahorra el tener que realizar ocho pulsaciones de teclas en cada cambio teniendo que pulsar solo una tecla, el punto.
+En este caso el comando del punto, repite la secuencia `cwconst<Esc>`. Esto te ahorra el tener que realizar ocho pulsaciones de teclas en cada cambio teniendo que pulsar solo una tecla, el punto.
 
 ## ¿Qué es un cambio?
 
@@ -24,7 +28,7 @@ Si buscas en Vim la definición del comando del punto \(`:h .`\), verás que men
 
 Cada vez que realizas una actualización del contenido del _buffer_ actual \(añadir, modificar o eliminar\) utilizando cualquier comando del _modo normal_, estás realizando un cambio. Las excepciones son actualizaciones realizadas mediante comandos ejecutados en la línea de comandos \(los comando que comienzan con `:`\), esos no cuentan como cambios.
 
-En el primer ejemplo, comprobaste que `cwconst<esc>` fue el cambio. Ahora supongamos que tenemos esta frase:
+En el primer ejemplo, comprobaste que `cwconst<Esc>` fue el cambio. Ahora supongamos que tenemos esta frase:
 
 ```text
 tarta, patatas, zumo de frutas,
@@ -52,9 +56,9 @@ patatas
 zumo de frutas
 ```
 
-Vamos a añadir una coma al final de cada línea. Empezando por la primera línea, vamos a ejecutar lo siguiente `A,<esc>j`. A estas alturas, ya te das cuenta que `j` no realiza ningún cambio. El cambio es solo realizado con `A,`. Te puedes mover y repetir el cambio con `j . j .`. El comando completo sería `A,<esc>j.j.`.
+Vamos a añadir una coma al final de cada línea. Empezando por la primera línea, vamos a ejecutar lo siguiente `A,<Esc>j`. A estas alturas, ya te das cuenta que `j` no realiza ningún cambio. El cambio es solo realizado con `A,`. Te puedes mover y repetir el cambio con `j . j .`. El comando completo sería `A,<Esc>j.j.`.
 
-Cada acción desde el momento que presionas el operador del comando de insertar \(`A`\) hasta que lo abandonas con el comando \(`<esc>`\) es considerado un cambio. Vim te permite controlar no solo que texto añadir, también _donde_ añadirlo. También puedes añadirlo antes del cursor \(`i`\), después del cursor \(`a`\), en una nueva línea debajo del cursor \(`o`\), en una línea sobre el cursor \(`O`\), al final de la línea actual \(`A`\) o al comienzo de la línea actual \(`I`\). Para refrescar estos conceptos, echa un vistazo al capítulo [Insert Mode](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/ch6_insert_mode.md) chapter.
+Cada acción desde el momento que presionas el operador del comando de insertar \(`A`\) hasta que lo abandonas con el comando \(`<Esc>`\) es considerado un cambio. Vim te permite controlar no solo que texto añadir, también _donde_ añadirlo. También puedes añadirlo antes del cursor \(`i`\), después del cursor \(`a`\), en una nueva línea debajo del cursor \(`o`\), en una línea sobre el cursor \(`O`\), al final de la línea actual \(`A`\) o al comienzo de la línea actual \(`I`\). Para refrescar estos conceptos, echa un vistazo al capítulo [Insert Mode](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/ch6_insert_mode.md) chapter.
 
 ## Repetir en múltiples líneas
 
@@ -92,7 +96,7 @@ Cuando has borrado la columna de las tres letras "z" \(`Ctrl-vjjd`\), esto fue t
 
 ## Incluyedo un movimiento en u cambio
 
-Vamos a volver a echar un vistazo al primer ejemplo de este capítulo. Volviendo a ejecutar el comando `/letcwconst<esc>` seguido por `n . n .` reemplazando todas las cadenas de "let" por "const" en la siguiente ejemplo:
+Vamos a volver a echar un vistazo al primer ejemplo de este capítulo. Volviendo a ejecutar el comando `/letcwconst<Esc>` seguido por `n . n .` reemplazando todas las cadenas de "let" por "const" en la siguiente ejemplo:
 
 ```text
 let one = "1";
@@ -108,7 +112,7 @@ Cuando estes editando, siempre debes estar pendiente de buscar un comando de mov
 
 ## Aprender el comando del punto de la manera más inteligente
 
-El poder del comando del punto viene dado por poder ahorrarte muchas pulsaciones de teclado simplemente en una, pulsando la tecla del punto. Quizás no es un cambio muy rentable el utilizar comando del punto como reemplazo para operaciones que solo requieren una pulsación de tecla como `x`. Si tu último cambio requiere una operación más compleja, como por ejemplo `cgnconst<esc>`, el comando del punto reduce 9 pulsaciones de teclas en una sola, lo que es un buen cambio.
+El poder del comando del punto viene dado por poder ahorrarte muchas pulsaciones de teclado simplemente en una, pulsando la tecla del punto. Quizás no es un cambio muy rentable el utilizar comando del punto como reemplazo para operaciones que solo requieren una pulsación de tecla como `x`. Si tu último cambio requiere una operación más compleja, como por ejemplo `cgnconst<Esc>`, el comando del punto reduce 9 pulsaciones de teclas en una sola, lo que es un buen cambio.
 
 Cuando estes editando, pregúntate si la acción que estás a punto de realizar es propensa de volver a repetirla. Por ejemplo, si necesito eliminar las próximas tres palabras, ¿es más económico utilizar `d3w` o hacer `dw` y después repetir esa acción con `.` dos veces más? ¿Borrarás una palabra de nuevo? Si es así, entonces tiene sentido el utilizar `dw` y repetir la acción varias veces en vez de `d3w` porque `dw` se puede volver a utilizar más veces que `d3w`. Manten una mentalidad "orientada al cambio" mientras estés editando.
 
