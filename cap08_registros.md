@@ -202,6 +202,14 @@ set clipboard=unnamed
 
 Ahora cuando copies un texto desde un programa externo, podrás pegarlo con el registro sin nombre, `p`. También podrás copiar un texto desde Vim y pegarlo en un programa externo. Si tienes `+xterm_clipboard` activado, quizás quieras utilizar tanto las opciones del portapapeles `unnamed` como `unnamedplus`.
 
+## El registro de agujero negro
+
+Cada vez que eliminas o cambias un texto, ese texto es almacenado en un registro de Vim automáticamente. Habrá ocasiones que no querrás guardar nada en el registro. ¿Cómo hacer eso?
+
+Puedes utilizar el registro de agujero negro (`"_`). Para eliminar una línea y hacer que Vim no almacene esa línea eliminada en ningún registro, utiliza `"_dd`.
+
+El registro del agujero negro es como el `/dev/null` de los registros.
+
 ## Aprendiendo los registros de la manera más inteligente
 
 Lo conseguiste. ¡Enhorabuena! Si sientes una sensación de agobio por la cantidad de información, no te pasa a ti únicamente. Cuando comencé a aprender sobre los registros de Vim, había mucha información que asimilar de una vez.
