@@ -74,6 +74,7 @@ Si copias una línea entera de texto \(`yy`\), Vim realmente guarda ese texto en
 Cuando copias un texto diferente, Vim remplaza ambos registros, el de copia y el de sin nombre. Cualquier otra operación \(como eliminar\) no será almacenada en el registro 0. Esto puede ser usado para tu provecho, porque a menos que no hagas otra copia, el texto copiado permanecerá siempre allí, no importa cuantos cambios y borrados hagas.
 
 Por ejemplo, si haces lo siguiente:
+
 1. Copiar una línea \(`yy`\)
 2. Borrar una línea \(`dd`\)
 3. Borrar otra línea \(`dd`\)
@@ -81,6 +82,7 @@ Por ejemplo, si haces lo siguiente:
 El registro de copia tendrá el texto del primer paso.
 
 Pero si en cambio haces esto otro:
+
 1. Copias una línea \(`yy`\)
 2. Borras una línea \(`dd`\)
 3. Copias otra línea \(`yy`\)
@@ -164,7 +166,7 @@ Puedes calcular la expresión matemática `1 + 1` con:
 "=1+1<Enter>p
 ```
 
-En el ajemplo anterior, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es \(`1 + 1`\). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
+En el ejemplo anterior, le dices a Vim que estás usando el registro de expresiones con `"=`. Tu expresión es \(`1 + 1`\). Luego necesitas escribir `p` para obtener el resultado. Como mencioné anteriormente, puedes acceder al registro desde el modo insertar. Para calcular una expresión matemática desde el modo insertar puedes hacer lo siguiente:
 
 ```text
 Ctrl-R =1+1
@@ -179,16 +181,36 @@ Puedes obtener los valores de cualquier registro usando el registro de expresion
 Luego pulsa `<Enter>`, después `p`. Igualmente, para obtener valores desde el registro a mientras estas en el modo insertar:
 
 ```text
-Ctrl-r =@a
+Ctrl-R =@a
 ```
 
 Las expresiones son un tema muy amplio en Vim, así que aquí solo se trata lo básico. Volveré al tema de las expresiones en más detalle en los capítulos finales de Vimscript.
+
+## Los registros de selección
+
+¿No desearías a veces que pudieras copiar un texto de programas externos a Vim y poder pegarlo en Vim y viceversa? Con los registros de selección de Vim, puedes hacerlo. Vim tiene dos registros de selección: `quotestar` (`"*`) y `quoteplus` (`"+`). Puedes utilizarlos para acceder a texto copiado desde programas externos.
+
+Si estás en un programa externo (por ejemplo en el navegador) y copias un bloque de texto con `Ctrl-C` (o `Cmd-C`, dependiendo de tu sistema operativo), normalmente no podrías utilizar `p` para pegar el texto en Vim. Sin embargo, en Vim tanto `"+` como `"*` están conectados con tu porta papeles, así que sí podrías pegar el texto utilizando esos registros mediante `"+p` o `"*p`. En cambio, si copias una palabra desde Vim con `"+yiw` o `"*yiw`, podrás pegar ese texto en el programa externo con `Ctrl-V` (o `Cmd-V`). Ten en cuenta que esto solo funciona si tu Vim viene con la opción `+clipboard`. Para comprobarlo, ejecuta `:version`.
+
+Te podrías preguntar que si `"*` y `"+` hacen lo mismo, ¿por qué Vim tiee dos registros diferentes? Algunos equipos utilizan un sistema de ventanas X11. Este sistema tiene 3 tipos de selecciones: primario, secundario y porta papeles. Si tu equipo utiliza X11, Vim utiliza la selección *primario* de X11 con el registro `quotestar` (`"*`) y la selección de *portapapeles* de X11 con el registro `quoteplus` (`"+`). Esto solo es aplicable si tienes la opción `+xterm_clipboard` disponible en tu versión de la compilación de Vim. Si tu Vim no tiene `xterm_clipboard`, no es un gran problema. Solo significa que tanto `quotestar` como `quoteplus` son intercambiables (los míos no lo son).
+
+Creo que `=*p` or `=+p` es un poco incómodo. Para hacer que Vim pegue el texto compiado de un programa externo con solo `p`, puede añadir esto en tu archivo vimrc:
+
+```
+set clipboard=unnamed
+ ```
+
+Ahora cuando copies un texto desde un programa externo, podrás pegarlo con el registro sin nombre, `p`. También podrás copiar un texto desde Vim y pegarlo en un programa externo. Si tienes `+xterm_clipboard` activado, quizás quieras utilizar tanto las opciones del portapapeles `unnamed` como `unnamedplus`.
 
 ## Aprendiendo los registros de la manera más inteligente
 
 Lo conseguiste. ¡Enhorabuena! Si sientes una sensación de agobio por la cantidad de información, no te pasa a ti únicamente. Cuando comencé a aprender sobre los registros de Vim, había mucha información que asimilar de una vez.
 
-No creo que debieras memorizar los registros de manera inmediata. Para ser más eficaz, puedes empezar por utilizar solo estos 3 registros: 1. El registro sin nombre \(`""`\). 2. Los registro nominales \(`"a-z`\). 3. Los registros numerados \(`"0-9`\).
+No creo que tengas que memorizar los registros de manera inmediata. Para ser más eficaz, puedes empezar por utilizar solo estos 3 registros:
+
+1. El registro sin nombre \(`""`\).
+2. 2. Los registro nominales \(`"a-z`\).
+3. 3. Los registros numerados \(`"0-9`\).
 
 Como el registro sin nombre de manera predeterminada usa `p` y `P`, solo tienes que aprender dos registro: los nominales y los numerados. Aprende de manera gradual más registros cuando los necesites. Tómate tu tiempo.
 
