@@ -7,7 +7,7 @@
 * [Capítulo 3: Buscar archivos](cap03_abriendo_y_buscando_archivos.md)
 * [Capítulo 4: La gramática de Vim](cap04_gramatica_vim.md)
 * [Capítulo 5: Moviéndote por un archivo](cap05_moviendote_en_un_archivo.md)
-* [Capítulo 6: EL modo insertar](cap06_modo_insertar.md)
+* [Capítulo 6: El modo insertar](cap06_modo_insertar.md)
 * [Capítulo 7: El comando del punto](cap07_el_comando_del_punto.md)
 * [Capítulo 8: Registros](cap08_registros.md)
 * [Capítulo 9: Macros](cap09_macros.md)
