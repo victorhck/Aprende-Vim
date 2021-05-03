@@ -234,6 +234,16 @@ Otra alternativa es ejecutar el comando `:call setreg('a', '')` donde "a es el r
 
 Una forma más de limpiar el contenido de un registro es guardar una cadena vacía en el registro (por ejemplo el "a) con la siguiente expresión `:let @a = ''`.
 
+## Pegando el contenido de un registro
+
+Puedes utilizar el comando `:put` para pegar el contenido de cualquier registro. Por ejemplo, si ejecutas `:put a`, Vim mostrará el contenido a bajo la línea actual. Esto se parece mucho a `"ap`, con la diferencia que este comando pega el contenido después del cursor y el comando `:put`  pega el contenido del registro en una nueva línea.
+
+Como `:put` es un comando de la línea de comando, puedes pasarle una dirección. `:10put a` pegará el texto del registro a debajo de la línea 10.
+
+Un truco que se puede utilizar aprovechando esto es pegar con `:put` el contenido del registro del agujero negro (`"_`). Como este registro no almacena nada, al ejecutar `:put _` esto insertará una línea en blanco.
+
+Puedes combinar esto con el comando global para insertar múltiples líneas en blanco donde lo necesites. Por ejemplo, para insertar líneas en blanco debajo de todas las líneas en tu texto que contengan el texto "fin", ejecuta `:g/fin/put _`. Aprenderás más sobre el comando global más adelante.
+
 ## Aprendiendo los registros de la manera más inteligente
 
 Lo conseguiste. ¡Enhorabuena! Si sientes una sensación de agobio por la cantidad de información, no te pasa a ti únicamente. Cuando comencé a aprender sobre los registros de Vim, había mucha información que asimilar de una vez.
