@@ -210,6 +210,16 @@ Puedes utilizar el registro de agujero negro (`"_`). Para eliminar una línea y 
 
 El registro del agujero negro es como el `/dev/null` de los registros.
 
+## El registro del último patrón de búsqueda
+
+Para pegar tu última búsqueda (con `/` o `?`), puedes utilizar el registro del último patrón de búsqueda (`"/`). Para pegar el término de la última búsqueda utiliza `"/p`.
+
+## Ver los registros
+
+Para ver el contenido de tus registros, utiliza el comando `:register`. Para ver solo los registros "a, "1 y "-, utiliza `:register a 1 -`.
+
+Hay un complemento llamado [vim-peekaboo](https://github.com/junegunn/vim-peekaboo) que te permite escoger entre el contenido de los registros cuando pulsas `"` o `@` en el modo normal o con `Ctrl-R` en el modo insertar. Creo que este complemento puede ser muy útil porque la mayoría de las veces quizás no recuerdes lo que almacena cada registro. ¡Pruébalo!
+
 ## Aprendiendo los registros de la manera más inteligente
 
 Lo conseguiste. ¡Enhorabuena! Si sientes una sensación de agobio por la cantidad de información, no te pasa a ti únicamente. Cuando comencé a aprender sobre los registros de Vim, había mucha información que asimilar de una vez.
