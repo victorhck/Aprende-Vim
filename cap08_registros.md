@@ -226,6 +226,14 @@ Los registros nominales no son solo para almacenar textos. También pueden ejecu
 
 Ten en mente que como las macros están almacenadas en registros de Vim, puedes de manera accidental sobre escribirel texto almacenado con macros. Si almacenas el texto "Hola Vim" en el registro a y depués grabas una macro en el mismo registro con (`qa{secuecia_de_macro}q`), esa macro sobre escribirá tu texto "Hola Vim" almacenado previamente.
 
+## Limpiando el contenido de un registro
+
+Técnicamente, no hay necesidad de limpiar el contenido de un registro porque el próximo texto que almacenes bajo el mismo nombre de un registro lo sobre escribirá. Sin embargo, puedes limpiar el contenido rápidamente de cualquier registro grabando una macro vacía. Por ejemplo, si ejecutas `qaq`, Vim grabará una macro vacía en el registro a.
+
+Otra alternativa es ejecutar el comando `:call setreg('a', '')` donde "a es el registro a.
+
+Una forma más de limpiar el contenido de un registro es guardar una cadena vacía en el registro (por ejemplo el "a) con la siguiente expresión `:let @a = ''`.
+
 ## Aprendiendo los registros de la manera más inteligente
 
 Lo conseguiste. ¡Enhorabuena! Si sientes una sensación de agobio por la cantidad de información, no te pasa a ti únicamente. Cuando comencé a aprender sobre los registros de Vim, había mucha información que asimilar de una vez.
