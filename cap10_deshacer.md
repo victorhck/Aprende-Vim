@@ -4,12 +4,13 @@ Todas las personas cometemos todo tipo de errores tipográficos. Es por eso que 
 
 ## Deshacer, rehacer y DESHACER
 
-Para realizar una tarea básica de deshacer, puedes utilizar `u` o ejecutar `:undo`.
+Para realizar una tarea básica de deshacer, en el modo normal puedes utilizar simplemente `u` o ejecutar `:undo`.
 
-Si tienes este texto:
+Si tienes este texto (ten en cuenta la línea vacía debajo del texto "uno"):
 
 ```text
 uno
+
 ```
 
 Añade otro texto:
@@ -19,7 +20,7 @@ uno
 dos
 ```
 
-Si ejecutas `u`, Vim deshace la escritura del texto "dos".
+Si estando en el modo normal ejecutas `u`, Vim deshace la escritura del texto "dos".
 
 ¿Cómo sabe Vim cuanto tiene que deshacer? Vim deshace un solo "cambio" cada vez, similar al cambio del comando del punto \(pero a diferencia del comando del punto, los comandos ejecutados en la línea de comandos también cuentan como cambios\).
 
@@ -54,6 +55,7 @@ Si ahora en modo normal presionas `u`, verás "tres". Si presionas `u` de nuevo,
 
 ```text
 uno
+
 ```
 
 `U` pasa por alto todos los cambios intermedios y va directamete al estado original cuando comenzaste \(la línea vacía debajo del texto "uno"\). Además, como DESHACER crea un nuevo cambio en Vim, puedes DESHACER tu acción de DESHACER. `U` seguido por `U` se deshará a sí mismo. Puede presionar `U`, después `U`, después `U`, para siempre, y verás los mismos dos textos alternar hacia adelante y hacia atrás.
@@ -85,6 +87,7 @@ Vim almacena cada cambio que se ha escrito en un árbol del comando deshacer. Co
 
 ```text
 uno
+
 ```
 
 Después añades otro texto:
@@ -98,6 +101,7 @@ Deshaces los cambios una vez:
 
 ```text
 uno
+
 ```
 
 Añades un texto diferente:
@@ -111,6 +115,7 @@ Vuelves a deshacer los cambios:
 
 ```text
 uno
+
 ```
 
 Y añades otro texto diferente:
@@ -124,6 +129,7 @@ Ahora, si realizas una acción de deshacer, se eliminará el texto "cuatro" que 
 
 ```text
 uno
+
 ```
 
 Si deshaces los cambios una vez más:
@@ -136,6 +142,7 @@ Entonces perderás el texto "uno". En la mayoría de los editores de texto, volv
 
 ```text
 uno
+
 ```
 
 Escribe `g+` de nuevo y verás a un antiguo amigo, el texto "dos":
