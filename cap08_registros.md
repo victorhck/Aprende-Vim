@@ -230,7 +230,7 @@ Ten en mente que como las macros están almacenadas en registros de Vim, puedes 
 
 Técnicamente, no hay necesidad de limpiar el contenido de un registro porque el próximo texto que almacenes bajo el mismo nombre de un registro lo sobre escribirá. Sin embargo, puedes limpiar el contenido rápidamente de cualquier registro grabando una macro vacía. Por ejemplo, si ejecutas `qaq`, Vim grabará una macro vacía en el registro a.
 
-Otra alternativa es ejecutar el comando `:call setreg('a', '')` donde "a es el registro a.
+Otra alternativa es ejecutar el comando `:call setreg('a', 'hola registro a')` donde a hace referencia al registro a y "hola registro a" es el nuevo texto que sobre escribirá el anterior texto almacenado en el registro. También puedes simplemente guardar una espacio en blanco en vez de un texto.
 
 Una forma más de limpiar el contenido de un registro es guardar una cadena vacía en el registro (por ejemplo el "a) con la siguiente expresión `:let @a = ''`.
 
