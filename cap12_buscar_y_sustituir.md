@@ -42,7 +42,7 @@ Si tienes este texto:
 hola hola
 ```
 
-Puedes llegar al primer "hola" con `/^hello`. El caracter que siga a `^` deberá ser el primer caracter de la línea. Para buscar el último "hola", ejecuta `/hello$`. El caracter anterior a `$` deberá se el último caracter de la línea.
+Puedes llegar al primer "hola" con `/^hola`. El caracter que siga a `^` deberá ser el primer caracter de la línea. Para buscar el último "hola", ejecuta `/hola$`. El caracter anterior a `$` deberá se el último caracter de la línea.
 
 Si tienes el siguiente texto:
 
@@ -50,7 +50,7 @@ Si tienes el siguiente texto:
 hola hola amigo
 ```
 
-Al ejecutar `/hello$` no encontrará nada porque "amigo" es el último término en esa línea, no "hola".
+Al ejecutar `/hola$` no encontrará nada porque "amigo" es la última palabra en esa línea, no "hola".
 
 ## Repetir la búsqueda
 
@@ -62,7 +62,7 @@ Cuando llegues al final de un archivo mientras estás buscando, Vim te mostrará
 
 ## Buscando palabras alternativas
 
-Es común buscar múltiples palabras a la vez. Si necesitas buscar _tanto_ "hello vim" u "hola vim", pero no "salve vim" o "bonjour vim", puedes utilizar la tubería `|`.
+Es común buscar múltiples palabras a la vez. Si necesitas buscar _tanto_ "hello vim" u "hola vim", pero no "salve vim" o "bonjour vim", puedes utilizar el símbolo `|`.
 
 Dado este texto:
 
@@ -73,7 +73,7 @@ salve vim
 bonjour vim
 ```
 
-Para encontrar tanto "hello" como "hola", puedes ejecutar `/hello\|hola`. Es necesario _escapar_ \(`\`\) el operador de la tubería \(`|`\), de lo contrario Vim literalmente buscará la cadena "\|".
+Para encontrar tanto "hello" como "hola", puedes ejecutar `/hello\|hola`. Es necesario _escapar_, es decir, añadir una barra invertida \(`\`\) antes del operador de la tubería \(`|`\), de lo contrario Vim literalmente buscará la cadena "\|".
 
 Si no quieres escribir `\|` cada vez, puedes utilizar la sintaxis `magic` \(`\v`\) al comienzo de la búsqueda: `/\vhello|hola`. No se va a tratar `magic` en esta guía, pero con `\v`, ya no necesitará escapar caracteres especiales nunca más. Para aprender más sobre `\v`, echa un vistazo a la ayuda de Vim mediante `:h \v`.
 
