@@ -82,7 +82,7 @@ El hecho que la ejecución de una macro se detenga cuando encuentra el primer er
 
 Ejecutar `@a` en el modo normal no es la única forma de ejecutar macros en Vim. También puedes ejecutar `:normal @a` en la línea de comandos. `:normal` (o `:norm` de manera abreviada) permite al usuario ejecutar cualquier comando del modo normal dado como argumento. Pasándole el argumento `@a`, sería lo mismo que ejecutar `@a` en el modo normal.
 
-El comando `:normal` acepta un rango como argumentos. Puedes ejecutar una macro en los rangos seleccionados. Si quieres ejecutar la macro a entre la línea 2 y 3, puedes ejecutar `:2,3 normal @a`. Veremos más en detalle los comandos de la línea de comandos en un capítulo posterior.
+El comando `:normal` acepta un rango como argumentos. Puedes ejecutar una macro en los rangos seleccionados. Si quieres ejecutar la macro a entre la línea 2 y 3, puedes ejecutar `:2,3 normal @a`.
 
 ## Ejecutando una macro a través de múltiples archivos
 
@@ -141,13 +141,13 @@ qaqqa0W~j@aq
 
 Este es el desglose del comando en los diferentes pasos:
 
-* `qaq` graba una macro vacía dentro de a. Es necesario grabar una macro vacía en el mismo nombre de registro porque cuando ejecutes más tarde la macro a, no quieres que ese registro contenga nada más.
+* `qaq` graba una macro vacía dentro de a. Es necesario grabar una macro vacía en el mismo nombre de registro porque cuando ejecutes de manera recursiva, ejecutará todo lo que haya en el registro.
 * `qa` comienza la grabación en el registro a.
 * `0` situa el cursor en el primer caracter en la línea actual.
 * `W` va a la siguiente PALABRA.
 * `~` cambia la letra del caracter bajo el cursor.
 * `j` baja una línea.
-* `@a` ejecuta la macro a. Cuando grabas esto, `@a` debería estar vacía porque la has llamado con `qaq`.
+* `@a` ejecuta la macro a.
 * `q` detiene la grabación.
 
 Ahora simplemente ejecuta `@a` y mira cómo Vim ejecuta la macro de manera recursiva.
@@ -156,15 +156,9 @@ Ahora simplemente ejecuta `@a` y mira cómo Vim ejecuta la macro de manera recur
 
 ## Añadiendo acciones a una macro
 
-Si necesitas añadir más acciones a una macro existente, en vez de rehacerla, puedes añadir acciones a la macro ya existente. En el capítulo de los registros, aprendiste que puedes añadir un registro nominal utilizando su símbolo en mayúsculas. Para añadir acciones a una macro en el registro a, utiliza el registro A. Supongamos que además de cambiar a mayúsculas la primera palabra, también quieres añadir un punto al final de la línea.
+Si necesitas añadir más acciones a una macro existente, en vez de rehacerla, puedes añadir acciones a la macro ya existente. En el capítulo de los registros, aprendiste que puedes añadir un registro nominal utilizando su símbolo en mayúsculas. Para añadir acciones a una macro en el registro a, utiliza el registro A.
 
-Asumamos que tienes las siguiente acciones almacenadas en una macro en el registro a:
-
-```text
-0W~
-```
-
-Así es como podrías añadir la nueva acción:
+Graba una macro en el registro a: `qa0W~q` (esta secuencia alterna las mayúsculas y minúsculas de la próxima PALABRA en una línea). Si quieres añadir una nueva secuencia para también añadir un punto al final de la línea, ejecuta:
 
 ```text
 qAA.<Esc>q
@@ -173,10 +167,10 @@ qAA.<Esc>q
 El desglose:
 
 * `qA` comienza la grabación de la macro en el registro A.
-* `A.<Esc>` inserta un punto \("."\) al final de la línea \(aquí `A` se refiera al comando para añadir texto al final de una línea, no confundir con la macro A\), después sale del modo insertar \(`<Esc>`\).
+* `A.<Esc>` inserta al final de la línea \(aquí `A` se refiera al comando para añadir texto al final de una línea, no confundir con la macro A\) un punto, después sale del modo insertar \(`<Esc>`\).
 * `q` detiene la grabación de la macro.
 
-Ahora cuando ejecutemos `@a`, irá al primer caracter de la línea \(`0`\), se dirige a la siguiente PALABRA \(`W`\), cambia el caracter de la palabra bajo el cursor \(`~`\), activa el modo insertar al final de la línea \(`A`\), escribirá un punto \("."\) y saldrá del modo insertar \(`<Esc>`\).
+Ahora cuando ejecutes `@a`, no solo cambiará las mayúsculas de la siguiente PALABRA, y también añadirá un punto al final de la línea.
 
 ## Modificar una macro
 
