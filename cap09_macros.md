@@ -1,6 +1,6 @@
 # Capítulo 9: Macros
 
-Cuando estás editando archivos, puede que te encuentres repitinedo las mismas acciones. ¿No sería genial si pudieras realizar esas acciones solo una vez y después poder reproducirlas cada vez que lo necesitaras? Gracias a las macros de Vim, puedes grabar tus acciones y almacenarlas dentro de los registros de Vim.
+Cuando estás editando archivos, puede que te encuentres repitiendo las mismas acciones. ¿No sería genial si pudieras realizar esas acciones solo una vez y después poder reproducirlas cada vez que lo necesitaras? Gracias a las macros de Vim, puedes grabar tus acciones y almacenarlas dentro de los registros de Vim.
 
 En este capítulo, aprenderás a utilizar macros para automatizar las tareas más triviales \(además es genial ver cómo el propio archivo se edita a si mismo\).
 
@@ -16,8 +16,8 @@ q (mientras está grabando)    Detiene la grabación de la macro
 Puedes utilizar cualquier letra minúscula \(a-z\) para almacenar las macros. Una vez guardada una macro en uno de los registros disponibles, puedes ejecutarla cada vez que quieras mediante:
 
 ```text
-@a    ejecuta una macro almacenada en el registro a
-@@    Ejecuta las últimas macros ejecutadas
+@a    Ejecuta una macro almacenada en el registro a
+@@    Ejecuta la última macro ejecutada
 ```
 
 Supongamos que tienes el siguiente texto y quieres poner en mayúsculas todo el texto de todas las líneas:
@@ -74,13 +74,13 @@ Veamos paso por paso lo que realiza el comando anterior:
 * `j` baja una línea.
 * `q` detiene la grabación de la macro.
 
-Me gusta sobre dimensionar las veces que ejecuto la llamada a una macro, así que normalmente suelo llamar noventa y nueve veces a la macro \(`99@a`\). Con este comando, no implica que de manera obligatoria Vim ejecute el comando 99 veces. Cuando Vim llega a la última línea y ejecuta la acción `j`, encuentra que ya no hay más líneas que bajar, se encuentra con un error, y detiene la ejecución de la macro.
+Me gusta sobredimensionar las veces que ejecuto la llamada a una macro, así que normalmente suelo llamar noventa y nueve veces a la macro \(`99@a`\). Con este comando, no implica que de manera obligatoria Vim ejecute el comando 99 veces. Cuando Vim llega a la última línea y ejecuta la acción `j`, encuentra que ya no hay más líneas que bajar, se encuentra con un error, y detiene la ejecución de la macro.
 
 El hecho que la ejecución de una macro se detenga cuando encuentra el primer error es una buena funcionalidad, de otra forma Vim continuaría ejecutando este macro 99 veces incluso aunque haya llegado al final del archivo.
 
 ## Macros en la línea de comandos de Vim
 
-Ejecutar `@a` en el modo normal no es la única forma de ejecutar macros en Vim. También puedes ejecutar `:normal @a` en la línea de comandos. `:normal` permite al usuario ejecutar cualquier comando del modo normal dado como argumento. Pasándole el argumento `@a`, sería lo mismo que ejecutar `@a` en el modo normal.
+Ejecutar `@a` en el modo normal no es la única forma de ejecutar macros en Vim. También puedes ejecutar `:normal @a` en la línea de comandos. `:normal` (o `:norm` de manera abreviada) permite al usuario ejecutar cualquier comando del modo normal dado como argumento. Pasándole el argumento `@a`, sería lo mismo que ejecutar `@a` en el modo normal.
 
 El comando `:normal` acepta un rango como argumentos. Puedes ejecutar una macro en los rangos seleccionados. Si quieres ejecutar la macro a entre la línea 2 y 3, puedes ejecutar `:2,3 normal @a`. Veremos más en detalle los comandos de la línea de comandos en un capítulo posterior.
 
@@ -100,7 +100,7 @@ c. fried dumpling
 Segundo archivo:
 
 ```text
-# sweet.txt
+## sweet.txt
 a. chocolate donut
 b. chocolate pancake
 c. powdered sugar donut
@@ -109,7 +109,7 @@ c. powdered sugar donut
 Tercer archivo:
 
 ```text
-# plain.txt
+## plain.txt
 a. wheat bread
 b. plain donut
 ```
