@@ -314,11 +314,9 @@ gCtrl-h    Modo seleccionar de selección de bloque
 
 El modo seleccionar emula al comportamiento de un editor de texto normal al seleccionar un texto de una manera más cercana a como lo hace Vim en el modo visual.
 
-En un editor normal, después de seleccionar un bloque de texto y escribir una letra, por ejemplo la letra "y", el editor borrará todo el texto resaltado e insertará la letra escrita, en nuestro ejemplo la letra "y".
+En un editor normal, después de seleccionar un bloque de texto y escribir una letra, por ejemplo la letra "y", el editor borrará todo el texto resaltado e insertará la letra escrita, en nuestro ejemplo la letra "y". Si resaltas una línea de texto con el modo de selección de línea \(`gH`\) y escribes "y", se borrará el texto resaltado y se insertará la letra "y".
 
-Si resaltas una línea de texto con el modo de selección de línea \(`gH`\) y escribre "y", se borrará el texto resaltado y se insertará la letra "y", de manera similar a como se hace en un editor de texto normal.
-
-Este comportamiento contrasta con el modo visual: si resaltas una línea de de texto en el modo visual de selección de línea \(`V`\) y escribres "y", el texto resaltado no será eliminado y reemplazado con la letra "y". Solo será copiado y almacenado en el registro de copia `"0`.
+Este comportamiento contrasta con el modo visual: si resaltas una línea de de texto en el modo visual de selección de línea \(`V`\) y escribres "y", el texto resaltado no será eliminado y reemplazado con la letra "y", solo será copiado. No puedes ejecutar comandos del modo normal en texto resaltado en el modo seleccionar.
 
 Personalmente nunca he utilizado el modo seleccionar, pero es bueno saber que existe.
 
