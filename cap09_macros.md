@@ -263,7 +263,7 @@ Al ejecutar `99@a`, solo se ejecutará la macro tres veces. No ejecutará la mac
 
 Ejecuta la macro en paralelo.
 
-Volviendo a la sección anterior en la que vimos que las macros pueden ser ejecutadas utilizando el comando para la línea de comandos `:normal` \(ejemplo: `:3,5 normal @a` para ejecutar la macro "a" en las líneas 3-5\). Si ejecutas `:1,$ normal @a`, verás que la macro está siendo ejecutada en todas las líneas excepto en la línea que contiene el texto "foo". ¡Funciona!
+Volviendo a la sección anterior en la que vimos que las macros pueden ser ejecutadas utilizando el comando para la línea de comandos `:normal` \(ejemplo: `:3,5 normal @a` para ejecutar la macro a en las líneas 3-5\). Si ejecutas `:1,$ normal @a`, verás que la macro está siendo ejecutada en todas las líneas excepto en la línea que contiene el texto "foo". ¡Funciona!
 
 Aunque internamente Vim no ejecuta las macros en paralelo, externamente, parece que sí lo hace así. Vim ejecuta `@a` _independientemente_ en cada línea desde la primera a la última \(`1,$`\). Ya que Vim ejecuta estas macros de manera independiente, cada línea no sabe que una de las macros en ejecución ha fallado en la línea que contiene el texto "foo".
 
