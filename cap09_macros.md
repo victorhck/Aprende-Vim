@@ -193,7 +193,7 @@ Primero, llamemos a la macro ya existente \(asumamos que has guardado la macro d
 0W~A.^[
 ```
 
-¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<Esc>`? `^[` es la representación con el _código interno_ de Vim para representar `<Esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<Esc>`, `<backspace>`, y `<enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
+¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<Esc>`? `^[` es la representación con el _código interno_ de Vim para representar `<Esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<Esc>`, `<Backspace>`, y `<Enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
 
 Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un caracter de minúscula a mayúscula \(`~`\), vamoa a añadir las instrucciones para ir al final de la línea \(`$`\), regresar una palabra \(`b`\), entrar en el modo de insertar \(`i`\), escribir "deep fried " \(no olvides el espacio en blanco después de la palabra "fried "\), y salir del modo insertar \(`<Esc>`\).
 
@@ -203,23 +203,23 @@ Esto es el aspecto que tendrá la macro finalizada:
 0W~$bideep fried <Esc>A.^[
 ```
 
-Pero hay un pequeño problema. Vim no entiende `<Esc>`. Deberás escribir la representación del comando en su código interno, tal como lo usa Vim, para el `<Esc>` que acabas de añadir. Mientras estás en el modo insertar, presiona `Ctrl-v` seguido de `<Esc>`. Vim mostrará `^[`.`Ctrl-v` es un operador del modo insertar para insertar literalmente el siguiente carácter que no sea un dígito. El código de la macro debería ser así:
+Pero hay un pequeño problema. Vim no entiende `<Esc>`. Deberás escribir la representación del comando en su código interno, tal como lo usa Vim, para el `<Esc>` que acabas de añadir. Mientras estás en el modo insertar, presiona `Ctrl-V` seguido de `<Esc>`. Vim mostrará `^[`.`Ctrl-V` es un operador del modo insertar para insertar literalmente el siguiente carácter que no sea un dígito. El código de la macro debería ser así:
 
 ```text
 0W~$bideep fried ^[A.^[
 ```
 
-Para añadir la instrucción modificada al registro a, puedes hacerlo de la misma manera que al añadir una nueva entrada a un registro nominal. Al comienzo de la línea ejecuta `"ay$`. Esto le dice a Vim que estás utilizando el registro nominal a \(`"a`\) para almacenar el texto copiado desde la posición actual hasta el final del la línea \(`y$`\).
+Para añadir la instrucción modificada al registro a, puedes hacerlo de la misma manera que al añadir una nueva entrada a un registro nominal. Al comienzo de la línea ejecuta `"ay$` para almacenar el texto copiado en el registro a.
 
 Ahora cuando ejecutes `@a`, tu macro cambiará a mayúsculas la primera letra de la primera palabra, añadirá "deep fried " antes de "donut" y añadirá "." al final de la línea.
 
-Una manera alternativa de modificar una macro es utilizando una expresión para la línea de comandos. Ejecuta `:let @a="`, y después `Ctrl-r Ctrl-r a`, esto literalmente pegará el contenido del registro a. Finalmente, no olvides encerrarlo todo entre comillas dobles \(`"`\). Deberías tener algo como `:let @a="0W~$bideep fried ^[A.^["`.
+Una manera alternativa de modificar una macro es utilizando una expresión para la línea de comandos. Ejecuta `:let @a="`, y después `Ctrl-R Ctrl-R a`, esto literalmente pegará el contenido del registro a. Finalmente, no olvides encerrarlo todo entre comillas dobles \(`"`\). Deberías tener algo como `:let @a="0W~$bideep fried ^[A.^["`.
 
 ## Redundancia de macros
 
 Puedes duplicar fácilmente macros de un registro a otro. Por ejemplo, para duplicar una macro ya existente en el registro a al registro z, simplemente ejecuta lo siguiente `:let @z = @a`. `@a` representa el contenido del registro a. Ahora si ejecutas `@z`, realizará las mismas acciones que `@a`.
 
-Creo que crear macros redundantes es útil en mis macros más utilizadas frecuentemente. En mi forma de trabajar, normalmente guardo las macros en las primeras siete letras del alfabeto \(a-g\) y la reemplazo a menudo. Si muevo las macros más útiles a las letras finales del alfabeto, puedo preservarlas sin tener que preocuparme de reemplazarlas de manera accidental.
+Creo que es útil crear macros redundantes de las macros que utilizo con más frecuencia. En mi forma de trabajar, normalmente guardo las macros en las primeras siete letras del alfabeto \(a-g\) y las reemplazo a menudo. Si muevo las macros más útiles a las letras finales del alfabeto, puedo preservarlas sin tener que preocuparme de reemplazarlas de manera accidental.
 
 ## Macros en serie vs. en paralelo
 
