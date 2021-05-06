@@ -1,6 +1,6 @@
 # Capítulo 11: Modo visual
 
-Con los editores de texto con interfaz gráfica \(como LibreOffice Writer o Microsoft Word\) probablemente sabes que puedes resaltar un bloque de texto y aplicarle cambios. Vim también puede hacerlo, con el modo visual. Vim tiene tres modos visuales diferentes para usar. En este capítulo, aprenderás cómo utilizar cada uno de los diferestes modos visuales para manipular bloques de texto de manera eficiente.
+Resaltar texto y aplicar cambios a esa porción de texto es una funcionalidad muy común en muchos editores y procesadores de texto. Vim puede hacer esto utilizando el modo visual. En este capítulo, aprenderás cómo utilizar el modo visual para manipular textos de manera eficiente.
 
 ## Los tres tipos de modos visuales
 
@@ -24,13 +24,13 @@ El modo visual de selección de caracter es utilizado para seleccionar caractere
 
 El modo visual de selección de línea funciona con líneas como unidades de selección. Pulsa `V` y observa como Vim selecciona la línea completa en la que esté ubicado el cursor. Igual que en el modo visual de selección de caracter, si ejecutas `gU`, Vim cambiará a mayúsculas las líneas resaltadas.
 
-El modo visual de slección de bloque funciona con filas y columnas. Te da más libertad de movimientos que los dos modos anteriores. Pulsando `Ctrl-V` verás qie Vim resalta el caracter bajo el cursor de igual manera que el modo visual de selección de caracter, excepto que ahora en vez de resaltar cada caracter hasta el final de la línea antes de seguir en la línea siguiente, puedes dirigir el cursor hasta la línea siguiente sin que se marquen todos los caracteres de la línea actual. Intenta moverte mediante las teclas `h/j/k/l` y observa los movimientos del cursor y las zonas que se marcan.
+El modo visual de selección de bloque funciona con filas y columnas. Te da más libertad de movimientos que los dos modos anteriores. Pulsando `Ctrl-V` verás qie Vim resalta el caracter bajo el cursor de igual manera que el modo visual de selección de caracter, excepto que ahora en vez de resaltar cada caracter hasta el final de la línea antes de seguir en la línea siguiente, puedes dirigir el cursor hasta la línea siguiente sin que se marquen todos los caracteres de la línea actual. Intenta moverte mediante las teclas `h/j/k/l` y observa los movimientos del cursor y las zonas que se marcan.
 
 En la esquina inferior izquierda de la ventana de Vim, verás que se muestra `-- VISUAL --`, `-- VISUAL LINE --` o `-- VISUAL BLOCK --` para indicar el modo visual en que te encuentras.
 
 Mientras estás dentro de un modo visual, puedes cambiar a otro de los modos pulsando `v`, `V` o `Ctrl-V`. Por ejemplo, si estás en el modo visual de selección de línea y quieres cambiar al modo visual de selección de bloque, ejecuta `Ctrl-V`. ¡Inténtalo!
 
-Hay tres maneras de salir del modo visual: `esc`, `Ctrl-C` y con la misma tecla con la que accediste al modo visual actual.
+Hay tres maneras de salir del modo visual: `<Esc>`, `Ctrl-C` y con la misma tecla con la que accediste al modo visual actual.
 
 Esto último significa, que si estás en el modo visual de selección de línea \(`V`\), podrás salir de ese modo pulsando `V` de nuevo. Si estás en el modo visual de selección de caracter, podrás salir pulsando `v`. Si estás en el modo visual de selección de bloque, pulsa `Ctrl-V` para salir de ese modo.
 
@@ -46,7 +46,7 @@ Este comando seleccionará el mismo modo visual y el mismo resaltado de texto de
 
 Mientras estás en el modo visual, puedes expandir el bloque de texto resaltado con los movimientos de Vim.
 
-Vamos a utilizar el mismo texto que hemos utilizado anteirormente:
+Vamos a utilizar el mismo texto que hemos utilizado anteriormente:
 
 ```text
 uno
@@ -54,7 +54,7 @@ dos
 tres
 ```
 
-Esta vez vamos a empezar desde la línea "dos". Pulsa `v` para comenzar el modo visual de selección de caracter:
+Esta vez vamos a empezar desde la línea "dos". Pulsa `v` para comenzar el modo visual de selección de caracter (aquí los corchetes `[]` representan el caracter resaltado):
 
 ```text
 uno
@@ -62,7 +62,7 @@ uno
 tres
 ```
 
-Pulsa `j` y Vim altará todo el texto desde la línea "dos" hasta el primer caracter de la línea "tres".
+Pulsa `j` y Vim resaltará todo el texto desde la línea "dos" hasta el primer caracter de la línea "tres".
 
 ```text
 uno
@@ -88,7 +88,7 @@ uno
 t]res    <-- cursor
 ```
 
-El resaltado visual sigue el movimiento del cursor. Si quiere expandirlo hacia arriba a la línea "uno", necesitas mover el cursor cuando el cursor está en la palabra "dos", no "tres". Ahora tu cursor está en la línea "tres". Para movelo, cambia la loclización del cursor tanto con `o` u `O`.
+El resaltado visual sigue el movimiento del cursor. Si quiere expandirlo hacia arriba a la línea "uno", necesitas mover el cursor hacia arriba de la línea "dos". Ahora tu cursor está en la línea "tres". Para moverlo, cambia la localización del cursor tanto con `o` u `O`.
 
 ```text
 uno
@@ -104,13 +104,13 @@ two
 t]hree
 ```
 
-Al pulsar `o` u `O` en el modo visual, esto hará que nuestro cursor salte del inicio que bloque resaltado, sin eliminar las partes resaltadas y podremos añadir más texto a esa selección.
+Al pulsar `o` u `O` en el modo visual, esto hará que nuestro cursor salte del inicio al final del bloque resaltado, sin eliminar las partes resaltadas y podremos añadir más texto a esa selección.
 
 ## Gramática en el modo visual
 
-El modo visual es uno de los modos de Vim. El que sea un modo significa que la misma tecla puede funcionar de manera diferente en un modo o en otro. Afortunadamente, el modo visual comparte muchas teclas en común con el modo normal.
+El modo visual comparte muchas de sus operaciones con el modo normal.
 
-Por ejemplo, si tenemos el siguiente texto:
+Por ejemplo, si tenemos el siguiente texto y quieres eliminar las primeras dos líneas del modo visual:
 
 ```text
 uno
@@ -128,7 +128,7 @@ tres
 
 Al pulsar `d` esto eliminará la selección, de manera similar al modo normal. Cabe destacar que la regla gramatical del modo normal de verbo + sustantivo, aquí no se aplica. El mismo verbo sigue estando ahí \(`d`\), pero no existe un sustantivo en el modo visual. La regla gramática en el modo visual es sustantivo + verbo, donde el sustantivo en este caso es reemplazado por el texto resaltado. Primero selecciona el texto, después opera sobre el.
 
-En el modo normal, hay algunos comandos que no requieren de una tecla de movimeinto, como por ejemplo `x` para eliminar un único caracter bajo el cursor o `rx` para reemplzar el texto bajo el cursor con la letra "x". En el modo visual, estos comandos son ahora aplicados al texto resaltado por completo en vez de a un único caracter. Regresemos al texto que hemos resaltado anteriormente:
+En el modo normal, hay algunos comandos que no requieren de una tecla de movimiento, como por ejemplo `x` para eliminar un único caracter bajo el cursor o `r` para reemplazar el caracter bajo el cursor (`rx` reemplaza el texto bajo el cursor con la letra "x"). En el modo visual, estos comandos son ahora aplicados al texto resaltado por completo en vez de a un único caracter. Regresemos al texto que hemos resaltado anteriormente:
 
 ```text
 [uno
@@ -138,13 +138,13 @@ tres
 
 Al ejecutar el comando `x` esto eliminará todo el texto resaltado.
 
-Puedes utilizar esta funcionalidad para crear rápidamente un encabezado en un texto en formato Markdown. Supongamos que tenemos este texto en un archivo en Markdown:
+Puedes utilizar esta funcionalidad para crear rápidamente un encabezado en un texto en formato Markdown. Supongamos que necesitas cambiar rápidamente el siguiente texto a un encabezado de primer nivel de Markdown ("==="):
 
 ```text
 Capítulo uno
 ```
 
-Y queremos convertir este texto rápidamente en un encabezado. Primero copiamos la línea con `yy`, después lo pegamos con `p`:
+Primero copiamos la línea con `yy`, después lo pegamos con `p`:
 
 ```text
 Capítulo uno
@@ -158,7 +158,7 @@ Capítulo uno
 [Capítulo uno]
 ```
 
-En Markdown puedes crear un encabezado añadiendo una serie de `=` debajo del texto, así que reemplacemos el texto completo resaltado mediante `r=`:
+En Markdown puedes crear un encabezado añadiendo una serie de `=` debajo del texto, así que reemplacemos el texto completo resaltado mediante `r=`. ¡Voila! Esto te ahora el tener que escribir todos esos "=" de manera manual:
 
 ```text
 Capítulo uno
@@ -169,7 +169,7 @@ Para aprender más sobre los operadores en el modo visual, echa un vistazo a la 
 
 ## El modo visual y comandos Ex
 
-Puedes aplicar de manera selectiva comandos Ex a un bloque de texto resaltado. Si tienes estas expresiones:
+Puedes aplicar de manera selectiva comandos Ex a un bloque de texto resaltado. Si tienes estas expresiones y quieres sustitur "const" con "let" solo en las dos primeras líneas:
 
 ```text
 const one = "one";
@@ -177,7 +177,7 @@ const two = "two";
 const three = "three";
 ```
 
-Y necesitas sustituir solo las primeras dos líneas de "const" con "let". Resalta las primeras dos línea con _cualquier_ modo visual y ejecuta el comando de sustituir `:s/const/let/g`:
+Resalta las primeras dos línea con _cualquier_ modo visual y ejecuta el comando de sustituir `:s/const/let/g`:
 
 ```text
 let one = "one";
@@ -187,9 +187,9 @@ const three = "three";
 
 Ten en cuenta que he dicho que puedes hacer esto con _cualquier_ modo visual. No es necesario resaltar las líneas completas para ejecutar el comando Ex en esas líneas. Con tan solo seleccionar al menos un caracter de cada línea, el comando Ex será aplicado.
 
-## Editar en múltiples líneas
+## Añadir texto en múltiples líneas
 
-Puedes editar texto en múltiples líneas en vim utilizando el modo visual de selección de bloque. Si necesitas añadir un punto y comaal final de cada línea:
+Puedes editar texto en múltiples líneas en Vim utilizando el modo visual de selección de bloque. Si necesitas añadir un punto y coma al final de cada línea:
 
 ```text
 const one = "one"
@@ -202,9 +202,9 @@ Con tu cursor en la primera línea:
 * Ejecuta el modo visual de selección de bloque y baja dos líneas \(`Ctrl-V jj`\).
 * Resalta hasta el final de la línea \(`$`\).
 * Añade \(`A`\) y después escribe ";".
-* Sal del modo visual \(`esc`\).
+* Sal del modo visual \(`<Esc>`\).
 
-Deberías ver que se ha añadido ";" en cada línea. Por cierto, mientras estás en el modo visual de selección de bloque, para entrar en el modo insertar, también puedes utilizar `A` para introducir el texto después del cursor o `I` para introducir el texto antes del cursor. No los confundas con `A` o `I` del modo normal.
+Deberías ver que se ha añadido ";" en cada línea. ¡Genial! Hay dos maneras de entrar en el modo insertar desde el modo visual de selección de bloque: `A` para añadir el texto después del cursor o `I` para introducir el texto después del cursor. No confundirlos con `A` (añadir texto al final de la línea) o `I` (insertar texto después del primer caracter que no sea un espacio en blanco en la línea) del modo normal.
 
 De manera alternativa, también puedes utilizar el comando `:normal`:
 
@@ -222,7 +222,7 @@ Si tienes estos elementos HTML:
 ```text
 <div id="app-1"></div>
 <div id="app-1"></div>
-<div id="app-1"></div>
+<div id="app-2"></div>
 <div id="app-1"></div>
 <div id="app-1"></div>
 ```
@@ -259,7 +259,7 @@ La opción `nrformats` le indica a Vim que bases son consideradas como "números
 <div id="app-a"></div>
 ```
 
-Coloca tu cursor en la sugunda "app-a". Utiliza la misma técnica que en el ejemplo anterior \(`Ctrl-V 3j` después `g Ctrl-A`\) para incrementar los "ids".
+Coloca tu cursor en la segunda "app-a". Utiliza la misma técnica que en el ejemplo anterior \(`Ctrl-V 3j` después `g Ctrl-A`\) para incrementar los "ids".
 
 ```text
 <div id="app-a"></div>
@@ -278,13 +278,15 @@ Ya has aprendido que con con `gv` puedes resaltar rápidamente la anterior zona 
 `>    Ir al comienzo de la anterior zona resaltada del modo visual
 ```
 
-Quiero que te fijes en algo. Anteriormente, mencioné que puedes ejecutar de manera selectiva un comando Ex en un texto resaltado, como `:s/const/let/g`. Cuando ejecutaste ese comando, deberías haber visto esto:
+Anteriormente, mencioné que puedes ejecutar de manera selectiva un comando Ex en un texto resaltado, como `:s/const/let/g`. Cuando ejecutaste ese comando, deberías haber visto esto:
 
 ```text
 :`<,`>s/const/let/g
 ```
 
-Estabas ejecutando `s/const/let/g` el comando utilizando las marcas como rango de ejecución. Siempre puedes editar estas marcas en cualquier momento que desees. Si necesitabas sustituir desde el comienzo del texto resaltado hasta el final del archivo, simplemente cambia el comando a este::
+Realmente ejecutaste un comando en un rango `s/const/let/g` (con las dos marcas como direcciones de inicio y fin del rango). ¡Interesante!
+
+Siempre podrás editar estas marcas en cualquier momento que quieras. Si en vez de sustituir desde el comienzo del texto resaltado al final del archivo, simplemente cambia el comando a este::
 
 ```text
 :`<,$s/const/let/g
