@@ -172,7 +172,7 @@ Para añadir un símbolo ";" al final de cada línea, ejecuta:
 :g/./normal A;
 ```
 
-Diseccionesmos el comando:
+Diseccionemos el comando:
 
 * `:g` es el comando global.
 * `/./` es el patrón para "todas las líneas que no estén vacías". Recuerda que el punto \(`.`\) es un registro que representa _cualquier caracter_. Lo que hace es buscar las líneas con al menos un caracter, así que en este caso marcará las líneas con las palabras "const" y "console". Ignorando las líneas vacías.
@@ -180,7 +180,7 @@ Diseccionesmos el comando:
 
 ## Ejecutar una macro
 
-También puedes ejecutar una macro con el comando global. Una macroes simplemente un modo normal de operación, así que es posible ejecutarlo con `:normal`. Si tienes las siguiente expresiones:
+También puedes ejecutar una macro con el comando global. Una macro es simplemente un modo normal de operación, así que es posible ejecutarlo con `:normal`. Si tienes las siguientes expresiones:
 
 ```text
 const one = 1
@@ -193,10 +193,10 @@ const three = 3
 console.log("three: ", three);
 ```
 
-Ten en cuenta que las líneas con "const" no tienen un símbolo de punto y coma al final de la línea. Vamos a crear una macro, que almacenaremos en el registro "a", que añada un símbolo de punto y coma al final de esas líneas:
+Ten en cuenta que las líneas con "const" no tienen un símbolo de punto y coma al final de la línea. Vamos a crear una macro, que almacenaremos en el registro a, que añada un símbolo de punto y coma al final de esas líneas:
 
 ```text
-qa0A;<esc>q
+qa0A;<Esc>q
 ```
 
 Si necesitas refrescar conocimientos, echa un vistazo al capítulo que trata sobre las macros. Ahora ejecuta:
@@ -220,9 +220,9 @@ console.log("three: ", three);
 
 ## Comando recursivo global
 
-El comando global pro sí mismo es un tipo de comando de la línea de comandos, así que técnicamente puedes ejecutar el comando global dentro de un comando global.
+El comando global por sí mismo es un tipo de comando de la línea de comandos, así que técnicamente puedes ejecutar el comando global dentro de un comando global.
 
-Dadas las siguientes expresiones:
+Dadas las siguientes expresiones, si quieres eliminar la segunda declaración de `console.log`:
 
 ```text
 const one = 1;
@@ -267,7 +267,7 @@ Si estás utilizando el comando de sustitución con el comando global, puedes ut
 g@one@s+const+let+g
 ```
 
-Aquí el comando global buscará todas laslíneas que contienen "one". El comando de sustitución, sustituirá de esas líneas encontradas, la cadena "const" con "let".
+Aquí el comando global buscará todas las líneas que contienen "one". El comando de sustitución, sustituirá de esas líneas encontradas, la cadena "const" con "let".
 
 ## El comando predeterminado
 
@@ -291,7 +291,7 @@ Por cierto, aquí hay un hecho curioso. Debido a que el comando predeterminado u
 * `re` = la expresión regular del patrón de búsqueda
 * `p` = el comando _imprimir_ por pantalla
 
-Esto forma "grep"_, el mismo `grep` que se utiliza en la línea de comandos. Esto \*no_ es una coincidencia. El comando `g/re/p` procede originalmente del editor Ed, uno de los primeros editores de texto. El comando `grep` toma su nombre de Ed.
+Esto forma _"grep"_, el mismo `grep` que se utiliza en la línea de comandos. Esto **no** es una coincidencia. El comando `g/re/p` procede originalmente del editor Ed, uno de los primeros editores de texto. El comando `grep` toma su nombre de Ed.
 
 Tu equipo probablemente todavía tenga un editor Ed instalado. Ejecuta `ed` en una terminal \(pista: para salir, escribe `q`\).
 
@@ -361,7 +361,7 @@ console.log("three: ", three);
 // TODO: crear un invento que sirva para dar de comer a las gatas automáticamente
 ```
 
-Ahora puede revisar fácilmente todas las tareas _TODO_ que he ido creando, y encontrar el tiempo para realizarlas o delegarlas a otra persona y continuar en mi trabajo con mis siguientes tareas.
+Ahora puedes revisar fácilmente todas las tareas _TODO_ que has ido creando, y encontrar el tiempo para realizarlas o delegarlas a otra persona y continuar en mi trabajo con mis siguientes tareas.
 
 Otra alternativa es utilizar `m`:
 
@@ -390,7 +390,7 @@ Puedo simplemente eliminar la lista una vez que decida qué hacer con ella.
 
 ### Mandar el contenido borrado a un agujero negro
 
-Recuerda del capítulo de los registros que los textos eliminados son almacenados dentro de los registros numerados \(aunque son suficientemente grandes\). Cada vez que ejecutas `:g/console/d`, Vim almacena las líneas eliminadas en los registros numerados. Si eliminas muchas líneas, puedes rápidamente llenar el contenido de esos registros numerados. Para eliminar esto, siempre puedes utilizar el registro del agujero negro \(`"_`\) para _no_ almacenar las líneas eliminadas en los registros. Ejecuta:
+Recuerda del capítulo de los registros que los textos eliminados son almacenados dentro de los registros numerados \(aunque son suficientemente grandes\). Cada vez que ejecutas `:g/console/d`, Vim almacena las líneas eliminadas en los registros numerados. Si eliminas muchas líneas, puedes rápidamente llenar el contenido de esos registros numerados. Para evitar esto, siempre puedes utilizar el registro del agujero negro \(`"_`\) para _no_ almacenar las líneas eliminadas en los registros. Ejecuta:
 
 ```text
 :g/console/d _
