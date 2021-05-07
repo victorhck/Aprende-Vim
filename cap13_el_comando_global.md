@@ -480,7 +480,7 @@ e
 c
 ```
 
-Puedes ordenarlas ejecutando `:sort`. Si le añades un rango, solo ordenará las líneas dentro de ese rango. Por ejemplo `:3,5sort` ordenará solo las líneas entre las líneas 3 y 5.
+Puedes ordenarlas ejecutando `:sort`. Si le añades un rango, solo ordenará las líneas dentro de ese rango. Por ejemplo `:3,5sort` ordenará solo las líneas entre las líneas tres y cinco.
 
 Si tienes las siguiente expresiones:
 
@@ -540,28 +540,19 @@ const arrayA = [
 ]
 ```
 
-¡Esto es genial! Pero el comando parece complicado. Vamos a verlo en detalle. El comando consiste en tres partes principales: el patrón del comando global, el rango del comando `sort` y el propio comando.
+¡Esto es genial! Pero el comando parece complicado. Vamos a verlo en detalle. Este comando también sigue el formato `:g/patrón1/,/patrón2/comando`.
 
-`:g/\[/` es el patrón del comando global.
-
-* `:g` es el comando global.
-* `/\[/` es el patrón utilizado por el comando global. `\[` busca literalmente la cadena "\[".
-
-`+1,/\]/-1` es el rango del comando `sort`.
-
-* Un rango puede tener una dirección de comienzo y otra de final. En este caso, `+1` es la dirección de comienzo y `/\]/-1` es la dirección final.
-* `+1` representa la linea después de la línea actual, que es la línea que coincide con el patrón "\[" del comando global. `+1` añade un offset de una línea a la línea actual. Así en la primera ocurrencia encontrada, el rango comenzará una línea _después_ del texto `const arrayB = [`.
-* `/\]/-1` es la dirección del final. `\]` representa de manera literal un corchete de cierre "\]". `-1` añade un offset de una línea. La dirección final será la línea superior a "\]".
-
-`sort` es el comando para ordenar en la línea de comandos. Ordena todo con el rango dado. Todo lo que hay después de "\[" hasta todo lo que hay encima de "\]" será ordenado.
-
-Si todavía estás confundido con el comando, no te preocupes. Me llevó mucho tiempo llegar a dominar el comando. Date un descanso, deja de mirar a la pantalla y regresa de nuevo con la mente despejada.
+* `:g/\[/` es el patrón del comando global.
+* `/\[/+1` es el primer patrón. Busca literalmente un símbolo de apertura de corchete "[". El `+1` se refiere a la línea debajo de este.
+* `/\]/-1` es el segundo patrón. Busca literalmente un símbolo de cierre de corchete "]". El `-1` se refiere a la línea encima de este.
+* `/\[/+1./\]/-1` entonces se refiere a cualquier línea entre "[" y "]".
+- `sort` es el comando de la línea de comandos para ordenar objetos.
 
 ## Aprendiendo el comando global de la manera más inteligente
 
 El comando global ejecuta comandos de la línea de comandos en todas las líneas especificadas. Con este comando, solo necesitarás ejecutar el comando una vez y Vim hará el resto por ti. Para convertirte en un usuario eficiente del comando global, se necesitan dos cosas: un buen vocabulario de los comandos de la línea de comandos y un conocimiento de las expresiones regulares. Cuanto más tiempo pases utilizando Vim, más fácil será aprender más comandos de la línea de comandos de manera natural. Un conocimiento de las expresiones regulares requerirá un acercamiento más activo. Pero una vez que llegues a sentirte cómodo y cómoda con las expresiones regulares, llegarás a dominar muchas de estas.
 
-Algunos de los ejemplos que has podido leer aquí son somplicados. Pero no te sientas intimidado ni intimidada. Realmente lleva tiempo el entenderlos. Aprende a leer patrones. Asegúrate que comprendes qué significa cada letra y qué representa en cada comando. No te rindas.
+Algunos de los ejemplos que has podido leer aquí son complicados. Pero no te sientas intimidado ni intimidada. Realmente lleva tiempo el entenderlos. Aprende a leer patrones. Asegúrate que comprendes qué significa cada letra y qué representa en cada comando. No te rindas.
 
 Allí donde necesites aplicar un comando en diferentes sitios, detente y reflexiona si puedes utilizar el comando `g`. Busca el mejor comando para el trabajo y escribe un patrón que pueda hacer muchas cosas de una vez. Después repítelo hasta que puedas hacerlo sin necesidad de pensarlo. La siguiente vez, comprueba si existe una manera de hacerlo de una manera incluso más rápida y más eficiente.
 
