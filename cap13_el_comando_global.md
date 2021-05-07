@@ -72,13 +72,13 @@ console.log("three: ", three);
 Para ejecutar el comando global en las líneas que no cumplan la coincidencia con el patrón, puedes ejecutar:
 
 ```text
-:g!/{patrón}/{comando}
+:g!/patrón/comando
 ```
 
 o
 
 ```text
-:v/{patrón}/{comando}
+:v/patrón/comando
 ```
 
 Si ejecutas `:v/console/d`, esto eliminará todas las líneas que _no_ contengan la palabra "console".
