@@ -2,7 +2,7 @@
 
 Dentro del sistema Unix, encontrarás muchos comandos pequeños y muy específicos donde cada uno hace una tarea y la hace eficientemente. Puedes encadenar estos comandos para que funcionen de manera conjunta para dar solución a un problema complejo. ¿No sería genial si pudieras utilizar estos comandos dentro de Vim?
 
-En este capítulo, aprenderás cómo extender las funcionalidades de Vim para que trabaje sin problemas con estos comandos externos.
+Por supuesto que sí. En este capítulo, aprenderás cómo extender las funcionalidades de Vim para que trabaje sin problemas con estos comandos externos.
 
 ## El comando _bang_
 
@@ -11,6 +11,8 @@ Vim tiene un comando llamado _bang_ \(`!`\) que puede realizar tres cosas:
 1. Leer la salida estándar \(STDOUT\) de un comando externo dentro del _buffer_ actual.
 2. Escribir el contenido de tu _buffer_ como la entrada estándar \(STDIN\) a un comando externo.
 3. Ejecutar un comando externo desde dentro de Vim.
+
+Profundicemos más en detalle cada una de estas tareas.
 
 ## Leer la salida estándar \(STDOUT\) de un comando dentro de Vim
 
@@ -91,13 +93,13 @@ Existe una sutil pero significativa diferencia entre `:w !node` y `:w! node`. Co
 
 ## Ejecutando un comando externo
 
-Puedes ejecutar un comando externo desde dentro de Vim con comando _bang_. La sintaxis es:
+Puedes ejecutar un comando externo desde dentro de Vim con el comando _bang_. La sintaxis es:
 
 ```text
 :!cmd
 ```
 
-Verás el contenido del directorio actual en su formado extendido, ejecuta:
+Para ver el contenido del directorio actual en su formato extendido, ejecuta:
 
 ```text
 :!ls -ls
@@ -138,7 +140,7 @@ Vamos a ver en detalle el comando:
 * `.!` ejecuta el filtro del comando en la línea actual.
 * `!tr '[:lower:]' '[:upper:]'` llama al comando `tr` para reemplazar los caracteres en minúsculas a mayúsculas.
 
-Es imperativo pasar un rango para ejecutar el comando externo como un filtro. Si tratas de ejecutar el comando anterios sin el `.` \(`:!tr '[:lower:]' '[:upper:]'`\), verás un error.
+Es imperativo pasar un rango para ejecutar el comando externo como un filtro. Si tratas de ejecutar el comando anterior sin el `.` \(`:!tr '[:lower:]' '[:upper:]'`\), verás un error.
 
 Asumamos ahora que necesitamos eliminar la segunda columna de ambas líneas utilizando el comando `awk`:
 
@@ -156,18 +158,18 @@ hello
 La explicación:
 
 * `:%!` ejecuta el filtro del comando en todas las líneas \(`%`\).
-* `awk "{print $1}"` imprime solo la primera columna. En este caso la palabra "hello". 
+* `awk "{print $1}"` imprime solo la primera columna.
 
-Puedes encadenar múltiples comando con el operado `|` de igual manera que en la terminal. Supongamos que tenemos un archivo con estos elementos de un delicioso desayuno:
+Puedes encadenar múltiples comandos con el operador `|` de igual manera que lo haces en la terminal. Supongamos que tenemos un archivo con estos elementos de un delicioso desayuno:
 
 ```text
 nombre precio
-Tarde chocolate 10
+Tarta chocolate 10
 Tarta merengue 9
 Tarta frambuesa 12
 ```
 
-Si necesitas ordenar la lisya en base al precio y mostrar solo el menu incluso con los espacios, puedes ejecutar:
+Si necesitas ordenar la lista en base al precio y mostrar solo el menú incluso con los espacios, puedes ejecutar:
 
 ```text
 :%!awk 'NR > 1' | sort -nk 3 | column -t
@@ -177,7 +179,7 @@ El resultado:
 
 ```text
 Tarta merengue 9
-Tarde chocolate 10
+Tarta chocolate 10
 Tarta frambuesa 12
 ```
 
@@ -217,5 +219,5 @@ El filtro del comando normal solo funciona en movimientos u objetos de texto que
 
 Vim no es un entorno de desarrollo integrado \(o IDE por sus siglas en inglés\). Es un editor modal ligero que por diseño es altamente extensible. Debido a esa propiedad de ser extensible, tienes un acceso sencillo a los comandos externos de tu sistema. Con esto, Vim está un paso más cerca de convertirse en un IDE. Alguien dijo alguna vez que el sistema Unix es el primer IDE que ha existido.
 
-El comando _bang_ es tan útil como el número de comandos que conozcas. No te preocupes si tienes un conocimiento limitado de los comando modernos. Siempre hay que estar aprendiendo nuevos comandos, toma esto como una motivación para seguir aprendiendo. Cada vez que necesites filtrar un texto, echa un vistazo si existe un comando externo que pueda solucionar tu problema. No te preocupes en dominar todo sobre un comando en particular. Simplemente aprende los que necesites para realizar tu tarea actual.
+El comando _bang_ es tan útil como el número de comandos que conozcas. No te preocupes si tienes un conocimiento limitado de los comando externos. Yo también tengo mucho que aprender. Cada vez que necesites modificar un texto, echa un vistazo si existe un comando externo que pueda solucionar tu problema. No te preocupes en dominar todo sobre un comando en particular. Simplemente aprende los que necesites para realizar tu tarea actual.
 
