@@ -52,7 +52,14 @@ Puedes ejecutar `zR` y `zM` estando en cualquier línea, pero `za` solo funciona
 
 ## Diferentes métodos de plegado de texto
 
-La sección anterior trata sobre el plegado de texto manual de Vim. Hay seis métodos de plegado de texto en Vim: 1. Manual \(Manual\) 2. Sangría \(Indent\) 3. Expresión \(Expression\) 4. Sintaxis \(Syntax\) 5. Diferencia \(Diff\) 6. Marcador \(Marker\)
+La sección anterior trata sobre el plegado de texto manual de Vim. Hay seis métodos de plegado de texto en Vim:
+
+1. Manual \(Manual\)
+2. Sangría \(Indent\)
+3. Expresión \(Expression\) 
+4. Sintaxis \(Syntax\) 
+5. Diferencia \(Diff\) 
+6. Marcador \(Marker\)
 
 Para ver el método de plegado de texto que estás utilizando actualmente, ejecuta `:set foldmethod?`. De manera predeterminada, Vim utiliza el método `manual`.
 
@@ -156,7 +163,7 @@ salmon
 huevos revueltos
 ```
 
-Después, vamos a cambiar `foldexpr` para capturar todas las expresiones que comiencen con "c":
+Ahora, cambia `foldexpr` para capturar todas las expresiones que comiencen con "c":
 
 ```text
 :set foldexpr=getline(v:lnum)[0]==\\"c\\"
