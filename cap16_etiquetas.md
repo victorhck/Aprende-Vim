@@ -13,7 +13,7 @@ one.donut
 
 ¿`One`? ¿`donut`? Bueno, estos nombre podrían ser obvios para el desarrollador o desarrolladora que escribieran el código hace tiempo, pero ahora esas personas ya no están aquí y te corresponde a tí entender estas líneas de código tan enrevesadas. Una manera de ayudar a entender esto es seguir el código fuente donde `One` y `donut` están definidas.
 
-Puedes buscarlas tanto con `fzf` como con `grep`, pero es más rápido utilizar etiquetas.
+Puedes buscarlas tanto con `fzf` como con `grep` (o `vimgrep`), pero en este caso es más rápido utilizar etiquetas.
 
 Piensa en que las etiquetas son como una libreta de direcciones de contactos:
 
@@ -69,23 +69,13 @@ El Vim actual no trae incorporado un generador de etiquetas, así que tendrás q
 
 Si echas un vistazo a tutoriales de Vim en internet, muchos recomendarán [Exuberant ctags](http://ctags.sourceforge.net/). Admite [41 lenguajes de programación](http://ctags.sourceforge.net/languages.html). Yo lo utilizaba y funcionaba genial. Sin embargo, debido a que ya no está mantenido desde 2009, **Universal ctags** sería una opción más adecuada. Funciona de manera similar a **Exuberant ctags** y actualmente está mantenido.
 
-No entraré en detalles de cómo instalar ctags. Echa un vistazo al repositorio de [universal ctags](https://github.com/universal-ctags/ctags) para consultar las instrucciones. Una vez que tengas ctags instalado, ejecuta `ctags --version`. Esto debería mostrar:
-
-```text
-Universal Ctags 0.0.0(b43eb39), Copyright (C) 2015 Universal Ctags Team
-Universal Ctags is derived from Exuberant Ctags.
-Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
-```
-
-Asegúrate de que se muestra "`Universal Ctags`".
-
-A continuación, vamos a generar un archivo de etiquetas básico. Ejecuta lo siguiente:
+Asumo que tines el ctags universal instalado, vamos a generar un archivo de etiquetas básico. Ejecuta lo siguiente:
 
 ```text
 ctags -R .
 ```
 
-La opción `R` le dice a `ctags` que ejecute un escaneo desde tu ubicación actual \(`.`\). Ahora se debería poder ver un archivo `tags` en tu directorio actual. Dentro del archivo verás algo parecido a esto:
+La opción `R` le dice a ctags que ejecute un escaneo desde tu ubicación actual \(`.`\). Ahora se debería poder ver un archivo `tags` en tu directorio actual. Dentro del archivo verás algo parecido a esto:
 
 ```text
 !_TAG_FILE_FORMAT    2    /extended format; --format=1 will not append ;" to lines/
@@ -102,7 +92,7 @@ donut    one.rb    /^  def donut$/;"    f    class:One
 initialize    one.rb    /^  def initialize$/;"    f    class:One
 ```
 
-El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. Una etiqueta está compuesta por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos \(`!TAG_FILE...`\) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echasr un vistazo a su documentación!
+El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. El archivo de etiquetas está compuesto por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos \(`!TAG_FILE...`\) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echasr un vistazo a su documentación! La lista de etiquetas es una lista de todas las definiciones indexadas por ctags.
 
 Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y escribe `Ctrl-]`. Vim te llevará al archivo `one.rb` a la línea donde está `def donut`. ¡Eureka! ¿Pero cómo hizo esto Vim?
 
@@ -159,7 +149,7 @@ Para añadir una ubicación de un archivo de etiquetas, simplemente ejecuta:
 
 ## Generando etiquetas para un proyecto extenso
 
-Si has intentado ejecutar ctags en un proyecto extenso, puede que haya durado mucho tiempo porque Vim también busca dentro de los directorios anidados. Si eres desarrollador o desarrolladora de Javascript, ya sabrás que `node_modules` pueden ser muy grandes. Imagina si tienes cinco subproyectos y cada uno contiene su propio directorio `node_modules`. Si ejecutas `ctags -R .`, ctags tratará de escanear todos los cinco `node_modules`. Probablemente quizás no necesites ejecutar ctags en `node_modules`.
+Si has intentado ejecutar ctags en un proyecto extenso, puede que haya tardado mucho tiempo porque Vim también busca dentro de los directorios anidados. Si eres desarrollador o desarrolladora de Javascript, ya sabrás que `node_modules` pueden ser muy grandes. Imagina si tienes cinco subproyectos y cada uno contiene su propio directorio `node_modules`. Si ejecutas `ctags -R .`, ctags tratará de escanear todos los cinco `node_modules`. Probablemente quizás no necesites ejecutar ctags en `node_modules`.
 
 Para ejecutar ctags excluyendo `node_modules`, ejecuta:
 
@@ -331,7 +321,7 @@ En el modo normal, puedes ejecutar `Ctrl-T` para conseguir el mismo efecto que s
 
 Uno de los grandes inconvenientes de las etiquetas en Vim es que cada vez que haces un cambio significativo, necesitas volver a generar el archivo de etiquetas. Si recientemente renombraste el procedimiento llamado `pancake` y ahora se llama `waffle`, el archivo de etiquetas no sabe que el procedimiento `pancake` había sido cambiado de nombre. Todavía es almacenado como `pancake` en la lista de etiquetas. Tienes que ejecutar `ctags -R .` para crear y actualizar el archivo de etiquetas. Volver a crear un nuevo archivo de etiquetas puede ser una tarea incómoda.
 
-Afortunadamente hay varios métodos que puedes utilizar para generar etiquetas automáticamente. Mi propósito en esta sección no es crear un proceso infalible, si no sugerir algunas ideas para que después seas tu quien las explore y las extienda.
+Afortunadamente hay varios métodos que puedes utilizar para generar etiquetas automáticamente.
 
 ### Generar una etiqueta al guardar
 
@@ -378,9 +368,7 @@ Tim Pope, autor de un montón de complementos geniales para Vim, escribió un ar
 
 ## Aprende el uso de las etiquetas de la manera más inteligente
 
-Una etiqueta es útil cuando está configurada adecuadamente. Si tu eres como yo, que olvida las cosas fácilmente, las etiquetas te pueden ayudar a visualizar un proyecto.
-
-Supón que te encuentras con un código nuevo y quieres qué hace `functionFood`, podrás leerlo fácilmente saltando a la parte del código donde está definido. Dentro de este, también puedes descubrir que también llama a `functionBreakfast`. Vas hasta su definición y descubre que a su vez llama a `functionPancake`. El gráfico de saltos y llamadas tendría el siguiente esquema:
+Una etiqueta es útil cuando está configurada adecuadamente. Supón que te encuentras con un código nuevo y quieres saber qué hace `functionFood`, podrás leerlo fácilmente saltando a la parte del código donde está definido. Dentro de este, también puedes descubrir que también llama a `functionBreakfast`. Vas hasta su definición y descubre que a su vez llama a `functionPancake`. El gráfico de saltos y llamadas tendría el siguiente esquema:
 
 ```text
 functionFood -> functionBreakfast -> functionPancake
