@@ -14,7 +14,7 @@ Sin embargo, tener que escribir manualmente el nombre del archivo fuente y del a
 
 ## El comando _make_
 
-Vim tienes el comando `:make` para ejecutar un archivo _makefile_. Cuando lo ejecutas, Vim busca un archivo _makefile_ en el directorio actual para ejecutarlo.
+Vim tiene el comando `:make` para ejecutar un archivo _makefile_. Cuando lo ejecutas, Vim busca un archivo _makefile_ en el directorio actual para ejecutarlo.
 
 Crea un archivo llamado `makefile` en el directorio actual y escribe esto dentro del archivo:
 
@@ -107,7 +107,7 @@ El comando predeterminado de `:make` es el comando externo `make`. Para cambiar 
 :set makeprg=g++\ %
 ```
 
-El símbolo `\` es pars escapar el espacio después de `g++`. El símbolo `%` en Vim representa el archivo actual. El comando `g++\\ %` es equivalente a ejecutar `g++ hola.cpp`.
+El símbolo `\` es para escapar el espacio después de `g++`. El símbolo `%` en Vim representa el archivo actual. El comando `g++\\ %` es equivalente a ejecutar `g++ hola.cpp`.
 
 Ve al archivo `./hola.cpp` después ejecuta `:make`. Vim compila `hola.cpp` y crea el archivo `a.out` porque no has especificado un nombre para un archivo de salida. Vamos a cambiar eso para que le asigne un nombre al archivo de salida compilado con el nombre del archivo original menos la extensión. Añade o ejecuta esto a tu archivo vimrc:
 
@@ -242,7 +242,7 @@ _Vim y NeoVim realmente admiten tareas asíncronas, pero eso se escapa del tema 
 
 ## Complemento: Vim-dispatch
 
-Vim-dispatch tiene varios comandos, pero los dos más importante son los comandos `:Make` y `:Dispatch`.
+Vim-dispatch tiene varios comandos, pero los dos más importantes son los comandos `:Make` y `:Dispatch`.
 
 ### Make asíncrono
 
