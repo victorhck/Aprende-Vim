@@ -4,7 +4,7 @@ Vim y git son dos grandes herramientas para dos cosas diferentes. Git es una her
 
 En este capítulo, aprenderás diferentes maneras de integrar Vim y git.
 
-## Destacando las diferencia
+## Destacando las diferencias
 
 Recuerda del capítulo anterior que puedes ejecutar el comando `vimdiff` para mostrar las diferencias entre múltiples archivo.
 
@@ -23,7 +23,7 @@ zumo de manzana
 yogur
 ```
 
-Dentro de `Archivo2.txt`:
+Dentro de `archivo2.txt`:
 
 ```text
 tortitas
@@ -48,11 +48,11 @@ De manera alternativa también podrías ejecutar:
 vim -d archivo1.txt archivo2.txt
 ```
 
-![Basic diffing with Vim](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/diffing-basic.png)
+![Mostrando las diferencias con Vim](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/diffing-basic.png)
 
 `vimdiff` muestra dos _buffers_ uno al lado del otro. En la izquierda está `archivo1.txt` y en la derecha está `archivo2.txt`. La primera diferencia \(manzanas y naranjas\) aparecen resaltadas en ambas líneas.
 
-Supongamos que quieres hacer que el segundo _buffer_ tenga también manzanas, en vez de naranjas. PAra transferir el contenido del _buffer_ actual \(estando el cursor en el archivo `archivo1.txt`\) a `archivo2.txt`, primero ve a la siguiente diferencia con `]c` \(para saltar a una diferencia previa, utiliza `[c`\). El cursor debería estar ahora en manzanas. Ejecuta `:diffput`. Ambos archivos deberían tener ahora la palabra manzanas.
+Supongamos que quieres hacer que el segundo _buffer_ tenga también manzanas, en vez de naranjas. Para transferir el contenido del _buffer_ actual \(estando el cursor en el archivo `archivo1.txt`\) a `archivo2.txt`, primero ve a la siguiente diferencia con `]c` \(para saltar a una diferencia previa, utiliza `[c`\). El cursor debería estar ahora en manzanas. Ejecuta `:diffput`. Ambos archivos deberían tener ahora la palabra manzanas.
 
 ![Diffing Apples](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/diffing-apples.png)
 
@@ -76,7 +76,7 @@ git config merge.conflictstyle diff3
 git config mergetool.prompt false
 ```
 
-De manera alternativa, puedes modificar directamente en `~/.gitconfig` \(de manera predeterminada ese archivo debería estar en la raíz de tu usuario en sistemas basados en Unix, pero tu archivo puede que este en un lugar diferente\). Los comandos anteriores deberían modificar tu archivo gitconfig para tener un aspecto similar al texto que se reproduce a continuación, si no todavía no has ejecutado los comandos anteriores, puedes editar manualmente tu archivo gitconfig.
+De manera alternativa, puedes modificar directamente en `~/.gitconfig` \(de manera predeterminada ese archivo debería estar en la raíz de tu usuario en sistemas basados en Unix, pero tu archivo puede que este en un lugar diferente\). Los comandos anteriores deberían modificar tu archivo gitconfig para tener un aspecto similar al texto que se reproduce a continuación, si todavía no has ejecutado los comandos anteriores, puedes editar manualmente tu archivo gitconfig.
 
 ```text
 [core]
@@ -171,7 +171,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 git mergetool
 ```
 
-![Three-way mergetool with Vim](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/mergetool-initial.png)
+![La herramienta mergetool con Vim](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/mergetool-initial.png)
 
 Vim muestra cuatro ventanas. Pon atención a las tres superiores:
 
@@ -281,7 +281,7 @@ Cuando ejecutas el comando `:Git blame` desde el archivo actual, vim-fugitive mu
 
 Algunas cosas que puedes hacer mientras estás en el modo `"git blame"`:
 
-* `q` para cerrar la ventana que habre el comando.
+* `q` para cerrar la ventana que abre el comando.
 * `A` para redimensionar la columna del autor.
 * `C` para redimensionar la columna de los _commit_.
 * `D` para redimensionar la columna de fecha/hora.
