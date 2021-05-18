@@ -1,12 +1,12 @@
 # Capítulo 20: Vistas, sesiones y Viminfo
 
-Después de haber trabajado en un proyecto durante un tiempo, puedes encontrar que el proyecto de manera gradual va tomando forma con sus propios ajustes, carpetas, _buffers_, diseños, etc. Es como decorar tu apartamento después de vivir en el durante un tiempo. Es problema es, que cuando cierras Vim, pierdes esos cambios. ¿No sería genial si pudieras mantener esos cambios para que la próxima vez que abras Vim, pareciera que nunca lo hubieras cerrado?
+Después de haber trabajado en un proyecto durante un tiempo, puedes encontrar que el proyecto de manera gradual va tomando forma con sus propios ajustes, carpetas, _buffers_, diseños, etc. Es como decorar tu apartamento después de vivir en el durante un tiempo. El problema es, que cuando cierras Vim, pierdes esos cambios. ¿No sería genial si pudieras mantener esos cambios para que la próxima vez que abras Vim, pareciera que nunca lo hubieras cerrado?
 
-En este capítulo, aprenderás a utilizar las vistas, sesiones y Viminfo para preservar una \*instantánea" de tus proyectos.
+En este capítulo, aprenderás a utilizar las vistas, sesiones y Viminfo para preservar una *instantánea* de tus proyectos.
 
 ## Vista \(View\)
 
-Una vista es el subconjunto más pequeño de los tres temas de este capítulo \(vista, sesiones, Viminfo\). Es una colección de ajustes para una ventana. Si pasas mucho tiempo trabajando en una ventana y quieres preservar los mapas y carpetas, puedes utilizar una vista.
+Una vista es el subconjunto más pequeño de los tres temas de este capítulo \(vista, sesiones, Viminfo\). Es una colección de ajustes para una ventana. Si pasas mucho tiempo trabajando en una ventana y quieres preservar los mapas y plegados de texto (o _fold_), puedes utilizar una vista.
 
 Vamos a crear un archivo llamado `foo.txt`:
 
@@ -23,7 +23,11 @@ foo9
 foo10
 ```
 
-En este archivo, creamos tres cambios: 1. En la línea 1, crea un pliegue de texto \(fold\) manual con `zf4j` \(pliega el contenido de las cuatro líneas siguientes\). 2. Cambia el ajuste de la numeración de las líneas `number`: `setlocal nonumber norelativenumber`. Esto eliminará los indicadores de número de la parte izquierda de la ventana. 3. Crea un mapeado local para bajar dos líneas cada vez que presiones `j` en vez de solo una línea, mediante `:nnoremap <buffer> j jj`.
+En este archivo, creamos tres cambios: 
+
+1. En la línea 1, crea un pliegue de texto \(fold\) manual con `zf4j` \(pliega el contenido de las cuatro líneas siguientes\).
+2. Cambia el ajuste de la numeración de las líneas `number`: `setlocal nonumber norelativenumber`. Esto eliminará los indicadores de número de la parte izquierda de la ventana.
+3. Crea un mapeado local para bajar dos líneas cada vez que presiones `j` en vez de solo una línea, mediante `:nnoremap <buffer> j jj`.
 
 Tu archivo ahora deberá tener un aspecto similar a este:
 
@@ -113,7 +117,7 @@ Los pliegues de texto \(folds\), los ajustes locales y los mapeados locales se h
 
 Vim te permite guardar hasta un número de 9 vistas \(1-9\).
 
-Supongamos que quieres hacer un pliegue \(fold\) adicional \(por ejemplo quieres plegar texto de las dos últimas líneas\) con `:9,10 fold`. Vamos a guardar esto como vista 1. Ejecuta:
+Supongamos que quieres hacer un pliegue \(fold\) adicional \(por ejemplo quieres plegar el texto de las dos últimas líneas\) con `:9,10 fold`. Vamos a guardar esto como vista 1. Ejecuta:
 
 ```text
 :mkview 1
@@ -151,7 +155,7 @@ Una de las peores cosas que te pueden pasar trabajando con Vim es que después d
 autocmd BufWinLeave *.txt mkview
 ```
 
-de manera adicional, podría estar bien el cargar la vista cada vez que abres un _buffer_:
+De manera adicional, podría estar bien el cargar la vista cada vez que abres un _buffer_:
 
 ```text
 autocmd BufWinEnter *.txt silent loadview
@@ -161,7 +165,7 @@ Ahora no te tienes que preocupar de crear o cargar una vista nunca más cuando e
 
 ## Sesiones
 
-si una vista guarda los ajustes de una ventana, una sesión guarda la información de todas las ventanas \(incluyendo el diseño\).
+Si una vista guarda los ajustes de una ventana, una sesión guarda la información de todas las ventanas \(incluyendo el diseño\).
 
 ### Creando una nueva sesión
 
@@ -214,7 +218,7 @@ baz10
 
 Vamos a suponer que el diseño de las ventanas es similar al que aparece a continuación \(utilizando de manera estratégica para ello `split` y `vsplit`\):
 
-![Session Layout](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/session-layout.png)
+![Diseño de la sesión](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/session-layout.png)
 
 Para preservar este aspecto, necesitas guardar la sesión. Ejecuta:
 
@@ -272,7 +276,7 @@ Si quiere añadir las `options` cuando guardes una sesión, ejecuta:
 :set sessionoptions+=options
 ```
 
-Estos son algunos de los atributos que `sessionoptions` pueden gestiona:
+Estos son algunos de los atributos que `sessionoptions` pueden gestionar:
 
 * `blank` almacena las ventanas vacía
 * `buffers` almacena los _buffers_
@@ -311,7 +315,7 @@ Para utilizar Viminfo, primero necesita tener la funcionalidad `+viminfo` dispon
 
 En general, las sesiones almacenan los atributos "externos" y Viminfo los atributos "internos".
 
-a diferencia de las sesiones en donde tenías un archivo de sesión por proyecto, normalmente usarás el archivo Viminfo por equipo. Viminfo es independiente del proyecto.
+A diferencia de las sesiones en donde tenías un archivo de sesión por proyecto, normalmente usarás el archivo Viminfo por equipo. Viminfo es independiente del proyecto.
 
 La ubicación predeterminada para Viminfo en sistemas basados en Unix es `$HOME/.viminfo` \(`~/.viminfo`\). Si utilizas un sistema operativo diferente, la ubicación de Viminfo podría ser diferente. Echa un vistazo a `:h viminfo-file-name`. Cada vez que haces cambios "internos", como copiar un texto a un registro, Vim automáticamente actualiza el archivo Viminfo.
 
