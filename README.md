@@ -18,6 +18,11 @@ La idea que originó todo, fue la de traducir la guía del inglés al español p
 
 Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un _issue_ en el repositorio en [GitHub](https://github.com/victorhck/Aprende-Vim/)
 
+Además de esta extensa guía, también he creado __otros materiales relacionados con Vim__, como:
+
+* [Estos artículos sobre Vim en mi blog](https://victorhckinthefreeworld.com/tag/vim/)
+* [Guía de consulta rápida sobre Vim](https://victorhck.gitlab.io/comandos_vim/articulos.html)
+
 ### Índice de contenidos
 
 #### Prólogo
@@ -50,7 +55,7 @@ Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o 
 #### Parte 2: Personaliza Vim de la manera más inteligente
 
 * [Cap 21 - Vimrc](cap21_vimrc.md)
-* [Cap 22 - Paquetes de Vim](cap22_paquetes_vim.md)
+* [Cap 22 - El gestor de complementos de Vim](cap22_paquetes_vim.md)
 * [Cap 23 - Ejecutables en Vim](cap23_ejecutables_vim.md)
 
 #### Parte 3: Aprende Vimscript de la manera más inteligente
