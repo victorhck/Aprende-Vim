@@ -46,7 +46,7 @@ Puedes clonar tantos repositorios de complementos como quieras dentro de la ruta
 
 ### Carga manual
 
-Para cargar complementos de manera manual cuando arranca Vim, necesitas ponerlos dentro del directorio `opt/`. De manera similar a la carha automática, la ruta tendrá un aspecto similar a este:
+Para cargar complementos de manera manual cuando arranca Vim, necesitas ponerlos dentro del directorio `opt/`. De manera similar a la carga automática, la ruta tendrá un aspecto similar a este:
 
 ```text
 ~/.vim/pack/*/opt/
