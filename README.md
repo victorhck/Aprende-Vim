@@ -23,7 +23,7 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 * [Estos artículos sobre Vim en mi blog](https://victorhckinthefreeworld.com/tag/vim/)
 * [Guía de consulta rápida sobre Vim](https://victorhck.gitlab.io/comandos_vim/articulos.html)
 
-### Índice de contenidos
+## Índice de contenidos
 
 #### Prólogo
 
@@ -75,3 +75,8 @@ Si creas tu propia versión utilizando esta traducción, por favor da crédito a
 
 Este trabajo está publicado bajo una licencia [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
+## Colaborar
+
+Si esta guía te ha resultado de utilidad, puedes invitarme a una cerveza 🍺como agradecimiento ❤️ :
+
+* [LiberaPay](https://liberapay.com/victorhck)
