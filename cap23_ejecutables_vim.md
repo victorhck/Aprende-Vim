@@ -2,7 +2,7 @@
 
 En capítulos anteriores, he mencionado que Vim busca de manera automática rutas especiales como `pack/` \(capítulo 22\) o `compiler/` \(capítulo 19\) dentro del directorio `~/.vim/`. Estos son ejemplos de rutas de ejecutables de Vim.
 
-Vim tiene más rutas de ejecutables que estas dos que he mencionado, repasaremos una descripción general de alto nivel de estas rutas de ejecutables. La meta de este capítulo es mostrar cuando son llamados. Sabiendo esto, te permitirá entender y personalizar ún mas.
+Vim tiene más rutas de ejecutables que estas dos que he mencionado, repasaremos una descripción general de alto nivel de estas rutas de ejecutables. La meta de este capítulo es mostrar cuando son llamados. Sabiendo esto, te permitirá entender y personalizar Vim aún mas.
 
 ## La ruta de ejecutables
 
@@ -60,7 +60,9 @@ Necesitas enseñar a Vim que todos los archivos que acaban con `.chocodonut` es 
 autocmd BufNewFile,BufRead *.chocodonut set filetype=chocodonut
 ```
 
-`BufNewFile` y `BufRead` son ejecutados cada vez que creas o abres un nuevo _buffer_. `*.chocodonut` significa que este evento solo será ejecutado is el _buffer_ abierto tiene `.chocodonut` como extensión en el nombre del archivo. Finalmente el comando, `set filetype=chocodonut` establece el tipo de archivo para que sea de tipo chocodonut.
+* `BufNewFile` y `BufRead` son ejecutados cada vez que creas o abres un nuevo _buffer_.
+* `*.chocodonut` significa que este evento solo será ejecutado si el _buffer_ abierto tiene `.chocodonut` como extensión en el nombre del archivo.
+* El comando, `set filetype=chocodonut` establece el tipo de archivo para que sea de tipo chocodonut.
 
 Reinicia Vim. Ahora abre el archivo `hola.chocodonut` y ejecuta `:set filetype?`. Y ahora contestará `filetype=chocodonut`.
 
@@ -106,7 +108,7 @@ Cuando vim llama a este archivo, este define una variable `did_load_filetypes` y
 
 Vamos a aprender a detectar y asignar un tipo de archivo basándonos en el contenido del archivo.
 
-supongamos que tienes unos cuantos archivos sin una extensión que les identifique. La única cosa que tienen en común esos archivos es que todos ellos comienzan con la palabra "donutify" en su primera línea. Quieres asignar estos archivos a un tipo de archivo llamado `donut`. Crea unos nuevos archivos llamados `sugardonut`, `glazeddonut` y `frieddonut` \(sin extensión\). Dentro de cada archivo, añade esta línea:
+Supongamos que tienes unos cuantos archivos sin una extensión que les identifique. La única cosa que tienen en común esos archivos es que todos ellos comienzan con la palabra "donutify" en su primera línea. Quieres asignar estos archivos a un tipo de archivo llamado `donut`. Crea unos nuevos archivos llamados `sugardonut`, `glazeddonut` y `frieddonut` \(sin extensión\). Dentro de cada archivo, añade esta línea:
 
 ```text
 donutify
@@ -128,7 +130,7 @@ endif
 
 La función `getline(1)` devuelve el texto de la primera línea. Esta comprueba si la primera línea comienza con la palabra "donutify". La función `did_filetype()` es una función propia de Vim. Esta devolverá "true" cuando un evento relacionado con un tipo de archivo se ejecute la primera vez. Es utilizado como medida de seguridad para impedir volver a ejecutar un evento de tipo de archivo.
 
-Abre el archivo `sugardonut` y ejecuta `:set filetype?`, Vim ahora muestra `filetype=donut`. Si abre otro archivo de tipo "donut" \(`glazeddonut` y `frieddonut`\), Vim también identifica esos archivos como de tipo `donut`.
+Abre el archivo `sugardonut` y ejecuta `:set filetype?`, Vim ahora muestra `filetype=donut`. Si abres otro archivo de tipo "donut" \(`glazeddonut` o `frieddonut`\), Vim también identifica esos archivos como de tipo `donut`.
 
 Ten en cuenta que `scripts.vim` solo es ejecutado cuando Vim abre un archivo con un tipo de archivo desconocido. Si Vim abre un archivo con un tipo de archivo conocido `scripts.vim` no se ejecutará.
 
@@ -136,7 +138,9 @@ Ten en cuenta que `scripts.vim` solo es ejecutado cuando Vim abre un archivo con
 
 ¿Qué ocurre si quieres que Vim ejecute unos _scripts_ específicos de archivos _chocodonut_ cuando abres un archivo chocodonut y no quieres que ejecute esos _scripts_ cuando abres archivos de tipo plaindonut?
 
-Puedes hacer esto con tipos de archivos de complementos en la ruta de los ejecutables de Vim \(`~/.vim/ftplugin/`\). Vim busca dentro de este directorio un archivo con el mismo nombre que el tipo de archivo que acabas de abrir. Crea un archivo llamado `chocodonut.vim` \(`~/.vim/ftplugin/chocodonut.vim`\):
+Puedes hacer esto con tipos de archivos de complementos en la ruta de los ejecutables de Vim \(`~/.vim/ftplugin/`\). Vim busca dentro de este directorio un archivo con el mismo nombre que el tipo de archivo que acabas de abrir. 
+
+Crea un archivo llamado `chocodonut.vim` \(`~/.vim/ftplugin/chocodonut.vim`\):
 
 ```text
 echo "Mensaje desde chocodonut ftplugin"
@@ -191,7 +195,7 @@ El complemento [vim-polyglot](https://github.com/sheerun/vim-polyglot) es un gra
 
 ## Documentación
 
-si creas un complemento, tendrás que crear tu propia documentación de cómo funciona. Para eso deberás utilizar la ruta de la documentación.
+Si creas un complemento, tendrás que crear tu propia documentación de cómo funciona. Para eso deberás utilizar la ruta de la documentación.
 
 Vamos a crear una documentación básica para las palabras clave chocodonut y plaindonut. Crea un archivo `donut.txt` \(`~/.vim/doc/donut.txt`\). Y dentro añade los siguientes textos:
 
@@ -233,7 +237,7 @@ En este caso, el nombre del archivo es `tasty.vim` y el nombre de la función es
 
 Para invocar una función, necesitas el comando `call`. Vamos a llamar la función con `:call tasty#donut()`.
 
-La primera vez que llamas a la función, deberías ver _ambos_ mensajes del comando echo \("tasty.vim global" y "tasty\#donut"\). Las siguiente llamadas a la función `tasty#donut` solo mostrarán el mensaje de "testy\#donut".
+La primera vez que llamas a la función, deberías ver _ambos_ mensajes del comando echo \("tasty.vim global" y "tasty\#donut"\). Las siguiente llamadas a la función `tasty#donut` solo mostrarán el mensaje de "tasty\#donut".
 
 Cuando abres un archivo en Vim, a diferencia de las rutas que hemos visto anteriormente, los _scripts_ de autoload no son cargados de manera automática. Solo cuando de manera explícita llamas `tasty#donut()`, es cuando Vim busca el archivo `tasty.vim` y carga todo lo que hay dentro de él, incluyendo la función `tasty#donut()`. Autoload es el mecanismo perfecto para funciones que utilizan muchos recursos de tu equipo pero que no las utilizas a menudo.
 
@@ -249,7 +253,7 @@ Por ejemplo, si quieres sobrescribir los _scripts_ de `plugin/chocolate.vim`, pu
 
 Vim tiene una variable de entorno `$VIMRUNTIME` para _scripts_ predeterminados y archivos admitidos. Puedes comprobarla ejecutando `:e $VIMRUNTIME`.
 
-La estructura debería tener una aspecto similar. Este contiene muchas de las rutas de ejecutables que has aprendido en este capítulo.
+La estructura debería tener una aspecto familiar. Este contiene muchas de las rutas de ejecutables que has aprendido en este capítulo.
 
 Recuerda que en el capítulo 21 aprendiste que cuando abres Vim, este busca unos archivos vimrc en diferentes ubicaciones. Dije que la última ubicación que comprueba Vim es `$VIMRUNTIME/default.vim`. Si Vim falla al buscar cualquier archivo vimrc de usuario, Vim utiliza un archivo `default.vim` como vimrc.
 
