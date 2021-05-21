@@ -59,7 +59,7 @@ Deberías estar familiarizado con el sistema decimal. Vim acepta decimales posit
 
 ### Hexadecimal
 
-El tipo hexadecimal comienzo con `0x` o `0X`. Puedes asociarlo con He**x**adecimal.
+El tipo hexadecimal comienza con `0x` o `0X`. Puedes asociarlo con He**x**adecimal.
 
 ### Binario
 
@@ -194,7 +194,7 @@ Cuando ejecutas operaciones aritméticas \(`+ - * /`\) con un número y una cade
 " devuelve 15
 ```
 
-Cuando Vim ve "12 donuts", extrar el 12 de la cadena y lo convierte al número 12. Después realiza la suma, devolviendo 15. Para que funcione este forzado de cadena a número, los caracteres de los números necesitan ser _los primeros caracteres_ de la cadena.
+Cuando Vim ve "12 donuts", extrae el 12 de la cadena y lo convierte al número 12. Después realiza la suma, devolviendo 15. Para que funcione este forzado de cadena a número, los caracteres de los números necesitan ser _los primeros caracteres_ de la cadena.
 
 Lo siguiente no funcionará porque 12 no está al comienzo de la cadena:
 
@@ -210,7 +210,7 @@ Esto tampoco funcionará porque hay un espacio en blanco al comienzo de la caden
 " devuelve 3
 ```
 
-Ese forzao funciona incluso con dos cadenas:
+Ese forzado funciona incluso con dos cadenas:
 
 ```text
 :echo "12 donuts" + "6 rosquillas"
@@ -265,7 +265,7 @@ Este forzado solo funciona con tipo de datos de números, no flotantes. Esto no 
 
 ### Condicionales de cadenas
 
-Recuerda que 0 es tratado como falso y todos los demás números son verdadero. Esto también se cumple cuando estamos utilizando cadenas como condicionales. This is also true when using string as conditionals.
+Recuerda que 0 es tratado como falso y todos los demás números son verdadero. Esto también se cumple cuando estamos utilizando cadenas como condicionales. 
 
 En la siguiente declaración de un comando _if_, Vim fuerza "12donuts" en 12, lo que se considera verdadero:
 
@@ -359,7 +359,7 @@ El último parámetro "g", es la opción global. Con este, Vim sustituirá todas
 " devuelve "swoet"
 ```
 
-El comando de sustitución puede ser combinado con `getline()`. Recuerda que la función `getline()` obtiene el texto de un número de línea dado. Supón ue tienes el texto "chocolate donut" en la línea 5. Puedes utilizar el siguiente procedimiento:
+El comando de sustitución puede ser combinado con `getline()`. Recuerda que la función `getline()` obtiene el texto de un número de línea dado. Supón que tienes el texto "chocolate donut" en la línea 5. Puedes utilizar el siguiente procedimiento:
 
 ```text
 :echo substitute(getline(5), "chocolate", "glaseado", "g")
@@ -468,7 +468,7 @@ Puedes utilizar `+` para concatenar y mutar una lista:
 
 Vamos a explorar las funciones de listas propias de Vim.
 
-Para obtener la longitud de una lisya, utiliza `len()`:
+Para obtener la longitud de una lista, utiliza `len()`:
 
 ```text
 :echo len(["chocolate", "fresa"])
@@ -505,7 +505,7 @@ Para eliminar un elemento de una lista, utiliza `remove()`. Esto acepta una list
 " devuelve ['azucarado', 'fresa']
 ```
 
-Puedes utilizar `map()` o `filter()` en una lista para filtrar un element en una frase. Por ejemplo el elemento que contiene la palabra "choco":
+Puedes utilizar `map()` o `filter()` en una lista para filtrar un elemento en una frase. Por ejemplo el elemento que contiene la palabra "choco":
 
 ```text
 :let sweeterList = ["azucarado", "chocolate", "fresa"]
@@ -748,7 +748,7 @@ Vim tiene unos primitivos especiales:
 
 Por cierto, `v:` es una variable interna de Vim. Trataremos más en detalle sobre esas variables en un capítulo posterior.
 
-En mi experiencia, no vas a utilizar muy a menudi estos primitivos especiales. Si necesitas un valor verdadero o falso, puedes utilizar simplemente 0 \(falso\) y un valor distinto de 0 \(verdadero\). Si necesitas una cadena vacía, simplemente utiliza `""`. Pero es buena idea conocer que existen por si quieres utilizarlos, así que vamos a darles un repaso rápido.
+En mi experiencia, no vas a utilizar muy a menudo estos primitivos especiales. Si necesitas un valor verdadero o falso, puedes utilizar simplemente 0 \(falso\) y un valor distinto de 0 \(verdadero\). Si necesitas una cadena vacía, simplemente utiliza `""`. Pero es buena idea conocer que existen por si quieres utilizarlos, así que vamos a darles un repaso rápido.
 
 ### True \(Verdadero\)
 
