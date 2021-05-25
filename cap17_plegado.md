@@ -262,7 +262,7 @@ vim es genial
 
 Vim de manera automática pliega algunas líneas idénticas. Cuando ejecutas el comando `vimdiff`, Vim automáticamente utiliza `foldmethod=diff`. Si ejecutas ahora `:set foldmethod?`, verás que devuelve `diff` como método de plegado utilizado.
 
-## Plegado por marcador \(_Marker Fold\_\)
+## Plegado por marcador \(_Marker Fold_\)
 
 Para utilizar el plegado por marcador, ejecuta:
 
