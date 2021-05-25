@@ -270,7 +270,7 @@ Para utilizar el plegado por marcador, ejecuta:
 :set foldmethod=marker
 ```
 
-Supongamos que tenemos el siguiente text:
+Supongamos que tenemos el siguiente texto:
 
 ```text
 Hello
@@ -284,7 +284,7 @@ vim
 Al ejecutar `zM`, verás:
 
 ```text
-hello
+Hello
 
 +-- 4 lines: -----
 ```
@@ -314,7 +314,7 @@ coffee2
 
 Ahora Vim utiliza `coffee1` y `coffee2` como los nuevos marcadores de plegado de texto. Como nota complementaria, un indicador debe ser una cadena literal y no puede ser una expresión regular.
 
-## Plegado persistente \(**Persisting Fold**\)
+## Plegado persistente \(*Persisting Fold*\)
 
 Al cerrar Vim se pierde toda la información de plegado. Si tienes este archivo, `cuenta.txt`:
 
@@ -348,7 +348,7 @@ Después cuando vuelvas a abrir el archivo `cuenta.txt`, ejecuta:
 :loadview
 ```
 
-Los plegados de texto que haya quedarán restaurados. Sin embargo, tienes que ejecutar `mkview` y `loadview` de manera manual. Estoy seguro que un día u otro olvidarás ejeutar `mkview` antes de cerrar el archivo y perderás todos esos plegados de texto. ¿Cómo podemos automatizar este proceso?
+Los plegados de texto que haya quedarán restaurados. Sin embargo, tienes que ejecutar `mkview` y `loadview` de manera manual. Estoy seguro que un día u otro olvidarás ejecutar `mkview` antes de cerrar el archivo y perderás todos esos plegados de texto. ¿Cómo podemos automatizar este proceso?
 
 Para ejecutar automáticamente `mkview` cuando cierras un archivo de tipo `.txt` y ejecutar `loadview` cuando abras un archivo `.txt`, añade esto en tu archivo de configuración vimrc:
 
@@ -362,7 +362,7 @@ Recuerda que `autocmd` es utilizado para ejecutar un comando ante la aparición 
 * `BufWinLeave` para cuando eliminas un _buffer_ de una ventana.
 * `BufWinEnter` para cuando cargas un _buffer_ en una ventana.
 
-Ahora cuando hayas creado un plegado de texto dentro de un archivo `.txt` y salgas de Vim, la próxima vez que abras un archivo, la próxima vez que habras ese archivo la información de los plegados que hayas creado se restaurará automáticamente.
+Ahora cuando hayas creado un plegado de texto dentro de un archivo `.txt` y salgas de Vim, la próxima vez que abras un archivo, la próxima vez que abras ese archivo la información de los plegados que hayas creado se restaurará automáticamente.
 
 De manera predeterminada, Vim guarda la información del plegado cuando ejecutas `mkview` dentro de `~/.vim/view` en sistemas operativos basados en Unix. Para más información, echa un vistazo a `:h 'viewdir'`.
 
