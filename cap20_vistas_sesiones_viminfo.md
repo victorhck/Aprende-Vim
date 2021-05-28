@@ -216,11 +216,7 @@ baz9
 baz10
 ```
 
-Vamos a suponer que el diseño de las ventanas es similar al que aparece a continuación \(utilizando de manera estratégica para ello `split` y `vsplit`\):
-
-![Diseño de la sesión](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/session-layout.png)
-
-Para preservar este aspecto, necesitas guardar la sesión. Ejecuta:
+Vamos a suponer divides tus ventanas con `split` y `vsplit`. Para preservar este aspecto, necesitas guardar la sesión. Ejecuta:
 
 ```text
 :mksession
@@ -244,7 +240,7 @@ Para cargar una sesión existente, ejecuta:
 :source Session.vim
 ```
 
-¡Ahora Vim vuelve a tener el mismo aspecto que cuando lo cerraste! De manera alternativa también puedes cargar el archivo de sesión desde la terminal:
+¡Ahora Vim vuelve a tener el mismo aspecto que cuando lo cerraste! Incluyendo las divisiones de ventanas. De manera alternativa también puedes cargar el archivo de sesión desde la terminal:
 
 ```text
 vim -S Session.vim
