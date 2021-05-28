@@ -216,7 +216,7 @@ baz9
 baz10
 ```
 
-Vamos a suponer divides tus ventanas con `split` y `vsplit`. Para preservar este aspecto, necesitas guardar la sesión. Ejecuta:
+Vamos a suponer que divides tus ventanas con `split` y `vsplit`. Para preservar este aspecto, necesitas guardar la sesión. Ejecuta:
 
 ```text
 :mksession
