@@ -48,13 +48,9 @@ De manera alternativa también podrías ejecutar:
 vim -d archivo1.txt archivo2.txt
 ```
 
-![Mostrando las diferencias con Vim](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/diffing-basic.png)
-
 `vimdiff` muestra dos _buffers_ uno al lado del otro. En la izquierda está `archivo1.txt` y en la derecha está `archivo2.txt`. La primera diferencia \(manzanas y naranjas\) aparecen resaltadas en ambas líneas.
 
 Supongamos que quieres hacer que el segundo _buffer_ tenga también manzanas, en vez de naranjas. Para transferir el contenido del _buffer_ actual \(estando el cursor en el archivo `archivo1.txt`\) a `archivo2.txt`, primero ve a la siguiente diferencia con `]c` \(para saltar a una diferencia previa, utiliza `[c`\). El cursor debería estar ahora en manzanas. Ejecuta `:diffput`. Ambos archivos deberían tener ahora la palabra manzanas.
-
-![Diffing Apples](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/diffing-apples.png)
 
 Si necesitas transferir el texto desde el otro _buffer_ \(zumo de naranja, `archivo2.txt`\) para reemplazar el texto del _buffer_ actual \(zumo de manzana, `archivo1.txt`\), con tu cursor todavía en la ventana de `archivo1.txt`, primero dirígete hasta la siguiente diferencia mediante `]c`. Tu cursor ahora debería estar sobre el texto zumo de manzana. Ejecuta `:diffget` para incorporar el texto zumo de naranja desde el otro _buffer_ para reemplazar el zumo de manzana en el _buffer_ actual.
 
@@ -171,8 +167,6 @@ Automatic merge failed; fix conflicts and then commit the result.
 git mergetool
 ```
 
-![La herramienta mergetool con Vim](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/mergetool-initial.png)
-
 Vim muestra cuatro ventanas. Pon atención a las tres superiores:
 
 * `LOCAL` continene `uvas`. Este es el cambio realizado en "local", en el que vas a fusionar.
@@ -271,8 +265,6 @@ Cuando ejecutas el comando `:Git` sin ningún parámetro,vim-fugitive muestra un
 * `u` cambiar a _unstage_ el archivo que está bajo el cursor.
 * `>` / `<` para mostrar u ocultar las diferencias mostradas en una sola línea del nombre del archivo bajo el cursor.
 
-![Fugitive Git](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/fugitive-git.png)
-
 Para saber más, echa un vistazo a `:h fugitive-staging-maps`.
 
 ## Git Blame
@@ -288,13 +280,9 @@ Algunas cosas que puedes hacer mientras estás en el modo `"git blame"`:
 
 Para más información, echa un vistazo a `:h :Git_blame`.
 
-![Fugitive Git Blame](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/fugitive-git-blame.png)
-
 ## Gdiffsplit
 
 Cuando ejecutas el comando `:Gdiffsplit`, vim-fugitive ejecuta un comando `vimdiff` del archivo actual comparándolo con el ínidce del árbol de trabajo. Si ejecutas `:Gdiffsplit <commit>`, vim-fugitive ejecuta `vimdiff` pero esta vez comparándolo con el archivo dentro de `<commit>`.
-
-![Fugitive Gdiffsplit](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/fugitive-gdiffsplit.png)
 
 Debido a que estás en el modo `vimdiff`, puedes _incorporar_ o _poner_ las diferencias con los comandos `:diffput` y `:diffget`.
 
@@ -307,8 +295,6 @@ Cuando ejecutas el comando `:Gread` en un archivo después de hacer cambios, vim
 ## Gclog
 
 Cuando ejecutas el comando `:Gclog`, vim-fugitive muestra el historial de _commits_. Es similar a ejecutar el comando `git log`. Vim-fugitive utiliza la ventana _quickfix_ de Vim para realizar esta tarea, así que puedes utilizar `:cnext` y `:cprevious` para navegar a través de la información ofrecida por el registro de git hacia adelante o atrás. Puedes abrir y cerrar el listado de registros con `:copen` y `:cclose`.
-
-![Fugitive Git Log](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/images/fugitive-git-log.png)
 
 Mientras estás en el modo `"git log"`, puedes realizar dos cosas:
 
