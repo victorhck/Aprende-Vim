@@ -1,4 +1,4 @@
-# ¿Nuevo o nueva usando Vim? Lee esto primero
+# Capítulo 00: Lee esto primero
 
 ## Por qué se ha escrito esta guía
 

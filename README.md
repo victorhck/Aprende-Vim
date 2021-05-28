@@ -27,7 +27,7 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 
 #### Prólogo
 
-* [Cap 0     - ¿Nuevo o nueva en Vim? Lee esto primero](cap00_reciente_en_vim_lee_esto_primero.md)
+* [Cap 0     - Lee esto primero](cap00_lee_esto_primero.md)
 
 #### Parte 1: Aprendiendo Vim de la manera más inteligente
 
