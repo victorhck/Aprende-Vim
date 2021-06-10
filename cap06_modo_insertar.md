@@ -21,7 +21,7 @@ gi   Inserta texto en la misma posición donde el modo insertar fue detenido por
 gI   Inserta texto al comienzo de una línea (columna 1)
 ```
 
-Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su contraparte en mayúscula. Si eres un usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `o`. Estos comandos deberían ser suficientes para empezar. Gradualmente ve aprendiendo más con el paso del tiempo.
+Ten en cuenta el patrón de minúscula/mayúscula. Para cada comando en minúscula existe su equivalente en mayúscula. Si eres un usuario nuevo, no te preocupes si no recuerdas toda la lista anterior. Empieza con `i` y `o`. Estos comandos deberían ser suficientes para empezar. Gradualmente ve aprendiendo más con el paso del tiempo.
 
 ## Formas diferentes de salir del modo insertar
 
@@ -66,7 +66,7 @@ Ctrl-U    Borrar una línea entera
 
 Los registros de Vim pueden almacenar textos para un uso futuro. Para insertar un texto en cualquier registro nominal mientras estás en el modo insertar, escribe `Ctrl-R` más el símbolo del registro. Hay muchos símbolos que puedes utilizar, pero para esta sección vamos a utilizar solo los registros nominales \(a-z\).
 
-Para ver esto en acción, primero necesitas copiar una palabra al registro "a". Situa tu cursor encima de cualquier palabra y después teclea:
+Para ver esto en acción, primero necesitas copiar una palabra al registro "a". Sitúa tu cursor encima de cualquier palabra y después teclea:
 
 ```text
 "ayiw
@@ -96,7 +96,7 @@ Ctrl-x Ctrl-E    Desplaza el contenido de la pantalla hacia abajo
 
 ## Autocompletado
 
-Vim tiene un mecanismo de autocompletado propio utilizando un submodo con `Ctrl-x` \(como con el desplazamiento que hemos visto antes\). Aunque esto no es tan bueno como [intellisense](https://code.visualstudio.com/docs/editor/intellisense) o cualquier otro Protocolo de lenguaje de servidor \(o LSP por sus siglas en inglés\), pero para algo que está disponible de manera predeterminada, es una característica muy capaz.
+Vim tiene un mecanismo de auto completado propio utilizando un submodo con `Ctrl-x` \(como con el desplazamiento que hemos visto antes\). Aunque esto no es tan bueno como [intellisense](https://code.visualstudio.com/docs/editor/intellisense) o cualquier otro Protocolo de lenguaje de servidor \(o LSP por sus siglas en inglés\), pero para algo que está disponible de manera predeterminada, es una característica muy capaz.
 
 Aquí tienes algunos comandos de autocompletado útiles para empezar a utilizarlo:
 
@@ -107,21 +107,21 @@ Ctrl-x Ctrl-I       Inserta un texto desde los archivos incluidos
 Ctrl-x Ctrl-F       Inserta un nombre de archivo
 ```
 
-Cuando lanzas el autocompletado, Vim mostrará una ventana emergente. Para navegar arriba y abajo por la ventana, utiliza `Ctrl-n` y `Ctrl-p`.
+Cuando lanzas el auto completado, Vim mostrará una ventana emergente. Para navegar arriba y abajo por la ventana, utiliza `Ctrl-n` y `Ctrl-p`.
 
-Vim también tiene dos autocompletados que no utiliza el submodo `Ctrl-x`:
+Vim también tiene dos auto completados que no utiliza el submodo `Ctrl-x`:
 
 ```text
 Ctrl-N             Encuentra la siguiente palabra que coincide
 Ctrl-P             Encuentra la palabra anterior que coincide
 ```
 
-En general, Vim busca en todo el texto disponible en todos los _buffers_ la fuente para el autocompletado. Si tienes abierto un _buffer_ con una línea que dice: "Los donuts de chocolate son los mejores":
+En general, Vim busca en todo el texto disponible en todos los _buffers_ la fuente para el auto completado. Si tienes abierto un _buffer_ con una línea que dice: "Los donuts de chocolate son los mejores":
 
 * Cuando escribes "Choco" y después `Ctrl-x Ctrl-l`, esto encontrará y añadirá la línea completa.
 * Cuando escribes "Choco" y después `Ctrl-p`, esto encontrará y añadirá la palabra "Chocolate".
 
-El autocompletado es un tema muy amplio en Vim. Esto es solo la punta de iceberg. Para aprender más, echa un vistazo a la ayuda de Vim `:h ins-completion`.
+El auto completado es un tema muy amplio en Vim. Esto es solo la punta de iceberg. Para aprender más, echa un vistazo a la ayuda de Vim `:h ins-completion`.
 
 ## Ejecutar un comando del modo normal
 
@@ -161,5 +161,5 @@ Ctrl-O D      Elimina desde la posición actual del cursor hasta el final de la 
 
 Si tu, al igual que yo provienes de otro editor de texto, puede ser tentador permanecer en el modo insertar. Sin embargo, el permanecer en el modo insertar cuando no tienes que introducir texto no es lo más indicado. Desarrolla un hábito de volver al modo normal cuando tus dedos no estén escribiendo texto nuevo.
 
-Cuando necesites insertar un texto, pregúntate si ese texto ya existe. Si lo hay, trata de copiarlo o mover ese texto en vez de escribirlo. Si tienes que entrar en el modo insertar, comprueba si puedes autocompletar el texto lo máximo posible. Evita escribir la misma palabra más de una vez si puedes.
+Cuando necesites insertar un texto, pregúntate si ese texto ya existe. Si lo hay, trata de copiarlo o mover ese texto en vez de escribirlo. Si tienes que entrar en el modo insertar, comprueba si puedes auto completar el texto lo máximo posible. Evita escribir la misma palabra más de una vez si puedes.
 
