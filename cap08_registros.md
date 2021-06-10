@@ -129,7 +129,7 @@ Otro ejemplo: 1. Yo borro una palabra \(`diw`\) 2. Yo borro una línea \(`dd`\) 
 
 ## Los registros nominales
 
-Los registros nominales son los registros más versátiles de Vim. Estos pueden almacenar textos copiados, modificados y borrados dentro de los registros a-z. A diferencia de los 3 tipos de registros anteriores que has visto, que pueden almcenar automáticamente texto dentro de los registros, aquí tienes que decirle explícitamente a Vim el nombre del registro a usar, brindándote así control total.
+Los registros nominales son los registros más versátiles de Vim. Estos pueden almacenar textos copiados, modificados y borrados dentro de los registros a-z. A diferencia de los 3 tipos de registros anteriores que has visto, que pueden almacenar automáticamente texto dentro de los registros, aquí tienes que decirle explícitamente a Vim el nombre del registro a usar, brindándote así control total.
 
 Para copiar una palabra dentro del registro a, puedes hacerlo con `"ayiw`.
 
@@ -192,9 +192,9 @@ Las expresiones son un tema muy amplio en Vim, así que aquí solo se trata lo b
 
 Si estás en un programa externo (por ejemplo en el navegador) y copias un bloque de texto con `Ctrl-C` (o `Cmd-C`, dependiendo de tu sistema operativo), normalmente no podrías utilizar `p` para pegar el texto en Vim. Sin embargo, en Vim tanto `"+` como `"*` están conectados con tu porta papeles, así que sí podrías pegar el texto utilizando esos registros mediante `"+p` o `"*p`. En cambio, si copias una palabra desde Vim con `"+yiw` o `"*yiw`, podrás pegar ese texto en el programa externo con `Ctrl-V` (o `Cmd-V`). Ten en cuenta que esto solo funciona si tu Vim viene con la opción `+clipboard`. Para comprobarlo, ejecuta `:version`.
 
-Te podrías preguntar que si `"*` y `"+` hacen lo mismo, ¿por qué Vim tiee dos registros diferentes? Algunos equipos utilizan un sistema de ventanas X11. Este sistema tiene 3 tipos de selecciones: primario, secundario y porta papeles. Si tu equipo utiliza X11, Vim utiliza la selección *primario* de X11 con el registro `quotestar` (`"*`) y la selección de *portapapeles* de X11 con el registro `quoteplus` (`"+`). Esto solo es aplicable si tienes la opción `+xterm_clipboard` disponible en tu versión de la compilación de Vim. Si tu Vim no tiene `xterm_clipboard`, no es un gran problema. Solo significa que tanto `quotestar` como `quoteplus` son intercambiables (los míos no lo son).
+Te podrías preguntar que si `"*` y `"+` hacen lo mismo, ¿por qué Vim tiene dos registros diferentes? Algunos equipos utilizan un sistema de ventanas X11. Este sistema tiene 3 tipos de selecciones: primario, secundario y porta papeles. Si tu equipo utiliza X11, Vim utiliza la selección *primario* de X11 con el registro `quotestar` (`"*`) y la selección de *portapapeles* de X11 con el registro `quoteplus` (`"+`). Esto solo es aplicable si tienes la opción `+xterm_clipboard` disponible en tu versión de la compilación de Vim. Si tu Vim no tiene `xterm_clipboard`, no es un gran problema. Solo significa que tanto `quotestar` como `quoteplus` son intercambiables (los míos no lo son).
 
-Creo que `=*p` or `=+p` es un poco incómodo. Para hacer que Vim pegue el texto compiado de un programa externo con solo `p`, puede añadir esto en tu archivo vimrc:
+Creo que `=*p` or `=+p` es un poco incómodo. Para hacer que Vim pegue el texto copiado de un programa externo con solo `p`, puede añadir esto en tu archivo vimrc:
 
 ```
 set clipboard=unnamed
@@ -224,7 +224,7 @@ Hay un complemento llamado [vim-peekaboo](https://github.com/junegunn/vim-peekab
 
 Los registros nominales no son solo para almacenar textos. También pueden ejecutar macros mediante `@`. Trataremos el tema de las macros en el siguiente capítulo.
 
-Ten en mente que como las macros están almacenadas en registros de Vim, puedes de manera accidental sobre escribirel texto almacenado con macros. Si almacenas el texto "Hola Vim" en el registro a y depués grabas una macro en el mismo registro con (`qa{secuecia_de_macro}q`), esa macro sobre escribirá tu texto "Hola Vim" almacenado previamente.
+Ten en mente que como las macros están almacenadas en registros de Vim, puedes de manera accidental sobre escribir el texto almacenado con macros. Si almacenas el texto "Hola Vim" en el registro a y después grabas una macro en el mismo registro con (`qa{secuecia_de_macro}q`), esa macro sobre escribirá tu texto "Hola Vim" almacenado previamente.
 
 ## Limpiando el contenido de un registro
 
