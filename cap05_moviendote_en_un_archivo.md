@@ -73,7 +73,7 @@ ge    Mueve el cursor hacia atrás al final de la palabra previa
 gE    Mueve el cursor hacia atrás al final de la PALABRA previa
 ```
 
-Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están separadas por caracteres que no son espacios en blanco. Una palabra es una secuencia de caracteres que continen _únicamente_ este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco \(cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea\) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
+Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están separadas por caracteres que no son espacios en blanco. Una palabra es una secuencia de caracteres que contienen _únicamente_ este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco \(cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea\) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
 
 Por ejemplo, supongamos que tenemos la siguiente frase:
 
@@ -165,7 +165,7 @@ Echa un vistazo a la ayuda de Vim con `:h sentence` y `:h paragraph` para aprend
 
 ## Navegación entre parejas
 
-Los programadores a menudo editan archivos que continen código. Puede contener muchos paréntesis, llaves y corchetes. Te puedes perder facilmente entre ellos. Si estás dentro de uno, puedes saltar a la otra pareja \(si existe\) con `%`. También puedes utilizar esto para encontrar cualquier pareja de paréntesis, llaves o corchetes.
+Los programadores a menudo editan archivos que contienen código. Puede contener muchos paréntesis, llaves y corchetes. Te puedes perder fácilmente entre ellos. Si estás dentro de uno, puedes saltar a la otra pareja \(si existe\) con `%`. También puedes utilizar esto para encontrar cualquier pareja de paréntesis, llaves o corchetes.
 
 ```text
 %    Navega de una a otra pareja, normalmente funciona con (), [], {}
@@ -186,7 +186,7 @@ Personalmente, me gusta complementar `%` utilizando complementos que añadan un 
 
 ## Navegación por número de línea
 
-Puedes saltar a un número de línea `n` con `nG`. Por ejemplo, si quieres saltar a la línea 7, utilza `7G`. Para saltar a la primera línea del texto, puedes utilizar tanto `1G` o `gg`. Para saltar a la última línea del texto, utiliza `G`.
+Puedes saltar a un número de línea `n` con `nG`. Por ejemplo, si quieres saltar a la línea 7, utiliza `7G`. Para saltar a la primera línea del texto, puedes utilizar tanto `1G` o `gg`. Para saltar a la última línea del texto, utiliza `G`.
 
 A menudo no sabes exactamente en qué línea está el sitio al que te quieres dirigir, pero sabes que aproximadamente se encuentra al 70% del archivo completo. En ese caso, puedes ejecutar `70%`. Para saltar a la mitad del archivo, puedes ejecutar `50%`.
 
