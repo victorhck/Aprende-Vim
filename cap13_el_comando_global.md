@@ -8,7 +8,7 @@ En este capítulo, aprenderás cómo repetir un comando ejecutado en la línea d
 
 El comando global de Vim es utilizado para ejecutar un comando de la línea de comandos en múltiples líneas de manera simultánea.
 
-Por cierto, puede que hayas leído anteriormente el témino "comandos Ex". En este libro, yo me refiero a ellos como comandos de la línea de comandos, pero ambos tanto los comandos Ex como los comandos de la línea de comandos son lo mismo. Hay comandos que comienzan con el símbolo de dos puntos \(`:`\). En el capítulo anterior aprendiste sobre los comandos de sustitución. Fue un ejemplo de los comandos Ex. Son llamados Ex porque originalmente provenían del editor de texto Ex. Me seguiré refiriendo a ellos en este libro como comandos de la línea de comandos. Para obtener una lista completa de los comandos Ex, echa un vistazo en Vim a `:h ex-cmd-index`.
+Por cierto, puede que hayas leído anteriormente el término "comandos Ex". En este libro, yo me refiero a ellos como comandos de la línea de comandos, pero ambos tanto los comandos Ex como los comandos de la línea de comandos son lo mismo. Hay comandos que comienzan con el símbolo de dos puntos \(`:`\). En el capítulo anterior aprendiste sobre los comandos de sustitución. Fue un ejemplo de los comandos Ex. Son llamados Ex porque originalmente provenían del editor de texto Ex. Me seguiré refiriendo a ellos en este libro como comandos de la línea de comandos. Para obtener una lista completa de los comandos Ex, echa un vistazo en Vim a `:h ex-cmd-index`.
 
 El comando global tiene la siguiente sintaxis:
 
@@ -85,7 +85,7 @@ Si ejecutas `:v/console/d`, esto eliminará todas las líneas que _no_ contengan
 
 ## Patrón
 
-El comando global utiliza el mismo sistema de patrones que el comando de sustitución, así que esta sección servirá como repaso. Si lo deseas, sientete libre de saltar a la siguiente sección o sigue leyendo.
+El comando global utiliza el mismo sistema de patrones que el comando de sustitución, así que esta sección servirá como repaso. Si lo deseas, siéntete libre de saltar a la siguiente sección o sigue leyendo.
 
 Si tienes las siguientes expresiones:
 
@@ -175,7 +175,7 @@ Para añadir un símbolo ";" al final de cada línea, ejecuta:
 Diseccionemos el comando:
 
 * `:g` es el comando global.
-* `/./` es el patrón para "todas las líneas que no estén vacías". Recuerda que el punto \(`.`\) es un registro que representa _cualquier caracter_. Lo que hace es buscar las líneas con al menos un caracter, así que en este caso marcará las líneas con las palabras "const" y "console". Ignorando las líneas vacías.
+* `/./` es el patrón para "todas las líneas que no estén vacías". Recuerda que el punto \(`.`\) es un registro que representa _cualquier carácter_. Lo que hace es buscar las líneas con al menos un carácter, así que en este caso marcará las líneas con las palabras "const" y "console". Ignorando las líneas vacías.
 * `normal A;` ejecuta el comando de la línea de comando `:normal`. `A;` es el comando normal para insertar un ";" al final de la línea.
 
 ## Ejecutar una macro
@@ -253,7 +253,7 @@ En vez de buscar las líneas que contienen "two", buscará las líneas que _no_ 
 
 ## Cambiando el símbolo del delimitador del comando global
 
-Puedes cambiar el delimitador del comando global de igual manera que se podía hacer en el comando de sustitución. Las reglas son las mismas: puedes utilizar cualquier caracter de un único byte excepto las letras del alfabeto, números, `"`, `|`, y `\`.
+Puedes cambiar el delimitador del comando global de igual manera que se podía hacer en el comando de sustitución. Las reglas son las mismas: puedes utilizar cualquier carácter de un único byte excepto las letras del alfabeto, números, `"`, `|`, y `\`.
 
 Para eliminar las líneas que contienen la palabra "console":
 
@@ -441,8 +441,8 @@ Normalmente el comando global acepta el siguiente formato: `:g/patrón/comando`.
 
 Con esto en mente, vamos a ver en detalle el anterior comando `:g/^$/,/./-1j` que sigue el formato de: `:g/patrón1/,/patrón2/comando`:
 
-* `/patrón1/` es `/^$/`. Esto representa una lína vacía \(una línea sin ningún caracter\).
-* `/patrón2/` es `/./` con el modificador de línea `-1`. `/./` representa una línea no vacía \(una línea con al menos un caracter\). El `-1` significa la línea superior a esa línea no vacía.
+* `/patrón1/` es `/^$/`. Esto representa una línea vacía \(una línea sin ningún carácter\).
+* `/patrón2/` es `/./` con el modificador de línea `-1`. `/./` representa una línea no vacía \(una línea con al menos un carácter\). El `-1` significa la línea superior a esa línea no vacía.
 * `comando` es en este caso `j`, el comando de unión de líneas \(`:j`\). En este contexto, este comando global unirá todas las líneas especificadas en una.
 
 Por cierto, si quieres reducir múltiples líneas vacías y eliminarlas por completo, en vez de utilizar `,/./-1` como rango para el comando `j`, simplemente utiliza `,/./` como rango.
