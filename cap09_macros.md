@@ -41,7 +41,7 @@ qa0gU$jq
 Vamos a diseccionar el comando anterior para ver qué realiza:
 
 * `qa` comienza la grabación de la macro en el registro a.
-* `0` situa el cursor al inicio de la línea.
+* `0` sitúa el cursor al inicio de la línea.
 * `gU$` convierte en mayúsculas el texto desde la posición actual hasta el final de la línea.
 * `j` baja el cursor una línea.
 * `q` detiene la grabación de la macro.
@@ -74,7 +74,7 @@ Veamos paso por paso lo que realiza el comando anterior:
 * `j` baja una línea.
 * `q` detiene la grabación de la macro.
 
-Me gusta sobredimensionar las veces que ejecuto la llamada a una macro, así que normalmente suelo llamar noventa y nueve veces a la macro \(`99@a`\). Con este comando, no implica que de manera obligatoria Vim ejecute el comando 99 veces. Cuando Vim llega a la última línea y ejecuta la acción `j`, encuentra que ya no hay más líneas que bajar, se encuentra con un error, y detiene la ejecución de la macro.
+Me gusta sobre dimensionar las veces que ejecuto la llamada a una macro, así que normalmente suelo llamar noventa y nueve veces a la macro \(`99@a`\). Con este comando, no implica que de manera obligatoria Vim ejecute el comando 99 veces. Cuando Vim llega a la última línea y ejecuta la acción `j`, encuentra que ya no hay más líneas que bajar, se encuentra con un error, y detiene la ejecución de la macro.
 
 El hecho que la ejecución de una macro se detenga cuando encuentra el primer error es una buena funcionalidad, de otra forma Vim continuaría ejecutando este macro 99 veces incluso aunque haya llegado al final del archivo.
 
@@ -124,7 +124,7 @@ Si no estás familiarizado con el comando global `:g/donut/normal @a`, este ejec
 
 ## Macro recursiva
 
-Puedes ejecutar de manera recursiva una macro llamándo al mismo registro de la macro mientras estás grabando la macro. Supongamos que tienes esta lista de nuevo y necesitas cambiar a mayúsculas la primera letra de la primera palabra:
+Puedes ejecutar de manera recursiva una macro llamando al mismo registro de la macro mientras estás grabando la macro. Supongamos que tienes esta lista de nuevo y necesitas cambiar a mayúsculas la primera letra de la primera palabra:
 
 ```text
 a. chocolate donut
@@ -143,9 +143,9 @@ Este es el desglose del comando en los diferentes pasos:
 
 * `qaq` graba una macro vacía dentro de a. Es necesario grabar una macro vacía en el mismo nombre de registro porque cuando ejecutes de manera recursiva, ejecutará todo lo que haya en el registro.
 * `qa` comienza la grabación en el registro a.
-* `0` situa el cursor en el primer caracter en la línea actual.
+* `0` sitúa el cursor en el primer carácter en la línea actual.
 * `W` va a la siguiente PALABRA.
-* `~` cambia la letra del caracter bajo el cursor.
+* `~` cambia la letra del carácter bajo el cursor.
 * `j` baja una línea.
 * `@a` ejecuta la macro a.
 * `q` detiene la grabación.
@@ -195,7 +195,7 @@ Primero, llamemos a la macro ya existente \(asumamos que has guardado la macro d
 
 ¿Qué es el símbolo `^[`? ¿No escribiste `0W~A.<Esc>`? `^[` es la representación con el _código interno_ de Vim para representar `<Esc>`. Con ciertas teclas especiales, Vim muestra la representación de esas teclas en forma de códigos internos. Algunas teclas comunes que tienen representaciones de código interno son `<Esc>`, `<Backspace>`, y `<Enter>`. Hay más teclas especiales, pero eso no entra dentro del objetivo de este capítulo.
 
-Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un caracter de minúscula a mayúscula \(`~`\), vamoa a añadir las instrucciones para ir al final de la línea \(`$`\), regresar una palabra \(`b`\), entrar en el modo de insertar \(`i`\), escribir "deep fried " \(no olvides el espacio en blanco después de la palabra "fried "\), y salir del modo insertar \(`<Esc>`\).
+Volviendo a la modificación de la macro, justo después del operador para cambiar el estado de un carácter de minúscula a mayúscula \(`~`\), vamos a añadir las instrucciones para ir al final de la línea \(`$`\), regresar una palabra \(`b`\), entrar en el modo de insertar \(`i`\), escribir "deep fried " \(no olvides el espacio en blanco después de la palabra "fried "\), y salir del modo insertar \(`<Esc>`\).
 
 Esto es el aspecto que tendrá la macro finalizada:
 
@@ -239,7 +239,7 @@ Si quieres grabar una macro para poner en minúsculas todas las mayúsculas de "
 qa0f{gui{jq
 ```
 
-Deglosemos el funcionamiento de la macro:
+Desglosemos el funcionamiento de la macro:
 
 * `qa` comienza la grabación en el registro a.
 * `0` posiciona el cursor en la primera línea.
