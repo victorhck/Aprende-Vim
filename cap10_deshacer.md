@@ -58,7 +58,7 @@ uno
 
 ```
 
-`U` pasa por alto todos los cambios intermedios y va directamete al estado original cuando comenzaste \(la línea vacía debajo del texto "uno"\). Además, como DESHACER crea un nuevo cambio en Vim, puedes DESHACER tu acción de DESHACER. `U` seguido por `U` se deshará a sí mismo. Puede presionar `U`, después `U`, después `U`, para siempre, y verás los mismos dos textos alternar hacia adelante y hacia atrás.
+`U` pasa por alto todos los cambios intermedios y va directamente al estado original cuando comenzaste \(la línea vacía debajo del texto "uno"\). Además, como DESHACER crea un nuevo cambio en Vim, puedes DESHACER tu acción de DESHACER. `U` seguido por `U` se deshará a sí mismo. Puede presionar `U`, después `U`, después `U`, para siempre, y verás los mismos dos textos alternar hacia adelante y hacia atrás.
 
 Personalmente no utilizo `U` porque es difícil recordar el estado original \(rara vez lo he necesitado\). Lo más que he utilizado `U` es cuando accidentalmente he pulsado `Shift-u`.
 
@@ -70,9 +70,9 @@ He mencionado anteriormente que `u` deshace un único "cambio", de manera simila
 
 Si ejecutas `iuno dos tres<Esc>` y después presionas `u`, Vim elimina el texto entero "uno dos tres" porque es considerado un cambio al completo. Esto sería aceptable cuando se trata de un texto corto, pero ¿qué pasa si has escrito varios párrafos bajo una única sesión del modo insertar sin salir de ella y después te das cuenta que has cometido un error? Si presionas `u`, todo lo que habías escrito sería eliminado. ¿No sería más útil si pudieras presionar `u` para eliminar solo una sección de tu texto?
 
-Afortunadamente, puedes dividir los bloques de deshacer. Cuando estás escribiendo en el modo insertar, presiona `Ctrl-G u` para crear un punto de ruptura del comando deshacer. Por ejemplo, si escribes lo siguiente en el ejemplo anterior `iuno <Ctrl-G u>dos <Ctrl-G u>tres<Esc>`, después presiona `u`, así solo perderás es texto "tres". Presiona `u` una vez más para eliminar "dos". Cuando escribes un texto largo, utiliza `Ctrl-G u` de manera estratégica. Al final de cada frase, entre dos párrafos, o después de cada línea de código son buenas ubicaciones para añadir puntos de ruptua para hacer más sencillo el poder deshacer los errores si los comentes.
+Afortunadamente, puedes dividir los bloques de deshacer. Cuando estás escribiendo en el modo insertar, presiona `Ctrl-G u` para crear un punto de ruptura del comando deshacer. Por ejemplo, si escribes lo siguiente en el ejemplo anterior `iuno <Ctrl-G u>dos <Ctrl-G u>tres<Esc>`, después presiona `u`, así solo perderás es texto "tres". Presiona `u` una vez más para eliminar "dos". Cuando escribes un texto largo, utiliza `Ctrl-G u` de manera estratégica. Al final de cada frase, entre dos párrafos, o después de cada línea de código son buenas ubicaciones para añadir puntos de ruptura para hacer más sencillo el poder deshacer los errores si los comentes.
 
-También es útil el crear puntos de interrupción de deshacer cuando se borran fragmentos en el modo insertar con las combinaciones de teclas `Ctrl-W` \(elimina la palabra anterior al cursor\) o `Ctrl-U` \(elimina todo el texto anterior al cursor\). Un amigo sigirió el utilizar el siguiente mapeado de teclas para que haga la acción automáticamente al pulsar dichas combinaciones de teclas:
+También es útil el crear puntos de interrupción de deshacer cuando se borran fragmentos en el modo insertar con las combinaciones de teclas `Ctrl-W` \(elimina la palabra anterior al cursor\) o `Ctrl-U` \(elimina todo el texto anterior al cursor\). Un amigo sugirió el utilizar el siguiente mapeado de teclas para que haga la acción automáticamente al pulsar dichas combinaciones de teclas:
 
 ```text
 inoremap <c-u> <c-g>u<c-u>
@@ -269,7 +269,7 @@ Los mismo tipos de argumentos que funcionan con `:earlier` también se aplican a
 
 ## Aprendiendo a deshacer de la manera más inteligente
 
-`u` y `Ctrl-R` son dos comandos indispensables de Vim. Apréndelos en primer lugar. Personalmente no utilizo DESHACER en mi manera de trabajo con Vim, sin embargo creo que está bien saber que existe esa posibilidad. Después, aprende a utilizar `:earlier` y `:later` utilizando primero los argumentos de tiempo. Después de eso, tómate tu tiempo para entender el concepto de árbol de cambios de deshacer. El complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) me ha ayudado mucho. Practica escribiendo los textos de este capítulo y comprueba cómo cómo funciona ese árbol de deshacer cuando haces cada cambio. Una vez que lo entiendas, nunca volverás a ver el sistema de deshacer de la misma manera.
+`u` y `Ctrl-R` son dos comandos indispensables de Vim. Apréndalos en primer lugar. Personalmente no utilizo DESHACER en mi manera de trabajo con Vim, sin embargo creo que está bien saber que existe esa posibilidad. Después, aprende a utilizar `:earlier` y `:later` utilizando primero los argumentos de tiempo. Después de eso, tómate tu tiempo para entender el concepto de árbol de cambios de deshacer. El complemento [vim-mundo](https://github.com/simnalamburt/vim-mundo) me ha ayudado mucho. Practica escribiendo los textos de este capítulo y comprueba cómo cómo funciona ese árbol de deshacer cuando haces cada cambio. Una vez que lo entiendas, nunca volverás a ver el sistema de deshacer de la misma manera.
 
 Antes de este capítulo, has aprendido a encontrar cualquier texto en un proyecto, con _undo_ o deshacer, puedes encontrar cualquier texto en el tiempo. Ahora eres capaz de buscar cualquier texto por su localización o en el tiempo en el que fue escrito. Has conseguido la Vim-omnipresencia.
 
