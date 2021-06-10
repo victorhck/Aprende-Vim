@@ -48,7 +48,7 @@ En Vim, los cambios no incluyen los movimientos, porque estos no actualizan el c
 
 La `f` en `df,` y en `f,x` tiene un cometido muy diferente.
 
-Finalicemos la última tarea. Después de ejecutar `f,` seguido por `x`, ve a la siguiente coma mediante `;` para repetir la última búsqueda realizada con `f`. Después utiliza `.` para eliminar el caracter bajo el cursor. Repite la secuencia `; . ; .` hasta que todo este eliminado. El comando completo sería `f,x;.;.`.
+Finalicemos la última tarea. Después de ejecutar `f,` seguido por `x`, ve a la siguiente coma mediante `;` para repetir la última búsqueda realizada con `f`. Después utiliza `.` para eliminar el carácter bajo el cursor. Repite la secuencia `; . ; .` hasta que todo este eliminado. El comando completo sería `f,x;.;.`.
 
 Probemos otro ejemplo:
 
@@ -79,7 +79,7 @@ let eight = "8";
 let nine = "9";
 ```
 
-Tu objetivo es eliminar todas las líneas excepto la línea que contiene la cadenad "foo". Primero, borraremos las tres primeras líneas con `d2j`. Después iremos a la línea siguiente a la que contiene foo. En la línea siguiente, utiliza el comando del punto un par de veces. El comando completo es `d2jj..`.
+Tu objetivo es eliminar todas las líneas excepto la línea que contiene la cadena "foo". Primero, borraremos las tres primeras líneas con `d2j`. Después iremos a la línea siguiente a la que contiene foo. En la línea siguiente, utiliza el comando del punto un par de veces. El comando completo es `d2jj..`.
 
 Aquí el cambio fue `d2j`. En este contexto `2j` no fue un movimiento, si no parte del operador de borrado.
 
@@ -108,15 +108,15 @@ let three = "3";
 
 Hay una manera más rápida de realizar esta tarea. Cuando borres el texto, en vez de utilizar `w` como sustantivo, utiliza: `gn`.
 
-`gn` es un comando de movimiento que busca hacia adelante el último patrón de búsqueda \(en este caso la cadena de texto `/let`\) y automáticamente hace una selección en modo visual en la coincidencia encontrada. Para reemplazar la siguiente ocurrencia, ya no es necesario que te muevas y repetir el cambio \( `n . n .`\), but only repeat \(`. .`\). Ya no necesitarás moverte más, ya que la búsqueda de la siguiente coincidencia ¡ahora forma parte del cambio a realizar!
+`gn` es un comando de movimiento que busca hacia adelante el último patrón de búsqueda \(en este caso la cadena de texto `/let`\) y automáticamente hace una selección en modo visual en la coincidencia encontrada. Para reemplazar la siguiente ocurrencia, ya no es necesario que te muevas y repetir el cambio \( `n . n .`\), si no solo repetir \(`. .`\). Ya no necesitarás moverte más, ya que la búsqueda de la siguiente coincidencia ¡ahora forma parte del cambio a realizar!
 
-Cuando estes editando, siempre debes estar pendiente de buscar un comando de movimiento que pueda realizar diversas cosas en una sola vez como `gn` siempre que sea posible.
+Cuando estés editando, siempre debes estar pendiente de buscar un comando de movimiento que pueda realizar diversas cosas en una sola vez como `gn` siempre que sea posible.
 
 ## Aprender el comando del punto de la manera más inteligente
 
 El poder del comando del punto viene dado por poder ahorrarte muchas pulsaciones de teclado simplemente en una, pulsando la tecla del punto. Quizás no es un cambio muy rentable el utilizar comando del punto como reemplazo para operaciones que solo requieren una pulsación de tecla como `x`. Si tu último cambio requiere una operación más compleja, como por ejemplo `cgnconst<Esc>`, el comando del punto reduce 9 pulsaciones de teclas en una sola, lo que es un buen cambio.
 
-Cuando estes editando, pregúntate si la acción que estás a punto de realizar es propensa de volver a repetirla. Por ejemplo, si necesito eliminar las próximas tres palabras, ¿es más económico utilizar `d3w` o hacer `dw` y después repetir esa acción con `.` dos veces más? ¿Borrarás una palabra de nuevo? Si es así, entonces tiene sentido el utilizar `dw` y repetir la acción varias veces en vez de `d3w` porque `dw` se puede volver a utilizar más veces que `d3w`.
+Cuando estés editando, pregúntate si la acción que estás a punto de realizar es propensa de volver a repetirla. Por ejemplo, si necesito eliminar las próximas tres palabras, ¿es más económico utilizar `d3w` o hacer `dw` y después repetir esa acción con `.` dos veces más? ¿Borrarás una palabra de nuevo? Si es así, entonces tiene sentido el utilizar `dw` y repetir la acción varias veces en vez de `d3w` porque `dw` se puede volver a utilizar más veces que `d3w`.
 
 El comando del punto es muy sencillo y versátil para empezar a automatizar tareas simples. En el próximo capítulo aprenderás cómo automatizar acciones complejas con las macros de Vim. Pero primero, aprendamos sobre los registros para almacenar y recuperar textos.
 
