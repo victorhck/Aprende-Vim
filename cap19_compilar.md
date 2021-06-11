@@ -163,7 +163,7 @@ No tienes que utilizar el `:compiler` y `makeprg` para compilar un programa. Pue
 
 ## Crear un compilador personalizado
 
-Vamos a crear un simple compilador de Typescript. Instala Typescript \(`npm install -g typescript`\) en tu equipo. Deberías tener disponible el comando `tsc`. Si no has utilizado antes typescript, `tsc` complila un archivo de formato Typescript en un archivo Javascript. Supongamos que tienes un archivo llamado, `hola.ts`:
+Vamos a crear un simple compilador de Typescript. Instala Typescript \(`npm install -g typescript`\) en tu equipo. Deberías tener disponible el comando `tsc`. Si no has utilizado antes typescript, `tsc` compila un archivo de formato Typescript en un archivo Javascript. Supongamos que tienes un archivo llamado, `hola.ts`:
 
 ```text
 const hola = "hola";
