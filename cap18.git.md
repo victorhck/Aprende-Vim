@@ -169,9 +169,9 @@ git mergetool
 
 Vim muestra cuatro ventanas. Pon atención a las tres superiores:
 
-* `LOCAL` continene `uvas`. Este es el cambio realizado en "local", en el que vas a fusionar.
-* `BASE` continene `naranjas`. Este es el ancestro común entre `LOCAL` y `REMOTE` para comparar cómo difieren.
-* `REMOTE` continene `manzanas`. Esto es lo que está siendo fusionado.
+* `LOCAL` contiene `uvas`. Este es el cambio realizado en "local", en el que vas a fusionar.
+* `BASE` contiene `naranjas`. Este es el ancestro común entre `LOCAL` y `REMOTE` para comparar cómo difieren.
+* `REMOTE` contiene `manzanas`. Esto es lo que está siendo fusionado.
 
 En la parte inferior \(la cuarta ventanas\) verás:
 
@@ -187,7 +187,7 @@ manzanas
 >>>>>>> manzanas
 ```
 
-La cuarta ventana contiene los textos del conflito de fusión. Con este escenario, es sencillo ver qué cambios tiene cada entorno. Puedes ver el contenido de `LOCAL`, `BASE` y `REMOTE` al mismo tiempo.
+La cuarta ventana contiene los textos del conflicto de fusión. Con este escenario, es sencillo ver qué cambios tiene cada entorno. Puedes ver el contenido de `LOCAL`, `BASE` y `REMOTE` al mismo tiempo.
 
 Tu cursor debería estar en la cuarta ventana, en el área resaltada. Para obtener los cambios desde `LOCAL` \(uvas\), ejecuta `:diffget LOCAL`. Para incorporar los cambios desde `BASE` \(naranjas\), ejecuta `:diffget BASE` y para obtener los cambios desde `REMOTE` \(manzanas\), ejecuta `:diffget REMOTE`.
 
@@ -257,7 +257,7 @@ Para empezar, vamos a instalar vim-fugitive con un gestor de complementos de Vim
 
 ## Git Status
 
-Cuando ejecutas el comando `:Git` sin ningún parámetro,vim-fugitive muestra una ventana con un sumario de git. Muestra el archivo o archivos que no tienen seguimiento de git \(untracked\), que todavía no han sido tomados en cuenta \(unstaged\) o que ya se han añadido \(staged\). Mientras estás en este modo "`git status`", puedes realizar varias cosas:
+Cuando ejecutas el comando `:Git` sin ningún parámetro, vim-fugitive muestra una ventana con un sumario de git. Muestra el archivo o archivos que no tienen seguimiento de git \(untracked\), que todavía no han sido tomados en cuenta \(unstaged\) o que ya se han añadido \(staged\). Mientras estás en este modo "`git status`", puedes realizar varias cosas:
 
 * `Ctrl-N` / `Ctrl-P` ir arriba o abajo en la lista de archivos.
 * `-` cambiar el archivo que está bajo el cursor a _stage_ o \*unstage.
@@ -282,15 +282,15 @@ Para más información, echa un vistazo a `:h :Git_blame`.
 
 ## Gdiffsplit
 
-Cuando ejecutas el comando `:Gdiffsplit`, vim-fugitive ejecuta un comando `vimdiff` del archivo actual comparándolo con el ínidce del árbol de trabajo. Si ejecutas `:Gdiffsplit <commit>`, vim-fugitive ejecuta `vimdiff` pero esta vez comparándolo con el archivo dentro de `<commit>`.
+Cuando ejecutas el comando `:Gdiffsplit`, vim-fugitive ejecuta un comando `vimdiff` del archivo actual comparándolo con el índice del árbol de trabajo. Si ejecutas `:Gdiffsplit <commit>`, vim-fugitive ejecuta `vimdiff` pero esta vez comparándolo con el archivo dentro de `<commit>`.
 
 Debido a que estás en el modo `vimdiff`, puedes _incorporar_ o _poner_ las diferencias con los comandos `:diffput` y `:diffget`.
 
 ## Gwrite y Gread
 
-Cuando ejectuas el comando `:Gwrite` en un archivo después de hacer cambios, vim-fugitive añade los cambios. Es como ejecutar `git add <archivo_actual>`.
+Cuando ejecutas el comando `:Gwrite` en un archivo después de hacer cambios, vim-fugitive añade los cambios. Es como ejecutar `git add <archivo_actual>`.
 
-Cuando ejecutas el comando `:Gread` en un archivo después de hacer cambios, vim-fugitive restablece el archivo al estado anterior a los cambios. Es como ejecutar `git checkout <archivo_actual>`. Una de las ventajas de ejecutar `:Gread` es que la acción es revertible. Si, después de ejecutar `:Gread`, cambias de opinión y quieres mantener los antiguos cambios, simplemente puedes ejecutar la acción de deshacer \(`u`\) y Vim revertirá la acción de `:Gread`. Esto no sería posible si hubieras ejecutado `git checkout <archivo_actual>` desde la línea de comandos.
+Cuando ejecutas el comando `:Gread` en un archivo después de hacer cambios, vim-fugitive restablece el archivo al estado anterior a los cambios. Es como ejecutar `git checkout <archivo_actual>`. Una de las ventajas de ejecutar `:Gread` es que la acción es reversible. Si, después de ejecutar `:Gread`, cambias de opinión y quieres mantener los antiguos cambios, simplemente puedes ejecutar la acción de deshacer \(`u`\) y Vim revertirá la acción de `:Gread`. Esto no sería posible si hubieras ejecutado `git checkout <archivo_actual>` desde la línea de comandos.
 
 ## Gclog
 
