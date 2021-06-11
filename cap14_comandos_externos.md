@@ -30,7 +30,7 @@ La sintaxis para leer la salida estándar \(STDOUT\) de un comando externo dentr
 
 Vim pondrá el contenido de `archivo1.txt` dentro del _buffer_ actual.
 
-Si ejecutas el comado `:r` seguido por un `!` y un comando externo, la salida de ese comando será insertada dentro del _buffer_ actual. Para obtener el resultado del comando `ls`, ejecuta:
+Si ejecutas el comando `:r` seguido por un `!` y un comando externo, la salida de ese comando será insertada dentro del _buffer_ actual. Para obtener el resultado del comando `ls`, ejecuta:
 
 ```text
 :r !ls
@@ -113,7 +113,7 @@ Para matar un proceso que se está ejecutando con el identificativo de proceso P
 
 Puedes ejecutar cualquier comando externo sin dejar Vim y así permanecer centrado en tu tarea.
 
-## Filtranto textos
+## Filtrando textos
 
 Si das un rango al comando `!`, esto puede ser utilizado para filtrar textos. Supongamos que tenemos estos textos:
 
