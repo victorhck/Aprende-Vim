@@ -11,7 +11,7 @@ one = One.new
 one.donut
 ```
 
-¿`One`? ¿`donut`? Bueno, estos nombre podrían ser obvios para el desarrollador o desarrolladora que escribieran el código hace tiempo, pero ahora esas personas ya no están aquí y te corresponde a tí entender estas líneas de código tan enrevesadas. Una manera de ayudar a entender esto es seguir el código fuente donde `One` y `donut` están definidas.
+¿`One`? ¿`donut`? Bueno, estos nombre podrían ser obvios para el desarrollador o desarrolladora que escribieran el código hace tiempo, pero ahora esas personas ya no están aquí y te corresponde a ti entender estas líneas de código tan enrevesadas. Una manera de ayudar a entender esto es seguir el código fuente donde `One` y `donut` están definidas.
 
 Puedes buscarlas tanto con `fzf` como con `grep` (o `vimgrep`), pero en este caso es más rápido utilizar etiquetas.
 
@@ -58,7 +58,7 @@ Para saltar a una definición, puedes utilizar la combinación de teclas `Ctrl-]
 
 El Vim actual no trae incorporado un generador de etiquetas, así que tendrás que descargar un generador de etiquetas externo. Hay varias opciones entre las que escoger:
 
-* ctags = solo para C. disponible casi para todas las plataformas.
+* ctags = solo para C. Disponible casi para todas las plataformas.
 * exuberant ctags = Uno de los más populares. Admite muchos lenguajes. 
 * universal ctags = Similar a ctags, pero más moderno.
 * etags = Para Emacs. Hmm...
@@ -69,7 +69,7 @@ El Vim actual no trae incorporado un generador de etiquetas, así que tendrás q
 
 Si echas un vistazo a tutoriales de Vim en internet, muchos recomendarán [Exuberant ctags](http://ctags.sourceforge.net/). Admite [41 lenguajes de programación](http://ctags.sourceforge.net/languages.html). Yo lo utilizaba y funcionaba genial. Sin embargo, debido a que ya no está mantenido desde 2009, **Universal ctags** sería una opción más adecuada. Funciona de manera similar a **Exuberant ctags** y actualmente está mantenido.
 
-Asumo que tines el ctags universal instalado, vamos a generar un archivo de etiquetas básico. Ejecuta lo siguiente:
+Asumo que tienes el ctags universal instalado, vamos a generar un archivo de etiquetas básico. Ejecuta lo siguiente:
 
 ```text
 ctags -R .
@@ -92,11 +92,11 @@ donut    one.rb    /^  def donut$/;"    f    class:One
 initialize    one.rb    /^  def initialize$/;"    f    class:One
 ```
 
-El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. El archivo de etiquetas está compuesto por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos \(`!TAG_FILE...`\) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echasr un vistazo a su documentación! La lista de etiquetas es una lista de todas las definiciones indexadas por ctags.
+El contenido de tu archivo puede ser algo diferente, dependiendo de los ajustes de tu Vim y del generador ctags. El archivo de etiquetas está compuesto por dos partes: los metadatos de la etiqueta y la lista de etiquetas. Estos metadatos \(`!TAG_FILE...`\) son normalmente controlados por el generador ctags. No entraré en detalle sobre eso aquí, pero ¡no dudes en echar un vistazo a su documentación! La lista de etiquetas es una lista de todas las definiciones indexadas por ctags.
 
 Ahora ve al archivo `two.rb`, y coloca el cursor encima de la palabra `donut`, y escribe `Ctrl-]`. Vim te llevará al archivo `one.rb` a la línea donde está `def donut`. ¡Eureka! ¿Pero cómo hizo esto Vim?
 
-## Antatomía de las etiquetas
+## Anatomía de las etiquetas
 
 Echemos un vistazo a la etiqueta del elemento `donut`:
 
@@ -117,7 +117,7 @@ Echemos un vistazo de otro elemento de la lista de etiquetas:
 One    one.rb    /^class One$/;"    c
 ```
 
-Esta línea funciona de la misma manerá que el patrón `donut`:
+Esta línea funciona de la misma manera que el patrón `donut`:
 
 * `One` es el `tagname`. Ten en cuenta que con las etiquetas, el primer escaneo tiene en cuenta las mayúsculas y minúsculas. Si tienes `One` y `one` en la lista, Vim priorizará `One` sobre `one`.
 * `one.rb` es el `tagfile`. Vim buscará un archivo `one.rb`.
@@ -215,7 +215,7 @@ one.donut
 puts pancake
 ```
 
-Si has vuelto a escribir el contenido del archivo, no ovide ejectuar de nuevo `ctags -R .` ya que ahora aparecen muchos procedimientos nuevos. Tienes dos instancias del procedimiento `pancake`. Si estás dentro del archivo `two.rb` y pulsas `Ctrl-]`, ¿qué es lo que ocurriría?
+Si has vuelto a escribir el contenido del archivo, no olvide ejecutar de nuevo `ctags -R .` ya que ahora aparecen muchos procedimientos nuevos. Tienes dos instancias del procedimiento `pancake`. Si estás dentro del archivo `two.rb` y pulsas `Ctrl-]`, ¿qué es lo que ocurriría?
 
 Vim saltará a `def pancake` dentro de `two.rb`, no a `def pancake` dentro de `one.rb`. Esto es debido a que Vim Vim ve el procedimiento `pancake` dento del archivo `two.rb` como de mayor prioridad que el del procedimiento dentro del archivo `pancake`.
 
@@ -271,7 +271,7 @@ Vim saltará inmediatamente al procedimiento `donut` en el archivo `one.rb`, de 
 :tjump pancake
 ```
 
-Vim te mostrará las opciones de las etiquetas entre las que escoger, de manera similar a si hibiéramos ejecutado `:tselect pancake`. Con `tjump` tienes lo mejor de ambos métodos.
+Vim te mostrará las opciones de las etiquetas entre las que escoger, de manera similar a si hubiéramos ejecutado `:tselect pancake`. Con `tjump` tienes lo mejor de ambos métodos.
 
 Vim tiene una tecla en el modo normal para `tjump`: `g Ctrl-]`. Personalmente me gusta más utilizar `g Ctrl-]` que `Ctrl-]`.
 
