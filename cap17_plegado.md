@@ -63,7 +63,7 @@ La sección anterior trata sobre el plegado de texto manual de Vim. Hay seis mé
 
 Para ver el método de plegado de texto que estás utilizando actualmente, ejecuta `:set foldmethod?`. De manera predeterminada, Vim utiliza el método `manual`.
 
-En el resto del capítulo, aprenderás los otros cinco métodos. Vamos a empezar con el plgado por sangría \(o en inglés _indent_\).
+En el resto del capítulo, aprenderás los otros cinco métodos. Vamos a empezar con el plegado por sangría \(o en inglés _indent_\).
 
 ## Plegado por sangría \(_Indent Fold_\)
 
@@ -94,7 +94,7 @@ Con este método de plegado de texto, Vim mira cuantos espacios tiene cada líne
 :set shiftwidth?
 ```
 
-El valor predeterminado de Vim de `'shiftwidth'` es 2. En el texto del ejemplo anterior, hay dos espacios al comienzo de la línea y los textos "Dos" y "Dos de nuevo". Cuando Vim comprueba el número de espacios al inicio de la líea y el valor 2 de `'shiftwidth'`, Vim cosidera que las líneas tienen que ser plegadas en un primer nivel.
+El valor predeterminado de Vim de `'shiftwidth'` es 2. En el texto del ejemplo anterior, hay dos espacios al comienzo de la línea y los textos "Dos" y "Dos de nuevo". Cuando Vim comprueba el número de espacios al inicio de la línea y el valor 2 de `'shiftwidth'`, Vim considera que las líneas tienen que ser plegadas en un primer nivel.
 
 Supón esta vez que solo tienes un espacio entre el comienzo de la línea y el texto:
 
@@ -129,7 +129,7 @@ Uno
 +-- 4 lines: Dos -----
 ```
 
-Despliega las líneas plegadas \(`zR`\), y después situa el cursor sobre la palabra "Tres" y alterna el estado del plegado del texto \(`za`\):
+Despliega las líneas plegadas \(`zR`\), y después sitúa el cursor sobre la palabra "Tres" y alterna el estado del plegado del texto \(`za`\):
 
 ```text
 Uno
@@ -173,8 +173,8 @@ La expresión anterior parece un poco complicada. Vamos a dividirla y explicarla
 
 * `:set foldexpr` establece la opción `'foldexpr'` para que acepte expresiones personalizadas.
 * `getline()` es una función de Vimscript que devuelve el contenido de cualquier línea dada. Si ejecutas `:echo getline(5)`, esto devolverá el contenido de la línea 5.
-* `v:lnum` es una variable especial de Vim para la expresión `'foldexpr'`. Vim busca cada línea y en cada momento almacena cada número de línea en la variabl `v:lnum`. En la línea 5, `v:lnum` tiene el valor 5. En la línea 10, `v:lnum` tiene el valor 10.
-* `[0]` en el contexto de `getline(v:lnum)[0]` es el primer caracter de cada línea. Cuando Vim rastrea una línea, `getline(v:lnum)` devuelve el contenido de cada línea. `getline(v:lnum)[0]` devuelve el primer caracter de cada línea. En la primera línea de nuestra lista, "donut", `getline(v:lnum)[0]` devuelve "d". En la segunda línea de nuestra lista, "churros", `getline(v:lnum)[0]` devuelve "c".
+* `v:lnum` es una variable especial de Vim para la expresión `'foldexpr'`. Vim busca cada línea y en cada momento almacena cada número de línea en la variable `v:lnum`. En la línea 5, `v:lnum` tiene el valor 5. En la línea 10, `v:lnum` tiene el valor 10.
+* `[0]` en el contexto de `getline(v:lnum)[0]` es el primer carácter de cada línea. Cuando Vim rastrea una línea, `getline(v:lnum)` devuelve el contenido de cada línea. `getline(v:lnum)[0]` devuelve el primer carácter de cada línea. En la primera línea de nuestra lista, "donut", `getline(v:lnum)[0]` devuelve "d". En la segunda línea de nuestra lista, "churros", `getline(v:lnum)[0]` devuelve "c".
 * `==\\"c\\"` es la segunda mitad de la expresión de igualdad. Esta comprueba si la expresión que acaba de evaluar es igual a "c". Si esto es cierto, esto devuelve 1. Si esto es falso, esto devuelve 0. En Vim, 1 es verdadero y 0 es falso. Así que las líneas que comiencen con "c" devuelven un 1. Recuerda que si `'foldexpr'` tiene un valor de 1, entonces tiene un nivel de plegado de 1.
 
 Después de ejecutar esta expresión, deberías ver:
