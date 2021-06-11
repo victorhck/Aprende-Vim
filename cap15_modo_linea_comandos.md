@@ -6,7 +6,7 @@ En este capítulo, aprenderás varios trucos para el modo línea de comandos.
 
 ## Entrar y salir del modo línea de comandos
 
-El modo línea de comandos es un modo en sí mismo, como el modo normal, el modo insertar y el modo visual. Cuando estás en este modo, el cursor se situa en la parte inferior de la pantalla en donde se pueden escribir diferentes comandos.
+El modo línea de comandos es un modo en sí mismo, como el modo normal, el modo insertar y el modo visual. Cuando estás en este modo, el cursor se sitúa en la parte inferior de la pantalla en donde se pueden escribir diferentes comandos.
 
 Hay 4 comandos diferentes que puedes introducir cuando estás en el modo línea de comandos:
 
@@ -28,7 +28,7 @@ Si ejecutaste previamente `:s/foo/bar/g`, ahora ejecutando `@:` repetirá esa su
 
 ## Atajos de teclado del modo línea de comandos
 
-Mientras estás en el modo línea de comandos, puede moverte a izquierda o derecha un caracter cada vez mediante las flechas de dirección del cursor `Izquierda` o `Derecha`.
+Mientras estás en el modo línea de comandos, puede moverte a izquierda o derecha un carácter cada vez mediante las flechas de dirección del cursor `Izquierda` o `Derecha`.
 
 Si necesitas moverte una palabra cada vez, utiliza `Shift-Izquierda` o `Shift-Derecha` \(en algunos sistemas operativos, deberás utilizar la tecla `Ctrl` en vez de `Shift`\).
 
@@ -52,7 +52,7 @@ Mientras estás en el modo de línea de comandos, puedes insertar textos desde l
 
 Además, también puedes insertar la palabra que está bajo el cursor con `Ctrl-R Ctrl-W` \(puedes utilizar `Ctrl-R Ctrl-A` para la PALABRA bajo el cursor\). Para insertar la línea que está bajo el cursor utiliza `Ctrl-R Ctrl-L`. Para insertar todo el nombre del archivo bajo el cursor, usa `Ctrl-R Ctrl-F`.
 
-También puedes autocompletar los comandos existentes. Para autocompletar el comando `echo`, mientras estás en el modo línea de comandos, escribe "ec", después pulsa `<Tab>`. Deberías ver en la parte inferior izquierda de la pantalla los comandos de Vim que empiezan con "ec" \(ejemplo: `echo echoerr echohl echomsg econ`\). Para ir a la siguiente opción, pulsa tanto `<Tab>` o `Ctrl-N`. Para ir a la opción previa, puedes pulsar tando `<Shift-Tab>` o `Ctrl-P`.
+También puedes autocompletar los comandos existentes. Para autocompletar el comando `echo`, mientras estás en el modo línea de comandos, escribe "ec", después pulsa `<Tab>`. Deberías ver en la parte inferior izquierda de la pantalla los comandos de Vim que empiezan con "ec" \(ejemplo: `echo echoerr echohl echomsg econ`\). Para ir a la siguiente opción, pulsa tanto `<Tab>` o `Ctrl-N`. Para ir a la opción previa, puedes pulsar tanto `<Shift-Tab>` o `Ctrl-P`.
 
 Algunos de los comandos de la línea de los comandos aceptan nombres de archivos como argumentos. Un ejemplo es `edit`. También puedes utilizar el autocompletado en este caso. Después de escribir el comando, `:e` \(no olvides añadir un espacio al final\), presiona `<Tab>`. Vim mostrará un listado de todos los nombres de archivos relevantes entre los que puedes escoger, así no tendrás que escribirlo tu mismo.
 
@@ -83,7 +83,7 @@ Si lo que necesitas hacer es `s/patróndesustituciónsuperlargo/donut/g`, en vez
 
 Después de ejecutar `q:`, encuentra ese comando `s/patróndesustituciónsuperlargo/tarta/g` en el historial \(puedes utilizar las teclas de navegación de Vim cuando estás en esta pantalla\) ¡y editarlo directamente! Cambia "tarta" por "donut" dentro de la propia ventana del historial, y después pulsa `<Enter>`. ¡Boom! Vim ejecuta `s/patróndesustituciónsuperlargo/donut/g` para ti. ¡Justo lo que querías!
 
-De manera similar, para ver el historial de búsquedas, ejecuta `:his /` o `:his ?`. Para abrir la ventana del historial de búsquedas en donde prodrás buscar y editar entradas anteriores del historial, ejecuta `q/` o `q?`.
+De manera similar, para ver el historial de búsquedas, ejecuta `:his /` o `:his ?`. Para abrir la ventana del historial de búsquedas en donde podrás buscar y editar entradas anteriores del historial, ejecuta `q/` o `q?`.
 
 Para salir de esta ventana, pulsa `Ctrl-C`, `Ctrl-W C`, o escribe `:quit`.
 
@@ -93,7 +93,7 @@ Vim tiene cientos de comandos propios. Para ver todos los comandos que tiene Vim
 
 ## Aprender el modo línea de comandos de la manera más inteligente
 
-Comparado con los otros tres modos, el modo de línea de comandos de Vim es como una "navaja suiza" de la edición de textos. Puedes editar texto, modificar archivos y ejecutar comandos, solo por nombrar unos pocos. Este capítulo cierra la serie de los modos de Vim. Ahora que ya conoces y sabes utilizar el modo normal, insetar, visual y el modo línea de comandos de Vim ya puedes editar textos en Vim más eficaz y rápidamente.
+Comparado con los otros tres modos, el modo de línea de comandos de Vim es como una "navaja suiza" de la edición de textos. Puedes editar texto, modificar archivos y ejecutar comandos, solo por nombrar unos pocos. Este capítulo cierra la serie de los modos de Vim. Ahora que ya conoces y sabes utilizar el modo normal, insertar, visual y el modo línea de comandos de Vim ya puedes editar textos en Vim más eficaz y rápidamente.
 
 Es la hora de movernos de los modos de Vim y aprender cómo hacer una navegación más veloz con las etiquetas de Vim.
 
