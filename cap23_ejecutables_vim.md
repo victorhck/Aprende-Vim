@@ -68,7 +68,7 @@ Reinicia Vim. Ahora abre el archivo `hola.chocodonut` y ejecuta `:set filetype?`
 
 ¡Delicioso! Puedes poner tantos archivos como quieras dentro de `ftdetect/`. En el futuro, quizás puedas añadir `ftdetect/fresadonut.vim`, `ftdetect/glasedodonut.vim`, etc., si decides expandir tus tipos de archivos de donuts.
 
-En realizidad hay dos manera de establecer el tipo de archivo en Vim. Una es la que acabas de utilizar `set filetype=chocodonut`. La otra manera es ejecutar `setfiletype chocodonut`. El primer comando `set filetype=chocodonut` _siempre_ establecerá el tipo de archivo al tipo chocodonut, mientras que el segundo comando `setfiletype chocodonut` solo establecerá el tipo si todavía no se ha establecido el tipo de archivo.
+En realidad hay dos manera de establecer el tipo de archivo en Vim. Una es la que acabas de utilizar `set filetype=chocodonut`. La otra manera es ejecutar `setfiletype chocodonut`. El primer comando `set filetype=chocodonut` _siempre_ establecerá el tipo de archivo al tipo chocodonut, mientras que el segundo comando `setfiletype chocodonut` solo establecerá el tipo si todavía no se ha establecido el tipo de archivo.
 
 #### Archivo Filetype
 
@@ -102,7 +102,7 @@ endif
 let did_load_filetypes = 1
 ```
 
-Cuando vim llama a este archivo, este define una variable `did_load_filetypes` y la establece a 1. 1 es equiparable a verdadero en Vim. Deberías también leer el resto de `filetype.vim`. Comprueba si puedes entender qué hace cuando Vim la llama.
+Cuando Vim llama a este archivo, este define una variable `did_load_filetypes` y la establece a 1. 1 es equiparable a verdadero en Vim. Deberías también leer el resto de `filetype.vim`. Comprueba si puedes entender qué hace cuando Vim la llama.
 
 ### _Script_ de tipo de archivo
 
@@ -245,7 +245,7 @@ Puedes añadir cuantos directorios anidados con autoload como quieras. Si tienes
 
 ## Después de los _scripts_
 
-Vim tiene una ruta para los ejecutables posteriores \(`~/.vim/after/`\) este copia la estructura de `~/.vim/`. Cualquier cosa en esta ruta es ejecutada al final, así los desarrolladores utilizn estas rutas para _scripts_ de anulaciones.
+Vim tiene una ruta para los ejecutables posteriores \(`~/.vim/after/`\) este copia la estructura de `~/.vim/`. Cualquier cosa en esta ruta es ejecutada al final, así los desarrolladores utilizan estas rutas para _scripts_ de anulaciones.
 
 Por ejemplo, si quieres sobrescribir los _scripts_ de `plugin/chocolate.vim`, puedes crear `~/.vim/after/plugin/chocolate.vim` en los que ubicar los _scripts_ de anulación. Vim ejecutará `~/.vim/after/plugin/chocolate.vim` _después_ de `~/.vim/plugin/chocolate.vim`.
 
@@ -281,7 +281,7 @@ set rtp+=$HOME/caja/de/donuts/
 
 Si dentro de `~/caja/de/donuts/`, tienes un directorio de complementos \(`~/caja/de/donuts/plugin/hello.vim`\) y un _ftplugin_ \(`~/caja/de/donuts/ftplugin/chocodonut.vim`\), Vim ejecutará todos los _scripts_ de `plugin/hello.vim` cuando abras Vim. Vim también ejecutará `ftplugin/chocodonut.vim` cuando abras un archivo de tipo chocodonut.
 
-Prueba esto tu mismo: crea una ruta aleatoria y añadela en tu _runtimepath_. Añade algunas rutas de ejecutables que has aprendido en este capítulo. Asegúrate de que funcionen como se espera que lo hagan.
+Prueba esto tu mismo: crea una ruta aleatoria y añádela en tu _runtimepath_. Añade algunas rutas de ejecutables que has aprendido en este capítulo. Asegúrate de que funcionen como se espera que lo hagan.
 
 ## Aprende sobre los _runtime_ de la manera más inteligente
 
