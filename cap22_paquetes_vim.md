@@ -6,7 +6,7 @@ Para ver si la compilación de Vim que usas tiene la posibilidad de utilizar est
 
 ## El directorio de Pack
 
-Comprueba si tienes un directorio llamado `~/.vim/` en la ruta raíz de tu usuario. Si no lo tienes, crealo. Dentro, crea un directorio llamado `pack` \(`~/.vim/pack/)`. Vim de manera automática sabe que tiene que buscar dentro de este directorio para encontrar los paquetes o complementos.
+Comprueba si tienes un directorio llamado `~/.vim/` en la ruta raíz de tu usuario. Si no lo tienes, créalo. Dentro, crea un directorio llamado `pack` \(`~/.vim/pack/)`. Vim de manera automática sabe que tiene que buscar dentro de este directorio para encontrar los paquetes o complementos.
 
 ## Dos tipos de cargas
 
