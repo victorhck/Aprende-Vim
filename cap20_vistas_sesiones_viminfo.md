@@ -113,7 +113,7 @@ foo10
 
 Los pliegues de texto \(folds\), los ajustes locales y los mapeados locales se han recuperado. Si te das cuenta, también el cursor debería estar en la línea en la que estaba cuando ejecutaste `:mkview`. Siempre que tengas la opción `cursor`, las vistas también recuerdan la posición del cursor.
 
-### Multiples vistas
+### Múltiples vistas
 
 Vim te permite guardar hasta un número de 9 vistas \(1-9\).
 
@@ -222,7 +222,7 @@ Vamos a suponer que divides tus ventanas con `split` y `vsplit`. Para preservar 
 :mksession
 ```
 
-A diferencia de `mkview` donde de manera predeterminada guarda la configuración en `~/.vim/view`, `mksession` guarda el archivo de sesión \(`Session.vim`\) en el directorio actual. Echa un vistazo al archivo si tienes curosidad de qué guarda dentro Vim.
+A diferencia de `mkview` donde de manera predeterminada guarda la configuración en `~/.vim/view`, `mksession` guarda el archivo de sesión \(`Session.vim`\) en el directorio actual. Echa un vistazo al archivo si tienes curiosidad de qué guarda dentro Vim.
 
 Si quieres guardar el archivo de sesión en algún otro lugar, puedes pasar un argumento al comando `mksession`:
 
@@ -384,8 +384,8 @@ Esto parece muy críptico. Vamos a verlo en detalle:
 * `!` guarda las variables globales que comienzan con una letra mayúscula y no contienen letras minúsculas. Recuerda que `g:` indica una variable global. Por ejemplo, si en algún punto escribiste la asignación `let g:FOO = "foo"`, Viminfo guardará la variable global `FOO`. Sin embargo si hiciste `let g:Foo = "foo"`, Viminfo no guardará esta variable global ya que contiene letras minúsculas. Sin `!`, Vim no guardará esas variables globales.
 * `'100` representa las marcas. En este caso, Viminfo guardará las marcas globales \(a-z\) de los últimos 100 archivos. Ten cuidado, ya que si le dices a Vim que guarde muchos archivos, Vim puede empezar a ralentizarse. 1000 es un buen número para establecer.
 * `<50` le dice a Viminfo cuantas líneas como máximo son guardadas para cada registro \(50 en este caso\). Si copio 100 líneas de texto en el registro a \(`"ay99j`\) y cierro Vim, la próxima vez que abra Vim y pegue desde el registro a \(`"ap`\), Vim solo pegará 50 líneas como máximo. Si no estableces un número máximo de líneas, _todas_ las líneas se guardarán. Si estableces un 0, no se guardará nada.
-* `s10` estabece un límite de tamaño \(en kb\) para un registro. En este caso, cualquier registro de tamaño mayor de 10kb será excluido.
-* `h` inhabilita el reslatado \(de `hlsearch`\) cuando arranca Vim.
+* `s10` establece un límite de tamaño \(en kb\) para un registro. En este caso, cualquier registro de tamaño mayor de 10kb será excluido.
+* `h` inhabilita el resaltado \(de `hlsearch`\) cuando arranca Vim.
 
 Hay otras opciones que puedes pasarle al comando. Para aprender más, echa un vistazo a `:h 'viminfo'`.
 
