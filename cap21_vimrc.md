@@ -21,7 +21,7 @@ Primero Vim va a buscar `$VIMINIT`. Si no hay nada ahí, Vim va a buscar `$HOME/
 
 La primer ubicación, `$VIMINIT`, es una variable de entorno. No esta definido de manera predeterminada. Se puede usar `~/dotfiles/testvimrc` como variable `$VIMINIT`, puedes crearte una variable de entorno con la ubicación de este archivo. Después de ejecutar `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim va a usar el archivo `~/dotfiles/testvimrc` como tu archivo vimrc.
 
-La segunda ubicacion, `$HOME/.vimrc`, es la ruta usada por muchos usuarios de Vim de manera convencional. `$HOME` es en muchos casos el directorio del usuario raíz \(`~`\). Si existe `~/.vimrc`, Vim usará este como su archivo vimrc.
+La segunda ubicación, `$HOME/.vimrc`, es la ruta usada por muchos usuarios de Vim de manera convencional. `$HOME` es en muchos casos el directorio del usuario raíz \(`~`\). Si existe `~/.vimrc`, Vim usará este como su archivo vimrc.
 
 El tercer lugar es para `$HOME/.vim/vimrc`, esta alojado dentro del directorio `~/.vim`. Podrías tener el directorio `~/.vim` ya para tus complementos, _scripts_ personalizados o archivos de vistas. Ten en cuenta que no hay un punto delante del nombre del archivo vimrc \(`$HOME/.vim/.vimrc` no funcionará, pero `$HOME/.vim/vimrc` sí lo hará\).
 
@@ -61,7 +61,7 @@ Hace 10 años, gestionar los complementos era una pesadilla. Sin embargo, con la
 * [vim-pathogen](https://github.com/tpope/vim-pathogen)
 * [dein.vim](https://github.com/Shougo/dein.vim)
 
-Hay mas gestores que los listados arriba, siéntete libre en buscr información sobre ellos. Para instalar vim-plug, si utilizas Unix, ejecuta:
+Hay mas gestores que los listados arriba, siéntete libre en buscar información sobre ellos. Para instalar vim-plug, si utilizas Unix, ejecuta:
 
 ```text
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -78,7 +78,7 @@ call plug#end()
 
 Guarda los cambios, vuelve a leer el archivo de configuración \(con el comando `:source %`\) y ejecuta `:PlugInstall` para instalar ambos.
 
-En el futuro, si necesitas eliminar los complementos que no utilizas, solo necesita eliminar el complemento del bloque escrito anteriormente, guardar, volver a leer el archivo de configuracion y ejecutar el comando `:PlugClean` para eliminarlo de su equipo.
+En el futuro, si necesitas eliminar los complementos que no utilizas, solo necesita eliminar el complemento del bloque escrito anteriormente, guardar, volver a leer el archivo de configuración y ejecutar el comando `:PlugClean` para eliminarlo de su equipo.
 
 Vim 8 tiene su propio gestor de paquetes. Puedes consultar la ayuda con `:h packages` para mas información. En el próximo capítulo, vamos a mostrar como usarlo.
 
@@ -186,7 +186,7 @@ nnoremap <silent> <C-f> :GFiles<CR>
 nnoremap <Leader>tn :call ToggleNumber()<CR>
 ```
 
-En el primero, se mapea la combinacion de teclas `Ctrl-F` para el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) al comando `:Gfiles` \(que busca rápidamente por archivos en un repositorio git\). En el segundo, se mapea la combinación `<Leader>tn` para llamar a la función personalizada `ToggleNumber` \(que cambia entre si las opciones `norelativenumber` y `relativenumber`\). La combinación `Ctrl-F` mapea y sobreescribe la función nativa de Vim para moverse en la pantalla. El mapeo va a sobreescribir los controles de Vim si entran en conflicto. En mi caso, como nunca uso esta característica, he decidido que es conveniente sobreescribirla.
+En el primero, se mapea la combinación de teclas `Ctrl-F` para el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) al comando `:Gfiles` \(que busca rápidamente por archivos en un repositorio git\). En el segundo, se mapea la combinación `<Leader>tn` para llamar a la función personalizada `ToggleNumber` \(que cambia entre si las opciones `norelativenumber` y `relativenumber`\). La combinación `Ctrl-F` mapea y sobreescribe la función nativa de Vim para moverse en la pantalla. El mapeo va a sobreescribir los controles de Vim si entran en conflicto. En mi caso, como nunca uso esta característica, he decidido que es conveniente sobreescribirla.
 
 Por cierto, ¿qué es eso de tecla "leader" en `<Leader>tn`?
 
@@ -249,7 +249,7 @@ Con el paso del tiempo, tu vimrc va a crecer y se va a volver confuso. Hay varia
 
 ### Separando tu vimrc
 
-Puedes separar tu vimrc en multiples archivos usando el comando de Vim `source`. Este comando lee los comandos que hay en el archivo utilizado como argumento.
+Puedes separar tu vimrc en múltiples archivos usando el comando de Vim `source`. Este comando lee los comandos que hay en el archivo utilizado como argumento.
 
 Vamos a crear dentro de la carpeta `~/.vim`y vamos a llamarla `/settings` \(`~/.vim/settings`\). El nombre en sí es arbitrario y lo puedes llamar como quieras.
 
@@ -308,7 +308,7 @@ nnoremap <Leader>tn :call ToggleNumber()<CR>
 
 Tu archivo vimrc funcionará como hasta siempre, ¡pero ahora solo tiene 4 líneas de largo!
 
-Con esta configuración, fácilmente ahora ves a donde hay que ir. Si necesita agregar mapeos, agregarlos en el archivo `/mappings.vim`. En el futuro, siempre se puede agregar mas directorios mientras el archivo vimrc crece. Por ejemplo si se necesita crear una configuracion para el color del tema, se puede agregar al archivo `~/.vim/settings/themes.vim`.
+Con esta configuración, fácilmente ahora ves a donde hay que ir. Si necesita agregar mapeos, agregarlos en el archivo `/mappings.vim`. En el futuro, siempre se puede agregar mas directorios mientras el archivo vimrc crece. Por ejemplo si se necesita crear una configuración para el color del tema, se puede agregar al archivo `~/.vim/settings/themes.vim`.
 
 ### Manteniendo un solo archivo vimrc
 
@@ -323,7 +323,7 @@ augroup END
 " }}}
 ```
 
-Vim puede detectar qué tipo de archivo hay en el _buffer_ actual \(con `:set filetype?` puede comprobarlo\). Si este es un archivo del tipo `vim`, se puede usar el método de plegado. El metodo de plegado utiliza `{{{` y `}}}` para indicar el inicio y el final de un grupo que se esta plegando.
+Vim puede detectar qué tipo de archivo hay en el _buffer_ actual \(con `:set filetype?` puede comprobarlo\). Si este es un archivo del tipo `vim`, se puede usar el método de plegado. El método de plegado utiliza `{{{` y `}}}` para indicar el inicio y el final de un grupo que se esta plegando.
 
 Agregue `{{{` y `}}}` para plegar al resto de su vimrc \(no se olvide de comentar estas lineas con `"`\):
 
