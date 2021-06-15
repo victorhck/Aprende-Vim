@@ -29,7 +29,7 @@ Hay muchas maneras de salir del editor Vim. La más común es escribir:
 :quit
 ```
 
-También puedes escribir `:q` de forma abreviada. El comando es un comando del modo línea de comandos \(otro de los modos de Vim\). Si escribes `:` en el modo normal, el cursor se moverá a la parte inferior de la pantalla donde podrás escribir algunos comandos. Aprenderás más del modo de línea de comandos más tarde en el capítulo 15. Si estás en el modo insertar, al escribir `:` esto literalmente escribirá el caracter ":" en la pantalla. En este caso, necesitas regresar al modo normal. Pulsa sobre la tecla `<Esc>` para cambiar a ese modo normal. Por cierto, puedes regresar al modo normal desde el modo línea de comandos pulsando `<Esc>`. Aprenderás que puedes "escapar" de diversos modos de Vim de vuelta al modo normal pulsando la tecla `<Esc>`.
+También puedes escribir `:q` de forma abreviada. El comando es un comando del modo línea de comandos \(otro de los modos de Vim\). Si escribes `:` en el modo normal, el cursor se moverá a la parte inferior de la pantalla donde podrás escribir algunos comandos. Aprenderás más del modo de línea de comandos más tarde en el capítulo 15. Si estás en el modo insertar, al escribir `:` esto literalmente escribirá el carácter ":" en la pantalla. En este caso, necesitas regresar al modo normal. Pulsa sobre la tecla `<Esc>` para cambiar a ese modo normal. Por cierto, puedes regresar al modo normal desde el modo línea de comandos pulsando `<Esc>`. Aprenderás que puedes "escapar" de diversos modos de Vim de vuelta al modo normal pulsando la tecla `<Esc>`.
 
 ## Guardando un fichero
 
@@ -119,7 +119,7 @@ vim +%s/tarta/rosquilla/g +%s/rosquilla/huevo/g +%s/huevo/donut/g hola.txt
 
 Vim primero reemplazará todas las instancias que encuentre de "tarta" con "rosquilla", después reemplazará "rosquilla" con "huevo", después reemplazará "huevo" con "donut" \(aprenderás sobre cómo sustituir texto en un capítulo posterior\).
 
-También puedes añadir la bandera `c` seguida con el comando en vez de la sintáxis `+`:
+También puedes añadir la bandera `c` seguida con el comando en vez de la sintaxis `+`:
 
 ```bash
 vim -c %s/tarta/rosquilla/g hola.txt
