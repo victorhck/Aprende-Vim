@@ -12,7 +12,7 @@ Esta es una guía obstinada. Trata de técnicas que utilizo habitualmente cuando
 
 Esta guía está llena de ejemplos. Al aprender una nueva materia, los ejemplos son indispensables, el disponer de numerosos ejemplos hará que se fijen estos conceptos de una manera más efectiva.
 
-Quiźas alguna persona se pregunte ¿por qué voy a necesitar aprender Vimscript? En mi primer año de uso de Vim, estaba satisfecho con solo saber utilizar Vim. A medida que pasó el tiempo comencé a necesitar Vimscript más y más para escribir comandos personalizados para mis necesidades específicas a la hora de editar. Mientras estás dominando Vim, antes o después necesitarás aprender Vimscript. Así que ¿por qué no mejor cuanto antes? Vimscript no es un lenguaje muy amplio. Puedes aprender lo básico en solo cuatro capítulos de esta guía.
+Quizás alguna persona se pregunte ¿por qué voy a necesitar aprender Vimscript? En mi primer año de uso de Vim, estaba satisfecho con solo saber utilizar Vim. A medida que pasó el tiempo comencé a necesitar Vimscript más y más para escribir comandos personalizados para mis necesidades específicas a la hora de editar. Mientras estás dominando Vim, antes o después necesitarás aprender Vimscript. Así que ¿por qué no mejor cuanto antes? Vimscript no es un lenguaje muy amplio. Puedes aprender lo básico en solo cuatro capítulos de esta guía.
 
 Puedes llegar lejos utilizando Vim sin conocer en absoluto Vimscript, pero conociéndolo te ayudará a sobresalir aún más.
 
@@ -31,13 +31,13 @@ Para utilizar Vim gradualmente, durante las primeras dos semanas, pasa una hora 
 
 Hubo dos momentos cruciales que me hicieron comenzar a utilizar Vim al 100%: cuando me enteré de que Vim tiene una estructura similar a la gramatical a la hora de ejecutar comandos \(ver capítulo 4\) y el complemento [fzf.vim](https://github.com/junegunn/fzf.vim) \(ver capítulo 3\).
 
-El primero, cuando me di cuenta de la esctructura similar a la gramática de Vim, fue el momento definitivo en el que comprendí de lo que hablaban las personas que usaban Vim. No necesitaba aprender cientos de comandos únicos. Solo tenía que aprender un pequeño puñado de comandos y podría encadenarlos de una manera muy intuitiva para hacer muchas cosas.
+El primero, cuando me di cuenta de la estructura similar a la gramática de Vim, fue el momento definitivo en el que comprendí de lo que hablaban las personas que usaban Vim. No necesitaba aprender cientos de comandos únicos. Solo tenía que aprender un pequeño puñado de comandos y podría encadenarlos de una manera muy intuitiva para hacer muchas cosas.
 
 El segundo, la posibilidad de ejecutar rápidamente una búsqueda de archivos de manera difusa era la funcionalidad de un IDE que más utilizaba. Cuando aprendí cómo hacerlo en Vim, gané un mayor impulso de velocidad y desde entonces nunca he vuelto a mirar atrás.
 
 Cada persona programa de manera diferente. Sobre la introspección, encontrará que hay una o dos funcionalidades de tu editor o IDE favorito que utilizas todo el tiempo. Quizás son la búsqueda difusa, saltar a una definición o una compilación rápida. Cualquiera que sea, identifícalas rápidamente y aprende cómo implementar esas en Vim \(lo más probable es que Vim también pueda hacerlo\). Tu velocidad a la hora de editar tendrá un gran impulso.
 
-Una vez que puedas editar al 50% de velociad que lo hacías originalmente, es hora de pasarte por completo a Vim.
+Una vez que puedas editar al 50% de velocidad que lo hacías originalmente, es hora de pasarte por completo a Vim.
 
 ## Cómo leer esta guía
 
@@ -45,7 +45,7 @@ Esta es una guía práctica. Para llegar a dominar Vim necesitas desarrollar el 
 
 No aprendes a montar en bicicleta leyendo una guía sobre cómo montar en bicicleta. Necesitas realmente montar en bicicleta.
 
-Necesitas escribir cada comando que encontrarás en esta guía. No solo eso, necesitarás repetirlos varias veces y probar combinaciones diferentes. Busca qué otras funcionalidades tiene el comando que acabas de aprender. El comando `:help` y un buscador de internet son tus mejores amigos. Tu meta no es conocer todo sobre un comando, si no ser capaz de ejecutar ese comando con naturalidad y de manera instintiva.
+Necesitas escribir cada comando que encontrarás en esta guía. No solo eso, necesitarás repetirlos varias veces y probar combinaciones diferentes. Busca qué otras funcionalidades tiene el comando que acabas de aprender. El comando `:help` y un buscador de Internet son tus mejores amigos. Tu meta no es conocer todo sobre un comando, si no ser capaz de ejecutar ese comando con naturalidad y de manera instintiva.
 
 Por mucho que haya tratado de moldear esta guía para ser lineal en su temática, algunos conceptos de esta guía tienen que ser presentados fuera de orden. Por ejemplo en el capítulo 1, menciono el comando de sustitución \(`:s`\), incluso aunque no trato sobre dicho comando hasta el capítulo 12. Para remediar esto, cada vez que un nuevo concepto que no se haya tratado todavía sea mencionado prematuramente, ofreceré una rápida guía de utilización sin una explicación detallada. Así que por favor, tengan paciencia conmigo :\).
 
