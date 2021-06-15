@@ -180,7 +180,7 @@ En cada ventana podrás ejecutar `echo w:donut` y verás que en cada una devolve
 
 ### Variable de pestaña
 
-Una variable precdida de `t:` es una variable propia de esa pestaña. Solo existe en esa pestaña.
+Una variable precedida de `t:` es una variable propia de esa pestaña. Solo existe en esa pestaña.
 
 En la pestaña 1:
 
@@ -250,7 +250,7 @@ Tanto la variable de función local \(`l:`\) como la variable de función formal
 Una variable precedida con `v:` es una variable especial propia de Vim. No puedes definir estas variables, solo utilizarlas. Ya hemos visto algunas de estas.
 
 * `v:version` muestra la versión de Vim que estás utilizando.
-* `v:key` contiene el valor del elemento actual cuando interactuas con un diccionario.
+* `v:key` contiene el valor del elemento actual cuando interactúas con un diccionario.
 * `v:val` contiene el valor del elemento actual cuando ejecutas una operación `map()` o `filter()`.
 * `v:true`, `v:false`, `v:null` y `v:none` son tipos de datos especiales.
 
