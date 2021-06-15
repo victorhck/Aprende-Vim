@@ -35,7 +35,7 @@ Recuerda que las _strings_ o cadenas son forzadas a números en una expresión a
 " devuelve true
 ```
 
-También recuerda que si comienzas una cadena con un caracter no numérico como "foo5", la cadena es convertida al número 0 \(falso\).
+También recuerda que si comienzas una cadena con un carácter no numérico como "foo5", la cadena es convertida al número 0 \(falso\).
 
 ```text
 echo 5 == "foo5"
@@ -210,7 +210,7 @@ El "or" lógico \(`||`\) funciona como en la mayoría de lenguajes de programaci
 {Expresión verdadera} || {Expresión verdadera}  true
 ```
 
-Vim evalua la expresión y devuelve un 1 \(verdadero\) o 0 \(falso\).
+Vim evalúa la expresión y devuelve un 1 \(verdadero\) o 0 \(falso\).
 
 ```text
 echo 5 || 0
@@ -241,7 +241,7 @@ echo dos_docenas || una_docena
 " devuelve error
 ```
 
-Ten en cuenta que `dos_docena` no se ha definido nunca. La expresión `una_docena || dos_docenas` no muestra ningún error porque `una_docena` es evaluada primero y encuentra que es verdadera, por lo que Vim ya no evalua `dos_docenas`.
+Ten en cuenta que `dos_docena` no se ha definido nunca. La expresión `una_docena || dos_docenas` no muestra ningún error porque `una_docena` es evaluada primero y encuentra que es verdadera, por lo que Vim ya no evalúa `dos_docenas`.
 
 ## And \(Y\)
 
@@ -264,7 +264,7 @@ echo 0 && 10
 " devuelve 0
 ```
 
-`&&` evalua una expresión hasta que ve la primera expresión falsa. Por ejemplo, si tienes `true && true`, evaluará ambas y devolverá `true`. Si tienes `true && false && true`, evaluará el primer `true` y parará en el primer `false`. No evaluará el tercer `true`.
+`&&` evalúa una expresión hasta que ve la primera expresión falsa. Por ejemplo, si tienes `true && true`, evaluará ambas y devolverá `true`. Si tienes `true && false && true`, evaluará el primer `true` y parará en el primer `false`. No evaluará el tercer `true`.
 
 ```text
 let una_docena = 12
@@ -283,7 +283,7 @@ echo exists("una_docena") && una_docena == 12
 
 ## For
 
-El bucle `for` es comunmente utilizado con el tipo de datos listas.
+El bucle `for` es comúnmente utilizado con el tipo de datos listas.
 
 ```text
 let desayunos = ["tortitas", "gofres", "huevos"]
@@ -338,7 +338,7 @@ endwhile
 
 ## Gestión del error
 
-A menudo tu programa no funciona en la maera que esperas. Como resultado, el programa te lleva a un bucle \(valga el juego de palabras\). Lo que necesitas es una gestión del error adecuada.
+A menudo tu programa no funciona en la manera que esperas. Como resultado, el programa te lleva a un bucle \(valga el juego de palabras\). Lo que necesitas es una gestión del error adecuada.
 
 ### Break
 
