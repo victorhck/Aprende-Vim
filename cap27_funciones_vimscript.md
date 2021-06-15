@@ -34,7 +34,7 @@ Si antepones una función con el prefijo que la marca como una variable de scrip
 
 Un nombre de función no puede comenzar con un número. `1Sabrosa()` no es un nombre de función válido, pero `Sabrosa1()` si lo es. Una función tampoco puede contener caracteres no alfanuméricos menos `_`. `Sabrosa-comida()`, `Sabrosa&comida()` o `Sabrosa.comida()` todos estos son ejemplos de nombres no válidos para nombres de funciones. `Sabrosa_comida()` _si lo es_.
 
-Si defines dos funciones con el mismo nombre, Vim mostrará un error quejándose de que la función `Sabrosa` ya existe. Para sobrescribit la función previa con el mismo nombre, añade un símbolo `!` después de la palabra clave `function`.
+Si defines dos funciones con el mismo nombre, Vim mostrará un error quejándose de que la función `Sabrosa` ya existe. Para sobrescribir la función previa con el mismo nombre, añade un símbolo `!` después de la palabra clave `function`.
 
 ```text
 function! Sabrosa()
@@ -54,7 +54,7 @@ Si quieres ver dónde se origina una función, puedes utilizar el comando `:verb
 :verbose function /map
 ```
 
-Cuando lo ejecuto, obtengo un número de resultados. Esto me dice que la función `fzf#vim#maps` una función de autoload \(vuelve a echar un vitazo al capítulo 23\) está escrita dentro del archivo `~/.vim/plugged/fzf.vim/autoload/fzf/vim.vim`, en la línea 1263. Esto es muy útil a la hora de depurar errores.
+Cuando lo ejecuto, obtengo un número de resultados. Esto me dice que la función `fzf#vim#maps` una función de autoload \(vuelve a echar un vistazo al capítulo 23\) está escrita dentro del archivo `~/.vim/plugged/fzf.vim/autoload/fzf/vim.vim`, en la línea 1263. Esto es muy útil a la hora de depurar errores.
 
 ```text
 function fzf#vim#maps(mode, ...)
@@ -109,7 +109,7 @@ echo Tasty("paella")
 " devuelve "Sabrosa paella"
 ```
 
-`a:` es uno de los ámbitos de las variables mencionados en el capítulo anterior. Es el de variable de parámtero formal. Es la manera de Vim para obtener un parámetro formal en una función. Sin este, Vim mostrará un errror:
+`a:` es uno de los ámbitos de las variables mencionados en el capítulo anterior. Es el de variable de parámetro formal. Es la manera de Vim para obtener un parámetro formal en una función. Sin este, Vim mostrará un error:
 
 ```text
 function! Sabrosa(comida)
@@ -138,7 +138,7 @@ echo Delicioso()
 
 En este contexto, la variable `sitio` es lo mismo que `l:sitio`. Cuando defines una variable en una función, es variable es _local_ a esa función. Cuando un usuario ve `sitio`, podría fácilmente caer en el error de que se trata de una variable global. Por eso prefiero no escatimar en información y siempre añadir `l:` para indicar que es una variable propia de la función.
 
-Otra razón para utilizar el método `l:count` al declarar una variable propia de una función es que Vim tiene unas variables especiales con alias que son similares a una variable normal. `v:count` es un ejemplo. Esta variable tien un alias `count`. En Vim, llamar a `count` es lo mismo que que llamar a `v:count`. Es muy sencillo llamar de manera accidental a una de esas variables especiales.
+Otra razón para utilizar el método `l:count` al declarar una variable propia de una función es que Vim tiene unas variables especiales con alias que son similares a una variable normal. `v:count` es un ejemplo. Esta variable tiene un alias `count`. En Vim, llamar a `count` es lo mismo que que llamar a `v:count`. Es muy sencillo llamar de manera accidental a una de esas variables especiales.
 
 ```text
 function! Calorias()
@@ -180,7 +180,7 @@ El comando `call` no muestra el valor de retorno. Vamos a llamar a la función c
 echo call Sabrosa("salsa")
 ```
 
-¡Vaya! obtuviste un error. El comando `call` anterior es un comando de la línea de comandos \(`:call`\). El comando `echo` anterior es también un comando para la línea de comandos \(`:echo`\). No puedes llamar a un comando para la línea de comandos con otro comando para la línea de comandos. Vamos a utilizar otra opción con el comando `call`:
+¡Vaya! Obtuviste un error. El comando `call` anterior es un comando de la línea de comandos \(`:call`\). El comando `echo` anterior es también un comando para la línea de comandos \(`:echo`\). No puedes llamar a un comando para la línea de comandos con otro comando para la línea de comandos. Vamos a utilizar otra opción con el comando `call`:
 
 ```text
 echo call("Sabrosa", ["salsa"])
@@ -315,7 +315,7 @@ endfunction
 
 Si estás en la línea 100 y ejecutas `call Desayuno()`, mostrará 100 tanto para `firstline` como para `lastline`. Si visualmente resaltas \(mediante `v`, `V`, o `Ctrl-V`\) las líneas de la 101 a la 105 y ejecutas `call Desayuno()`, `firstline` mostrará 101 y `lastline` mostrará 105. `firstline` y `lastline` muestran el rango mínimo y máximo de la función que es llamada.
 
-También puedes utilizar `:call` y pasarle un rando. Si ejecutas `:11,20call Desayuno()`, mostrará 11 para `firstline` y 20 para `lastline`.
+También puedes utilizar `:call` y pasarle un rango. Si ejecutas `:11,20call Desayuno()`, mostrará 11 para `firstline` y 20 para `lastline`.
 
 Te podrías preguntar, "Está bien que una función de Vimscript acepte un rango, pero ¿no puedo obtener el número de línea con `line(".")`? ¿No hará eso lo mismo?"
 
@@ -337,7 +337,7 @@ endfunction
 
 Al llamar con `11,20call Desayuno()` esto ejecuta la función `Desayuno` _una vez_.
 
-Si le añades la palabra clave `range` keyword y le pasas un rango numérico \(como `11,20`\) en la llamada `call`, Vim solo ejecutará esa función una vez. Si no pasas un rango `range` y le pasas un rango numérico \(como `11,20`\) en la llamada `call`, Vim ejecuta esa función un número N de veces deppendiendo del rango \(en el caso del ejemplo, N = 10\).
+Si le añades la palabra clave `range` y le pasas un rango numérico \(como `11,20`\) en la llamada `call`, Vim solo ejecutará esa función una vez. Si no pasas un rango `range` y le pasas un rango numérico \(como `11,20`\) en la llamada `call`, Vim ejecuta esa función un número N de veces dependiendo del rango \(en el caso del ejemplo, N = 10\).
 
 ## Diccionario
 
@@ -492,7 +492,7 @@ Con el método de encadenado, la secuencia es más sencilla de leer y entender. 
 
 ## Cierre
 
-Cuando defines una variable dentro de una función, esa variable exsite dentro de los límites de esa función. A esto se le llama alcance léxico \(lexical scope\).
+Cuando defines una variable dentro de una función, esa variable existe dentro de los límites de esa función. A esto se le llama alcance léxico \(lexical scope\).
 
 ```text
 function! Almuerzo()
