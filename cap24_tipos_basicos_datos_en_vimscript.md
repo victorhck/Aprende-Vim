@@ -165,7 +165,7 @@ Cuando realizas expresiones aritméticas entre un número y un número flotante,
 " devuelve 2.5
 ```
 
-Una operación aritmética entre dos numeros flotantes te devuelve otro número flotante.
+Una operación aritmética entre dos números flotantes te devuelve otro número flotante.
 
 ```text
 :echo 1.0 + 1.0
@@ -285,7 +285,7 @@ Por otra parte, esto es tratado como falso:
 " no devuelve nada
 ```
 
-Vim fuerza "donuts12" a 0, porque el primer caracter no es un número.
+Vim fuerza "donuts12" a 0, porque el primer carácter no es un número.
 
 ### Comillas dobles vs simples
 
@@ -336,7 +336,7 @@ Puedes convertir una cadena a un número con `str2nr()`:
 " devuelve 0
 ```
 
-De manera similar al forzado anterior de cadena a número, si el número no es el primer caracter, Vim no funcionará.
+De manera similar al forzado anterior de cadena a número, si el número no es el primer carácter, Vim no funcionará.
 
 La buena noticia es que Vim tiene un método para transformar una cadena a flotante, `str2float()`:
 
@@ -519,7 +519,7 @@ Puedes utilizar `map()` o `filter()` en una lista para filtrar un elemento en un
 " devuelve ['chocolate donut', 'glaseado donut', 'azucarado donut']
 ```
 
-La variable `v:val` es una variable especial de Vim. Está disponible cuando interactuas con una lista o un diccionario utilizando `map()` o `filter()`. Representa cada elemento repetido.
+La variable `v:val` es una variable especial de Vim. Está disponible cuando interactúas con una lista o un diccionario utilizando `map()` o `filter()`. Representa cada elemento repetido.
 
 Para más información, echa un vistazo a `:h list-functions`.
 
@@ -601,8 +601,8 @@ Si no quieres poner comillas en cada clave, también puedes utilizar la notació
 
 El único requisito para utilizar `#{}` es que cada clave debe ser al menos:
 
-* Un caracter ASCII.
-* Digito.
+* Un carácter ASCII.
+* Dígito.
 * Una barra baja \(`_`\).
 * Un guión \(`-`\).
 
@@ -713,7 +713,7 @@ Para convertir un diccionario a una lista de listas, utiliza `items()`:
 " devuelve {'2': '9am', '11ses': '11am'}
 ```
 
-Como un diccionario contiene un par de valores clace, Vim dispone de la variable especial `v:key` que funciona de manera similar a `v:val`. Cuando recorremos un diccionario, `v:key` tendrá el valor de la clave del elemento actual.
+Como un diccionario contiene un par de valores clave, Vim dispone de la variable especial `v:key` que funciona de manera similar a `v:val`. Cuando recorremos un diccionario, `v:key` tendrá el valor de la clave del elemento actual.
 
 Si tienes un diccionario llamado `mealPlans`, puedes mapearlo utilizando `v:key`.
 
