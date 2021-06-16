@@ -158,7 +158,7 @@ Ahora hablemos del grep externo. Por defecto, usa el comando `grep` de la termin
 :grep -R "almuerzo" app/controllers/
 ```
 
-En vez de utilizar `/patrón`, sigue la sintáxis del comando grep para la terminal y usa `"patrón"`. También muestra todos las coincidencias usando `quickfix`.
+En vez de utilizar `/patrón`, sigue la sintaxis del comando grep para la terminal y usa `"patrón"`. También muestra todos las coincidencias usando `quickfix`.
 
 Vim usa la variable `grepprg` para determinar qué programa externo ejecutar cuando usamos `:grep` así no tienes que usar el comando `grep` de la terminal. Posteriormente en este articulo, veremos cómo cambiar el comando externo predeterminado.
 
@@ -280,7 +280,7 @@ nnoremap <silent> <Leader>f :Rg<CR>
 
 ## Otras búsquedas
 
-Fzf.vim ofrece muchos otros comandos de búsquedas. No repasaré todos de manera exahustiva, pero puedes revisarlos [aquí](https://github.com/junegunn/fzf.vim#commands).
+Fzf.vim ofrece muchos otros comandos de búsquedas. No repasaré todos de manera exhaustiva, pero puedes revisarlos [aquí](https://github.com/junegunn/fzf.vim#commands).
 
 Este es el aspecto del mapeado de mis comandos fzf:
 
