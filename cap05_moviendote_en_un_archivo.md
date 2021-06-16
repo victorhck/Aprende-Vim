@@ -6,7 +6,7 @@ En este capítulo, aprenderás los movimientos esenciales y cómo utilizarlos de
 
 ## Navegando por caracteres
 
-La unidad más básica de movimiento es moverse un caracter a la izquierda, abajo, arriba y a la derecha.
+La unidad más básica de movimiento es moverse un carácter a la izquierda, abajo, arriba y a la derecha.
 
 ```text
 h   Izquierda
@@ -15,7 +15,7 @@ k   Arriba
 l   Derecha
 ```
 
-También puedes moverte con las flechas de dirección de tu teclado. Si estás empezando, sientete libre de utilizar cualquier método con el que te sientas más cómodo.
+También puedes moverte con las flechas de dirección de tu teclado. Si estás empezando, siéntete libre de utilizar cualquier método con el que te sientas más cómodo.
 
 Personalmente prefiero la clásica combinación `hjkl` porque mi mano derecha permanece encima del teclado. Al hacer esto, hace que este más cerca de las teclas circundantes del teclado. Para _obligarme_ a utilizar esta combinación de teclas, he inhabilitado las flechas de dirección del teclado al usar Vim añadiendo estas líneas en el archivo `~/.vimrc`:
 
@@ -87,7 +87,7 @@ Sin embargo, puedes pasar de "c" a ";" con una pulsación de tecla con la navega
 
 ## Navegación de línea actual
 
-Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer caracter de la línea actual, utiliza `0`. Para ir al último caracter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer caracter, que no sea un espacio en blanco de la línea actual y `g_` para ir al último caracter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`, donde "n" será el número de la columna donde quieres desplazar el cursor.
+Mientras editas, a menudo necesitas navegar horizontalmente en la misma línea. Para saltar al primer carácter de la línea actual, utiliza `0`. Para ir al último carácter de la línea actual, utiliza `$`. Además, también puedes utilizar `^` para ir al primer carácter, que no sea un espacio en blanco de la línea actual y `g_` para ir al último carácter que no sea un espacio en blanco en la línea actual. Si quieres ir a la columna `n` en la línea actual, puedes utilizar `n|`, donde "n" será el número de la columna donde quieres desplazar el cursor.
 
 ```text
 0     Ir al primer caracter de la línea actual
@@ -97,7 +97,7 @@ $     Ir al último caracter de la línea actual
 n|    Ir a la columna n en la línea actual
 ```
 
-También puedes realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera coincidencia encontrada y `t` te lleva *hasta justo* antes de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se situe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se situe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
+También puedes realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera coincidencia encontrada y `t` te lleva *hasta justo* antes de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se sitúe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se sitúe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
 
 `F` y `T` son las opciones similares a `f` y `t` pero para buscar hacia atrás en el texto. Para buscar hacia atrás una "h", ejecuta `Fh`. Para seguir buscando "h" en la misma dirección, usa `;`. Ten en cuenta que `;` después de `Fh` continua la búsqueda hacia atrás y `,` después de `fh` busca hacia adelante.
 
@@ -116,7 +116,7 @@ Volviendo al ejemplo previo
 const hello = "world";
 ```
 
-Con el curso al comienzo de la línea, puedes ir al último caracter de la línea actual \(";"\) pulsando una única tecla: `$`. Si quieres ir a la letra "w" en la palabra "world", puedes utilizar `fw`. Un buen truco para ir a cualquier punto de la línea actual es echar un vistazo a ver si existe alguna letra poco común como "w", "x" o "z" cerca de tu objetivo.
+Con el curso al comienzo de la línea, puedes ir al último carácter de la línea actual \(";"\) pulsando una única tecla: `$`. Si quieres ir a la letra "w" en la palabra "world", puedes utilizar `fw`. Un buen truco para ir a cualquier punto de la línea actual es echar un vistazo a ver si existe alguna letra poco común como "w", "x" o "z" cerca de tu objetivo.
 
 ## Navegación por frase y párrafo
 
@@ -137,7 +137,7 @@ Yo soy una frase. Yo soy otra frase porque termino con un punto. ¡Yo también s
 Hay una línea vacía encima de mí.
 ```
 
-Por cierto, si tienes problemas con Vim porque no considera uan frase frases separadas por `.` seguido de una linea simple, quizás estás en el modo `'compatible'`. Añade `:set nocompatible` en vimrc. En Vi, una frase termina en `.` seguido de **dos** espacios en blanco. Deberías tener al ajuste `nocompatible` en todo momento.
+Por cierto, si tienes problemas con Vim porque no considera una frase frases separadas por `.` seguido de una linea simple, quizás estás en el modo `'compatible'`. Añade `:set nocompatible` en vimrc. En Vi, una frase termina en `.` seguido de **dos** espacios en blanco. Deberías tener al ajuste `nocompatible` en todo momento.
 
 Vamos a hablar sobre lo que es un párrafo. Un párrafo comienza después de cada línea vacía y también en cada conjunto de una macro de párrafo especificada por los pares de caracteres en la opción de párrafos.
 
@@ -257,7 +257,7 @@ let onetwo = 12;
 
 Si estás buscando la cadena "let", puedes hacerlo mediante `/let`. Para buscar de nuevo "let" rápidamente, simplemente presiona `n`. Para buscar "let" de nuevo, pero esta vez en dirección contraria, hazlo mediante la tecla `N`. Si utilizas `?let` para realizar la búsqueda, buscará hacia atrás en el texto. Si usas `n`, seguirá realizando la búsqueda en esa dirección en el texto, `N` realizará ahora la búsqueda hacia adelante.
 
-Puedes habilitar el resaltado del texto buscado mediante el ajuste `:set hlsearch`. Ahora cuando busques `/let`, resaltará _todas_ las coincidencias que haya en todo el texto. Además, puedes configurar una búsqueda incremental con `:set incsearch`. Esto resaltara el patrón de búsqueda mientras estás escribiéndolo. De manera predeterminada, la cadena buscada permanecerá resaltada, hasta que hagas otra búsqueda. Esto puede convertirse rápidamente en un inconveniente. Para inhabilitar ese reslatado, puedes ejecutar `:nohlsearch`. Como utilizo esa funcionalidad de quitar el reslatado de manera frecuente, he creado un mapedado de esa funcionalidad. Para ello he añadido la siguiente línea en el archivo .vimrc:
+Puedes habilitar el resaltado del texto buscado mediante el ajuste `:set hlsearch`. Ahora cuando busques `/let`, resaltará _todas_ las coincidencias que haya en todo el texto. Además, puedes configurar una búsqueda incremental con `:set incsearch`. Esto resaltara el patrón de búsqueda mientras estás escribiéndolo. De manera predeterminada, la cadena buscada permanecerá resaltada, hasta que hagas otra búsqueda. Esto puede convertirse rápidamente en un inconveniente. Para inhabilitar ese resaltado, puedes ejecutar `:nohlsearch`. Como utilizo esa funcionalidad de quitar el resaltado de manera frecuente, he creado un mapeado de esa funcionalidad. Para ello he añadido la siguiente línea en el archivo .vimrc:
 
 ```text
 nnoremap <esc><esc> :noh<return><esc>
