@@ -72,13 +72,13 @@ const learn = "vim";
 
 * Para copiar \(_yank_\) todo desde la ubicación actual del cursor hasta el final de la línea: `y$`.
 * Para eliminar desde la ubicación actual del cursor hasta el principio de la siguiente palabra: `dw`.
-* Para cambiar el texto desde la posición actual del cursor hasta el final de párrfo actual, di: `c}`.
+* Para cambiar el texto desde la posición actual del cursor hasta el final de párrafo actual, di: `c}`.
 
 Los movimientos también aceptan números de conteo como argumentos _\(Veremos esto más en profundidad en el siguiente capítulo\)_. Si necesitas subir tres líneas, en vez de presionar la letra `k` 3 veces, simplemente puedes ejecutar `3k`. Esas opciones de pasar un valor también funcionan a la hora de conjugar la gramática de Vim.
 
 * Para copiar dos caracteres a la izquierda: `y2h`.
 * Para eliminar las siguientes dos palabras: `d2w`.
-* To change the next two lines: `c2j`.
+* Para cambiar las siguientes dos líneas: `c2j`.
 
 Ahora mismo, quizás tengas que pensar bastante para construir comandos simples. Pero no creas que solo te pasa a ti. No estás solo. Cuando comencé, tuve dificultades similares pero progresé rápidamente con el tiempo. Y también te pasará a ti.
 
@@ -201,11 +201,11 @@ Este sería el resultado:
 03  Bunny   Ok
 ```
 
-¡Genial! Incluso en Vim funciona el ancadenar comandos mediante "tuberías" con `|`.
+¡Genial! Incluso en Vim funciona el encadenar comandos mediante "tuberías" con `|`.
 
 Este es el poder de la "componibilidad" de Vim. Cuantos más operadores, movimientos y comandos de terminales conoces tu habilidad para componer acciones más complejas se ve _multiplicada_.
 
-Permíteme desarrollar esa idea. Supongamos que solo conocemos cuatro movimientos: `w, $, }, G` y el operador de eliminar \(`d`\). Puedes realizar 8 cosas: moverte de 4 maneras diferentes \(`w, $, }, G`\) y eliminar contenido de 4 objetivos diferentes \(`dw, d$, d}, dG`\). Entonces un día aprendes el operador para convertir en mayúsculas un texto \(`gU`\). Con esto no solo has añadido una nueva habilidad al citurón de herramientas que utilizas en Vim, si no _cuatro_: `gUw, gU$, gU}, gUG`. Ahora tienes 12 herramientas nuevas en tu cinto de herramientas de Vim. Cada nuevo aprendizaje es un multiplicador de tus habilidades actuales con Vim. Si conoces 10 movimientos y 5 operadores, ahora tienes 60 herramientas en tu arsenal \(50 operaciones + 10 movimientos\). Además el movimiento a un número de línea \(`nG`\) te da `n` movimientos, donde `n` indica cuantas líneas tienes en tu archivo \(ejemplo: para ir a la línea 5, `5G`\). El movimiento de búsqueda \(`/`\) prácticamente te da un número ilimitado de movimientos debido a que puedes buscar cualquier cosa. El operador de comandos externos \(`!`\) te ofrece un número de herramientas de filtrado igual al número de comandos de terminal que conozcas. Utilizando la capacidad para componer de Vim, todo lo que conoces puede estar conectado para realizar operaciones más complejas. Cuanto más conoces, más poderoso puedes llegar a ser.
+Permíteme desarrollar esa idea. Supongamos que solo conocemos cuatro movimientos: `w, $, }, G` y el operador de eliminar \(`d`\). Puedes realizar 8 cosas: moverte de 4 maneras diferentes \(`w, $, }, G`\) y eliminar contenido de 4 objetivos diferentes \(`dw, d$, d}, dG`\). Entonces un día aprendes el operador para convertir en mayúsculas un texto \(`gU`\). Con esto no solo has añadido una nueva habilidad al cinturón de herramientas que utilizas en Vim, si no _cuatro_: `gUw, gU$, gU}, gUG`. Ahora tienes 12 herramientas nuevas en tu cinto de herramientas de Vim. Cada nuevo aprendizaje es un multiplicador de tus habilidades actuales con Vim. Si conoces 10 movimientos y 5 operadores, ahora tienes 60 herramientas en tu arsenal \(50 operaciones + 10 movimientos\). Además el movimiento a un número de línea \(`nG`\) te da `n` movimientos, donde `n` indica cuantas líneas tienes en tu archivo \(ejemplo: para ir a la línea 5, `5G`\). El movimiento de búsqueda \(`/`\) prácticamente te da un número ilimitado de movimientos debido a que puedes buscar cualquier cosa. El operador de comandos externos \(`!`\) te ofrece un número de herramientas de filtrado igual al número de comandos de terminal que conozcas. Utilizando la capacidad para componer de Vim, todo lo que conoces puede estar conectado para realizar operaciones más complejas. Cuanto más conoces, más poderoso puedes llegar a ser.
 
 Este comportamiento componible proviene de la filosofía Unix: _hacer una cosa, y hacerlo bien_. Un movimiento tiene una tarea: Ir al lugar _X_. Un operador tiene una tarea: hacer _Y_. Combinando un operador con un movimiento, obtienes _XY_: Ve a _X_ y haz _Y_.
 
