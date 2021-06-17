@@ -96,7 +96,7 @@ Vamos a eliminar todas las letras "z". Primero, seleccionaremos visualmente sola
 
 Cuando has borrado la columna de las tres letras "z" \(`Ctrl-vjjd`\), esto fue tomado en cuenta como un cambio. La selección del modo visual puede ser utilizada para seleccionar múltiples líneas como parte de un cambio.
 
-## Incluyedo un movimiento en un cambio
+## Incluyendo un movimiento en un cambio
 
 Vamos a volver a echar un vistazo al primer ejemplo de este capítulo. Volviendo a ejecutar el comando `/letcwconst<Esc>` seguido por `n . n .` reemplazando todas las cadenas de "let" por "const" en el siguiente ejemplo:
 
