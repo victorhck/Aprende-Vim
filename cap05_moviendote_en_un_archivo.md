@@ -54,7 +54,7 @@ La sintaxis para utilizar el número de conteo en tu movimiento es:
 [número] + movimiento
 ```
 
-Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` puedes ejecutar simplemente `9l`.
+Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a la derecha, en vez de presionar la tecla `l` 9 veces, puedes ejecutar simplemente `9l`.
 
 ## Navegación por palabras
 
