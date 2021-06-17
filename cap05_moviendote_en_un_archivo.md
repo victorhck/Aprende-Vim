@@ -221,7 +221,7 @@ Para desplazarse por el texto \(o hacer _scroll_\), tienes 3 velocidades increme
 Ctrl-E    Desplaza el texto hacia arriba una línea
 Ctrl-D    Desplaza media pantalla hacia arriba
 Ctrl-F    Desplaza una pantalla completa hacia arriba el texto
-Ctrl-U    Desplaza el texto hacia abajo una línea
+Ctrl-Y    Desplaza el texto hacia abajo una línea
 Ctrl-U    Desplaza media pantalla hacia abajo
 Ctrl-B    Desplaza una pantalla completa hacia abajo el texto
 ```
