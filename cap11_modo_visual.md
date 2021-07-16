@@ -274,7 +274,7 @@ Coloca tu cursor en la segunda "app-a". Utiliza la misma técnica que en el ejem
 Ya has aprendido que con con `gv` puedes resaltar rápidamente la anterior zona marcada en el modo visual. También puedes ir a la ubicación del comienzo y final de la anterior zona del modo visual con estas marcas especiales:
 
 ```text
-`<    Ir a último pugar de la anterior zona resaltada del modo visual
+`<    Ir al último lugar de la anterior zona resaltada del modo visual
 `>    Ir al comienzo de la anterior zona resaltada del modo visual
 ```
 
