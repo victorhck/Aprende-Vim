@@ -1,6 +1,6 @@
-# Multiple File Operations
+# Operaciones en múltiples archivos
 
-Being able to update in multiple files is another useful editing tool to have. Earlier you learned how to update multiple texts with `cfdo`. In this chapter, you will learn the different ways you can edit multiple files in Vim.
+Ser capaz de actualizar en múltiples archivos es otra útil herramienta de edición para utilizar. Anteriormente has aprendido cómo actualizar múltiples textos mediante `cfdo`. En este capítulo, aprenderás las diferentes formas con las que puedes editar múltiples archivos en Vim.
 
 ## Different Ways to Execute a Command in Multiple Files
 
