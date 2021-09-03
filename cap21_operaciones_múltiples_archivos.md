@@ -2,76 +2,76 @@
 
 Ser capaz de actualizar en múltiples archivos es otra útil herramienta de edición para utilizar. Anteriormente has aprendido cómo actualizar múltiples textos mediante `cfdo`. En este capítulo, aprenderás las diferentes formas con las que puedes editar múltiples archivos en Vim.
 
-## Different Ways to Execute a Command in Multiple Files
+## Diferentes formas de ejecutar un comando en múltiples archivos
 
-Vim has eight ways to execute commands across multiple files:
-- arg list (`argdo`)
-- buffer list (`bufdo`)
-- window list (`windo`)
-- tab list (`tabdo`)
-- quickfix list (`cdo`)
-- quickfix list filewise (`cfdo`)
-- location list (`ldo`)
-- location list filewise (`lfdo`)
+Vim tiene ocho formas de ejecutar comando en múltiples archivos:
+- lista de arg (`argdo`)
+- lista de buffer (`bufdo`)
+- lista de ventana (`windo`)
+- lista de pestaña (`tabdo`)
+- lista de quickfix (`cdo`)
+- lista de quickfix inteligente de archivo (`cfdo`)
+- lista de ubicación (`ldo`)
+- lista de ubicación inteligente de archivo (`lfdo`)
 
-Practically speaking, you will probably only use one or two most of the time (I personally use `cdo` and `argdo` more than others), but it's good to learn about all the available options and use the ones that match your editing style. 
+En la práctica, probablemente utilizarás solo una o dos de estas ocho formas la mayor parte del tiempo (personalmente utilizo `cdo` y `argdo` más que las demás), pero es bueno aprender sobre todas las opciones disponibles y utilizar aquellas que se adecuen mejor a tu estilo de editar. 
 
-Learning eight commands might sound daunting. But in reality, these commands work similarly. After learning one, learning the rest will get easier. They all share the same big idea: make a list of their respective categories then pass them the command that you want to run.
+Aprender ocho comando puede sonar algo abrumador. Pero en realidad, estos comandos funcionan de manera similar. Después de aprender uno, aprender el resto será más sencillo. Todas las formas comparten la misma gran idea: hacer una lista de sus respectivas categorías y después pasársela al comando que quieres ejecutar.
 
-### Argument List
+### Lista de argumento
 
-The argument list is the most basic list. It creates a list of files. To create a list of file1, file2, and file3, you can run:
+La lista de argumento es la lista más básica. Crea una lista de archivos. Para crear una lista de archivo1, archivo2 y archivo3, puedes ejecutar:
 
 ```
-:args file1 file2 file3
+:args archivo1 archivo2 archivo3
 ```
 
-You can also pass it a wildcard (`*`), so if you want to make a list of all `.js` files in the current directory, run:
+También puedes pasar un comodín (`*`), así si quieres hacer una lista de todos los archivos de tipo `.js` del directorio actual, ejecuta:
 
 ```
 :args *.js
 ```
 
-If you want to make a list of all Javascript files that start with "a" in the current directory, run:
+Si quieres hacer una lista de todos los archivos Javascript que comienzan con "a" en el directorio actual, ejecuta:
 
 ```
 :args a*.js
 ```
 
-The wildcard matches one or more of any character in the current directory, but what if you need to search recursively in any directory? You can use the double wildcard (`**`). To get all Javascript files inside the directories within your current location, run:
+El símbolo del comodín reemplazará uno o más de cualquier caracter del nombre del archivo en el directorio actual, pero ¿qué sucede si necesitas buscar de manera recursiva en cualquier directorio? Puedes utilizar el comodín doble (`**`). Para obtener todos los archivos Javascript dentro de los directorios dentro de la ubicación actual, ejecuta:
 
 ```
 :args **/*.js
 ```
 
-Once you run the `args` command, your current buffer will be switched to the first item on the list. To view the list of files you just created, run `:args`. Once you've created your list, you can traverse them. `:first` will put you on the first item on the list. `:last` will put you on the last list. To move the list forward one file at a time, run `:next`. To move the list backward one file at a time, run `:prev`. To move forward / backward one file at a time and save the changes, run `:wnext` and `:wprev`. There are plenty more navigation commands. Check out `:h arglist` for more.
+Una vez que ejecutas el comando `args`, tu *buffer* actual cambiará al primer elemento de la lista. Para ver la lista de archivos que acabas de crear, ejecuta `:args`. Creada la lista, puedes recorrerla. `:first` te llevará al primer elemento de la lista. `:last` te llevará al último elemento de la lista. Para moverte en la lista un archivo hacia adelante a la vez, ejecuta `:next`. Para mover hacia atrás un archivo, ejecuta `:prev`. Para moverte hacia adelante / hacia atrás un archivo cada vez y guardar los cambios, ejecuta `:wnext` y `:wprev`. Hay muchos más comandos de navegación. Echa un vistazo a `:h arglist` para saber más.
 
-The arg list is useful if you need to target a specific type of file or a few files. Maybe you need to update all the "donut" into "pancake" inside all `yml` files, you can do:
+la lista de argumentos es útil si necesitas agrupar un tipo específico de archivos o unos cuantos archivos. Quizás necesitas actualizar todos los "donut" a "tortitas" dentro de todos los archivos `yml`, puedes ejecutar:
 
 ```
 :args **/*.yml
-:argdo %s/donut/pancake/g | update
+:argdo %s/donut/tortitas/g | update
 
 ```
-If you run the `args` aggregate command again, it will replace the previous list. For example, if you previously ran:
+Si ejecutas de nuevo el comando `args`, esto reemplazará la lista previa. Por ejemplo, si previamente ejecutaste:
 
 ```
-:args file1 file2 file3
+:args archivo1 archivo2 archivo3
 ```
 
-Assuming these files exist, you now have a list of `file1`, `file2`, and `file3`. Then you run this:
+Asumiendo que estos archivos existen, ahora tienes una lista de `archivo1`, `archivo2` y `archivo3`. Después ejecutas esto:
 
 ```
-:args file4 file5
+:args archivo4 archivo5
 ```
 
-Your initial list of `file1`, `file2`, and `file3` is replaced with `file4` and `file5`. If you have `file1`, `file2`, and `file3` in your arg list and you want to *add* `file4` and `file5` into your initial files list, use the `:arga` argument. Run:
+Tu lista inicial de `archivo1`, `archivo2` y `archivo3` es reemplazada por `archivo4` y `archivo5`. Si tienes `archivo1`, `archivo2` y `archivo3` en tu lista de argumentos y quieres *añadir* `archivo4` y `archivo5` a la lista inicial de archivos, utilizael comando `:arga`. Ejecuta:
 
 ```
-:arga file4 file5
+:arga archivo4 archivo5
 ```
 
-Now you have `file1`, `file2`, `file3`, `file4`, and `file5` in your arg list.
+Ahora tienes `archivo1`, `archivo2`, `archivo3`, `archivo4` y `archivo5` en tu lista de argumentos.
 
 If you run `:arga` without any argument, Vim will add your current buffer into the current arg list. If you already have `file1`, `file2`, and `file3` in your arg list and your current buffer is on `file5`, running `:arga` adds `file5` into the list.
 
