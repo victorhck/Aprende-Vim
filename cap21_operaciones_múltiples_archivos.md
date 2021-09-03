@@ -5,7 +5,7 @@ Ser capaz de actualizar en múltiples archivos es otra útil herramienta de edic
 ## Diferentes formas de ejecutar un comando en múltiples archivos
 
 Vim tiene ocho formas de ejecutar comando en múltiples archivos:
-- lista de arg (`argdo`)
+- lista de argumentos (`argdo`)
 - lista de buffer (`bufdo`)
 - lista de ventana (`windo`)
 - lista de pestaña (`tabdo`)
@@ -18,7 +18,7 @@ En la práctica, probablemente utilizarás solo una o dos de estas ocho formas l
 
 Aprender ocho comando puede sonar algo abrumador. Pero en realidad, estos comandos funcionan de manera similar. Después de aprender uno, aprender el resto será más sencillo. Todas las formas comparten la misma gran idea: hacer una lista de sus respectivas categorías y después pasársela al comando que quieres ejecutar.
 
-### Lista de argumento
+### Lista de argumentos
 
 La lista de argumento es la lista más básica. Crea una lista de archivos. Para crear una lista de archivo1, archivo2 y archivo3, puedes ejecutar:
 
@@ -73,16 +73,16 @@ Tu lista inicial de `archivo1`, `archivo2` y `archivo3` es reemplazada por `arch
 
 Ahora tienes `archivo1`, `archivo2`, `archivo3`, `archivo4` y `archivo5` en tu lista de argumentos.
 
-If you run `:arga` without any argument, Vim will add your current buffer into the current arg list. If you already have `file1`, `file2`, and `file3` in your arg list and your current buffer is on `file5`, running `:arga` adds `file5` into the list.
+Si ejecutas `:arga` sin ningún argumento, mientras estás editando un archivo, Vim añadirá el *buffer* actual a la lista de argumentos. Si ya tenías en esa lista `archivo1`, `archivo2` y `archivo3` en tu lista de argumentos y tu *buffer* actual está en `archivo5`, al ejecutar `:arga` añadirá dicho archivo `archivo5` a la lista.
 
-Once you have the list, you can pass it with any command-line commands of your choosing. You've seen it being done with substitution (`:argdo %s/donut/pancake/g`). Some other examples:
-- To delete all lines that contain "dessert" across the arg list, run `:argdo g/dessert/d`.
-- To execute macro a (assuming you have recorded something in macro a) across the arg list, run `:argdo norm @a`.
-- To write "hello " followed by the filename on the first line, run `:argdo 0put='hello ' .. @:`.
+Una vez que ya tienes la lista, puedes pasarle cualquier comando que quieras. Antes hemos visto un ejemplo realizando una sustitución (`:argdo %s/donut/tortitas/g`). Veamos otros ejemplos:
+- Para eliminar todas las líneas que contienen la palabra "postre" en los archivos de la lista, ejecuta `:argdo g/postre/d`.
+- Para ejecutar la macro a (asumiendo que has grabado algo en la macro a) en la lista, ejecuta `:argdo norm @a`.
+- Para escribir "hola" seguido del nombre del archivo en la primera línea, ejecuta `:argdo 0put='hola ' .. @:`.
 
-Once you're done, don't forget to save them with `:update`.
+Cuando hayas terminado, no olvides guardar todos los cambios con `:update`.
 
-Sometimes you need to run the commands only on the first n items of the argument list. If that's the case, just pass to the `argdo` command an address. For example, to run the substitute command  only on the first 3 items from the list, run `:1,3argdo %s/donut/pancake/g`.
+en ocasiones quizás necesites ejecutar el comando solo el los primeros n elementos de la lista de argumentos. Si es ese el caso, simplemente, pasa al comando `argdo` una dirección. Por ejemplo, para ejecutar el comando de sustitución solo en los 3 primeros elementos de la lista, ejecuta `:1,3argdo %s/donut/tortitas/g`.
 
 ## Buffer List
 
