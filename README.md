@@ -48,22 +48,23 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 * [Cap 15 - El modo de línea de comandos](cap15_modo_linea_comandos.md)
 * [Cap 16 - Etiquetas](cap16_etiquetas.md)
 * [Cap 17 - Plegado de texto (Fold)](cap17_plegado.md)
-* [Cap 18 - Git](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/cap18_git.md)
+* [Cap 18 - Git](cap18_gi7.md)
 * [Cap 19 - Compilar](cap19_compilar.md)
 * [Cap 20 - Vistas, sesiones y Viminfo](cap20_vistas_sesiones_viminfo.md)
+* [Cap 21 - Operaciones en múltiples archivos](cap21_operaciones_múltiples_archivos.md)
 
 #### Parte 2: Personaliza Vim de la manera más inteligente
 
-* [Cap 21 - Vimrc](cap21_vimrc.md)
-* [Cap 22 - El gestor de complementos de Vim](cap22_paquetes_vim.md)
-* [Cap 23 - Ejecutables en Vim](cap23_ejecutables_vim.md)
+* [Cap 22 - Vimrc](cap22_vimrc.md)
+* [Cap 23 - El gestor de complementos de Vim](cap23_paquetes_vim.md)
+* [Cap 24 - Ejecutables en Vim](cap24_ejecutables_vim.md)
 
 #### Parte 3: Aprende Vimscript de la manera más inteligente
 
-* [Cap 24 - Tipos básicos de datos en Vimscript](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/cap24_tipos_basicos_datos_en_vim.md)
-* [Cap 25 - Condicionales y bucles en Vimscript](https://github.com/victorhck/Aprende-Vim/tree/ff7b31d66822f1cf7f945c101048dfa1b862d42a/cap25_condicionales_y_bucles_vim.md)
-* [Cap 26 - Ámbito de las variables en Vimscript](cap26_ambito_variables_vimscript.md)
-* [Cap 27 - Funciones en Vimscript](cap27_funciones_vimscript.md)
+* [Cap 25 - Tipos básicos de datos en Vimscript](cap25_tipos_basico_datos_en_vimscript.md)
+* [Cap 26 - Condicionales y bucles en Vimscript](cap26_condicionales_y_bucles_vimscript.md)
+* [Cap 27 - Ámbito de las variables en Vimscript](cap27_ambito_variables_vimscript.md)
+* [Cap 28 - Funciones en Vimscript](cap28_funciones_vimscript.md)
 
 ## Licencia y derechos de autor
 
