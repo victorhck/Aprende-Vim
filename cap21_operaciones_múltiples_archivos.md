@@ -82,15 +82,15 @@ Una vez que ya tienes la lista, puedes pasarle cualquier comando que quieras. An
 
 Cuando hayas terminado, no olvides guardar todos los cambios con `:update`.
 
-en ocasiones quizás necesites ejecutar el comando solo el los primeros n elementos de la lista de argumentos. Si es ese el caso, simplemente, pasa al comando `argdo` una dirección. Por ejemplo, para ejecutar el comando de sustitución solo en los 3 primeros elementos de la lista, ejecuta `:1,3argdo %s/donut/tortitas/g`.
+En ocasiones quizás necesites ejecutar el comando solo en los primeros n elementos de la lista de argumentos. Si es ese el caso, simplemente, pasa al comando `argdo` una dirección. Por ejemplo, para ejecutar el comando de sustitución solo en los 3 primeros elementos de la lista, ejecuta `:1,3argdo %s/donut/tortitas/g`.
 
-## Buffer List
+## Lista de *buffer*
 
-The buffer list will be organically created when you edit new files because each time you create a new file / open a file, Vim saves it in a buffer (unless you explicitly delete it). So if you already opened 3 files: `file1.rb file2.rb file3.rb`, you already have 3 items in your buffer list. To display the buffer list, run `:buffers` (alternatively: `:ls` or `:files`). To traverse forward and backward, use `:bnext` and `:bprev`. To go to the first and last buffer from the list, use `:bfirst` and `:blast` (having a blast yet? :D).
+La lista de *buffer* será creada de manera casi automática cuando edites neuvos archivos porque cada vez que creas/abres un archivo, Vim lo almacena en un *buffer* (a menos que lo borres de manera explícita) Así que si ya has abierto 3 archivos: `archivo1.rb archivo2.rb archivo3.rb`, ya tienes 3 elementos en tu lista de *buffer*, ejecuta `:buffers` (también puedes utilizar: `:ls` o `:files`). Para navegar hacia adelante o hacia atrás, utiliza `:bnext` y `:bprev`. Para ir al primer o el último elemento de la lista, utiliza `:bfirst` o `:blast`.
 
-By the way, here's a cool buffer trick unrelated to this chapter: if you have a number of items in your buffer list, you can show all of them with `:ball` (buffer all). The `ball` command displays all buffers horizontally. To display them vertically, run `:vertical ball`.
+Por cierto, aquí comparto un interesante truco con los *buffer* sin relación con este capítulo: si tienes un número de elementos en tu lista de *buffer*, puedes mostrarlos todos con `:ball` (*buffer* all). El comando `ball` muestra todos los *buffers* de manera horizontal. Para mostrarlos de manera vertical, ejecuta `:vertical ball`.
 
-Back to the topic, the mechanics to run operation across all buffers is similar to the arg list. Once you have created your buffer list, you just need to prepend the command(s) that you want to run with `:bufdo` instead of `:argdo`. So if you want to substitute all "donut" with "pancake" across all buffers then save the changes, run `:bufdo %s/donut/pancake/g | update`.
+Volviendo al tema del capítulo, la mecánica para ejecutar operaciones en todos los *buffers* abiertos es similar a la que hemos visto anteriormente. Una vez que hayas creado tu lista de *buffer* con aquellos archivos que quieras modificar a la vez, solo necesitas anteponer el(los) comando(s) que quieres ejecutar junto con `:bufdo` en vez de `:argdo` que hemos utilizado anteriormente. Así que si quieres sustituir todos los "donut" con "tortitas" en todos los *buffers* y después guardar los cambios ejecuta `:bufdo %s/donut/tortitas/g | update`.
 
 ## Window and Tab List
 
