@@ -92,13 +92,13 @@ Por cierto, aquí comparto un interesante truco con los *buffer* sin relación c
 
 Volviendo al tema del capítulo, la mecánica para ejecutar operaciones en todos los *buffers* abiertos es similar a la que hemos visto anteriormente. Una vez que hayas creado tu lista de *buffer* con aquellos archivos que quieras modificar a la vez, solo necesitas anteponer el(los) comando(s) que quieres ejecutar junto con `:bufdo` en vez de `:argdo` que hemos utilizado anteriormente. Así que si quieres sustituir todos los "donut" con "tortitas" en todos los *buffers* y después guardar los cambios ejecuta `:bufdo %s/donut/tortitas/g | update`.
 
-## Window and Tab List
+## Lista de ventana y pestaña
 
-The windows and tabs list are also similar to the arg and buffer list. The only differences are their context and syntax. 
+La lista de ventanas y pestañas también son similares a las lista de argumentos y *buffer* que hemos visto hasta ahora. Las únicas diferencias son su contexto y sintaxis. 
 
-Window operations are performed on each open window and performed with `:windo`. Tab operations are performed on each tab you have opened and performed with `:tabdo`. For more, check out `:h list-repeat`, `:h :windo`, and `:h :tabdo`.
+Las operaciones de ventana son realizadas en cada ventana abierta y realizada con el comando `:windo`. Las operación de pestaña son realizadas en cada pestaña que tengas abierta y realizadas con `:tabdo`. Para más información, echa un vistazo a la ayuda de Vim `:h list-repeat`, `:h :windo` y `:h :tabdo`.
 
-For example, if you have three windows opened (you can open new windows with `Ctrl-W v` for a vertical window and `Ctrl-W s` for a horizontal window) and you run `:windo 0put ='hello' . @%`, Vim will output "hello" + filename to all open windows.
+Por ejemplo, si tienes tres ventanas abiertas (puedes abrir nuevas ventanas con `Ctrl-W v` para ventanas en vertical y `Ctrl-W s` para ventanas en horizontal) y ejecutas `:windo 0put ='hola' . @%`, Vim añadirá la palabra "hola" + el nombre del archivo en todas las ventanas abiertas.
 
 ## Quickfix List
 
