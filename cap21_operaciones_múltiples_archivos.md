@@ -7,8 +7,8 @@ Ser capaz de actualizar en múltiples archivos es otra útil herramienta de edic
 Vim tiene ocho formas de ejecutar comando en múltiples archivos:
 - lista de argumentos (`argdo`)
 - lista de buffer (`bufdo`)
-- lista de ventana (`windo`)
-- lista de pestaña (`tabdo`)
+- lista de ventanas (`windo`)
+- lista de pestañas (`tabdo`)
 - lista de quickfix (`cdo`)
 - lista de quickfix inteligente de archivo (`cfdo`)
 - lista de ubicación (`ldo`)
@@ -18,7 +18,7 @@ En la práctica, probablemente utilizarás solo una o dos de estas ocho formas l
 
 Aprender ocho comando puede sonar algo abrumador. Pero en realidad, estos comandos funcionan de manera similar. Después de aprender uno, aprender el resto será más sencillo. Todas las formas comparten la misma gran idea: hacer una lista de sus respectivas categorías y después pasársela al comando que quieres ejecutar.
 
-### Lista de argumentos
+## Lista de argumentos
 
 La lista de argumento es la lista más básica. Crea una lista de archivos. Para crear una lista de archivo1, archivo2 y archivo3, puedes ejecutar:
 
@@ -92,7 +92,7 @@ Por cierto, aquí comparto un interesante truco con los *buffer* sin relación c
 
 Volviendo al tema del capítulo, la mecánica para ejecutar operaciones en todos los *buffers* abiertos es similar a la que hemos visto anteriormente. Una vez que hayas creado tu lista de *buffer* con aquellos archivos que quieras modificar a la vez, solo necesitas anteponer el(los) comando(s) que quieres ejecutar junto con `:bufdo` en vez de `:argdo` que hemos utilizado anteriormente. Así que si quieres sustituir todos los "donut" con "tortitas" en todos los *buffers* y después guardar los cambios ejecuta `:bufdo %s/donut/tortitas/g | update`.
 
-## Lista de ventana y pestaña
+## Lista de ventanas y pestañas
 
 La lista de ventanas y pestañas también son similares a las lista de argumentos y *buffer* que hemos visto hasta ahora. Las únicas diferencias son su contexto y sintaxis. 
 
@@ -100,40 +100,40 @@ Las operaciones de ventana son realizadas en cada ventana abierta y realizada co
 
 Por ejemplo, si tienes tres ventanas abiertas (puedes abrir nuevas ventanas con `Ctrl-W v` para ventanas en vertical y `Ctrl-W s` para ventanas en horizontal) y ejecutas `:windo 0put ='hola' . @%`, Vim añadirá la palabra "hola" + el nombre del archivo en todas las ventanas abiertas.
 
-## Quickfix List
+## Lista de quickfix
 
-In the previous chapters (Ch3 and Ch19), I have spoken about quickfixes. Quickfix has many uses. Many popular plugins use quickfixes, so it's good to spend more time to understand them.
+En capítulos previos (capítulos 3 y 19), pudiste leer sobre *quickfix*. Quickfix tiene muchos usos. Los complementos más populares utilizan ventanas de quickfix, así que es bueno pasar algo de tiempo en entenderlos bien.
 
-If you're new to Vim, quickfix might be a new concept. Back in the old days when you actually have to explicitly compile your code, during the compilation phase you would encounter errors. To display these errors, you need a special window. That's where quickfix comes in. When you compile your code, Vim displays error messages in the quickfix window so you can fix them later. Many modern languages don't require an explicit compile anymore, but that doesn't make quickfix obsolete. Nowadays, people use quickfix for all sorts of things, like displaying a virtual terminal output and storing search results. Let's focus on the latter one, storing search results.
+Si eres recién llegado a Vim, quickfix puede ser un concepto nuevo. En tiempos más remotos cuando tenías que compilar de manera explícita tu código, durante la la fase de compilación te podías encontrar diferentes errores. Para mostrar esos errores, necesitabas una ventana especial. Ahí es donde la ventana quickfix entra en escena. Cuando compilas tu código, Vim muestra los mensajes de error en una ventana quickfix para poder solucionarlos más tarde. Muchos lenguajes de programación actuales no necesitan ya un compilado explícito, pero eso no hace que la ventana quickfix se haya quedado obsoleta. Ahora, las personas utilizan la ventana quickfix para diversas cosas, como mostrar un terminal virtual o almacenar los resultados de la búsqueda. Vamos a centrarnos más en este último uso, almacenar los resultados de la búsqueda.
 
-In addition to the compile commands, certain Vim commands rely on quickfix interfaces. One type of command that use quickfixes heavily are the search commands. Both `:vimgrep` and `:grep` use quickfixes by default.
+Además de los comandos de compilar, ciertos comandos de Vim también utilizan la interfaz quickfix. Un tipo de comando que utiliza quickfix de manera intensiva son los comandos de búsqueda. Tanto `:vimgrep` como `:grep` utilizan quickfixes de manera predeterminada.
 
-For example, if you need to search for "donut" in all Javascript files recursively, you can run:
+Por ejemplo, si necesitas buscar la palabra "donut" en todos los archivos Javascript de manera recursiva, puedes ejecutar:
 
 ```
 :vimgrep /donut/ **/*.js
 ```
 
-The result for the "donut" search is stored in the quickfix window. To see these match results' quickfix window, run:
+El resultado de la búsqueda de "donut" es almacenado en una ventana quickfix. Para ver esta ventana quickfix de los resultados encontrados, ejecuta:
 
 ```
 :copen
 ```
 
-To close it, run:
+Para cerrarla, ejecuta:
 
 ```
 :cclose
 ```
 
-To traverse the quickfix list forward and backward, run:
+Para desplazarte por la lista dentro de la ventana quickfix hacia adelante y hacia atrás, ejecuta:
 
 ```
 :cnext
 :cprev
 ```
 
-To go to the first and the last item in the match, run:
+Para ir al primer elemento o al último, ejecuta:
 
 ```
 :cfirst
