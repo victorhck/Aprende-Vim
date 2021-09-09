@@ -1,10 +1,10 @@
 # Operaciones en múltiples archivos
 
-Ser capaz de actualizar en múltiples archivos es otra útil herramienta de edición para utilizar. Anteriormente has aprendido cómo actualizar múltiples textos mediante `cfdo`. En este capítulo, aprenderás las diferentes formas con las que puedes editar múltiples archivos en Vim.
+Ser capaz de editar un texto en múltiples archivos a la vez es otra útil herramienta de edición. Anteriormente has aprendido cómo actualizar múltiples textos mediante `cfdo`. En este capítulo, aprenderás las diferentes formas con las que puedes editar múltiples archivos en Vim.
 
 ## Diferentes formas de ejecutar un comando en múltiples archivos
 
-Vim tiene ocho formas de ejecutar comando en múltiples archivos:
+Vim tiene ocho formas de ejecutar comandos en múltiples archivos:
 - lista de argumentos (`argdo`)
 - lista de buffer (`bufdo`)
 - lista de ventanas (`windo`)
@@ -20,7 +20,7 @@ Aprender ocho comando puede sonar algo abrumador. Pero en realidad, estos comand
 
 ## Lista de argumentos
 
-La lista de argumento es la lista más básica. Crea una lista de archivos. Para crear una lista de archivo1, archivo2 y archivo3, puedes ejecutar:
+La lista de argumentos es la lista más básica. Crea una lista de archivos. Para crear una lista de archivo1, archivo2 y archivo3, puedes ejecutar:
 
 ```
 :args archivo1 archivo2 archivo3
@@ -46,7 +46,7 @@ El símbolo del comodín reemplazará uno o más de cualquier caracter del nombr
 
 Una vez que ejecutas el comando `args`, tu *buffer* actual cambiará al primer elemento de la lista. Para ver la lista de archivos que acabas de crear, ejecuta `:args`. Creada la lista, puedes recorrerla. `:first` te llevará al primer elemento de la lista. `:last` te llevará al último elemento de la lista. Para moverte en la lista un archivo hacia adelante a la vez, ejecuta `:next`. Para mover hacia atrás un archivo, ejecuta `:prev`. Para moverte hacia adelante / hacia atrás un archivo cada vez y guardar los cambios, ejecuta `:wnext` y `:wprev`. Hay muchos más comandos de navegación. Echa un vistazo a `:h arglist` para saber más.
 
-la lista de argumentos es útil si necesitas agrupar un tipo específico de archivos o unos cuantos archivos. Quizás necesitas actualizar todos los "donut" a "tortitas" dentro de todos los archivos `yml`, puedes ejecutar:
+La lista de argumentos es útil si necesitas agrupar un tipo específico de archivos o unos cuantos archivos. Quizás necesitas actualizar todos los "donut" a "tortitas" dentro de todos los archivos de tipo `yml`, puedes ejecutar:
 
 ```
 :args **/*.yml
@@ -140,13 +140,13 @@ Para ir al primer elemento o al último, ejecuta:
 :clast
 ```
 
-Earlier I mentioned that there were two quickfix commands: `cdo` and `cfdo`. How do they differ? `cdo` executes command for each item in the quickfix list while `cfdo` executes command for each *file* in the quickfix list.
+Anteriormente he mencionado que hay dos comandos para quickfix: `cdo` y `cfdo`. ¿En qué se diferencian? `cdo` ejecuta el comando para cada elemento en la lista quickfix mientras que `cfdo` ejecuta el comando para cada *archivo* en la lista quickfix.
 
-Let me clarify. Suppose that after running the `vimgrep` command above, you found:
-- 1 result in `file1.js`
-- 10 results in `file2.js`
+Voy a aclararlo con un ejemplo. Supongamos que después de ejecutar el comando `vimgrep` anterior, Vim ha encontrado:
+- 1 resultado en `archivo1.js`
+- 10 resultados en `archivo2.js`
 
-If you run `:cfdo %s/donut/pancake/g`, this will effectively run `%s/donut/pancake/g` once in `file1.js` and once in `file2.js`. It runs *as many times as there are files in the match.* Since there are two files in the results, Vim executes the substitute command once on `file1.js` and once more on `file2.js`, despite the fact that there are 10 matches in the second file. `cfdo` only cares about how many total files are in the quickfix list.
+Si ejecutas `:cfdo %s/donut/tortitas/g`, esto ejecutará `%s/donut/tortitas/g` una vez en `archivo1.js` y otra vez en `archivo2.js`. Lo ejecuta *tantas veces como archivos hay en las coincidencias encontradas.* Como se hay dos archivos en los resultados, Vim ejecuta el comando de sustitución dos veces como ya hemos visto, no te preocupes por el hecho de que hay 10 coincidencias en el segundo archivo. `cfdo` solo se preocupa de cuantos archivos en total hay en la lista quickfix.
 
 If you run `:cdo %s/donut/pancake/g`, this will effectively run `%s/donut/pancake/g` once in `file1.js` and *ten times* in `file2.js`. It runs as many times as there are actual items in the quickfix list. Since there is only one match found in `file1.js` and 10 matches found in `file2.js`, it will run a total of 11 times.
 
