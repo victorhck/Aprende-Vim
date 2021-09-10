@@ -178,10 +178,10 @@ La mayoría de los comandos de las listas de ubicación son similares a los coma
 
 Los comandos de archivos múltiples de las listas de ubicación también son similares a los comandos de archivos múltiples de quickfix: `:ldo` y `:lfdo`. `:ldo` ejecuta el comando de ubicación en cada lista de ubicación, mientras `:lfdo` ejecuta el comando de la lista de ubicación para cada archivo en la lista de ubicación. Para más información, echa un vistazo a `:h location-list`.
 
-## Running Multiple-File Operations in Vim
+## Ejecutar operaciones en múltiples archivos en Vim de la manera más inteligente
 
-Knowing how to do a multiple file operation is a useful skill to have in editing. Whenever you need to change a variable name across multiple files, you want to execute them in one swoop. Vim has eight different ways you can do this.
+Conocer cómo realizar operaciones en múltiples archivos es una técnica muy útil a la hora de editar archivos de una manera rápida y eficiente. Ya sea porque necesitas cambiar el nombre de una variable en muchos archivos y quieras hacerlo de una pasada. Vim tiene ocho maneras diferentes para realizar esto.
 
-Practically speaking, you probably won't use all eight equally. You will gravitate towards one or two. When you are starting out, pick one (I personally suggest starting with the arg list `:argdo`) and master it. Once you are comfortable with one, then learn the next one. You will find that learning the second, third, fourth gets easier. Be creative. Use it with different combinations. Keep practicing until you can do this effortlessly and without much thinking. Make it part of your muscle memory.
+En la práctica, probablemente no necesitará usar los ocho de igual manera. Quizás te decantes por uno o dos. Cuando estás empezando, escoge uno (personalmente te aconsejaría la lista de argumentos `:argdo`) y lo domines. Una vez que te encuentres cómodo usándolo, entonces aprende el siguiente. Verás que aprender el segundo, el tercero y el cuarto modo será cada vez más fácil. Se creativo. Utilízalo con diferentes combinaciones. Sigue practicando hasta que puedas realizarlo sin esfuerzo y casi sin pensarlo. Haz que forme parte de tu memoria.
 
-With that being said, you've mastered Vim editing. Congratulations!
+Dicho esto, ya dominas la edición con Vim ¡Enhorabuena!
