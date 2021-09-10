@@ -154,29 +154,29 @@ Como ejecutaste el comando `%s/donut/tortitas/g`, tendría sentido utilizar `cfd
 
 Cuando decidas entre utilizar `cfdo` o `cdo`, piensa en el alcance del comando que estás ejecutando. ¿Es un comando que se ejecuta en el archivo completo (como `:%s` o `:g`) o es un comando que se ejecuta en una única línea (como `:s` o `:!`)?
 
-## Location List
+## Lista de ubicación (location)
 
-Location list is similar to quickfix list in a sense that Vim also uses a special window to display messages. The difference between a quickfix list and a location list is that at any time, you may only have one quickfix list, whereas you can have as many location list as windows.
+La lista de ubicación es similar a la lista quickfix en el sentido de que Vim también utiliza una ventana especial para mostrar los mensajes. La diferencia entre la lista quickfix y la lista de ubicación es que en cualquier momento, puedes tener solo una lisya quickfix, mientra que puedes tener tantas listas de ubicación como ventanas.
 
-Suppose that you have two windows opened, one window displaying `food.txt` and another displaying `drinks.txt`. From inside `food.txt`, you run a location-list search command `:lvimgrep` (the location variant for the `:vimgrep` command):
-
-```
-:lvim /bagel/ **/*.md
-```
-
-Vim will create a location list of all the bagel search matches for that `food.txt` *window*. You can see the location list with `:lopen`. Now go to the other window `drinks.txt` and run:
+Supongamos que tenemos dos ventanas abiertas, una ventana mostrando el archivo `comida.txt` y otra ventana mostrando `bebidas.txt`. Desde dentro de `comida.txt`, puedes ejecutar un comando de búsqueda de lista de ubicación `:lvimgrep` (la variante de ubicación para el comando `:vimgrep`):
 
 ```
-:lvimgrep /milk/ **/*.md
+:lvim /rosquilla/ **/*.md
 ```
 
-Vim will create a *separate* location list with all the milk search results for that `drinks.txt` *window*.
+Vim creará una lista de ubicación de todas las coincidencias encontradas de rosquilla para esa *ventana* `comida.txt`. Puedes ver la lista de ubicación con `:lopen`. Ahora ve a la otra ventana de `bebidas.txt` y ejecuta:
 
-For each location-command you run in each window, Vim creates a distinct location list. If you have 10 different windows, you can have up to 10 different location lists. Contrast this with the quickfix list where you can only have one at any time. If you have 10 different windows, you still get only one quickfix list.
+```
+:lvimgrep /leche/ **/*.md
+```
 
-Most of the location list commands are similar to quickfix commands except that they are prefixed with `l-` instead. For example: `:lvimgrep`, `:lgrep`, and `:lmake` vs `:vimgrep`, `:grep`, and `:make`. To manipulate the location list window, again, the commands look similar to the quickfix commands `:lopen`, `:lclose`, `:lfirst`, `:llast`, `:lnext`, and `:lprev` vs `:copen`, `:cclose`, `:cfirst`, `:clast`, `:cnext`, and `:cprev`.
+Vim creará una unicación *separada* con todos los resultados de la búsqueda leche para esa *ventana* de `bebidas.txt`.
 
-The two location list multi-file commands are also similar to quickfix multi-file commands: `:ldo` and `:lfdo`. `:ldo` executes the location command in each location list while `:lfdo` executes the location list command for each file in the location list. For more, check out `:h location-list`.
+Para cada comando de ubicación que ejecutas en cada ventana, Vim crea una lista de ubicación distinta. Si tienes 10 ventanas diferentes, puedes llegar a tener 10 listas de ubicación distintas. Contrasta con la lista quickfix donde solo podías tener una cada vez. Si tienes 10 ventanas diferentes, solo tendrías una lista quickfix.
+
+La mayoría de los comandos de las listas de ubicación son similares a los comandos quickfix excepto que están precedidos con `l-`. Por ejemplo: `:lvimgrep`, `:lgrep`, y `:lmake` vs `:vimgrep`, `:grep`, and `:make`. Para manipular la ventana de la lista de ubicación, de nuevo, los comanso son similares a los comandos quickfix `:lopen`, `:lclose`, `:lfirst`, `:llast`, `:lnext` y `:lprev` vs `:copen`, `:cclose`, `:cfirst`, `:clast`, `:cnext` y `:cprev`.
+
+Los comandos de archivos múltiples de las listas de ubicación también son similares a los comandos de archivos múltiples de quickfix: `:ldo` y `:lfdo`. `:ldo` ejecuta el comando de ubicación en cada lista de ubicación, mientras `:lfdo` ejecuta el comando de la lista de ubicación para cada archivo en la lista de ubicación. Para más información, echa un vistazo a `:h location-list`.
 
 ## Running Multiple-File Operations in Vim
 
