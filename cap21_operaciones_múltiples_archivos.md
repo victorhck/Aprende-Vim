@@ -148,11 +148,11 @@ Voy a aclararlo con un ejemplo. Supongamos que después de ejecutar el comando `
 
 Si ejecutas `:cfdo %s/donut/tortitas/g`, esto ejecutará `%s/donut/tortitas/g` una vez en `archivo1.js` y otra vez en `archivo2.js`. Lo ejecuta *tantas veces como archivos hay en las coincidencias encontradas.* Como se hay dos archivos en los resultados, Vim ejecuta el comando de sustitución dos veces como ya hemos visto, no te preocupes por el hecho de que hay 10 coincidencias en el segundo archivo. `cfdo` solo se preocupa de cuantos archivos en total hay en la lista quickfix.
 
-If you run `:cdo %s/donut/pancake/g`, this will effectively run `%s/donut/pancake/g` once in `file1.js` and *ten times* in `file2.js`. It runs as many times as there are actual items in the quickfix list. Since there is only one match found in `file1.js` and 10 matches found in `file2.js`, it will run a total of 11 times.
+Si ejecutas `:cdo %s/donut/tortitas/g`, esto ejecutará `%s/donut/tortitas/g` una vez en en `archivo1.js` y *diez veces* en `archivo2.js`. Esto lo ejecuta tantas veces como elementos existen en la lista quickfix. Como solo hay una coincidencia encontrada en `archivo1.js` y diez coincidencias encontradas en `archivo2.js`, esto ejecutará el comando un total de 11 veces.
 
-Since you ran `%s/donut/pancake/g`, it would make sense to use `cfdo`. It did not make sense to use `cdo` because it would run `%s/donut/pancake/g` ten times in `file2.js` (`%s` is a file-wide substitution). Running `%s` once per file is enough. If you used `cdo`, it would make more sense to pass it with `s/donut/pancake/g` instead.
+Como ejecutaste el comando `%s/donut/tortitas/g`, tendría sentido utilizar `cfdo`. No tendría sentido utilizar `cdo` debido a que ejecutaría `%s/donut/tortitas/g` diez veces en `archivo2.js` (`%s` es una sustitución en el archivo al completo). Ejecutar `%s` una vez por archivo es suficiente. Si usaras `cdo`, tendría más sentido utilizar este otro comando `s/donut/tortitas/g`.
 
-When deciding whether to use `cfdo` or `cdo`, think of the command scope that you are passing it to. Is this a file-wide command (like `:%s` or `:g`) or is this a line-wise command (like `:s` or `:!`)?
+Cuando decidas entre utilizar `cfdo` o `cdo`, piensa en el alcance del comando que estás ejecutando. ¿Es un comando que se ejecuta en el archivo completo (como `:%s` o `:g`) o es un comando que se ejecuta en una única línea (como `:s` o `:!`)?
 
 ## Location List
 
