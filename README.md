@@ -16,7 +16,7 @@ Es una traducción de la guía original en inglés que puedes encontrar en: [htt
 
 La idea que originó todo, fue la de traducir la guía del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Además de interés personal de aprender más en profundidad este gran editor de texto.
 
-Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un _issue_ en el repositorio en [GitHub](https://github.com/victorhck/Aprende-Vim/)
+Traducciones, correcciones y mejoras son bienvenidas. No dudes en hacer un PR o abrir un _issue_ en el repositorio en [GitHub.](https://github.com/victorhck/Aprende-Vim/)
 
 Además de esta extensa guía, también he creado __otros materiales relacionados con Vim__, como:
 
