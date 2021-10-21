@@ -48,7 +48,7 @@ Hay varias formas de poder desplazarse por los _buffers_:
 * `:bnext` o de manera abreviada puedes utilizar `:bn` para ir al _buffer_ siguiente \(`:bprevious` o `:bp` para ir al _buffer_ previo\).
 * `:buffer` + nombre\_de\_archivo. De manera abreviada puedes utilizar `:b`. Vim puede autocompletar el nombre de archivo con `Tab`.
 * `:buffer` + `n`, donde `n` es el número del _buffer_. También puedes reemplazar `:buffer` por `:b`. Por ejemplo, escribiendo: `:buffer 2` o `:b 2` te llevará al _buffer_ número 2.
-* Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Explicaré más detalles sobre los saltos en el capítulo 5.
+* Salta a la antigua posición en la lista de saltos con `Ctrl-O` y a la nueva posición con `CtrlIi`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Explicaré más detalles sobre los saltos en el capítulo 5.
 * Ir al _buffer_ previamente editado con `Ctrl-^`.
 
 Una vez que Vim crea un _buffer_, este permanecerá en tu lista de _buffers_. Para eliminarlo, puedes escribir `:bdelete`. También puede aceptar un número de _buffer_ como parámetro \(`:bdelete 3` para eliminar el _buffer_ \#3\) o un nombre de archivo \(`:bdelete` después utiliza `Tab` para autocompletar el nombre\).
@@ -71,7 +71,7 @@ Si quieres salir de Vim sin guardar los cambios realizados, simplemente añade `
 :qall!
 ```
 
-Para guardar sin salir, ejecuta:
+Para guardar y salir, ejecuta:
 
 ```
 :wqall
@@ -91,7 +91,7 @@ vim file1.js
 
 ![one buffer displayed.png](.gitbook/assets/screen-one-buffer.png)
 
-Anteriormente he dicho que estás viendo el _buffer_ de `file1.js`. Aunque esto es correcto, es incompleto. Estás viendo el _buffer_ de `file1.js` mostrado a través de **una ventana**. La ventana es el medio por el que estás viendo el _buffer_.
+Anteriormente he escrito que estás viendo el _buffer_ de `file1.js`. Aunque esto es correcto, es incompleto. Estás viendo el _buffer_ de `file1.js` mostrado a través de **una ventana**. La ventana es el medio por el que estás viendo el _buffer_.
 
 No abandones Vim todavía. Ejecuta:
 
@@ -218,7 +218,7 @@ Has aprendido cómo funcionan los _buffers_, las ventanas y las pestañas en Vim
 
 Cada persona tiene una manera diferente de trabajar, esta es la mía por ejemplo:
 
-* Yo utilizo los _buffers_ para almacenar todos los archivos necesarios para realizar la tarea que queremos hacer. Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo veré un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y me permite centrarme en una pantalla. Cuando necesito desplazarme a otro lugar, puedo volar rápidamente a cualquier _buffer_ que desee cuando quiera.
+* Yo utilizo los _buffers_ para almacenar todos los archivos necesarios para realizar la tarea que quiero hacer. Vim puede manejar muchos _buffers_ antes de que empiece a ir lento. Además abrir muchos _buffers_ no llena mi pantalla. Solo veré un _buffer_ \(asumiendo que solo tengo una ventana\) cada vez y me permite centrarme en una pantalla. Cuando necesito desplazarme a otro lugar, puedo volar rápidamente a cualquier _buffer_ que desee cuando quiera.
 * Utilizo múltiples ventanas para ver múltiples _buffers_ a la vez, normalmente cuando tengo archivos que muestran las diferencias entre archivos, leyendo código o siguiendo el flujo de un código. Trato de no tener más de tres ventanas abiertas a la vez porque mi pantalla se llena. Cuando termino, cierro cualquier ventana extra. Menos ventanas abiertas implica menos distracciones.
 * En vez de pestañas, utilizo ventanas de [tmux](https://github.com/tmux/tmux/wiki). Por ejemplo, una ventana de tmux para código del lado cliente y otra ventana para código de _back-end_.
 
