@@ -16,7 +16,7 @@ Si `archivo.txt` existe, abre `archivo.txt` en un _buffer_. Si `archivo.txt` no 
 
 El autocompletado del nombre con la tecla `<Tab>` funciona con `:edit`. Por ejemplo, si tu archivo está dentro de una carpeta _controller_ de un proyecto en [Rails](https://rubyonrails.org/) como por ejemplo `./app/controllers/users_controllers.rb`, puedes utilizar la tecla `<Tab>` para ir expandiendo los términos rápidamente.
 
-Pulsamos la primera letra del nombre de la carpeta, en este caso la "a" de `app`, y Vim lo autocompletará pulsan `tab`. Después la "c" de la carpeta `controllers` y de nuevo `tab`. Y finalmente la "u" y `tab` para que Vim autocomplete el nombre del archivo:
+Pulsamos la primera letra del nombre de la carpeta, en este caso la "a" de `app`, y Vim lo autocompletará pulsando `Tab`. Después la "c" de la carpeta `controllers` y de nuevo `Tab`. Y finalmente la "u" y `Tab` para que Vim autocomplete el nombre del archivo:
 
 ```text
 :edit a<Tab>c<Tab>u<Tab>
@@ -77,11 +77,11 @@ De manera predeterminada, quizás el resultado de ese comando sea algo parecido 
 path=.,/usr/include,,
 ```
 
-* `.` significa buscar en relación al directorio del archivo actual.
+* `.` significa buscar en relación al directorio del archivo abierto actual.
 * `,` significa buscar en el directorio actual.
-* `/usr/include` es el directorio para archivos de cabeceras de compiladores de C.
+* `/usr/include` es el directorio para archivos de librerias de compiladores de C.
 
-Los dos primeros son importantes y el tercero puede ser ignorado por ahora. La conclusión aquí es que puedes modificar tus propias rutas. Supongamos que esta es la estructura de tu proyecto:
+Los dos primeros son importantes en nuestro contexto y el tercero puede ser ignorado por ahora. La conclusión aquí es que puedes modificar tus propias rutas, donde Vim buscará archivos. Supongamos que esta es la estructura de tu proyecto:
 
 ```text
 app/
@@ -105,13 +105,13 @@ Ahora que tu ruta ha sido actualizada, cuando escribas `:find u<Tab>`, Vim tambi
 
 Si tienes un directorio `controllers/` anidado, como `app/controllers/account/users_controller.rb`, Vim no encontrará `users_controllers`. En su lugar es necesario añadir `:set path+=app/controllers/**` así el autocompletado podrá buscar `users_controller.rb`. ¡Esto es genial! Ahora puedes encontrar lo que necesitas con solo pulsar una vez la tecla tabulador en vez de 3 veces.
 
-Podrás estar pensando en añadir los directorios del proyecto entero así cuando pulses `tab`, Vim buscará en cualquier lugar el archivo deseado, de esta manera:
+Podrás estar pensando en añadir los directorios del proyecto entero así cuando pulses `Tab`, Vim buscará en cualquier lugar el archivo deseado, de esta manera:
 
 ```text
 :set path+=$PWD/**
 ```
 
-`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscados al presionar el tabulador `tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios o los archivos más visitados.
+`$PWD` hace referencia al directorio de trabajo actual. Si intentas añadir el proyecto entero a `path` para que así todos los archivos puedan ser buscados al presionar el tabulador `Tab`, aunque esto puede funcionar para un proyecto pequeño, hacer esto puede ralentizar tus búsquedas de manera significativa si tienes muchos archivos en tu proyecto. Recomiendo solo añadir a `path` los directorios o los archivos más visitados.
 
 Actualizar `path` solo te llevará unos segundos y haciendo esto te ahorrarás un montón de tiempo.
 
@@ -137,7 +137,7 @@ Por ejemplo, para encontrar todas las coincidencia de la cadena "desayuno" dentr
 :vim /desayuno/ app/controllers/**/*.rb
 ```
 
-Después de ejecutar este comando, serás redirigido al primer resultado. El comando de búsqueda de Vim `vim` usa la `quickfix`, esto es una ventana anexa en la que se muestra todas las ocurrencias que Vim ha encontrado. Para ver todos los resultados de la búsqueda, ejecutamos `:copen`. Esto abre una ventana `quickfix`. Aquí dejamos algunos comandos de _quickfix_ útiles para empezar a trabajar:
+Después de ejecutar este comando, serás redirigido al primer resultado. El comando de búsqueda de Vim `vim` usa la ventana `quickfix`, esto es una ventana anexa en la que se muestra todas las ocurrencias que Vim ha encontrado. Para ver todos los resultados de la búsqueda, ejecutamos `:copen`. Esto abre una ventana `quickfix`. Aquí dejamos algunos comandos de _quickfix_ útiles para empezar a trabajar:
 
 ```text
 :copen        Abrir la ventana quickfix
@@ -164,7 +164,7 @@ Vim usa la variable `grepprg` para determinar qué programa externo ejecutar cua
 
 ## Navegando los archivos con Netrw
 
-`netrw` el explorador de archivos propio de Vim. Es útil para ver la estructura jerárquica de un proyecto. Para poder usar `netrw`, necesitas estas 2 configuraciones en tu `.vimrc`:
+`netrw` el explorador de archivos propio de Vim. Es útil para ver la jerarquía de un proyecto. Para poder usar `netrw`, necesitas estas 2 configuraciones en tu `.vimrc`:
 
 ```text
 set nocp
@@ -179,7 +179,7 @@ vim src/client/
 vim app/controllers/
 ```
 
-Para iniciar `netrw` dentro de Vim, podemos usar `:edit` y darle un directorio como argumento directamente en lugar del nombre de un archivo:
+Para iniciar `netrw` dentro de Vim, podemos usar `:edit` y darle un directorio como parámetro directamente en lugar del nombre de un archivo:
 
 ```text
 :edit .
@@ -187,7 +187,7 @@ Para iniciar `netrw` dentro de Vim, podemos usar `:edit` y darle un directorio c
 :edit app/controllers/
 ```
 
-Existen otras formas de abrir una ventana de `netrw` sin darle de argumento un directorio:
+Existen otras formas de abrir una ventana de `netrw` sin darle un directorio como argumento :
 
 ```text
 :Explore     Inicia netrw en el archivo actual
@@ -195,13 +195,13 @@ Existen otras formas de abrir una ventana de `netrw` sin darle de argumento un d
 :Vexplore    Inicia netrw en una pantalla dividida en la mitad izquierda
 ```
 
-Podemos navegar dentro de `netrw` con los movimientos de Vim \(veremos más sobre este tema en un capítulo posterior\). Si necesitas crear, eliminar, y renombrar un archivo/directorio, aquí tienes una lista de comandos `netrw` muy útiles:
+Podemos navegar dentro de `netrw` con los movimientos de Vim \(veremos más sobre este tema en un capítulo posterior\). Si necesitas crear, eliminar o renombrar un archivo o un directorio, aquí tienes una lista de comandos `netrw` muy útiles:
 
 ```text
 %    Crear un nuevo archivo
 d    Crear un nuevo directorio
-R    Renombrar un archivo o directorio
-D    Eliminar un archivo o directorio
+R    Renombra un archivo o directorio
+D    Elimina un archivo o directorio
 ```
 
 `:h netrw` es muy completo. Échale un vistazo si tienes tiempo.
