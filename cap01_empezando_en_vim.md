@@ -119,7 +119,7 @@ vim +%s/tarta/rosquilla/g +%s/rosquilla/huevo/g +%s/huevo/donut/g hola.txt
 
 Vim primero reemplazará todas las instancias que encuentre de "tarta" con "rosquilla", después reemplazará "rosquilla" con "huevo", después reemplazará "huevo" con "donut" \(aprenderás sobre cómo sustituir texto en un capítulo posterior\).
 
-También puedes añadir la bandera `c` seguida con el comando en vez de la sintaxis `+`:
+También puedes añadir la opción `-c` seguida de un comando de Vim en vez de la sintaxis `+`:
 
 ```bash
 vim -c %s/tarta/rosquilla/g hola.txt
@@ -128,7 +128,7 @@ vim -c %s/tarta/rosquilla/g -c %s/rosquilla/huevo/g -c %s/huevo/donut/g hola.txt
 
 ## Abriendo múltiples ventanas
 
-Puedes ejecutar Vim en ventanas divididas de manera horizontal y vertical con `o` y `O`, respectivamente.
+Puedes ejecutar Vim en ventanas divididas de manera horizontal y vertical con las opciones `-o` y `-O`, respectivamente.
 
 Para abrir Vim con dos ventanas horizontales, ejecuta:
 
@@ -162,7 +162,7 @@ Si necesitar suspender la ejecución de Vim mientras estás a la mitad de una ed
 
 ## Arrancando Vim de la manera más inteligente
 
-Puedes pasarle al comando `vim` diferentes opciones y banderas, como a cualquier otro comando de la terminal. Una de las opciones es el comando de la línea de comandos \(`+{cmd}` o `-c cmd`\). Cuantos más comandos aprendas mientras lees esta guía, comprueba si puedes utilizarlos al arrancar Vim. También al ser un comando para la terminal, puedes combinar `vim` con muchos otros comandos. Por ejemplo, puedes redireccionar la salida del comando `ls` para que pueda ser editado en Vim con `ls -l | vim -`.
+El comando `vim` puede adoptar diferentes opciones, como a cualquier otro comando de la terminal. Dos opciones permiten pasarle a Vim un comando como parámetro: \(`+{cmd}` y `-c cmd`\). Cuantos más comandos aprendas mientras lees esta guía, comprueba si puedes utilizarlos al iniciar Vim. También al ser un comando para la terminal, puedes combinar `vim` con muchos otros comandos. Por ejemplo, puedes redireccionar la salida del comando `ls` para que pueda ser editado en Vim con `ls -l | vim -`.
 
-Para aprender más sobre las diferentes opciones que puedes utilizar desde la terminal, echa un vistazo mediante el comando `man vim`. Para aprender más sobre los modos de Vim y los comandos, echa un vistazo con `:help`.
+Para aprender más sobre el comando `vim` en la terminal, echa un vistazo a la ayuda `man vim`. Para aprender más sobre el editor Vim, continúa leyendo esta guía junto con el comando en Vim `:help`.
 
