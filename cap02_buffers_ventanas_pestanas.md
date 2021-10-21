@@ -1,10 +1,10 @@
 # Capítulo 2: *Buffers*, ventanas y pestañas
 
-Si has utilizado un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: _buffers_, ventanas y pestañas. En este capítulo veremos qué son y cómo funcionan en Vim los _buffers_, ventanas y pestañas.
+Si has utilizado un con anterioridad un editor de texto moderno, probablemente estás familiarizado con las ventanas y las pestañas. Vim tiene tres abstracciones en vez de dos: _buffers_, ventanas y pestañas. En este capítulo veremos qué son y cómo funcionan en Vim los _buffers_, ventanas y pestañas.
 
 Antes de comenzar, debes asegurarte que la opción `set hidden` está presente en tu archivo `vimrc`. Sin este ajuste, cada vez que cambies a un _buffer_, Vim te pedirá que guardes el archivo \(no quieres eso si quieres moverte rápidamente entre distintos _buffers_). 
 
-Todavía no hemos tratado el capítulo que trata sobre vimrc, lo haremos en el capítulo 21. En sistemas basados en Unix como cualquier distribución de GNU/Linux o MacOS, este archivo debería estar ubicado en el _home_ de tu usuario y debería llamarse `.vimrc`. Es decir la ruta sería `/home/tu_usuario/.vimrc`. El punto indica que es un archivo oculto.
+Todavía no hemos visto el capítulo que trata sobre vimrc, lo haremos en el capítulo 21. En sistemas basados en Unix como cualquier distribución de GNU/Linux o MacOS, este archivo debería estar ubicado en el _home_ de tu usuario y debería llamarse `.vimrc`. Es decir la ruta sería `/home/tu_usuario/.vimrc`. El punto indica que es un archivo oculto. Si todavía no tienes ese archivo, puedes crearlo.
 
 Para ver dónde crear tu archivo vimrc, echa un vistazo a la ayuda de Vim con `:h vimrc`. 
 
@@ -48,12 +48,12 @@ Hay varias formas de poder desplazarse por los _buffers_:
 * `:bnext` o de manera abreviada puedes utilizar `:bn` para ir al _buffer_ siguiente \(`:bprevious` o `:bp` para ir al _buffer_ previo\).
 * `:buffer` + nombre\_de\_archivo. De manera abreviada puedes utilizar `:b`. Vim puede autocompletar el nombre de archivo con `Tab`.
 * `:buffer` + `n`, donde `n` es el número del _buffer_. También puedes reemplazar `:buffer` por `:b`. Por ejemplo, escribiendo: `:buffer 2` o `:b 2` te llevará al _buffer_ número 2.
-* Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Hablaremos más sobre los saltos en el capítulo 5.
+* Salta a la antigua posición en la lista de saltos con `Ctrl-o` y a la nueva posición con `Ctrl-i`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Explicaré más detalles sobre los saltos en el capítulo 5.
 * Ir al _buffer_ previamente editado con `Ctrl-^`.
 
-Una vez que Vim crea un _buffer_, este permanecerá en tu lista de _buffers_. Para eliminarlo, puedes escribir `:bdelete`. También acepta un número de _buffer_ \(`:bdelete 3` para eliminar el _buffer_ \#3\) o un nombre de archivo \(`:bdelete` después utiliza `Tab` para autocompletar el nombre\).
+Una vez que Vim crea un _buffer_, este permanecerá en tu lista de _buffers_. Para eliminarlo, puedes escribir `:bdelete`. También puede aceptar un número de _buffer_ como parámetro \(`:bdelete 3` para eliminar el _buffer_ \#3\) o un nombre de archivo \(`:bdelete` después utiliza `Tab` para autocompletar el nombre\).
 
-La parte más difícil de aprender para mí sobre los _buffer_ fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis _buffers_ como un mazo de cartas. Si tengo 2 _buffers_, tengo una pila de 2 cartas. La carta superior es la que puedo ver. Si veo `file1.js` que se muestra en el _buffer_, entonces la carta de `file1.js` es la que está en la parte superior del mazo. No puedo ver la carta `file2.js`. Si cambio el _buffer_ a `file2.js`, estoy poniendo la carta de `file2.js` en la parte superior del mazo de cartas y la carta de `file1.js` en la parte inferior del mazo.
+La parte más difícil de aprender para mí sobre los _buffers_ fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis _buffers_ como un mazo de cartas. Si tengo 2 _buffers_, tengo una pila de 2 cartas. La carta superior es la que puedo ver. Si veo `archivo1.js` que se muestra en el _buffer_, entonces la carta de `archivo1.js` es la que está en la parte superior del mazo. No puedo ver la carta `archivo2.js`. Si cambio el _buffer_ a `archivo2.js`, estoy poniendo la carta de `archivo2.js` en la parte superior del mazo de cartas y la carta de `archivo1.js` debajo de esta.
 
 Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo.
 
@@ -155,7 +155,7 @@ Para más información, echa un vistazo a la ayuda de Vim `:h window`. Dedícale
 
 ## Pestañas
 
-Una pestaña en una colección de ventanas. Piensa en ello como en un diseño para ventanas. En la mayoría de los editores modernos \(y en los modernos navegadores de internet\), una pestaña significa un archivo/página abierta y cuando la cierras, el archivo/página desaparece. En Vim, una pestaña no representa un archivo abierto. Cuando cierras una pestaña en Vim, no estás cerrando un archivo. Recuerda, Vim almacena los archivos en la memoria mediante los _buffers_. Cerrar una pestaña \(o una ventana\) no hace que ese archivo desaparezca de los _buffers_.
+Una pestaña en una colección de ventanas. Piensa en ello como en un diseño para ventanas. En la mayoría de los editores modernos \(y en los modernos navegadores de internet\), una pestaña significa un archivo/página abierta y cuando la cierras, el archivo/página desaparece. En Vim, una pestaña no representa un archivo abierto. Cuando cierras una pestaña en Vim, no estás cerrando un archivo. Recuerda, Vim almacena los archivos en la memoria mediante los _buffers_. Cerrar una pestaña \(o una ventana\) no hace que ese archivo desaparezca, todavía permanecen abierto en de los _buffers_.
 
 Veamos las pestañas de Vim en acción. Abre `file1.js`:
 
