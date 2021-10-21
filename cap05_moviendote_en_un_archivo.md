@@ -73,7 +73,7 @@ ge    Mueve el cursor hacia atrás al final de la palabra previa
 gE    Mueve el cursor hacia atrás al final de la PALABRA previa
 ```
 
-Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están separadas por caracteres que no son espacios en blanco. Una palabra es una secuencia de caracteres que contienen _únicamente_ este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco \(cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea\) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
+Entonces, ¿cuáles son las similitudes y diferencias entre una palabra y una PALABRA? Tanto una palabra como una PALABRA están separadas por espacios en blanco. Una palabra es una secuencia de caracteres que contienen _únicamente_ este grupo de caracteres `a-zA-Z0-9_`. Una PALABRA es una secuencia que incluyen todos los caracteres excepto el espacio en blanco \(cuando me refiero a espacio en blanco, esto incluye tanto un espacio, una separación por tabulador o un fin de línea\) Para aprender más, echa un vistazo a la ayuda en Vim sobre este tema con estos comandos: `:h word` o `:h WORD`.
 
 Por ejemplo, supongamos que tenemos la siguiente frase:
 
