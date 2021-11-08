@@ -19,7 +19,7 @@ Profundicemos más en detalle cada una de estas tareas.
 La sintaxis para leer la salida estándar \(STDOUT\) de un comando externo dentro del _buffer_ actual es:
 
 ```text
-:r !{cmd}
+:r !cmd
 ```
 
 `:r` es el comando de Vim para leer. Si lo utilizas sin `!`, puedes utilizarlo para obtener el contenido de un archivo. Si tienes un archivo llamado `archivo1.txt` en el directorio actual y ejecutas:
@@ -111,7 +111,7 @@ Para matar un proceso que se está ejecutando con el identificativo de proceso P
 :!kill -9 3456
 ```
 
-Puedes ejecutar cualquier comando externo sin dejar Vim y así permanecer centrado en tu tarea.
+Puedes ejecutar cualquier comando externo sin salir de Vim y así permanecer centrado en tu tarea.
 
 ## Filtrando textos
 
@@ -122,7 +122,7 @@ hello vim
 hello vim
 ```
 
-Vamos a convertir a mayúsculas la línea actual utilizando el comando `tr` \(translate\). Ejecuta:
+Con el cursor en la primera línea, vamos a convertir a mayúsculas la línea actual utilizando el comando `tr` \(translate\). Ejecuta:
 
 ```text
 :.!tr '[:lower:]' '[:upper:]'
@@ -138,7 +138,7 @@ hello vim
 Vamos a ver en detalle el comando:
 
 * `.!` ejecuta el filtro del comando en la línea actual.
-* `!tr '[:lower:]' '[:upper:]'` llama al comando `tr` para reemplazar los caracteres en minúsculas a mayúsculas.
+* `tr '[:lower:]' '[:upper:]'` llama al comando `tr` para reemplazar los caracteres de minúsculas a mayúsculas.
 
 Es imperativo pasar un rango para ejecutar el comando externo como un filtro. Si tratas de ejecutar el comando anterior sin el `.` \(`:!tr '[:lower:]' '[:upper:]'`\), verás un error.
 
