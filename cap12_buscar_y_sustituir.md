@@ -2,7 +2,7 @@
 
 Este capítulo trata sobre dos conceptos separados pero relacionados: buscar y sustituir. A menudo cuando estás editando con Vim, necesitas buscar múltiples textos basando esas búsquedas en un patrón que sea su mínimo denominador común. Aprender cómo utilizar expresiones regulares en la búsqueda y sustitución en vez de búsquedas de cadenas literales, hará que seas capaz de localizar cualquier texto rápidamente.
 
-Como nota complementaria, en este capítulo, utilizaré principalmente `/` cuando me refiera a la búsqueda. Todo lo que puedes realizar con el comando `/` puede también ser realizado con `?`.
+Como nota complementaria, en este capítulo, utilizaré principalmente `/` cuando me refiera a la búsqueda. Todo lo que puedes realizar con el comando `/` puede también ser realizado con `?`. Con `/` realiza la búsqueda desde la posición del cursor hacia adelante en el texto, mientras que `?` realiza la búsqueda desde la posición del cursor hacia atrás.
 
 ## Sensibilidad inteligente a mayúsculas y minúsculas
 
