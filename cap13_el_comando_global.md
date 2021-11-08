@@ -542,7 +542,7 @@ const arrayA = [
 
 ¡Esto es genial! Pero el comando parece complicado. Vamos a verlo en detalle. Este comando también sigue el formato `:g/patrón1/,/patrón2/comando`.
 
-* `:g/\[/` es el patrón del comando global.
+* `:g` es el patrón del comando global.
 * `/\[/+1` es el primer patrón. Busca literalmente un símbolo de apertura de corchete "[". El `+1` se refiere a la línea debajo de este.
 * `/\]/-1` es el segundo patrón. Busca literalmente un símbolo de cierre de corchete "]". El `-1` se refiere a la línea encima de este.
 * `/\[/+1./\]/-1` entonces se refiere a cualquier línea entre "[" y "]".
