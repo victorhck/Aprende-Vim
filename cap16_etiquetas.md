@@ -104,7 +104,7 @@ Echemos un vistazo a la etiqueta del elemento `donut`:
 donut    one.rb    /^  def donut$/;"    f    class:One
 ```
 
-El elemento de la etiqueta está compuesto por cuatro componentes: un nombre de etiqueta o `tagname`, un nombre de archivo de la etiqueta o `tagfile`, una dirección de etiqueta o `tagaddress` y opciones de la etiqueta. \(N. del T: Me referiré por sus nombre en inglés porque quizás es la nomenclatura más utilizada en los tutoriales y por quienes lo usan\).
+El elemento de la etiqueta está compuesto por cuatro componentes: un nombre de etiqueta o `tagname`, un nombre de archivo de la etiqueta o `tagfile`, una dirección de etiqueta o `tagaddress` y opciones de la etiqueta. \(N. del T: Me referiré por sus nombres en inglés porque quizás es la nomenclatura más utilizada en los tutoriales y por quienes lo usan\).
 
 * `donut` es el `tagname`. Cuando tu cursor está encima de la palabra "donut", Vim busca el archivo dentro del archivo de la etiqueta una línea que contenga la cadena "donut".
 * `one.rb` es el `tagfile`. Vim busca un archivo llamado `one.rb`.
@@ -215,13 +215,13 @@ one.donut
 puts pancake
 ```
 
-Si has vuelto a escribir el contenido del archivo, no olvide ejecutar de nuevo `ctags -R .` ya que ahora aparecen muchos procedimientos nuevos. Tienes dos instancias del procedimiento `pancake`. Si estás dentro del archivo `two.rb` y pulsas `Ctrl-]`, ¿qué es lo que ocurriría?
+Si has vuelto a escribir el contenido del archivo, no olvides ejecutar de nuevo `ctags -R .` ya que ahora aparecen muchos procedimientos nuevos. Tienes dos instancias del procedimiento `pancake`. Si estás dentro del archivo `two.rb` y pulsas `Ctrl-]`, ¿qué es lo que ocurriría?
 
-Vim saltará a `def pancake` dentro de `two.rb`, no a `def pancake` dentro de `one.rb`. Esto es debido a que Vim Vim ve el procedimiento `pancake` dento del archivo `two.rb` como de mayor prioridad que el del procedimiento dentro del archivo `pancake`.
+Vim saltará a `def pancake` dentro de `two.rb`, no a `def pancake` dentro de `one.rb`. Esto es debido a que Vim ve el procedimiento `pancake` dento del archivo `two.rb` como de mayor prioridad que el del procedimiento dentro del archivo `pancake`.
 
 ## Prioridad de las etiquetas
 
-No todas etiquetas son iguales. Algunas etiquetas tienen unas prioridades mayores. Si Vim se encuentra con nombres de elementos duplicados, Vim comprueba de la palabra clave. El orden es el siguiente:
+No todas etiquetas son iguales. Algunas etiquetas tienen unas prioridades mayores. Si Vim se encuentra con nombres de elementos duplicados, Vim comprueba la palabra clave. El orden es el siguiente:
 
 1. Una etiqueta estática que coincida completamente en el archivo actual.
 2. Una etiqueta global que coincida completamente en el archivo actual.
