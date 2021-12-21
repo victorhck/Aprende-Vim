@@ -48,7 +48,7 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 * [Cap 15 - El modo de línea de comandos](cap15_modo_linea_comandos.md)
 * [Cap 16 - Etiquetas](cap16_etiquetas.md)
 * [Cap 17 - Plegado de texto (Fold)](cap17_plegado.md)
-* [Cap 18 - Git](cap18_gi7.md)
+* [Cap 18 - Git](cap18_git.md)
 * [Cap 19 - Compilar](cap19_compilar.md)
 * [Cap 20 - Vistas, sesiones y Viminfo](cap20_vistas_sesiones_viminfo.md)
 * [Cap 21 - Operaciones en múltiples archivos](cap21_operaciones_múltiples_archivos.md)
