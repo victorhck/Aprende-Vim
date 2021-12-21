@@ -151,7 +151,7 @@ vim -o5 hola1.txt hola2.txt
 Para abrir Vim con dos ventanas verticales, 5 ventanas verticales y 5 ventanas verticales con 2 archivos:
 
 ```bash
-vim -O
+vim -O2
 vim -O5
 vim -O5 hola1.txt hola2.txt
 ```
