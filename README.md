@@ -61,7 +61,7 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 
 #### Parte 3: Aprende Vimscript de la manera más inteligente
 
-* [Cap 25 - Tipos básicos de datos en Vimscript](cap25_tipos_basico_datos_en_vimscript.md)
+* [Cap 25 - Tipos básicos de datos en Vimscript](cap25_tipos_basicos_datos_en_vimscript.md)
 * [Cap 26 - Condicionales y bucles en Vimscript](cap26_condicionales_y_bucles_vimscript.md)
 * [Cap 27 - Ámbito de las variables en Vimscript](cap27_ambito_variables_vimscript.md)
 * [Cap 28 - Funciones en Vimscript](cap28_funciones_vimscript.md)
