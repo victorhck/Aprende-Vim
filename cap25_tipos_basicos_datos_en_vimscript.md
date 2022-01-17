@@ -1,4 +1,4 @@
-# Capítulo 24: Tipos de datos básicos de Vimscript
+# Capítulo 25: Tipos de datos básicos de Vimscript
 
 En los próximos capítulos, aprenderás sobre Vimscript, el lenguaje de programación propio de Vim.
 

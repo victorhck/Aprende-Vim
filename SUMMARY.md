@@ -25,7 +25,7 @@
 * [Capítulo 21: Operaciones en múltiples archivos](cap21_operaciones_múltiples_archivos.md)
 * [Capítulo 22: Vimrc](cap22_vimrc.md)
 * [Capítulo 23. El gestor de complementos de Vim \(Packages\)](cap23_paquetes_vim.md)
-* [Capítulo 24: Los ejecutables \(runtime\) de Vim](cap23_ejecutables_vim.md)
+* [Capítulo 24: Los ejecutables \(runtime\) de Vim](cap24_ejecutables_vim.md)
 * [Capítulo 25: Tipos de datos básicos de Vimscript](cap25_tipos_basicos_datos_en_vimscript.md)
 * [Capítulo 26: Condicionales y bucles en Vimscript](cap26_condicionales_y_bucles_vimscript.md)
 * [Capítulo 27: Variables de Vimscript y su ámbito](cap27_ambito_variables_vimscript.md)

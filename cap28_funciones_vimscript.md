@@ -1,4 +1,4 @@
-# Capítulo 27: Funciones en Vimscript
+# Capítulo 28: Funciones en Vimscript
 
 Las funciones son medios de abstracción, el tercer elemento en el aprendizaje de un nuevo lenguajes de programación.
 
