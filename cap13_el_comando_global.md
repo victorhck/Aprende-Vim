@@ -196,7 +196,7 @@ console.log("three: ", three);
 Ten en cuenta que las líneas con "const" no tienen un símbolo de punto y coma al final de la línea. Vamos a crear una macro, que almacenaremos en el registro a, que añada un símbolo de punto y coma al final de esas líneas:
 
 ```text
-qa0A;<Esc>q
+qaA;<Esc>q
 ```
 
 Si necesitas refrescar conocimientos, echa un vistazo al capítulo que trata sobre las macros. Ahora ejecuta:
@@ -393,7 +393,7 @@ Puedo simplemente eliminar la lista una vez que decida qué hacer con ella.
 Recuerda del capítulo de los registros que los textos eliminados son almacenados dentro de los registros numerados \(aunque son suficientemente grandes\). Cada vez que ejecutas `:g/console/d`, Vim almacena las líneas eliminadas en los registros numerados. Si eliminas muchas líneas, puedes rápidamente llenar el contenido de esos registros numerados. Para evitar esto, siempre puedes utilizar el registro del agujero negro \(`"_`\) para _no_ almacenar las líneas eliminadas en los registros. Ejecuta:
 
 ```text
-:g/console/d _
+:g/console/d_
 ```
 
 Al pasar al comando el símbolo `_` después del comando de borrar `d`, Vim no almacenará las líneas eliminadas en ningún registro.
