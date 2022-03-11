@@ -15,8 +15,8 @@ a    Añadir texto después del cursor
 A    Añadir texto al final de la línea
 o    Crea una nueva línea debajo del cursor y cambia al modo insertar
 O    Crea una nueva línea encima del cursor y cambia al modo insertar
-s    Elimina el carácter debajo del cursor e inserta texto
-S    Elimina la línea actual e inserta texto
+s    Elimina el carácter debajo del cursor e inserta texto (sustituye texto)
+S    Elimina la línea actual e inserta texto (sustituye toda la línea)
 gi   Inserta texto en la misma posición donde el modo insertar fue detenido por última vez en el *buffer* actual
 gI   Inserta texto al comienzo de una línea (columna 1)
 ```
