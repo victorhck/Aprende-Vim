@@ -1,12 +1,12 @@
 # Capítulo 5: Moviéndote por un archivo
 
-Al principio, moverte utilizando el teclado te puede hacer sentir incómodo e increíblemente lento, ¡pero no desistas! Una vez que te acostumbres, podrás moverte a cualquier parte de un archivo de manera más rápida que utilizando el ratón.
+Al principio, moverte utilizando el teclado te puede parecer algo incómodo e increíblemente lento, ¡pero no desistas! Una vez que te acostumbres, podrás moverte a cualquier parte de un archivo de manera más rápida que utilizando el ratón.
 
 En este capítulo, aprenderás los movimientos esenciales y cómo utilizarlos de manera eficiente. Ten en mente que este capítulo **no** es todo lo que Vim puede ofrecer en cuanto a la hora de moverse por un archivo. La meta aquí es presentar los movimientos más útiles para volverte productivo rápidamente. Si necesitas aprender más, echa un vistazo a la ayuda de Vim `:h motion.txt`.
 
 ## Navegando por caracteres
 
-La unidad más básica de movimiento es moverse un carácter a la izquierda, abajo, arriba y a la derecha.
+La unidad más básica de movimiento es moverse un carácter a la izquierda, abajo, arriba y a la derecha mediante las teclas h, j, k ,l.
 
 ```text
 h   Izquierda
@@ -58,7 +58,7 @@ Puedes aplicar esto a todos tus movimientos. Si quieres moverte 9 caracteres a l
 
 ## Navegación por palabras
 
-Vamos a movernos por una unidad de movimiento mayor: _palabra_. Puedes moverte al comienzo de la siguiente palabra \(`w`\), al final de la siguiente palabra \(`e`\), al comienzo de la palabra anterior \(`b`\)y al final de la palabra anterior \(`ge`\).
+Vamos a movernos por una unidad de movimiento mayor: _palabra_. Puedes mover el cursor al comienzo de la siguiente palabra \(`w`\), al final de la siguiente palabra \(`e`\), al comienzo de la palabra anterior \(`b`\)y al final de la palabra anterior \(`ge`\).
 
 Además de esto, también está la _PALABRA_, distinta de palabra. Puedes mover el cursor al principio de la siguiente PALABRA \(`W`\), al final de la siguiente PALABRA \(`E`\), al comienzo de la PALABRA previa \(`B`\) y al final de la PALABRA previa \(`gE`\). Para hacerlo sencillo de recordar, PALABRA utiliza las mismas letras de movimiento que palabra excepto que son en mayúsculas.
 
@@ -97,7 +97,7 @@ $     Ir al último caracter de la línea actual
 n|    Ir a la columna n en la línea actual
 ```
 
-También puedes realizar una búsqueda en la línea actual con `f` y `t`. La diferencia entre `f` y `t` es que `f` te lleva a la primera letra de la primera coincidencia encontrada y `t` te lleva *hasta justo* antes de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se sitúe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se sitúe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
+También puedes realizar una búsqueda en la línea actual con `f` y `t`. Ambas opciones buscan hacia adelante en la línea actual, la diferencia entre `f` y `t` es que `f` situa el cursor en el mismo lugar de la primera letra de la primera coincidencia encontrada y `t` te lleva *hasta justo* antes de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se sitúe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se sitúe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
 
 `F` y `T` son las opciones similares a `f` y `t` pero para buscar hacia atrás en el texto. Para buscar hacia atrás una "h", ejecuta `Fh`. Para seguir buscando "h" en la misma dirección, usa `;`. Ten en cuenta que `;` después de `Fh` continua la búsqueda hacia atrás y `,` después de `fh` busca hacia adelante.
 
@@ -110,7 +110,7 @@ T    Busca hacia atrás una coincidencia en la línea actual, posicionando el cu
 ,    Repite la última búsqueda en la línea actual en dirección contraria
 ```
 
-Volviendo al ejemplo previo
+Volviendo al ejemplo previo:
 
 ```text
 const hello = "world";
@@ -236,7 +236,7 @@ zb    LLeva la línea actual donde está el cursor cerca de la parte inferior de
 
 ## Navegación por búsqueda
 
-Muy a menudo, sabes que existe una frase concreta dentro del archivo. Puede utilizar la navegación por búsqueda para llegar hasta tu objetivo rápidamente. Para buscar una frase, puedes utilizar `/` para hacer una búsqueda hacia adelante en el texto o `?` para buscar hacia atrás. Para repetir la última búsqueda, puedes utilizar `n`. Para repetir la última búsqueda pero en dirección opuesta, puedes utilizar `N`.
+Muy a menudo, sabes que existe una frase concreta dentro del archivo. Puede utilizar la navegación por búsqueda para llegar hasta tu objetivo rápidamente. Para buscar una frase, puedes utilizar `/` para hacer una búsqueda hacia adelante en el texto o `?` para buscar hacia atrás desde la posición del cursor. Para repetir la última búsqueda, puedes utilizar `n`. Para repetir la última búsqueda pero en dirección opuesta, puedes utilizar `N`.
 
 ```text
 /    Busca hacia adelante una coincidencia
