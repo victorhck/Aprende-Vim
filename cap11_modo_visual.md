@@ -99,9 +99,9 @@ t]res
 Ahora pulsa `k`, esto ya no reducirá la selección si no que la expandirá hacia arriba.
 
 ```text
-[one
-two
-t]hree
+[uno
+dos
+t]res
 ```
 
 Al pulsar `o` u `O` en el modo visual, esto hará que nuestro cursor salte del inicio al final del bloque resaltado, sin eliminar las partes resaltadas y podremos añadir más texto a esa selección.
