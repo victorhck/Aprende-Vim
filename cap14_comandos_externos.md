@@ -105,7 +105,7 @@ Para ver el contenido del directorio actual en su formato extendido, ejecuta:
 :!ls -ls
 ```
 
-Para matar un proceso que se está ejecutando con el identificativo de proceso PID 3456, puedes ejecutar:
+Para matar un proceso que se está ejecutando con el indicador del proceso PID 3456, puedes ejecutar:
 
 ```text
 :!kill -9 3456
