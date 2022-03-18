@@ -273,7 +273,7 @@ Muchas cosas que haces mientras estás editando son repetitivas. Para mejorar en
 
 Al comienzo, encontraba muy raro escribir macros, pero no desistí. Con la práctica suficiente, tendrás el hábito de automatizar todo.
 
-Puede que encuentre útil utilizar mnemónicos para ayudarte a recordar tus macros. Si tienes una macro que crea una función, utiliza el registro "f" \(`qf`\). Si tienes una macro para operacione numéricas, entonces el registro "n" puede ser una buena elección \(`qn`\). Nómbrala con _el primer registro nominal_ que te venga a la cabeza cuando pienses en esa operación. También es útil utilizar el registro "q" como macro predeterminada ya que `qq` no requiere pensar mucho a la hora de ponerle nombre. Por último, me gusta incrementar mis macros en orden alfabético, como `qa`, después `qb`, después `qc`, y así sucesivamente.
+Puede que encuentre útil utilizar mnemónicos para ayudarte a recordar tus macros. Si tienes una macro que crea una función, utiliza el registro "f" \(`qf`\). Si tienes una macro para operaciones numéricas, entonces el registro "n" puede ser una buena elección \(`qn`\). Nómbrala con _el primer registro nominal_ que te venga a la cabeza cuando pienses en esa operación. También es útil utilizar el registro "q" como macro predeterminada ya que `qq` no requiere pensar mucho a la hora de ponerle nombre. Por último, me gusta incrementar mis macros en orden alfabético, como `qa`, después `qb`, después `qc`, y así sucesivamente.
 
 Encuentra el método que mejor se adapte a ti.
 
