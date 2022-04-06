@@ -65,6 +65,7 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 * [Cap 26 - Condicionales y bucles en Vimscript](cap26_condicionales_y_bucles_vimscript.md)
 * [Cap 27 - Ámbito de las variables en Vimscript](cap27_ambito_variables_vimscript.md)
 * [Cap 28 - Funciones en Vimscript](cap28_funciones_vimscript.md)
+* [Cap 29 - Ejemplo de cómo escribir tu propio complemento en Vim](cap29_ejemplo_cómo_escribir_un_complemento.md)
 
 ## Licencia y derechos de autor
 
