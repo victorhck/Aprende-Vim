@@ -1,7 +1,7 @@
 # Artículo todavía en fase de traducción
 # Capítulo 29: Escribir un complemento para crear títulos
 
-Cuando comienzas a dominar Vim, quizás quieras empezar a escribir tus propios complemento. Recientemente, el autor de la guía en inglés escribió su primer complemento para Vim [totitle-vim](https://github.com/iggredible/totitle-vim). Es un complemento operador para los títulos de secciones o capítulos de texto, similar a los operadores de Vim para convertir a mayúsculas `gU`, minúsculas `gu` o intercambiarlos`g~`.
+Cuando comienzas a dominar Vim, quizás quieras empezar a escribir tus propios complementos. Recientemente, el autor de la guía en inglés escribió su primer complemento para Vim [totitle-vim](https://github.com/iggredible/totitle-vim). Es un complemento operador para los títulos de secciones o capítulos de texto, similar a los operadores de Vim para convertir a mayúsculas `gU`, minúsculas `gu` o intercambiarlos`g~`.
 
 En este capítulo verás detallado el proceso de creación del complemento `totitle-vim`. ¡Espero arrojar algo de luz sobre el proceso y tal vez inspirarte a crear tu propio complemento único!
 
@@ -9,9 +9,13 @@ En este capítulo verás detallado el proceso de creación del complemento `toti
 
 Utilizo Vim para escribir mis artículos, incluyendo esta guía que estás leyendo.
 
-Uno de los problemas pincipales fue crear un adecuado uso de mayúsculas y minúsculas para los títulos. Una manera de automatizar esto es convertir a mayúsculas cada letra de cada palabra mediante `g/^#/ s/\<./\u\0/g`. For MVP, this command was good enough, but it is still not as good as having an actual title case. The words "The" and "Of" in "Capitalize The First Letter Of Each Word" should be capitalized. Without a proper capitalization, the sentence looks slightly off.
+**Nota del traductor:** *En la cultura anglosajona, los títulos de artículos escritos o secciones suelen escribirse con la primera letra de las palabras en mayúsculas. Algo que en español no ocurre, ya que solo se escriben en mayúsculas las palabras que hacen referencia a nombres propios, después de un punto y alguna otra ocasión tal como establece la [RAE](https://www.rae.es/dpd/may%C3%BAsculas).
 
-At first, I wasn't planning to write a plugin. Also it turns out that there is a titlecase plugin already: [vim-titlecase](https://github.com/christoomey/vim-titlecase). However, there were a few things that didn't function quite the way I wanted them to. The main one was the blockwise visual mode behavior. If I have the phrase:
+Por tanto el complemento tiene sentido únicamente en textos en inglés. Pero independientemente de esa circunstancia, será igual de útil ver el proceso de creación para crear nuestros propios complementos para nuestras necesidades de edición personales.*
+
+Uno de los problemas pincipales fue crear un adecuado uso de mayúsculas y minúsculas para los títulos. Una manera de automatizar esto es convertir a mayúsculas cada letra de cada palabra mediante `g/^#/ s/\<./\u\0/g`. Para la mayoría de los casos, este comando puede ser suficiente, pero no es lo suficientemente potente como el tener una forma de convertir a mayúscula la primera letra de un título. En inglés las palabras "The" o "Of" en "Capitalize The First Letter Of Each Word" deberían escribirse en mayúsculas. Sin una regla adecuada de capitalización de palabra, la frase tendría un aspecto extraño.
+
+Al inicio, no planeaba escribir un complemento. Además resulta que ya existe un complemento para eso llamado: [vim-titlecase](https://github.com/christoomey/vim-titlecase). Sin embargo, hay unas cuantas cosas que no funcionaban en la manera en la que yo quería. La principal era el comportamiento en el modo de selección visual de bloque. Si tienes las siguientes frases:
 
 ```
 test title one
@@ -19,7 +23,7 @@ test title two
 test title three
 ```
 
-If I use a block visual highlight on the "tle":
+Si utilizo el reslatado de bloque visual en las letras "tle" en las tres líneas, quedando seleccionado la parte que está entre corchetes, así:
 
 ```
 test ti[tle] one
@@ -27,7 +31,7 @@ test ti[tle] two
 test ti[tle] three
 ```
 
-If I press `gt`, the plugin won't capitalize it. I find it inconsistent with the behaviors of `gu`, `gU`, and `g~`. So I decided to work off from that titlecase plugin repo and use that to a titlecase plugin myself that is consistent with `gu`, `gU`, and `g~`!. Again, the vim-titlecase plugin itself is an excellent plugin and worthy to be used on its own (the truth is, maybe deep down I just wanted to write my own Vim plugin. I can't really see the blockwise titlecasing feature to be used that often in real life other than edge cases).
+Si pulso `gt`, el complemento no convertirá en mayúsculas la selección. Este comportamiento no sigue el comportamiento que tienen `gu`, `gU` y `g~`. Así que decidí trabajar a partir del repositorio del complemento y utilizarlo para solucionar ese comportamiento y que fuera igual a `gu`, `gU` y `g~`! Una vez más, el complemento vim-titlecase en sí mismo es un complemento excelente y digno de ser utilizado por sí solo (la verdad es que tal vez en el fondo solo quería escribir mi propio complemento de Vim. Realmente no puedo imaginar en qué casos la función de título en bloques pueda ser usado a menudo en la vida real que no sean casos extremos).
 
 ### Planning for the Plugin
 
