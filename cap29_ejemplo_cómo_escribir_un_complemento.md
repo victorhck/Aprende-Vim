@@ -33,9 +33,9 @@ test ti[tle] three
 
 Si pulso `gt`, el complemento no convertirá en mayúsculas la selección. Este comportamiento no sigue el comportamiento que tienen `gu`, `gU` y `g~`. Así que decidí trabajar a partir del repositorio del complemento y utilizarlo para solucionar ese comportamiento y que fuera igual a `gu`, `gU` y `g~`! Una vez más, el complemento vim-titlecase en sí mismo es un complemento excelente y digno de ser utilizado por sí solo (la verdad es que tal vez en el fondo solo quería escribir mi propio complemento de Vim. Realmente no puedo imaginar en qué casos la función de título en bloques pueda ser usado a menudo en la vida real que no sean casos extremos).
 
-### Planning for the Plugin
+### Planificando el complemento
 
-Before writing the first line of code, I need to decide what the titlecase rules are. I found a neat table of different capitalization rules from the [titlecaseconverter site](https://titlecaseconverter.com/rules/). Did you know that there are at least 8 different capitalization rules in English language? *Gasp!*
+Antes de escribir la primera línea de código, necesito decidir cuales serán las reglas para poner en mayúsculas las líneas de los títulos. Encontré una tabla en la que se especifican las diferentes reglas a la hora de escribir mayúsculas en el sitio web [titlecaseconverter](https://titlecaseconverter.com/rules/). ¿Sabías que hay al menos 8 reglas diferentes en inglés relativas a la escritura con letras mayúsculas? *¡Casi nada!*
 
 In the end, I used the common denominators from that list to come up with a good enough basic rule for the plugin. Plus I doubt people will complain, "Hey man, you're using AMA, why aren't you using APA?". Here are the basic rules:
 - First word is always uppercased.
