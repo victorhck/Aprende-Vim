@@ -45,9 +45,9 @@ Al final, utilicé los denominadores comunes de esa lista para formar unas cuant
 
 Y sobre cuales palabra van en minúsculas, en diferentes reglas tienen diferentes listas. Decidí que estas irían en minúsculas `a an and at but by en for in nor of off on or out per so the to up yet vs via`.
 
-### Planning for the User Interface
+### Planificando la interfaz de usuario
 
-I want the plugin to be an operator to complement Vim's existing case operators: `gu`, `gU`, and `g~`. Being an operator, it must accept either a motion or a text object (`gtw` should titlecase the next word, `gtiw` should titlecase the inner word, `gt$` should titlecase the words from the current location until the end of the line, `gtt` should titlecase the current line, `gti(` should titlecase the words inside parentheses, etc). I also want it to be mapped to `gt` for easy mnemonics. Moreover, it should also work with all visual modes: `v`, `V`, and `Ctrl-V`. I should be able to highlight it in *any* visual mode, press `gt`, then all the highlighted texts will be titlecased.
+Quiero que el complemento sea un operador que complemente los operadores ya existentes de Vim: `gu`, `gU`, and `g~`. Al ser un operador, podrá aceptar tanto movimientos como objetos de texto (`gtw` debería poner en mayúscula la palabra siguiente, `gtiw` debería poner en mayúsculas la palabra donde se encuentra el cursor, `gt$` debería poner en mayúsculas las primeras letras de las palabras desde la ubicación actual del cursor hasta el final de la línea, `gtt` debería poner en mayúsculas la línea actual, `gti(` debería convertir a mayúsculas el texto dentro de los paréntesis, etc. También quiero que tenga la combinación de teclas `gt` para recordarlo más fácilmente. Además, también debería funcionar en todos los modos visuales: `v`, `V` y `Ctrl-V`. Debería ser capaz de resaltar el texto en *cualquier* modo visual, pulsar `gt`, y después el complemento convertir a mayúsculas todo el texto resaltado.
 
 ## Vim Runtime
 
