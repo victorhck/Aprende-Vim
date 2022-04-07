@@ -7,9 +7,9 @@ En este capítulo verás detallado el proceso de creación del complemento `toti
 
 ## El problema
 
-Utilizo Vim para escribir mis artículos, incluyendo esta guía que estás leyendo.
-
 **Nota del traductor:** *En la cultura anglosajona, los títulos de artículos escritos o secciones suelen escribirse con la primera letra de las palabras en mayúsculas. Algo que en español no ocurre, ya que solo se escriben en mayúsculas las palabras que hacen referencia a nombres propios, después de un punto y alguna otra ocasión tal como establece la [RAE](https://www.rae.es/dpd/may%C3%BAsculas).
+
+Utilizo Vim para escribir mis artículos, incluyendo esta guía que estás leyendo.
 
 Por tanto el complemento tiene sentido únicamente en textos en inglés. Pero independientemente de esa circunstancia, será igual de útil ver el proceso de creación para crear nuestros propios complementos para nuestras necesidades de edición personales.*
 
@@ -37,12 +37,13 @@ Si pulso `gt`, el complemento no convertirá en mayúsculas la selección. Este 
 
 Antes de escribir la primera línea de código, necesito decidir cuales serán las reglas para poner en mayúsculas las líneas de los títulos. Encontré una tabla en la que se especifican las diferentes reglas a la hora de escribir mayúsculas en el sitio web [titlecaseconverter](https://titlecaseconverter.com/rules/). ¿Sabías que hay al menos 8 reglas diferentes en inglés relativas a la escritura con letras mayúsculas? *¡Casi nada!*
 
-In the end, I used the common denominators from that list to come up with a good enough basic rule for the plugin. Plus I doubt people will complain, "Hey man, you're using AMA, why aren't you using APA?". Here are the basic rules:
-- First word is always uppercased.
-- Some adverbs, conjunctions, and prepositions are lowercased.
-- If the input word is totally uppercased, then don't do anything (it could be an abbreviation).
+Al final, utilicé los denominadores comunes de esa lista para formar unas cuantas reglas básicas válidas para el complemento. Además también dudé de que la gesnte pudiera quejarse diciendo "Oye, estás utilizando la regla AMA, por qué no utilizas APA?" Aquí están las reglas básicas:
 
-As for which words are lowercased, different rules have different lists. I decided to stick with `a an and at but by en for in nor of off on or out per so the to up yet vs via`.
+- La primera palabra siempre empieza por mayúscula.
+- Algunos adverbios, conjunciones y preposiciones son con minúsculas.
+- Si la palabra a tratar está completamente en mayúsculas, entonces no hagas ada (podría ser una abreviatura).
+
+Y sobre cuales palabra van en minúsculas, en diferentes reglas tienen diferentes listas. Decidí que estas irían en minúsculas `a an and at but by en for in nor of off on or out per so the to up yet vs via`.
 
 ### Planning for the User Interface
 
