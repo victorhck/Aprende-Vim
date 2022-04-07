@@ -49,9 +49,9 @@ Y sobre cuales palabra van en minúsculas, en diferentes reglas tienen diferente
 
 Quiero que el complemento sea un operador que complemente los operadores ya existentes de Vim: `gu`, `gU`, and `g~`. Al ser un operador, podrá aceptar tanto movimientos como objetos de texto (`gtw` debería poner en mayúscula la palabra siguiente, `gtiw` debería poner en mayúsculas la palabra donde se encuentra el cursor, `gt$` debería poner en mayúsculas las primeras letras de las palabras desde la ubicación actual del cursor hasta el final de la línea, `gtt` debería poner en mayúsculas la línea actual, `gti(` debería convertir a mayúsculas el texto dentro de los paréntesis, etc. También quiero que tenga la combinación de teclas `gt` para recordarlo más fácilmente. Además, también debería funcionar en todos los modos visuales: `v`, `V` y `Ctrl-V`. Debería ser capaz de resaltar el texto en *cualquier* modo visual, pulsar `gt`, y después el complemento convertir a mayúsculas todo el texto resaltado.
 
-## Vim Runtime
+## Ejecutables en Vim
 
-The first thing you see when you look at the repo is that it has two directories: `plugin/` and `doc/`. When you start Vim, it looks for special files and directories inside the `~/.vim` directory and runs all script files inside that directory. For more, review the Vim Runtime chapter.
+La primera cosa que ves cuando echas un vistazo al repositorio es que tiene dos directorios: `plugin/` y `doc/`. Cuando arrancas Vim, este busca archivos especiales y directorios dentro del directorio `~/.vim` y ejecuta todos los archivos de scripts dentro del directorio. Para más información, revisa el capítulo 24 de esta guía que trata sobre este tema.
 
 The plugin utilizes two Vim runtime directories: `doc/` and `plugin/`. `doc/` is a place to put the help documentation (so you can search for keywords later, like `:h totitle`). I'll go over how to create a help page later. For now, let's focus on `plugin/`. The `plugin/` directory is executed once when Vim boots up. There is one file inside this directory: `totitle.vim`. The naming doesn't matter (I could've named it `whatever.vim` and it would still work). All the code responsible for the plugin to work is inside this file.
 
