@@ -9,9 +9,9 @@ En este capítulo verás detallado el proceso de creación del complemento `toti
 
 **Nota del traductor:** *En la cultura anglosajona, los títulos de artículos escritos o secciones suelen escribirse con la primera letra de las palabras en mayúsculas. Algo que en español no ocurre, ya que solo se escriben en mayúsculas las palabras que hacen referencia a nombres propios, después de un punto y alguna otra ocasión tal como establece la [RAE](https://www.rae.es/dpd/may%C3%BAsculas).
 
-Utilizo Vim para escribir mis artículos, incluyendo esta guía que estás leyendo.
-
 Por tanto el complemento tiene sentido únicamente en textos en inglés. Pero independientemente de esa circunstancia, será igual de útil ver el proceso de creación para crear nuestros propios complementos para nuestras necesidades de edición personales.*
+
+Utilizo Vim para escribir mis artículos, incluyendo esta guía que estás leyendo.
 
 Uno de los problemas pincipales fue crear un adecuado uso de mayúsculas y minúsculas para los títulos. Una manera de automatizar esto es convertir a mayúsculas cada letra de cada palabra mediante `g/^#/ s/\<./\u\0/g`. Para la mayoría de los casos, este comando puede ser suficiente, pero no es lo suficientemente potente como el tener una forma de convertir a mayúscula la primera letra de un título. En inglés las palabras "The" o "Of" en "Capitalize The First Letter Of Each Word" deberían escribirse en mayúsculas. Sin una regla adecuada de capitalización de palabra, la frase tendría un aspecto extraño.
 
@@ -47,7 +47,7 @@ Y sobre cuales palabra van en minúsculas, en diferentes reglas tienen diferente
 
 ### Planificando la interfaz de usuario
 
-Quiero que el complemento sea un operador que complemente los operadores ya existentes de Vim: `gu`, `gU`, and `g~`. Al ser un operador, podrá aceptar tanto movimientos como objetos de texto (`gtw` debería poner en mayúscula la palabra siguiente, `gtiw` debería poner en mayúsculas la palabra donde se encuentra el cursor, `gt$` debería poner en mayúsculas las primeras letras de las palabras desde la ubicación actual del cursor hasta el final de la línea, `gtt` debería poner en mayúsculas la línea actual, `gti(` debería convertir a mayúsculas el texto dentro de los paréntesis, etc. También quiero que tenga la combinación de teclas `gt` para recordarlo más fácilmente. Además, también debería funcionar en todos los modos visuales: `v`, `V` y `Ctrl-V`. Debería ser capaz de resaltar el texto en *cualquier* modo visual, pulsar `gt`, y después el complemento convertir a mayúsculas las primeras letras de todo el texto resaltado.
+Quiero que el complemento sea un operador que complemente los operadores ya existentes de Vim: `gu`, `gU`, and `g~`. Al ser un operador, podrá aceptar tanto movimientos como objetos de texto (`gtw` debería poner en mayúscula la palabra siguiente, `gtiw` debería poner en mayúsculas la palabra donde se encuentra el cursor, `gt$` debería poner en mayúsculas las primeras letras de las palabras desde la ubicación actual del cursor hasta el final de la línea, `gtt` debería poner en mayúsculas la línea actual, `gti(` debería convertir a mayúsculas el texto dentro de los paréntesis, etc.) También quiero que tenga la combinación de teclas `gt` para recordarlo más fácilmente. Además, también debería funcionar en todos los modos visuales: `v`, `V` y `Ctrl-V`. Debería ser capaz de resaltar el texto en *cualquier* modo visual, pulsar `gt`, y después el complemento convertir a mayúsculas las primeras letras de todo el texto resaltado.
 
 ## Ejecutables en Vim
 
@@ -55,11 +55,11 @@ La primera cosa que ves cuando echas un vistazo al repositorio es que tiene dos 
 
 El complemento utiliza dos directorios de ejecutables: `doc/` y `plugin/`. `doc/` es el lugar donde poner la ayuda de la documentación (para así poder buscar palabras claves más adelante, como `:h totitle`). Trataré sobre cómo crear la página de ayuda más adelante. Por ahora, vamos a enfocarnos en la carpeta `plugin/`. La carpeta `plugin/` es ejecutada una sola vez al inicio de Vim. Hay un solo archivo dentro de este directorio: `totitle.vim`. El nombre no importa (podría haber llamado el nombre `loquesea.vim` y seguiría funcionando). Todo el código responsable del funcionamiento del complemento está dentro de este archivo.
 
-## Mappings
+## Asignación de la combinación de teclas (mapeado)
 
-Let's go through the code! 
+¡Vayamos ya a ver el código! 
 
-At the start of the file, you have:
+Al comienzo del archivo, te encuentras lo siguiente:
 
 ```
 if !exists('g:totitle_default_keys')
@@ -67,9 +67,9 @@ if !exists('g:totitle_default_keys')
 endif
 ```
 
-When you start Vim, `g:totitle_default_keys` won't exist yet, so `!exists(...)` returns true. In that case, define `g:totitle_default_keys` to equal 1. In Vim, 0 is falsy and non-zero is truthy (use 1 to indicate truthy).
+Cuando arrancas Vim, `g:totitle_default_keys` todavía no existirá, así que `!exists(...)` devuelve un valor verdadero. En ese caso, define `g:totitle_default_keys` igual a 1. En Vim, 0 es análogo a falso y cualquier valor distinto de cero es verdadero (en este caso utilizo el 1 para indicar verdadero).
 
-Let's jump to the bottom of the file. You'll see this:
+Saltemos al final del archivo. Veremos lo siguiente:
 
 ```
 if g:totitle_default_keys
