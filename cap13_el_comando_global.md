@@ -136,9 +136,9 @@ Para encontrar las líneas que contienen entre tres a seis ceros, ejecuta:
 
 Puedes pasar un rango antes del comando `g`. Aquí tienes algunas maneras de cómo lo puedes hacer:
 
-* `:1,5/g/console/d`  encuentra la cadena "console" entre las líneas 1 y 5 y las elimina.
-* `:,5/g/console/d` si no se especifica un número delante de la coma, entonces esto indica que comience el comando desde la línea actual. Busca la cadena "console" entre la línea actual y la línea 5 y las elimina.
-* `:3,/g/console/d` si no se especifica un número después de la coma, entonces indica que el comando finaliza en la línea actual. Busca la cadena "console" entre la línea 3 y la línea actual y las elimina.
+* `:1,5g/console/d`  encuentra la cadena "console" entre las líneas 1 y 5 y las elimina.
+* `:,5g/console/d` si no se especifica un número delante de la coma, entonces esto indica que comience el comando desde la línea actual. Busca la cadena "console" entre la línea actual y la línea 5 y las elimina.
+* `:3,g/console/d` si no se especifica un número después de la coma, entonces indica que el comando finaliza en la línea actual. Busca la cadena "console" entre la línea 3 y la línea actual y las elimina.
 * `:3g/console/d` si solo se le pasa un número sin el símbolo de la coma, esto ejecuta el comando solo en la línea 3. Busca en la línea 3 y la elimina si existe la cadena "console".
 
 Además de los números, también se pueden utilizar esto símbolos como rango:
