@@ -79,8 +79,8 @@ if g:totitle_default_keys
 endif
 ```
 
-This is where the main `gt` mapping is defined. In this case, by the time you get to the `if` conditionals at the bottom of the file, `if g:totitle_default_keys` would return 1 (truthy), so Vim performs the following maps:
-- `nnoremap <expr> gt ToTitle()` maps the normal mode *operator*. This lets you run operator + motion/text-object like `gtw` to titlecase the next word or `gtiw` to titlecase the inner word. I will go over the details of how the operator mapping works later.
+Aquí es donde el _mapeado_ principal de `gt` es definido. En este caso, al llegar a los `if` condicionales al final del archivo, `if g:totitle_default_keys` devolverá un 1 (verdadero), así que Vim realizará los siguientes _mapeados_:
+- `nnoremap <expr> gt ToTitle()` _mapea_ el *operador* del modo normal. Esto te permite ejecutar el operado + un movimiento u objeto de texto como `gtw` para convertir a mayúsculas la primera letra del título de la siguiente palabra, o `gtiw` para hacerlo de la palabra en la que se encuentra el cursor. Trataremos más en detalle los _mapeados_ del operador más adelante.
 - `xnoremap <expr> gt ToTitle()` maps the visual mode operators. This lets you to titlecase the texts that are visually highlighted.
 - `nnoremap <expr> gtt ToTitle() .. '_'` maps the normal mode linewise operator (analogous to `guu` and `gUU`). You may wonder what `.. '_'` does at the end. `..` is Vim's string interpolation operator. `_` is used as a motion with an operator. If you look in `:help _`, it says that the underscore is used to count 1 line downward. It performs an operator on the current line (try it with other operators, try running `gU_` or `d_`, notice that it does the same as `gUU` or `dd`).
 - Finally, the `<expr>` argument allows you to specify the count, so you can do `3gtw` to togglecase the next 3 words.
