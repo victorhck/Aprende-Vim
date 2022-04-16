@@ -211,7 +211,6 @@ La siguiente línea de manera literal devuelve `g@`:
 return g@
 ```
 
-So exactly how do these two lines work and why is it returning `g@`?
 Entonces, ¿cómo funcionan exactamente estas dos líneas y por qué devuelven `g@`?
 
 Vamos a asumir que tienes el siguiente _mapeado_:
