@@ -85,9 +85,9 @@ Aquí es donde el _mapeado_ principal de `gt` es definido. En este caso, al lleg
 - `nnoremap <expr> gtt ToTitle() .. '_'` _mapea_ el operador en el modo de selección de línea (de manera análoga a `guu` y `gUU`). Quizás te preguntes qué hace `.. '_'` al final de esa línea. `..` En Vim es el operador de interpolación de cadenas de Vim. `_` es utilizado como un movimiento con un operado. Si miras en `:help _`, verás que el guión bajo es utilizado para contar 1 línea hacia abajo. realiza un operador en la línea actual (pruebalo con otros operadores, intenta ejecutar `gU_` o `d_`, verás que hace lo mismo que `gUU` o `dd`).
 - Finalmente, el argumento `<expr>` te permite especificar el contaje, así podrás ejecutar por ejemplo `3gtw` para ejecutar el comando en las siguientes 3 palabras.
 
-¿Qué pasa si no quieres utilizar el _mapead_ predeterminado `gt`? Después de todo, estás sobreescribiendo el _mapeado_ predeterminado que ya existe en Vim de `gt` (pestaña siguiente). ¿Qué pasa si quieres utilizar `gz` en vez de `gt`? Remember earlier how you went through the trouble of checking `if !exists('g:totitle_default_keys')` and `if g:totitle_default_keys`? If you put `let g:totitle_default_keys = 0` in your vimrc, then `g:totitle_default_keys` would already exist when the plugin is run (codes in your vimrc are executed before the `plugin/` runtime files), so `!exists('g:totitle_default_keys')` returns false. Furthermore, `if g:totitle_default_keys` would be falsy (because it would have the value of 0), so it also won't perform the `gt` mapping! This effectively lets you define your own custom mapping in Vimrc.
+¿Qué pasa si no quieres utilizar el _mapead_ predeterminado `gt`? Después de todo, estás sobreescribiendo el _mapeado_ predeterminado que ya existe en Vim de `gt` (pestaña siguiente). ¿Qué pasa si quieres utilizar `gz` en vez de `gt`? Recuerdas cómo anteriormente se tomó la molestia de comprobar `if !exists('g:totitle_default_keys')` o `if g:totitle_default_keys`? Si pones `let g:totitle_default_keys = 0` en tu archivo vimrc, entonces `g:totitle_default_keys` ya existiría cuando el complemente esté ejecutándose (el código en tu vimrc son ejecutados antes de los archivos ejecutables `plugin/`), así `!exists('g:totitle_default_keys')` devolvería un falso. Además, `if g:totitle_default_keys` sería falso (porque tendría el valor de 0), ¡así que tampoco se realizaría el _mapeado_ de `gt`! Esto te permitirá de una forma efectiva definir tus propios _mapeados_ en el archivo Vimrc.
 
-To define your own titlecase mapping to `gz`, add this in your vimrc:
+Para definir tu propio _mapeado_ a este complemento con `gz`, añade estas líneas en tu vimrc:
 
 ```
 let g:totitle_default_keys = 0
@@ -97,7 +97,7 @@ xnoremap <expr> gz ToTitle()
 nnoremap <expr> gzz ToTitle() .. '_'
 ```
 
-Easy peasy.
+¡Muy fácil!
 
 ## The ToTitle Function
 
