@@ -99,9 +99,9 @@ nnoremap <expr> gzz ToTitle() .. '_'
 
 ¡Muy fácil!
 
-## The ToTitle Function
+## La función ToTitle 
 
-The `ToTitle()` function is easily the longest function in this file.
+La función `ToTitle()` es seguramente la función más larga en este archivo.
 
 ```
  function! ToTitle(type = '')
@@ -180,13 +180,13 @@ The `ToTitle()` function is easily the longest function in this file.
 endfunction
 ```
 
-This is very long, so let's break it apart. 
+Esto es muy largo, así que vamos a verlo por partes. 
 
-*I could refactor this into smaller sections, but for the sake of completing this chapter, I just left it as is.*
+*Podría refactorizar esto en secciones más pequeñas, pero por el bien de completar este capítulo, lo dejé como está.*
 
-## The Operator Function
+## La función operador
 
-Here is the first part of the code:
+Esta es la primera parte del código:
 
 ```
 if a:type ==# ''
@@ -195,25 +195,26 @@ if a:type ==# ''
 endif
 ```
 
-What the heck is `opfunc`? Why is it returning `g@`?
+¿Qué es eso de `opfunc`? ¿Por qué está devolviendo `g@`?
 
-Vim has a special operator, the operator function, `g@`. This operator lets you to use *any* function assigned to the `opfunc` option. If I have the function `Foo()` assigned to `opfunc`, then when I run `g@w`, I am running `Foo()` on the next word. If I run `g@i(`, then I'm running `Foo()` on the inner parentheses. This operator function is critical to create your own Vim operator.
+Vim tiene un operador especial, la función de operador, `g@`. Este operador te permite utilizar *cualquier* función asignada a la opción `opfunc`. Si tengo la función `Foo()` asignada a `opfunc`, entonces ejecutaré `g@w`, estoy ejecutando `Foo()` en la siguiente palabra. Si ejecuto `g@i(`, entonces estoy ejecutando `Foo()` entre los paréntesis interiores. Esta función de operador es crítica para crear tus propios operadores de Vim.
 
-The following line assigns the `opfunc` to the `ToTitle` function.
+La siguiente línea asigna `opfunc` a la función `ToTitle`.
 
 ```
 set opfunc=ToTitle
 ```
 
-The next line is literally returning `g@`:
+La siguiente línea de manera literal devuelve `g@`:
 
 ```
 return g@
 ```
 
 So exactly how do these two lines work and why is it returning `g@`?
+Entonces, ¿cómo funcionan exactamente estas dos líneas y por qué devuelven `g@`?
 
-Let's assume that you have the following map:
+Vamos a asumir que tienes el siguiente _mapeado_:
 
 ```
 nnoremap <expr> gt ToTitle()`
