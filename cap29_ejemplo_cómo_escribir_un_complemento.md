@@ -233,9 +233,9 @@ Cada vez que ejecutas un operador en Vim, hay tres diferentes tipos de acciones 
 
 Esto significa, que si pulsas `g@w`, `g@` pasará una cadena literal `"char"` como un argumento a `ToTitle()`. Si ejecutas `g@j`, `g@` pasará una cadena literal `"line"` como argumento a `ToTitle()`. Esta cadena es lo que se le pasará a la función `ToTitle` como argumento `type`.
 
-## Creating Your Own Custom Function Operator
+## Crear tu propio operador de función personalizado
 
-Let's pause and play with `g@` by writing a dummy function:
+Vamos a detenernos un poco y jugar con `g@` escribiendo una función un poco tonta:
 
 ```
 function! Test(some_arg)
@@ -243,17 +243,17 @@ function! Test(some_arg)
 endfunction
 ```
 
-Now assign that function to `opfunc` by running:
+Ahora asigna esa función a `opfunc` ejecutando:
 
 ```
 :set opfunc=Test
 ```
 
-The `g@` operator will execute `Test(some_arg)` and passes it with either `"char"`, `"line"`, or `"block"` depending on what operation you do. Run different operations like `g@iw` (inner word), `g@j` (one line below), `g@$` (to the end of the line), etc. See what different values are being echoed. To test the block operation, you can use Vim's forced motion for block operations: `g@Ctrl-Vj` (block operation one column below).
+El operador `g@` ejecutará `Test(some_arg)` y pasará tanto `"char"`, `"line"`, o `"block"` dependiendo de la operación que realices. Ejecuta diferentes operaciones como `g@iw` (dentro de una palabra), `g@j` (una línea por debajo), `g@$` (hasta el final de la línea), etc. Comprueba los diferentes valores qu se muestran. Para comprobar una operación de bloque, puedes utilizar el movimiento forzado para operaciones de bloque: `g@Ctrl-Vj` (operación de bloque de una columna por debajo).
 
-You can also use it with the visual mode. Use the various visual highlights like `v`, `V`, and `Ctrl-V` then press `g@` (be warned, it will flash the output echo really quickly, so you need to have a quick eye - but the echo is definitely there. Also, since you are using `echom`, you can check the recorded echo messages with `:messages`).
+También puedes utilizar el modo visual. Utiliza los diferentes resaltados como `v`, `V`, y `Ctrl-V` y después pulsa `g@` (te aviso que mostrará la salida muy rápido, así que tendrás que tener una vista muy rápida, pero la salida del comando definitivamente está ahí. También como hemos utilizado `echom`, puedes comprobar los mensajes mostrados con `:messages`).
 
-Pretty cool, isn't it? The things you can program with Vim! Why didn't they teach this at school? Let's continue with our plugin.
+Bastante bien ¿no? ¡La de cosas que puedes pogramar con Vim! ¿Por qué no enseñan esto en las escuelas? Vamos a continuar con nuestro complemento.
 
 ## ToTitle As a Function
 
