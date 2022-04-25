@@ -225,13 +225,13 @@ Todavía no has terminado. Recuerda, pulsaste `gtw`. Al pulsar `gt` hizo todo el
 
 Para recapitular, al pulsar `gtw`, Vim comprueba si `opfunc` está vacía o no. Si está vacía, entonces Vim la asignará a `ToTitle`. Y entonces devolverá `g@`, esencialmente llamando a `ToTitle` de nuevo una vez más para ahora poder utilizarla como un operador. Esta es la parte más enrevesada de crear un operador personalizado ¡y lo hiciste! A continuación, necesitas crear la lógica para `ToTitle()` para que haga su cometido con la entrada.
 
-## Processing the Input
+## Procesando la entrada
 
-You now have `gt` functioning as an operator that executes `ToTitle()`. But what do you do next? How do you actually titlecase the text?
+Ahora ya tienes `gt` funcionando como un operador que ejecuta `ToTitle()`. Pero ¿qué es lo próximo a hacer? ¿Cómo realmente conviertes a mayúsculas la primera letra de las palabras del título?
 
-Whenever you run any operator in Vim, there are three different action motion types: character, line, and block. `g@w` (word) is an example of a character operation. `g@j` (one line below) is an example of a line operation. Block operation is rare, but typically when you do `Ctrl-V` (visual block) operation, it will be counted as a block operation. Operations that target a few characters forward / backward are generally considered character operations (`b`, `e`, `w`, `ge`, etc). Operations that target a few lines downward / upward are generally considered line operations (`j`, `k`). Operations that target columns forward, backward, upward, or downward are generally considered block operations (they are usually either a columnar forced-motion or a blockwise visual mode; for more: `:h forced-motion`).
+Cada vez que ejecutas un operador en Vim, hay tres diferentes tipos de acciones de movimiento: caracter, línea y bloque. `g@w` (palabra) es un ejemplo de una operación de caracter. `g@j` (una línea inferior) es un ejemplo de operación de línea. La operación de bloque es inusual, pero se produce cuando ejecutas la operación `Ctrl-V` (bloque visual). Las operaciones que tienen como objetivo unos cuantos caracteres hacia adelante/atrás son básicamente consideradas operaciones de caracteres (`b`, `e`, `w`, `ge`, etc). Las operaciones que tienen como objetivo unas cuantas líneas superiores/inferiores son consideradas generalmente operaciones de línea (`j`, `k`). Las operaciones que tienen como objetivo columnas o bloques hacia adelante/atrás arriba/abajo son consideradas operaciones de bloque (por lo general, son un modo de movimiento forzado en columna o un modo visual en bloque, para más información consultar: `:h forced-motion`).
 
-This means, if you press `g@w`, `g@` will pass a literal string `"char"` as an argument to `ToTitle()`. If you do `g@j`, `g@` will pass a literal string `"line"` as an argument to `ToTitle()`. This string is what will be passed into the `ToTitle` function as the `type` argument.
+Esto significa, que si pulsas `g@w`, `g@` pasará una cadena literal `"char"` como un argumento a `ToTitle()`. Si ejecutas `g@j`, `g@` pasará una cadena literal `"line"` como argumento a `ToTitle()`. Esta cadena es lo que se le pasará a la función `ToTitle` como argumento `type`.
 
 ## Creating Your Own Custom Function Operator
 
