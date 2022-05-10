@@ -848,13 +848,13 @@ return l:lineArr->join("\n")
 
 And you are done!
 
-## Docs
+## Documentación
 
-The second directory in the repository is the `docs/` directory. It is good to provide the plugin with a thorough documentation. In this section, I'll briefly go over how to make your own plugin docs.
+El segundo directorio en este repositorio es el directorio `docs/` directory. Es aconsejable el ofrecer junto con el complemento la documentación de uso. En esta sección, trataremos brevemente de repasar cómo hacer la documentación para tu propio complemento.
 
-The `docs/` directory is one of Vim's special runtime paths. Vim reads all the files inside the `docs/` so when you search for a special keyword and that keyword is found in one of the files in the `docs/` directory, it will display it in the help page. Here you have a `totitle.txt`. I name it that way because that's the plugin name, but you can name it anything you want.
+El directorios `docs/` es una de las rutas especiales para los ejecutables. Vim lee todos los archivos dentro de `docs/` así que cuando buscas una palabra especial y esa palabra es encontrada en uno de los archivos del directorio `docs/`, lo mostrará en la página de ayuda. Aquí tienes el archivo `totitle.txt`. Lo he nombrado de esa manera porque ese es el nombre del complemento, pero puedes ponerle el nombre que quieras.
 
-A Vim docs file is a txt file at heart. The difference between a regular txt file and a Vim help file is that the latter uses special "help" syntaxes. But first, you need to tell Vim to treat it not as a text file type, but as a `help` file type. To tell Vim to interpret this `totitle.txt` as a *help* file, run `:set ft=help` (`:h 'filetype'` for more). By the way, if you want to tell Vim to interpret this `totitle.txt` as a *regular* txt file, run `:set ft=txt`.
+Un archivo de documentación de Vim no es más que en el fondo un archivo txt de texto. La diferencia entre un archivo normal de texto y un archivo de ayuda de Vim es que este último utiliza una sintaxis especial de ayuda. Pero primero, necesitas decirle a Vim que no trate al archivo como un archivo de texto normal, si no como un archivo de tipo de ayuda `help`. Si quieres que Vim interprete este `totitle.txt` como un fichero de *ayuda*, ejecuta `:set ft=help` (`:h 'filetype'` para más ayuda). Por cierto, si quieres decir a Vim que interprete este `totitle.txt` como un archivo de texto *normal*, ejecuta `:set ft=txt`.
 
 ### The Help File Special Syntax
 
