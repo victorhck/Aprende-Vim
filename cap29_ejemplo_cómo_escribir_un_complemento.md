@@ -856,11 +856,11 @@ El directorios `docs/` es una de las rutas especiales para los ejecutables. Vim 
 
 Un archivo de documentación de Vim no es más que en el fondo un archivo txt de texto. La diferencia entre un archivo normal de texto y un archivo de ayuda de Vim es que este último utiliza una sintaxis especial de ayuda. Pero primero, necesitas decirle a Vim que no trate al archivo como un archivo de texto normal, si no como un archivo de tipo de ayuda `help`. Si quieres que Vim interprete este `totitle.txt` como un fichero de *ayuda*, ejecuta `:set ft=help` (`:h 'filetype'` para más ayuda). Por cierto, si quieres decir a Vim que interprete este `totitle.txt` como un archivo de texto *normal*, ejecuta `:set ft=txt`.
 
-### The Help File Special Syntax
+### La sintaxis especial del archivo de ayuda
 
-To make a keyword discoverable, surround that keyword with asterisks. To make the keyword `totitle` discoverable when user searches for `:h totitle`, write it as `*totitle*` in the help file.
+PAra hacer que la palabra clave de ayuda se pueda encontrar, debes rodear la palabra clave con asteriscos. Para hacer que Vim pueda encontrar la palabra clave `totitle` cuando busques `:h totitle`, escríbelo así `*totitle*` en el archivo de ayuda.
 
-For example, I have these lines on top of my table of contents:
+Por ejemplo, tengo estas líneas al inicio del índice de contenidos (*table of contents* o *toc* en inglés).
 
 ```
 TABLE OF CONTENTS                                     *totitle*  *totitle-toc*
@@ -868,9 +868,9 @@ TABLE OF CONTENTS                                     *totitle*  *totitle-toc*
 // more TOC stuff
 ```
 
-Note that I used two keywords: `*totitle*` and `*totitle-toc*` to mark the table of contents section. You can use as many keywords as you want. This means that whenever you search for either `:h totitle` or `:h totitle-toc`, Vim takes you to this location. 
+Ten en cuneta que he utilizado dos palabras clave: `*totitle*` y `*totitle-toc*` para marcar la sección del índice de contenidos de la ayuda. Puedes utilizar tantas palabras clave como quieras. Esto significa que cada vez que busques tanto `:h totitle` como `:h totitle-toc`, Vim te llevará a esta sección. 
 
-Here is another example, somewhere down the file:
+Aquí hay otro ejemplo, en alguna parte más abajo en el fichero:
 
 ```
 2. Usage                                                       *totitle-usage*
@@ -878,9 +878,9 @@ Here is another example, somewhere down the file:
 // usage
 ```
 
-If you search for `:h totitle-usage`, Vim takes you to this section. 
+Si buscas `:h totitle-usage`, Vim te llevará a esta sección.
 
-You can also use internal links to refer to another section in the help file by surrounding a keyword with the bar syntax `|`. In the TOC section, you see keywords surrounded by the bars, like `|totitle-intro|`, `|totitle-usage|`, etc.
+También puedes utilizar enlaces internos a otra sección en el archivo de ayuda, rodeando la palabra clave con `|`. En la sección del índice de contenidos, ves que se usan las palabras clave rodeadas con esas barras, como `|totitle-intro|`, `|totitle-usage|`, etc.
 
 ```
 TABLE OF CONTENTS                                     *totitle*  *totitle-toc*
