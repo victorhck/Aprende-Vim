@@ -292,9 +292,9 @@ l:wordsArr->join(' ')
 
 La función `capitalize()` la veremos más adelante.
 
-## Temporary Variables
+## Variables temporales
 
-The next few lines:
+Las siguientes líneas:
 
 ```
 let l:sel_save = &selection
@@ -303,11 +303,11 @@ let l:cb_save = &clipboard
 let l:visual_marks_save = [getpos("'<"), getpos("'>")]
 ```
 
-These lines preserve various current states into temporary variables. Later in this you will use visual modes, marks, and registers. Doing these will tamper with the a few states. Since you don't want to revise the history, you need to save them into temporary variables so you can restore the states later.
+Estas líneas guardan varios estados actuales en variables temporales. Más adelante usarás modos visuales, marcas y registros. Al hacer esto se modificarán algunos estados. Ya que no quieres volver a revisar el historial, necesitarás guardarlos en variables temporales para poder restaurar más tarde esos estado.
 
-## Capitalizing the Selections
+## Poniéndo en mayúsculas las primeras letras de las selecciones
 
-The next lines are important:
+Las siguientes líneas son importantes:
 
 ```
 try
@@ -323,15 +323,15 @@ try
   let l:startCol = virtcol(".")
 
 ```
-Let's go through them in small chunks. This line:
+Vamos a verlas en detalle dividiéndolas en partes. Esta línea:
 
 ```
 set clipboard= selection=inclusive
 ```
 
-You first set the `selection` option to be inclusive and the `clipboard` to be empty. The selection attribute is typically used with the visual mode and there are three possible values: `old`, `inclusive`, and `exclusive`. Setting it to be inclusive means that the last character of the selection is included. I won't cover them here, but the point is that choosing it to be inclusive makes it behave consistently in visual mode. By default Vim sets it to inclusive, but you set it here anyway just in case one of your plugins sets it to a different value. Check out `:h 'clipboard'` and `:h 'selection'` if you're curious what they really do.
+Primero activas la opción `selection` para que sea inclusiva y `clipboard` para que esté vacío. El atributo de selección es normalmente utilizado con el modo visual y tiene tres posibles valores: `old`, `inclusive` y `exclusive`. Al establecerlo como `inclusive` esto significa que el último caracter de la selección está incluido. No lo trataré aquí, pero la clave es que al escogerlo como `inclusive` esto hace que tenga un comportamiento consistente en el modo visual. De manera predeterminada Vim activa esta opción, pero también la establecemos aquí por si alguno de tus complementos lo estableces a un valor diferente. Echa un vistazo a `:h 'clipboard'` y `:h 'selection'` si tienes curiosidad que qué hacen realmente.
 
-Next you have this weird-looking hash followed by an execute command:
+A continuación, tienes este _hash_ de aspecto extraño seguido de un comando de ejecución:
 
 ```
 let l:commands = #{line: "'[V']y", char: "`[v`]y", block: "`[\<c-v>`]y"}
