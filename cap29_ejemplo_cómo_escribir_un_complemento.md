@@ -255,9 +255,9 @@ También puedes utilizar el modo visual. Utiliza los diferentes resaltados como 
 
 Bastante bien ¿no? ¡La de cosas que puedes pogramar con Vim! ¿Por qué no enseñan esto en las escuelas? Vamos a continuar con nuestro complemento.
 
-## ToTitle As a Function
+## ToTitle como una función
 
-Moving on to the next few lines:
+Pasando a las siguientes líneas:
 
 ```
 if a:type != 'block' && a:type != 'line' && a:type != 'char'
@@ -268,29 +268,29 @@ if a:type != 'block' && a:type != 'line' && a:type != 'char'
 endif
 ```
 
-This line actually has nothing to do with `ToTitle()` behavior an operator, but to enable it into a callable TitleCase function (yes, I know that I am violating the Single Responsibility Principle). The motivation is, Vim has native `toupper()` and `tolower()` functions that will uppercase and lowercase any given string. Ex: `:echo toupper('hello')` returns `'HELLO'` and `:echo tolower('HELLO')` returns `'hello'`. I want this plugin to have the ability to run `ToTitle` so you can do `:echo ToTitle('once upon a time')` and get a `'Once Upon a Time'` return value.
+Esta línea en realidad no tiene nada que ver con el comportamiento de un operador `ToTitle()`, sino para habilitarlo en una función TitleCase invocable (sí, sé que estoy violando el Principio de Responsabilidad Única). La motivación es, que Vim tiene unas funciones nativas llamadas `toupper()` y `tolower()` que convierten a mayúsculas y minúsculas respectivamente cualquier cadena de texto dada. Por ejemplo: `:echo toupper('hola')` devolverá `'HOLA'` y `:echo tolower('HOLA')` devolverá `'hola'`. Yo quiero que este complemento tenga la posibilidad de ejecutar `ToTitle` para poder hacer lo siguiente `:echo ToTitle('érase una vez')` y obtener `'Érase Una Vez'` como valor de retorno.
 
-By now, you know that when you are calling `ToTitle(type)` with `g@`, the `type` argument will have a value of either `'block'`, `'line'`, or `'char`'. If the argument is neither `'block'` nor `'line'` nor `'char'`, you can safely assume that `ToTitle()` is being called outside of `g@`. In that case, you split them by whitespaces (`\s\+`) with:
+Por ahora, ya sabes que cuando llamas `ToTitle(type)` con `g@`, el argumento `type` tendrá un valor de retorno como `'block'`, `'line'`, o `'char`'. Si el argumento no es ninguna de esas opciones, puedes asumir con total seguridad que `ToTitle()` está siendo llamada fuera de `g@`. En ese caso, divídelos con espacios en blanco (`\s\+`) con:
 
 ```
 let l:wordsArr = trim(l:words)->split('\s\+')
 ```
 
-Then capitalize each element:
+Y después convierte a mayúscula la primera letra de cada elemento:
 
 
 ```
 call map(l:wordsArr, 's:capitalize(v:val)')
 ```
 
-Before joining them back together:
+Antes únelo todo junto de nuevo:
 
 ```
 l:wordsArr->join(' ')
 ```
 
 
-The `capitalize()` function will be covered later.
+La función `capitalize()` la veremos más adelante.
 
 ## Temporary Variables
 
