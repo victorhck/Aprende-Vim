@@ -194,7 +194,7 @@ Si estás en un programa externo (por ejemplo en el navegador) y copias un bloqu
 
 Te podrías preguntar que si `"*` y `"+` hacen lo mismo, ¿por qué Vim tiene dos registros diferentes? Algunos equipos utilizan un sistema de ventanas X11. Este sistema tiene 3 tipos de selecciones: primario, secundario y porta papeles. Si tu equipo utiliza X11, Vim utiliza la selección *primario* de X11 con el registro `quotestar` (`"*`) y la selección de *portapapeles* de X11 con el registro `quoteplus` (`"+`). Esto solo es aplicable si tienes la opción `+xterm_clipboard` disponible en tu versión de la compilación de Vim. Si tu Vim no tiene `xterm_clipboard`, no es un gran problema. Solo significa que tanto `quotestar` como `quoteplus` son intercambiables (los míos no lo son).
 
-Creo que `=*p` o `=+p` es un poco incómodo. Para hacer que Vim pegue el texto copiado de un programa externo con solo `p`, puede añadir esto en tu archivo vimrc:
+Creo que `=*p` o `=+p` (o `"*p` o `"+p`) es un poco incómodo. Para hacer que Vim pegue el texto copiado de un programa externo con solo `p`, puede añadir esto en tu archivo vimrc:
 
 ```
 set clipboard=unnamed
