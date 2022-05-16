@@ -79,6 +79,6 @@ Este trabajo está publicado bajo una licencia [Creative Commons Attribution-Non
 
 ## Colaborar
 
-Si esta guía te ha resultado de utilidad, puedes invitarme a una cerveza 🍺 como agradecimiento ❤️ por los más de 400 _commits_ e incontables horas en la traducción de esta guía y en las correcciones y mejoras aportadas a la guía en inglés:
+Si esta guía te ha resultado de utilidad, puedes invitarme a una cerveza 🍺 como agradecimiento ❤️ por los más de 500 _commits_ e incontables horas en la traducción de esta guía y en las correcciones y mejoras aportadas a la guía en inglés:
 
 * [LiberaPay](https://liberapay.com/victorhck)
