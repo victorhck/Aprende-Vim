@@ -901,8 +901,8 @@ There is not a right or wrong way to write a doc file in Vim. If you look at dif
 
 Finally, if you are writing your own plugin locally at first and you want to test the documentation page, simply adding a txt file inside the `~/.vim/docs/` won't automatically make your keywords searchable. You need to instruct Vim to add your doc page. Run the helptags command: `:helptags ~/.vim/doc` to create new tag files. Now you can start searching for your keywords.
 
-## Conclusion
+## Conclusión
 
-You made it to the end! This chapter is the amalgamation of all the Vimscript chapters. Here you are finally putting to practice what you've learned so far. Hopefully having read this, you understood not only how to create Vim plugins, but also encouraged you to write your own plugin. 
+¡Llegaste hasta el final! Este capítulo es la fusión de todos los capítulos de Vimscript. Aquí finalmente estás poniendo en práctica lo que has aprendido hasta ahora. Con suerte, después de leer esto, no solo comprenderás cómo crear complementos de Vim, sino que también te animó a escribir tu propio complemento.
 
-Whenever you find yourself repeating the same sequence of actions multiple times, you should try to create your own! It was said that you shouldn't reinvent the wheel. However, I think it can be beneficial to reinvent the wheel for the sake of learning. Read other people's plugins. Recreate them. Learn from them. Write your own! Who knows, maybe you will write the next awesome, super-popular plugin after reading this. Maybe you will be the next legendary Tim Pope. When that happens, let me know! 
+Cada vez que te encuentres repitiendo la misma secuencia de acciones varias veces, ¡deberías intentar crear la tuya propia! Siempre se ha dicho que no se debe reinventar la rueda. Sin embargo, creo que puede ser beneficioso reinventar la rueda por el bien del aprendizaje. Lee los complementos de otras personas. Aprende de ellos. ¡Escribe lo tuyo! Quién sabe, tal vez escribas el próximo complemento increíble y súper popular después de leer esto. Quizás seas el próximo legendario Tim Pope. Cuando eso suceda, ¡avísame!
