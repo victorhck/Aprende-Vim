@@ -895,11 +895,11 @@ TABLE OF CONTENTS                                     *totitle*  *totitle-toc*
     8. Credits ......................... |totitle-credits|
 
 ```
-This lets you jump to the definition. If you put your cursor somewhere on `|totitle-intro|` and press `Ctrl-]`, Vim will jump to the definition of that word. In this case, it will jump to the `*totitle-intro*` location. This is how you can link to different keywords in a help doc.
+Esto te permite saltar a la definición. Si pones el cursor sobre `|totitle-intro|` y pulsas `Ctrl-]`, Vim saltará a la definición de ese término. En este caso, saltará a donde se ubica `*totitle-intro*`. Así es como puedes enlazar a diferentes palabras clave en un documento de ayuda.
 
-There is not a right or wrong way to write a doc file in Vim. If you look at different plugins by different authors, many of them use different formats. The point is to make an easy-to-understand help doc for your users.
+No hay una manera correcta o errónea de escribir un archivo de ayuda en Vim. Si echas un vistazo a diferentes complementos de Vim de diferentes autores, muchos de ellos utilizan formatos diferentes. Lo importante es hacer una ayuda sencilla y fácil de entender para los usuarios del complemento.
 
-Finally, if you are writing your own plugin locally at first and you want to test the documentation page, simply adding a txt file inside the `~/.vim/docs/` won't automatically make your keywords searchable. You need to instruct Vim to add your doc page. Run the helptags command: `:helptags ~/.vim/doc` to create new tag files. Now you can start searching for your keywords.
+Por último, si estás escribiendo tu propio complemento de manera local, y quieres comprobar la página de documentación, simplemente añadiendo un archivo de texto (txt) dentro de la ruta `~/.vim/docs/` esto no hará que Vim pueda buscar automáticamente las palabras claves que hayas marcado. Necesitas decir a Vim que añada tu página de documentación. Ejecuta el comando: `:helptags ~/.vim/doc` para crear los archivos de etiquetas. Ahora ya sí podrás empezar a buscar por tus palabras clave.
 
 ## Conclusión
 
