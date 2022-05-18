@@ -348,43 +348,43 @@ Vamos ahora a ver qué realiza `'[V']y`. Primero vamosa asumir que tienes el sig
 the second breakfast
 is better than the first breakfast
 ```
-Assume that your cursor is on the first line. Then you press `g@j` (run the operator function, `g@`, one line below, with `j`). `'[` moves the cursor to the start of the previously changed or yanked text. Although you technically didn't change or yank any text with `g@j`, Vim remembers the locations of the start and the end motions of the `g@` command with `'[` and `']` (for more, check out `:h g@`). In your case, pressing `'[` moves your cursor to the first line because that's where you started when you ran `g@`. `V` is a linewise visual mode command. Finally, `']` moves your cursor to the end of the previous changed or yanked text, but in this case, it moves your cursor to the end of your last `g@` operation. Finally, `y` yanks the selected text. 
+Asumamos que tu cursor está en la primera línea. A continuación pulsa `g@j` (ejecuta la función operados, `g@`, una línea por debajo, mediante `j`). `'[` mueve el cursor al comienzo del texto anteriormente cambiado o copiado. Aunque técnicamente no has cambiado o no has copiado ningún texto con `g@j`, Vim recuerda la ubicación del inicio y final de los movimientos del comando `g@` con `'[` y `']` (para más información, consulta la ayuda `:h g@`). En tu caso, al pulsar `'[` mueve el cursor a la primera línea porque ahí es donde empezaste a ejecutar `g@`. `V` es el comando del modo visual de selección de línea. Finalmente `']` mueve tu cursor al final del texto previamente cambiado o copiado, pero en este caso, mueve el cursor al final de la última operación de `g@`. Finalmente, `y` copia el texto seleccionado. 
 
-What you just did was yanking the same body of text you performed `g@` on.
+Lo que has hecho es copiar la misma parte del texto que has realizado con `g@`.
 
-If you look at the other two commands in here:
+Si echas un vistazo a los otros dos comandos:
 
 ```
 let l:commands = #{line: "'[V']y", char: "`[v`]y", block: "`[\<c-v>`]y"}
 ```
 
-They all perform similar actions, except instead of using linewise actions, you would be using characterwise or blockwise actions. I'm going to sound redundant, but in any three cases you are effectively yanking the same body of text you performed `g@` on.
+Todos realizan acciones similares, excepto en vez de utilizar las acciones de selección de línea, utilizarías acciones de selección de bloque. Voy a sonar redundante, pero en cualquiera de los tres casos estás copiando la misma parte del texto que realizaste con `g@`.
 
-Let's look at the next line:
+Vamos a ver la siguiente línea:
 
 ```
 let l:selected_phrase = getreg('"')
 ```
 
-This line gets the content of the unnamed register (`"`) and stores it inside the variable `l:selected_phrase`.  Wait a minute... didn't you just yank a body of text? The unnamed register currently contains the text that you had just yanked. This is how this plugin is able to get the copy of the text.
+Esta línea obtiene el contenido del registro sin nombre (`"`) y lo almacena dentro de la variable `l:selected_phrase`.  Espera un minuto... ¿no habías copiado ya el cuerpo del texto? El registro sin nombre contiene el texto que habías copiado. Así es como el complemento es capaz de obtener la copia del texto.
 
-The next line is a regular expression pattern:
+La línea siguiente es un patrón de expresión regular:
 
 ```
 let l:WORD_PATTERN = '\<\k*\>'
 ```
 
-`\<` and `\>` are word boundary patterns. The character following `\<` matches the beginning of a word and the character preceding `\>` matches the end of a word. `\k` is the keyword pattern. You can check what characters Vim accepts as keywords with `:set iskeyword?`. Recall that the `w` motion in Vim moves your cursor word-wise. Vim comes with a pre-conceied notion of what a "keyword" is (you can even edit them by altering the `iskeyword` option). Check out `:h /\<`, `:h /\>`, and `:h /\k`, and `:h 'iskeyword'` for more. Finally, `*` means zero or more of the subsequent pattern.
+`\<` y `\>` son patrones de límites de palabras. El caracter que sigue a `\<` marca el comienzo de una palabra y el caracter precedente `\>` marca el final de una palabra. `\k` es el patrón de palabra clave. Puedes comprobar qué caracteres acepta Vim como palabras clave mediante `:set iskeyword?`. Recuerda que el movimiento `w` en Vim mueve tu cursor una palabra hacia adelante. Vim viene con una noción preconcebida de lo que es una "palabra clave" (incluso puede editarla modificando la opción `iskeyword`). Echa un vistazo a `:h /\<`, `:h /\>`, y `:h /\k`, y `:h 'iskeyword'` para saber más al respecto. Finalmente `*` significa cero o más del patrón siguiente.
 
-In the big picture, `'\<\k*\>'` matches a word. If you have a string:
+A grandes rasgos, `'\<\k*\>'` encuentra una palabra. Si tienes la siguiente cadena de texto:
 
 ```
-one two three
+uno dos tres
 ```
 
-Matching it against the pattern will give you three matches: "one", "two", and "three".
+Si lo combina con el patrón, obtendrá tres coincidencias: "uno", "dos" y "tres".
 
-Finally, you have another pattern:
+Finalmente, tienes otro patrón:
 
 ```
 let l:UPCASE_REPLACEMENT = '\=s:capitalize(submatch(0))'
