@@ -390,18 +390,18 @@ Finalmente, tienes otro patrón:
 let l:UPCASE_REPLACEMENT = '\=s:capitalize(submatch(0))'
 ```
 
-Recall that Vim's substitute command can be used with an expression with `\={your-expression}`. For example, if you want to uppercase the string "donut" in the current line, you can use Vim's `toupper()` function. You can achieve this by running `:%s/donut/\=toupper(submatch(0))/g`. `submatch(0)` is a special expression used in the substitute command. It returns the whole matched text.
+Recuerda que el comando de sustitución de Vim puede ser utilizado con una expresión mediante `\={tu-expresión}`. Por ejemplo, si quieres poner en mayúsculas la cadena de texto "donut" en la línea actual, puedes utilizar la función de Vim `toupper()`. Puedes realizar esto ejecutando `:%s/donut/\=toupper(submatch(0))/g`. `submatch(0)` es una expresión especial utilizada en el comando de sustitución. Devuelve todo el texto encontrado.
 
-The next two lines:
+Las siguientes dos líneas:
 
 ```
 let l:startLine = line("'<")
 let l:startCol = virtcol(".")
 ```
 
-The `line()` expression returns a line number. Here you pass it with the mark `'<`, representing the first line of the last selected visual area. Recall that you used visual mode to yank the text. `'<` returns the line number of the beginning of that visual area selection. The `virtcol()` expression returns a column number of the current cursor. You will be moving your cursor all over the place in a little bit, so you need to store your cursor location so you can return here later.
+La expresión `line()` devuelve un número de línea. Aquí se lo pasas con la marca `'<`, que representa la primera línea de la última área visual seleccionada. Recuerda que utilizaste el modo visual para copiar el texto. `'<` devuelve el número de línea del principio de esa área de selección visual. La extpresión `virtcol()` devuelve el número de columna de la posición actual del cursor. Dentro de un rato moverá el cursor por todas partes, por lo que debe almacenar la ubicación del cursor para poder volver aquí más tarde.
 
-Take a break here and review everything so far. Make sure you are still following along. When you're ready, let's continue.
+Tómate tu tiempo para revisar todos los conceptos y asimilarlo. Asegúrate de entenderlo y cuando te sientas preparado continuemos.
 
 ## Handling a Block Operation
 
