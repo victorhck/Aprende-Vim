@@ -562,25 +562,25 @@ La siguiente línea:
 exe "keepj norm! 0\<c-v>G$h\"ad"
 ```
 
-Esto ejecuta el comando del modo normal de ir al inicio de la línea (`0`), utiliza el resaltado del modo visual de selección de bloque para ir a la última línea y al último caracter en esa línea (`<c-v>G$`). The `h` is to adjust the cursor (when doing `$` Vim moves one extra line to the right). Finally, you delete the highlighted text and store it in the register a (`"ad`).
+Esto ejecuta el comando del modo normal de ir al inicio de la línea (`0`), utiliza el resaltado del modo visual de selección de bloque para ir a la última línea y al último caracter en esa línea (`<c-v>G$`). La `h` es para ajustar el cursor (cuando ejecutas `$` Vim mueve una línea extra a la derecha). Finalmente, eliminas el texto resaltado y lo almacenas en el registro a (`"ad`).
 
-The next line:
+La siguiente línea:
 
 ```
 exe "keepj " . l:startLine
 ```
 
-You move your cursor back to where the `startLine` was.
+Mueves el cursor de nuevo a la posición donde estaba `startLine`.
 
-Next:
+A continuación:
 
 ```
 exe "sil! keepj norm! " . l:startCol . "\<bar>\"aP"
 ```
 
-Being in the `startLine` location, you now jump to the column marked by `startCol`. `\<bar>\` is the bar `|` motion. The bar motion in Vim moves your cursor to the nth column (let's say the `startCol` was 4. Running `4|` will make your cursor jump to the column position of 4). Recall that you `startCol` was the location where you stored the column position of the text you wanted to titlecase. Finally, `"aP` pastes the texts stored in the register a. This puts the text back to where it was deleted before.
+Estando en la ubicación guardada en `startLine`, ahora saltas a la columna marcada por `startCol`. `\<bar>\` es el movimiento de barra `|`. El movimiento de barra en Vim mueve el cursor a la columna dada con un número (digamos que `startCol` vale 4. Al ejecutar `4|` hará que el cursor salte a la posición de la columna de 4). Recuerda que `startCol` era la ubicació donde se almacenó la posición de la columna del texto que querías poner en mayúscula. Finalmente, `"aP` pega los textos almacenados en el registro a. Esto pega el texto de nuevo de donde fue eliminado anteriormente.
 
-Let's look at the next 4 lines:
+Echemos ahora un vistazo a esta 4 líneas:
 
 ```
 exe "keepj " . l:lastLine
