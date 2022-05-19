@@ -403,9 +403,9 @@ La expresión `line()` devuelve un número de línea. Aquí se lo pasas con la m
 
 Tómate tu tiempo para revisar todos los conceptos y asimilarlo. Asegúrate de entenderlo y cuando te sientas preparado continuemos.
 
-## Handling a Block Operation
+## Gestión de una operación de bloque
 
-Let's go through this section:
+Vamos ahora a ver la siguiente sección:
 
 ```
 if a:type ==# "block"
@@ -429,9 +429,9 @@ if a:type ==# "block"
   exe "sil! keepj norm! " . l:startCol . "\<bar>"
 ```
 
-It's time to actually capitalize your text. Recall that you have the `a:type` to be either 'char', 'line', or 'block'. In most cases, you'll probably be getting 'char' and 'line'. But occasionally you may get a block. It is rare, but it must be addressed nonetheless. Unfortunately, handling a block is not as straight-forward as handling char and line. It will take a little extra effort, but it is doable.
+Ya es hora de convertir en mayúsculas la primera letra de tu texto. Recuerda que tenía `a:type` que puede ser tanto 'char', 'line', o 'block'. En la mayoría de los casos, lo más probable es que tengas 'char' o 'line'. Pero quizás alguna vez también pueda ser un bloque. No es habitual, pero puede ocurrir. Desafortunadamente, la gestión de un bloque no es tan sencillo como es para un caracter o una líne. Llevará un poco más de esfuerzo extra el hacerlo, pero es factible.
 
-Before you start, let's take an example of how you might get a block. Assume that you have this text:
+Antes de comenzar, vamos a ver un ejemplo de cómo obtener un bloque. Imaginemos que tenemos el siguiente texto:
 
 ```
 pancake for breakfast
@@ -439,7 +439,7 @@ pancake for lunch
 pancake for dinner
 ```
 
-Assume that your cursor is on "c" on "pancake" on the first line. You then use the visual block (`Ctrl-V`) to select down and forward to select the "cake" in all three lines:
+Vamos a imaginar que tenemos el cursor sobre la "c" de "pancake" en la primera línea. Ahora utilizas la selección de bloque en el modo visual (`Ctrl-V`) para seleccionar hacia abajo y la derecha la palabra "cake" en las tres líneas. Aquí está representada la selección visual con corchetes:
 
 ```
 pan[cake] for breakfast
@@ -447,7 +447,7 @@ pan[cake] for lunch
 pan[cake] for dinner
 ```
 
-When you press `gt`, you want to get:
+Cuando pulses `gt`, esto es lo que obtendrás. Convierte en mayúscula la primera letra de la palabra seleccionada:
 
 ```
 panCake for breakfast
@@ -455,9 +455,9 @@ panCake for lunch
 panCake for dinner
 
 ```
-Here are your basic assumptions: when you highlight the three "cakes" in "pancakes", you are telling Vim that you have three lines of words that you want to highlight. These words are "cake", "cake", and "cake". You expect to get "Cake", "Cake", and "Cake".
+Estas son tu suposiciones básicas al utilizarlo: cuando reslatas las tres palabras "cakes" en "pancakes", le estás diciendo a Vim que tienes tres líneas de palabras que quieres resaltar. Esas palabras son "cake", "cake", y "cake". Y esperas obtener "Cake", "Cake", y "Cake".
 
-Let's move on to the implementation details. The next few lines have:
+Pasemos a los detalles de implementación. Las siguientes líneas tienen:
 
 ```
 sil! keepj norm! gv"ad
@@ -468,13 +468,13 @@ sil! keepj norm "ap
 let l:curLine = line(".")
 ```
 
-The first line:
+La primera línea:
 
 ```
 sil! keepj norm! gv"ad
 ```
 
-Recall that `sil!` runs silently and `keepj` keeps the jump history when moving. You then execute the normal command `gv"ad`. `gv` selects the last visually highlighted text (in the pancakes example, it will re-highlight all three 'cakes'). `"ad` deletes the visually highlighted texts and stores them in register a. As a result, you now have:
+Recuerda que `sil!` sirve para ejecutar de manera silenciosa (silently) y `keepj` guarda el historial de saltos mientras te estás moviendo. Después ejecutas el comando normal `gv"ad`. `gv` selecciona el último texto resaltado visualmente (en el ejemplo, los tres 'cakes'). `"ad` borra el texto resaltado visual y lo almacena en el registro a. Como resultado de todo eso, ahora tienes:
 
 ```
 pan for breakfast
@@ -482,30 +482,30 @@ pan for lunch
 pan for dinner
 ```
 
-Now you have 3 *blocks* (not lines) of 'cakes' stored in the register a. This distinction is important. Yanking a text with linewise visual mode is different from yanking a text with blockwise visual mode. Keep this in mind because you will see this again later.
+Ahora tienes tres *bloques* (no líneas) de 'cakes' almacenados en el registro a. Esta distinción es importante. Cuando copias un texto con la selección de línea en el modo visual es diferente a copiar un texto seleccionando un bloque en el modo visual. Ten esto en mente porque verás esto mismo más adelante.
 
-Next you have:
+A continuación tienes:
 
 ```
 keepj $
 keepj pu_
 ```
 
-`$` moves you to the last line in your file. `pu_` inserts one line below where your cursor is. You want to run them with `keepj` so you don't alter the jump history.
+`$` mueve el cursor a la última línea del fichero. `pu_` inserta una línea debajo de donde está el cursor. Quieres ejecutar todo esto con `keepj` ya que no quieres alterar el historial de saltos que guarda Vim.
 
-Then you store the line number of your last line (`line("$")`) in the local variable `lastLine`.
+A continuación almacenas el número de línea de tu última línea (`line("$")`) en la variable local `lastLine`.
 
 ```
 let l:lastLine = line("$")
 ```
 
-Then paste the content from the register with `norm "ap`.
+Después pegas el contenido del registro con `norm "ap`.
 
 ```
 sil! keepj norm "ap
 ```
 
-Keep in mind that this is happening on the new line you created below the last line of the file - you are currently at the bottom of the file. Pasting give you these *block* texts:
+Ten en mente que esto está ocurriendo en la nueva línea que has creado debajo de la última línea del fichero, actualmente estás en la parte inferior de tu archivo. Al pegar ese contenido, tienen estos *bloques* de textos:
 
 ```
 cake
@@ -513,13 +513,13 @@ cake
 cake
 ```
 
-Next, you store the location of the current line where your cursor is.
+A continuación, almacenas la ubicación de la línea actual donde se encuentra el cursor.
 
 ```
 let l:curLine = line(".")
 ```
 
-Now let's go the next few lines:
+Ahora pasemos a las siguientes líneas del código:
 
 ```
 sil! keepj norm! VGg@
@@ -532,7 +532,7 @@ exe "keepj " . l:startLine
 exe "sil! keepj norm! " . l:startCol . "\<bar>"
 ```
 
-This line:
+Esta línea:
 
 ```
 sil! keepj norm! VGg@
