@@ -538,7 +538,7 @@ Esta línea:
 sil! keepj norm! VGg@
 ```
 
-`VG` visually highlights them with line visual mode from the current line to the end of the file. So here you are highlighting the three blocks of 'cake' texts with linewise highlight (recall the block vs line distinction). Note that the first time you pasted the three "cake" texts, you were pasting them as blocks. Now you are highlighting them as lines. They may look the same from the outside, but internally, Vim knows the difference between pasting blocks of texts and pasting lines of texts.
+`VG` las resalta en el modo visual de selección de línea, desde la línea actual hasta el final del archivo. Así que aquí estás resaltando los tres bloques del texto 'cake' con la selección de línea (recuerda que es distinto el modo de selección de bloque y de selección de línea). Ten en cuenta que la primera vez que pegaste los tres textos "cake", los pegaste como bloques. Ahora estás resaltando el texto, pero como líneas. Visto desde fuera puede parecer lo mismo, pero internamente, Vim sabe la diferencia entre uno y otro procedimiento a la hora de pegar texto.
 
 ```
 cake
@@ -546,9 +546,9 @@ cake
 cake
 ```
 
-`g@` is the function operator, so you are essentially doing a recursive call to itself. But why? What does this accomplish?
+`g@` es la función operador, así que esencialmente estás haciendo una llamada recursiva a ella misma. ¿Por qué? ¿Qué logra esto?
 
-You are making a recursive call to `g@` and passing it with all 3 lines (after running it with `V`, you now have lines, not blocks) of 'cake' texts so it will be handled by the other part of the code (you will go over this later). The result of running `g@` is three lines of properly titlecased texts:
+Estás haciendo una llamada recursiva a `g@` y pasándole las tres líneas (después de ejecutar lo anterior con `V`, ahora tienes líneas, no bloques) del texto 'cake' así será gestionado por la otra parte del código (que veremos más adelante). El resultado de ejecutar `g@` es tener tres líneas de texto con la primera letra de la palabra en mayúsculas:
 
 ```
 Cake
@@ -556,13 +556,13 @@ Cake
 Cake
 ```
 
-The next line:
+La siguiente línea:
 
 ```
 exe "keepj norm! 0\<c-v>G$h\"ad"
 ```
 
-This runs the normal mode command to go to the beginning of the line (`0`), use the block visual highlight to go to the last line and last character on that line (`<c-v>G$`). The `h` is to adjust the cursor (when doing `$` Vim moves one extra line to the right). Finally, you delete the highlighted text and store it in the register a (`"ad`).
+Esto ejecuta el comando del modo normal de ir al inicio de la línea (`0`), utiliza el resaltado del modo visual de selección de bloque para ir a la última línea y al último caracter en esa línea (`<c-v>G$`). The `h` is to adjust the cursor (when doing `$` Vim moves one extra line to the right). Finally, you delete the highlighted text and store it in the register a (`"ad`).
 
 The next line:
 
