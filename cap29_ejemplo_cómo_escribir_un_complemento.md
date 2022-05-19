@@ -589,13 +589,13 @@ exe "keepj " . l:startLine
 exe "sil! keepj norm! " . l:startCol . "\<bar>"
 ```
 
-`exe "keepj " . l:lastLine` moves your cursor back to the `lastLine` location from earlier. `sil! keepj norm! "_dG` deletes the extra space(s) that were created using the blackhole register (`"_dG`) so your unnamed register stays clean. `exe "keepj " . l:startLine` moves your cursor back to `startLine`. Finally, `exe "sil! keepj norm! " . l:startCol . "\<bar>"` moves your cursor to the `startCol` column.
+`exe "keepj " . l:lastLine` mueve de nuevo el cursor a la ubicación de `lastLine` anterior. `sil! keepj norm! "_dG` elimina el(los) espacio(s) extra que fueron creado utilizando el registro de agujero negro (`"_dG`) así tu registro sin nombre permanece limpio. `exe "keepj " . l:startLine` mueve el cursor de nuevo a `startLine`. Finalmente, `exe "sil! keepj norm! " . l:startCol . "\<bar>"` mueve el cursor a la columna `startCol`.
 
-These are all the actions you could've done manually in Vim. However, the benefit of turning these actions into reusable functions is that they will save you from running 30+ lines of instructions every single time you need to titlecase anything. The take home here is, anything that you can do manually in Vim, you can turn it into a reusable function, hence a plugin!
+Estas son todas las acciones que podrías haber realizado manualmente en Vim. Sin embargo, el beneficio de convertir estas acciones en funciones reutilizables es que le evitarán ejecutar más de 30 líneas de instrucciones cada vez que necesites poner en mayúsculas las primeras letras de las palabras de un título. Lo importante aquí es que cualquier cosa que pueda hacer manualmente en Vim, puede convertirla en una función reutilizable, ¡por lo tanto, en un complemento!
 
-Here is what it would look like.
+Así es como se vería el resultado: 
 
-Given some text:
+Dado un texto, este por ejemplo:
 
 ```
 pancake for breakfast
@@ -605,7 +605,7 @@ pancake for dinner
 ... some text
 ```
 
-First, you visually highlight it blockwise:
+Primero, seleccionas en el modo bloque del modo visual el texto que quieres:
 
 ```
 pan[cake] for breakfast
@@ -615,7 +615,7 @@ pan[cake] for dinner
 ... some text
 ```
 
-Then you delete it and store that text in register a:
+Ahora lo eliminas y lo guardas en el registro a:
 
 ```
 pan for breakfast
@@ -625,7 +625,7 @@ pan for dinner
 ... some text
 ```
 
-Then you paste it at the bottom of the file:
+Ahora lo pegas al final del archivo:
 
 ```
 pan for breakfast
@@ -638,7 +638,7 @@ cake
 cake
 ```
 
-Then you capitalize it:
+Pones en mayúsculas las primeras letras del texto:
 
 ```
 pan for breakfast
@@ -651,7 +651,7 @@ Cake
 Cake
 ```
 
-Finally, you put the capitalized text back:
+Y finalmente, pegas ese texto que empieza en mayúscula de neuvo donde estaba en el texto original:
 
 ```
 panCake for breakfast
