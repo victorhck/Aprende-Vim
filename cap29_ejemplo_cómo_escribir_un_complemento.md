@@ -661,11 +661,11 @@ panCake for dinner
 ... some text
 ```
 
-## Handling Line and Char Operations
+## Gestionando operaciones de línea y caracteres
 
-You are not done yet. You've only addressed the edge case when you run `gt` on block texts. You still need to handle the 'line' and 'char' operations. Let's look at the `else` code to see how tthis is done.
+Todavía no se ha terminado. Solo hemos visto qué hacer en el caso que ejecutes `gt` en un bloque de textos. Todavía hay que ver cómo trata las operaciones de línea 'line' y caracteres 'char'. Echemos un vistazo al código `else` para ver cómo se hace esto.
 
-Here are the codes:
+Aquí están los códigos:
 
 ```
 if a:type ==# "block"
@@ -681,49 +681,49 @@ else
 endif
 ```
 
-Let's go through them linewise. The secret sauce of this plugin is actually on this line:
+Vamos a ver primero cómo se gestiona la selección de línea. La parte más interesante de este complemento está en esta línea:
 
 ```
 let l:titlecased = substitute(@@, l:WORD_PATTERN, l:UPCASE_REPLACEMENT, 'g')
 ```
 
-`@@` contains the text from the unnamed register to be titlecased. `l:WORD_PATTERN` is the individual keyword match. `l:UPCASE_REPLACEMENT` is the call to the `capitalize()` command (which you will see later). The `'g'` is the global flag that instructs the substitute command to substitute all given words, not just the first word.
+`@@` contiene el texto obtenido del registro sin nombre para ser procesado por el complemento. `l:WORD_PATTERN` es la coincidencia individual de la palabra clave. `l:UPCASE_REPLACEMENT` es la llamada al comando `capitalize()` (que veremos más adelante). La `'g'` es la opción global que indica al comando de sustitución que sustituya todas las palabras dadas, no solo la primera palabra encontrada.
 
-The next line:
+La línea siguiente:
 
 ```
 let l:titlecased = s:capitalizeFirstWord(l:titlecased)
 ```
 
-This guarantees that the first word will always be capitalized. If you have a phrase like "an apple a day keeps the doctor away", since the first word, "an", is a special word, your substitute command won't capitalize it. You need a a method that always capitalizes the first character no matter what. This function does just that (you will see this function detail later). The result of these capitalization methods is stored in the local variable `l:titlecased`.
+Esto garantiza que la primera palabra siempre será convertida a mayúscula su primera letra. Si tienes una frase como "an apple a day keeps the doctor away", como la primera palabra, en este ejemplo, "an", es una palabra especial, el comando de sustitución no pondrá en mayúscula su primera letra. Necesitas un método que siempre ponga en mayúscula la primera letra de la primera palabra sin importar la que sea. Esta función hace justamente eso (veremos esta función más en detalle más adelante). El resultado de este método de convertir a mayúscula la primera letra es almacenado en la variable local `l:titlecased`.
 
-The next line:
+La línea siguiente:
 
 ```
 call setreg('"', l:titlecased)
 ```
 
-This puts the capitalized string into the unnamed register (`"`).
+Esto pone la cadena de texto ya con las mayúsculas dentro del nombre sin registro (`"`).
 
-Next, the following two lines:
+A continuación, las siguientes dos líneas:
 
 ```
 let l:subcommands = #{line: "'[V']p", char: "`[v`]p", block: "`[\<c-v>`]p"}
 silent execute "noautocmd keepjumps normal! " .. get(l:subcommands, a:type, "")
 ```
 
-Hey, that looks familiar! You have seen a similar pattern before with `l:commands`. Instead of yank, here you use paste (`p`). Check out the previous section where I went over the `l:commands` for a refresher.
+¡Vaya, esto te resulta familiar! Ya has visto un patrón similar antes con `l:commands`. En vez de copiar, aquí utilizas el pegado (`p`). Echa un vistazo a la sección previa donde ya se explicó `l:commands` para refrescar conceptos.
 
-Finally, these two lines:
+Finalmente, las siguientes dos líneas:
 
 ```
 exe "keepj " . l:startLine
 exe "sil! keepj norm! " . l:startCol . "\<bar>"
 ```
 
-You are moving your cursor back to the line and column where you started. That's it!
+Con estas, se mueve el cursor de nuevo a la línea y columna desde donde empezaste. ¡Eso es todo!
 
-Let's recap. The above substitute method is smart enough to capitalize the given texts and skip the special words (more on this later). After you have a titlecased string, you store them in the unnamed register. Then you visually highlight the exact same text you operated `g@` on before, then paste from the unnamed register (this effectively replaces the non-titlecased texts with the titlecased version. Finally, you move your cursor back to where you started.
+Vamos a recapitular. El método anterior de sustitución es lo suficientemente inteligente para poner la primera letra en mayúsculas de un texto dado y saltar palabras expeciales (más adelante veremos eso). Después de que estén en mayúsculas la primera letra de cada palabra, las guardas en el registro sin nombre. Después se selecciona visualmente exactamente el mismo texto que se operó antes mediante `g@`, después pegas el texto desde el registro sin nombre (lo que reemplaza el texto sin mayúsculas con el texto procesado). Y finalmente mueves el cursor de nuevo a la posición a la que estaba originalmente.
 
 ## Cleanups
 
