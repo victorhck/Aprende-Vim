@@ -725,9 +725,9 @@ Con estas, se mueve el cursor de nuevo a la línea y columna desde donde empezas
 
 Vamos a recapitular. El método anterior de sustitución es lo suficientemente inteligente para poner la primera letra en mayúsculas de un texto dado y saltar palabras expeciales (más adelante veremos eso). Después de que estén en mayúsculas la primera letra de cada palabra, las guardas en el registro sin nombre. Después se selecciona visualmente exactamente el mismo texto que se operó antes mediante `g@`, después pegas el texto desde el registro sin nombre (lo que reemplaza el texto sin mayúsculas con el texto procesado). Y finalmente mueves el cursor de nuevo a la posición a la que estaba originalmente.
 
-## Cleanups
+## Limpieza
 
-You are technically done. The texts are now titlecased. All that is left to do is to restore the registers and settings.
+Técnicamente ya está todo realizado. Los textos están convertidos con la primera letra de las palabras a mayúsculas. Todo lo que queda es restaurar los registros y los ajustes.
 
 ```
 call setreg('"', l:reg_save)
@@ -737,16 +737,16 @@ let &clipboard = l:cb_save
 let &selection = l:sel_save
 ```
 
-These restore:
-- the unnamed register.
-- the `<` and `>` marks.
-- the `'clipboard'` and `'selection'` options.
+Esto restaura:
+- El registro sin nombre.
+- Las marcas `<` y `>`.
+- Las opciones `'clipboard'` y `'selection'`.
 
-Phew, you are done. That was a long function. I could have made the function shorter by breaking it apart into smaller ones, but for now, that will have to suffice. Now let's briefly go over the capitalize functions.
+Ufff, has terminado. Ha sido una función muy larga. Podría haber hecho una función más corta, dividiéndola en partes pequeñas, pero por ahora, esto tendrá que ser suficiente. Ahora vamos a ver brevemente las funciones de convertir a mayúscula la primera letra.
 
-## The Capitalize Function
+## La función de convertir en mayúscula
 
-In this section, let's go over the `s:capitalize()` function. This is what the function looks like:
+En esta sección, vamos a ver la función `s:capitalize()`. Este es el aspecto que tiene dicha función:
 
 ```
 function! s:capitalize(string)
@@ -764,9 +764,9 @@ function! s:capitalize(string)
 endfunction
 ```
 
-Recall that the argument for the `capitalize()` function, `a:string`, is the individual word passed by the `g@` operator. So if I am running `gt` on the text "pancake for breakfast", `ToTitle`  will call `capitalize(string)` *three* times, once for "pancake", once for "for", and once for "breakfast".
+Recordemos que el argumento para la función `capitalize()`, `a:string`, es una palabra individual que ofrece el operador `g@`. Así que si ejecuto `gt` con el texto "pancake for breakfast", `ToTitle`  llamará a `capitalize(string)` *tres* veces, una para "pancake", otra para "for", y otra más para "breakfast".
 
-The first part of the function is:
+La primera parte de la función es:
 
 ```
 if(toupper(a:string) ==# a:string && a:string != 'A')
@@ -774,22 +774,22 @@ if(toupper(a:string) ==# a:string && a:string != 'A')
 endif
 ```
 
-The first condition (`toupper(a:string) ==# a:string`) checks whether the uppercased version of the argument is the same as the string and whether the string itself is "A". If these are true, then return that string. This is based on the assumption that if a given word is already totally uppercased, then it is an abbreviation. For example, the word "CEO" would otherwise be converted into "Ceo". Hmm, your CEO won't be happy. So it's best to leave any fully uppercased word alone. The second condition, `a:string != 'A'`, addresses an edge case for a capitalized "A" character. If `a:string` is already a capitalized "A", it would have accidentally passed the `toupper(a:string) ==# a:string` test. Because "a" is an indefinite article in English, it needs to be lowercased.
+La primera condición (`toupper(a:string) ==# a:string`) comprueba si la versión en mayúsculas del argumento es la misma que la cadena y si la propia cadena es "A". Si estos son verdaderos, devuelva esa cadena. Esto se basa en la suposición de que si una palabra dada ya está totalmente en mayúsculas, entonces es una abreviatura. Por ejemplo, la palabra "CEO" se convertiría de otro modo en "CEO". Hmm, tu director ejecutivo no estará contento. Por lo tanto, es mejor dejar en paz cualquier palabra en mayúsculas. La segunda condición `a:string != 'A'`, aborda un caso límite para un carácter "A" en mayúscula. Si `a:string` ya es una "A" mayúscula debería pasar el test `toupper(a:string) ==# a:string`. Ya que "a" es un artículo indefinido en Inglés, y necesita ponerse en minúscula.
 
-The next part forces the string to be lowercased:
+La siguiente parte fuerza la cadena de texto a minúsculas:
 
 ```
 let l:str = tolower(a:string)
 ```
 
 
-The next part is a regex of a list of all word exclusions. I got them from https://titlecaseconverter.com/rules/ :
+La siguiente parte es una expresión regular de una lista de todas las exclusiones de palabras. La conseguí de: https://titlecaseconverter.com/rules/ :
 
 ```
 let l:exclusions = '^\(a\|an\|and\|at\|but\|by\|en\|for\|in\|nor\|of\|off\|on\|or\|out\|per\|so\|the\|to\|up\|yet\|v\.?\|vs\.?\|via\)$'
 ```
 
-The next part:
+La siguiente parte:
 
 ```
 if (match(l:str, l:exclusions) >= 0) || (index(s:local_exclusion_list, l:str) >= 0)
