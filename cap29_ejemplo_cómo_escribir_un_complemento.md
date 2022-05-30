@@ -797,15 +797,15 @@ if (match(l:str, l:exclusions) >= 0) || (index(s:local_exclusion_list, l:str) >=
 endif
 ```
 
-First, check if your string is a part of the excluded word list (`l:exclusions`). If it is, don't capitalize it. Then check if your string is a part of the local exclusion list (`s:local_exclusion_list`). This exclusion list is a custom list that the user can add in vimrc (in case the user has additional requirements for special words).
+Primero, comprueba su tu cadena de texto es una parte de la lista de palabras excluidad (`l:exclusions`). Si lo es, no la convierte a mayúscula. Después comprueba si la cadena de texto es parte de la lista local de exclusión (`s:local_exclusion_list`). Esta lista de exclusión es una lista personalizada que el usuario puede añadir en vimrc (en este caso el usuario tiene requisitos adicionales para palabras espaciales).
 
-The last part returns the capitalized version of the word. The first character is uppercased while the rest remains as is.
+La última parte devuelve la versión de la palabra con la primera letra ya en mayúscula. El primer caracter es convertido a mayúscula mientras que el resto se queda como está.
 
 ```
 return toupper(l:str[0]) . l:str[1:]
 ```
 
-Let's go over the second capitalize function. The function looks like this:
+Ahora veremos la segunda función. La función tiene este aspecto:
 
 ```
 function! s:capitalizeFirstWord(string)
@@ -818,39 +818,39 @@ function! s:capitalizeFirstWord(string)
 endfunction
 ```
 
-This function was created to handle an edge case if you have a sentence that starts with an excluded word, like "an apple a day keeps the doctor away". Based on English language's capitalization rules, all first words in a sentence, regardless if it is a special word or not, must be capitalized. With your `substitute()` command alone, the "an" in your sentence would be lowercased. You need to force the first character to be uppercased.
+Esta función fue creada para gestionar un caso extremo si tienes una frase que comienza con una palabra excluida, como por ejemplo "an apple a day keeps the doctor away". Basándonos en las reglas de mayúsculas del idioma inglés, todas las primeras palabras de una frase, sin importar si es una palabra especial o no, debe empezar con mayúcula. Con solo el comando `substitute()`, la palabra inicial "an" en la frase de ejemplo quedaría en minúscula entera. Necesitas forzar que el primer caracter sea convertido a mayúscula.
 
-In this `capitalizeFirstWord` function, the `a:string` argument is not an individual word like `a:string` inside the `capitalize` function, but instead the whole text. So if you have "pancake for breakfast", `a:string`'s value is "pancake for breakfast".it only runs `capitalizeFirstWord` once for the whole text. 
+En esta función `capitalizeFirstWord`, el argumento `a:string` no es una palabra individual como en `a:string` dentro de la función `capitalize`, si no todo el texto. Así que si tienes "pancake for breakfast", el valor de `a:string` es "pancake for breakfast". Solo se ejecuta `capitalizeFirstWord` una vez para todo el texto. 
 
-One scenario you need to watch out for is if you have a multi-line string like `"an apple a day\nkeeps the doctor away"`. You want to uppercase the first character of all lines. If you don't have newlines, then simply uppercase the first character.
+Un escenario que se necesita tener en cuenta es si tienes una cadena de texto con múltiples líneas como `"an apple a day\nkeeps the doctor away"`. En este caso quieres poner en mayúsculas los primeros caracteres de todas las líneas. Si no tienes nuevas líneas, simplemente pon en mayúsculas el primer caracter.
 
 ```
 return toupper(a:string[0]) . a:string[1:]
 ```
 
-If you have newlines, you need to capitalize all the first characters in each line, so you split them into an array separated by newlines:
+Si tienes nuevas líneas, necesitas convertir a mayúscula todos los primeros caracteres en cada línea, así que necesitas dividirlas en un array separados por saltos de línea:
 
 ```
 let l:lineArr = trim(a:string)->split('\n')
 ```
 
-Then you map each element in the array and capitalize the first word of each element:
+Después en cada elemento del array conviertes a mayúsculas la primera letra de la primera palabra de cada elemento del array:
 
 ```
 let l:lineArr = map(l:lineArr, 'toupper(v:val[0]) . v:val[1:]')
 ```
 
-Finally, you put the array elements together:
+Finalmente, unes los elementos del array:
 
 ```
 return l:lineArr->join("\n")
 ```
 
-And you are done!
+¡Y eso es todo!
 
 ## Documentación
 
-El segundo directorio en este repositorio es el directorio `docs/` directory. Es aconsejable el ofrecer junto con el complemento la documentación de uso. En esta sección, trataremos brevemente de repasar cómo hacer la documentación para tu propio complemento.
+El segundo directorio en este repositorio es el directorio `docs/`. Es aconsejable el ofrecer junto con el complemento la documentación de uso. En esta sección, trataremos brevemente de repasar cómo hacer la documentación para tu propio complemento.
 
 El directorios `docs/` es una de las rutas especiales para los ejecutables. Vim lee todos los archivos dentro de `docs/` así que cuando buscas una palabra especial y esa palabra es encontrada en uno de los archivos del directorio `docs/`, lo mostrará en la página de ayuda. Aquí tienes el archivo `totitle.txt`. Lo he nombrado de esa manera porque ese es el nombre del complemento, pero puedes ponerle el nombre que quieras.
 
