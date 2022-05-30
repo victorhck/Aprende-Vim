@@ -1,4 +1,3 @@
-# Artículo todavía en fase de traducción
 # Capítulo 29: Cómo escribir tu propio complemento en Vim
 
 Cuando comienzas a dominar Vim, quizás quieras empezar a escribir tus propios complementos. Recientemente, el autor de la guía en inglés escribió su primer complemento para Vim [totitle-vim](https://github.com/iggredible/totitle-vim). Es un complemento operador para los títulos de secciones o capítulos de texto, similar a los operadores de Vim para convertir a mayúsculas `gU`, minúsculas `gu` o intercambiarlos`g~`.
@@ -13,7 +12,7 @@ Por tanto el complemento tiene sentido únicamente en textos en inglés. Pero in
 
 Utilizo Vim para escribir mis artículos, incluyendo esta guía que estás leyendo.
 
-Uno de los problemas pincipales fue crear un adecuado uso de mayúsculas y minúsculas para los títulos. Una manera de automatizar esto es convertir a mayúsculas cada letra de cada palabra mediante `g/^#/ s/\<./\u\0/g`. Para un uso básico, este comando puede ser suficiente, pero no es lo suficientemente potente como el tener una forma de convertir a mayúscula la primera letra de un título. En inglés las palabras "The" o "Of" en "Capitalize The First Letter Of Each Word" deberían escribirse en mayúsculas. Sin una regla adecuada de capitalización de palabra, la frase tendría un aspecto extraño.
+Uno de los problemas principales fue crear un adecuado uso de mayúsculas y minúsculas para los títulos. Una manera de automatizar esto es convertir a mayúsculas cada letra de cada palabra mediante `g/^#/ s/\<./\u\0/g`. Para un uso básico, este comando puede ser suficiente, pero no es lo suficientemente potente como el tener una forma de convertir a mayúscula la primera letra de un título. En inglés las palabras "The" o "Of" en "Capitalize The First Letter Of Each Word" deberían escribirse en mayúsculas. Sin una regla adecuada de capitalización de palabra, la frase tendría un aspecto extraño.
 
 Al inicio, no planeaba escribir un complemento. Además resulta que ya existe un complemento para eso llamado: [vim-titlecase](https://github.com/christoomey/vim-titlecase). Sin embargo, hay unas cuantas cosas que no funcionaban en la manera en la que yo quería. La principal era el comportamiento en el modo de selección visual de bloque. Si tienes las siguientes frases:
 
@@ -23,7 +22,7 @@ test title two
 test title three
 ```
 
-Si utilizo el reslatado de bloque visual en las letras "tle" en las tres líneas, quedando seleccionado la parte que está entre corchetes, así:
+Si utilizo el resaltado de bloque visual en las letras "tle" en las tres líneas, quedando seleccionado la parte que está entre corchetes, así:
 
 ```
 test ti[tle] one
@@ -37,7 +36,7 @@ Si pulso `gt`, el complemento no convertirá en mayúsculas la selección. Este 
 
 Antes de escribir la primera línea de código, necesito decidir cuales serán las reglas para poner en mayúsculas las líneas de los títulos. Encontré una tabla en la que se especifican las diferentes reglas a la hora de escribir mayúsculas en el sitio web [titlecaseconverter](https://titlecaseconverter.com/rules/). ¿Sabías que hay al menos 8 reglas diferentes en inglés relativas a la escritura con letras mayúsculas? *¡Casi nada!*
 
-Al final, utilicé los denominadores comunes de esa lista para formar unas cuantas reglas básicas válidas para el complemento. Además también dudé de que la gesnte pudiera quejarse diciendo "Oye, estás utilizando la regla AMA, por qué no utilizas APA?" Aquí están las reglas básicas:
+Al final, utilicé los denominadores comunes de esa lista para formar unas cuantas reglas básicas válidas para el complemento. Además también dudé de que la gente pudiera quejarse diciendo "Oye, estás utilizando la regla AMA, por qué no utilizas APA?" Aquí están las reglas básicas:
 
 - La primera palabra siempre empieza por mayúscula.
 - Algunos adverbios, conjunciones y preposiciones son con minúsculas.
@@ -47,7 +46,7 @@ Y sobre cuales palabra van en minúsculas, en diferentes reglas tienen diferente
 
 ### Planificando la interfaz de usuario
 
-Quiero que el complemento sea un operador que complemente los operadores ya existentes de Vim: `gu`, `gU`, and `g~`. Al ser un operador, podrá aceptar tanto movimientos como objetos de texto (`gtw` debería poner en mayúscula la palabra siguiente, `gtiw` debería poner en mayúsculas la palabra donde se encuentra el cursor, `gt$` debería poner en mayúsculas las primeras letras de las palabras desde la ubicación actual del cursor hasta el final de la línea, `gtt` debería poner en mayúsculas la línea actual, `gti(` debería convertir a mayúsculas el texto dentro de los paréntesis, etc.) También quiero que tenga la combinación de teclas `gt` para recordarlo más fácilmente. Además, también debería funcionar en todos los modos visuales: `v`, `V` y `Ctrl-V`. Debería ser capaz de resaltar el texto en *cualquier* modo visual, pulsar `gt`, y después el complemento convertir a mayúsculas las primeras letras de todo el texto resaltado.
+Quiero que el complemento sea un operador que complemente los operadores ya existentes de Vim: `gu`, `gU`, y `g~`. Al ser un operador, podrá aceptar tanto movimientos como objetos de texto (`gtw` debería poner en mayúscula la palabra siguiente, `gtiw` debería poner en mayúsculas la palabra donde se encuentra el cursor, `gt$` debería poner en mayúsculas las primeras letras de las palabras desde la ubicación actual del cursor hasta el final de la línea, `gtt` debería poner en mayúsculas la línea actual, `gti(` debería convertir a mayúsculas el texto dentro de los paréntesis, etc.) También quiero que tenga la combinación de teclas `gt` para recordarlo más fácilmente. Además, también debería funcionar en todos los modos visuales: `v`, `V` y `Ctrl-V`. Debería ser capaz de resaltar el texto en *cualquier* modo visual, pulsar `gt`, y después el complemento convertir a mayúsculas las primeras letras de todo el texto resaltado.
 
 ## Ejecutables en Vim
 
@@ -219,9 +218,9 @@ Vamos a asumir que tienes el siguiente _mapeado_:
 nnoremap <expr> gt ToTitle()`
 ```
 
-Entonces pulsas `gtw` (para poner en mayúsculas la primera letra de la siguiente palabra). La primera vez que ejecutas `gtw`, Vim llama al método `ToTitle()`. Pero justo ahora `opfunc` todavía está en blanco. Tampoco estás pasando ningún argumento a `ToTitle()`, así que `a:type` tendrá un valor de  `''`. Esto causa que la expresión condicional compruebe el argumento `a:type`, `if a:type ==# ''`, para ser cierto. Dentro, asignas `opfunc` a la función `ToTitle` con `set opfunc=ToTitle`. Ahora `opfunc` está asignada a `ToTitle`. Finalmente, después de asignar `opfunc` a la función `ToTitle`, devolverás `g@`. Explicaré porque devuleve el valor `g@` a continuación.
+Entonces pulsas `gtw` (para poner en mayúsculas la primera letra de la siguiente palabra). La primera vez que ejecutas `gtw`, Vim llama al método `ToTitle()`. Pero justo ahora `opfunc` todavía está en blanco. Tampoco estás pasando ningún argumento a `ToTitle()`, así que `a:type` tendrá un valor de  `''`. Esto causa que la expresión condicional compruebe el argumento `a:type`, `if a:type ==# ''`, para ser cierto. Dentro, asignas `opfunc` a la función `ToTitle` con `set opfunc=ToTitle`. Ahora `opfunc` está asignada a `ToTitle`. Finalmente, después de asignar `opfunc` a la función `ToTitle`, devolverás `g@`. Explicaré porque devuelve el valor `g@` a continuación.
 
-Todavía no has terminado. Recuerda, pulsaste `gtw`. Al pulsar `gt` hizo todo el proceso que se ha detallado anteriormente, pero todavía tienes que procesar `w`. Al devolver `g@`, en este punto, técnicamente tienes `g@w` (por eso es que tines `return g@`). Ya que `g@` es un operador de función, le estás pasando el movimiento `w`. Así que Vim, una vez que recibe `g@w`, llama a `ToTitle` *una vez más* (no te preocupes, no acabarás en un bucle infinito como verás en breve).
+Todavía no has terminado. Recuerda, pulsaste `gtw`. Al pulsar `gt` hizo todo el proceso que se ha detallado anteriormente, pero todavía tienes que procesar `w`. Al devolver `g@`, en este punto, técnicamente tienes `g@w` (por eso es que tienes `return g@`). Ya que `g@` es un operador de función, le estás pasando el movimiento `w`. Así que Vim, una vez que recibe `g@w`, llama a `ToTitle` *una vez más* (no te preocupes, no acabarás en un bucle infinito como verás en breve).
 
 Para recapitular, al pulsar `gtw`, Vim comprueba si `opfunc` está vacía o no. Si está vacía, entonces Vim la asignará a `ToTitle`. Y entonces devolverá `g@`, esencialmente llamando a `ToTitle` de nuevo una vez más para ahora poder utilizarla como un operador. Esta es la parte más enrevesada de crear un operador personalizado ¡y lo hiciste! A continuación, necesitas crear la lógica para `ToTitle()` para que haga su cometido con la entrada.
 
@@ -229,7 +228,7 @@ Para recapitular, al pulsar `gtw`, Vim comprueba si `opfunc` está vacía o no. 
 
 Ahora ya tienes `gt` funcionando como un operador que ejecuta `ToTitle()`. Pero ¿qué es lo próximo a hacer? ¿Cómo realmente conviertes a mayúsculas la primera letra de las palabras del título?
 
-Cada vez que ejecutas un operador en Vim, hay tres diferentes tipos de acciones de movimiento: caracter, línea y bloque. `g@w` (palabra) es un ejemplo de una operación de caracter. `g@j` (una línea inferior) es un ejemplo de operación de línea. La operación de bloque es inusual, pero se produce cuando ejecutas la operación `Ctrl-V` (bloque visual). Las operaciones que tienen como objetivo unos cuantos caracteres hacia adelante/atrás son básicamente consideradas operaciones de caracteres (`b`, `e`, `w`, `ge`, etc). Las operaciones que tienen como objetivo unas cuantas líneas superiores/inferiores son consideradas generalmente operaciones de línea (`j`, `k`). Las operaciones que tienen como objetivo columnas o bloques hacia adelante/atrás arriba/abajo son consideradas operaciones de bloque (por lo general, son un modo de movimiento forzado en columna o un modo visual en bloque, para más información consultar: `:h forced-motion`).
+Cada vez que ejecutas un operador en Vim, hay tres diferentes tipos de acciones de movimiento: carácter, línea y bloque. `g@w` (palabra) es un ejemplo de una operación de carácter. `g@j` (una línea inferior) es un ejemplo de operación de línea. La operación de bloque es inusual, pero se produce cuando ejecutas la operación `Ctrl-V` (bloque visual). Las operaciones que tienen como objetivo unos cuantos caracteres hacia adelante/atrás son básicamente consideradas operaciones de caracteres (`b`, `e`, `w`, `ge`, etc). Las operaciones que tienen como objetivo unas cuantas líneas superiores/inferiores son consideradas generalmente operaciones de línea (`j`, `k`). Las operaciones que tienen como objetivo columnas o bloques hacia adelante/atrás arriba/abajo son consideradas operaciones de bloque (por lo general, son un modo de movimiento forzado en columna o un modo visual en bloque, para más información consultar: `:h forced-motion`).
 
 Esto significa, que si pulsas `g@w`, `g@` pasará una cadena literal `"char"` como un argumento a `ToTitle()`. Si ejecutas `g@j`, `g@` pasará una cadena literal `"line"` como argumento a `ToTitle()`. Esta cadena es lo que se le pasará a la función `ToTitle` como argumento `type`.
 
@@ -253,7 +252,7 @@ El operador `g@` ejecutará `Test(some_arg)` y pasará tanto `"char"`, `"line"`,
 
 También puedes utilizar el modo visual. Utiliza los diferentes resaltados como `v`, `V`, y `Ctrl-V` y después pulsa `g@` (te aviso que mostrará la salida muy rápido, así que tendrás que tener una vista muy rápida, pero la salida del comando definitivamente está ahí. También como hemos utilizado `echom`, puedes comprobar los mensajes mostrados con `:messages`).
 
-Bastante bien ¿no? ¡La de cosas que puedes pogramar con Vim! ¿Por qué no enseñan esto en las escuelas? Vamos a continuar con nuestro complemento.
+Bastante bien ¿no? ¡La de cosas que puedes programar con Vim! ¿Por qué no enseñan esto en las escuelas? Vamos a continuar con nuestro complemento.
 
 ## ToTitle como una función
 
@@ -305,7 +304,7 @@ let l:visual_marks_save = [getpos("'<"), getpos("'>")]
 
 Estas líneas guardan varios estados actuales en variables temporales. Más adelante usarás modos visuales, marcas y registros. Al hacer esto se modificarán algunos estados. Ya que no quieres volver a revisar el historial, necesitarás guardarlos en variables temporales para poder restaurar más tarde esos estado.
 
-## Poniéndo en mayúsculas las primeras letras de las selecciones
+## Poniendo en mayúsculas las primeras letras de las selecciones
 
 Las siguientes líneas son importantes:
 
@@ -329,7 +328,7 @@ Vamos a verlas en detalle dividiéndolas en partes. Esta línea:
 set clipboard= selection=inclusive
 ```
 
-Primero activas la opción `selection` para que sea inclusiva y `clipboard` para que esté vacío. El atributo de selección es normalmente utilizado con el modo visual y tiene tres posibles valores: `old`, `inclusive` y `exclusive`. Al establecerlo como `inclusive` esto significa que el último caracter de la selección está incluido. No lo trataré aquí, pero la clave es que al escogerlo como `inclusive` esto hace que tenga un comportamiento consistente en el modo visual. De manera predeterminada Vim activa esta opción, pero también la establecemos aquí por si alguno de tus complementos lo estableces a un valor diferente. Echa un vistazo a `:h 'clipboard'` y `:h 'selection'` si tienes curiosidad que qué hacen realmente.
+Primero activas la opción `selection` para que sea inclusiva y `clipboard` para que esté vacío. El atributo de selección es normalmente utilizado con el modo visual y tiene tres posibles valores: `old`, `inclusive` y `exclusive`. Al establecerlo como `inclusive` esto significa que el último carácter de la selección está incluido. No lo trataré aquí, pero la clave es que al escogerlo como `inclusive` esto hace que tenga un comportamiento consistente en el modo visual. De manera predeterminada Vim activa esta opción, pero también la establecemos aquí por si alguno de tus complementos lo estableces a un valor diferente. Echa un vistazo a `:h 'clipboard'` y `:h 'selection'` si tienes curiosidad que qué hacen realmente.
 
 A continuación, tienes este _hash_ de aspecto extraño seguido de un comando de ejecución:
 
@@ -342,7 +341,7 @@ Primero, la sintaxis `#{}` es el tipo de datos del diccionario de Vim. La variab
 
 Segundo, los comandos ejecutados son `'noautocmd keepjumps normal! ' .. get(l:commands, a:type, '')`. El primero, `noautocmd`, ejecutará el siguiente comando cuando sin ser lanzado por cualquier comando automático. El segundo, `keepjumps`, es para no guardar el movimiento del cursor mientras se está moviendo. En Vim, ciertos movimientos son grabados de manera automática en la lista de cambios y la lista de marcas. Esto, previene ese comportamiento. La razón de tener `noautocmd` y `keepjumps` es para prevenir efectos secundarios. Finalmente, el comando `normal` ejecuta las cadenas como comandos normales. Esto `..` en Vim es una sintaxis de interpolación de cadena. `get()` es una método de obtención que acepta tanto una lista, un _blob_ o un diccionario. en este caso, se le está pasando el diccionario `l:commands`. La clave es `a:type`. Has aprendido anteriormente que `a:type` puede ser cualquiera de estos tres valores `char`, `line` o `block`. Así que si `a:type` es una `line`, ejecutarás `"noautocmd keepjumps normal! '[V']y"` (para más información, echa un vistazo a `:h silent`, `:h :exe`, `:h :noautocmd`, `:h :keepjumps`, `:h :normal` y `:h get()`).
 
-Vamos ahora a ver qué realiza `'[V']y`. Primero vamosa asumir que tienes el siguiente texto:
+Vamos ahora a ver qué realiza `'[V']y`. Primero vamos a asumir que tienes el siguiente texto:
 
 ```
 the second breakfast
@@ -374,7 +373,7 @@ La línea siguiente es un patrón de expresión regular:
 let l:WORD_PATTERN = '\<\k*\>'
 ```
 
-`\<` y `\>` son patrones de límites de palabras. El caracter que sigue a `\<` marca el comienzo de una palabra y el caracter precedente `\>` marca el final de una palabra. `\k` es el patrón de palabra clave. Puedes comprobar qué caracteres acepta Vim como palabras clave mediante `:set iskeyword?`. Recuerda que el movimiento `w` en Vim mueve tu cursor una palabra hacia adelante. Vim viene con una noción preconcebida de lo que es una "palabra clave" (incluso puede editarla modificando la opción `iskeyword`). Echa un vistazo a `:h /\<`, `:h /\>`, y `:h /\k`, y `:h 'iskeyword'` para saber más al respecto. Finalmente `*` significa cero o más del patrón siguiente.
+`\<` y `\>` son patrones de límites de palabras. El carácter que sigue a `\<` marca el comienzo de una palabra y el carácter precedente `\>` marca el final de una palabra. `\k` es el patrón de palabra clave. Puedes comprobar qué caracteres acepta Vim como palabras clave mediante `:set iskeyword?`. Recuerda que el movimiento `w` en Vim mueve tu cursor una palabra hacia adelante. Vim viene con una noción preconcebida de lo que es una "palabra clave" (incluso puede editarla modificando la opción `iskeyword`). Echa un vistazo a `:h /\<`, `:h /\>`, y `:h /\k`, y `:h 'iskeyword'` para saber más al respecto. Finalmente `*` significa cero o más del patrón siguiente.
 
 A grandes rasgos, `'\<\k*\>'` encuentra una palabra. Si tienes la siguiente cadena de texto:
 
@@ -399,7 +398,7 @@ let l:startLine = line("'<")
 let l:startCol = virtcol(".")
 ```
 
-La expresión `line()` devuelve un número de línea. Aquí se lo pasas con la marca `'<`, que representa la primera línea de la última área visual seleccionada. Recuerda que utilizaste el modo visual para copiar el texto. `'<` devuelve el número de línea del principio de esa área de selección visual. La extpresión `virtcol()` devuelve el número de columna de la posición actual del cursor. Dentro de un rato moverá el cursor por todas partes, por lo que debe almacenar la ubicación del cursor para poder volver aquí más tarde.
+La expresión `line()` devuelve un número de línea. Aquí se lo pasas con la marca `'<`, que representa la primera línea de la última área visual seleccionada. Recuerda que utilizaste el modo visual para copiar el texto. `'<` devuelve el número de línea del principio de esa área de selección visual. La expresión `virtcol()` devuelve el número de columna de la posición actual del cursor. Dentro de un rato moverá el cursor por todas partes, por lo que debe almacenar la ubicación del cursor para poder volver aquí más tarde.
 
 Tómate tu tiempo para revisar todos los conceptos y asimilarlo. Asegúrate de entenderlo y cuando te sientas preparado continuemos.
 
@@ -429,7 +428,7 @@ if a:type ==# "block"
   exe "sil! keepj norm! " . l:startCol . "\<bar>"
 ```
 
-Ya es hora de convertir en mayúsculas la primera letra de tu texto. Recuerda que tenía `a:type` que puede ser tanto 'char', 'line', o 'block'. En la mayoría de los casos, lo más probable es que tengas 'char' o 'line'. Pero quizás alguna vez también pueda ser un bloque. No es habitual, pero puede ocurrir. Desafortunadamente, la gestión de un bloque no es tan sencillo como es para un caracter o una líne. Llevará un poco más de esfuerzo extra el hacerlo, pero es factible.
+Ya es hora de convertir en mayúsculas la primera letra de tu texto. Recuerda que tenía `a:type` que puede ser tanto 'char', 'line', o 'block'. En la mayoría de los casos, lo más probable es que tengas 'char' o 'line'. Pero quizás alguna vez también pueda ser un bloque. No es habitual, pero puede ocurrir. Desafortunadamente, la gestión de un bloque no es tan sencillo como es para un carácter o una línea. Llevará un poco más de esfuerzo extra el hacerlo, pero es factible.
 
 Antes de comenzar, vamos a ver un ejemplo de cómo obtener un bloque. Imaginemos que tenemos el siguiente texto:
 
@@ -562,7 +561,7 @@ La siguiente línea:
 exe "keepj norm! 0\<c-v>G$h\"ad"
 ```
 
-Esto ejecuta el comando del modo normal de ir al inicio de la línea (`0`), utiliza el resaltado del modo visual de selección de bloque para ir a la última línea y al último caracter en esa línea (`<c-v>G$`). La `h` es para ajustar el cursor (cuando ejecutas `$` Vim mueve una línea extra a la derecha). Finalmente, eliminas el texto resaltado y lo almacenas en el registro a (`"ad`).
+Esto ejecuta el comando del modo normal de ir al inicio de la línea (`0`), utiliza el resaltado del modo visual de selección de bloque para ir a la última línea y al último carácter en esa línea (`<c-v>G$`). La `h` es para ajustar el cursor (cuando ejecutas `$` Vim mueve una línea extra a la derecha). Finalmente, eliminas el texto resaltado y lo almacenas en el registro a (`"ad`).
 
 La siguiente línea:
 
@@ -578,7 +577,7 @@ A continuación:
 exe "sil! keepj norm! " . l:startCol . "\<bar>\"aP"
 ```
 
-Estando en la ubicación guardada en `startLine`, ahora saltas a la columna marcada por `startCol`. `\<bar>\` es el movimiento de barra `|`. El movimiento de barra en Vim mueve el cursor a la columna dada con un número (digamos que `startCol` vale 4. Al ejecutar `4|` hará que el cursor salte a la posición de la columna de 4). Recuerda que `startCol` era la ubicació donde se almacenó la posición de la columna del texto que querías poner en mayúscula. Finalmente, `"aP` pega los textos almacenados en el registro a. Esto pega el texto de nuevo de donde fue eliminado anteriormente.
+Estando en la ubicación guardada en `startLine`, ahora saltas a la columna marcada por `startCol`. `\<bar>\` es el movimiento de barra `|`. El movimiento de barra en Vim mueve el cursor a la columna dada con un número (digamos que `startCol` vale 4. Al ejecutar `4|` hará que el cursor salte a la posición de la columna de 4). Recuerda que `startCol` era la ubicación donde se almacenó la posición de la columna del texto que querías poner en mayúscula. Finalmente, `"aP` pega los textos almacenados en el registro a. Esto pega el texto de nuevo de donde fue eliminado anteriormente.
 
 Echemos ahora un vistazo a esta 4 líneas:
 
@@ -651,7 +650,7 @@ Cake
 Cake
 ```
 
-Y finalmente, pegas ese texto que empieza en mayúscula de neuvo donde estaba en el texto original:
+Y finalmente, pegas ese texto que empieza en mayúscula de nuevo donde estaba en el texto original:
 
 ```
 panCake for breakfast
@@ -723,7 +722,7 @@ exe "sil! keepj norm! " . l:startCol . "\<bar>"
 
 Con estas, se mueve el cursor de nuevo a la línea y columna desde donde empezaste. ¡Eso es todo!
 
-Vamos a recapitular. El método anterior de sustitución es lo suficientemente inteligente para poner la primera letra en mayúsculas de un texto dado y saltar palabras expeciales (más adelante veremos eso). Después de que estén en mayúsculas la primera letra de cada palabra, las guardas en el registro sin nombre. Después se selecciona visualmente exactamente el mismo texto que se operó antes mediante `g@`, después pegas el texto desde el registro sin nombre (lo que reemplaza el texto sin mayúsculas con el texto procesado). Y finalmente mueves el cursor de nuevo a la posición a la que estaba originalmente.
+Vamos a recapitular. El método anterior de sustitución es lo suficientemente inteligente para poner la primera letra en mayúsculas de un texto dado y saltar palabras especiales (más adelante veremos eso). Después de que estén en mayúsculas la primera letra de cada palabra, las guardas en el registro sin nombre. Después se selecciona visualmente exactamente el mismo texto que se operó antes mediante `g@`, después pegas el texto desde el registro sin nombre (lo que reemplaza el texto sin mayúsculas con el texto procesado). Y finalmente mueves el cursor de nuevo a la posición a la que estaba originalmente.
 
 ## Limpieza
 
@@ -797,9 +796,9 @@ if (match(l:str, l:exclusions) >= 0) || (index(s:local_exclusion_list, l:str) >=
 endif
 ```
 
-Primero, comprueba su tu cadena de texto es una parte de la lista de palabras excluidad (`l:exclusions`). Si lo es, no la convierte a mayúscula. Después comprueba si la cadena de texto es parte de la lista local de exclusión (`s:local_exclusion_list`). Esta lista de exclusión es una lista personalizada que el usuario puede añadir en vimrc (en este caso el usuario tiene requisitos adicionales para palabras espaciales).
+Primero, comprueba su tu cadena de texto es una parte de la lista de palabras excluidas (`l:exclusions`). Si lo es, no la convierte a mayúscula. Después comprueba si la cadena de texto es parte de la lista local de exclusión (`s:local_exclusion_list`). Esta lista de exclusión es una lista personalizada que el usuario puede añadir en vimrc (en este caso el usuario tiene requisitos adicionales para palabras espaciales).
 
-La última parte devuelve la versión de la palabra con la primera letra ya en mayúscula. El primer caracter es convertido a mayúscula mientras que el resto se queda como está.
+La última parte devuelve la versión de la palabra con la primera letra ya en mayúscula. El primer carácter es convertido a mayúscula mientras que el resto se queda como está.
 
 ```
 return toupper(l:str[0]) . l:str[1:]
@@ -818,11 +817,11 @@ function! s:capitalizeFirstWord(string)
 endfunction
 ```
 
-Esta función fue creada para gestionar un caso extremo si tienes una frase que comienza con una palabra excluida, como por ejemplo "an apple a day keeps the doctor away". Basándonos en las reglas de mayúsculas del idioma inglés, todas las primeras palabras de una frase, sin importar si es una palabra especial o no, debe empezar con mayúcula. Con solo el comando `substitute()`, la palabra inicial "an" en la frase de ejemplo quedaría en minúscula entera. Necesitas forzar que el primer caracter sea convertido a mayúscula.
+Esta función fue creada para gestionar un caso extremo si tienes una frase que comienza con una palabra excluida, como por ejemplo "an apple a day keeps the doctor away". Basándonos en las reglas de mayúsculas del idioma inglés, todas las primeras palabras de una frase, sin importar si es una palabra especial o no, debe empezar con mayúscula. Con solo el comando `substitute()`, la palabra inicial "an" en la frase de ejemplo quedaría en minúscula entera. Necesitas forzar que el primer carácter sea convertido a mayúscula.
 
 En esta función `capitalizeFirstWord`, el argumento `a:string` no es una palabra individual como en `a:string` dentro de la función `capitalize`, si no todo el texto. Así que si tienes "pancake for breakfast", el valor de `a:string` es "pancake for breakfast". Solo se ejecuta `capitalizeFirstWord` una vez para todo el texto. 
 
-Un escenario que se necesita tener en cuenta es si tienes una cadena de texto con múltiples líneas como `"an apple a day\nkeeps the doctor away"`. En este caso quieres poner en mayúsculas los primeros caracteres de todas las líneas. Si no tienes nuevas líneas, simplemente pon en mayúsculas el primer caracter.
+Un escenario que se necesita tener en cuenta es si tienes una cadena de texto con múltiples líneas como `"an apple a day\nkeeps the doctor away"`. En este caso quieres poner en mayúsculas los primeros caracteres de todas las líneas. Si no tienes nuevas líneas, simplemente pon en mayúsculas el primer carácter.
 
 ```
 return toupper(a:string[0]) . a:string[1:]
@@ -858,7 +857,7 @@ Un archivo de documentación de Vim no es más que en el fondo un archivo txt de
 
 ### La sintaxis especial del archivo de ayuda
 
-PAra hacer que la palabra clave de ayuda se pueda encontrar, debes rodear la palabra clave con asteriscos. Para hacer que Vim pueda encontrar la palabra clave `totitle` cuando busques `:h totitle`, escríbelo así `*totitle*` en el archivo de ayuda.
+Para hacer que la palabra clave de ayuda se pueda encontrar, debes rodear la palabra clave con asteriscos. Para hacer que Vim pueda encontrar la palabra clave `totitle` cuando busques `:h totitle`, escríbelo así `*totitle*` en el archivo de ayuda.
 
 Por ejemplo, tengo estas líneas al inicio del índice de contenidos (*table of contents* o *toc* en inglés).
 
