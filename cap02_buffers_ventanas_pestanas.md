@@ -48,12 +48,12 @@ Hay varias formas de poder desplazarse por los _buffers_:
 * `:bnext` o de manera abreviada puedes utilizar `:bn` para ir al _buffer_ siguiente \(`:bprevious` o `:bp` para ir al _buffer_ previo\).
 * `:buffer` + nombre\_de\_archivo. De manera abreviada puedes utilizar `:b`. Vim puede autocompletar el nombre de archivo con `Tab`.
 * `:buffer` + `n`, donde `n` es el número del _buffer_. También puedes reemplazar `:buffer` por `:b`. Por ejemplo, escribiendo: `:buffer 2` o `:b 2` te llevará al _buffer_ número 2.
-* Salta a la antigua posición en la lista de saltos con `Ctrl-O` y a la nueva posición con `CtrlIi`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Explicaré más detalles sobre los saltos en el capítulo 5.
+* Salta a la antigua posición en la lista de saltos con `Ctrl-O` y a la nueva posición con `Ctrl-I`. Estos no son métodos específicos para _buffers_, pero pueden ser utilizados para saltar entre diferentes _buffers_. Explicaré más detalles sobre los saltos en el capítulo 5.
 * Ir al _buffer_ previamente editado con `Ctrl-^`.
 
 Una vez que Vim crea un _buffer_, este permanecerá en tu lista de _buffers_. Para eliminarlo, puedes escribir `:bdelete`. También puede aceptar un número de _buffer_ como parámetro \(`:bdelete 3` para eliminar el _buffer_ \#3\) o un nombre de archivo \(`:bdelete` después utiliza `Tab` para autocompletar el nombre\).
 
-La parte más difícil de aprender para mí sobre los _buffers_ fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis _buffers_ como un mazo de cartas. Si tengo 2 _buffers_, tengo una pila de 2 cartas. La carta superior es la que puedo ver. Si veo `archivo1.js` que se muestra en el _buffer_, entonces la carta de `archivo1.js` es la que está en la parte superior del mazo. No puedo ver la carta `archivo2.js`. Si cambio el _buffer_ a `archivo2.js`, estoy poniendo la carta de `archivo2.js` en la parte superior del mazo de cartas y la carta de `archivo1.js` debajo de esta.
+Personalmente la parte más difícil de aprender sobre los _buffers_ fue visualizar cómo funcionan. Una forma de hacerlo es imaginando mis _buffers_ como un mazo de cartas. Si tengo 2 _buffers_, tengo una pila de 2 cartas. La carta superior es la que puedo ver. Si veo `archivo1.js` que se muestra en el _buffer_, entonces la carta de `archivo1.js` es la que está en la parte superior del mazo. No puedo ver la carta `archivo2.js`. Si cambio el _buffer_ a `archivo2.js`, estoy poniendo la carta de `archivo2.js` en la parte superior del mazo de cartas y la carta de `archivo1.js` debajo de esta.
 
 Si no has usado Vim anteriormente, este es un nuevo concepto. Tómate tu tiempo para entenderlo.
 
