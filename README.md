@@ -20,7 +20,8 @@ Puedes seguir esta guía clonando el [reposito de GitHub](https://github.com/vic
 
 ### Cómo surgió la idea
 
-Es una traducción de la guía original en inglés que puedes encontrar en: [https://github.com/iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim) creada por **Igor Irianto**
+Es una traducción de la guía original en inglés creada por **Igor Irianto** que puedes encontrar en:
+* [https://github.com/iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim) 
 
 La idea que originó todo, fue la de traducir la guía del inglés al español para difundir y dar a conocer este potente editor de texto que es Vim. Además de interés personal de aprender más en profundidad este gran editor de texto.
 
