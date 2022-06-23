@@ -10,6 +10,14 @@ Sin embargo, el usuario o usuaria medio necesita algo más de lo que ofrece `vim
 
 Esta guía está escrita tanto para principiantes como para personas que utilicen Vim de una manera más avanzada. Comienza con conceptos amplios y simples y acaba con conceptos específicos y avanzados. Si ya crees que eres una persona con conocimientos avanzados, te recomendaría que igualmente leyeras esta guía desde el principio hasta el fin, porque ¡aprenderás algo nuevo!
 
+### ¿Cómo leer y seguir esta guía?
+
+Para aprender a andar en bicicleta no sirve solo con leer cómo andar en bicicleta, hay que montarse en una y practicar. Para aprender sobre Vim pasa algo similar. No sirve solo con leer esta u otras guías, hay que practicar a la vez que lees.
+
+Esta guía es mejor leerla y a la vez practicar los ejemplos, para interiorizar mejor el contenido de lo que se explica. Y practicando obtendremos los conocimientos de manera natural y progresiva. 
+
+Puedes seguir esta guía clonando el [reposito de GitHub](https://github.com/victorhck/Aprende-Vim) en tu equipo y abriendo los artículos en formato MarkDown en el propio Vim o [en la web propia](https://victorhck.gitbook.io/aprende-vim/) en el navegador, mientras pruebas lo aprendido en Vim.
+
 ### Cómo surgió la idea
 
 Es una traducción de la guía original en inglés que puedes encontrar en: [https://github.com/iggredible/Learn-Vim](https://github.com/iggredible/Learn-Vim) creada por **Igor Irianto**
