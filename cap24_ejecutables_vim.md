@@ -255,7 +255,7 @@ Vim tiene una variable de entorno `$VIMRUNTIME` para _scripts_ predeterminados y
 
 La estructura debería tener una aspecto familiar. Este contiene muchas de las rutas de ejecutables que has aprendido en este capítulo.
 
-Recuerda que en el capítulo 21 aprendiste que cuando abres Vim, este busca unos archivos vimrc en diferentes ubicaciones. Dije que la última ubicación que comprueba Vim es `$VIMRUNTIME/default.vim`. Si Vim falla al buscar cualquier archivo vimrc de usuario, Vim utiliza un archivo `default.vim` como vimrc.
+Recuerda que en el capítulo 21 aprendiste que cuando abres Vim, este busca unos archivos vimrc en diferentes ubicaciones. Dije que la última ubicación que comprueba Vim es `$VIMRUNTIME/defaults.vim`. Si Vim falla al buscar cualquier archivo vimrc de usuario, Vim utiliza un archivo `defaults.vim` como vimrc.
 
 ¿Has intentado ejecutar Vim sin un complemento de sintaxis como vim-polyglot y aún así tu archivo está resaltado? Esto se produce cuando Vim falla al encontrar un archivo de sintaxis desde la ruta de ejecutables, Vim busca un archivo de sintaxis desde el directorio de sintaxis de `$VIMRUNTIME`.
 
