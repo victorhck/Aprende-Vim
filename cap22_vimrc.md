@@ -405,6 +405,12 @@ Si lo que necesita es ejecutar Vim con un vimrc _diferente_, digamos `~/.vimrc-b
 vim -u ~/.vimrc-backup
 ```
 
+Si necesitas ejecutar Vim tal cual viene sin configuraciones ni complementos, lo que puede ser útil para arreglar un archivo vimrc con fallos, ejecuta:
+
+```
+vim --clean
+```
+
 ## Configure vimrc de la manera más inteligente
 
 Vimrc es un componente importante de la configuración de Vim. Una buena manera de empezar a crear su vimrc es leyendo los vimrcs de otras personas y de manera gradual ir creando el suyo a través del tiempo. El mejor vimrc no es el que usa el desarrollador X, es el que está configurado de la manera que mejor encaja a tu pensamiento y a tu forma personal de editar.
