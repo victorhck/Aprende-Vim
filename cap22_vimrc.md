@@ -4,7 +4,7 @@ En los capítulos anteriores has aprendido cómo usar el editor de texto Vim. Es
 
 ## Cómo encuentra Vim el archivo vimrc
 
-El uso convencional de vimrc es agregar el archivo de configuración `.vimrc` en la carpeta de usuario `~/.vimrc` \(en el caso de sistemas operativos basados en Unix. Puede ser diferente dependiendo del sistema operativo\).
+El uso convencional de vimrc es agregar el archivo de configuración `.vimrc` en la carpeta _home_ del usuario: `~/.vimrc` \(en el caso de sistemas operativos basados en Unix. Puede ser diferente dependiendo del sistema operativo\).
 
 Sin que sea percibido por el usuario, Vim busca en muchos lugares para encontrar el archivo vimrc. Estos son los lugares que revisa:
 
@@ -15,15 +15,15 @@ Sin que sea percibido por el usuario, Vim busca en muchos lugares para encontrar
 * `$HOME/.exrc`
 * `$VIMRUNTIME/default.vim`
 
-Cuando inicias Vim, verificará estos 6 lugares en ese orden, buscando el archivo vimrc. El primer lugar con este archivo va a ser usado y los posteriores son ignorados.
+Cuando inicias Vim, verificará estos 6 lugares en ese orden, buscando el archivo vimrc. El primer lugar en el que encuentre el archivo, será el que va a ser usado y los posteriores son ignorados.
 
 Primero Vim va a buscar `$VIMINIT`. Si no hay nada ahí, Vim va a buscar `$HOME/.vimrc`. Si no hay nada ahí, Vim va a buscar `$HOME/.vim/vimrc`. Si Vim lo encuentra va a dejar de buscar y usará `$HOME/.vim/vimrc`.
 
-La primer ubicación, `$VIMINIT`, es una variable de entorno. No esta definido de manera predeterminada. Se puede usar `~/dotfiles/testvimrc` como variable `$VIMINIT`, puedes crearte una variable de entorno con la ubicación de este archivo. Después de ejecutar `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim va a usar el archivo `~/dotfiles/testvimrc` como tu archivo vimrc.
+La primer ubicación, `$VIMINIT`, es una variable de entorno. No esta definida de manera predeterminada. Se puede usar `~/dotfiles/testvimrc` como variable `$VIMINIT`, puedes crearte una variable de entorno con la ubicación de este archivo. Después de ejecutar `export VIMINIT='let $MYVIMRC="$HOME/dotfiles/testvimrc" | source $MYVIMRC'`, Vim va a usar el archivo `~/dotfiles/testvimrc` como tu archivo vimrc.
 
 La segunda ubicación, `$HOME/.vimrc`, es la ruta usada por muchos usuarios de Vim de manera convencional. `$HOME` es en muchos casos el directorio del usuario raíz \(`~`\). Si existe `~/.vimrc`, Vim usará este como su archivo vimrc.
 
-El tercer lugar es para `$HOME/.vim/vimrc`, esta alojado dentro del directorio `~/.vim`. Podrías tener el directorio `~/.vim` ya para tus complementos, _scripts_ personalizados o archivos de vistas. Ten en cuenta que no hay un punto delante del nombre del archivo vimrc \(`$HOME/.vim/.vimrc` no funcionará, pero `$HOME/.vim/vimrc` sí lo hará\).
+El tercer lugar es para `$HOME/.vim/vimrc`, esta alojado dentro del directorio `~/.vim`. Podrías tener el directorio `~/.vim` ya para tus complementos, _scripts_ personalizados o archivos de vistas. Ten en cuenta que en este caso no hay un punto delante del nombre del archivo vimrc \(`$HOME/.vim/.vimrc` no funcionará, pero `$HOME/.vim/vimrc` sí lo hará\).
 
 El cuarto, `$EXINIT` funciona de manera similar a `$VIMINIT`.
 
