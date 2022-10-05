@@ -99,7 +99,7 @@ n|    Ir a la columna n en la línea actual
 
 También puedes realizar una búsqueda en la línea actual con `f` y `t`. Ambas opciones buscan hacia adelante en la línea actual, la diferencia entre `f` y `t` es que `f` situa el cursor en el mismo lugar de la primera letra de la primera coincidencia encontrada y `t` te lleva *hasta justo* antes de la primera letra de la primera coincidencia encontrada. Así que si quieres realizar una búsqueda y que el cursor se sitúe sobre la letra "h", utiliza `fh`. Si quieres realizar una búsqueda de la primera "h" y quieres que el cursor se sitúe justo antes de esa primera coincidencia utiliza `th`. Si después quieres seguir navegando hacia la _próxima_ coincidencia de esa misma búsqueda, utiliza `;`. Para ir a la coincidencia previa de esa misma búsqueda en la línea actual, utiliza `,`.
 
-`F` y `T` son las opciones similares a `f` y `t` pero para buscar hacia atrás en el texto. Para buscar hacia atrás una "h", ejecuta `Fh`. Para seguir buscando "h" en la misma dirección, usa `;`. Ten en cuenta que `;` después de `Fh` continua la búsqueda hacia atrás y `,` después de `fh` busca hacia adelante.
+`F` y `T` son las opciones similares a `f` y `t` pero para buscar hacia atrás en el texto. Para buscar hacia atrás una "h", ejecuta `Fh`. Para seguir buscando "h" en la misma dirección, usa `;`. Ten en cuenta que `;` después de `Fh` continua la búsqueda hacia atrás y `,` después de `Fh` busca hacia adelante.
 
 ```text
 f    Busca hacia adelante una coincidencia en la línea actual
