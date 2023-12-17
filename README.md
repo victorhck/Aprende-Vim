@@ -64,17 +64,17 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 
 #### Parte 2: Personaliza Vim de la manera más inteligente
 
-* [Cap 22 - Vimrc](cap22_vimrc.md)
-* [Cap 23 - El gestor de complementos de Vim](cap23_paquetes_vim.md)
-* [Cap 24 - Ejecutables en Vim](cap24_ejecutables_vim.md)
+* [Cap 23 - Vimrc](cap23_vimrc.md)
+* [Cap 24 - El gestor de complementos de Vim](cap24_paquetes_vim.md)
+* [Cap 25 - Ejecutables en Vim](cap25_ejecutables_vim.md)
 
 #### Parte 3: Aprende Vimscript de la manera más inteligente
 
-* [Cap 25 - Tipos básicos de datos en Vimscript](cap25_tipos_basicos_datos_en_vimscript.md)
-* [Cap 26 - Condicionales y bucles en Vimscript](cap26_condicionales_y_bucles_vimscript.md)
-* [Cap 27 - Ámbito de las variables en Vimscript](cap27_ambito_variables_vimscript.md)
-* [Cap 28 - Funciones en Vimscript](cap28_funciones_vimscript.md)
-* [Cap 29 - Ejemplo de cómo escribir tu propio complemento en Vim](cap29_ejemplo_cómo_escribir_un_complemento.md)
+* [Cap 26 - Tipos básicos de datos en Vimscript](cap26_tipos_basicos_datos_en_vimscript.md)
+* [Cap 27 - Condicionales y bucles en Vimscript](cap27_condicionales_y_bucles_vimscript.md)
+* [Cap 28 - Ámbito de las variables en Vimscript](cap28_ambito_variables_vimscript.md)
+* [Cap 29 - Funciones en Vimscript](cap29_funciones_vimscript.md)
+* [Cap 30 - Ejemplo de cómo escribir tu propio complemento en Vim](cap30_ejemplo_cómo_escribir_un_complemento.md)
 
 ## Licencia y derechos de autor
 

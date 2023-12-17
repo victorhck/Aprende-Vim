@@ -1,4 +1,4 @@
-# Capítulo 22: Vimrc
+# Capítulo 23: Vimrc
 
 En los capítulos anteriores has aprendido cómo usar el editor de texto Vim. Esto es genial, pero no es todo. Para usar Vim de una manera efectiva, vas a necesitar aprender cómo configurarlo. El mejor lugar para empezar es tu archivo vimrc. En los capítulos anteriores aprendiste a usar Vim. En este capítulo, vas a aprender cómo organizar y configurar vimrc.
 

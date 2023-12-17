@@ -1,4 +1,4 @@
-# Capítulo 29: Cómo escribir tu propio complemento en Vim
+# Capítulo 30: Cómo escribir tu propio complemento en Vim
 
 Cuando comienzas a dominar Vim, quizás quieras empezar a escribir tus propios complementos. Recientemente, el autor de la guía en inglés escribió su primer complemento para Vim [totitle-vim](https://github.com/iggredible/totitle-vim). Es un complemento operador para los títulos de secciones o capítulos de texto, similar a los operadores de Vim para convertir a mayúsculas `gU`, minúsculas `gu` o intercambiarlos`g~`.
 

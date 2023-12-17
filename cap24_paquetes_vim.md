@@ -1,4 +1,4 @@
-# Capítulo 23. El gestor de complementos de Vim \(Packages\)
+# Capítulo 24. El gestor de complementos de Vim \(Packages\)
 
 En los capítulos anteriores, he mencionado el uso de un gestor externo de complementos para instalar complementos. Desde la versión 8, Vim ya incorpora su propio gestor de complementos llamado _packages_. En este capítulo, aprenderás cómo utilizar este gestor para instalar nuevos complementos.
 
