@@ -61,6 +61,7 @@ Además de esta extensa guía, también he creado __otros materiales relacionado
 * [Cap 19 - Compilar](cap19_compilar.md)
 * [Cap 20 - Vistas, sesiones y Viminfo](cap20_vistas_sesiones_viminfo.md)
 * [Cap 21 - Operaciones en múltiples archivos](cap21_operaciones_múltiples_archivos.md)
+* [Cap 22 - Vimgrep](cap22_vimgrep.md)
 
 #### Parte 2: Personaliza Vim de la manera más inteligente
 
