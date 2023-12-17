@@ -63,7 +63,7 @@ Si no conoces esta ventana de Vim, para empezar a manejarte con ella, estos son 
 
 Es una explicación muy básica, pero suficiente para aprender lo básico sin perder el hilo de vimgrep. Para aprender más sobre _quickfix_ puedes usar la ayuda de Vim, escribiendo `:h quickfix`.
 
-## Buscar una cadena de texto dentro de una extenisón particular de archivo
+## Buscar una cadena de texto dentro de una extensión particular de archivo
 
 Si necesitas buscar la cadena "echo" pero solo dentro de los archivos con extensión `.sh`:
 
