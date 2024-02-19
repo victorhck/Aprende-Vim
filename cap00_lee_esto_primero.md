@@ -91,7 +91,7 @@ Para aprender más sobre Vim, puedes seguir en Twitter a [@learnvim](https://twi
 
 ## Agradecimientos
 
-Esta guía no hubiera sido posible sin Bram Moleenar el creador de Vim, Igor, el creador de la [guía en inglés](https://github.com/iggredible/Learn-Vim), los [colaboradores](https://github.com/victorhck/Aprende-Vim/graphs/contributors) que con traducciones o mejoras han participado en el proyecto, la comunidad de Vim y muchas más personas que de una forma u otra han _provocado_ que esto sea posible.
+Esta guía no hubiera sido posible sin Bram Moolenaar el creador de Vim, Igor, el creador de la [guía en inglés](https://github.com/iggredible/Learn-Vim), los [colaboradores](https://github.com/victorhck/Aprende-Vim/graphs/contributors) que con traducciones o mejoras han participado en el proyecto, la comunidad de Vim y muchas más personas que de una forma u otra han _provocado_ que esto sea posible.
 
 Y por supuesto a ti, lector o lectora que has escogido esta guía para iniciarte o para fomentar tus conocimientos sobre Vim.
 
